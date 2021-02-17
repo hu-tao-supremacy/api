@@ -1,8 +1,8 @@
 name: Generate
 on:
   push:
-    branches:
-      - main
+    paths:
+      - '!gen/**'
 jobs:
   generate:
     runs-on: macos-latest
