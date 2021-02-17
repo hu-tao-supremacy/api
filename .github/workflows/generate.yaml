@@ -30,7 +30,7 @@ jobs:
           sudo wget https://repo1.maven.org/maven2/io/grpc/protoc-gen-grpc-java/1.35.0/protoc-gen-grpc-java-1.35.0-linux-x86_32.exe
           sudo mv protoc-gen-grpc-java-1.35.0-linux-x86_32.exe protoc-gen-grpc-java
           sudo chmod +x protoc-gen-grpc-java
-          sudo mv protoc-gen-grpc-java /usr/bin/.
+          sudo mv protoc-gen-grpc-java /usr/local/bin/.
           which protoc-gen-grpc-java
 
           brew tap bufbuild/buf
