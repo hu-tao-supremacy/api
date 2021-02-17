@@ -11,6 +11,7 @@ jobs:
         with:
           fetch-depth: 0
       - run: |
+          echo "${GITHUB_SHA:7}"
           echo $PATH
       - run: |
           export HOMEBREW_NO_AUTO_UPDATE=1
@@ -36,7 +37,6 @@ jobs:
           brew tap bufbuild/buf
           brew install buf
       - run: |
-          echo "${GITHUB_SHA:7}"
           make generate
       - run: |
           tree gen/
