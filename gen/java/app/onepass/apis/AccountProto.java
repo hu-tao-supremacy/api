@@ -75,9 +75,9 @@ public final class AccountProto {
       "common.Result\022F\n\rInvalidateJWT\022!.hts.acc" +
       "ount.InvalidateJWTRequest\032\022.hts.common.R" +
       "esult\022F\n\rHasPermission\022!.hts.account.Has" +
-      "PermissionRequest\032\022.hts.common.ResultBE\n" +
-      "\020app.onepass.apisB\014AccountProtoP\001Z!onepa" +
-      "ss.app/organizer/hts/accountb\006proto3"
+      "PermissionRequest\032\022.hts.common.ResultBD\n" +
+      "\020app.onepass.apisB\014AccountProtoP\001Z onepa" +
+      "ss.app/facility/hts/accountb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

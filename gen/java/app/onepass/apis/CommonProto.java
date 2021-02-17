@@ -37,9 +37,9 @@ public final class CommonProto {
       "\006Result\022\023\n\005is_ok\030\001 \001(\010R\004isOk\022 \n\013descript" +
       "ion\030\002 \001(\tR\013description\"R\n\004User\022\016\n\002id\030\001 \001" +
       "(\003R\002id\022\035\n\nfirst_name\030\002 \001(\tR\tfirstName\022\033\n" +
-      "\tlast_name\030\003 \001(\tR\010lastNameBC\n\020app.onepas" +
-      "s.apisB\013CommonProtoP\001Z onepass.app/organ" +
-      "izer/hts/commonb\006proto3"
+      "\tlast_name\030\003 \001(\tR\010lastNameBB\n\020app.onepas" +
+      "s.apisB\013CommonProtoP\001Z\037onepass.app/facil" +
+      "ity/hts/commonb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
