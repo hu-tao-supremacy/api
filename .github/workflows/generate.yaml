@@ -36,6 +36,7 @@ jobs:
           brew tap bufbuild/buf
           brew install buf
       - run: |
+          echo "${GITHUB_SHA:7}"
           make generate
       - run: |
           tree gen/
