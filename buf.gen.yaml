@@ -10,5 +10,6 @@ plugins:
     out: gen/java
   - name: grpc-java
     out: gen/java
+    strategy: all
   - name: python
     out: gen/python
