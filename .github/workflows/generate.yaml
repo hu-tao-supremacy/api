@@ -2,7 +2,8 @@ name: Generate
 on:
   push:
     paths:
-      - '*'
+      - '.github/**'
+      - 'proto/**'
       - '!gen/**'
 jobs:
   generate:
