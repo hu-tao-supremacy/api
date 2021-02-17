@@ -6,7 +6,7 @@ package hts.account;
 option java_multiple_files = true;
 option java_package = "app.onepass.apis";
 option java_outer_classname = "AccountProto";
-option go_package = "onepass.app/organizer/hts/account";
+option go_package = "onepass.app/facility/hts/account";
 
 import "hts/common/common.proto";
 
