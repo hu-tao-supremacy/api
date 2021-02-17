@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "https://github.com/hu-tao-supremacy/apis.git",
   "author": "FleeingSunlight <gh@fleeingsunlight.dev>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "ts-proto": "^1.65.0"
+  }
 }
