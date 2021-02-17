@@ -38,6 +38,7 @@ jobs:
           brew install buf
       - run: |
           git checkout -b gen/${GITHUB_SHA::7}
+          rm -rf gen/
           make generate
           git add -f gen/
           git commit -m 'build: ${GITHUB_SHA::7}'
