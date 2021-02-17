@@ -1,0 +1,35 @@
+name: Generate
+on:
+  push:
+    branches:
+      - main
+jobs:
+  generate:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - run: |
+          export HOMEBREW_NO_AUTO_UPDATE=1
+
+          sudo brew install tree
+
+          sudo brew install protobuf
+
+          sudo brew install protoc-gen-go-grpc
+          sudo brew install protoc-gen-go
+
+          sudo pip3 install grpcio
+          sudo pip3 install grpcio-tools
+
+          sudo yarn
+
+          sudo wget https://repo1.maven.org/maven2/io/grpc/protoc-gen-grpc-java/1.35.0/protoc-gen-grpc-java-1.35.0-linux-x86_32.exe
+          sudo mv protoc-gen-grpc-java-1.35.0-linux-x86_32.exe protoc-gen-grpc-java
+          sudo chmod +x protoc-gen-grpc-java
+          sudo mv protoc-gen-grpc-java /usr/bin/.
+      - run: |
+          make generate
+      - run: |
+          tree gen/
