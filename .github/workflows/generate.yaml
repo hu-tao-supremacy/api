@@ -22,8 +22,8 @@ jobs:
           brew install protoc-gen-go-grpc
           brew install protoc-gen-go
 
-          sudo python -m pip install grpcio
-          sudo python -m pip install grpcio-tools
+          sudo python3 -m pip install grpcio
+          sudo python3 -m pip install grpcio-tools
 
           sudo yarn
 
