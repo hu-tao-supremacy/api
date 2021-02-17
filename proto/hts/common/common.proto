@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package hts.common;
+
+option java_multiple_files = true;
+option java_package = "app.onepass.apis";
+option java_outer_classname = "CommonProto";
+option go_package = "onepass.app/organizer/hts/common";
+
+message Result {
+  bool is_ok = 1;
+  string description = 2;
+}
+
+message User {
+  int64 id = 1;
+  string first_name = 2;
+  string last_name = 3;
+}
