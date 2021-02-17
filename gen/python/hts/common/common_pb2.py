@@ -17,9 +17,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='hts/common/common.proto',
   package='hts.common',
   syntax='proto3',
-  serialized_options=b'\n\020app.onepass.apisB\013CommonProtoP\001Z onepass.app/organizer/hts/common',
+  serialized_options=b'\n\020app.onepass.apisB\013CommonProtoP\001Z\037onepass.app/facility/hts/common',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x17hts/common/common.proto\x12\nhts.common\"?\n\x06Result\x12\x13\n\x05is_ok\x18\x01 \x01(\x08R\x04isOk\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\"R\n\x04User\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x1d\n\nfirst_name\x18\x02 \x01(\tR\tfirstName\x12\x1b\n\tlast_name\x18\x03 \x01(\tR\x08lastNameBC\n\x10\x61pp.onepass.apisB\x0b\x43ommonProtoP\x01Z onepass.app/organizer/hts/commonb\x06proto3'
+  serialized_pb=b'\n\x17hts/common/common.proto\x12\nhts.common\"?\n\x06Result\x12\x13\n\x05is_ok\x18\x01 \x01(\x08R\x04isOk\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\"R\n\x04User\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x1d\n\nfirst_name\x18\x02 \x01(\tR\tfirstName\x12\x1b\n\tlast_name\x18\x03 \x01(\tR\x08lastNameBB\n\x10\x61pp.onepass.apisB\x0b\x43ommonProtoP\x01Z\x1fonepass.app/facility/hts/commonb\x06proto3'
 )
 
 
