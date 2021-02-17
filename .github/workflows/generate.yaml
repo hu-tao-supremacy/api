@@ -11,7 +11,7 @@ jobs:
         with:
           fetch-depth: 0
       - run: |
-          echo "${GITHUB_SHA:7}"
+          echo "${GITHUB_SHA::7}"
           echo $PATH
       - run: |
           export HOMEBREW_NO_AUTO_UPDATE=1
