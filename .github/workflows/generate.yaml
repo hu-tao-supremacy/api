@@ -11,6 +11,8 @@ jobs:
         with:
           fetch-depth: 0
       - run: |
+          echo "SHA7=${GITHUB_SHA::7}" >> $GITHUB_ENV
+      - run: |
           export HOMEBREW_NO_AUTO_UPDATE=1
 
           brew install tree
@@ -34,11 +36,11 @@ jobs:
           brew tap bufbuild/buf
           brew install buf
       - run: |
-          git checkout -b gen/${GITHUB_SHA::7}
+          git checkout -b gen/${{ env.SHA7 }}
           rm -rf gen/
           make generate
           git add -f gen/
-          git commit -m 'build: ${GITHUB_SHA::7}'
+          git commit -m 'build: ${{ env.SHA7 }}'
         env:
           GIT_COMMITTER_NAME: dodoco-bot
           GIT_AUTHOR_NAME: dodoco-bot
@@ -48,14 +50,16 @@ jobs:
       - uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.DODOCO_BOT_PAT }}
-          branch: gen/${GITHUB_SHA::7}
+          branch: gen/${{ env.SHA7 }}
   pull-request:
     needs: generate
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: |
+          echo "SHA7=${GITHUB_SHA::7}" >> $GITHUB_ENV
       - uses: repo-sync/pull-request@v2
         with:
-          source_branch: gen/${GITHUB_SHA::7}
+          source_branch: gen/${{ env.SHA7 }}
           destination_branch: "main"
           github_token: ${{ secrets.DODOCO_BOT_PAT }}
