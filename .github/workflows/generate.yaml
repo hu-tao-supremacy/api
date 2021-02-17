@@ -2,6 +2,7 @@ name: Generate
 on:
   push:
     paths:
+      - '*'
       - '!gen/**'
 jobs:
   generate:
