@@ -11,6 +11,8 @@ jobs:
         with:
           fetch-depth: 0
       - run: |
+          echo $PATH
+      - run: |
           export HOMEBREW_NO_AUTO_UPDATE=1
 
           brew install tree
@@ -29,6 +31,7 @@ jobs:
           sudo mv protoc-gen-grpc-java-1.35.0-linux-x86_32.exe protoc-gen-grpc-java
           sudo chmod +x protoc-gen-grpc-java
           sudo mv protoc-gen-grpc-java /usr/bin/.
+          which protoc-gen-grpc-java
 
           brew tap bufbuild/buf
           brew install buf
