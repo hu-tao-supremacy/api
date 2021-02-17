@@ -39,6 +39,7 @@ jobs:
       - run: |
           git checkout -b gen/${GITHUB_SHA::7}
           make generate
+          git add -f gen/
           git status
         env:
           GIT_COMMITTER_NAME: dodoco-bot
