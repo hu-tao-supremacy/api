@@ -70,5 +70,5 @@ service AccountService {
     rpc RequestFacilityRequest(RequestFacilityRequestRequest) returns (FacilityRequest); 
     rpc ApproveFacilityRequest(ApproveFacilityRequestRequest) returns (hts.common.Result);
     rpc RejectFacilityRequest(RejectFacilityRequestRequest) returns (hts.common.Result);
-    rpc GetFacilityInfo(GetFacilityInfoRequest) returns (Facility)
+    rpc GetFacilityInfo(GetFacilityInfoRequest) returns (Facility);
 }
