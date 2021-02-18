@@ -37,12 +37,24 @@ message GetFacilityListRequest {
     int64 organization_id = 1;
 }
 
+message GetFacilityListResponse {
+    repeated Facility facilities  = 1; 
+}
+
 message GetFacilityRequestListRequest {
     int64 organization_id = 1;
 }
 
+message GetFacilityRequestListResponse {
+    repeated FacilityRequest requests  = 1; 
+}
+
 message GetFacilityRequestStatusRequest {
     int64 event_id = 1;
+}
+
+message GetAvailableFacilityListResponse {
+    repeated Facility facilities = 1;
 }
 
 message RequestFacilityRequestRequest {
@@ -63,10 +75,10 @@ message GetFacilityInfoRequest {
 }
 
 service AccountService {
-    rpc GetFacilityList(GetFacilityListRequest) returns (repeated Facility);
-    rpc GetFacilityRequestList(GetFacilityRequestListRequest) returns (repeated FacilityRequest);
+    rpc GetFacilityList(GetFacilityListRequest) returns (GetFacilityListResponse);
+    rpc GetFacilityRequestList(GetFacilityRequestListRequest) returns (GetFacilityRequestListResponse);
     rpc GetFacilityRequestStatus(GetFacilityRequestStatusRequest) returns (FacilityRequest);
-    rpc GetAvailableFacilityList(google.protobuf.Empty) returns (repeated Facility);
+    rpc GetAvailableFacilityList(google.protobuf.Empty) returns (GetAvailableFacilityListResponse);
     rpc RequestFacilityRequest(RequestFacilityRequestRequest) returns (FacilityRequest); 
     rpc ApproveFacilityRequest(ApproveFacilityRequestRequest) returns (hts.common.Result);
     rpc RejectFacilityRequest(RejectFacilityRequestRequest) returns (hts.common.Result);
