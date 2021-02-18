@@ -74,7 +74,7 @@ message GetFacilityInfoRequest {
     int64 facility_id = 1;
 }
 
-service AccountService {
+service FacilityService {
     rpc GetFacilityList(GetFacilityListRequest) returns (GetFacilityListResponse);
     rpc GetFacilityRequestList(GetFacilityRequestListRequest) returns (GetFacilityRequestListResponse);
     rpc GetFacilityRequestStatus(GetFacilityRequestStatusRequest) returns (FacilityRequest);
