@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package hts.account;
+
+
+option java_multiple_files = true;
+option java_package = "app.onepass.apis";
+option java_outer_classname = "FacilityProto";
+option go_package = "onepass.app/facility/hts/facility";
+
+import "hts/common/common.proto";
+
+// Model
+
+message FacilityRequest {
+    int64 id = 1;
+    int64 event_id = 2;
+    int64 facility_id = 3;
+    int64 is_approved = 4;
+    int64 reject_reason = 5;
+}
+
+message Facility {
+    int64 id = 1;
+    int64 organization_id = 2;
+    string name = 3;
+    int64 latitude = 4;
+    int64 longitude = 5;
+    string operating_hours = 6;
+    string description = 7;
+}
+
+// Request and Response
+
+message GetFacilityListRequest {
+    int64 organization_id = 1;
+}
+
+message GetFacilityRequestListRequest {
+    int64 organization_id = 1;
+}
+
+message GetFacilityRequestStatusRequest {
+    int64 event_id = 1;
+}
+
+message RequestFacilityRequestRequest {
+    int64 event_id = 1;
+}
+
+message ApproveFacilityRequestRequest {
+    int64 request_id = 1;
+}
+
+message RejectFacilityRequestRequest {
+    int64 request_id = 1;
+    string reason = 2;
+}
+
+message GetFacilityInfoRequest {
+    int64 facility_id = 1;
+}
+
+service AccountService {
+    rpc GetFacilityList(GetFacilityListRequest) returns (repeated Facility);
+    rpc GetFacilityRequestList(GetFacilityRequestListRequest) returns (repeated FacilityRequest);
+    rpc GetFacilityRequestStatus(GetFacilityRequestStatusRequest) returns (FacilityRequest);
+    rpc GetAvailableFacilityList() returns (repeated Facility);
+    rpc RequestFacilityRequest(RequestFacilityRequestRequest) returns (FacilityRequest); 
+    rpc ApproveFacilityRequest(ApproveFacilityRequestRequest) returns (hts.common.Result);
+    rpc RejectFacilityRequest(RejectFacilityRequestRequest) returns (hts.common.Result);
+    rpc GetFacilityInfo(GetFacilityInfoRequest) returns (Facility)
+}
