@@ -16,10 +16,10 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// AccountServiceClient is the client API for AccountService service.
+// FacilityServiceClient is the client API for FacilityService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AccountServiceClient interface {
+type FacilityServiceClient interface {
 	GetFacilityList(ctx context.Context, in *GetFacilityListRequest, opts ...grpc.CallOption) (*GetFacilityListResponse, error)
 	GetFacilityRequestList(ctx context.Context, in *GetFacilityRequestListRequest, opts ...grpc.CallOption) (*GetFacilityRequestListResponse, error)
 	GetFacilityRequestStatus(ctx context.Context, in *GetFacilityRequestStatusRequest, opts ...grpc.CallOption) (*FacilityRequest, error)
@@ -30,90 +30,90 @@ type AccountServiceClient interface {
 	GetFacilityInfo(ctx context.Context, in *GetFacilityInfoRequest, opts ...grpc.CallOption) (*Facility, error)
 }
 
-type accountServiceClient struct {
+type facilityServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAccountServiceClient(cc grpc.ClientConnInterface) AccountServiceClient {
-	return &accountServiceClient{cc}
+func NewFacilityServiceClient(cc grpc.ClientConnInterface) FacilityServiceClient {
+	return &facilityServiceClient{cc}
 }
 
-func (c *accountServiceClient) GetFacilityList(ctx context.Context, in *GetFacilityListRequest, opts ...grpc.CallOption) (*GetFacilityListResponse, error) {
+func (c *facilityServiceClient) GetFacilityList(ctx context.Context, in *GetFacilityListRequest, opts ...grpc.CallOption) (*GetFacilityListResponse, error) {
 	out := new(GetFacilityListResponse)
-	err := c.cc.Invoke(ctx, "/hts.facility.AccountService/GetFacilityList", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/hts.facility.FacilityService/GetFacilityList", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accountServiceClient) GetFacilityRequestList(ctx context.Context, in *GetFacilityRequestListRequest, opts ...grpc.CallOption) (*GetFacilityRequestListResponse, error) {
+func (c *facilityServiceClient) GetFacilityRequestList(ctx context.Context, in *GetFacilityRequestListRequest, opts ...grpc.CallOption) (*GetFacilityRequestListResponse, error) {
 	out := new(GetFacilityRequestListResponse)
-	err := c.cc.Invoke(ctx, "/hts.facility.AccountService/GetFacilityRequestList", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/hts.facility.FacilityService/GetFacilityRequestList", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accountServiceClient) GetFacilityRequestStatus(ctx context.Context, in *GetFacilityRequestStatusRequest, opts ...grpc.CallOption) (*FacilityRequest, error) {
+func (c *facilityServiceClient) GetFacilityRequestStatus(ctx context.Context, in *GetFacilityRequestStatusRequest, opts ...grpc.CallOption) (*FacilityRequest, error) {
 	out := new(FacilityRequest)
-	err := c.cc.Invoke(ctx, "/hts.facility.AccountService/GetFacilityRequestStatus", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/hts.facility.FacilityService/GetFacilityRequestStatus", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accountServiceClient) GetAvailableFacilityList(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*GetAvailableFacilityListResponse, error) {
+func (c *facilityServiceClient) GetAvailableFacilityList(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*GetAvailableFacilityListResponse, error) {
 	out := new(GetAvailableFacilityListResponse)
-	err := c.cc.Invoke(ctx, "/hts.facility.AccountService/GetAvailableFacilityList", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/hts.facility.FacilityService/GetAvailableFacilityList", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accountServiceClient) RequestFacilityRequest(ctx context.Context, in *RequestFacilityRequestRequest, opts ...grpc.CallOption) (*FacilityRequest, error) {
+func (c *facilityServiceClient) RequestFacilityRequest(ctx context.Context, in *RequestFacilityRequestRequest, opts ...grpc.CallOption) (*FacilityRequest, error) {
 	out := new(FacilityRequest)
-	err := c.cc.Invoke(ctx, "/hts.facility.AccountService/RequestFacilityRequest", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/hts.facility.FacilityService/RequestFacilityRequest", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accountServiceClient) ApproveFacilityRequest(ctx context.Context, in *ApproveFacilityRequestRequest, opts ...grpc.CallOption) (*common.Result, error) {
+func (c *facilityServiceClient) ApproveFacilityRequest(ctx context.Context, in *ApproveFacilityRequestRequest, opts ...grpc.CallOption) (*common.Result, error) {
 	out := new(common.Result)
-	err := c.cc.Invoke(ctx, "/hts.facility.AccountService/ApproveFacilityRequest", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/hts.facility.FacilityService/ApproveFacilityRequest", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accountServiceClient) RejectFacilityRequest(ctx context.Context, in *RejectFacilityRequestRequest, opts ...grpc.CallOption) (*common.Result, error) {
+func (c *facilityServiceClient) RejectFacilityRequest(ctx context.Context, in *RejectFacilityRequestRequest, opts ...grpc.CallOption) (*common.Result, error) {
 	out := new(common.Result)
-	err := c.cc.Invoke(ctx, "/hts.facility.AccountService/RejectFacilityRequest", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/hts.facility.FacilityService/RejectFacilityRequest", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accountServiceClient) GetFacilityInfo(ctx context.Context, in *GetFacilityInfoRequest, opts ...grpc.CallOption) (*Facility, error) {
+func (c *facilityServiceClient) GetFacilityInfo(ctx context.Context, in *GetFacilityInfoRequest, opts ...grpc.CallOption) (*Facility, error) {
 	out := new(Facility)
-	err := c.cc.Invoke(ctx, "/hts.facility.AccountService/GetFacilityInfo", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/hts.facility.FacilityService/GetFacilityInfo", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// AccountServiceServer is the server API for AccountService service.
-// All implementations should embed UnimplementedAccountServiceServer
+// FacilityServiceServer is the server API for FacilityService service.
+// All implementations should embed UnimplementedFacilityServiceServer
 // for forward compatibility
-type AccountServiceServer interface {
+type FacilityServiceServer interface {
 	GetFacilityList(context.Context, *GetFacilityListRequest) (*GetFacilityListResponse, error)
 	GetFacilityRequestList(context.Context, *GetFacilityRequestListRequest) (*GetFacilityRequestListResponse, error)
 	GetFacilityRequestStatus(context.Context, *GetFacilityRequestStatusRequest) (*FacilityRequest, error)
@@ -124,228 +124,228 @@ type AccountServiceServer interface {
 	GetFacilityInfo(context.Context, *GetFacilityInfoRequest) (*Facility, error)
 }
 
-// UnimplementedAccountServiceServer should be embedded to have forward compatible implementations.
-type UnimplementedAccountServiceServer struct {
+// UnimplementedFacilityServiceServer should be embedded to have forward compatible implementations.
+type UnimplementedFacilityServiceServer struct {
 }
 
-func (UnimplementedAccountServiceServer) GetFacilityList(context.Context, *GetFacilityListRequest) (*GetFacilityListResponse, error) {
+func (UnimplementedFacilityServiceServer) GetFacilityList(context.Context, *GetFacilityListRequest) (*GetFacilityListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetFacilityList not implemented")
 }
-func (UnimplementedAccountServiceServer) GetFacilityRequestList(context.Context, *GetFacilityRequestListRequest) (*GetFacilityRequestListResponse, error) {
+func (UnimplementedFacilityServiceServer) GetFacilityRequestList(context.Context, *GetFacilityRequestListRequest) (*GetFacilityRequestListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetFacilityRequestList not implemented")
 }
-func (UnimplementedAccountServiceServer) GetFacilityRequestStatus(context.Context, *GetFacilityRequestStatusRequest) (*FacilityRequest, error) {
+func (UnimplementedFacilityServiceServer) GetFacilityRequestStatus(context.Context, *GetFacilityRequestStatusRequest) (*FacilityRequest, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetFacilityRequestStatus not implemented")
 }
-func (UnimplementedAccountServiceServer) GetAvailableFacilityList(context.Context, *empty.Empty) (*GetAvailableFacilityListResponse, error) {
+func (UnimplementedFacilityServiceServer) GetAvailableFacilityList(context.Context, *empty.Empty) (*GetAvailableFacilityListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAvailableFacilityList not implemented")
 }
-func (UnimplementedAccountServiceServer) RequestFacilityRequest(context.Context, *RequestFacilityRequestRequest) (*FacilityRequest, error) {
+func (UnimplementedFacilityServiceServer) RequestFacilityRequest(context.Context, *RequestFacilityRequestRequest) (*FacilityRequest, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RequestFacilityRequest not implemented")
 }
-func (UnimplementedAccountServiceServer) ApproveFacilityRequest(context.Context, *ApproveFacilityRequestRequest) (*common.Result, error) {
+func (UnimplementedFacilityServiceServer) ApproveFacilityRequest(context.Context, *ApproveFacilityRequestRequest) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ApproveFacilityRequest not implemented")
 }
-func (UnimplementedAccountServiceServer) RejectFacilityRequest(context.Context, *RejectFacilityRequestRequest) (*common.Result, error) {
+func (UnimplementedFacilityServiceServer) RejectFacilityRequest(context.Context, *RejectFacilityRequestRequest) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RejectFacilityRequest not implemented")
 }
-func (UnimplementedAccountServiceServer) GetFacilityInfo(context.Context, *GetFacilityInfoRequest) (*Facility, error) {
+func (UnimplementedFacilityServiceServer) GetFacilityInfo(context.Context, *GetFacilityInfoRequest) (*Facility, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetFacilityInfo not implemented")
 }
 
-// UnsafeAccountServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AccountServiceServer will
+// UnsafeFacilityServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to FacilityServiceServer will
 // result in compilation errors.
-type UnsafeAccountServiceServer interface {
-	mustEmbedUnimplementedAccountServiceServer()
+type UnsafeFacilityServiceServer interface {
+	mustEmbedUnimplementedFacilityServiceServer()
 }
 
-func RegisterAccountServiceServer(s grpc.ServiceRegistrar, srv AccountServiceServer) {
-	s.RegisterService(&AccountService_ServiceDesc, srv)
+func RegisterFacilityServiceServer(s grpc.ServiceRegistrar, srv FacilityServiceServer) {
+	s.RegisterService(&FacilityService_ServiceDesc, srv)
 }
 
-func _AccountService_GetFacilityList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _FacilityService_GetFacilityList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetFacilityListRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccountServiceServer).GetFacilityList(ctx, in)
+		return srv.(FacilityServiceServer).GetFacilityList(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.facility.AccountService/GetFacilityList",
+		FullMethod: "/hts.facility.FacilityService/GetFacilityList",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountServiceServer).GetFacilityList(ctx, req.(*GetFacilityListRequest))
+		return srv.(FacilityServiceServer).GetFacilityList(ctx, req.(*GetFacilityListRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccountService_GetFacilityRequestList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _FacilityService_GetFacilityRequestList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetFacilityRequestListRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccountServiceServer).GetFacilityRequestList(ctx, in)
+		return srv.(FacilityServiceServer).GetFacilityRequestList(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.facility.AccountService/GetFacilityRequestList",
+		FullMethod: "/hts.facility.FacilityService/GetFacilityRequestList",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountServiceServer).GetFacilityRequestList(ctx, req.(*GetFacilityRequestListRequest))
+		return srv.(FacilityServiceServer).GetFacilityRequestList(ctx, req.(*GetFacilityRequestListRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccountService_GetFacilityRequestStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _FacilityService_GetFacilityRequestStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetFacilityRequestStatusRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccountServiceServer).GetFacilityRequestStatus(ctx, in)
+		return srv.(FacilityServiceServer).GetFacilityRequestStatus(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.facility.AccountService/GetFacilityRequestStatus",
+		FullMethod: "/hts.facility.FacilityService/GetFacilityRequestStatus",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountServiceServer).GetFacilityRequestStatus(ctx, req.(*GetFacilityRequestStatusRequest))
+		return srv.(FacilityServiceServer).GetFacilityRequestStatus(ctx, req.(*GetFacilityRequestStatusRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccountService_GetAvailableFacilityList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _FacilityService_GetAvailableFacilityList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(empty.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccountServiceServer).GetAvailableFacilityList(ctx, in)
+		return srv.(FacilityServiceServer).GetAvailableFacilityList(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.facility.AccountService/GetAvailableFacilityList",
+		FullMethod: "/hts.facility.FacilityService/GetAvailableFacilityList",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountServiceServer).GetAvailableFacilityList(ctx, req.(*empty.Empty))
+		return srv.(FacilityServiceServer).GetAvailableFacilityList(ctx, req.(*empty.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccountService_RequestFacilityRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _FacilityService_RequestFacilityRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RequestFacilityRequestRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccountServiceServer).RequestFacilityRequest(ctx, in)
+		return srv.(FacilityServiceServer).RequestFacilityRequest(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.facility.AccountService/RequestFacilityRequest",
+		FullMethod: "/hts.facility.FacilityService/RequestFacilityRequest",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountServiceServer).RequestFacilityRequest(ctx, req.(*RequestFacilityRequestRequest))
+		return srv.(FacilityServiceServer).RequestFacilityRequest(ctx, req.(*RequestFacilityRequestRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccountService_ApproveFacilityRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _FacilityService_ApproveFacilityRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ApproveFacilityRequestRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccountServiceServer).ApproveFacilityRequest(ctx, in)
+		return srv.(FacilityServiceServer).ApproveFacilityRequest(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.facility.AccountService/ApproveFacilityRequest",
+		FullMethod: "/hts.facility.FacilityService/ApproveFacilityRequest",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountServiceServer).ApproveFacilityRequest(ctx, req.(*ApproveFacilityRequestRequest))
+		return srv.(FacilityServiceServer).ApproveFacilityRequest(ctx, req.(*ApproveFacilityRequestRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccountService_RejectFacilityRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _FacilityService_RejectFacilityRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RejectFacilityRequestRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccountServiceServer).RejectFacilityRequest(ctx, in)
+		return srv.(FacilityServiceServer).RejectFacilityRequest(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.facility.AccountService/RejectFacilityRequest",
+		FullMethod: "/hts.facility.FacilityService/RejectFacilityRequest",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountServiceServer).RejectFacilityRequest(ctx, req.(*RejectFacilityRequestRequest))
+		return srv.(FacilityServiceServer).RejectFacilityRequest(ctx, req.(*RejectFacilityRequestRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccountService_GetFacilityInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _FacilityService_GetFacilityInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetFacilityInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccountServiceServer).GetFacilityInfo(ctx, in)
+		return srv.(FacilityServiceServer).GetFacilityInfo(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.facility.AccountService/GetFacilityInfo",
+		FullMethod: "/hts.facility.FacilityService/GetFacilityInfo",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountServiceServer).GetFacilityInfo(ctx, req.(*GetFacilityInfoRequest))
+		return srv.(FacilityServiceServer).GetFacilityInfo(ctx, req.(*GetFacilityInfoRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// AccountService_ServiceDesc is the grpc.ServiceDesc for AccountService service.
+// FacilityService_ServiceDesc is the grpc.ServiceDesc for FacilityService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var AccountService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "hts.facility.AccountService",
-	HandlerType: (*AccountServiceServer)(nil),
+var FacilityService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "hts.facility.FacilityService",
+	HandlerType: (*FacilityServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "GetFacilityList",
-			Handler:    _AccountService_GetFacilityList_Handler,
+			Handler:    _FacilityService_GetFacilityList_Handler,
 		},
 		{
 			MethodName: "GetFacilityRequestList",
-			Handler:    _AccountService_GetFacilityRequestList_Handler,
+			Handler:    _FacilityService_GetFacilityRequestList_Handler,
 		},
 		{
 			MethodName: "GetFacilityRequestStatus",
-			Handler:    _AccountService_GetFacilityRequestStatus_Handler,
+			Handler:    _FacilityService_GetFacilityRequestStatus_Handler,
 		},
 		{
 			MethodName: "GetAvailableFacilityList",
-			Handler:    _AccountService_GetAvailableFacilityList_Handler,
+			Handler:    _FacilityService_GetAvailableFacilityList_Handler,
 		},
 		{
 			MethodName: "RequestFacilityRequest",
-			Handler:    _AccountService_RequestFacilityRequest_Handler,
+			Handler:    _FacilityService_RequestFacilityRequest_Handler,
 		},
 		{
 			MethodName: "ApproveFacilityRequest",
-			Handler:    _AccountService_ApproveFacilityRequest_Handler,
+			Handler:    _FacilityService_ApproveFacilityRequest_Handler,
 		},
 		{
 			MethodName: "RejectFacilityRequest",
-			Handler:    _AccountService_RejectFacilityRequest_Handler,
+			Handler:    _FacilityService_RejectFacilityRequest_Handler,
 		},
 		{
 			MethodName: "GetFacilityInfo",
-			Handler:    _AccountService_GetFacilityInfo_Handler,
+			Handler:    _FacilityService_GetFacilityInfo_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
