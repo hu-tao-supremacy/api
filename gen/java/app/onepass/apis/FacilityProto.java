@@ -113,29 +113,29 @@ public final class FacilityProto {
       "\"U\n\034RejectFacilityRequestRequest\022\035\n\nrequ" +
       "est_id\030\001 \001(\003R\trequestId\022\026\n\006reason\030\002 \001(\tR" +
       "\006reason\"9\n\026GetFacilityInfoRequest\022\037\n\013fac" +
-      "ility_id\030\001 \001(\003R\nfacilityId2\236\006\n\016AccountSe" +
-      "rvice\022^\n\017GetFacilityList\022$.hts.facility." +
-      "GetFacilityListRequest\032%.hts.facility.Ge" +
-      "tFacilityListResponse\022s\n\026GetFacilityRequ" +
-      "estList\022+.hts.facility.GetFacilityReques" +
-      "tListRequest\032,.hts.facility.GetFacilityR" +
-      "equestListResponse\022h\n\030GetFacilityRequest" +
-      "Status\022-.hts.facility.GetFacilityRequest" +
-      "StatusRequest\032\035.hts.facility.FacilityReq" +
-      "uest\022b\n\030GetAvailableFacilityList\022\026.googl" +
-      "e.protobuf.Empty\032..hts.facility.GetAvail" +
-      "ableFacilityListResponse\022d\n\026RequestFacil" +
-      "ityRequest\022+.hts.facility.RequestFacilit" +
-      "yRequestRequest\032\035.hts.facility.FacilityR" +
-      "equest\022Y\n\026ApproveFacilityRequest\022+.hts.f" +
-      "acility.ApproveFacilityRequestRequest\032\022." +
-      "hts.common.Result\022W\n\025RejectFacilityReque" +
-      "st\022*.hts.facility.RejectFacilityRequestR" +
-      "equest\032\022.hts.common.Result\022O\n\017GetFacilit" +
-      "yInfo\022$.hts.facility.GetFacilityInfoRequ" +
-      "est\032\026.hts.facility.FacilityBF\n\020app.onepa" +
-      "ss.apisB\rFacilityProtoP\001Z!onepass.app/fa" +
-      "cility/hts/facilityb\006proto3"
+      "ility_id\030\001 \001(\003R\nfacilityId2\237\006\n\017FacilityS" +
+      "ervice\022^\n\017GetFacilityList\022$.hts.facility" +
+      ".GetFacilityListRequest\032%.hts.facility.G" +
+      "etFacilityListResponse\022s\n\026GetFacilityReq" +
+      "uestList\022+.hts.facility.GetFacilityReque" +
+      "stListRequest\032,.hts.facility.GetFacility" +
+      "RequestListResponse\022h\n\030GetFacilityReques" +
+      "tStatus\022-.hts.facility.GetFacilityReques" +
+      "tStatusRequest\032\035.hts.facility.FacilityRe" +
+      "quest\022b\n\030GetAvailableFacilityList\022\026.goog" +
+      "le.protobuf.Empty\032..hts.facility.GetAvai" +
+      "lableFacilityListResponse\022d\n\026RequestFaci" +
+      "lityRequest\022+.hts.facility.RequestFacili" +
+      "tyRequestRequest\032\035.hts.facility.Facility" +
+      "Request\022Y\n\026ApproveFacilityRequest\022+.hts." +
+      "facility.ApproveFacilityRequestRequest\032\022" +
+      ".hts.common.Result\022W\n\025RejectFacilityRequ" +
+      "est\022*.hts.facility.RejectFacilityRequest" +
+      "Request\032\022.hts.common.Result\022O\n\017GetFacili" +
+      "tyInfo\022$.hts.facility.GetFacilityInfoReq" +
+      "uest\032\026.hts.facility.FacilityBF\n\020app.onep" +
+      "ass.apisB\rFacilityProtoP\001Z!onepass.app/f" +
+      "acility/hts/facilityb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
