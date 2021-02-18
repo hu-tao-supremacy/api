@@ -9,6 +9,7 @@ option java_outer_classname = "FacilityProto";
 option go_package = "onepass.app/facility/hts/facility";
 
 import "hts/common/common.proto";
+import "google/protobuf/empty.proto";
 
 // Model
 
@@ -65,7 +66,7 @@ service AccountService {
     rpc GetFacilityList(GetFacilityListRequest) returns (repeated Facility);
     rpc GetFacilityRequestList(GetFacilityRequestListRequest) returns (repeated FacilityRequest);
     rpc GetFacilityRequestStatus(GetFacilityRequestStatusRequest) returns (FacilityRequest);
-    rpc GetAvailableFacilityList() returns (repeated Facility);
+    rpc GetAvailableFacilityList(google.protobuf.Empty) returns (repeated Facility);
     rpc RequestFacilityRequest(RequestFacilityRequestRequest) returns (FacilityRequest); 
     rpc ApproveFacilityRequest(ApproveFacilityRequestRequest) returns (hts.common.Result);
     rpc RejectFacilityRequest(RejectFacilityRequestRequest) returns (hts.common.Result);
