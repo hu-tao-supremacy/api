@@ -53,17 +53,17 @@ public interface FacilityRequestOrBuilder extends
   com.google.protobuf.TimestampOrBuilder getStartOrBuilder();
 
   /**
-   * <code>.google.protobuf.Timestamp end = 7 [json_name = "end"];</code>
-   * @return Whether the end field is set.
+   * <code>.google.protobuf.Timestamp finish = 7 [json_name = "finish"];</code>
+   * @return Whether the finish field is set.
    */
-  boolean hasEnd();
+  boolean hasFinish();
   /**
-   * <code>.google.protobuf.Timestamp end = 7 [json_name = "end"];</code>
-   * @return The end.
+   * <code>.google.protobuf.Timestamp finish = 7 [json_name = "finish"];</code>
+   * @return The finish.
    */
-  com.google.protobuf.Timestamp getEnd();
+  com.google.protobuf.Timestamp getFinish();
   /**
-   * <code>.google.protobuf.Timestamp end = 7 [json_name = "end"];</code>
+   * <code>.google.protobuf.Timestamp finish = 7 [json_name = "finish"];</code>
    */
-  com.google.protobuf.TimestampOrBuilder getEndOrBuilder();
+  com.google.protobuf.TimestampOrBuilder getFinishOrBuilder();
 }
