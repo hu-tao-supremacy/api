@@ -34,7 +34,7 @@ message SearchEventsByNameRes {
     repeated hts.common.Event events = 1;
 }
 message GenerateQRReq {
-    hts.foundation.UserEvent user_event = 1;
+    hts.common.UserEvent user_event = 1;
 }
 message GenerateQRRes {
     string data = 1;
