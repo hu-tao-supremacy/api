@@ -116,7 +116,7 @@ message ApproveFacilityRequestRequest {
 }
 
 message RejectFacilityRequestRequest {
-    int64 request_id = 1;
+    int64 user_id = 1;
     int64 organization_id = 2;
     int64 request_id = 3;
     google.protobuf.StringValue reason = 4;
