@@ -25,7 +25,7 @@ message CreateFeedbackReq {
     hts.common.EventFeedback feedback = 2;
 }
 message RemoveFeedbackReq {
-    hts.common.Feedback feedback = 1;
+    hts.common.EventFeedback feedback = 1;
 }
 message SearchEventsByNameReq {
     string name = 1;
