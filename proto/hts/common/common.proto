@@ -17,3 +17,28 @@ message User {
   string first_name = 2;
   string last_name = 3;
 }
+
+message Event {
+  int64 id = 1;
+  int64 organization_id = 2;
+  int64 event_location_id = 3;
+  string description = 4;
+  string name = 5;
+  string cover_image = 6;
+  string cover_image_hash = 7;
+  string poster_image = 8;
+  string poster_image_hash = 9;
+  string contact = 10;
+}
+
+message UserEvent {
+  int64 id = 1;
+  int64 user_id = 2;
+  int64 event_id = 3;
+}
+
+message EventFeedback {
+  int64 id = 1;
+  int64 event_id = 2;
+  string feedback = 3;
+}
