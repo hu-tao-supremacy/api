@@ -36,4 +36,34 @@ public interface FacilityRequestOrBuilder extends
    * @return The rejectReason.
    */
   long getRejectReason();
+
+  /**
+   * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+   * @return Whether the start field is set.
+   */
+  boolean hasStart();
+  /**
+   * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+   * @return The start.
+   */
+  com.google.protobuf.Timestamp getStart();
+  /**
+   * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getStartOrBuilder();
+
+  /**
+   * <code>.google.protobuf.Timestamp end = 7 [json_name = "end"];</code>
+   * @return Whether the end field is set.
+   */
+  boolean hasEnd();
+  /**
+   * <code>.google.protobuf.Timestamp end = 7 [json_name = "end"];</code>
+   * @return The end.
+   */
+  com.google.protobuf.Timestamp getEnd();
+  /**
+   * <code>.google.protobuf.Timestamp end = 7 [json_name = "end"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getEndOrBuilder();
 }

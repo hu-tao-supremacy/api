@@ -55,6 +55,21 @@ public final class FacilityProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hts_facility_GetAvailableFacilityListResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_facility_GetAvailableTimeOfFacilityRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_facility_GetAvailableTimeOfFacilityRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_facility_GetAvailableTimeOfFacilityResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_facility_GetAvailableTimeOfFacilityResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_facility_GetAvailableTimeOfFacilityResponse_Day_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_facility_GetAvailableTimeOfFacilityResponse_Day_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_hts_facility_RequestFacilityRequestRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -85,35 +100,46 @@ public final class FacilityProto {
     java.lang.String[] descriptorData = {
       "\n\032hts/facility/service.proto\022\014hts.facili" +
       "ty\032\027hts/common/common.proto\032\033google/prot" +
-      "obuf/empty.proto\"\243\001\n\017FacilityRequest\022\016\n\002" +
-      "id\030\001 \001(\003R\002id\022\031\n\010event_id\030\002 \001(\003R\007eventId\022" +
-      "\037\n\013facility_id\030\003 \001(\003R\nfacilityId\022\037\n\013is_a" +
-      "pproved\030\004 \001(\003R\nisApproved\022#\n\rreject_reas" +
-      "on\030\005 \001(\003R\014rejectReason\"\334\001\n\010Facility\022\016\n\002i" +
-      "d\030\001 \001(\003R\002id\022\'\n\017organization_id\030\002 \001(\003R\016or" +
-      "ganizationId\022\022\n\004name\030\003 \001(\tR\004name\022\032\n\010lati" +
-      "tude\030\004 \001(\003R\010latitude\022\034\n\tlongitude\030\005 \001(\003R" +
-      "\tlongitude\022\'\n\017operating_hours\030\006 \001(\tR\016ope" +
-      "ratingHours\022 \n\013description\030\007 \001(\tR\013descri" +
-      "ption\"A\n\026GetFacilityListRequest\022\'\n\017organ" +
-      "ization_id\030\001 \001(\003R\016organizationId\"Q\n\027GetF" +
-      "acilityListResponse\0226\n\nfacilities\030\001 \003(\0132" +
-      "\026.hts.facility.FacilityR\nfacilities\"H\n\035G" +
-      "etFacilityRequestListRequest\022\'\n\017organiza" +
-      "tion_id\030\001 \001(\003R\016organizationId\"[\n\036GetFaci" +
-      "lityRequestListResponse\0229\n\010requests\030\001 \003(" +
-      "\0132\035.hts.facility.FacilityRequestR\010reques" +
-      "ts\"<\n\037GetFacilityRequestStatusRequest\022\031\n" +
-      "\010event_id\030\001 \001(\003R\007eventId\"Z\n GetAvailable" +
-      "FacilityListResponse\0226\n\nfacilities\030\001 \003(\013" +
-      "2\026.hts.facility.FacilityR\nfacilities\":\n\035" +
+      "obuf/empty.proto\032\037google/protobuf/timest" +
+      "amp.proto\"\203\002\n\017FacilityRequest\022\016\n\002id\030\001 \001(" +
+      "\003R\002id\022\031\n\010event_id\030\002 \001(\003R\007eventId\022\037\n\013faci" +
+      "lity_id\030\003 \001(\003R\nfacilityId\022\037\n\013is_approved" +
+      "\030\004 \001(\003R\nisApproved\022#\n\rreject_reason\030\005 \001(" +
+      "\003R\014rejectReason\0220\n\005start\030\006 \001(\0132\032.google." +
+      "protobuf.TimestampR\005start\022,\n\003end\030\007 \001(\0132\032" +
+      ".google.protobuf.TimestampR\003end\"\334\001\n\010Faci" +
+      "lity\022\016\n\002id\030\001 \001(\003R\002id\022\'\n\017organization_id\030" +
+      "\002 \001(\003R\016organizationId\022\022\n\004name\030\003 \001(\tR\004nam" +
+      "e\022\032\n\010latitude\030\004 \001(\003R\010latitude\022\034\n\tlongitu" +
+      "de\030\005 \001(\003R\tlongitude\022\'\n\017operating_hours\030\006" +
+      " \001(\tR\016operatingHours\022 \n\013description\030\007 \001(" +
+      "\tR\013description\"A\n\026GetFacilityListRequest" +
+      "\022\'\n\017organization_id\030\001 \001(\003R\016organizationI" +
+      "d\"Q\n\027GetFacilityListResponse\0226\n\nfaciliti" +
+      "es\030\001 \003(\0132\026.hts.facility.FacilityR\nfacili" +
+      "ties\"H\n\035GetFacilityRequestListRequest\022\'\n" +
+      "\017organization_id\030\001 \001(\003R\016organizationId\"[" +
+      "\n\036GetFacilityRequestListResponse\0229\n\010requ" +
+      "ests\030\001 \003(\0132\035.hts.facility.FacilityReques" +
+      "tR\010requests\"<\n\037GetFacilityRequestStatusR" +
+      "equest\022\031\n\010event_id\030\001 \001(\003R\007eventId\"Z\n Get" +
+      "AvailableFacilityListResponse\0226\n\nfacilit" +
+      "ies\030\001 \003(\0132\026.hts.facility.FacilityR\nfacil" +
+      "ities\"\244\001\n!GetAvailableTimeOfFacilityRequ" +
+      "est\022\037\n\013facility_id\030\001 \001(\003R\nfacilityId\0220\n\005" +
+      "start\030\002 \001(\0132\032.google.protobuf.TimestampR" +
+      "\005start\022,\n\003end\030\003 \001(\0132\032.google.protobuf.Ti" +
+      "mestampR\003end\"\215\001\n\"GetAvailableTimeOfFacil" +
+      "ityResponse\022F\n\003day\030\001 \003(\01324.hts.facility." +
+      "GetAvailableTimeOfFacilityResponse.DayR\003" +
+      "day\032\037\n\003Day\022\030\n\005items\030\001 \003(\010B\002\020\001R\005items\":\n\035" +
       "RequestFacilityRequestRequest\022\031\n\010event_i" +
       "d\030\001 \001(\003R\007eventId\">\n\035ApproveFacilityReque" +
       "stRequest\022\035\n\nrequest_id\030\001 \001(\003R\trequestId" +
       "\"U\n\034RejectFacilityRequestRequest\022\035\n\nrequ" +
       "est_id\030\001 \001(\003R\trequestId\022\026\n\006reason\030\002 \001(\tR" +
       "\006reason\"9\n\026GetFacilityInfoRequest\022\037\n\013fac" +
-      "ility_id\030\001 \001(\003R\nfacilityId2\237\006\n\017FacilityS" +
+      "ility_id\030\001 \001(\003R\nfacilityId2\240\007\n\017FacilityS" +
       "ervice\022^\n\017GetFacilityList\022$.hts.facility" +
       ".GetFacilityListRequest\032%.hts.facility.G" +
       "etFacilityListResponse\022s\n\026GetFacilityReq" +
@@ -124,31 +150,35 @@ public final class FacilityProto {
       "tStatusRequest\032\035.hts.facility.FacilityRe" +
       "quest\022b\n\030GetAvailableFacilityList\022\026.goog" +
       "le.protobuf.Empty\032..hts.facility.GetAvai" +
-      "lableFacilityListResponse\022d\n\026RequestFaci" +
-      "lityRequest\022+.hts.facility.RequestFacili" +
-      "tyRequestRequest\032\035.hts.facility.Facility" +
-      "Request\022Y\n\026ApproveFacilityRequest\022+.hts." +
-      "facility.ApproveFacilityRequestRequest\032\022" +
-      ".hts.common.Result\022W\n\025RejectFacilityRequ" +
-      "est\022*.hts.facility.RejectFacilityRequest" +
-      "Request\032\022.hts.common.Result\022O\n\017GetFacili" +
-      "tyInfo\022$.hts.facility.GetFacilityInfoReq" +
-      "uest\032\026.hts.facility.FacilityBF\n\020app.onep" +
-      "ass.apisB\rFacilityProtoP\001Z!onepass.app/f" +
-      "acility/hts/facilityb\006proto3"
+      "lableFacilityListResponse\022\177\n\032GetAvailabl" +
+      "eTimeOfFacility\022/.hts.facility.GetAvaila" +
+      "bleTimeOfFacilityRequest\0320.hts.facility." +
+      "GetAvailableTimeOfFacilityResponse\022d\n\026Re" +
+      "questFacilityRequest\022+.hts.facility.Requ" +
+      "estFacilityRequestRequest\032\035.hts.facility" +
+      ".FacilityRequest\022Y\n\026ApproveFacilityReque" +
+      "st\022+.hts.facility.ApproveFacilityRequest" +
+      "Request\032\022.hts.common.Result\022W\n\025RejectFac" +
+      "ilityRequest\022*.hts.facility.RejectFacili" +
+      "tyRequestRequest\032\022.hts.common.Result\022O\n\017" +
+      "GetFacilityInfo\022$.hts.facility.GetFacili" +
+      "tyInfoRequest\032\026.hts.facility.FacilityBF\n" +
+      "\020app.onepass.apisB\rFacilityProtoP\001Z!onep" +
+      "ass.app/facility/hts/facilityb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           app.onepass.apis.CommonProto.getDescriptor(),
           com.google.protobuf.EmptyProto.getDescriptor(),
+          com.google.protobuf.TimestampProto.getDescriptor(),
         });
     internal_static_hts_facility_FacilityRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_hts_facility_FacilityRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_facility_FacilityRequest_descriptor,
-        new java.lang.String[] { "Id", "EventId", "FacilityId", "IsApproved", "RejectReason", });
+        new java.lang.String[] { "Id", "EventId", "FacilityId", "IsApproved", "RejectReason", "Start", "End", });
     internal_static_hts_facility_Facility_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_hts_facility_Facility_fieldAccessorTable = new
@@ -191,32 +221,51 @@ public final class FacilityProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_facility_GetAvailableFacilityListResponse_descriptor,
         new java.lang.String[] { "Facilities", });
-    internal_static_hts_facility_RequestFacilityRequestRequest_descriptor =
+    internal_static_hts_facility_GetAvailableTimeOfFacilityRequest_descriptor =
       getDescriptor().getMessageTypes().get(8);
+    internal_static_hts_facility_GetAvailableTimeOfFacilityRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_facility_GetAvailableTimeOfFacilityRequest_descriptor,
+        new java.lang.String[] { "FacilityId", "Start", "End", });
+    internal_static_hts_facility_GetAvailableTimeOfFacilityResponse_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_hts_facility_GetAvailableTimeOfFacilityResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_facility_GetAvailableTimeOfFacilityResponse_descriptor,
+        new java.lang.String[] { "Day", });
+    internal_static_hts_facility_GetAvailableTimeOfFacilityResponse_Day_descriptor =
+      internal_static_hts_facility_GetAvailableTimeOfFacilityResponse_descriptor.getNestedTypes().get(0);
+    internal_static_hts_facility_GetAvailableTimeOfFacilityResponse_Day_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_facility_GetAvailableTimeOfFacilityResponse_Day_descriptor,
+        new java.lang.String[] { "Items", });
+    internal_static_hts_facility_RequestFacilityRequestRequest_descriptor =
+      getDescriptor().getMessageTypes().get(10);
     internal_static_hts_facility_RequestFacilityRequestRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_facility_RequestFacilityRequestRequest_descriptor,
         new java.lang.String[] { "EventId", });
     internal_static_hts_facility_ApproveFacilityRequestRequest_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_hts_facility_ApproveFacilityRequestRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_facility_ApproveFacilityRequestRequest_descriptor,
         new java.lang.String[] { "RequestId", });
     internal_static_hts_facility_RejectFacilityRequestRequest_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_hts_facility_RejectFacilityRequestRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_facility_RejectFacilityRequestRequest_descriptor,
         new java.lang.String[] { "RequestId", "Reason", });
     internal_static_hts_facility_GetFacilityInfoRequest_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_hts_facility_GetFacilityInfoRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_facility_GetFacilityInfoRequest_descriptor,
         new java.lang.String[] { "FacilityId", });
     app.onepass.apis.CommonProto.getDescriptor();
     com.google.protobuf.EmptyProto.getDescriptor();
+    com.google.protobuf.TimestampProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
