@@ -10,6 +10,7 @@ option go_package = "onepass.app/facility/hts/facility";
 
 import "hts/common/common.proto";
 import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
 
 // Model
 
@@ -19,6 +20,8 @@ message FacilityRequest {
     int64 facility_id = 3;
     int64 is_approved = 4;
     int64 reject_reason = 5;
+    google.protobuf.Timestamp start = 6;
+    google.protobuf.Timestamp end = 7;
 }
 
 message Facility {
@@ -57,6 +60,19 @@ message GetAvailableFacilityListResponse {
     repeated Facility facilities = 1;
 }
 
+message GetAvailableTimeOfFacilityRequest {
+    int64 facility_id = 1;
+    google.protobuf.Timestamp start = 2;
+    google.protobuf.Timestamp end = 3;
+}
+
+message GetAvailableTimeOfFacilityResponse {
+    message Day {
+        repeated bool items = 1 [packed=true];
+    }
+    repeated Day day = 1;
+}
+
 message RequestFacilityRequestRequest {
     int64 event_id = 1;
 }
@@ -79,6 +95,7 @@ service FacilityService {
     rpc GetFacilityRequestList(GetFacilityRequestListRequest) returns (GetFacilityRequestListResponse);
     rpc GetFacilityRequestStatus(GetFacilityRequestStatusRequest) returns (FacilityRequest);
     rpc GetAvailableFacilityList(google.protobuf.Empty) returns (GetAvailableFacilityListResponse);
+    rpc GetAvailableTimeOfFacility(GetAvailableTimeOfFacilityRequest) returns (GetAvailableTimeOfFacilityResponse);
     rpc RequestFacilityRequest(RequestFacilityRequestRequest) returns (FacilityRequest); 
     rpc ApproveFacilityRequest(ApproveFacilityRequestRequest) returns (hts.common.Result);
     rpc RejectFacilityRequest(RejectFacilityRequestRequest) returns (hts.common.Result);
