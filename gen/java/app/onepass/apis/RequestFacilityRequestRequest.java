@@ -53,6 +53,37 @@ private static final long serialVersionUID = 0L;
             eventId_ = input.readInt64();
             break;
           }
+          case 16: {
+
+            facilityId_ = input.readInt64();
+            break;
+          }
+          case 26: {
+            com.google.protobuf.Timestamp.Builder subBuilder = null;
+            if (start_ != null) {
+              subBuilder = start_.toBuilder();
+            }
+            start_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(start_);
+              start_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 34: {
+            com.google.protobuf.Timestamp.Builder subBuilder = null;
+            if (end_ != null) {
+              subBuilder = end_.toBuilder();
+            }
+            end_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(end_);
+              end_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -96,6 +127,69 @@ private static final long serialVersionUID = 0L;
     return eventId_;
   }
 
+  public static final int FACILITY_ID_FIELD_NUMBER = 2;
+  private long facilityId_;
+  /**
+   * <code>int64 facility_id = 2 [json_name = "facilityId"];</code>
+   * @return The facilityId.
+   */
+  @java.lang.Override
+  public long getFacilityId() {
+    return facilityId_;
+  }
+
+  public static final int START_FIELD_NUMBER = 3;
+  private com.google.protobuf.Timestamp start_;
+  /**
+   * <code>.google.protobuf.Timestamp start = 3 [json_name = "start"];</code>
+   * @return Whether the start field is set.
+   */
+  @java.lang.Override
+  public boolean hasStart() {
+    return start_ != null;
+  }
+  /**
+   * <code>.google.protobuf.Timestamp start = 3 [json_name = "start"];</code>
+   * @return The start.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getStart() {
+    return start_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : start_;
+  }
+  /**
+   * <code>.google.protobuf.Timestamp start = 3 [json_name = "start"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getStartOrBuilder() {
+    return getStart();
+  }
+
+  public static final int END_FIELD_NUMBER = 4;
+  private com.google.protobuf.Timestamp end_;
+  /**
+   * <code>.google.protobuf.Timestamp end = 4 [json_name = "end"];</code>
+   * @return Whether the end field is set.
+   */
+  @java.lang.Override
+  public boolean hasEnd() {
+    return end_ != null;
+  }
+  /**
+   * <code>.google.protobuf.Timestamp end = 4 [json_name = "end"];</code>
+   * @return The end.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getEnd() {
+    return end_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : end_;
+  }
+  /**
+   * <code>.google.protobuf.Timestamp end = 4 [json_name = "end"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getEndOrBuilder() {
+    return getEnd();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -113,6 +207,15 @@ private static final long serialVersionUID = 0L;
     if (eventId_ != 0L) {
       output.writeInt64(1, eventId_);
     }
+    if (facilityId_ != 0L) {
+      output.writeInt64(2, facilityId_);
+    }
+    if (start_ != null) {
+      output.writeMessage(3, getStart());
+    }
+    if (end_ != null) {
+      output.writeMessage(4, getEnd());
+    }
     unknownFields.writeTo(output);
   }
 
@@ -125,6 +228,18 @@ private static final long serialVersionUID = 0L;
     if (eventId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(1, eventId_);
+    }
+    if (facilityId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(2, facilityId_);
+    }
+    if (start_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, getStart());
+    }
+    if (end_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, getEnd());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -143,6 +258,18 @@ private static final long serialVersionUID = 0L;
 
     if (getEventId()
         != other.getEventId()) return false;
+    if (getFacilityId()
+        != other.getFacilityId()) return false;
+    if (hasStart() != other.hasStart()) return false;
+    if (hasStart()) {
+      if (!getStart()
+          .equals(other.getStart())) return false;
+    }
+    if (hasEnd() != other.hasEnd()) return false;
+    if (hasEnd()) {
+      if (!getEnd()
+          .equals(other.getEnd())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -157,6 +284,17 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + EVENT_ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getEventId());
+    hash = (37 * hash) + FACILITY_ID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getFacilityId());
+    if (hasStart()) {
+      hash = (37 * hash) + START_FIELD_NUMBER;
+      hash = (53 * hash) + getStart().hashCode();
+    }
+    if (hasEnd()) {
+      hash = (37 * hash) + END_FIELD_NUMBER;
+      hash = (53 * hash) + getEnd().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -292,6 +430,20 @@ private static final long serialVersionUID = 0L;
       super.clear();
       eventId_ = 0L;
 
+      facilityId_ = 0L;
+
+      if (startBuilder_ == null) {
+        start_ = null;
+      } else {
+        start_ = null;
+        startBuilder_ = null;
+      }
+      if (endBuilder_ == null) {
+        end_ = null;
+      } else {
+        end_ = null;
+        endBuilder_ = null;
+      }
       return this;
     }
 
@@ -319,6 +471,17 @@ private static final long serialVersionUID = 0L;
     public app.onepass.apis.RequestFacilityRequestRequest buildPartial() {
       app.onepass.apis.RequestFacilityRequestRequest result = new app.onepass.apis.RequestFacilityRequestRequest(this);
       result.eventId_ = eventId_;
+      result.facilityId_ = facilityId_;
+      if (startBuilder_ == null) {
+        result.start_ = start_;
+      } else {
+        result.start_ = startBuilder_.build();
+      }
+      if (endBuilder_ == null) {
+        result.end_ = end_;
+      } else {
+        result.end_ = endBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -369,6 +532,15 @@ private static final long serialVersionUID = 0L;
       if (other == app.onepass.apis.RequestFacilityRequestRequest.getDefaultInstance()) return this;
       if (other.getEventId() != 0L) {
         setEventId(other.getEventId());
+      }
+      if (other.getFacilityId() != 0L) {
+        setFacilityId(other.getFacilityId());
+      }
+      if (other.hasStart()) {
+        mergeStart(other.getStart());
+      }
+      if (other.hasEnd()) {
+        mergeEnd(other.getEnd());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -428,6 +600,275 @@ private static final long serialVersionUID = 0L;
       eventId_ = 0L;
       onChanged();
       return this;
+    }
+
+    private long facilityId_ ;
+    /**
+     * <code>int64 facility_id = 2 [json_name = "facilityId"];</code>
+     * @return The facilityId.
+     */
+    @java.lang.Override
+    public long getFacilityId() {
+      return facilityId_;
+    }
+    /**
+     * <code>int64 facility_id = 2 [json_name = "facilityId"];</code>
+     * @param value The facilityId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFacilityId(long value) {
+      
+      facilityId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 facility_id = 2 [json_name = "facilityId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFacilityId() {
+      
+      facilityId_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.Timestamp start_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> startBuilder_;
+    /**
+     * <code>.google.protobuf.Timestamp start = 3 [json_name = "start"];</code>
+     * @return Whether the start field is set.
+     */
+    public boolean hasStart() {
+      return startBuilder_ != null || start_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp start = 3 [json_name = "start"];</code>
+     * @return The start.
+     */
+    public com.google.protobuf.Timestamp getStart() {
+      if (startBuilder_ == null) {
+        return start_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : start_;
+      } else {
+        return startBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.Timestamp start = 3 [json_name = "start"];</code>
+     */
+    public Builder setStart(com.google.protobuf.Timestamp value) {
+      if (startBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        start_ = value;
+        onChanged();
+      } else {
+        startBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp start = 3 [json_name = "start"];</code>
+     */
+    public Builder setStart(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (startBuilder_ == null) {
+        start_ = builderForValue.build();
+        onChanged();
+      } else {
+        startBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp start = 3 [json_name = "start"];</code>
+     */
+    public Builder mergeStart(com.google.protobuf.Timestamp value) {
+      if (startBuilder_ == null) {
+        if (start_ != null) {
+          start_ =
+            com.google.protobuf.Timestamp.newBuilder(start_).mergeFrom(value).buildPartial();
+        } else {
+          start_ = value;
+        }
+        onChanged();
+      } else {
+        startBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp start = 3 [json_name = "start"];</code>
+     */
+    public Builder clearStart() {
+      if (startBuilder_ == null) {
+        start_ = null;
+        onChanged();
+      } else {
+        start_ = null;
+        startBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp start = 3 [json_name = "start"];</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getStartBuilder() {
+      
+      onChanged();
+      return getStartFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.Timestamp start = 3 [json_name = "start"];</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getStartOrBuilder() {
+      if (startBuilder_ != null) {
+        return startBuilder_.getMessageOrBuilder();
+      } else {
+        return start_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : start_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.Timestamp start = 3 [json_name = "start"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getStartFieldBuilder() {
+      if (startBuilder_ == null) {
+        startBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getStart(),
+                getParentForChildren(),
+                isClean());
+        start_ = null;
+      }
+      return startBuilder_;
+    }
+
+    private com.google.protobuf.Timestamp end_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> endBuilder_;
+    /**
+     * <code>.google.protobuf.Timestamp end = 4 [json_name = "end"];</code>
+     * @return Whether the end field is set.
+     */
+    public boolean hasEnd() {
+      return endBuilder_ != null || end_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp end = 4 [json_name = "end"];</code>
+     * @return The end.
+     */
+    public com.google.protobuf.Timestamp getEnd() {
+      if (endBuilder_ == null) {
+        return end_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : end_;
+      } else {
+        return endBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.Timestamp end = 4 [json_name = "end"];</code>
+     */
+    public Builder setEnd(com.google.protobuf.Timestamp value) {
+      if (endBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        end_ = value;
+        onChanged();
+      } else {
+        endBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp end = 4 [json_name = "end"];</code>
+     */
+    public Builder setEnd(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (endBuilder_ == null) {
+        end_ = builderForValue.build();
+        onChanged();
+      } else {
+        endBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp end = 4 [json_name = "end"];</code>
+     */
+    public Builder mergeEnd(com.google.protobuf.Timestamp value) {
+      if (endBuilder_ == null) {
+        if (end_ != null) {
+          end_ =
+            com.google.protobuf.Timestamp.newBuilder(end_).mergeFrom(value).buildPartial();
+        } else {
+          end_ = value;
+        }
+        onChanged();
+      } else {
+        endBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp end = 4 [json_name = "end"];</code>
+     */
+    public Builder clearEnd() {
+      if (endBuilder_ == null) {
+        end_ = null;
+        onChanged();
+      } else {
+        end_ = null;
+        endBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp end = 4 [json_name = "end"];</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getEndBuilder() {
+      
+      onChanged();
+      return getEndFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.Timestamp end = 4 [json_name = "end"];</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getEndOrBuilder() {
+      if (endBuilder_ != null) {
+        return endBuilder_.getMessageOrBuilder();
+      } else {
+        return end_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : end_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.Timestamp end = 4 [json_name = "end"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getEndFieldBuilder() {
+      if (endBuilder_ == null) {
+        endBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getEnd(),
+                getParentForChildren(),
+                isClean());
+        end_ = null;
+      }
+      return endBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
