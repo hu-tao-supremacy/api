@@ -15,13 +15,9 @@ import "google/protobuf/timestamp.proto";
 // Model\
 
 enum RequestStatus {
-    UNIVERSAL = 0;
-    WEB = 1;
-    IMAGES = 2;
-    LOCAL = 3;
-    NEWS = 4;
-    PRODUCTS = 5;
-    VIDEO = 6;
+    PENDING = 0 [(name) = "PENDING", (singleCharCode) = 'P'];
+    APPROVED = 1 [(name) = "APPROVED", (singleCharCode) = 'A'];
+    REJECTED = 2 [(name) = "REJECTED", (singleCharCode) = 'R'];
   }    
 
 message FacilityRequest {
