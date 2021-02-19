@@ -12,7 +12,7 @@ import "hts/common/common.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 
-// Model\
+// Model
 
 enum RequestStatus {
     PENDING = 0 [(name) = "PENDING", (singleCharCode) = 'P'];
