@@ -8,44 +8,56 @@ public interface CreateFacilityRequestRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 event_id = 1 [json_name = "eventId"];</code>
+   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * @return The userId.
+   */
+  long getUserId();
+
+  /**
+   * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
+   * @return The organizationId.
+   */
+  long getOrganizationId();
+
+  /**
+   * <code>int64 event_id = 3 [json_name = "eventId"];</code>
    * @return The eventId.
    */
   long getEventId();
 
   /**
-   * <code>int64 facility_id = 2 [json_name = "facilityId"];</code>
+   * <code>int64 facility_id = 4 [json_name = "facilityId"];</code>
    * @return The facilityId.
    */
   long getFacilityId();
 
   /**
-   * <code>.google.protobuf.Timestamp start = 3 [json_name = "start"];</code>
+   * <code>.google.protobuf.Timestamp start = 5 [json_name = "start"];</code>
    * @return Whether the start field is set.
    */
   boolean hasStart();
   /**
-   * <code>.google.protobuf.Timestamp start = 3 [json_name = "start"];</code>
+   * <code>.google.protobuf.Timestamp start = 5 [json_name = "start"];</code>
    * @return The start.
    */
   com.google.protobuf.Timestamp getStart();
   /**
-   * <code>.google.protobuf.Timestamp start = 3 [json_name = "start"];</code>
+   * <code>.google.protobuf.Timestamp start = 5 [json_name = "start"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getStartOrBuilder();
 
   /**
-   * <code>.google.protobuf.Timestamp end = 4 [json_name = "end"];</code>
+   * <code>.google.protobuf.Timestamp end = 6 [json_name = "end"];</code>
    * @return Whether the end field is set.
    */
   boolean hasEnd();
   /**
-   * <code>.google.protobuf.Timestamp end = 4 [json_name = "end"];</code>
+   * <code>.google.protobuf.Timestamp end = 6 [json_name = "end"];</code>
    * @return The end.
    */
   com.google.protobuf.Timestamp getEnd();
   /**
-   * <code>.google.protobuf.Timestamp end = 4 [json_name = "end"];</code>
+   * <code>.google.protobuf.Timestamp end = 6 [json_name = "end"];</code>
    */
   com.google.protobuf.TimestampOrBuilder getEndOrBuilder();
 }
