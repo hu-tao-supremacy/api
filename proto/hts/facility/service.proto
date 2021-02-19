@@ -101,19 +101,25 @@ message GetAvailableTimeOfFacilityResponse {
 }
 
 message CreateFacilityRequestRequest {
-    int64 event_id = 1;
-    int64 facility_id = 2;
-    google.protobuf.Timestamp start = 3;
-    google.protobuf.Timestamp end = 4;
+    int64 user_id = 1;
+    int64 organization_id = 2;
+    int64 event_id = 3;
+    int64 facility_id = 4;
+    google.protobuf.Timestamp start = 5;
+    google.protobuf.Timestamp end = 6;
 }
 
 message ApproveFacilityRequestRequest {
-    int64 request_id = 1;
+    int64 user_id = 1;
+    int64 organization_id = 2;
+    int64 request_id = 3;
 }
 
 message RejectFacilityRequestRequest {
     int64 request_id = 1;
-    string reason = 2;
+    int64 organization_id = 2;
+    int64 request_id = 3;
+    google.protobuf.StringValue reason = 4;
 }
 
 message GetFacilityInfoRequest {
