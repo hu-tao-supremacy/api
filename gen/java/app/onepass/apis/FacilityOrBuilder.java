@@ -44,26 +44,32 @@ public interface FacilityOrBuilder extends
   long getLongitude();
 
   /**
-   * <code>string operating_hours = 6 [json_name = "operatingHours"];</code>
+   * <code>.google.protobuf.StringValue operating_hours = 6 [json_name = "operatingHours"];</code>
+   * @return Whether the operatingHours field is set.
+   */
+  boolean hasOperatingHours();
+  /**
+   * <code>.google.protobuf.StringValue operating_hours = 6 [json_name = "operatingHours"];</code>
    * @return The operatingHours.
    */
-  java.lang.String getOperatingHours();
+  com.google.protobuf.StringValue getOperatingHours();
   /**
-   * <code>string operating_hours = 6 [json_name = "operatingHours"];</code>
-   * @return The bytes for operatingHours.
+   * <code>.google.protobuf.StringValue operating_hours = 6 [json_name = "operatingHours"];</code>
    */
-  com.google.protobuf.ByteString
-      getOperatingHoursBytes();
+  com.google.protobuf.StringValueOrBuilder getOperatingHoursOrBuilder();
 
   /**
-   * <code>string description = 7 [json_name = "description"];</code>
+   * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
+   * @return Whether the description field is set.
+   */
+  boolean hasDescription();
+  /**
+   * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
    * @return The description.
    */
-  java.lang.String getDescription();
+  com.google.protobuf.StringValue getDescription();
   /**
-   * <code>string description = 7 [json_name = "description"];</code>
-   * @return The bytes for description.
+   * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
    */
-  com.google.protobuf.ByteString
-      getDescriptionBytes();
+  com.google.protobuf.StringValueOrBuilder getDescriptionOrBuilder();
 }

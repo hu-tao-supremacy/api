@@ -17,7 +17,6 @@ private static final long serialVersionUID = 0L;
   }
   private FacilityRequestWithFacilityInfo() {
     status_ = 0;
-    rejectReason_ = "";
     facilityName_ = "";
     operatingHours_ = "";
     description_ = "";
@@ -80,9 +79,16 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (rejectReason_ != null) {
+              subBuilder = rejectReason_.toBuilder();
+            }
+            rejectReason_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(rejectReason_);
+              rejectReason_ = subBuilder.buildPartial();
+            }
 
-            rejectReason_ = s;
             break;
           }
           case 58: {
@@ -235,41 +241,29 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REJECT_REASON_FIELD_NUMBER = 6;
-  private volatile java.lang.Object rejectReason_;
+  private com.google.protobuf.StringValue rejectReason_;
   /**
-   * <code>string reject_reason = 6 [json_name = "rejectReason"];</code>
+   * <code>.google.protobuf.StringValue reject_reason = 6 [json_name = "rejectReason"];</code>
+   * @return Whether the rejectReason field is set.
+   */
+  @java.lang.Override
+  public boolean hasRejectReason() {
+    return rejectReason_ != null;
+  }
+  /**
+   * <code>.google.protobuf.StringValue reject_reason = 6 [json_name = "rejectReason"];</code>
    * @return The rejectReason.
    */
   @java.lang.Override
-  public java.lang.String getRejectReason() {
-    java.lang.Object ref = rejectReason_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      rejectReason_ = s;
-      return s;
-    }
+  public com.google.protobuf.StringValue getRejectReason() {
+    return rejectReason_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : rejectReason_;
   }
   /**
-   * <code>string reject_reason = 6 [json_name = "rejectReason"];</code>
-   * @return The bytes for rejectReason.
+   * <code>.google.protobuf.StringValue reject_reason = 6 [json_name = "rejectReason"];</code>
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getRejectReasonBytes() {
-    java.lang.Object ref = rejectReason_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      rejectReason_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public com.google.protobuf.StringValueOrBuilder getRejectReasonOrBuilder() {
+    return getRejectReason();
   }
 
   public static final int START_FIELD_NUMBER = 7;
@@ -489,8 +483,8 @@ private static final long serialVersionUID = 0L;
     if (status_ != app.onepass.apis.RequestStatus.PENDING.getNumber()) {
       output.writeEnum(5, status_);
     }
-    if (!getRejectReasonBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, rejectReason_);
+    if (rejectReason_ != null) {
+      output.writeMessage(6, getRejectReason());
     }
     if (start_ != null) {
       output.writeMessage(7, getStart());
@@ -542,8 +536,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(5, status_);
     }
-    if (!getRejectReasonBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, rejectReason_);
+    if (rejectReason_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, getRejectReason());
     }
     if (start_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -594,8 +589,11 @@ private static final long serialVersionUID = 0L;
     if (getOrganizationId()
         != other.getOrganizationId()) return false;
     if (status_ != other.status_) return false;
-    if (!getRejectReason()
-        .equals(other.getRejectReason())) return false;
+    if (hasRejectReason() != other.hasRejectReason()) return false;
+    if (hasRejectReason()) {
+      if (!getRejectReason()
+          .equals(other.getRejectReason())) return false;
+    }
     if (hasStart() != other.hasStart()) return false;
     if (hasStart()) {
       if (!getStart()
@@ -641,8 +639,10 @@ private static final long serialVersionUID = 0L;
         getOrganizationId());
     hash = (37 * hash) + STATUS_FIELD_NUMBER;
     hash = (53 * hash) + status_;
-    hash = (37 * hash) + REJECT_REASON_FIELD_NUMBER;
-    hash = (53 * hash) + getRejectReason().hashCode();
+    if (hasRejectReason()) {
+      hash = (37 * hash) + REJECT_REASON_FIELD_NUMBER;
+      hash = (53 * hash) + getRejectReason().hashCode();
+    }
     if (hasStart()) {
       hash = (37 * hash) + START_FIELD_NUMBER;
       hash = (53 * hash) + getStart().hashCode();
@@ -806,8 +806,12 @@ private static final long serialVersionUID = 0L;
 
       status_ = 0;
 
-      rejectReason_ = "";
-
+      if (rejectReasonBuilder_ == null) {
+        rejectReason_ = null;
+      } else {
+        rejectReason_ = null;
+        rejectReasonBuilder_ = null;
+      }
       if (startBuilder_ == null) {
         start_ = null;
       } else {
@@ -861,7 +865,11 @@ private static final long serialVersionUID = 0L;
       result.facilityId_ = facilityId_;
       result.organizationId_ = organizationId_;
       result.status_ = status_;
-      result.rejectReason_ = rejectReason_;
+      if (rejectReasonBuilder_ == null) {
+        result.rejectReason_ = rejectReason_;
+      } else {
+        result.rejectReason_ = rejectReasonBuilder_.build();
+      }
       if (startBuilder_ == null) {
         result.start_ = start_;
       } else {
@@ -940,9 +948,8 @@ private static final long serialVersionUID = 0L;
       if (other.status_ != 0) {
         setStatusValue(other.getStatusValue());
       }
-      if (!other.getRejectReason().isEmpty()) {
-        rejectReason_ = other.rejectReason_;
-        onChanged();
+      if (other.hasRejectReason()) {
+        mergeRejectReason(other.getRejectReason());
       }
       if (other.hasStart()) {
         mergeStart(other.getStart());
@@ -1175,80 +1182,123 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object rejectReason_ = "";
+    private com.google.protobuf.StringValue rejectReason_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> rejectReasonBuilder_;
     /**
-     * <code>string reject_reason = 6 [json_name = "rejectReason"];</code>
+     * <code>.google.protobuf.StringValue reject_reason = 6 [json_name = "rejectReason"];</code>
+     * @return Whether the rejectReason field is set.
+     */
+    public boolean hasRejectReason() {
+      return rejectReasonBuilder_ != null || rejectReason_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue reject_reason = 6 [json_name = "rejectReason"];</code>
      * @return The rejectReason.
      */
-    public java.lang.String getRejectReason() {
-      java.lang.Object ref = rejectReason_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        rejectReason_ = s;
-        return s;
+    public com.google.protobuf.StringValue getRejectReason() {
+      if (rejectReasonBuilder_ == null) {
+        return rejectReason_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : rejectReason_;
       } else {
-        return (java.lang.String) ref;
+        return rejectReasonBuilder_.getMessage();
       }
     }
     /**
-     * <code>string reject_reason = 6 [json_name = "rejectReason"];</code>
-     * @return The bytes for rejectReason.
+     * <code>.google.protobuf.StringValue reject_reason = 6 [json_name = "rejectReason"];</code>
      */
-    public com.google.protobuf.ByteString
-        getRejectReasonBytes() {
-      java.lang.Object ref = rejectReason_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        rejectReason_ = b;
-        return b;
+    public Builder setRejectReason(com.google.protobuf.StringValue value) {
+      if (rejectReasonBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        rejectReason_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        rejectReasonBuilder_.setMessage(value);
       }
+
+      return this;
     }
     /**
-     * <code>string reject_reason = 6 [json_name = "rejectReason"];</code>
-     * @param value The rejectReason to set.
-     * @return This builder for chaining.
+     * <code>.google.protobuf.StringValue reject_reason = 6 [json_name = "rejectReason"];</code>
      */
     public Builder setRejectReason(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      rejectReason_ = value;
-      onChanged();
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (rejectReasonBuilder_ == null) {
+        rejectReason_ = builderForValue.build();
+        onChanged();
+      } else {
+        rejectReasonBuilder_.setMessage(builderForValue.build());
+      }
+
       return this;
     }
     /**
-     * <code>string reject_reason = 6 [json_name = "rejectReason"];</code>
-     * @return This builder for chaining.
+     * <code>.google.protobuf.StringValue reject_reason = 6 [json_name = "rejectReason"];</code>
+     */
+    public Builder mergeRejectReason(com.google.protobuf.StringValue value) {
+      if (rejectReasonBuilder_ == null) {
+        if (rejectReason_ != null) {
+          rejectReason_ =
+            com.google.protobuf.StringValue.newBuilder(rejectReason_).mergeFrom(value).buildPartial();
+        } else {
+          rejectReason_ = value;
+        }
+        onChanged();
+      } else {
+        rejectReasonBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue reject_reason = 6 [json_name = "rejectReason"];</code>
      */
     public Builder clearRejectReason() {
-      
-      rejectReason_ = getDefaultInstance().getRejectReason();
-      onChanged();
+      if (rejectReasonBuilder_ == null) {
+        rejectReason_ = null;
+        onChanged();
+      } else {
+        rejectReason_ = null;
+        rejectReasonBuilder_ = null;
+      }
+
       return this;
     }
     /**
-     * <code>string reject_reason = 6 [json_name = "rejectReason"];</code>
-     * @param value The bytes for rejectReason to set.
-     * @return This builder for chaining.
+     * <code>.google.protobuf.StringValue reject_reason = 6 [json_name = "rejectReason"];</code>
      */
-    public Builder setRejectReasonBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+    public com.google.protobuf.StringValue.Builder getRejectReasonBuilder() {
       
-      rejectReason_ = value;
       onChanged();
-      return this;
+      return getRejectReasonFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.StringValue reject_reason = 6 [json_name = "rejectReason"];</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getRejectReasonOrBuilder() {
+      if (rejectReasonBuilder_ != null) {
+        return rejectReasonBuilder_.getMessageOrBuilder();
+      } else {
+        return rejectReason_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : rejectReason_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue reject_reason = 6 [json_name = "rejectReason"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getRejectReasonFieldBuilder() {
+      if (rejectReasonBuilder_ == null) {
+        rejectReasonBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getRejectReason(),
+                getParentForChildren(),
+                isClean());
+        rejectReason_ = null;
+      }
+      return rejectReasonBuilder_;
     }
 
     private com.google.protobuf.Timestamp start_;

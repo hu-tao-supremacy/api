@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface RequestFacilityRequestRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.facility.RequestFacilityRequestRequest)
+public interface CreateFacilityRequestRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.facility.CreateFacilityRequestRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

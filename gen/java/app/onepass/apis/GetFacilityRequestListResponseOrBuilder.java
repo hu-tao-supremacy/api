@@ -8,26 +8,26 @@ public interface GetFacilityRequestListResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .hts.facility.FacilityRequest requests = 1 [json_name = "requests"];</code>
+   * <code>repeated .hts.facility.FacilityRequestWithFacilityInfo requests = 1 [json_name = "requests"];</code>
    */
-  java.util.List<app.onepass.apis.FacilityRequest> 
+  java.util.List<app.onepass.apis.FacilityRequestWithFacilityInfo> 
       getRequestsList();
   /**
-   * <code>repeated .hts.facility.FacilityRequest requests = 1 [json_name = "requests"];</code>
+   * <code>repeated .hts.facility.FacilityRequestWithFacilityInfo requests = 1 [json_name = "requests"];</code>
    */
-  app.onepass.apis.FacilityRequest getRequests(int index);
+  app.onepass.apis.FacilityRequestWithFacilityInfo getRequests(int index);
   /**
-   * <code>repeated .hts.facility.FacilityRequest requests = 1 [json_name = "requests"];</code>
+   * <code>repeated .hts.facility.FacilityRequestWithFacilityInfo requests = 1 [json_name = "requests"];</code>
    */
   int getRequestsCount();
   /**
-   * <code>repeated .hts.facility.FacilityRequest requests = 1 [json_name = "requests"];</code>
+   * <code>repeated .hts.facility.FacilityRequestWithFacilityInfo requests = 1 [json_name = "requests"];</code>
    */
-  java.util.List<? extends app.onepass.apis.FacilityRequestOrBuilder> 
+  java.util.List<? extends app.onepass.apis.FacilityRequestWithFacilityInfoOrBuilder> 
       getRequestsOrBuilderList();
   /**
-   * <code>repeated .hts.facility.FacilityRequest requests = 1 [json_name = "requests"];</code>
+   * <code>repeated .hts.facility.FacilityRequestWithFacilityInfo requests = 1 [json_name = "requests"];</code>
    */
-  app.onepass.apis.FacilityRequestOrBuilder getRequestsOrBuilder(
+  app.onepass.apis.FacilityRequestWithFacilityInfoOrBuilder getRequestsOrBuilder(
       int index);
 }
