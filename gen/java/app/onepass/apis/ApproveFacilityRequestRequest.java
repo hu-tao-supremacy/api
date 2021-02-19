@@ -50,6 +50,16 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
+            userId_ = input.readInt64();
+            break;
+          }
+          case 16: {
+
+            organizationId_ = input.readInt64();
+            break;
+          }
+          case 24: {
+
             requestId_ = input.readInt64();
             break;
           }
@@ -85,10 +95,32 @@ private static final long serialVersionUID = 0L;
             app.onepass.apis.ApproveFacilityRequestRequest.class, app.onepass.apis.ApproveFacilityRequestRequest.Builder.class);
   }
 
-  public static final int REQUEST_ID_FIELD_NUMBER = 1;
+  public static final int USER_ID_FIELD_NUMBER = 1;
+  private long userId_;
+  /**
+   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * @return The userId.
+   */
+  @java.lang.Override
+  public long getUserId() {
+    return userId_;
+  }
+
+  public static final int ORGANIZATION_ID_FIELD_NUMBER = 2;
+  private long organizationId_;
+  /**
+   * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
+   * @return The organizationId.
+   */
+  @java.lang.Override
+  public long getOrganizationId() {
+    return organizationId_;
+  }
+
+  public static final int REQUEST_ID_FIELD_NUMBER = 3;
   private long requestId_;
   /**
-   * <code>int64 request_id = 1 [json_name = "requestId"];</code>
+   * <code>int64 request_id = 3 [json_name = "requestId"];</code>
    * @return The requestId.
    */
   @java.lang.Override
@@ -110,8 +142,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (userId_ != 0L) {
+      output.writeInt64(1, userId_);
+    }
+    if (organizationId_ != 0L) {
+      output.writeInt64(2, organizationId_);
+    }
     if (requestId_ != 0L) {
-      output.writeInt64(1, requestId_);
+      output.writeInt64(3, requestId_);
     }
     unknownFields.writeTo(output);
   }
@@ -122,9 +160,17 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (userId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(1, userId_);
+    }
+    if (organizationId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(2, organizationId_);
+    }
     if (requestId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, requestId_);
+        .computeInt64Size(3, requestId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -141,6 +187,10 @@ private static final long serialVersionUID = 0L;
     }
     app.onepass.apis.ApproveFacilityRequestRequest other = (app.onepass.apis.ApproveFacilityRequestRequest) obj;
 
+    if (getUserId()
+        != other.getUserId()) return false;
+    if (getOrganizationId()
+        != other.getOrganizationId()) return false;
     if (getRequestId()
         != other.getRequestId()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -154,6 +204,12 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + USER_ID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getUserId());
+    hash = (37 * hash) + ORGANIZATION_ID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getOrganizationId());
     hash = (37 * hash) + REQUEST_ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getRequestId());
@@ -290,6 +346,10 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      userId_ = 0L;
+
+      organizationId_ = 0L;
+
       requestId_ = 0L;
 
       return this;
@@ -318,6 +378,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public app.onepass.apis.ApproveFacilityRequestRequest buildPartial() {
       app.onepass.apis.ApproveFacilityRequestRequest result = new app.onepass.apis.ApproveFacilityRequestRequest(this);
+      result.userId_ = userId_;
+      result.organizationId_ = organizationId_;
       result.requestId_ = requestId_;
       onBuilt();
       return result;
@@ -367,6 +429,12 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(app.onepass.apis.ApproveFacilityRequestRequest other) {
       if (other == app.onepass.apis.ApproveFacilityRequestRequest.getDefaultInstance()) return this;
+      if (other.getUserId() != 0L) {
+        setUserId(other.getUserId());
+      }
+      if (other.getOrganizationId() != 0L) {
+        setOrganizationId(other.getOrganizationId());
+      }
       if (other.getRequestId() != 0L) {
         setRequestId(other.getRequestId());
       }
@@ -399,9 +467,71 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private long userId_ ;
+    /**
+     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * @return The userId.
+     */
+    @java.lang.Override
+    public long getUserId() {
+      return userId_;
+    }
+    /**
+     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * @param value The userId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUserId(long value) {
+      
+      userId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUserId() {
+      
+      userId_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long organizationId_ ;
+    /**
+     * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
+     * @return The organizationId.
+     */
+    @java.lang.Override
+    public long getOrganizationId() {
+      return organizationId_;
+    }
+    /**
+     * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
+     * @param value The organizationId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrganizationId(long value) {
+      
+      organizationId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearOrganizationId() {
+      
+      organizationId_ = 0L;
+      onChanged();
+      return this;
+    }
+
     private long requestId_ ;
     /**
-     * <code>int64 request_id = 1 [json_name = "requestId"];</code>
+     * <code>int64 request_id = 3 [json_name = "requestId"];</code>
      * @return The requestId.
      */
     @java.lang.Override
@@ -409,7 +539,7 @@ private static final long serialVersionUID = 0L;
       return requestId_;
     }
     /**
-     * <code>int64 request_id = 1 [json_name = "requestId"];</code>
+     * <code>int64 request_id = 3 [json_name = "requestId"];</code>
      * @param value The requestId to set.
      * @return This builder for chaining.
      */
@@ -420,7 +550,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 request_id = 1 [json_name = "requestId"];</code>
+     * <code>int64 request_id = 3 [json_name = "requestId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearRequestId() {
