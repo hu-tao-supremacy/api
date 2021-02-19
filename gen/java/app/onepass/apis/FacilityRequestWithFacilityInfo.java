@@ -16,6 +16,8 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private FacilityRequestWithFacilityInfo() {
+    status_ = 0;
+    rejectReason_ = "";
     facilityName_ = "";
     operatingHours_ = "";
     description_ = "";
@@ -72,13 +74,15 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 40: {
+            int rawValue = input.readEnum();
 
-            isApproved_ = input.readInt64();
+            status_ = rawValue;
             break;
           }
-          case 48: {
+          case 50: {
+            java.lang.String s = input.readStringRequireUtf8();
 
-            rejectReason_ = input.readInt64();
+            rejectReason_ = s;
             break;
           }
           case 58: {
@@ -211,26 +215,61 @@ private static final long serialVersionUID = 0L;
     return organizationId_;
   }
 
-  public static final int IS_APPROVED_FIELD_NUMBER = 5;
-  private long isApproved_;
+  public static final int STATUS_FIELD_NUMBER = 5;
+  private int status_;
   /**
-   * <code>int64 is_approved = 5 [json_name = "isApproved"];</code>
-   * @return The isApproved.
+   * <code>.hts.facility.RequestStatus status = 5 [json_name = "status"];</code>
+   * @return The enum numeric value on the wire for status.
    */
-  @java.lang.Override
-  public long getIsApproved() {
-    return isApproved_;
+  @java.lang.Override public int getStatusValue() {
+    return status_;
+  }
+  /**
+   * <code>.hts.facility.RequestStatus status = 5 [json_name = "status"];</code>
+   * @return The status.
+   */
+  @java.lang.Override public app.onepass.apis.RequestStatus getStatus() {
+    @SuppressWarnings("deprecation")
+    app.onepass.apis.RequestStatus result = app.onepass.apis.RequestStatus.valueOf(status_);
+    return result == null ? app.onepass.apis.RequestStatus.UNRECOGNIZED : result;
   }
 
   public static final int REJECT_REASON_FIELD_NUMBER = 6;
-  private long rejectReason_;
+  private volatile java.lang.Object rejectReason_;
   /**
-   * <code>int64 reject_reason = 6 [json_name = "rejectReason"];</code>
+   * <code>string reject_reason = 6 [json_name = "rejectReason"];</code>
    * @return The rejectReason.
    */
   @java.lang.Override
-  public long getRejectReason() {
-    return rejectReason_;
+  public java.lang.String getRejectReason() {
+    java.lang.Object ref = rejectReason_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      rejectReason_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string reject_reason = 6 [json_name = "rejectReason"];</code>
+   * @return The bytes for rejectReason.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getRejectReasonBytes() {
+    java.lang.Object ref = rejectReason_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      rejectReason_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   public static final int START_FIELD_NUMBER = 7;
@@ -447,11 +486,11 @@ private static final long serialVersionUID = 0L;
     if (organizationId_ != 0L) {
       output.writeInt64(4, organizationId_);
     }
-    if (isApproved_ != 0L) {
-      output.writeInt64(5, isApproved_);
+    if (status_ != app.onepass.apis.RequestStatus.PENDING.getNumber()) {
+      output.writeEnum(5, status_);
     }
-    if (rejectReason_ != 0L) {
-      output.writeInt64(6, rejectReason_);
+    if (!getRejectReasonBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, rejectReason_);
     }
     if (start_ != null) {
       output.writeMessage(7, getStart());
@@ -499,13 +538,12 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(4, organizationId_);
     }
-    if (isApproved_ != 0L) {
+    if (status_ != app.onepass.apis.RequestStatus.PENDING.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(5, isApproved_);
+        .computeEnumSize(5, status_);
     }
-    if (rejectReason_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(6, rejectReason_);
+    if (!getRejectReasonBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, rejectReason_);
     }
     if (start_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -555,10 +593,9 @@ private static final long serialVersionUID = 0L;
         != other.getFacilityId()) return false;
     if (getOrganizationId()
         != other.getOrganizationId()) return false;
-    if (getIsApproved()
-        != other.getIsApproved()) return false;
-    if (getRejectReason()
-        != other.getRejectReason()) return false;
+    if (status_ != other.status_) return false;
+    if (!getRejectReason()
+        .equals(other.getRejectReason())) return false;
     if (hasStart() != other.hasStart()) return false;
     if (hasStart()) {
       if (!getStart()
@@ -602,12 +639,10 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ORGANIZATION_ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getOrganizationId());
-    hash = (37 * hash) + IS_APPROVED_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getIsApproved());
+    hash = (37 * hash) + STATUS_FIELD_NUMBER;
+    hash = (53 * hash) + status_;
     hash = (37 * hash) + REJECT_REASON_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getRejectReason());
+    hash = (53 * hash) + getRejectReason().hashCode();
     if (hasStart()) {
       hash = (37 * hash) + START_FIELD_NUMBER;
       hash = (53 * hash) + getStart().hashCode();
@@ -769,9 +804,9 @@ private static final long serialVersionUID = 0L;
 
       organizationId_ = 0L;
 
-      isApproved_ = 0L;
+      status_ = 0;
 
-      rejectReason_ = 0L;
+      rejectReason_ = "";
 
       if (startBuilder_ == null) {
         start_ = null;
@@ -825,7 +860,7 @@ private static final long serialVersionUID = 0L;
       result.eventId_ = eventId_;
       result.facilityId_ = facilityId_;
       result.organizationId_ = organizationId_;
-      result.isApproved_ = isApproved_;
+      result.status_ = status_;
       result.rejectReason_ = rejectReason_;
       if (startBuilder_ == null) {
         result.start_ = start_;
@@ -902,11 +937,12 @@ private static final long serialVersionUID = 0L;
       if (other.getOrganizationId() != 0L) {
         setOrganizationId(other.getOrganizationId());
       }
-      if (other.getIsApproved() != 0L) {
-        setIsApproved(other.getIsApproved());
+      if (other.status_ != 0) {
+        setStatusValue(other.getStatusValue());
       }
-      if (other.getRejectReason() != 0L) {
-        setRejectReason(other.getRejectReason());
+      if (!other.getRejectReason().isEmpty()) {
+        rejectReason_ = other.rejectReason_;
+        onChanged();
       }
       if (other.hasStart()) {
         mergeStart(other.getStart());
@@ -1085,64 +1121,132 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long isApproved_ ;
+    private int status_ = 0;
     /**
-     * <code>int64 is_approved = 5 [json_name = "isApproved"];</code>
-     * @return The isApproved.
+     * <code>.hts.facility.RequestStatus status = 5 [json_name = "status"];</code>
+     * @return The enum numeric value on the wire for status.
      */
-    @java.lang.Override
-    public long getIsApproved() {
-      return isApproved_;
+    @java.lang.Override public int getStatusValue() {
+      return status_;
     }
     /**
-     * <code>int64 is_approved = 5 [json_name = "isApproved"];</code>
-     * @param value The isApproved to set.
+     * <code>.hts.facility.RequestStatus status = 5 [json_name = "status"];</code>
+     * @param value The enum numeric value on the wire for status to set.
      * @return This builder for chaining.
      */
-    public Builder setIsApproved(long value) {
+    public Builder setStatusValue(int value) {
       
-      isApproved_ = value;
+      status_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 is_approved = 5 [json_name = "isApproved"];</code>
+     * <code>.hts.facility.RequestStatus status = 5 [json_name = "status"];</code>
+     * @return The status.
+     */
+    @java.lang.Override
+    public app.onepass.apis.RequestStatus getStatus() {
+      @SuppressWarnings("deprecation")
+      app.onepass.apis.RequestStatus result = app.onepass.apis.RequestStatus.valueOf(status_);
+      return result == null ? app.onepass.apis.RequestStatus.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.hts.facility.RequestStatus status = 5 [json_name = "status"];</code>
+     * @param value The status to set.
      * @return This builder for chaining.
      */
-    public Builder clearIsApproved() {
+    public Builder setStatus(app.onepass.apis.RequestStatus value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
       
-      isApproved_ = 0L;
+      status_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.hts.facility.RequestStatus status = 5 [json_name = "status"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearStatus() {
+      
+      status_ = 0;
       onChanged();
       return this;
     }
 
-    private long rejectReason_ ;
+    private java.lang.Object rejectReason_ = "";
     /**
-     * <code>int64 reject_reason = 6 [json_name = "rejectReason"];</code>
+     * <code>string reject_reason = 6 [json_name = "rejectReason"];</code>
      * @return The rejectReason.
      */
-    @java.lang.Override
-    public long getRejectReason() {
-      return rejectReason_;
+    public java.lang.String getRejectReason() {
+      java.lang.Object ref = rejectReason_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        rejectReason_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <code>int64 reject_reason = 6 [json_name = "rejectReason"];</code>
+     * <code>string reject_reason = 6 [json_name = "rejectReason"];</code>
+     * @return The bytes for rejectReason.
+     */
+    public com.google.protobuf.ByteString
+        getRejectReasonBytes() {
+      java.lang.Object ref = rejectReason_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        rejectReason_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string reject_reason = 6 [json_name = "rejectReason"];</code>
      * @param value The rejectReason to set.
      * @return This builder for chaining.
      */
-    public Builder setRejectReason(long value) {
-      
+    public Builder setRejectReason(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
       rejectReason_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 reject_reason = 6 [json_name = "rejectReason"];</code>
+     * <code>string reject_reason = 6 [json_name = "rejectReason"];</code>
      * @return This builder for chaining.
      */
     public Builder clearRejectReason() {
       
-      rejectReason_ = 0L;
+      rejectReason_ = getDefaultInstance().getRejectReason();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string reject_reason = 6 [json_name = "rejectReason"];</code>
+     * @param value The bytes for rejectReason to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRejectReasonBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      rejectReason_ = value;
       onChanged();
       return this;
     }

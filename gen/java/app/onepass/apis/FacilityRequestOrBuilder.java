@@ -26,16 +26,27 @@ public interface FacilityRequestOrBuilder extends
   long getFacilityId();
 
   /**
-   * <code>int64 is_approved = 4 [json_name = "isApproved"];</code>
-   * @return The isApproved.
+   * <code>.hts.facility.RequestStatus status = 4 [json_name = "status"];</code>
+   * @return The enum numeric value on the wire for status.
    */
-  long getIsApproved();
+  int getStatusValue();
+  /**
+   * <code>.hts.facility.RequestStatus status = 4 [json_name = "status"];</code>
+   * @return The status.
+   */
+  app.onepass.apis.RequestStatus getStatus();
 
   /**
-   * <code>int64 reject_reason = 5 [json_name = "rejectReason"];</code>
+   * <code>string reject_reason = 5 [json_name = "rejectReason"];</code>
    * @return The rejectReason.
    */
-  long getRejectReason();
+  java.lang.String getRejectReason();
+  /**
+   * <code>string reject_reason = 5 [json_name = "rejectReason"];</code>
+   * @return The bytes for rejectReason.
+   */
+  com.google.protobuf.ByteString
+      getRejectReasonBytes();
 
   /**
    * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
