@@ -15,10 +15,10 @@ import "google/protobuf/timestamp.proto";
 // Model
 
 enum RequestStatus {
-    PENDING = 0 [(name) = "PENDING", (singleCharCode) = 'P'];
-    APPROVED = 1 [(name) = "APPROVED", (singleCharCode) = 'A'];
-    REJECTED = 2 [(name) = "REJECTED", (singleCharCode) = 'R'];
-  }    
+    PENDING = 0;
+    APPROVED = 1;
+    REJECTED = 2;
+}    
 
 message FacilityRequest {
     int64 id = 1;
