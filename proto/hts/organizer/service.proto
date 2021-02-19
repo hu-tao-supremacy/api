@@ -31,12 +31,12 @@ message DeleteOrganizationReq {
 
 message AddUsersToOrganizationReq {
   int64 user_id = 1;
-  repeated int64 user_ids = 2;
+  repeated int64 user_ids = 2 [packed=true];
 }
 
 message UpdateUsersInOrganizationReq {
   int64 user_id = 1;
-  repeated int64 user_ids = 2;
+  repeated int64 user_ids = 2 [packed=true];
 }
 
 message CreateEventReq {
@@ -57,7 +57,7 @@ message UpdateEventFacilityReq {
 message UpdateEventDurationReq {
   int64 user_id = 1;
   int64 event_id = 2;
-  repeated hts.organizer.Duration duration = 3;
+  repeated hts.organizer.Duration duration = 3 [packed=true];
 }
 
 message DeleteEventReq {
@@ -74,20 +74,20 @@ message UpdateRegistrationRequestReq {
 
 message UpdateTagReq {
   int64 user_id = 1;
-  repeated int64 tag_ids = 2;
+  repeated int64 tag_ids = 2 [packed=true];
   int64 event_id = 3;
 }
 
 message ReadOrganizationRes {
-  repeated hts.common.Organization organizations = 1;
+  repeated hts.common.Organization organizations = 1 [packed=true];
 }
 
 message ReadEventRes {
-  repeated hts.common.Event events = 1;
+  repeated hts.common.Event events = 1 [packed=true];
 }
 
 message ReadTagRes {
-  repeated hts.common.Tag tags = 1;
+  repeated hts.common.Tag tags = 1 [packed=true];
 }
 
 service OrganizationService {
