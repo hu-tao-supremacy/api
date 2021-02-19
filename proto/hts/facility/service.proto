@@ -72,7 +72,7 @@ message GetFacilityRequestListRequest {
 }
 
 message GetFacilityRequestListResponse {
-    repeated FacilityRequest requests  = 1; 
+    repeated FacilityRequestWithFacilityInfo requests = 1; 
 }
 
 message GetFacilityRequestsStatusRequest {
