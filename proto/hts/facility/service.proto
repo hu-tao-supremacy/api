@@ -75,6 +75,9 @@ message GetAvailableTimeOfFacilityResponse {
 
 message RequestFacilityRequestRequest {
     int64 event_id = 1;
+    int64 facility_id = 2;
+    google.protobuf.Timestamp start = 3;
+    google.protobuf.Timestamp end = 4;
 }
 
 message ApproveFacilityRequestRequest {
@@ -90,6 +93,10 @@ message GetFacilityInfoRequest {
     int64 facility_id = 1;
 }
 
+message GetEventFacilityInfoRequest {
+    int64 event_id = 1;
+}
+
 service FacilityService {
     rpc GetFacilityList(GetFacilityListRequest) returns (GetFacilityListResponse);
     rpc GetFacilityRequestList(GetFacilityRequestListRequest) returns (GetFacilityRequestListResponse);
@@ -100,4 +107,5 @@ service FacilityService {
     rpc ApproveFacilityRequest(ApproveFacilityRequestRequest) returns (hts.common.Result);
     rpc RejectFacilityRequest(RejectFacilityRequestRequest) returns (hts.common.Result);
     rpc GetFacilityInfo(GetFacilityInfoRequest) returns (Facility);
+    rpc GetEventFacilityInfo(GetEventFacilityInfoRequest) returns (Facility)
 }
