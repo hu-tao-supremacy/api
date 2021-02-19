@@ -46,7 +46,7 @@ message FacilityRequestWithFacilityInfo {
     int64 facility_id = 3;
     int64 organization_id = 4;
     RequestStatus status = 5;
-    int64 reject_reason = 6;
+    string reject_reason = 6;
     google.protobuf.Timestamp start = 7;
     google.protobuf.Timestamp finish = 8;
     string facility_name = 9;
