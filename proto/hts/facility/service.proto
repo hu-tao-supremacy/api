@@ -107,5 +107,5 @@ service FacilityService {
     rpc ApproveFacilityRequest(ApproveFacilityRequestRequest) returns (hts.common.Result);
     rpc RejectFacilityRequest(RejectFacilityRequestRequest) returns (hts.common.Result);
     rpc GetFacilityInfo(GetFacilityInfoRequest) returns (Facility);
-    rpc GetEventFacilityInfo(GetEventFacilityInfoRequest) returns (Facility)
+    rpc GetEventFacilityInfo(GetEventFacilityInfoRequest) returns (Facility);
 }
