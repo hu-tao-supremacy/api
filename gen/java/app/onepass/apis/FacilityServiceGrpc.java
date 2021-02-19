@@ -293,6 +293,37 @@ public final class FacilityServiceGrpc {
     return getGetFacilityInfoMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GetEventFacilityInfoRequest,
+      app.onepass.apis.Facility> getGetEventFacilityInfoMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetEventFacilityInfo",
+      requestType = app.onepass.apis.GetEventFacilityInfoRequest.class,
+      responseType = app.onepass.apis.Facility.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<app.onepass.apis.GetEventFacilityInfoRequest,
+      app.onepass.apis.Facility> getGetEventFacilityInfoMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.GetEventFacilityInfoRequest, app.onepass.apis.Facility> getGetEventFacilityInfoMethod;
+    if ((getGetEventFacilityInfoMethod = FacilityServiceGrpc.getGetEventFacilityInfoMethod) == null) {
+      synchronized (FacilityServiceGrpc.class) {
+        if ((getGetEventFacilityInfoMethod = FacilityServiceGrpc.getGetEventFacilityInfoMethod) == null) {
+          FacilityServiceGrpc.getGetEventFacilityInfoMethod = getGetEventFacilityInfoMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.GetEventFacilityInfoRequest, app.onepass.apis.Facility>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetEventFacilityInfo"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.GetEventFacilityInfoRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.Facility.getDefaultInstance()))
+              .setSchemaDescriptor(new FacilityServiceMethodDescriptorSupplier("GetEventFacilityInfo"))
+              .build();
+        }
+      }
+    }
+    return getGetEventFacilityInfoMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -404,6 +435,13 @@ public final class FacilityServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetFacilityInfoMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getEventFacilityInfo(app.onepass.apis.GetEventFacilityInfoRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.Facility> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetEventFacilityInfoMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -469,6 +507,13 @@ public final class FacilityServiceGrpc {
                 app.onepass.apis.GetFacilityInfoRequest,
                 app.onepass.apis.Facility>(
                   this, METHODID_GET_FACILITY_INFO)))
+          .addMethod(
+            getGetEventFacilityInfoMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                app.onepass.apis.GetEventFacilityInfoRequest,
+                app.onepass.apis.Facility>(
+                  this, METHODID_GET_EVENT_FACILITY_INFO)))
           .build();
     }
   }
@@ -558,6 +603,14 @@ public final class FacilityServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetFacilityInfoMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getEventFacilityInfo(app.onepass.apis.GetEventFacilityInfoRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.Facility> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetEventFacilityInfoMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -635,6 +688,13 @@ public final class FacilityServiceGrpc {
     public app.onepass.apis.Facility getFacilityInfo(app.onepass.apis.GetFacilityInfoRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetFacilityInfoMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public app.onepass.apis.Facility getEventFacilityInfo(app.onepass.apis.GetEventFacilityInfoRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetEventFacilityInfoMethod(), getCallOptions(), request);
     }
   }
 
@@ -723,6 +783,14 @@ public final class FacilityServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetFacilityInfoMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.Facility> getEventFacilityInfo(
+        app.onepass.apis.GetEventFacilityInfoRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetEventFacilityInfoMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_FACILITY_LIST = 0;
@@ -734,6 +802,7 @@ public final class FacilityServiceGrpc {
   private static final int METHODID_APPROVE_FACILITY_REQUEST = 6;
   private static final int METHODID_REJECT_FACILITY_REQUEST = 7;
   private static final int METHODID_GET_FACILITY_INFO = 8;
+  private static final int METHODID_GET_EVENT_FACILITY_INFO = 9;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -786,6 +855,10 @@ public final class FacilityServiceGrpc {
           break;
         case METHODID_GET_FACILITY_INFO:
           serviceImpl.getFacilityInfo((app.onepass.apis.GetFacilityInfoRequest) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.Facility>) responseObserver);
+          break;
+        case METHODID_GET_EVENT_FACILITY_INFO:
+          serviceImpl.getEventFacilityInfo((app.onepass.apis.GetEventFacilityInfoRequest) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.Facility>) responseObserver);
           break;
         default:
@@ -858,6 +931,7 @@ public final class FacilityServiceGrpc {
               .addMethod(getApproveFacilityRequestMethod())
               .addMethod(getRejectFacilityRequestMethod())
               .addMethod(getGetFacilityInfoMethod())
+              .addMethod(getGetEventFacilityInfoMethod())
               .build();
         }
       }

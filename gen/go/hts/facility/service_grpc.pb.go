@@ -29,6 +29,7 @@ type FacilityServiceClient interface {
 	ApproveFacilityRequest(ctx context.Context, in *ApproveFacilityRequestRequest, opts ...grpc.CallOption) (*common.Result, error)
 	RejectFacilityRequest(ctx context.Context, in *RejectFacilityRequestRequest, opts ...grpc.CallOption) (*common.Result, error)
 	GetFacilityInfo(ctx context.Context, in *GetFacilityInfoRequest, opts ...grpc.CallOption) (*Facility, error)
+	GetEventFacilityInfo(ctx context.Context, in *GetEventFacilityInfoRequest, opts ...grpc.CallOption) (*Facility, error)
 }
 
 type facilityServiceClient struct {
@@ -120,6 +121,15 @@ func (c *facilityServiceClient) GetFacilityInfo(ctx context.Context, in *GetFaci
 	return out, nil
 }
 
+func (c *facilityServiceClient) GetEventFacilityInfo(ctx context.Context, in *GetEventFacilityInfoRequest, opts ...grpc.CallOption) (*Facility, error) {
+	out := new(Facility)
+	err := c.cc.Invoke(ctx, "/hts.facility.FacilityService/GetEventFacilityInfo", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // FacilityServiceServer is the server API for FacilityService service.
 // All implementations should embed UnimplementedFacilityServiceServer
 // for forward compatibility
@@ -133,6 +143,7 @@ type FacilityServiceServer interface {
 	ApproveFacilityRequest(context.Context, *ApproveFacilityRequestRequest) (*common.Result, error)
 	RejectFacilityRequest(context.Context, *RejectFacilityRequestRequest) (*common.Result, error)
 	GetFacilityInfo(context.Context, *GetFacilityInfoRequest) (*Facility, error)
+	GetEventFacilityInfo(context.Context, *GetEventFacilityInfoRequest) (*Facility, error)
 }
 
 // UnimplementedFacilityServiceServer should be embedded to have forward compatible implementations.
@@ -165,6 +176,9 @@ func (UnimplementedFacilityServiceServer) RejectFacilityRequest(context.Context,
 }
 func (UnimplementedFacilityServiceServer) GetFacilityInfo(context.Context, *GetFacilityInfoRequest) (*Facility, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetFacilityInfo not implemented")
+}
+func (UnimplementedFacilityServiceServer) GetEventFacilityInfo(context.Context, *GetEventFacilityInfoRequest) (*Facility, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetEventFacilityInfo not implemented")
 }
 
 // UnsafeFacilityServiceServer may be embedded to opt out of forward compatibility for this service.
@@ -340,6 +354,24 @@ func _FacilityService_GetFacilityInfo_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FacilityService_GetEventFacilityInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEventFacilityInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FacilityServiceServer).GetEventFacilityInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.facility.FacilityService/GetEventFacilityInfo",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FacilityServiceServer).GetEventFacilityInfo(ctx, req.(*GetEventFacilityInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // FacilityService_ServiceDesc is the grpc.ServiceDesc for FacilityService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -382,6 +414,10 @@ var FacilityService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetFacilityInfo",
 			Handler:    _FacilityService_GetFacilityInfo_Handler,
+		},
+		{
+			MethodName: "GetEventFacilityInfo",
+			Handler:    _FacilityService_GetEventFacilityInfo_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

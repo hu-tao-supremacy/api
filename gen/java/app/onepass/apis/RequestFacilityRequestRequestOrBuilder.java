@@ -12,4 +12,40 @@ public interface RequestFacilityRequestRequestOrBuilder extends
    * @return The eventId.
    */
   long getEventId();
+
+  /**
+   * <code>int64 facility_id = 2 [json_name = "facilityId"];</code>
+   * @return The facilityId.
+   */
+  long getFacilityId();
+
+  /**
+   * <code>.google.protobuf.Timestamp start = 3 [json_name = "start"];</code>
+   * @return Whether the start field is set.
+   */
+  boolean hasStart();
+  /**
+   * <code>.google.protobuf.Timestamp start = 3 [json_name = "start"];</code>
+   * @return The start.
+   */
+  com.google.protobuf.Timestamp getStart();
+  /**
+   * <code>.google.protobuf.Timestamp start = 3 [json_name = "start"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getStartOrBuilder();
+
+  /**
+   * <code>.google.protobuf.Timestamp end = 4 [json_name = "end"];</code>
+   * @return Whether the end field is set.
+   */
+  boolean hasEnd();
+  /**
+   * <code>.google.protobuf.Timestamp end = 4 [json_name = "end"];</code>
+   * @return The end.
+   */
+  com.google.protobuf.Timestamp getEnd();
+  /**
+   * <code>.google.protobuf.Timestamp end = 4 [json_name = "end"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getEndOrBuilder();
 }
