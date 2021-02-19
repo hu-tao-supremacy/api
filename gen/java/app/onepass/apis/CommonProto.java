@@ -24,6 +24,21 @@ public final class CommonProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hts_common_User_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_common_Event_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_common_Event_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_common_UserEvent_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_common_UserEvent_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_common_EventFeedback_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_common_EventFeedback_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -37,9 +52,22 @@ public final class CommonProto {
       "\006Result\022\023\n\005is_ok\030\001 \001(\010R\004isOk\022 \n\013descript" +
       "ion\030\002 \001(\tR\013description\"R\n\004User\022\016\n\002id\030\001 \001" +
       "(\003R\002id\022\035\n\nfirst_name\030\002 \001(\tR\tfirstName\022\033\n" +
-      "\tlast_name\030\003 \001(\tR\010lastNameBB\n\020app.onepas" +
-      "s.apisB\013CommonProtoP\001Z\037onepass.app/facil" +
-      "ity/hts/commonb\006proto3"
+      "\tlast_name\030\003 \001(\tR\010lastName\"\326\002\n\005Event\022\016\n\002" +
+      "id\030\001 \001(\003R\002id\022\'\n\017organization_id\030\002 \001(\003R\016o" +
+      "rganizationId\022*\n\021event_location_id\030\003 \001(\003" +
+      "R\017eventLocationId\022 \n\013description\030\004 \001(\tR\013" +
+      "description\022\022\n\004name\030\005 \001(\tR\004name\022\037\n\013cover" +
+      "_image\030\006 \001(\tR\ncoverImage\022(\n\020cover_image_" +
+      "hash\030\007 \001(\tR\016coverImageHash\022!\n\014poster_ima" +
+      "ge\030\010 \001(\tR\013posterImage\022*\n\021poster_image_ha" +
+      "sh\030\t \001(\tR\017posterImageHash\022\030\n\007contact\030\n \001" +
+      "(\tR\007contact\"O\n\tUserEvent\022\016\n\002id\030\001 \001(\003R\002id" +
+      "\022\027\n\007user_id\030\002 \001(\003R\006userId\022\031\n\010event_id\030\003 " +
+      "\001(\003R\007eventId\"V\n\rEventFeedback\022\016\n\002id\030\001 \001(" +
+      "\003R\002id\022\031\n\010event_id\030\002 \001(\003R\007eventId\022\032\n\010feed" +
+      "back\030\003 \001(\tR\010feedbackBB\n\020app.onepass.apis" +
+      "B\013CommonProtoP\001Z\037onepass.app/facility/ht" +
+      "s/commonb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -57,6 +85,24 @@ public final class CommonProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_common_User_descriptor,
         new java.lang.String[] { "Id", "FirstName", "LastName", });
+    internal_static_hts_common_Event_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_hts_common_Event_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_common_Event_descriptor,
+        new java.lang.String[] { "Id", "OrganizationId", "EventLocationId", "Description", "Name", "CoverImage", "CoverImageHash", "PosterImage", "PosterImageHash", "Contact", });
+    internal_static_hts_common_UserEvent_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_hts_common_UserEvent_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_common_UserEvent_descriptor,
+        new java.lang.String[] { "Id", "UserId", "EventId", });
+    internal_static_hts_common_EventFeedback_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_hts_common_EventFeedback_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_common_EventFeedback_descriptor,
+        new java.lang.String[] { "Id", "EventId", "Feedback", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
