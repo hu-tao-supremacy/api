@@ -18,6 +18,8 @@ private static final long serialVersionUID = 0L;
   private User() {
     firstName_ = "";
     lastName_ = "";
+    email_ = "";
+    gender_ = 0;
   }
 
   @java.lang.Override
@@ -65,6 +67,49 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             lastName_ = s;
+            break;
+          }
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            email_ = s;
+            break;
+          }
+          case 42: {
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (nickname_ != null) {
+              subBuilder = nickname_.toBuilder();
+            }
+            nickname_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(nickname_);
+              nickname_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 50: {
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (chulaId_ != null) {
+              subBuilder = chulaId_.toBuilder();
+            }
+            chulaId_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(chulaId_);
+              chulaId_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 56: {
+
+            isChulaStudent_ = input.readBool();
+            break;
+          }
+          case 64: {
+            int rawValue = input.readEnum();
+
+            gender_ = rawValue;
             break;
           }
           default: {
@@ -186,6 +231,126 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int EMAIL_FIELD_NUMBER = 4;
+  private volatile java.lang.Object email_;
+  /**
+   * <code>string email = 4 [json_name = "email"];</code>
+   * @return The email.
+   */
+  @java.lang.Override
+  public java.lang.String getEmail() {
+    java.lang.Object ref = email_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      email_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string email = 4 [json_name = "email"];</code>
+   * @return The bytes for email.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getEmailBytes() {
+    java.lang.Object ref = email_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      email_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int NICKNAME_FIELD_NUMBER = 5;
+  private com.google.protobuf.StringValue nickname_;
+  /**
+   * <code>.google.protobuf.StringValue nickname = 5 [json_name = "nickname"];</code>
+   * @return Whether the nickname field is set.
+   */
+  @java.lang.Override
+  public boolean hasNickname() {
+    return nickname_ != null;
+  }
+  /**
+   * <code>.google.protobuf.StringValue nickname = 5 [json_name = "nickname"];</code>
+   * @return The nickname.
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValue getNickname() {
+    return nickname_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : nickname_;
+  }
+  /**
+   * <code>.google.protobuf.StringValue nickname = 5 [json_name = "nickname"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValueOrBuilder getNicknameOrBuilder() {
+    return getNickname();
+  }
+
+  public static final int CHULA_ID_FIELD_NUMBER = 6;
+  private com.google.protobuf.StringValue chulaId_;
+  /**
+   * <code>.google.protobuf.StringValue chula_id = 6 [json_name = "chulaId"];</code>
+   * @return Whether the chulaId field is set.
+   */
+  @java.lang.Override
+  public boolean hasChulaId() {
+    return chulaId_ != null;
+  }
+  /**
+   * <code>.google.protobuf.StringValue chula_id = 6 [json_name = "chulaId"];</code>
+   * @return The chulaId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValue getChulaId() {
+    return chulaId_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : chulaId_;
+  }
+  /**
+   * <code>.google.protobuf.StringValue chula_id = 6 [json_name = "chulaId"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValueOrBuilder getChulaIdOrBuilder() {
+    return getChulaId();
+  }
+
+  public static final int IS_CHULA_STUDENT_FIELD_NUMBER = 7;
+  private boolean isChulaStudent_;
+  /**
+   * <code>bool is_chula_student = 7 [json_name = "isChulaStudent"];</code>
+   * @return The isChulaStudent.
+   */
+  @java.lang.Override
+  public boolean getIsChulaStudent() {
+    return isChulaStudent_;
+  }
+
+  public static final int GENDER_FIELD_NUMBER = 8;
+  private int gender_;
+  /**
+   * <code>.hts.common.Gender gender = 8 [json_name = "gender"];</code>
+   * @return The enum numeric value on the wire for gender.
+   */
+  @java.lang.Override public int getGenderValue() {
+    return gender_;
+  }
+  /**
+   * <code>.hts.common.Gender gender = 8 [json_name = "gender"];</code>
+   * @return The gender.
+   */
+  @java.lang.Override public app.onepass.apis.Gender getGender() {
+    @SuppressWarnings("deprecation")
+    app.onepass.apis.Gender result = app.onepass.apis.Gender.valueOf(gender_);
+    return result == null ? app.onepass.apis.Gender.UNRECOGNIZED : result;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -209,6 +374,21 @@ private static final long serialVersionUID = 0L;
     if (!getLastNameBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, lastName_);
     }
+    if (!getEmailBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, email_);
+    }
+    if (nickname_ != null) {
+      output.writeMessage(5, getNickname());
+    }
+    if (chulaId_ != null) {
+      output.writeMessage(6, getChulaId());
+    }
+    if (isChulaStudent_ != false) {
+      output.writeBool(7, isChulaStudent_);
+    }
+    if (gender_ != app.onepass.apis.Gender.MALE.getNumber()) {
+      output.writeEnum(8, gender_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -227,6 +407,25 @@ private static final long serialVersionUID = 0L;
     }
     if (!getLastNameBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, lastName_);
+    }
+    if (!getEmailBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, email_);
+    }
+    if (nickname_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, getNickname());
+    }
+    if (chulaId_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, getChulaId());
+    }
+    if (isChulaStudent_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(7, isChulaStudent_);
+    }
+    if (gender_ != app.onepass.apis.Gender.MALE.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(8, gender_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -249,6 +448,21 @@ private static final long serialVersionUID = 0L;
         .equals(other.getFirstName())) return false;
     if (!getLastName()
         .equals(other.getLastName())) return false;
+    if (!getEmail()
+        .equals(other.getEmail())) return false;
+    if (hasNickname() != other.hasNickname()) return false;
+    if (hasNickname()) {
+      if (!getNickname()
+          .equals(other.getNickname())) return false;
+    }
+    if (hasChulaId() != other.hasChulaId()) return false;
+    if (hasChulaId()) {
+      if (!getChulaId()
+          .equals(other.getChulaId())) return false;
+    }
+    if (getIsChulaStudent()
+        != other.getIsChulaStudent()) return false;
+    if (gender_ != other.gender_) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -267,6 +481,21 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getFirstName().hashCode();
     hash = (37 * hash) + LAST_NAME_FIELD_NUMBER;
     hash = (53 * hash) + getLastName().hashCode();
+    hash = (37 * hash) + EMAIL_FIELD_NUMBER;
+    hash = (53 * hash) + getEmail().hashCode();
+    if (hasNickname()) {
+      hash = (37 * hash) + NICKNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getNickname().hashCode();
+    }
+    if (hasChulaId()) {
+      hash = (37 * hash) + CHULA_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getChulaId().hashCode();
+    }
+    hash = (37 * hash) + IS_CHULA_STUDENT_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIsChulaStudent());
+    hash = (37 * hash) + GENDER_FIELD_NUMBER;
+    hash = (53 * hash) + gender_;
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -406,6 +635,24 @@ private static final long serialVersionUID = 0L;
 
       lastName_ = "";
 
+      email_ = "";
+
+      if (nicknameBuilder_ == null) {
+        nickname_ = null;
+      } else {
+        nickname_ = null;
+        nicknameBuilder_ = null;
+      }
+      if (chulaIdBuilder_ == null) {
+        chulaId_ = null;
+      } else {
+        chulaId_ = null;
+        chulaIdBuilder_ = null;
+      }
+      isChulaStudent_ = false;
+
+      gender_ = 0;
+
       return this;
     }
 
@@ -435,6 +682,19 @@ private static final long serialVersionUID = 0L;
       result.id_ = id_;
       result.firstName_ = firstName_;
       result.lastName_ = lastName_;
+      result.email_ = email_;
+      if (nicknameBuilder_ == null) {
+        result.nickname_ = nickname_;
+      } else {
+        result.nickname_ = nicknameBuilder_.build();
+      }
+      if (chulaIdBuilder_ == null) {
+        result.chulaId_ = chulaId_;
+      } else {
+        result.chulaId_ = chulaIdBuilder_.build();
+      }
+      result.isChulaStudent_ = isChulaStudent_;
+      result.gender_ = gender_;
       onBuilt();
       return result;
     }
@@ -493,6 +753,22 @@ private static final long serialVersionUID = 0L;
       if (!other.getLastName().isEmpty()) {
         lastName_ = other.lastName_;
         onChanged();
+      }
+      if (!other.getEmail().isEmpty()) {
+        email_ = other.email_;
+        onChanged();
+      }
+      if (other.hasNickname()) {
+        mergeNickname(other.getNickname());
+      }
+      if (other.hasChulaId()) {
+        mergeChulaId(other.getChulaId());
+      }
+      if (other.getIsChulaStudent() != false) {
+        setIsChulaStudent(other.getIsChulaStudent());
+      }
+      if (other.gender_ != 0) {
+        setGenderValue(other.getGenderValue());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -702,6 +978,405 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       lastName_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object email_ = "";
+    /**
+     * <code>string email = 4 [json_name = "email"];</code>
+     * @return The email.
+     */
+    public java.lang.String getEmail() {
+      java.lang.Object ref = email_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        email_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string email = 4 [json_name = "email"];</code>
+     * @return The bytes for email.
+     */
+    public com.google.protobuf.ByteString
+        getEmailBytes() {
+      java.lang.Object ref = email_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        email_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string email = 4 [json_name = "email"];</code>
+     * @param value The email to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEmail(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      email_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string email = 4 [json_name = "email"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearEmail() {
+      
+      email_ = getDefaultInstance().getEmail();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string email = 4 [json_name = "email"];</code>
+     * @param value The bytes for email to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEmailBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      email_ = value;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.StringValue nickname_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> nicknameBuilder_;
+    /**
+     * <code>.google.protobuf.StringValue nickname = 5 [json_name = "nickname"];</code>
+     * @return Whether the nickname field is set.
+     */
+    public boolean hasNickname() {
+      return nicknameBuilder_ != null || nickname_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue nickname = 5 [json_name = "nickname"];</code>
+     * @return The nickname.
+     */
+    public com.google.protobuf.StringValue getNickname() {
+      if (nicknameBuilder_ == null) {
+        return nickname_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : nickname_;
+      } else {
+        return nicknameBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue nickname = 5 [json_name = "nickname"];</code>
+     */
+    public Builder setNickname(com.google.protobuf.StringValue value) {
+      if (nicknameBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        nickname_ = value;
+        onChanged();
+      } else {
+        nicknameBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue nickname = 5 [json_name = "nickname"];</code>
+     */
+    public Builder setNickname(
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (nicknameBuilder_ == null) {
+        nickname_ = builderForValue.build();
+        onChanged();
+      } else {
+        nicknameBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue nickname = 5 [json_name = "nickname"];</code>
+     */
+    public Builder mergeNickname(com.google.protobuf.StringValue value) {
+      if (nicknameBuilder_ == null) {
+        if (nickname_ != null) {
+          nickname_ =
+            com.google.protobuf.StringValue.newBuilder(nickname_).mergeFrom(value).buildPartial();
+        } else {
+          nickname_ = value;
+        }
+        onChanged();
+      } else {
+        nicknameBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue nickname = 5 [json_name = "nickname"];</code>
+     */
+    public Builder clearNickname() {
+      if (nicknameBuilder_ == null) {
+        nickname_ = null;
+        onChanged();
+      } else {
+        nickname_ = null;
+        nicknameBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue nickname = 5 [json_name = "nickname"];</code>
+     */
+    public com.google.protobuf.StringValue.Builder getNicknameBuilder() {
+      
+      onChanged();
+      return getNicknameFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.StringValue nickname = 5 [json_name = "nickname"];</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getNicknameOrBuilder() {
+      if (nicknameBuilder_ != null) {
+        return nicknameBuilder_.getMessageOrBuilder();
+      } else {
+        return nickname_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : nickname_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue nickname = 5 [json_name = "nickname"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getNicknameFieldBuilder() {
+      if (nicknameBuilder_ == null) {
+        nicknameBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getNickname(),
+                getParentForChildren(),
+                isClean());
+        nickname_ = null;
+      }
+      return nicknameBuilder_;
+    }
+
+    private com.google.protobuf.StringValue chulaId_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> chulaIdBuilder_;
+    /**
+     * <code>.google.protobuf.StringValue chula_id = 6 [json_name = "chulaId"];</code>
+     * @return Whether the chulaId field is set.
+     */
+    public boolean hasChulaId() {
+      return chulaIdBuilder_ != null || chulaId_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue chula_id = 6 [json_name = "chulaId"];</code>
+     * @return The chulaId.
+     */
+    public com.google.protobuf.StringValue getChulaId() {
+      if (chulaIdBuilder_ == null) {
+        return chulaId_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : chulaId_;
+      } else {
+        return chulaIdBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue chula_id = 6 [json_name = "chulaId"];</code>
+     */
+    public Builder setChulaId(com.google.protobuf.StringValue value) {
+      if (chulaIdBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        chulaId_ = value;
+        onChanged();
+      } else {
+        chulaIdBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue chula_id = 6 [json_name = "chulaId"];</code>
+     */
+    public Builder setChulaId(
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (chulaIdBuilder_ == null) {
+        chulaId_ = builderForValue.build();
+        onChanged();
+      } else {
+        chulaIdBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue chula_id = 6 [json_name = "chulaId"];</code>
+     */
+    public Builder mergeChulaId(com.google.protobuf.StringValue value) {
+      if (chulaIdBuilder_ == null) {
+        if (chulaId_ != null) {
+          chulaId_ =
+            com.google.protobuf.StringValue.newBuilder(chulaId_).mergeFrom(value).buildPartial();
+        } else {
+          chulaId_ = value;
+        }
+        onChanged();
+      } else {
+        chulaIdBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue chula_id = 6 [json_name = "chulaId"];</code>
+     */
+    public Builder clearChulaId() {
+      if (chulaIdBuilder_ == null) {
+        chulaId_ = null;
+        onChanged();
+      } else {
+        chulaId_ = null;
+        chulaIdBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue chula_id = 6 [json_name = "chulaId"];</code>
+     */
+    public com.google.protobuf.StringValue.Builder getChulaIdBuilder() {
+      
+      onChanged();
+      return getChulaIdFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.StringValue chula_id = 6 [json_name = "chulaId"];</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getChulaIdOrBuilder() {
+      if (chulaIdBuilder_ != null) {
+        return chulaIdBuilder_.getMessageOrBuilder();
+      } else {
+        return chulaId_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : chulaId_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue chula_id = 6 [json_name = "chulaId"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getChulaIdFieldBuilder() {
+      if (chulaIdBuilder_ == null) {
+        chulaIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getChulaId(),
+                getParentForChildren(),
+                isClean());
+        chulaId_ = null;
+      }
+      return chulaIdBuilder_;
+    }
+
+    private boolean isChulaStudent_ ;
+    /**
+     * <code>bool is_chula_student = 7 [json_name = "isChulaStudent"];</code>
+     * @return The isChulaStudent.
+     */
+    @java.lang.Override
+    public boolean getIsChulaStudent() {
+      return isChulaStudent_;
+    }
+    /**
+     * <code>bool is_chula_student = 7 [json_name = "isChulaStudent"];</code>
+     * @param value The isChulaStudent to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIsChulaStudent(boolean value) {
+      
+      isChulaStudent_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool is_chula_student = 7 [json_name = "isChulaStudent"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIsChulaStudent() {
+      
+      isChulaStudent_ = false;
+      onChanged();
+      return this;
+    }
+
+    private int gender_ = 0;
+    /**
+     * <code>.hts.common.Gender gender = 8 [json_name = "gender"];</code>
+     * @return The enum numeric value on the wire for gender.
+     */
+    @java.lang.Override public int getGenderValue() {
+      return gender_;
+    }
+    /**
+     * <code>.hts.common.Gender gender = 8 [json_name = "gender"];</code>
+     * @param value The enum numeric value on the wire for gender to set.
+     * @return This builder for chaining.
+     */
+    public Builder setGenderValue(int value) {
+      
+      gender_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.hts.common.Gender gender = 8 [json_name = "gender"];</code>
+     * @return The gender.
+     */
+    @java.lang.Override
+    public app.onepass.apis.Gender getGender() {
+      @SuppressWarnings("deprecation")
+      app.onepass.apis.Gender result = app.onepass.apis.Gender.valueOf(gender_);
+      return result == null ? app.onepass.apis.Gender.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.hts.common.Gender gender = 8 [json_name = "gender"];</code>
+     * @param value The gender to set.
+     * @return This builder for chaining.
+     */
+    public Builder setGender(app.onepass.apis.Gender value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      gender_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.hts.common.Gender gender = 8 [json_name = "gender"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearGender() {
+      
+      gender_ = 0;
       onChanged();
       return this;
     }

@@ -20,10 +20,19 @@ public interface EventOrBuilder extends
   long getOrganizationId();
 
   /**
-   * <code>int64 event_location_id = 3 [json_name = "eventLocationId"];</code>
+   * <code>.google.protobuf.Int64Value event_location_id = 3 [json_name = "eventLocationId"];</code>
+   * @return Whether the eventLocationId field is set.
+   */
+  boolean hasEventLocationId();
+  /**
+   * <code>.google.protobuf.Int64Value event_location_id = 3 [json_name = "eventLocationId"];</code>
    * @return The eventLocationId.
    */
-  long getEventLocationId();
+  com.google.protobuf.Int64Value getEventLocationId();
+  /**
+   * <code>.google.protobuf.Int64Value event_location_id = 3 [json_name = "eventLocationId"];</code>
+   */
+  com.google.protobuf.Int64ValueOrBuilder getEventLocationIdOrBuilder();
 
   /**
    * <code>string description = 4 [json_name = "description"];</code>
@@ -50,52 +59,64 @@ public interface EventOrBuilder extends
       getNameBytes();
 
   /**
-   * <code>string cover_image = 6 [json_name = "coverImage"];</code>
+   * <code>.google.protobuf.StringValue cover_image = 6 [json_name = "coverImage"];</code>
+   * @return Whether the coverImage field is set.
+   */
+  boolean hasCoverImage();
+  /**
+   * <code>.google.protobuf.StringValue cover_image = 6 [json_name = "coverImage"];</code>
    * @return The coverImage.
    */
-  java.lang.String getCoverImage();
+  com.google.protobuf.StringValue getCoverImage();
   /**
-   * <code>string cover_image = 6 [json_name = "coverImage"];</code>
-   * @return The bytes for coverImage.
+   * <code>.google.protobuf.StringValue cover_image = 6 [json_name = "coverImage"];</code>
    */
-  com.google.protobuf.ByteString
-      getCoverImageBytes();
+  com.google.protobuf.StringValueOrBuilder getCoverImageOrBuilder();
 
   /**
-   * <code>string cover_image_hash = 7 [json_name = "coverImageHash"];</code>
+   * <code>.google.protobuf.StringValue cover_image_hash = 7 [json_name = "coverImageHash"];</code>
+   * @return Whether the coverImageHash field is set.
+   */
+  boolean hasCoverImageHash();
+  /**
+   * <code>.google.protobuf.StringValue cover_image_hash = 7 [json_name = "coverImageHash"];</code>
    * @return The coverImageHash.
    */
-  java.lang.String getCoverImageHash();
+  com.google.protobuf.StringValue getCoverImageHash();
   /**
-   * <code>string cover_image_hash = 7 [json_name = "coverImageHash"];</code>
-   * @return The bytes for coverImageHash.
+   * <code>.google.protobuf.StringValue cover_image_hash = 7 [json_name = "coverImageHash"];</code>
    */
-  com.google.protobuf.ByteString
-      getCoverImageHashBytes();
+  com.google.protobuf.StringValueOrBuilder getCoverImageHashOrBuilder();
 
   /**
-   * <code>string poster_image = 8 [json_name = "posterImage"];</code>
+   * <code>.google.protobuf.StringValue poster_image = 8 [json_name = "posterImage"];</code>
+   * @return Whether the posterImage field is set.
+   */
+  boolean hasPosterImage();
+  /**
+   * <code>.google.protobuf.StringValue poster_image = 8 [json_name = "posterImage"];</code>
    * @return The posterImage.
    */
-  java.lang.String getPosterImage();
+  com.google.protobuf.StringValue getPosterImage();
   /**
-   * <code>string poster_image = 8 [json_name = "posterImage"];</code>
-   * @return The bytes for posterImage.
+   * <code>.google.protobuf.StringValue poster_image = 8 [json_name = "posterImage"];</code>
    */
-  com.google.protobuf.ByteString
-      getPosterImageBytes();
+  com.google.protobuf.StringValueOrBuilder getPosterImageOrBuilder();
 
   /**
-   * <code>string poster_image_hash = 9 [json_name = "posterImageHash"];</code>
+   * <code>.google.protobuf.StringValue poster_image_hash = 9 [json_name = "posterImageHash"];</code>
+   * @return Whether the posterImageHash field is set.
+   */
+  boolean hasPosterImageHash();
+  /**
+   * <code>.google.protobuf.StringValue poster_image_hash = 9 [json_name = "posterImageHash"];</code>
    * @return The posterImageHash.
    */
-  java.lang.String getPosterImageHash();
+  com.google.protobuf.StringValue getPosterImageHash();
   /**
-   * <code>string poster_image_hash = 9 [json_name = "posterImageHash"];</code>
-   * @return The bytes for posterImageHash.
+   * <code>.google.protobuf.StringValue poster_image_hash = 9 [json_name = "posterImageHash"];</code>
    */
-  com.google.protobuf.ByteString
-      getPosterImageHashBytes();
+  com.google.protobuf.StringValueOrBuilder getPosterImageHashOrBuilder();
 
   /**
    * <code>string contact = 10 [json_name = "contact"];</code>

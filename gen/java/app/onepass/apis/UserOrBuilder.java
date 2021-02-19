@@ -36,4 +36,63 @@ public interface UserOrBuilder extends
    */
   com.google.protobuf.ByteString
       getLastNameBytes();
+
+  /**
+   * <code>string email = 4 [json_name = "email"];</code>
+   * @return The email.
+   */
+  java.lang.String getEmail();
+  /**
+   * <code>string email = 4 [json_name = "email"];</code>
+   * @return The bytes for email.
+   */
+  com.google.protobuf.ByteString
+      getEmailBytes();
+
+  /**
+   * <code>.google.protobuf.StringValue nickname = 5 [json_name = "nickname"];</code>
+   * @return Whether the nickname field is set.
+   */
+  boolean hasNickname();
+  /**
+   * <code>.google.protobuf.StringValue nickname = 5 [json_name = "nickname"];</code>
+   * @return The nickname.
+   */
+  com.google.protobuf.StringValue getNickname();
+  /**
+   * <code>.google.protobuf.StringValue nickname = 5 [json_name = "nickname"];</code>
+   */
+  com.google.protobuf.StringValueOrBuilder getNicknameOrBuilder();
+
+  /**
+   * <code>.google.protobuf.StringValue chula_id = 6 [json_name = "chulaId"];</code>
+   * @return Whether the chulaId field is set.
+   */
+  boolean hasChulaId();
+  /**
+   * <code>.google.protobuf.StringValue chula_id = 6 [json_name = "chulaId"];</code>
+   * @return The chulaId.
+   */
+  com.google.protobuf.StringValue getChulaId();
+  /**
+   * <code>.google.protobuf.StringValue chula_id = 6 [json_name = "chulaId"];</code>
+   */
+  com.google.protobuf.StringValueOrBuilder getChulaIdOrBuilder();
+
+  /**
+   * <code>bool is_chula_student = 7 [json_name = "isChulaStudent"];</code>
+   * @return The isChulaStudent.
+   */
+  boolean getIsChulaStudent();
+
+  /**
+   * <code>.hts.common.Gender gender = 8 [json_name = "gender"];</code>
+   * @return The enum numeric value on the wire for gender.
+   */
+  int getGenderValue();
+  /**
+   * <code>.hts.common.Gender gender = 8 [json_name = "gender"];</code>
+   * @return The gender.
+   */
+  app.onepass.apis.Gender getGender();
 }
