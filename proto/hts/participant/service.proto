@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package hts.participant;
+
+option java_multiple_files = true;
+option java_package = "app.onepass.apis";
+option java_outer_classname = "ParticipantProto";
+option go_package = "onepass.app/facility/hts/participant";
+
+import "hts/common.proto";
+
+message IsEventAvailableReq {
+    hts.common.Event event = 1;
+}
+message JoinEventReq {
+    hts.common.User user = 1;
+    hts.common.Event event = 2;
+}
+message CancelEventReq {
+    hts.common.User user = 1;
+    hts.common.Event event = 2;
+}
+message CreateFeedbackReq {
+    hts.common.User user = 1;
+    hts.common.EventFeedback feedback = 2;
+}
+message RemoveFeedbackReq {
+    hts.common.Feedback feedback = 1;
+}
+message SearchEventsByNameReq {
+    string name = 1;
+}
+message SearchEventsByNameRes {
+    repeated hts.common.Event events = 1;
+}
+message GenerateQRReq {
+    hts.foundation.UserEvent user_event = 1;
+}
+message GenerateQRRes {
+    string data = 1;
+}
+
+service ParticipantService {
+    rpc IsEventAvailable(IsEventAvailableReq) returns (hts.common.Result);
+    rpc JoinEvent(JoinEventReq) returns (hts.common.Result);
+    rpc CancelEvent(CancelEventReq) returns (hts.common.Result);
+    rpc CreateFeedback(CreateFeedbackReq) returns (hts.common.Result);
+    rpc RemoveFeedback(RemoveFeedbackReq) returns (hts.common.Result);
+    rpc SearchEventsByName(SearchEventsByNameReq) returns (SearchEventsByNameRes);
+    rpc GenerateQR(GenerateQRReq) returns (GenerateQRRes);
+}
