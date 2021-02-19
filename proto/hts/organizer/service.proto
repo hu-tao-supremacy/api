@@ -1,0 +1,110 @@
+syntax = "proto3";
+
+package hts.facility;
+
+option java_multiple_files = true;
+option java_package = "app.onepass.apis";
+option java_outer_classname = "FacilityProto";
+option go_package = "onepass.app/facility/hts/facility";
+
+import "hts/common/common.proto";
+    
+message UserReq {
+  int64 user_id = 1;
+}
+
+message CreateOrganizationReq {
+  int64 user_id = 1;
+  hts.common.Organization organization = 2;
+}
+
+message UpdateOrganizationReq {
+  int64 user_id = 1;
+  int64 organization_id = 2;
+  hts.common.Organization organization = 3;
+}
+
+message DeleteOrganizationReq {
+  int64 user_id = 1;
+  int64 organization_id = 2;
+}
+
+message AddUsersToOrganizationReq {
+  int64 user_id = 1;
+  repeated int64 user_ids = 2;
+}
+
+message UpdateUsersInOrganizationReq {
+  int64 user_id = 1;
+  repeated int64 user_ids = 2;
+}
+
+message CreateEventReq {
+  int64 user_id = 1;
+  hts.common.Event event = 2;
+}
+
+message UpdateEventInfoReq {
+  int64 user_id = 1;
+  hts.common.Event event = 2;
+}
+
+message UpdateEventFacilityReq {
+  int64 user_id = 1;
+  hts.common.Facility facility = 2;
+}
+
+message UpdateEventDurationReq {
+  int64 user_id = 1;
+  int64 event_id = 2;
+  repeated hts.organizer.Duration duration = 3;
+}
+
+message DeleteEventReq {
+  int64 user_id = 1;
+  int64 event_id = 2;
+}
+
+message UpdateRegistrationRequestReq {
+  int64 user_id = 1;
+  int64 registered_user_id = 2;
+  int64 registered_event_id = 3;
+  hts.common.Status status = 4;
+}
+
+message UpdateTagReq {
+  int64 user_id = 1;
+  repeated int64 tag_ids = 2;
+  int64 event_id = 3;
+}
+
+message ReadOrganizationRes {
+  repeated hts.common.Organization organizations = 1;
+}
+
+message ReadEventRes {
+  repeated hts.common.Event events = 1;
+}
+
+message ReadTagRes {
+  repeated hts.common.Tag tags = 1;
+}
+
+service OrganizationService {
+  rpc CreateOrganization(CreateOrganizationReq) returns (hts.common.Result);
+  rpc ReadOrganization(UserReq) returns (ReadOrganizationRes);
+  rpc UpdateOrganization(UpdateOrganizationReq) returns (hts.common.Result);
+  rpc DeleteOrganization(DeleteOrganizationReq) returns (hts.common.Result);
+  rpc AddUsersToOrganization(UpdateUsersInOrganizationReq) returns (hts.common.Result);
+  rpc RemoveUsersFromOrganization(UpdateUsersInOrganizationReq) returns (hts.common.Result);
+  rpc CreateEvent(CreateEventReq) returns (hts.common.Result);
+  rpc ReadEvent(UserReq) returns (ReadEventRes);
+  rpc UpdateEventInfo(UpdateEventInfoReq) returns (hts.common.Result);
+  rpc UpdateEventFacility(UpdateEventFacilityReq) returns (hts.common.Result);
+  rpc UpdateEventDuration(UpdateEventDurationReq) returns (hts.common.Result);
+  rpc DeleteEvent(DeleteEventReq) returns (hts.common.Result);
+  rpc UpdateRegistrationRequest(UpdateRegistrationRequestReq) returns (hts.common.Result);
+  rpc AddTag(UpdateTagReq) returns (hts.common.Result);
+  rpc RemoveTag(UpdateTagReq) returns (hts.common.Result);
+  rpc ReadTag(UserReq) returns (ReadTagRes);
+}
