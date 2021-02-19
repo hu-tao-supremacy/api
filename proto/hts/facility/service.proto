@@ -11,19 +11,14 @@ option go_package = "onepass.app/facility/hts/facility";
 import "hts/common/common.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
-import "google/protobuf/descriptor.proto";
 
 // Model
-extend google.protobuf.EnumValueOptions {
-    optional string name = 50000;
-    optional string singleCharCode = 50001;
-}
 
 enum RequestStatus {
-    PENDING = 0 [(name) = "PENDING", (singleCharCode) = 'P'];
-    APPROVED = 1 [(name) = "APPROVED", (singleCharCode) = 'A'];
-    REJECTED = 2 [(name) = "REJECTED", (singleCharCode) = 'R'];
-  }    
+    PENDING = 0;
+    APPROVED = 1;
+    REJECTED = 2;
+}    
 
 message FacilityRequest {
     int64 id = 1;
