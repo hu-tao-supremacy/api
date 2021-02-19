@@ -25,7 +25,7 @@ message FacilityRequest {
     int64 event_id = 2;
     int64 facility_id = 3;
     RequestStatus status = 4;
-    int64 reject_reason = 5;
+    string reject_reason = 5;
     google.protobuf.Timestamp start = 6;
     google.protobuf.Timestamp finish = 7;
 }
