@@ -8,9 +8,15 @@ option java_outer_classname = "FacilityProto";
 option go_package = "onepass.app/facility/hts/facility";
 
 import "hts/common/common.proto";
-    
+import "google/protobuf/timestamp.proto";
+
 message UserReq {
   int64 user_id = 1;
+}
+
+message Duration {
+  google.protobuf.Timestamp start = 1;
+  google.protobuf.Timestamp finish = 2;
 }
 
 message CreateOrganizationReq {
@@ -57,7 +63,7 @@ message UpdateEventFacilityReq {
 message UpdateEventDurationReq {
   int64 user_id = 1;
   int64 event_id = 2;
-  repeated hts.organizer.Duration duration = 3;
+  repeated Duration duration = 3;
 }
 
 message DeleteEventReq {
