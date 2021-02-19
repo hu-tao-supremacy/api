@@ -9,43 +9,43 @@ option go_package = "onepass.app/facility/hts/participant";
 
 import "hts/common/common.proto";
 
-message IsEventAvailableReq {
+message IsEventAvailableRequest {
     hts.common.Event event = 1;
 }
-message JoinEventReq {
+message JoinEventRequest {
     hts.common.User user = 1;
     hts.common.Event event = 2;
 }
-message CancelEventReq {
+message CancelEventRequest {
     hts.common.User user = 1;
     hts.common.Event event = 2;
 }
-message CreateFeedbackReq {
+message CreateFeedbackRequest {
     hts.common.User user = 1;
     hts.common.EventFeedback feedback = 2;
 }
-message RemoveFeedbackReq {
+message RemoveFeedbackRequest {
     hts.common.EventFeedback feedback = 1;
 }
-message SearchEventsByNameReq {
+message SearchEventsByNameRequest {
     string name = 1;
 }
-message SearchEventsByNameRes {
+message SearchEventsByNameRespond {
     repeated hts.common.Event events = 1;
 }
-message GenerateQRReq {
+message GenerateQRRequest {
     hts.common.UserEvent user_event = 1;
 }
-message GenerateQRRes {
+message GenerateQRRespond {
     string data = 1;
 }
 
 service ParticipantService {
-    rpc IsEventAvailable(IsEventAvailableReq) returns (hts.common.Result);
-    rpc JoinEvent(JoinEventReq) returns (hts.common.Result);
-    rpc CancelEvent(CancelEventReq) returns (hts.common.Result);
-    rpc CreateFeedback(CreateFeedbackReq) returns (hts.common.Result);
-    rpc RemoveFeedback(RemoveFeedbackReq) returns (hts.common.Result);
-    rpc SearchEventsByName(SearchEventsByNameReq) returns (SearchEventsByNameRes);
-    rpc GenerateQR(GenerateQRReq) returns (GenerateQRRes);
+    rpc IsEventAvailable(IsEventAvailableRequest) returns (hts.common.Result);
+    rpc JoinEvent(JoinEventRequest) returns (hts.common.Result);
+    rpc CancelEvent(CancelEventRequest) returns (hts.common.Result);
+    rpc CreateFeedback(CreateFeedbackRequest) returns (hts.common.Result);
+    rpc RemoveFeedback(RemoveFeedbackRequest) returns (hts.common.Result);
+    rpc SearchEventsByName(SearchEventsByNameRequest) returns (SearchEventsByNameRespond);
+    rpc GenerateQR(GenerateQRRequest) returns (GenerateQRRespond);
 }
