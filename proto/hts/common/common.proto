@@ -7,6 +7,9 @@ option java_package = "app.onepass.apis";
 option java_outer_classname = "CommonProto";
 option go_package = "onepass.app/facility/hts/common";
 
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
 enum Gender {
   MALE = 0;
   FEMALE = 1;
@@ -52,8 +55,8 @@ message User {
   string first_name = 2;
   string last_name = 3;
   string email = 4;
-  string nickname = 5;
-  string chula_id = 6;
+  google.protobuf.StringValue nickname = 5;
+  google.protobuf.StringValue chula_id = 6;
   bool is_chula_student = 7;
   Gender gender = 8;
 }
@@ -73,13 +76,13 @@ message UserOrganization {
 message Event {
   int64 id = 1;
   int64 organization_id = 2;
-  int64 event_location_id = 3;
+  google.protobuf.Int64Value event_location_id = 3;
   string description = 4;
   string name = 5;
-  string cover_image = 6;
-  string cover_image_hash = 7;
-  string poster_image = 8;
-  string poster_image_hash = 9;
+  google.protobuf.StringValue cover_image = 6;
+  google.protobuf.StringValue cover_image_hash = 7;
+  google.protobuf.StringValue poster_image = 8;
+  google.protobuf.StringValue poster_image_hash = 9;
   string contact = 10;
 }
 
@@ -98,8 +101,8 @@ message EventFeedback {
 message EventLocation {
   int64 id = 1;
   string name = 2;
-  int64 latitude = 3;
-  int64 longitude = 4;
+  double latitude = 3;
+  double longitude = 4;
 }
 
 message UserEvent {
@@ -111,8 +114,8 @@ message UserEvent {
 message EventDuration {
   int64 id = 1;
   int64 event_id = 2;
-  string start = 3;
-  string end = 4;
+  google.protobuf.Timestamp start = 3;
+  google.protobuf.Timestamp finish = 4;
 }
 
 message EventRegistration {
@@ -149,6 +152,18 @@ message FacilityRequest {
   int64 id = 1;
   int64 event_id = 2;
   int64 facility_id = 3;
-  bool is_approved = 4;
-  string reject_reason = 5;
+  Status status = 4;
+  google.protobuf.StringValue reject_reason = 5;
+  google.protobuf.Timestamp start = 6;
+  google.protobuf.Timestamp finish = 7;
+}
+
+message Facility {
+  int64 id = 1;
+  int64 organization_id = 2;
+  string name = 3;
+  double latitude = 4;
+  double longitude = 5;
+  string operating_hours = 6;
+  string description = 7;
 }
