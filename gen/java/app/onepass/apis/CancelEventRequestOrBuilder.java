@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface CancelEventReqOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.participant.CancelEventReq)
+public interface CancelEventRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.participant.CancelEventRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

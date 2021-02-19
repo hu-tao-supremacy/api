@@ -4,26 +4,25 @@
 package app.onepass.apis;
 
 /**
- * Protobuf type {@code hts.participant.GenerateQRRes}
+ * Protobuf type {@code hts.participant.GenerateQRRequest}
  */
-public final class GenerateQRRes extends
+public final class GenerateQRRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:hts.participant.GenerateQRRes)
-    GenerateQRResOrBuilder {
+    // @@protoc_insertion_point(message_implements:hts.participant.GenerateQRRequest)
+    GenerateQRRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use GenerateQRRes.newBuilder() to construct.
-  private GenerateQRRes(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use GenerateQRRequest.newBuilder() to construct.
+  private GenerateQRRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private GenerateQRRes() {
-    data_ = "";
+  private GenerateQRRequest() {
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new GenerateQRRes();
+    return new GenerateQRRequest();
   }
 
   @java.lang.Override
@@ -31,7 +30,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GenerateQRRes(
+  private GenerateQRRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -50,9 +49,16 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+            app.onepass.apis.UserEvent.Builder subBuilder = null;
+            if (userEvent_ != null) {
+              subBuilder = userEvent_.toBuilder();
+            }
+            userEvent_ = input.readMessage(app.onepass.apis.UserEvent.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(userEvent_);
+              userEvent_ = subBuilder.buildPartial();
+            }
 
-            data_ = s;
             break;
           }
           default: {
@@ -76,53 +82,41 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return app.onepass.apis.ParticipantProto.internal_static_hts_participant_GenerateQRRes_descriptor;
+    return app.onepass.apis.ParticipantProto.internal_static_hts_participant_GenerateQRRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return app.onepass.apis.ParticipantProto.internal_static_hts_participant_GenerateQRRes_fieldAccessorTable
+    return app.onepass.apis.ParticipantProto.internal_static_hts_participant_GenerateQRRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            app.onepass.apis.GenerateQRRes.class, app.onepass.apis.GenerateQRRes.Builder.class);
+            app.onepass.apis.GenerateQRRequest.class, app.onepass.apis.GenerateQRRequest.Builder.class);
   }
 
-  public static final int DATA_FIELD_NUMBER = 1;
-  private volatile java.lang.Object data_;
+  public static final int USER_EVENT_FIELD_NUMBER = 1;
+  private app.onepass.apis.UserEvent userEvent_;
   /**
-   * <code>string data = 1 [json_name = "data"];</code>
-   * @return The data.
+   * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
+   * @return Whether the userEvent field is set.
    */
   @java.lang.Override
-  public java.lang.String getData() {
-    java.lang.Object ref = data_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      data_ = s;
-      return s;
-    }
+  public boolean hasUserEvent() {
+    return userEvent_ != null;
   }
   /**
-   * <code>string data = 1 [json_name = "data"];</code>
-   * @return The bytes for data.
+   * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
+   * @return The userEvent.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getDataBytes() {
-    java.lang.Object ref = data_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      data_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public app.onepass.apis.UserEvent getUserEvent() {
+    return userEvent_ == null ? app.onepass.apis.UserEvent.getDefaultInstance() : userEvent_;
+  }
+  /**
+   * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
+   */
+  @java.lang.Override
+  public app.onepass.apis.UserEventOrBuilder getUserEventOrBuilder() {
+    return getUserEvent();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -139,8 +133,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getDataBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, data_);
+    if (userEvent_ != null) {
+      output.writeMessage(1, getUserEvent());
     }
     unknownFields.writeTo(output);
   }
@@ -151,8 +145,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getDataBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, data_);
+    if (userEvent_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(1, getUserEvent());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -164,13 +159,16 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof app.onepass.apis.GenerateQRRes)) {
+    if (!(obj instanceof app.onepass.apis.GenerateQRRequest)) {
       return super.equals(obj);
     }
-    app.onepass.apis.GenerateQRRes other = (app.onepass.apis.GenerateQRRes) obj;
+    app.onepass.apis.GenerateQRRequest other = (app.onepass.apis.GenerateQRRequest) obj;
 
-    if (!getData()
-        .equals(other.getData())) return false;
+    if (hasUserEvent() != other.hasUserEvent()) return false;
+    if (hasUserEvent()) {
+      if (!getUserEvent()
+          .equals(other.getUserEvent())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -182,76 +180,78 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + DATA_FIELD_NUMBER;
-    hash = (53 * hash) + getData().hashCode();
+    if (hasUserEvent()) {
+      hash = (37 * hash) + USER_EVENT_FIELD_NUMBER;
+      hash = (53 * hash) + getUserEvent().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static app.onepass.apis.GenerateQRRes parseFrom(
+  public static app.onepass.apis.GenerateQRRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.GenerateQRRes parseFrom(
+  public static app.onepass.apis.GenerateQRRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.GenerateQRRes parseFrom(
+  public static app.onepass.apis.GenerateQRRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.GenerateQRRes parseFrom(
+  public static app.onepass.apis.GenerateQRRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.GenerateQRRes parseFrom(byte[] data)
+  public static app.onepass.apis.GenerateQRRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.GenerateQRRes parseFrom(
+  public static app.onepass.apis.GenerateQRRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.GenerateQRRes parseFrom(java.io.InputStream input)
+  public static app.onepass.apis.GenerateQRRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.GenerateQRRes parseFrom(
+  public static app.onepass.apis.GenerateQRRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.GenerateQRRes parseDelimitedFrom(java.io.InputStream input)
+  public static app.onepass.apis.GenerateQRRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.GenerateQRRes parseDelimitedFrom(
+  public static app.onepass.apis.GenerateQRRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.GenerateQRRes parseFrom(
+  public static app.onepass.apis.GenerateQRRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.GenerateQRRes parseFrom(
+  public static app.onepass.apis.GenerateQRRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -264,7 +264,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(app.onepass.apis.GenerateQRRes prototype) {
+  public static Builder newBuilder(app.onepass.apis.GenerateQRRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -280,26 +280,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code hts.participant.GenerateQRRes}
+   * Protobuf type {@code hts.participant.GenerateQRRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:hts.participant.GenerateQRRes)
-      app.onepass.apis.GenerateQRResOrBuilder {
+      // @@protoc_insertion_point(builder_implements:hts.participant.GenerateQRRequest)
+      app.onepass.apis.GenerateQRRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return app.onepass.apis.ParticipantProto.internal_static_hts_participant_GenerateQRRes_descriptor;
+      return app.onepass.apis.ParticipantProto.internal_static_hts_participant_GenerateQRRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return app.onepass.apis.ParticipantProto.internal_static_hts_participant_GenerateQRRes_fieldAccessorTable
+      return app.onepass.apis.ParticipantProto.internal_static_hts_participant_GenerateQRRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              app.onepass.apis.GenerateQRRes.class, app.onepass.apis.GenerateQRRes.Builder.class);
+              app.onepass.apis.GenerateQRRequest.class, app.onepass.apis.GenerateQRRequest.Builder.class);
     }
 
-    // Construct using app.onepass.apis.GenerateQRRes.newBuilder()
+    // Construct using app.onepass.apis.GenerateQRRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -317,25 +317,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      data_ = "";
-
+      if (userEventBuilder_ == null) {
+        userEvent_ = null;
+      } else {
+        userEvent_ = null;
+        userEventBuilder_ = null;
+      }
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return app.onepass.apis.ParticipantProto.internal_static_hts_participant_GenerateQRRes_descriptor;
+      return app.onepass.apis.ParticipantProto.internal_static_hts_participant_GenerateQRRequest_descriptor;
     }
 
     @java.lang.Override
-    public app.onepass.apis.GenerateQRRes getDefaultInstanceForType() {
-      return app.onepass.apis.GenerateQRRes.getDefaultInstance();
+    public app.onepass.apis.GenerateQRRequest getDefaultInstanceForType() {
+      return app.onepass.apis.GenerateQRRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public app.onepass.apis.GenerateQRRes build() {
-      app.onepass.apis.GenerateQRRes result = buildPartial();
+    public app.onepass.apis.GenerateQRRequest build() {
+      app.onepass.apis.GenerateQRRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -343,9 +347,13 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public app.onepass.apis.GenerateQRRes buildPartial() {
-      app.onepass.apis.GenerateQRRes result = new app.onepass.apis.GenerateQRRes(this);
-      result.data_ = data_;
+    public app.onepass.apis.GenerateQRRequest buildPartial() {
+      app.onepass.apis.GenerateQRRequest result = new app.onepass.apis.GenerateQRRequest(this);
+      if (userEventBuilder_ == null) {
+        result.userEvent_ = userEvent_;
+      } else {
+        result.userEvent_ = userEventBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -384,19 +392,18 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof app.onepass.apis.GenerateQRRes) {
-        return mergeFrom((app.onepass.apis.GenerateQRRes)other);
+      if (other instanceof app.onepass.apis.GenerateQRRequest) {
+        return mergeFrom((app.onepass.apis.GenerateQRRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(app.onepass.apis.GenerateQRRes other) {
-      if (other == app.onepass.apis.GenerateQRRes.getDefaultInstance()) return this;
-      if (!other.getData().isEmpty()) {
-        data_ = other.data_;
-        onChanged();
+    public Builder mergeFrom(app.onepass.apis.GenerateQRRequest other) {
+      if (other == app.onepass.apis.GenerateQRRequest.getDefaultInstance()) return this;
+      if (other.hasUserEvent()) {
+        mergeUserEvent(other.getUserEvent());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -413,11 +420,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      app.onepass.apis.GenerateQRRes parsedMessage = null;
+      app.onepass.apis.GenerateQRRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (app.onepass.apis.GenerateQRRes) e.getUnfinishedMessage();
+        parsedMessage = (app.onepass.apis.GenerateQRRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -427,80 +434,123 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object data_ = "";
+    private app.onepass.apis.UserEvent userEvent_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        app.onepass.apis.UserEvent, app.onepass.apis.UserEvent.Builder, app.onepass.apis.UserEventOrBuilder> userEventBuilder_;
     /**
-     * <code>string data = 1 [json_name = "data"];</code>
-     * @return The data.
+     * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
+     * @return Whether the userEvent field is set.
      */
-    public java.lang.String getData() {
-      java.lang.Object ref = data_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        data_ = s;
-        return s;
+    public boolean hasUserEvent() {
+      return userEventBuilder_ != null || userEvent_ != null;
+    }
+    /**
+     * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
+     * @return The userEvent.
+     */
+    public app.onepass.apis.UserEvent getUserEvent() {
+      if (userEventBuilder_ == null) {
+        return userEvent_ == null ? app.onepass.apis.UserEvent.getDefaultInstance() : userEvent_;
       } else {
-        return (java.lang.String) ref;
+        return userEventBuilder_.getMessage();
       }
     }
     /**
-     * <code>string data = 1 [json_name = "data"];</code>
-     * @return The bytes for data.
+     * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
      */
-    public com.google.protobuf.ByteString
-        getDataBytes() {
-      java.lang.Object ref = data_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        data_ = b;
-        return b;
+    public Builder setUserEvent(app.onepass.apis.UserEvent value) {
+      if (userEventBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        userEvent_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        userEventBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
+     */
+    public Builder setUserEvent(
+        app.onepass.apis.UserEvent.Builder builderForValue) {
+      if (userEventBuilder_ == null) {
+        userEvent_ = builderForValue.build();
+        onChanged();
+      } else {
+        userEventBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
+     */
+    public Builder mergeUserEvent(app.onepass.apis.UserEvent value) {
+      if (userEventBuilder_ == null) {
+        if (userEvent_ != null) {
+          userEvent_ =
+            app.onepass.apis.UserEvent.newBuilder(userEvent_).mergeFrom(value).buildPartial();
+        } else {
+          userEvent_ = value;
+        }
+        onChanged();
+      } else {
+        userEventBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
+     */
+    public Builder clearUserEvent() {
+      if (userEventBuilder_ == null) {
+        userEvent_ = null;
+        onChanged();
+      } else {
+        userEvent_ = null;
+        userEventBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
+     */
+    public app.onepass.apis.UserEvent.Builder getUserEventBuilder() {
+      
+      onChanged();
+      return getUserEventFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
+     */
+    public app.onepass.apis.UserEventOrBuilder getUserEventOrBuilder() {
+      if (userEventBuilder_ != null) {
+        return userEventBuilder_.getMessageOrBuilder();
+      } else {
+        return userEvent_ == null ?
+            app.onepass.apis.UserEvent.getDefaultInstance() : userEvent_;
       }
     }
     /**
-     * <code>string data = 1 [json_name = "data"];</code>
-     * @param value The data to set.
-     * @return This builder for chaining.
+     * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
      */
-    public Builder setData(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      data_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string data = 1 [json_name = "data"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearData() {
-      
-      data_ = getDefaultInstance().getData();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string data = 1 [json_name = "data"];</code>
-     * @param value The bytes for data to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDataBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      data_ = value;
-      onChanged();
-      return this;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        app.onepass.apis.UserEvent, app.onepass.apis.UserEvent.Builder, app.onepass.apis.UserEventOrBuilder> 
+        getUserEventFieldBuilder() {
+      if (userEventBuilder_ == null) {
+        userEventBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            app.onepass.apis.UserEvent, app.onepass.apis.UserEvent.Builder, app.onepass.apis.UserEventOrBuilder>(
+                getUserEvent(),
+                getParentForChildren(),
+                isClean());
+        userEvent_ = null;
+      }
+      return userEventBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -515,41 +565,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:hts.participant.GenerateQRRes)
+    // @@protoc_insertion_point(builder_scope:hts.participant.GenerateQRRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:hts.participant.GenerateQRRes)
-  private static final app.onepass.apis.GenerateQRRes DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:hts.participant.GenerateQRRequest)
+  private static final app.onepass.apis.GenerateQRRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new app.onepass.apis.GenerateQRRes();
+    DEFAULT_INSTANCE = new app.onepass.apis.GenerateQRRequest();
   }
 
-  public static app.onepass.apis.GenerateQRRes getDefaultInstance() {
+  public static app.onepass.apis.GenerateQRRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<GenerateQRRes>
-      PARSER = new com.google.protobuf.AbstractParser<GenerateQRRes>() {
+  private static final com.google.protobuf.Parser<GenerateQRRequest>
+      PARSER = new com.google.protobuf.AbstractParser<GenerateQRRequest>() {
     @java.lang.Override
-    public GenerateQRRes parsePartialFrom(
+    public GenerateQRRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GenerateQRRes(input, extensionRegistry);
+      return new GenerateQRRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<GenerateQRRes> parser() {
+  public static com.google.protobuf.Parser<GenerateQRRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<GenerateQRRes> getParserForType() {
+  public com.google.protobuf.Parser<GenerateQRRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public app.onepass.apis.GenerateQRRes getDefaultInstanceForType() {
+  public app.onepass.apis.GenerateQRRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

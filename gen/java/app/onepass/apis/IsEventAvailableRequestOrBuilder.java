@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface IsEventAvailableReqOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.participant.IsEventAvailableReq)
+public interface IsEventAvailableRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.participant.IsEventAvailableRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

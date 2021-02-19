@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface SearchEventsByNameReqOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.participant.SearchEventsByNameReq)
+public interface SearchEventsByNameRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.participant.SearchEventsByNameRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

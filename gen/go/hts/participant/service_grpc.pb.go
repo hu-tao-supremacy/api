@@ -19,13 +19,13 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ParticipantServiceClient interface {
-	IsEventAvailable(ctx context.Context, in *IsEventAvailableReq, opts ...grpc.CallOption) (*common.Result, error)
-	JoinEvent(ctx context.Context, in *JoinEventReq, opts ...grpc.CallOption) (*common.Result, error)
-	CancelEvent(ctx context.Context, in *CancelEventReq, opts ...grpc.CallOption) (*common.Result, error)
-	CreateFeedback(ctx context.Context, in *CreateFeedbackReq, opts ...grpc.CallOption) (*common.Result, error)
-	RemoveFeedback(ctx context.Context, in *RemoveFeedbackReq, opts ...grpc.CallOption) (*common.Result, error)
-	SearchEventsByName(ctx context.Context, in *SearchEventsByNameReq, opts ...grpc.CallOption) (*SearchEventsByNameRes, error)
-	GenerateQR(ctx context.Context, in *GenerateQRReq, opts ...grpc.CallOption) (*GenerateQRRes, error)
+	IsEventAvailable(ctx context.Context, in *IsEventAvailableRequest, opts ...grpc.CallOption) (*common.Result, error)
+	JoinEvent(ctx context.Context, in *JoinEventRequest, opts ...grpc.CallOption) (*common.Result, error)
+	CancelEvent(ctx context.Context, in *CancelEventRequest, opts ...grpc.CallOption) (*common.Result, error)
+	CreateFeedback(ctx context.Context, in *CreateFeedbackRequest, opts ...grpc.CallOption) (*common.Result, error)
+	RemoveFeedback(ctx context.Context, in *RemoveFeedbackRequest, opts ...grpc.CallOption) (*common.Result, error)
+	SearchEventsByName(ctx context.Context, in *SearchEventsByNameRequest, opts ...grpc.CallOption) (*SearchEventsByNameRespond, error)
+	GenerateQR(ctx context.Context, in *GenerateQRRequest, opts ...grpc.CallOption) (*GenerateQRRespond, error)
 }
 
 type participantServiceClient struct {
@@ -36,7 +36,7 @@ func NewParticipantServiceClient(cc grpc.ClientConnInterface) ParticipantService
 	return &participantServiceClient{cc}
 }
 
-func (c *participantServiceClient) IsEventAvailable(ctx context.Context, in *IsEventAvailableReq, opts ...grpc.CallOption) (*common.Result, error) {
+func (c *participantServiceClient) IsEventAvailable(ctx context.Context, in *IsEventAvailableRequest, opts ...grpc.CallOption) (*common.Result, error) {
 	out := new(common.Result)
 	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/IsEventAvailable", in, out, opts...)
 	if err != nil {
@@ -45,7 +45,7 @@ func (c *participantServiceClient) IsEventAvailable(ctx context.Context, in *IsE
 	return out, nil
 }
 
-func (c *participantServiceClient) JoinEvent(ctx context.Context, in *JoinEventReq, opts ...grpc.CallOption) (*common.Result, error) {
+func (c *participantServiceClient) JoinEvent(ctx context.Context, in *JoinEventRequest, opts ...grpc.CallOption) (*common.Result, error) {
 	out := new(common.Result)
 	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/JoinEvent", in, out, opts...)
 	if err != nil {
@@ -54,7 +54,7 @@ func (c *participantServiceClient) JoinEvent(ctx context.Context, in *JoinEventR
 	return out, nil
 }
 
-func (c *participantServiceClient) CancelEvent(ctx context.Context, in *CancelEventReq, opts ...grpc.CallOption) (*common.Result, error) {
+func (c *participantServiceClient) CancelEvent(ctx context.Context, in *CancelEventRequest, opts ...grpc.CallOption) (*common.Result, error) {
 	out := new(common.Result)
 	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/CancelEvent", in, out, opts...)
 	if err != nil {
@@ -63,7 +63,7 @@ func (c *participantServiceClient) CancelEvent(ctx context.Context, in *CancelEv
 	return out, nil
 }
 
-func (c *participantServiceClient) CreateFeedback(ctx context.Context, in *CreateFeedbackReq, opts ...grpc.CallOption) (*common.Result, error) {
+func (c *participantServiceClient) CreateFeedback(ctx context.Context, in *CreateFeedbackRequest, opts ...grpc.CallOption) (*common.Result, error) {
 	out := new(common.Result)
 	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/CreateFeedback", in, out, opts...)
 	if err != nil {
@@ -72,7 +72,7 @@ func (c *participantServiceClient) CreateFeedback(ctx context.Context, in *Creat
 	return out, nil
 }
 
-func (c *participantServiceClient) RemoveFeedback(ctx context.Context, in *RemoveFeedbackReq, opts ...grpc.CallOption) (*common.Result, error) {
+func (c *participantServiceClient) RemoveFeedback(ctx context.Context, in *RemoveFeedbackRequest, opts ...grpc.CallOption) (*common.Result, error) {
 	out := new(common.Result)
 	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/RemoveFeedback", in, out, opts...)
 	if err != nil {
@@ -81,8 +81,8 @@ func (c *participantServiceClient) RemoveFeedback(ctx context.Context, in *Remov
 	return out, nil
 }
 
-func (c *participantServiceClient) SearchEventsByName(ctx context.Context, in *SearchEventsByNameReq, opts ...grpc.CallOption) (*SearchEventsByNameRes, error) {
-	out := new(SearchEventsByNameRes)
+func (c *participantServiceClient) SearchEventsByName(ctx context.Context, in *SearchEventsByNameRequest, opts ...grpc.CallOption) (*SearchEventsByNameRespond, error) {
+	out := new(SearchEventsByNameRespond)
 	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/SearchEventsByName", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -90,8 +90,8 @@ func (c *participantServiceClient) SearchEventsByName(ctx context.Context, in *S
 	return out, nil
 }
 
-func (c *participantServiceClient) GenerateQR(ctx context.Context, in *GenerateQRReq, opts ...grpc.CallOption) (*GenerateQRRes, error) {
-	out := new(GenerateQRRes)
+func (c *participantServiceClient) GenerateQR(ctx context.Context, in *GenerateQRRequest, opts ...grpc.CallOption) (*GenerateQRRespond, error) {
+	out := new(GenerateQRRespond)
 	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GenerateQR", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -103,38 +103,38 @@ func (c *participantServiceClient) GenerateQR(ctx context.Context, in *GenerateQ
 // All implementations should embed UnimplementedParticipantServiceServer
 // for forward compatibility
 type ParticipantServiceServer interface {
-	IsEventAvailable(context.Context, *IsEventAvailableReq) (*common.Result, error)
-	JoinEvent(context.Context, *JoinEventReq) (*common.Result, error)
-	CancelEvent(context.Context, *CancelEventReq) (*common.Result, error)
-	CreateFeedback(context.Context, *CreateFeedbackReq) (*common.Result, error)
-	RemoveFeedback(context.Context, *RemoveFeedbackReq) (*common.Result, error)
-	SearchEventsByName(context.Context, *SearchEventsByNameReq) (*SearchEventsByNameRes, error)
-	GenerateQR(context.Context, *GenerateQRReq) (*GenerateQRRes, error)
+	IsEventAvailable(context.Context, *IsEventAvailableRequest) (*common.Result, error)
+	JoinEvent(context.Context, *JoinEventRequest) (*common.Result, error)
+	CancelEvent(context.Context, *CancelEventRequest) (*common.Result, error)
+	CreateFeedback(context.Context, *CreateFeedbackRequest) (*common.Result, error)
+	RemoveFeedback(context.Context, *RemoveFeedbackRequest) (*common.Result, error)
+	SearchEventsByName(context.Context, *SearchEventsByNameRequest) (*SearchEventsByNameRespond, error)
+	GenerateQR(context.Context, *GenerateQRRequest) (*GenerateQRRespond, error)
 }
 
 // UnimplementedParticipantServiceServer should be embedded to have forward compatible implementations.
 type UnimplementedParticipantServiceServer struct {
 }
 
-func (UnimplementedParticipantServiceServer) IsEventAvailable(context.Context, *IsEventAvailableReq) (*common.Result, error) {
+func (UnimplementedParticipantServiceServer) IsEventAvailable(context.Context, *IsEventAvailableRequest) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method IsEventAvailable not implemented")
 }
-func (UnimplementedParticipantServiceServer) JoinEvent(context.Context, *JoinEventReq) (*common.Result, error) {
+func (UnimplementedParticipantServiceServer) JoinEvent(context.Context, *JoinEventRequest) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method JoinEvent not implemented")
 }
-func (UnimplementedParticipantServiceServer) CancelEvent(context.Context, *CancelEventReq) (*common.Result, error) {
+func (UnimplementedParticipantServiceServer) CancelEvent(context.Context, *CancelEventRequest) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CancelEvent not implemented")
 }
-func (UnimplementedParticipantServiceServer) CreateFeedback(context.Context, *CreateFeedbackReq) (*common.Result, error) {
+func (UnimplementedParticipantServiceServer) CreateFeedback(context.Context, *CreateFeedbackRequest) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateFeedback not implemented")
 }
-func (UnimplementedParticipantServiceServer) RemoveFeedback(context.Context, *RemoveFeedbackReq) (*common.Result, error) {
+func (UnimplementedParticipantServiceServer) RemoveFeedback(context.Context, *RemoveFeedbackRequest) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoveFeedback not implemented")
 }
-func (UnimplementedParticipantServiceServer) SearchEventsByName(context.Context, *SearchEventsByNameReq) (*SearchEventsByNameRes, error) {
+func (UnimplementedParticipantServiceServer) SearchEventsByName(context.Context, *SearchEventsByNameRequest) (*SearchEventsByNameRespond, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SearchEventsByName not implemented")
 }
-func (UnimplementedParticipantServiceServer) GenerateQR(context.Context, *GenerateQRReq) (*GenerateQRRes, error) {
+func (UnimplementedParticipantServiceServer) GenerateQR(context.Context, *GenerateQRRequest) (*GenerateQRRespond, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateQR not implemented")
 }
 
@@ -150,7 +150,7 @@ func RegisterParticipantServiceServer(s grpc.ServiceRegistrar, srv ParticipantSe
 }
 
 func _ParticipantService_IsEventAvailable_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsEventAvailableReq)
+	in := new(IsEventAvailableRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -162,13 +162,13 @@ func _ParticipantService_IsEventAvailable_Handler(srv interface{}, ctx context.C
 		FullMethod: "/hts.participant.ParticipantService/IsEventAvailable",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ParticipantServiceServer).IsEventAvailable(ctx, req.(*IsEventAvailableReq))
+		return srv.(ParticipantServiceServer).IsEventAvailable(ctx, req.(*IsEventAvailableRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ParticipantService_JoinEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(JoinEventReq)
+	in := new(JoinEventRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -180,13 +180,13 @@ func _ParticipantService_JoinEvent_Handler(srv interface{}, ctx context.Context,
 		FullMethod: "/hts.participant.ParticipantService/JoinEvent",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ParticipantServiceServer).JoinEvent(ctx, req.(*JoinEventReq))
+		return srv.(ParticipantServiceServer).JoinEvent(ctx, req.(*JoinEventRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ParticipantService_CancelEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CancelEventReq)
+	in := new(CancelEventRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -198,13 +198,13 @@ func _ParticipantService_CancelEvent_Handler(srv interface{}, ctx context.Contex
 		FullMethod: "/hts.participant.ParticipantService/CancelEvent",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ParticipantServiceServer).CancelEvent(ctx, req.(*CancelEventReq))
+		return srv.(ParticipantServiceServer).CancelEvent(ctx, req.(*CancelEventRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ParticipantService_CreateFeedback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateFeedbackReq)
+	in := new(CreateFeedbackRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -216,13 +216,13 @@ func _ParticipantService_CreateFeedback_Handler(srv interface{}, ctx context.Con
 		FullMethod: "/hts.participant.ParticipantService/CreateFeedback",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ParticipantServiceServer).CreateFeedback(ctx, req.(*CreateFeedbackReq))
+		return srv.(ParticipantServiceServer).CreateFeedback(ctx, req.(*CreateFeedbackRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ParticipantService_RemoveFeedback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveFeedbackReq)
+	in := new(RemoveFeedbackRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -234,13 +234,13 @@ func _ParticipantService_RemoveFeedback_Handler(srv interface{}, ctx context.Con
 		FullMethod: "/hts.participant.ParticipantService/RemoveFeedback",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ParticipantServiceServer).RemoveFeedback(ctx, req.(*RemoveFeedbackReq))
+		return srv.(ParticipantServiceServer).RemoveFeedback(ctx, req.(*RemoveFeedbackRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ParticipantService_SearchEventsByName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(SearchEventsByNameReq)
+	in := new(SearchEventsByNameRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -252,13 +252,13 @@ func _ParticipantService_SearchEventsByName_Handler(srv interface{}, ctx context
 		FullMethod: "/hts.participant.ParticipantService/SearchEventsByName",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ParticipantServiceServer).SearchEventsByName(ctx, req.(*SearchEventsByNameReq))
+		return srv.(ParticipantServiceServer).SearchEventsByName(ctx, req.(*SearchEventsByNameRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ParticipantService_GenerateQR_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GenerateQRReq)
+	in := new(GenerateQRRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -270,7 +270,7 @@ func _ParticipantService_GenerateQR_Handler(srv interface{}, ctx context.Context
 		FullMethod: "/hts.participant.ParticipantService/GenerateQR",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ParticipantServiceServer).GenerateQR(ctx, req.(*GenerateQRReq))
+		return srv.(ParticipantServiceServer).GenerateQR(ctx, req.(*GenerateQRRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }

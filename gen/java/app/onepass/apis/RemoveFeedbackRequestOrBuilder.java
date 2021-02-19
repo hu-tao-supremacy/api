@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface RemoveFeedbackReqOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.participant.RemoveFeedbackReq)
+public interface RemoveFeedbackRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.participant.RemoveFeedbackRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

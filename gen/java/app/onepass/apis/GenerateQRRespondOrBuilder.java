@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface GenerateQRResOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.participant.GenerateQRRes)
+public interface GenerateQRRespondOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.participant.GenerateQRRespond)
     com.google.protobuf.MessageOrBuilder {
 
   /**
