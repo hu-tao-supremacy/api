@@ -57,7 +57,7 @@ message UpdateEventFacilityReq {
 message UpdateEventDurationReq {
   int64 user_id = 1;
   int64 event_id = 2;
-  repeated hts.organizer.Duration duration = 3 [packed=true];
+  repeated hts.organizer.Duration duration = 3;
 }
 
 message DeleteEventReq {
@@ -79,15 +79,15 @@ message UpdateTagReq {
 }
 
 message ReadOrganizationRes {
-  repeated hts.common.Organization organizations = 1 [packed=true];
+  repeated hts.common.Organization organizations = 1;
 }
 
 message ReadEventRes {
-  repeated hts.common.Event events = 1 [packed=true];
+  repeated hts.common.Event events = 1;
 }
 
 message ReadTagRes {
-  repeated hts.common.Tag tags = 1 [packed=true];
+  repeated hts.common.Tag tags = 1;
 }
 
 service OrganizationService {
