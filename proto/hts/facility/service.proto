@@ -68,11 +68,11 @@ message GetFacilityRequestListResponse {
     repeated FacilityRequest requests  = 1; 
 }
 
-message GetFacilityRequestStatususRequest {
+message GetFacilityRequestsStatusRequest {
     int64 event_id = 1;
 }
 
-message GetFacilityRequestStatususResponse {
+message GetFacilityRequestsStatusResponse {
     repeated FacilityRequestWithFacilityInfo requests = 1;
 }
 
@@ -116,7 +116,7 @@ message GetFacilityInfoRequest {
 service FacilityService {
     rpc GetFacilityList(GetFacilityListRequest) returns (GetFacilityListResponse);
     rpc GetFacilityRequestList(GetFacilityRequestListRequest) returns (GetFacilityRequestListResponse);
-    rpc GetFacilityRequestStatusus(GetFacilityRequestStatususRequest) returns (GetFacilityRequestStatususResponse);
+    rpc GetFacilityRequestsStatus(GetFacilityRequestsStatusRequest) returns (GetFacilityRequestsStatusResponse);
     rpc GetAvailableFacilityList(google.protobuf.Empty) returns (GetAvailableFacilityListResponse);
     rpc GetAvailableTimeOfFacility(GetAvailableTimeOfFacilityRequest) returns (GetAvailableTimeOfFacilityResponse);
     rpc RequestFacilityRequest(RequestFacilityRequestRequest) returns (FacilityRequest); 
