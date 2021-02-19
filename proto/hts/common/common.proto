@@ -7,6 +7,44 @@ option java_package = "app.onepass.apis";
 option java_outer_classname = "CommonProto";
 option go_package = "onepass.app/facility/hts/common";
 
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+enum Gender {
+  MALE = 0;
+  FEMALE = 1;
+  NOT_SPECIFIED = 2;
+}
+
+enum Status {
+  PENDING = 0;
+  APPROVED = 1;
+  REJECTED = 2;
+}
+
+enum Permission {
+  CREATE_ORGANIZATION = 0;
+  READ_ORGANIZATION = 1;
+  UPDATE_ORGANIZATION = 2;
+  DELETE_ORGANIZATION = 3;
+  ADD_MEMBERS_TO_ORGANIZATION = 4;
+  REMOVE_MEMBERS_FROM_ORGANIZATION = 5;
+  CREATE_EVENT = 6;
+  READ_EVENT = 7;
+  UPDATE_EVENT = 8;
+  DELETE_EVENT = 9;
+  CREATE_TAG = 10;
+  READ_TAG = 11;
+  UPDATE_TAG = 12;
+  DELETE_TAG = 13;
+  ADD_TAGS_TO_EVENT = 14;
+  REMOVE_TAGS_FROM_EVENT = 15;
+  CREATE_FACILITY = 16;
+  READ_FACILITY = 17;
+  UPDATE_FACILITY = 18;
+  DELETE_FACILITY = 19;
+}
+
 message Result {
   bool is_ok = 1;
   string description = 2;
@@ -16,19 +54,55 @@ message User {
   int64 id = 1;
   string first_name = 2;
   string last_name = 3;
+  string email = 4;
+  google.protobuf.StringValue nickname = 5;
+  google.protobuf.StringValue chula_id = 6;
+  bool is_chula_student = 7;
+  Gender gender = 8;
+}
+
+message Organization {
+  int64 id = 1;
+  string name = 2;
+  bool is_verified = 3;
+}
+
+message UserOrganization {
+  int64 id = 1;
+  int64 user_id = 2;
+  int64 organization_id = 3;
 }
 
 message Event {
   int64 id = 1;
   int64 organization_id = 2;
-  int64 event_location_id = 3;
+  google.protobuf.Int64Value event_location_id = 3;
   string description = 4;
   string name = 5;
-  string cover_image = 6;
-  string cover_image_hash = 7;
-  string poster_image = 8;
-  string poster_image_hash = 9;
+  google.protobuf.StringValue cover_image = 6;
+  google.protobuf.StringValue cover_image_hash = 7;
+  google.protobuf.StringValue poster_image = 8;
+  google.protobuf.StringValue poster_image_hash = 9;
   string contact = 10;
+}
+
+message UserEventFeedback {
+  int64 id = 1;
+  int64 user_id = 2;
+  int64 event_feedback_id = 3;
+}
+
+message EventFeedback {
+  int64 id = 1;
+  int64 event_id = 2;
+  string feedback = 3;
+}
+
+message EventLocation {
+  int64 id = 1;
+  string name = 2;
+  double latitude = 3;
+  double longitude = 4;
 }
 
 message UserEvent {
@@ -37,8 +111,59 @@ message UserEvent {
   int64 event_id = 3;
 }
 
-message EventFeedback {
+message EventDuration {
   int64 id = 1;
   int64 event_id = 2;
-  string feedback = 3;
+  google.protobuf.Timestamp start = 3;
+  google.protobuf.Timestamp finish = 4;
+}
+
+message EventRegistration {
+  int64 id = 1;
+  int64 event_id = 2;
+  int64 user_id = 3;
+  Status status = 4;
+}
+
+message Tag {
+  int64 id = 1;
+  string name = 2;
+}
+
+message EventTag {
+  int64 id = 1;
+  int64 event_id = 2;
+  int64 tag_id = 3;
+}
+
+message OrganizationPermission {
+  int64 id = 1;
+  int64 organization_id = 2;
+  Permission permission = 3;
+}
+
+message UserPermission {
+  int64 id = 1;
+  int64 user_id = 2;
+  int64 permission_id = 3;
+}
+
+message FacilityRequest {
+  int64 id = 1;
+  int64 event_id = 2;
+  int64 facility_id = 3;
+  Status status = 4;
+  google.protobuf.StringValue reject_reason = 5;
+  google.protobuf.Timestamp start = 6;
+  google.protobuf.Timestamp finish = 7;
+}
+
+message Facility {
+  int64 id = 1;
+  int64 organization_id = 2;
+  string name = 3;
+  double latitude = 4;
+  double longitude = 5;
+  string operating_hours = 6;
+  string description = 7;
 }
