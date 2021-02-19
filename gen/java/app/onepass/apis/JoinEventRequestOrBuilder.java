@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface CreateFeedbackReqOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.participant.CreateFeedbackReq)
+public interface JoinEventRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.participant.JoinEventRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -23,17 +23,17 @@ public interface CreateFeedbackReqOrBuilder extends
   app.onepass.apis.UserOrBuilder getUserOrBuilder();
 
   /**
-   * <code>.hts.common.EventFeedback feedback = 2 [json_name = "feedback"];</code>
-   * @return Whether the feedback field is set.
+   * <code>.hts.common.Event event = 2 [json_name = "event"];</code>
+   * @return Whether the event field is set.
    */
-  boolean hasFeedback();
+  boolean hasEvent();
   /**
-   * <code>.hts.common.EventFeedback feedback = 2 [json_name = "feedback"];</code>
-   * @return The feedback.
+   * <code>.hts.common.Event event = 2 [json_name = "event"];</code>
+   * @return The event.
    */
-  app.onepass.apis.EventFeedback getFeedback();
+  app.onepass.apis.Event getEvent();
   /**
-   * <code>.hts.common.EventFeedback feedback = 2 [json_name = "feedback"];</code>
+   * <code>.hts.common.Event event = 2 [json_name = "event"];</code>
    */
-  app.onepass.apis.EventFeedbackOrBuilder getFeedbackOrBuilder();
+  app.onepass.apis.EventOrBuilder getEventOrBuilder();
 }

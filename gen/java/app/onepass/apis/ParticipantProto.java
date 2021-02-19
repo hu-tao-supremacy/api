@@ -15,50 +15,50 @@ public final class ParticipantProto {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_hts_participant_IsEventAvailableReq_descriptor;
+    internal_static_hts_participant_IsEventAvailableRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_hts_participant_IsEventAvailableReq_fieldAccessorTable;
+      internal_static_hts_participant_IsEventAvailableRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_hts_participant_JoinEventReq_descriptor;
+    internal_static_hts_participant_JoinEventRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_hts_participant_JoinEventReq_fieldAccessorTable;
+      internal_static_hts_participant_JoinEventRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_hts_participant_CancelEventReq_descriptor;
+    internal_static_hts_participant_CancelEventRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_hts_participant_CancelEventReq_fieldAccessorTable;
+      internal_static_hts_participant_CancelEventRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_hts_participant_CreateFeedbackReq_descriptor;
+    internal_static_hts_participant_CreateFeedbackRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_hts_participant_CreateFeedbackReq_fieldAccessorTable;
+      internal_static_hts_participant_CreateFeedbackRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_hts_participant_RemoveFeedbackReq_descriptor;
+    internal_static_hts_participant_RemoveFeedbackRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_hts_participant_RemoveFeedbackReq_fieldAccessorTable;
+      internal_static_hts_participant_RemoveFeedbackRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_hts_participant_SearchEventsByNameReq_descriptor;
+    internal_static_hts_participant_SearchEventsByNameRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_hts_participant_SearchEventsByNameReq_fieldAccessorTable;
+      internal_static_hts_participant_SearchEventsByNameRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_hts_participant_SearchEventsByNameRes_descriptor;
+    internal_static_hts_participant_SearchEventsByNameRespond_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_hts_participant_SearchEventsByNameRes_fieldAccessorTable;
+      internal_static_hts_participant_SearchEventsByNameRespond_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_hts_participant_GenerateQRReq_descriptor;
+    internal_static_hts_participant_GenerateQRRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_hts_participant_GenerateQRReq_fieldAccessorTable;
+      internal_static_hts_participant_GenerateQRRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_hts_participant_GenerateQRRes_descriptor;
+    internal_static_hts_participant_GenerateQRRespond_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_hts_participant_GenerateQRRes_fieldAccessorTable;
+      internal_static_hts_participant_GenerateQRRespond_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -69,99 +69,101 @@ public final class ParticipantProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\035hts/participant/service.proto\022\017hts.par" +
-      "ticipant\032\027hts/common/common.proto\">\n\023IsE" +
-      "ventAvailableReq\022\'\n\005event\030\001 \001(\0132\021.hts.co" +
-      "mmon.EventR\005event\"]\n\014JoinEventReq\022$\n\004use" +
-      "r\030\001 \001(\0132\020.hts.common.UserR\004user\022\'\n\005event" +
-      "\030\002 \001(\0132\021.hts.common.EventR\005event\"_\n\016Canc" +
-      "elEventReq\022$\n\004user\030\001 \001(\0132\020.hts.common.Us" +
-      "erR\004user\022\'\n\005event\030\002 \001(\0132\021.hts.common.Eve" +
-      "ntR\005event\"p\n\021CreateFeedbackReq\022$\n\004user\030\001" +
-      " \001(\0132\020.hts.common.UserR\004user\0225\n\010feedback" +
-      "\030\002 \001(\0132\031.hts.common.EventFeedbackR\010feedb" +
-      "ack\"J\n\021RemoveFeedbackReq\0225\n\010feedback\030\001 \001" +
-      "(\0132\031.hts.common.EventFeedbackR\010feedback\"" +
-      "+\n\025SearchEventsByNameReq\022\022\n\004name\030\001 \001(\tR\004" +
-      "name\"B\n\025SearchEventsByNameRes\022)\n\006events\030" +
-      "\001 \003(\0132\021.hts.common.EventR\006events\"E\n\rGene" +
-      "rateQRReq\0224\n\nuser_event\030\001 \001(\0132\025.hts.comm" +
-      "on.UserEventR\tuserEvent\"#\n\rGenerateQRRes" +
-      "\022\022\n\004data\030\001 \001(\tR\004data2\256\004\n\022ParticipantServ" +
-      "ice\022L\n\020IsEventAvailable\022$.hts.participan" +
-      "t.IsEventAvailableReq\032\022.hts.common.Resul" +
-      "t\022>\n\tJoinEvent\022\035.hts.participant.JoinEve" +
-      "ntReq\032\022.hts.common.Result\022B\n\013CancelEvent" +
-      "\022\037.hts.participant.CancelEventReq\032\022.hts." +
-      "common.Result\022H\n\016CreateFeedback\022\".hts.pa" +
-      "rticipant.CreateFeedbackReq\032\022.hts.common" +
-      ".Result\022H\n\016RemoveFeedback\022\".hts.particip" +
-      "ant.RemoveFeedbackReq\032\022.hts.common.Resul" +
-      "t\022d\n\022SearchEventsByName\022&.hts.participan" +
-      "t.SearchEventsByNameReq\032&.hts.participan" +
-      "t.SearchEventsByNameRes\022L\n\nGenerateQR\022\036." +
-      "hts.participant.GenerateQRReq\032\036.hts.part" +
-      "icipant.GenerateQRResBL\n\020app.onepass.api" +
-      "sB\020ParticipantProtoP\001Z$onepass.app/facil" +
-      "ity/hts/participantb\006proto3"
+      "ticipant\032\027hts/common/common.proto\"B\n\027IsE" +
+      "ventAvailableRequest\022\'\n\005event\030\001 \001(\0132\021.ht" +
+      "s.common.EventR\005event\"a\n\020JoinEventReques" +
+      "t\022$\n\004user\030\001 \001(\0132\020.hts.common.UserR\004user\022" +
+      "\'\n\005event\030\002 \001(\0132\021.hts.common.EventR\005event" +
+      "\"c\n\022CancelEventRequest\022$\n\004user\030\001 \001(\0132\020.h" +
+      "ts.common.UserR\004user\022\'\n\005event\030\002 \001(\0132\021.ht" +
+      "s.common.EventR\005event\"t\n\025CreateFeedbackR" +
+      "equest\022$\n\004user\030\001 \001(\0132\020.hts.common.UserR\004" +
+      "user\0225\n\010feedback\030\002 \001(\0132\031.hts.common.Even" +
+      "tFeedbackR\010feedback\"N\n\025RemoveFeedbackReq" +
+      "uest\0225\n\010feedback\030\001 \001(\0132\031.hts.common.Even" +
+      "tFeedbackR\010feedback\"/\n\031SearchEventsByNam" +
+      "eRequest\022\022\n\004name\030\001 \001(\tR\004name\"F\n\031SearchEv" +
+      "entsByNameRespond\022)\n\006events\030\001 \003(\0132\021.hts." +
+      "common.EventR\006events\"I\n\021GenerateQRReques" +
+      "t\0224\n\nuser_event\030\001 \001(\0132\025.hts.common.UserE" +
+      "ventR\tuserEvent\"\'\n\021GenerateQRRespond\022\022\n\004" +
+      "data\030\001 \001(\tR\004data2\322\004\n\022ParticipantService\022" +
+      "P\n\020IsEventAvailable\022(.hts.participant.Is" +
+      "EventAvailableRequest\032\022.hts.common.Resul" +
+      "t\022B\n\tJoinEvent\022!.hts.participant.JoinEve" +
+      "ntRequest\032\022.hts.common.Result\022F\n\013CancelE" +
+      "vent\022#.hts.participant.CancelEventReques" +
+      "t\032\022.hts.common.Result\022L\n\016CreateFeedback\022" +
+      "&.hts.participant.CreateFeedbackRequest\032" +
+      "\022.hts.common.Result\022L\n\016RemoveFeedback\022&." +
+      "hts.participant.RemoveFeedbackRequest\032\022." +
+      "hts.common.Result\022l\n\022SearchEventsByName\022" +
+      "*.hts.participant.SearchEventsByNameRequ" +
+      "est\032*.hts.participant.SearchEventsByName" +
+      "Respond\022T\n\nGenerateQR\022\".hts.participant." +
+      "GenerateQRRequest\032\".hts.participant.Gene" +
+      "rateQRRespondBL\n\020app.onepass.apisB\020Parti" +
+      "cipantProtoP\001Z$onepass.app/facility/hts/" +
+      "participantb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           app.onepass.apis.CommonProto.getDescriptor(),
         });
-    internal_static_hts_participant_IsEventAvailableReq_descriptor =
+    internal_static_hts_participant_IsEventAvailableRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_hts_participant_IsEventAvailableReq_fieldAccessorTable = new
+    internal_static_hts_participant_IsEventAvailableRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_hts_participant_IsEventAvailableReq_descriptor,
+        internal_static_hts_participant_IsEventAvailableRequest_descriptor,
         new java.lang.String[] { "Event", });
-    internal_static_hts_participant_JoinEventReq_descriptor =
+    internal_static_hts_participant_JoinEventRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_hts_participant_JoinEventReq_fieldAccessorTable = new
+    internal_static_hts_participant_JoinEventRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_hts_participant_JoinEventReq_descriptor,
+        internal_static_hts_participant_JoinEventRequest_descriptor,
         new java.lang.String[] { "User", "Event", });
-    internal_static_hts_participant_CancelEventReq_descriptor =
+    internal_static_hts_participant_CancelEventRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_hts_participant_CancelEventReq_fieldAccessorTable = new
+    internal_static_hts_participant_CancelEventRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_hts_participant_CancelEventReq_descriptor,
+        internal_static_hts_participant_CancelEventRequest_descriptor,
         new java.lang.String[] { "User", "Event", });
-    internal_static_hts_participant_CreateFeedbackReq_descriptor =
+    internal_static_hts_participant_CreateFeedbackRequest_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_hts_participant_CreateFeedbackReq_fieldAccessorTable = new
+    internal_static_hts_participant_CreateFeedbackRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_hts_participant_CreateFeedbackReq_descriptor,
+        internal_static_hts_participant_CreateFeedbackRequest_descriptor,
         new java.lang.String[] { "User", "Feedback", });
-    internal_static_hts_participant_RemoveFeedbackReq_descriptor =
+    internal_static_hts_participant_RemoveFeedbackRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
-    internal_static_hts_participant_RemoveFeedbackReq_fieldAccessorTable = new
+    internal_static_hts_participant_RemoveFeedbackRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_hts_participant_RemoveFeedbackReq_descriptor,
+        internal_static_hts_participant_RemoveFeedbackRequest_descriptor,
         new java.lang.String[] { "Feedback", });
-    internal_static_hts_participant_SearchEventsByNameReq_descriptor =
+    internal_static_hts_participant_SearchEventsByNameRequest_descriptor =
       getDescriptor().getMessageTypes().get(5);
-    internal_static_hts_participant_SearchEventsByNameReq_fieldAccessorTable = new
+    internal_static_hts_participant_SearchEventsByNameRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_hts_participant_SearchEventsByNameReq_descriptor,
+        internal_static_hts_participant_SearchEventsByNameRequest_descriptor,
         new java.lang.String[] { "Name", });
-    internal_static_hts_participant_SearchEventsByNameRes_descriptor =
+    internal_static_hts_participant_SearchEventsByNameRespond_descriptor =
       getDescriptor().getMessageTypes().get(6);
-    internal_static_hts_participant_SearchEventsByNameRes_fieldAccessorTable = new
+    internal_static_hts_participant_SearchEventsByNameRespond_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_hts_participant_SearchEventsByNameRes_descriptor,
+        internal_static_hts_participant_SearchEventsByNameRespond_descriptor,
         new java.lang.String[] { "Events", });
-    internal_static_hts_participant_GenerateQRReq_descriptor =
+    internal_static_hts_participant_GenerateQRRequest_descriptor =
       getDescriptor().getMessageTypes().get(7);
-    internal_static_hts_participant_GenerateQRReq_fieldAccessorTable = new
+    internal_static_hts_participant_GenerateQRRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_hts_participant_GenerateQRReq_descriptor,
+        internal_static_hts_participant_GenerateQRRequest_descriptor,
         new java.lang.String[] { "UserEvent", });
-    internal_static_hts_participant_GenerateQRRes_descriptor =
+    internal_static_hts_participant_GenerateQRRespond_descriptor =
       getDescriptor().getMessageTypes().get(8);
-    internal_static_hts_participant_GenerateQRRes_fieldAccessorTable = new
+    internal_static_hts_participant_GenerateQRRespond_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_hts_participant_GenerateQRRes_descriptor,
+        internal_static_hts_participant_GenerateQRRespond_descriptor,
         new java.lang.String[] { "Data", });
     app.onepass.apis.CommonProto.getDescriptor();
   }
