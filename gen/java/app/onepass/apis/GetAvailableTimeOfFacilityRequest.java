@@ -4,25 +4,25 @@
 package app.onepass.apis;
 
 /**
- * Protobuf type {@code hts.facility.FacilityRequest}
+ * Protobuf type {@code hts.facility.GetAvailableTimeOfFacilityRequest}
  */
-public final class FacilityRequest extends
+public final class GetAvailableTimeOfFacilityRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:hts.facility.FacilityRequest)
-    FacilityRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:hts.facility.GetAvailableTimeOfFacilityRequest)
+    GetAvailableTimeOfFacilityRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use FacilityRequest.newBuilder() to construct.
-  private FacilityRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use GetAvailableTimeOfFacilityRequest.newBuilder() to construct.
+  private GetAvailableTimeOfFacilityRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private FacilityRequest() {
+  private GetAvailableTimeOfFacilityRequest() {
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new FacilityRequest();
+    return new GetAvailableTimeOfFacilityRequest();
   }
 
   @java.lang.Override
@@ -30,7 +30,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private FacilityRequest(
+  private GetAvailableTimeOfFacilityRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -50,30 +50,10 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            id_ = input.readInt64();
-            break;
-          }
-          case 16: {
-
-            eventId_ = input.readInt64();
-            break;
-          }
-          case 24: {
-
             facilityId_ = input.readInt64();
             break;
           }
-          case 32: {
-
-            isApproved_ = input.readInt64();
-            break;
-          }
-          case 40: {
-
-            rejectReason_ = input.readInt64();
-            break;
-          }
-          case 50: {
+          case 18: {
             com.google.protobuf.Timestamp.Builder subBuilder = null;
             if (start_ != null) {
               subBuilder = start_.toBuilder();
@@ -86,7 +66,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 58: {
+          case 26: {
             com.google.protobuf.Timestamp.Builder subBuilder = null;
             if (end_ != null) {
               subBuilder = end_.toBuilder();
@@ -120,43 +100,21 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return app.onepass.apis.FacilityProto.internal_static_hts_facility_FacilityRequest_descriptor;
+    return app.onepass.apis.FacilityProto.internal_static_hts_facility_GetAvailableTimeOfFacilityRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return app.onepass.apis.FacilityProto.internal_static_hts_facility_FacilityRequest_fieldAccessorTable
+    return app.onepass.apis.FacilityProto.internal_static_hts_facility_GetAvailableTimeOfFacilityRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            app.onepass.apis.FacilityRequest.class, app.onepass.apis.FacilityRequest.Builder.class);
+            app.onepass.apis.GetAvailableTimeOfFacilityRequest.class, app.onepass.apis.GetAvailableTimeOfFacilityRequest.Builder.class);
   }
 
-  public static final int ID_FIELD_NUMBER = 1;
-  private long id_;
-  /**
-   * <code>int64 id = 1 [json_name = "id"];</code>
-   * @return The id.
-   */
-  @java.lang.Override
-  public long getId() {
-    return id_;
-  }
-
-  public static final int EVENT_ID_FIELD_NUMBER = 2;
-  private long eventId_;
-  /**
-   * <code>int64 event_id = 2 [json_name = "eventId"];</code>
-   * @return The eventId.
-   */
-  @java.lang.Override
-  public long getEventId() {
-    return eventId_;
-  }
-
-  public static final int FACILITY_ID_FIELD_NUMBER = 3;
+  public static final int FACILITY_ID_FIELD_NUMBER = 1;
   private long facilityId_;
   /**
-   * <code>int64 facility_id = 3 [json_name = "facilityId"];</code>
+   * <code>int64 facility_id = 1 [json_name = "facilityId"];</code>
    * @return The facilityId.
    */
   @java.lang.Override
@@ -164,32 +122,10 @@ private static final long serialVersionUID = 0L;
     return facilityId_;
   }
 
-  public static final int IS_APPROVED_FIELD_NUMBER = 4;
-  private long isApproved_;
-  /**
-   * <code>int64 is_approved = 4 [json_name = "isApproved"];</code>
-   * @return The isApproved.
-   */
-  @java.lang.Override
-  public long getIsApproved() {
-    return isApproved_;
-  }
-
-  public static final int REJECT_REASON_FIELD_NUMBER = 5;
-  private long rejectReason_;
-  /**
-   * <code>int64 reject_reason = 5 [json_name = "rejectReason"];</code>
-   * @return The rejectReason.
-   */
-  @java.lang.Override
-  public long getRejectReason() {
-    return rejectReason_;
-  }
-
-  public static final int START_FIELD_NUMBER = 6;
+  public static final int START_FIELD_NUMBER = 2;
   private com.google.protobuf.Timestamp start_;
   /**
-   * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+   * <code>.google.protobuf.Timestamp start = 2 [json_name = "start"];</code>
    * @return Whether the start field is set.
    */
   @java.lang.Override
@@ -197,7 +133,7 @@ private static final long serialVersionUID = 0L;
     return start_ != null;
   }
   /**
-   * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+   * <code>.google.protobuf.Timestamp start = 2 [json_name = "start"];</code>
    * @return The start.
    */
   @java.lang.Override
@@ -205,17 +141,17 @@ private static final long serialVersionUID = 0L;
     return start_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : start_;
   }
   /**
-   * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+   * <code>.google.protobuf.Timestamp start = 2 [json_name = "start"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getStartOrBuilder() {
     return getStart();
   }
 
-  public static final int END_FIELD_NUMBER = 7;
+  public static final int END_FIELD_NUMBER = 3;
   private com.google.protobuf.Timestamp end_;
   /**
-   * <code>.google.protobuf.Timestamp end = 7 [json_name = "end"];</code>
+   * <code>.google.protobuf.Timestamp end = 3 [json_name = "end"];</code>
    * @return Whether the end field is set.
    */
   @java.lang.Override
@@ -223,7 +159,7 @@ private static final long serialVersionUID = 0L;
     return end_ != null;
   }
   /**
-   * <code>.google.protobuf.Timestamp end = 7 [json_name = "end"];</code>
+   * <code>.google.protobuf.Timestamp end = 3 [json_name = "end"];</code>
    * @return The end.
    */
   @java.lang.Override
@@ -231,7 +167,7 @@ private static final long serialVersionUID = 0L;
     return end_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : end_;
   }
   /**
-   * <code>.google.protobuf.Timestamp end = 7 [json_name = "end"];</code>
+   * <code>.google.protobuf.Timestamp end = 3 [json_name = "end"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getEndOrBuilder() {
@@ -252,26 +188,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (id_ != 0L) {
-      output.writeInt64(1, id_);
-    }
-    if (eventId_ != 0L) {
-      output.writeInt64(2, eventId_);
-    }
     if (facilityId_ != 0L) {
-      output.writeInt64(3, facilityId_);
-    }
-    if (isApproved_ != 0L) {
-      output.writeInt64(4, isApproved_);
-    }
-    if (rejectReason_ != 0L) {
-      output.writeInt64(5, rejectReason_);
+      output.writeInt64(1, facilityId_);
     }
     if (start_ != null) {
-      output.writeMessage(6, getStart());
+      output.writeMessage(2, getStart());
     }
     if (end_ != null) {
-      output.writeMessage(7, getEnd());
+      output.writeMessage(3, getEnd());
     }
     unknownFields.writeTo(output);
   }
@@ -282,33 +206,17 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (id_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, id_);
-    }
-    if (eventId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(2, eventId_);
-    }
     if (facilityId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(3, facilityId_);
-    }
-    if (isApproved_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(4, isApproved_);
-    }
-    if (rejectReason_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(5, rejectReason_);
+        .computeInt64Size(1, facilityId_);
     }
     if (start_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(6, getStart());
+        .computeMessageSize(2, getStart());
     }
     if (end_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(7, getEnd());
+        .computeMessageSize(3, getEnd());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -320,21 +228,13 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof app.onepass.apis.FacilityRequest)) {
+    if (!(obj instanceof app.onepass.apis.GetAvailableTimeOfFacilityRequest)) {
       return super.equals(obj);
     }
-    app.onepass.apis.FacilityRequest other = (app.onepass.apis.FacilityRequest) obj;
+    app.onepass.apis.GetAvailableTimeOfFacilityRequest other = (app.onepass.apis.GetAvailableTimeOfFacilityRequest) obj;
 
-    if (getId()
-        != other.getId()) return false;
-    if (getEventId()
-        != other.getEventId()) return false;
     if (getFacilityId()
         != other.getFacilityId()) return false;
-    if (getIsApproved()
-        != other.getIsApproved()) return false;
-    if (getRejectReason()
-        != other.getRejectReason()) return false;
     if (hasStart() != other.hasStart()) return false;
     if (hasStart()) {
       if (!getStart()
@@ -356,21 +256,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getId());
-    hash = (37 * hash) + EVENT_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getEventId());
     hash = (37 * hash) + FACILITY_ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getFacilityId());
-    hash = (37 * hash) + IS_APPROVED_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getIsApproved());
-    hash = (37 * hash) + REJECT_REASON_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getRejectReason());
     if (hasStart()) {
       hash = (37 * hash) + START_FIELD_NUMBER;
       hash = (53 * hash) + getStart().hashCode();
@@ -384,69 +272,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static app.onepass.apis.FacilityRequest parseFrom(
+  public static app.onepass.apis.GetAvailableTimeOfFacilityRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.FacilityRequest parseFrom(
+  public static app.onepass.apis.GetAvailableTimeOfFacilityRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.FacilityRequest parseFrom(
+  public static app.onepass.apis.GetAvailableTimeOfFacilityRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.FacilityRequest parseFrom(
+  public static app.onepass.apis.GetAvailableTimeOfFacilityRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.FacilityRequest parseFrom(byte[] data)
+  public static app.onepass.apis.GetAvailableTimeOfFacilityRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.FacilityRequest parseFrom(
+  public static app.onepass.apis.GetAvailableTimeOfFacilityRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.FacilityRequest parseFrom(java.io.InputStream input)
+  public static app.onepass.apis.GetAvailableTimeOfFacilityRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.FacilityRequest parseFrom(
+  public static app.onepass.apis.GetAvailableTimeOfFacilityRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.FacilityRequest parseDelimitedFrom(java.io.InputStream input)
+  public static app.onepass.apis.GetAvailableTimeOfFacilityRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.FacilityRequest parseDelimitedFrom(
+  public static app.onepass.apis.GetAvailableTimeOfFacilityRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.FacilityRequest parseFrom(
+  public static app.onepass.apis.GetAvailableTimeOfFacilityRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.FacilityRequest parseFrom(
+  public static app.onepass.apis.GetAvailableTimeOfFacilityRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -459,7 +347,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(app.onepass.apis.FacilityRequest prototype) {
+  public static Builder newBuilder(app.onepass.apis.GetAvailableTimeOfFacilityRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -475,26 +363,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code hts.facility.FacilityRequest}
+   * Protobuf type {@code hts.facility.GetAvailableTimeOfFacilityRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:hts.facility.FacilityRequest)
-      app.onepass.apis.FacilityRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:hts.facility.GetAvailableTimeOfFacilityRequest)
+      app.onepass.apis.GetAvailableTimeOfFacilityRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_FacilityRequest_descriptor;
+      return app.onepass.apis.FacilityProto.internal_static_hts_facility_GetAvailableTimeOfFacilityRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_FacilityRequest_fieldAccessorTable
+      return app.onepass.apis.FacilityProto.internal_static_hts_facility_GetAvailableTimeOfFacilityRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              app.onepass.apis.FacilityRequest.class, app.onepass.apis.FacilityRequest.Builder.class);
+              app.onepass.apis.GetAvailableTimeOfFacilityRequest.class, app.onepass.apis.GetAvailableTimeOfFacilityRequest.Builder.class);
     }
 
-    // Construct using app.onepass.apis.FacilityRequest.newBuilder()
+    // Construct using app.onepass.apis.GetAvailableTimeOfFacilityRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -512,15 +400,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      id_ = 0L;
-
-      eventId_ = 0L;
-
       facilityId_ = 0L;
-
-      isApproved_ = 0L;
-
-      rejectReason_ = 0L;
 
       if (startBuilder_ == null) {
         start_ = null;
@@ -540,17 +420,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_FacilityRequest_descriptor;
+      return app.onepass.apis.FacilityProto.internal_static_hts_facility_GetAvailableTimeOfFacilityRequest_descriptor;
     }
 
     @java.lang.Override
-    public app.onepass.apis.FacilityRequest getDefaultInstanceForType() {
-      return app.onepass.apis.FacilityRequest.getDefaultInstance();
+    public app.onepass.apis.GetAvailableTimeOfFacilityRequest getDefaultInstanceForType() {
+      return app.onepass.apis.GetAvailableTimeOfFacilityRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public app.onepass.apis.FacilityRequest build() {
-      app.onepass.apis.FacilityRequest result = buildPartial();
+    public app.onepass.apis.GetAvailableTimeOfFacilityRequest build() {
+      app.onepass.apis.GetAvailableTimeOfFacilityRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -558,13 +438,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public app.onepass.apis.FacilityRequest buildPartial() {
-      app.onepass.apis.FacilityRequest result = new app.onepass.apis.FacilityRequest(this);
-      result.id_ = id_;
-      result.eventId_ = eventId_;
+    public app.onepass.apis.GetAvailableTimeOfFacilityRequest buildPartial() {
+      app.onepass.apis.GetAvailableTimeOfFacilityRequest result = new app.onepass.apis.GetAvailableTimeOfFacilityRequest(this);
       result.facilityId_ = facilityId_;
-      result.isApproved_ = isApproved_;
-      result.rejectReason_ = rejectReason_;
       if (startBuilder_ == null) {
         result.start_ = start_;
       } else {
@@ -613,30 +489,18 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof app.onepass.apis.FacilityRequest) {
-        return mergeFrom((app.onepass.apis.FacilityRequest)other);
+      if (other instanceof app.onepass.apis.GetAvailableTimeOfFacilityRequest) {
+        return mergeFrom((app.onepass.apis.GetAvailableTimeOfFacilityRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(app.onepass.apis.FacilityRequest other) {
-      if (other == app.onepass.apis.FacilityRequest.getDefaultInstance()) return this;
-      if (other.getId() != 0L) {
-        setId(other.getId());
-      }
-      if (other.getEventId() != 0L) {
-        setEventId(other.getEventId());
-      }
+    public Builder mergeFrom(app.onepass.apis.GetAvailableTimeOfFacilityRequest other) {
+      if (other == app.onepass.apis.GetAvailableTimeOfFacilityRequest.getDefaultInstance()) return this;
       if (other.getFacilityId() != 0L) {
         setFacilityId(other.getFacilityId());
-      }
-      if (other.getIsApproved() != 0L) {
-        setIsApproved(other.getIsApproved());
-      }
-      if (other.getRejectReason() != 0L) {
-        setRejectReason(other.getRejectReason());
       }
       if (other.hasStart()) {
         mergeStart(other.getStart());
@@ -659,11 +523,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      app.onepass.apis.FacilityRequest parsedMessage = null;
+      app.onepass.apis.GetAvailableTimeOfFacilityRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (app.onepass.apis.FacilityRequest) e.getUnfinishedMessage();
+        parsedMessage = (app.onepass.apis.GetAvailableTimeOfFacilityRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -673,71 +537,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long id_ ;
-    /**
-     * <code>int64 id = 1 [json_name = "id"];</code>
-     * @return The id.
-     */
-    @java.lang.Override
-    public long getId() {
-      return id_;
-    }
-    /**
-     * <code>int64 id = 1 [json_name = "id"];</code>
-     * @param value The id to set.
-     * @return This builder for chaining.
-     */
-    public Builder setId(long value) {
-      
-      id_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int64 id = 1 [json_name = "id"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearId() {
-      
-      id_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private long eventId_ ;
-    /**
-     * <code>int64 event_id = 2 [json_name = "eventId"];</code>
-     * @return The eventId.
-     */
-    @java.lang.Override
-    public long getEventId() {
-      return eventId_;
-    }
-    /**
-     * <code>int64 event_id = 2 [json_name = "eventId"];</code>
-     * @param value The eventId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setEventId(long value) {
-      
-      eventId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int64 event_id = 2 [json_name = "eventId"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearEventId() {
-      
-      eventId_ = 0L;
-      onChanged();
-      return this;
-    }
-
     private long facilityId_ ;
     /**
-     * <code>int64 facility_id = 3 [json_name = "facilityId"];</code>
+     * <code>int64 facility_id = 1 [json_name = "facilityId"];</code>
      * @return The facilityId.
      */
     @java.lang.Override
@@ -745,7 +547,7 @@ private static final long serialVersionUID = 0L;
       return facilityId_;
     }
     /**
-     * <code>int64 facility_id = 3 [json_name = "facilityId"];</code>
+     * <code>int64 facility_id = 1 [json_name = "facilityId"];</code>
      * @param value The facilityId to set.
      * @return This builder for chaining.
      */
@@ -756,7 +558,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 facility_id = 3 [json_name = "facilityId"];</code>
+     * <code>int64 facility_id = 1 [json_name = "facilityId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearFacilityId() {
@@ -766,80 +568,18 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long isApproved_ ;
-    /**
-     * <code>int64 is_approved = 4 [json_name = "isApproved"];</code>
-     * @return The isApproved.
-     */
-    @java.lang.Override
-    public long getIsApproved() {
-      return isApproved_;
-    }
-    /**
-     * <code>int64 is_approved = 4 [json_name = "isApproved"];</code>
-     * @param value The isApproved to set.
-     * @return This builder for chaining.
-     */
-    public Builder setIsApproved(long value) {
-      
-      isApproved_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int64 is_approved = 4 [json_name = "isApproved"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearIsApproved() {
-      
-      isApproved_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private long rejectReason_ ;
-    /**
-     * <code>int64 reject_reason = 5 [json_name = "rejectReason"];</code>
-     * @return The rejectReason.
-     */
-    @java.lang.Override
-    public long getRejectReason() {
-      return rejectReason_;
-    }
-    /**
-     * <code>int64 reject_reason = 5 [json_name = "rejectReason"];</code>
-     * @param value The rejectReason to set.
-     * @return This builder for chaining.
-     */
-    public Builder setRejectReason(long value) {
-      
-      rejectReason_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int64 reject_reason = 5 [json_name = "rejectReason"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearRejectReason() {
-      
-      rejectReason_ = 0L;
-      onChanged();
-      return this;
-    }
-
     private com.google.protobuf.Timestamp start_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> startBuilder_;
     /**
-     * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+     * <code>.google.protobuf.Timestamp start = 2 [json_name = "start"];</code>
      * @return Whether the start field is set.
      */
     public boolean hasStart() {
       return startBuilder_ != null || start_ != null;
     }
     /**
-     * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+     * <code>.google.protobuf.Timestamp start = 2 [json_name = "start"];</code>
      * @return The start.
      */
     public com.google.protobuf.Timestamp getStart() {
@@ -850,7 +590,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+     * <code>.google.protobuf.Timestamp start = 2 [json_name = "start"];</code>
      */
     public Builder setStart(com.google.protobuf.Timestamp value) {
       if (startBuilder_ == null) {
@@ -866,7 +606,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+     * <code>.google.protobuf.Timestamp start = 2 [json_name = "start"];</code>
      */
     public Builder setStart(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -880,7 +620,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+     * <code>.google.protobuf.Timestamp start = 2 [json_name = "start"];</code>
      */
     public Builder mergeStart(com.google.protobuf.Timestamp value) {
       if (startBuilder_ == null) {
@@ -898,7 +638,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+     * <code>.google.protobuf.Timestamp start = 2 [json_name = "start"];</code>
      */
     public Builder clearStart() {
       if (startBuilder_ == null) {
@@ -912,7 +652,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+     * <code>.google.protobuf.Timestamp start = 2 [json_name = "start"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getStartBuilder() {
       
@@ -920,7 +660,7 @@ private static final long serialVersionUID = 0L;
       return getStartFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+     * <code>.google.protobuf.Timestamp start = 2 [json_name = "start"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getStartOrBuilder() {
       if (startBuilder_ != null) {
@@ -931,7 +671,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+     * <code>.google.protobuf.Timestamp start = 2 [json_name = "start"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -951,14 +691,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> endBuilder_;
     /**
-     * <code>.google.protobuf.Timestamp end = 7 [json_name = "end"];</code>
+     * <code>.google.protobuf.Timestamp end = 3 [json_name = "end"];</code>
      * @return Whether the end field is set.
      */
     public boolean hasEnd() {
       return endBuilder_ != null || end_ != null;
     }
     /**
-     * <code>.google.protobuf.Timestamp end = 7 [json_name = "end"];</code>
+     * <code>.google.protobuf.Timestamp end = 3 [json_name = "end"];</code>
      * @return The end.
      */
     public com.google.protobuf.Timestamp getEnd() {
@@ -969,7 +709,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp end = 7 [json_name = "end"];</code>
+     * <code>.google.protobuf.Timestamp end = 3 [json_name = "end"];</code>
      */
     public Builder setEnd(com.google.protobuf.Timestamp value) {
       if (endBuilder_ == null) {
@@ -985,7 +725,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp end = 7 [json_name = "end"];</code>
+     * <code>.google.protobuf.Timestamp end = 3 [json_name = "end"];</code>
      */
     public Builder setEnd(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -999,7 +739,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp end = 7 [json_name = "end"];</code>
+     * <code>.google.protobuf.Timestamp end = 3 [json_name = "end"];</code>
      */
     public Builder mergeEnd(com.google.protobuf.Timestamp value) {
       if (endBuilder_ == null) {
@@ -1017,7 +757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp end = 7 [json_name = "end"];</code>
+     * <code>.google.protobuf.Timestamp end = 3 [json_name = "end"];</code>
      */
     public Builder clearEnd() {
       if (endBuilder_ == null) {
@@ -1031,7 +771,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp end = 7 [json_name = "end"];</code>
+     * <code>.google.protobuf.Timestamp end = 3 [json_name = "end"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getEndBuilder() {
       
@@ -1039,7 +779,7 @@ private static final long serialVersionUID = 0L;
       return getEndFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Timestamp end = 7 [json_name = "end"];</code>
+     * <code>.google.protobuf.Timestamp end = 3 [json_name = "end"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getEndOrBuilder() {
       if (endBuilder_ != null) {
@@ -1050,7 +790,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp end = 7 [json_name = "end"];</code>
+     * <code>.google.protobuf.Timestamp end = 3 [json_name = "end"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -1078,41 +818,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:hts.facility.FacilityRequest)
+    // @@protoc_insertion_point(builder_scope:hts.facility.GetAvailableTimeOfFacilityRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:hts.facility.FacilityRequest)
-  private static final app.onepass.apis.FacilityRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:hts.facility.GetAvailableTimeOfFacilityRequest)
+  private static final app.onepass.apis.GetAvailableTimeOfFacilityRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new app.onepass.apis.FacilityRequest();
+    DEFAULT_INSTANCE = new app.onepass.apis.GetAvailableTimeOfFacilityRequest();
   }
 
-  public static app.onepass.apis.FacilityRequest getDefaultInstance() {
+  public static app.onepass.apis.GetAvailableTimeOfFacilityRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<FacilityRequest>
-      PARSER = new com.google.protobuf.AbstractParser<FacilityRequest>() {
+  private static final com.google.protobuf.Parser<GetAvailableTimeOfFacilityRequest>
+      PARSER = new com.google.protobuf.AbstractParser<GetAvailableTimeOfFacilityRequest>() {
     @java.lang.Override
-    public FacilityRequest parsePartialFrom(
+    public GetAvailableTimeOfFacilityRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new FacilityRequest(input, extensionRegistry);
+      return new GetAvailableTimeOfFacilityRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<FacilityRequest> parser() {
+  public static com.google.protobuf.Parser<GetAvailableTimeOfFacilityRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<FacilityRequest> getParserForType() {
+  public com.google.protobuf.Parser<GetAvailableTimeOfFacilityRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public app.onepass.apis.FacilityRequest getDefaultInstanceForType() {
+  public app.onepass.apis.GetAvailableTimeOfFacilityRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

@@ -138,6 +138,37 @@ public final class FacilityServiceGrpc {
     return getGetAvailableFacilityListMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GetAvailableTimeOfFacilityRequest,
+      app.onepass.apis.GetAvailableTimeOfFacilityResponse> getGetAvailableTimeOfFacilityMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetAvailableTimeOfFacility",
+      requestType = app.onepass.apis.GetAvailableTimeOfFacilityRequest.class,
+      responseType = app.onepass.apis.GetAvailableTimeOfFacilityResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<app.onepass.apis.GetAvailableTimeOfFacilityRequest,
+      app.onepass.apis.GetAvailableTimeOfFacilityResponse> getGetAvailableTimeOfFacilityMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.GetAvailableTimeOfFacilityRequest, app.onepass.apis.GetAvailableTimeOfFacilityResponse> getGetAvailableTimeOfFacilityMethod;
+    if ((getGetAvailableTimeOfFacilityMethod = FacilityServiceGrpc.getGetAvailableTimeOfFacilityMethod) == null) {
+      synchronized (FacilityServiceGrpc.class) {
+        if ((getGetAvailableTimeOfFacilityMethod = FacilityServiceGrpc.getGetAvailableTimeOfFacilityMethod) == null) {
+          FacilityServiceGrpc.getGetAvailableTimeOfFacilityMethod = getGetAvailableTimeOfFacilityMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.GetAvailableTimeOfFacilityRequest, app.onepass.apis.GetAvailableTimeOfFacilityResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetAvailableTimeOfFacility"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.GetAvailableTimeOfFacilityRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.GetAvailableTimeOfFacilityResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new FacilityServiceMethodDescriptorSupplier("GetAvailableTimeOfFacility"))
+              .build();
+        }
+      }
+    }
+    return getGetAvailableTimeOfFacilityMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<app.onepass.apis.RequestFacilityRequestRequest,
       app.onepass.apis.FacilityRequest> getRequestFacilityRequestMethod;
 
@@ -340,6 +371,13 @@ public final class FacilityServiceGrpc {
 
     /**
      */
+    public void getAvailableTimeOfFacility(app.onepass.apis.GetAvailableTimeOfFacilityRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.GetAvailableTimeOfFacilityResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAvailableTimeOfFacilityMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void requestFacilityRequest(app.onepass.apis.RequestFacilityRequestRequest request,
         io.grpc.stub.StreamObserver<app.onepass.apis.FacilityRequest> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getRequestFacilityRequestMethod(), responseObserver);
@@ -396,6 +434,13 @@ public final class FacilityServiceGrpc {
                 com.google.protobuf.Empty,
                 app.onepass.apis.GetAvailableFacilityListResponse>(
                   this, METHODID_GET_AVAILABLE_FACILITY_LIST)))
+          .addMethod(
+            getGetAvailableTimeOfFacilityMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                app.onepass.apis.GetAvailableTimeOfFacilityRequest,
+                app.onepass.apis.GetAvailableTimeOfFacilityResponse>(
+                  this, METHODID_GET_AVAILABLE_TIME_OF_FACILITY)))
           .addMethod(
             getRequestFacilityRequestMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -476,6 +521,14 @@ public final class FacilityServiceGrpc {
 
     /**
      */
+    public void getAvailableTimeOfFacility(app.onepass.apis.GetAvailableTimeOfFacilityRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.GetAvailableTimeOfFacilityResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetAvailableTimeOfFacilityMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void requestFacilityRequest(app.onepass.apis.RequestFacilityRequestRequest request,
         io.grpc.stub.StreamObserver<app.onepass.apis.FacilityRequest> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
@@ -547,6 +600,13 @@ public final class FacilityServiceGrpc {
     public app.onepass.apis.GetAvailableFacilityListResponse getAvailableFacilityList(com.google.protobuf.Empty request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetAvailableFacilityListMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public app.onepass.apis.GetAvailableTimeOfFacilityResponse getAvailableTimeOfFacility(app.onepass.apis.GetAvailableTimeOfFacilityRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetAvailableTimeOfFacilityMethod(), getCallOptions(), request);
     }
 
     /**
@@ -626,6 +686,14 @@ public final class FacilityServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.GetAvailableTimeOfFacilityResponse> getAvailableTimeOfFacility(
+        app.onepass.apis.GetAvailableTimeOfFacilityRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetAvailableTimeOfFacilityMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.FacilityRequest> requestFacilityRequest(
         app.onepass.apis.RequestFacilityRequestRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -661,10 +729,11 @@ public final class FacilityServiceGrpc {
   private static final int METHODID_GET_FACILITY_REQUEST_LIST = 1;
   private static final int METHODID_GET_FACILITY_REQUEST_STATUS = 2;
   private static final int METHODID_GET_AVAILABLE_FACILITY_LIST = 3;
-  private static final int METHODID_REQUEST_FACILITY_REQUEST = 4;
-  private static final int METHODID_APPROVE_FACILITY_REQUEST = 5;
-  private static final int METHODID_REJECT_FACILITY_REQUEST = 6;
-  private static final int METHODID_GET_FACILITY_INFO = 7;
+  private static final int METHODID_GET_AVAILABLE_TIME_OF_FACILITY = 4;
+  private static final int METHODID_REQUEST_FACILITY_REQUEST = 5;
+  private static final int METHODID_APPROVE_FACILITY_REQUEST = 6;
+  private static final int METHODID_REJECT_FACILITY_REQUEST = 7;
+  private static final int METHODID_GET_FACILITY_INFO = 8;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -698,6 +767,10 @@ public final class FacilityServiceGrpc {
         case METHODID_GET_AVAILABLE_FACILITY_LIST:
           serviceImpl.getAvailableFacilityList((com.google.protobuf.Empty) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.GetAvailableFacilityListResponse>) responseObserver);
+          break;
+        case METHODID_GET_AVAILABLE_TIME_OF_FACILITY:
+          serviceImpl.getAvailableTimeOfFacility((app.onepass.apis.GetAvailableTimeOfFacilityRequest) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.GetAvailableTimeOfFacilityResponse>) responseObserver);
           break;
         case METHODID_REQUEST_FACILITY_REQUEST:
           serviceImpl.requestFacilityRequest((app.onepass.apis.RequestFacilityRequestRequest) request,
@@ -780,6 +853,7 @@ public final class FacilityServiceGrpc {
               .addMethod(getGetFacilityRequestListMethod())
               .addMethod(getGetFacilityRequestStatusMethod())
               .addMethod(getGetAvailableFacilityListMethod())
+              .addMethod(getGetAvailableTimeOfFacilityMethod())
               .addMethod(getRequestFacilityRequestMethod())
               .addMethod(getApproveFacilityRequestMethod())
               .addMethod(getRejectFacilityRequestMethod())
