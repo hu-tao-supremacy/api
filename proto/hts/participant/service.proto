@@ -7,7 +7,7 @@ option java_package = "app.onepass.apis";
 option java_outer_classname = "ParticipantProto";
 option go_package = "onepass.app/facility/hts/participant";
 
-import "hts/common.proto";
+import "hts/common/common.proto";
 
 message IsEventAvailableReq {
     hts.common.Event event = 1;
