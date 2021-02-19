@@ -10,7 +10,7 @@
 	@mkdir -p ./gen/python
 	python3 -m grpc_tools.protoc -I ./proto --python_out=./gen/python --grpc_python_out=./gen/python \
 		./proto/hts/common/common.proto \
-		./proto/hts/account/service.proto
+		./proto/hts/participant/service.proto
 
 generate: /gen/nest /gen/python
 	@cd $(dirname $0)
