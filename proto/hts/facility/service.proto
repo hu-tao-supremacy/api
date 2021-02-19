@@ -12,13 +12,23 @@ import "hts/common/common.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 
-// Model
+// Model\
+
+enum RequestStatus {
+    UNIVERSAL = 0;
+    WEB = 1;
+    IMAGES = 2;
+    LOCAL = 3;
+    NEWS = 4;
+    PRODUCTS = 5;
+    VIDEO = 6;
+  }    
 
 message FacilityRequest {
     int64 id = 1;
     int64 event_id = 2;
     int64 facility_id = 3;
-    int64 is_approved = 4;
+    RequestStatus status = 4;
     int64 reject_reason = 5;
     google.protobuf.Timestamp start = 6;
     google.protobuf.Timestamp finish = 7;
@@ -39,7 +49,7 @@ message FacilityRequestWithFacilityInfo {
     int64 event_id = 2;
     int64 facility_id = 3;
     int64 organization_id = 4;
-    int64 is_approved = 5;
+    RequestStatus status = 5;
     int64 reject_reason = 6;
     google.protobuf.Timestamp start = 7;
     google.protobuf.Timestamp finish = 8;
