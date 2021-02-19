@@ -21,7 +21,7 @@ message FacilityRequest {
     int64 is_approved = 4;
     int64 reject_reason = 5;
     google.protobuf.Timestamp start = 6;
-    google.protobuf.Timestamp end = 7;
+    google.protobuf.Timestamp finish = 7;
 }
 
 message Facility {
@@ -32,6 +32,22 @@ message Facility {
     int64 longitude = 5;
     string operating_hours = 6;
     string description = 7;
+}
+
+message FacilityRequestWithFacilityInfo {
+    int64 id = 1;
+    int64 event_id = 2;
+    int64 facility_id = 3;
+    int64 organization_id = 4;
+    int64 is_approved = 5;
+    int64 reject_reason = 6;
+    google.protobuf.Timestamp start = 7;
+    google.protobuf.Timestamp finish = 8;
+    string facility_name = 9;
+    int64 latitude = 10;
+    int64 longitude = 11;
+    string operating_hours = 12;
+    string description = 13;
 }
 
 // Request and Response
@@ -52,8 +68,12 @@ message GetFacilityRequestListResponse {
     repeated FacilityRequest requests  = 1; 
 }
 
-message GetFacilityRequestStatusRequest {
+message GetFacilityRequestStatususRequest {
     int64 event_id = 1;
+}
+
+message GetFacilityRequestStatususResponse {
+    repeated FacilityRequestWithFacilityInfo requests = 1;
 }
 
 message GetAvailableFacilityListResponse {
@@ -93,19 +113,14 @@ message GetFacilityInfoRequest {
     int64 facility_id = 1;
 }
 
-message GetEventFacilityInfoRequest {
-    int64 event_id = 1;
-}
-
 service FacilityService {
     rpc GetFacilityList(GetFacilityListRequest) returns (GetFacilityListResponse);
     rpc GetFacilityRequestList(GetFacilityRequestListRequest) returns (GetFacilityRequestListResponse);
-    rpc GetFacilityRequestStatus(GetFacilityRequestStatusRequest) returns (FacilityRequest);
+    rpc GetFacilityRequestStatusus(GetFacilityRequestStatususRequest) returns (GetFacilityRequestStatususResponse);
     rpc GetAvailableFacilityList(google.protobuf.Empty) returns (GetAvailableFacilityListResponse);
     rpc GetAvailableTimeOfFacility(GetAvailableTimeOfFacilityRequest) returns (GetAvailableTimeOfFacilityResponse);
     rpc RequestFacilityRequest(RequestFacilityRequestRequest) returns (FacilityRequest); 
     rpc ApproveFacilityRequest(ApproveFacilityRequestRequest) returns (hts.common.Result);
     rpc RejectFacilityRequest(RejectFacilityRequestRequest) returns (hts.common.Result);
     rpc GetFacilityInfo(GetFacilityInfoRequest) returns (Facility);
-    rpc GetEventFacilityInfo(GetEventFacilityInfoRequest) returns (Facility);
 }
