@@ -169,35 +169,35 @@ public final class FacilityServiceGrpc {
     return getGetAvailableTimeOfFacilityMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.RequestFacilityRequestRequest,
-      app.onepass.apis.FacilityRequest> getRequestFacilityRequestMethod;
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.CreateFacilityRequestRequest,
+      app.onepass.apis.FacilityRequest> getCreateFacilityRequestMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "RequestFacilityRequest",
-      requestType = app.onepass.apis.RequestFacilityRequestRequest.class,
+      fullMethodName = SERVICE_NAME + '/' + "CreateFacilityRequest",
+      requestType = app.onepass.apis.CreateFacilityRequestRequest.class,
       responseType = app.onepass.apis.FacilityRequest.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<app.onepass.apis.RequestFacilityRequestRequest,
-      app.onepass.apis.FacilityRequest> getRequestFacilityRequestMethod() {
-    io.grpc.MethodDescriptor<app.onepass.apis.RequestFacilityRequestRequest, app.onepass.apis.FacilityRequest> getRequestFacilityRequestMethod;
-    if ((getRequestFacilityRequestMethod = FacilityServiceGrpc.getRequestFacilityRequestMethod) == null) {
+  public static io.grpc.MethodDescriptor<app.onepass.apis.CreateFacilityRequestRequest,
+      app.onepass.apis.FacilityRequest> getCreateFacilityRequestMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.CreateFacilityRequestRequest, app.onepass.apis.FacilityRequest> getCreateFacilityRequestMethod;
+    if ((getCreateFacilityRequestMethod = FacilityServiceGrpc.getCreateFacilityRequestMethod) == null) {
       synchronized (FacilityServiceGrpc.class) {
-        if ((getRequestFacilityRequestMethod = FacilityServiceGrpc.getRequestFacilityRequestMethod) == null) {
-          FacilityServiceGrpc.getRequestFacilityRequestMethod = getRequestFacilityRequestMethod =
-              io.grpc.MethodDescriptor.<app.onepass.apis.RequestFacilityRequestRequest, app.onepass.apis.FacilityRequest>newBuilder()
+        if ((getCreateFacilityRequestMethod = FacilityServiceGrpc.getCreateFacilityRequestMethod) == null) {
+          FacilityServiceGrpc.getCreateFacilityRequestMethod = getCreateFacilityRequestMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.CreateFacilityRequestRequest, app.onepass.apis.FacilityRequest>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "RequestFacilityRequest"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateFacilityRequest"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  app.onepass.apis.RequestFacilityRequestRequest.getDefaultInstance()))
+                  app.onepass.apis.CreateFacilityRequestRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.FacilityRequest.getDefaultInstance()))
-              .setSchemaDescriptor(new FacilityServiceMethodDescriptorSupplier("RequestFacilityRequest"))
+              .setSchemaDescriptor(new FacilityServiceMethodDescriptorSupplier("CreateFacilityRequest"))
               .build();
         }
       }
     }
-    return getRequestFacilityRequestMethod;
+    return getCreateFacilityRequestMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<app.onepass.apis.ApproveFacilityRequestRequest,
@@ -378,9 +378,9 @@ public final class FacilityServiceGrpc {
 
     /**
      */
-    public void requestFacilityRequest(app.onepass.apis.RequestFacilityRequestRequest request,
+    public void createFacilityRequest(app.onepass.apis.CreateFacilityRequestRequest request,
         io.grpc.stub.StreamObserver<app.onepass.apis.FacilityRequest> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getRequestFacilityRequestMethod(), responseObserver);
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateFacilityRequestMethod(), responseObserver);
     }
 
     /**
@@ -442,12 +442,12 @@ public final class FacilityServiceGrpc {
                 app.onepass.apis.GetAvailableTimeOfFacilityResponse>(
                   this, METHODID_GET_AVAILABLE_TIME_OF_FACILITY)))
           .addMethod(
-            getRequestFacilityRequestMethod(),
+            getCreateFacilityRequestMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                app.onepass.apis.RequestFacilityRequestRequest,
+                app.onepass.apis.CreateFacilityRequestRequest,
                 app.onepass.apis.FacilityRequest>(
-                  this, METHODID_REQUEST_FACILITY_REQUEST)))
+                  this, METHODID_CREATE_FACILITY_REQUEST)))
           .addMethod(
             getApproveFacilityRequestMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -529,10 +529,10 @@ public final class FacilityServiceGrpc {
 
     /**
      */
-    public void requestFacilityRequest(app.onepass.apis.RequestFacilityRequestRequest request,
+    public void createFacilityRequest(app.onepass.apis.CreateFacilityRequestRequest request,
         io.grpc.stub.StreamObserver<app.onepass.apis.FacilityRequest> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getRequestFacilityRequestMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getCreateFacilityRequestMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -611,9 +611,9 @@ public final class FacilityServiceGrpc {
 
     /**
      */
-    public app.onepass.apis.FacilityRequest requestFacilityRequest(app.onepass.apis.RequestFacilityRequestRequest request) {
+    public app.onepass.apis.FacilityRequest createFacilityRequest(app.onepass.apis.CreateFacilityRequestRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getRequestFacilityRequestMethod(), getCallOptions(), request);
+          getChannel(), getCreateFacilityRequestMethod(), getCallOptions(), request);
     }
 
     /**
@@ -694,10 +694,10 @@ public final class FacilityServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.FacilityRequest> requestFacilityRequest(
-        app.onepass.apis.RequestFacilityRequestRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.FacilityRequest> createFacilityRequest(
+        app.onepass.apis.CreateFacilityRequestRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getRequestFacilityRequestMethod(), getCallOptions()), request);
+          getChannel().newCall(getCreateFacilityRequestMethod(), getCallOptions()), request);
     }
 
     /**
@@ -730,7 +730,7 @@ public final class FacilityServiceGrpc {
   private static final int METHODID_GET_FACILITY_REQUESTS_STATUS = 2;
   private static final int METHODID_GET_AVAILABLE_FACILITY_LIST = 3;
   private static final int METHODID_GET_AVAILABLE_TIME_OF_FACILITY = 4;
-  private static final int METHODID_REQUEST_FACILITY_REQUEST = 5;
+  private static final int METHODID_CREATE_FACILITY_REQUEST = 5;
   private static final int METHODID_APPROVE_FACILITY_REQUEST = 6;
   private static final int METHODID_REJECT_FACILITY_REQUEST = 7;
   private static final int METHODID_GET_FACILITY_INFO = 8;
@@ -772,8 +772,8 @@ public final class FacilityServiceGrpc {
           serviceImpl.getAvailableTimeOfFacility((app.onepass.apis.GetAvailableTimeOfFacilityRequest) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.GetAvailableTimeOfFacilityResponse>) responseObserver);
           break;
-        case METHODID_REQUEST_FACILITY_REQUEST:
-          serviceImpl.requestFacilityRequest((app.onepass.apis.RequestFacilityRequestRequest) request,
+        case METHODID_CREATE_FACILITY_REQUEST:
+          serviceImpl.createFacilityRequest((app.onepass.apis.CreateFacilityRequestRequest) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.FacilityRequest>) responseObserver);
           break;
         case METHODID_APPROVE_FACILITY_REQUEST:
@@ -854,7 +854,7 @@ public final class FacilityServiceGrpc {
               .addMethod(getGetFacilityRequestsStatusMethod())
               .addMethod(getGetAvailableFacilityListMethod())
               .addMethod(getGetAvailableTimeOfFacilityMethod())
-              .addMethod(getRequestFacilityRequestMethod())
+              .addMethod(getCreateFacilityRequestMethod())
               .addMethod(getApproveFacilityRequestMethod())
               .addMethod(getRejectFacilityRequestMethod())
               .addMethod(getGetFacilityInfoMethod())

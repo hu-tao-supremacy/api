@@ -25,7 +25,7 @@ type FacilityServiceClient interface {
 	GetFacilityRequestsStatus(ctx context.Context, in *GetFacilityRequestsStatusRequest, opts ...grpc.CallOption) (*GetFacilityRequestsStatusResponse, error)
 	GetAvailableFacilityList(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*GetAvailableFacilityListResponse, error)
 	GetAvailableTimeOfFacility(ctx context.Context, in *GetAvailableTimeOfFacilityRequest, opts ...grpc.CallOption) (*GetAvailableTimeOfFacilityResponse, error)
-	RequestFacilityRequest(ctx context.Context, in *RequestFacilityRequestRequest, opts ...grpc.CallOption) (*FacilityRequest, error)
+	CreateFacilityRequest(ctx context.Context, in *CreateFacilityRequestRequest, opts ...grpc.CallOption) (*FacilityRequest, error)
 	ApproveFacilityRequest(ctx context.Context, in *ApproveFacilityRequestRequest, opts ...grpc.CallOption) (*common.Result, error)
 	RejectFacilityRequest(ctx context.Context, in *RejectFacilityRequestRequest, opts ...grpc.CallOption) (*common.Result, error)
 	GetFacilityInfo(ctx context.Context, in *GetFacilityInfoRequest, opts ...grpc.CallOption) (*Facility, error)
@@ -84,9 +84,9 @@ func (c *facilityServiceClient) GetAvailableTimeOfFacility(ctx context.Context, 
 	return out, nil
 }
 
-func (c *facilityServiceClient) RequestFacilityRequest(ctx context.Context, in *RequestFacilityRequestRequest, opts ...grpc.CallOption) (*FacilityRequest, error) {
+func (c *facilityServiceClient) CreateFacilityRequest(ctx context.Context, in *CreateFacilityRequestRequest, opts ...grpc.CallOption) (*FacilityRequest, error) {
 	out := new(FacilityRequest)
-	err := c.cc.Invoke(ctx, "/hts.facility.FacilityService/RequestFacilityRequest", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/hts.facility.FacilityService/CreateFacilityRequest", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -129,7 +129,7 @@ type FacilityServiceServer interface {
 	GetFacilityRequestsStatus(context.Context, *GetFacilityRequestsStatusRequest) (*GetFacilityRequestsStatusResponse, error)
 	GetAvailableFacilityList(context.Context, *empty.Empty) (*GetAvailableFacilityListResponse, error)
 	GetAvailableTimeOfFacility(context.Context, *GetAvailableTimeOfFacilityRequest) (*GetAvailableTimeOfFacilityResponse, error)
-	RequestFacilityRequest(context.Context, *RequestFacilityRequestRequest) (*FacilityRequest, error)
+	CreateFacilityRequest(context.Context, *CreateFacilityRequestRequest) (*FacilityRequest, error)
 	ApproveFacilityRequest(context.Context, *ApproveFacilityRequestRequest) (*common.Result, error)
 	RejectFacilityRequest(context.Context, *RejectFacilityRequestRequest) (*common.Result, error)
 	GetFacilityInfo(context.Context, *GetFacilityInfoRequest) (*Facility, error)
@@ -154,8 +154,8 @@ func (UnimplementedFacilityServiceServer) GetAvailableFacilityList(context.Conte
 func (UnimplementedFacilityServiceServer) GetAvailableTimeOfFacility(context.Context, *GetAvailableTimeOfFacilityRequest) (*GetAvailableTimeOfFacilityResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAvailableTimeOfFacility not implemented")
 }
-func (UnimplementedFacilityServiceServer) RequestFacilityRequest(context.Context, *RequestFacilityRequestRequest) (*FacilityRequest, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method RequestFacilityRequest not implemented")
+func (UnimplementedFacilityServiceServer) CreateFacilityRequest(context.Context, *CreateFacilityRequestRequest) (*FacilityRequest, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateFacilityRequest not implemented")
 }
 func (UnimplementedFacilityServiceServer) ApproveFacilityRequest(context.Context, *ApproveFacilityRequestRequest) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ApproveFacilityRequest not implemented")
@@ -268,20 +268,20 @@ func _FacilityService_GetAvailableTimeOfFacility_Handler(srv interface{}, ctx co
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FacilityService_RequestFacilityRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RequestFacilityRequestRequest)
+func _FacilityService_CreateFacilityRequest_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateFacilityRequestRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FacilityServiceServer).RequestFacilityRequest(ctx, in)
+		return srv.(FacilityServiceServer).CreateFacilityRequest(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.facility.FacilityService/RequestFacilityRequest",
+		FullMethod: "/hts.facility.FacilityService/CreateFacilityRequest",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FacilityServiceServer).RequestFacilityRequest(ctx, req.(*RequestFacilityRequestRequest))
+		return srv.(FacilityServiceServer).CreateFacilityRequest(ctx, req.(*CreateFacilityRequestRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -368,8 +368,8 @@ var FacilityService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _FacilityService_GetAvailableTimeOfFacility_Handler,
 		},
 		{
-			MethodName: "RequestFacilityRequest",
-			Handler:    _FacilityService_RequestFacilityRequest_Handler,
+			MethodName: "CreateFacilityRequest",
+			Handler:    _FacilityService_CreateFacilityRequest_Handler,
 		},
 		{
 			MethodName: "ApproveFacilityRequest",

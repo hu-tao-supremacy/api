@@ -17,8 +17,6 @@ private static final long serialVersionUID = 0L;
   }
   private Facility() {
     name_ = "";
-    operatingHours_ = "";
-    description_ = "";
   }
 
   @java.lang.Override
@@ -78,15 +76,29 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (operatingHours_ != null) {
+              subBuilder = operatingHours_.toBuilder();
+            }
+            operatingHours_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(operatingHours_);
+              operatingHours_ = subBuilder.buildPartial();
+            }
 
-            operatingHours_ = s;
             break;
           }
           case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (description_ != null) {
+              subBuilder = description_.toBuilder();
+            }
+            description_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(description_);
+              description_ = subBuilder.buildPartial();
+            }
 
-            description_ = s;
             break;
           }
           default: {
@@ -204,79 +216,55 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OPERATING_HOURS_FIELD_NUMBER = 6;
-  private volatile java.lang.Object operatingHours_;
+  private com.google.protobuf.StringValue operatingHours_;
   /**
-   * <code>string operating_hours = 6 [json_name = "operatingHours"];</code>
+   * <code>.google.protobuf.StringValue operating_hours = 6 [json_name = "operatingHours"];</code>
+   * @return Whether the operatingHours field is set.
+   */
+  @java.lang.Override
+  public boolean hasOperatingHours() {
+    return operatingHours_ != null;
+  }
+  /**
+   * <code>.google.protobuf.StringValue operating_hours = 6 [json_name = "operatingHours"];</code>
    * @return The operatingHours.
    */
   @java.lang.Override
-  public java.lang.String getOperatingHours() {
-    java.lang.Object ref = operatingHours_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      operatingHours_ = s;
-      return s;
-    }
+  public com.google.protobuf.StringValue getOperatingHours() {
+    return operatingHours_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : operatingHours_;
   }
   /**
-   * <code>string operating_hours = 6 [json_name = "operatingHours"];</code>
-   * @return The bytes for operatingHours.
+   * <code>.google.protobuf.StringValue operating_hours = 6 [json_name = "operatingHours"];</code>
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getOperatingHoursBytes() {
-    java.lang.Object ref = operatingHours_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      operatingHours_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public com.google.protobuf.StringValueOrBuilder getOperatingHoursOrBuilder() {
+    return getOperatingHours();
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 7;
-  private volatile java.lang.Object description_;
+  private com.google.protobuf.StringValue description_;
   /**
-   * <code>string description = 7 [json_name = "description"];</code>
+   * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
+   * @return Whether the description field is set.
+   */
+  @java.lang.Override
+  public boolean hasDescription() {
+    return description_ != null;
+  }
+  /**
+   * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
    * @return The description.
    */
   @java.lang.Override
-  public java.lang.String getDescription() {
-    java.lang.Object ref = description_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      description_ = s;
-      return s;
-    }
+  public com.google.protobuf.StringValue getDescription() {
+    return description_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : description_;
   }
   /**
-   * <code>string description = 7 [json_name = "description"];</code>
-   * @return The bytes for description.
+   * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getDescriptionBytes() {
-    java.lang.Object ref = description_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      description_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public com.google.protobuf.StringValueOrBuilder getDescriptionOrBuilder() {
+    return getDescription();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -308,11 +296,11 @@ private static final long serialVersionUID = 0L;
     if (longitude_ != 0L) {
       output.writeInt64(5, longitude_);
     }
-    if (!getOperatingHoursBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, operatingHours_);
+    if (operatingHours_ != null) {
+      output.writeMessage(6, getOperatingHours());
     }
-    if (!getDescriptionBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, description_);
+    if (description_ != null) {
+      output.writeMessage(7, getDescription());
     }
     unknownFields.writeTo(output);
   }
@@ -342,11 +330,13 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(5, longitude_);
     }
-    if (!getOperatingHoursBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, operatingHours_);
+    if (operatingHours_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, getOperatingHours());
     }
-    if (!getDescriptionBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, description_);
+    if (description_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(7, getDescription());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -373,10 +363,16 @@ private static final long serialVersionUID = 0L;
         != other.getLatitude()) return false;
     if (getLongitude()
         != other.getLongitude()) return false;
-    if (!getOperatingHours()
-        .equals(other.getOperatingHours())) return false;
-    if (!getDescription()
-        .equals(other.getDescription())) return false;
+    if (hasOperatingHours() != other.hasOperatingHours()) return false;
+    if (hasOperatingHours()) {
+      if (!getOperatingHours()
+          .equals(other.getOperatingHours())) return false;
+    }
+    if (hasDescription() != other.hasDescription()) return false;
+    if (hasDescription()) {
+      if (!getDescription()
+          .equals(other.getDescription())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -402,10 +398,14 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + LONGITUDE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getLongitude());
-    hash = (37 * hash) + OPERATING_HOURS_FIELD_NUMBER;
-    hash = (53 * hash) + getOperatingHours().hashCode();
-    hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
-    hash = (53 * hash) + getDescription().hashCode();
+    if (hasOperatingHours()) {
+      hash = (37 * hash) + OPERATING_HOURS_FIELD_NUMBER;
+      hash = (53 * hash) + getOperatingHours().hashCode();
+    }
+    if (hasDescription()) {
+      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+      hash = (53 * hash) + getDescription().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -549,10 +549,18 @@ private static final long serialVersionUID = 0L;
 
       longitude_ = 0L;
 
-      operatingHours_ = "";
-
-      description_ = "";
-
+      if (operatingHoursBuilder_ == null) {
+        operatingHours_ = null;
+      } else {
+        operatingHours_ = null;
+        operatingHoursBuilder_ = null;
+      }
+      if (descriptionBuilder_ == null) {
+        description_ = null;
+      } else {
+        description_ = null;
+        descriptionBuilder_ = null;
+      }
       return this;
     }
 
@@ -584,8 +592,16 @@ private static final long serialVersionUID = 0L;
       result.name_ = name_;
       result.latitude_ = latitude_;
       result.longitude_ = longitude_;
-      result.operatingHours_ = operatingHours_;
-      result.description_ = description_;
+      if (operatingHoursBuilder_ == null) {
+        result.operatingHours_ = operatingHours_;
+      } else {
+        result.operatingHours_ = operatingHoursBuilder_.build();
+      }
+      if (descriptionBuilder_ == null) {
+        result.description_ = description_;
+      } else {
+        result.description_ = descriptionBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -650,13 +666,11 @@ private static final long serialVersionUID = 0L;
       if (other.getLongitude() != 0L) {
         setLongitude(other.getLongitude());
       }
-      if (!other.getOperatingHours().isEmpty()) {
-        operatingHours_ = other.operatingHours_;
-        onChanged();
+      if (other.hasOperatingHours()) {
+        mergeOperatingHours(other.getOperatingHours());
       }
-      if (!other.getDescription().isEmpty()) {
-        description_ = other.description_;
-        onChanged();
+      if (other.hasDescription()) {
+        mergeDescription(other.getDescription());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -887,156 +901,242 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object operatingHours_ = "";
+    private com.google.protobuf.StringValue operatingHours_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> operatingHoursBuilder_;
     /**
-     * <code>string operating_hours = 6 [json_name = "operatingHours"];</code>
+     * <code>.google.protobuf.StringValue operating_hours = 6 [json_name = "operatingHours"];</code>
+     * @return Whether the operatingHours field is set.
+     */
+    public boolean hasOperatingHours() {
+      return operatingHoursBuilder_ != null || operatingHours_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue operating_hours = 6 [json_name = "operatingHours"];</code>
      * @return The operatingHours.
      */
-    public java.lang.String getOperatingHours() {
-      java.lang.Object ref = operatingHours_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        operatingHours_ = s;
-        return s;
+    public com.google.protobuf.StringValue getOperatingHours() {
+      if (operatingHoursBuilder_ == null) {
+        return operatingHours_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : operatingHours_;
       } else {
-        return (java.lang.String) ref;
+        return operatingHoursBuilder_.getMessage();
       }
     }
     /**
-     * <code>string operating_hours = 6 [json_name = "operatingHours"];</code>
-     * @return The bytes for operatingHours.
+     * <code>.google.protobuf.StringValue operating_hours = 6 [json_name = "operatingHours"];</code>
      */
-    public com.google.protobuf.ByteString
-        getOperatingHoursBytes() {
-      java.lang.Object ref = operatingHours_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        operatingHours_ = b;
-        return b;
+    public Builder setOperatingHours(com.google.protobuf.StringValue value) {
+      if (operatingHoursBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        operatingHours_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        operatingHoursBuilder_.setMessage(value);
       }
+
+      return this;
     }
     /**
-     * <code>string operating_hours = 6 [json_name = "operatingHours"];</code>
-     * @param value The operatingHours to set.
-     * @return This builder for chaining.
+     * <code>.google.protobuf.StringValue operating_hours = 6 [json_name = "operatingHours"];</code>
      */
     public Builder setOperatingHours(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      operatingHours_ = value;
-      onChanged();
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (operatingHoursBuilder_ == null) {
+        operatingHours_ = builderForValue.build();
+        onChanged();
+      } else {
+        operatingHoursBuilder_.setMessage(builderForValue.build());
+      }
+
       return this;
     }
     /**
-     * <code>string operating_hours = 6 [json_name = "operatingHours"];</code>
-     * @return This builder for chaining.
+     * <code>.google.protobuf.StringValue operating_hours = 6 [json_name = "operatingHours"];</code>
+     */
+    public Builder mergeOperatingHours(com.google.protobuf.StringValue value) {
+      if (operatingHoursBuilder_ == null) {
+        if (operatingHours_ != null) {
+          operatingHours_ =
+            com.google.protobuf.StringValue.newBuilder(operatingHours_).mergeFrom(value).buildPartial();
+        } else {
+          operatingHours_ = value;
+        }
+        onChanged();
+      } else {
+        operatingHoursBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue operating_hours = 6 [json_name = "operatingHours"];</code>
      */
     public Builder clearOperatingHours() {
-      
-      operatingHours_ = getDefaultInstance().getOperatingHours();
-      onChanged();
+      if (operatingHoursBuilder_ == null) {
+        operatingHours_ = null;
+        onChanged();
+      } else {
+        operatingHours_ = null;
+        operatingHoursBuilder_ = null;
+      }
+
       return this;
     }
     /**
-     * <code>string operating_hours = 6 [json_name = "operatingHours"];</code>
-     * @param value The bytes for operatingHours to set.
-     * @return This builder for chaining.
+     * <code>.google.protobuf.StringValue operating_hours = 6 [json_name = "operatingHours"];</code>
      */
-    public Builder setOperatingHoursBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+    public com.google.protobuf.StringValue.Builder getOperatingHoursBuilder() {
       
-      operatingHours_ = value;
       onChanged();
-      return this;
+      return getOperatingHoursFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.StringValue operating_hours = 6 [json_name = "operatingHours"];</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getOperatingHoursOrBuilder() {
+      if (operatingHoursBuilder_ != null) {
+        return operatingHoursBuilder_.getMessageOrBuilder();
+      } else {
+        return operatingHours_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : operatingHours_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue operating_hours = 6 [json_name = "operatingHours"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getOperatingHoursFieldBuilder() {
+      if (operatingHoursBuilder_ == null) {
+        operatingHoursBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getOperatingHours(),
+                getParentForChildren(),
+                isClean());
+        operatingHours_ = null;
+      }
+      return operatingHoursBuilder_;
     }
 
-    private java.lang.Object description_ = "";
+    private com.google.protobuf.StringValue description_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> descriptionBuilder_;
     /**
-     * <code>string description = 7 [json_name = "description"];</code>
+     * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
+     * @return Whether the description field is set.
+     */
+    public boolean hasDescription() {
+      return descriptionBuilder_ != null || description_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
      * @return The description.
      */
-    public java.lang.String getDescription() {
-      java.lang.Object ref = description_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        description_ = s;
-        return s;
+    public com.google.protobuf.StringValue getDescription() {
+      if (descriptionBuilder_ == null) {
+        return description_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : description_;
       } else {
-        return (java.lang.String) ref;
+        return descriptionBuilder_.getMessage();
       }
     }
     /**
-     * <code>string description = 7 [json_name = "description"];</code>
-     * @return The bytes for description.
+     * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
      */
-    public com.google.protobuf.ByteString
-        getDescriptionBytes() {
-      java.lang.Object ref = description_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        description_ = b;
-        return b;
+    public Builder setDescription(com.google.protobuf.StringValue value) {
+      if (descriptionBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        description_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        descriptionBuilder_.setMessage(value);
       }
+
+      return this;
     }
     /**
-     * <code>string description = 7 [json_name = "description"];</code>
-     * @param value The description to set.
-     * @return This builder for chaining.
+     * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
      */
     public Builder setDescription(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      description_ = value;
-      onChanged();
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (descriptionBuilder_ == null) {
+        description_ = builderForValue.build();
+        onChanged();
+      } else {
+        descriptionBuilder_.setMessage(builderForValue.build());
+      }
+
       return this;
     }
     /**
-     * <code>string description = 7 [json_name = "description"];</code>
-     * @return This builder for chaining.
+     * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
+     */
+    public Builder mergeDescription(com.google.protobuf.StringValue value) {
+      if (descriptionBuilder_ == null) {
+        if (description_ != null) {
+          description_ =
+            com.google.protobuf.StringValue.newBuilder(description_).mergeFrom(value).buildPartial();
+        } else {
+          description_ = value;
+        }
+        onChanged();
+      } else {
+        descriptionBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
      */
     public Builder clearDescription() {
-      
-      description_ = getDefaultInstance().getDescription();
-      onChanged();
+      if (descriptionBuilder_ == null) {
+        description_ = null;
+        onChanged();
+      } else {
+        description_ = null;
+        descriptionBuilder_ = null;
+      }
+
       return this;
     }
     /**
-     * <code>string description = 7 [json_name = "description"];</code>
-     * @param value The bytes for description to set.
-     * @return This builder for chaining.
+     * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
      */
-    public Builder setDescriptionBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+    public com.google.protobuf.StringValue.Builder getDescriptionBuilder() {
       
-      description_ = value;
       onChanged();
-      return this;
+      return getDescriptionFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getDescriptionOrBuilder() {
+      if (descriptionBuilder_ != null) {
+        return descriptionBuilder_.getMessageOrBuilder();
+      } else {
+        return description_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : description_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getDescriptionFieldBuilder() {
+      if (descriptionBuilder_ == null) {
+        descriptionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getDescription(),
+                getParentForChildren(),
+                isClean());
+        description_ = null;
+      }
+      return descriptionBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

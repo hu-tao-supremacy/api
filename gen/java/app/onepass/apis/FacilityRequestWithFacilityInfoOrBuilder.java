@@ -43,16 +43,19 @@ public interface FacilityRequestWithFacilityInfoOrBuilder extends
   app.onepass.apis.RequestStatus getStatus();
 
   /**
-   * <code>string reject_reason = 6 [json_name = "rejectReason"];</code>
+   * <code>.google.protobuf.StringValue reject_reason = 6 [json_name = "rejectReason"];</code>
+   * @return Whether the rejectReason field is set.
+   */
+  boolean hasRejectReason();
+  /**
+   * <code>.google.protobuf.StringValue reject_reason = 6 [json_name = "rejectReason"];</code>
    * @return The rejectReason.
    */
-  java.lang.String getRejectReason();
+  com.google.protobuf.StringValue getRejectReason();
   /**
-   * <code>string reject_reason = 6 [json_name = "rejectReason"];</code>
-   * @return The bytes for rejectReason.
+   * <code>.google.protobuf.StringValue reject_reason = 6 [json_name = "rejectReason"];</code>
    */
-  com.google.protobuf.ByteString
-      getRejectReasonBytes();
+  com.google.protobuf.StringValueOrBuilder getRejectReasonOrBuilder();
 
   /**
    * <code>.google.protobuf.Timestamp start = 7 [json_name = "start"];</code>

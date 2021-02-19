@@ -15,6 +15,7 @@ _sym_db = _symbol_database.Default()
 from hts.common import common_pb2 as hts_dot_common_dot_common__pb2
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -23,9 +24,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\020app.onepass.apisB\rFacilityProtoP\001Z!onepass.app/facility/hts/facility',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1ahts/facility/service.proto\x12\x0chts.facility\x1a\x17hts/common/common.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x9d\x02\n\x0f\x46\x61\x63ilityRequest\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12\x1f\n\x0b\x66\x61\x63ility_id\x18\x03 \x01(\x03R\nfacilityId\x12\x33\n\x06status\x18\x04 \x01(\x0e\x32\x1b.hts.facility.RequestStatusR\x06status\x12#\n\rreject_reason\x18\x05 \x01(\tR\x0crejectReason\x12\x30\n\x05start\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12\x32\n\x06\x66inish\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x06\x66inish\"\xdc\x01\n\x08\x46\x61\x63ility\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12\x12\n\x04name\x18\x03 \x01(\tR\x04name\x12\x1a\n\x08latitude\x18\x04 \x01(\x03R\x08latitude\x12\x1c\n\tlongitude\x18\x05 \x01(\x03R\tlongitude\x12\'\n\x0foperating_hours\x18\x06 \x01(\tR\x0eoperatingHours\x12 \n\x0b\x64\x65scription\x18\x07 \x01(\tR\x0b\x64\x65scription\"\x80\x04\n\x1f\x46\x61\x63ilityRequestWithFacilityInfo\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12\x1f\n\x0b\x66\x61\x63ility_id\x18\x03 \x01(\x03R\nfacilityId\x12\'\n\x0forganization_id\x18\x04 \x01(\x03R\x0eorganizationId\x12\x33\n\x06status\x18\x05 \x01(\x0e\x32\x1b.hts.facility.RequestStatusR\x06status\x12#\n\rreject_reason\x18\x06 \x01(\tR\x0crejectReason\x12\x30\n\x05start\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12\x32\n\x06\x66inish\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x06\x66inish\x12#\n\rfacility_name\x18\t \x01(\tR\x0c\x66\x61\x63ilityName\x12\x1a\n\x08latitude\x18\n \x01(\x03R\x08latitude\x12\x1c\n\tlongitude\x18\x0b \x01(\x03R\tlongitude\x12\'\n\x0foperating_hours\x18\x0c \x01(\tR\x0eoperatingHours\x12 \n\x0b\x64\x65scription\x18\r \x01(\tR\x0b\x64\x65scription\"A\n\x16GetFacilityListRequest\x12\'\n\x0forganization_id\x18\x01 \x01(\x03R\x0eorganizationId\"Q\n\x17GetFacilityListResponse\x12\x36\n\nfacilities\x18\x01 \x03(\x0b\x32\x16.hts.facility.FacilityR\nfacilities\"H\n\x1dGetFacilityRequestListRequest\x12\'\n\x0forganization_id\x18\x01 \x01(\x03R\x0eorganizationId\"[\n\x1eGetFacilityRequestListResponse\x12\x39\n\x08requests\x18\x01 \x03(\x0b\x32\x1d.hts.facility.FacilityRequestR\x08requests\"=\n GetFacilityRequestsStatusRequest\x12\x19\n\x08\x65vent_id\x18\x01 \x01(\x03R\x07\x65ventId\"n\n!GetFacilityRequestsStatusResponse\x12I\n\x08requests\x18\x01 \x03(\x0b\x32-.hts.facility.FacilityRequestWithFacilityInfoR\x08requests\"Z\n GetAvailableFacilityListResponse\x12\x36\n\nfacilities\x18\x01 \x03(\x0b\x32\x16.hts.facility.FacilityR\nfacilities\"\xa4\x01\n!GetAvailableTimeOfFacilityRequest\x12\x1f\n\x0b\x66\x61\x63ility_id\x18\x01 \x01(\x03R\nfacilityId\x12\x30\n\x05start\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12,\n\x03\x65nd\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x03\x65nd\"\x8d\x01\n\"GetAvailableTimeOfFacilityResponse\x12\x46\n\x03\x64\x61y\x18\x01 \x03(\x0b\x32\x34.hts.facility.GetAvailableTimeOfFacilityResponse.DayR\x03\x64\x61y\x1a\x1f\n\x03\x44\x61y\x12\x18\n\x05items\x18\x01 \x03(\x08\x42\x02\x10\x01R\x05items\"\xbb\x01\n\x1dRequestFacilityRequestRequest\x12\x19\n\x08\x65vent_id\x18\x01 \x01(\x03R\x07\x65ventId\x12\x1f\n\x0b\x66\x61\x63ility_id\x18\x02 \x01(\x03R\nfacilityId\x12\x30\n\x05start\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12,\n\x03\x65nd\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x03\x65nd\">\n\x1d\x41pproveFacilityRequestRequest\x12\x1d\n\nrequest_id\x18\x01 \x01(\x03R\trequestId\"U\n\x1cRejectFacilityRequestRequest\x12\x1d\n\nrequest_id\x18\x01 \x01(\x03R\trequestId\x12\x16\n\x06reason\x18\x02 \x01(\tR\x06reason\"9\n\x16GetFacilityInfoRequest\x12\x1f\n\x0b\x66\x61\x63ility_id\x18\x01 \x01(\x03R\nfacilityId*8\n\rRequestStatus\x12\x0b\n\x07PENDING\x10\x00\x12\x0c\n\x08\x41PPROVED\x10\x01\x12\x0c\n\x08REJECTED\x10\x02\x32\xb4\x07\n\x0f\x46\x61\x63ilityService\x12^\n\x0fGetFacilityList\x12$.hts.facility.GetFacilityListRequest\x1a%.hts.facility.GetFacilityListResponse\x12s\n\x16GetFacilityRequestList\x12+.hts.facility.GetFacilityRequestListRequest\x1a,.hts.facility.GetFacilityRequestListResponse\x12|\n\x19GetFacilityRequestsStatus\x12..hts.facility.GetFacilityRequestsStatusRequest\x1a/.hts.facility.GetFacilityRequestsStatusResponse\x12\x62\n\x18GetAvailableFacilityList\x12\x16.google.protobuf.Empty\x1a..hts.facility.GetAvailableFacilityListResponse\x12\x7f\n\x1aGetAvailableTimeOfFacility\x12/.hts.facility.GetAvailableTimeOfFacilityRequest\x1a\x30.hts.facility.GetAvailableTimeOfFacilityResponse\x12\x64\n\x16RequestFacilityRequest\x12+.hts.facility.RequestFacilityRequestRequest\x1a\x1d.hts.facility.FacilityRequest\x12Y\n\x16\x41pproveFacilityRequest\x12+.hts.facility.ApproveFacilityRequestRequest\x1a\x12.hts.common.Result\x12W\n\x15RejectFacilityRequest\x12*.hts.facility.RejectFacilityRequestRequest\x1a\x12.hts.common.Result\x12O\n\x0fGetFacilityInfo\x12$.hts.facility.GetFacilityInfoRequest\x1a\x16.hts.facility.FacilityBF\n\x10\x61pp.onepass.apisB\rFacilityProtoP\x01Z!onepass.app/facility/hts/facilityb\x06proto3'
+  serialized_pb=b'\n\x1ahts/facility/service.proto\x12\x0chts.facility\x1a\x17hts/common/common.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\xbb\x02\n\x0f\x46\x61\x63ilityRequest\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12\x1f\n\x0b\x66\x61\x63ility_id\x18\x03 \x01(\x03R\nfacilityId\x12\x33\n\x06status\x18\x04 \x01(\x0e\x32\x1b.hts.facility.RequestStatusR\x06status\x12\x41\n\rreject_reason\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0crejectReason\x12\x30\n\x05start\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12\x32\n\x06\x66inish\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x06\x66inish\"\x98\x02\n\x08\x46\x61\x63ility\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12\x12\n\x04name\x18\x03 \x01(\tR\x04name\x12\x1a\n\x08latitude\x18\x04 \x01(\x03R\x08latitude\x12\x1c\n\tlongitude\x18\x05 \x01(\x03R\tlongitude\x12\x45\n\x0foperating_hours\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0eoperatingHours\x12>\n\x0b\x64\x65scription\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0b\x64\x65scription\"\x9e\x04\n\x1f\x46\x61\x63ilityRequestWithFacilityInfo\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12\x1f\n\x0b\x66\x61\x63ility_id\x18\x03 \x01(\x03R\nfacilityId\x12\'\n\x0forganization_id\x18\x04 \x01(\x03R\x0eorganizationId\x12\x33\n\x06status\x18\x05 \x01(\x0e\x32\x1b.hts.facility.RequestStatusR\x06status\x12\x41\n\rreject_reason\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0crejectReason\x12\x30\n\x05start\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12\x32\n\x06\x66inish\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x06\x66inish\x12#\n\rfacility_name\x18\t \x01(\tR\x0c\x66\x61\x63ilityName\x12\x1a\n\x08latitude\x18\n \x01(\x03R\x08latitude\x12\x1c\n\tlongitude\x18\x0b \x01(\x03R\tlongitude\x12\'\n\x0foperating_hours\x18\x0c \x01(\tR\x0eoperatingHours\x12 \n\x0b\x64\x65scription\x18\r \x01(\tR\x0b\x64\x65scription\"A\n\x16GetFacilityListRequest\x12\'\n\x0forganization_id\x18\x01 \x01(\x03R\x0eorganizationId\"Q\n\x17GetFacilityListResponse\x12\x36\n\nfacilities\x18\x01 \x03(\x0b\x32\x16.hts.facility.FacilityR\nfacilities\"H\n\x1dGetFacilityRequestListRequest\x12\'\n\x0forganization_id\x18\x01 \x01(\x03R\x0eorganizationId\"k\n\x1eGetFacilityRequestListResponse\x12I\n\x08requests\x18\x01 \x03(\x0b\x32-.hts.facility.FacilityRequestWithFacilityInfoR\x08requests\"=\n GetFacilityRequestsStatusRequest\x12\x19\n\x08\x65vent_id\x18\x01 \x01(\x03R\x07\x65ventId\"n\n!GetFacilityRequestsStatusResponse\x12I\n\x08requests\x18\x01 \x03(\x0b\x32-.hts.facility.FacilityRequestWithFacilityInfoR\x08requests\"Z\n GetAvailableFacilityListResponse\x12\x36\n\nfacilities\x18\x01 \x03(\x0b\x32\x16.hts.facility.FacilityR\nfacilities\"\xa4\x01\n!GetAvailableTimeOfFacilityRequest\x12\x1f\n\x0b\x66\x61\x63ility_id\x18\x01 \x01(\x03R\nfacilityId\x12\x30\n\x05start\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12,\n\x03\x65nd\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x03\x65nd\"\x8d\x01\n\"GetAvailableTimeOfFacilityResponse\x12\x46\n\x03\x64\x61y\x18\x01 \x03(\x0b\x32\x34.hts.facility.GetAvailableTimeOfFacilityResponse.DayR\x03\x64\x61y\x1a\x1f\n\x03\x44\x61y\x12\x18\n\x05items\x18\x01 \x03(\x08\x42\x02\x10\x01R\x05items\"\xba\x01\n\x1c\x43reateFacilityRequestRequest\x12\x19\n\x08\x65vent_id\x18\x01 \x01(\x03R\x07\x65ventId\x12\x1f\n\x0b\x66\x61\x63ility_id\x18\x02 \x01(\x03R\nfacilityId\x12\x30\n\x05start\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12,\n\x03\x65nd\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x03\x65nd\">\n\x1d\x41pproveFacilityRequestRequest\x12\x1d\n\nrequest_id\x18\x01 \x01(\x03R\trequestId\"U\n\x1cRejectFacilityRequestRequest\x12\x1d\n\nrequest_id\x18\x01 \x01(\x03R\trequestId\x12\x16\n\x06reason\x18\x02 \x01(\tR\x06reason\"9\n\x16GetFacilityInfoRequest\x12\x1f\n\x0b\x66\x61\x63ility_id\x18\x01 \x01(\x03R\nfacilityId*8\n\rRequestStatus\x12\x0b\n\x07PENDING\x10\x00\x12\x0c\n\x08\x41PPROVED\x10\x01\x12\x0c\n\x08REJECTED\x10\x02\x32\xb2\x07\n\x0f\x46\x61\x63ilityService\x12^\n\x0fGetFacilityList\x12$.hts.facility.GetFacilityListRequest\x1a%.hts.facility.GetFacilityListResponse\x12s\n\x16GetFacilityRequestList\x12+.hts.facility.GetFacilityRequestListRequest\x1a,.hts.facility.GetFacilityRequestListResponse\x12|\n\x19GetFacilityRequestsStatus\x12..hts.facility.GetFacilityRequestsStatusRequest\x1a/.hts.facility.GetFacilityRequestsStatusResponse\x12\x62\n\x18GetAvailableFacilityList\x12\x16.google.protobuf.Empty\x1a..hts.facility.GetAvailableFacilityListResponse\x12\x7f\n\x1aGetAvailableTimeOfFacility\x12/.hts.facility.GetAvailableTimeOfFacilityRequest\x1a\x30.hts.facility.GetAvailableTimeOfFacilityResponse\x12\x62\n\x15\x43reateFacilityRequest\x12*.hts.facility.CreateFacilityRequestRequest\x1a\x1d.hts.facility.FacilityRequest\x12Y\n\x16\x41pproveFacilityRequest\x12+.hts.facility.ApproveFacilityRequestRequest\x1a\x12.hts.common.Result\x12W\n\x15RejectFacilityRequest\x12*.hts.facility.RejectFacilityRequestRequest\x1a\x12.hts.common.Result\x12O\n\x0fGetFacilityInfo\x12$.hts.facility.GetFacilityInfoRequest\x1a\x16.hts.facility.FacilityBF\n\x10\x61pp.onepass.apisB\rFacilityProtoP\x01Z!onepass.app/facility/hts/facilityb\x06proto3'
   ,
-  dependencies=[hts_dot_common_dot_common__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
+  dependencies=[hts_dot_common_dot_common__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
 _REQUESTSTATUS = _descriptor.EnumDescriptor(
   name='RequestStatus',
@@ -52,8 +53,8 @@ _REQUESTSTATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2452,
-  serialized_end=2508,
+  serialized_start=2619,
+  serialized_end=2675,
 )
 _sym_db.RegisterEnumDescriptor(_REQUESTSTATUS)
 
@@ -102,8 +103,8 @@ _FACILITYREQUEST = _descriptor.Descriptor(
       serialized_options=None, json_name='status', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='reject_reason', full_name='hts.facility.FacilityRequest.reject_reason', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='rejectReason', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -133,8 +134,8 @@ _FACILITYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=132,
-  serialized_end=417,
+  serialized_start=164,
+  serialized_end=479,
 )
 
 
@@ -183,15 +184,15 @@ _FACILITY = _descriptor.Descriptor(
       serialized_options=None, json_name='longitude', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='operating_hours', full_name='hts.facility.Facility.operating_hours', index=5,
-      number=6, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='operatingHours', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='description', full_name='hts.facility.Facility.description', index=6,
-      number=7, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='description', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -207,8 +208,8 @@ _FACILITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=420,
-  serialized_end=640,
+  serialized_start=482,
+  serialized_end=762,
 )
 
 
@@ -257,8 +258,8 @@ _FACILITYREQUESTWITHFACILITYINFO = _descriptor.Descriptor(
       serialized_options=None, json_name='status', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='reject_reason', full_name='hts.facility.FacilityRequestWithFacilityInfo.reject_reason', index=5,
-      number=6, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='rejectReason', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -323,8 +324,8 @@ _FACILITYREQUESTWITHFACILITYINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=643,
-  serialized_end=1155,
+  serialized_start=765,
+  serialized_end=1307,
 )
 
 
@@ -355,8 +356,8 @@ _GETFACILITYLISTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1157,
-  serialized_end=1222,
+  serialized_start=1309,
+  serialized_end=1374,
 )
 
 
@@ -387,8 +388,8 @@ _GETFACILITYLISTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1224,
-  serialized_end=1305,
+  serialized_start=1376,
+  serialized_end=1457,
 )
 
 
@@ -419,8 +420,8 @@ _GETFACILITYREQUESTLISTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1307,
-  serialized_end=1379,
+  serialized_start=1459,
+  serialized_end=1531,
 )
 
 
@@ -451,8 +452,8 @@ _GETFACILITYREQUESTLISTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1381,
-  serialized_end=1472,
+  serialized_start=1533,
+  serialized_end=1640,
 )
 
 
@@ -483,8 +484,8 @@ _GETFACILITYREQUESTSSTATUSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1474,
-  serialized_end=1535,
+  serialized_start=1642,
+  serialized_end=1703,
 )
 
 
@@ -515,8 +516,8 @@ _GETFACILITYREQUESTSSTATUSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1537,
-  serialized_end=1647,
+  serialized_start=1705,
+  serialized_end=1815,
 )
 
 
@@ -547,8 +548,8 @@ _GETAVAILABLEFACILITYLISTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1649,
-  serialized_end=1739,
+  serialized_start=1817,
+  serialized_end=1907,
 )
 
 
@@ -593,8 +594,8 @@ _GETAVAILABLETIMEOFFACILITYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1742,
-  serialized_end=1906,
+  serialized_start=1910,
+  serialized_end=2074,
 )
 
 
@@ -625,8 +626,8 @@ _GETAVAILABLETIMEOFFACILITYRESPONSE_DAY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2019,
-  serialized_end=2050,
+  serialized_start=2187,
+  serialized_end=2218,
 )
 
 _GETAVAILABLETIMEOFFACILITYRESPONSE = _descriptor.Descriptor(
@@ -656,42 +657,42 @@ _GETAVAILABLETIMEOFFACILITYRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1909,
-  serialized_end=2050,
+  serialized_start=2077,
+  serialized_end=2218,
 )
 
 
-_REQUESTFACILITYREQUESTREQUEST = _descriptor.Descriptor(
-  name='RequestFacilityRequestRequest',
-  full_name='hts.facility.RequestFacilityRequestRequest',
+_CREATEFACILITYREQUESTREQUEST = _descriptor.Descriptor(
+  name='CreateFacilityRequestRequest',
+  full_name='hts.facility.CreateFacilityRequestRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='event_id', full_name='hts.facility.RequestFacilityRequestRequest.event_id', index=0,
+      name='event_id', full_name='hts.facility.CreateFacilityRequestRequest.event_id', index=0,
       number=1, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='eventId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='facility_id', full_name='hts.facility.RequestFacilityRequestRequest.facility_id', index=1,
+      name='facility_id', full_name='hts.facility.CreateFacilityRequestRequest.facility_id', index=1,
       number=2, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='facilityId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='start', full_name='hts.facility.RequestFacilityRequestRequest.start', index=2,
+      name='start', full_name='hts.facility.CreateFacilityRequestRequest.start', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='start', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='end', full_name='hts.facility.RequestFacilityRequestRequest.end', index=3,
+      name='end', full_name='hts.facility.CreateFacilityRequestRequest.end', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -709,8 +710,8 @@ _REQUESTFACILITYREQUESTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2053,
-  serialized_end=2240,
+  serialized_start=2221,
+  serialized_end=2407,
 )
 
 
@@ -741,8 +742,8 @@ _APPROVEFACILITYREQUESTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2242,
-  serialized_end=2304,
+  serialized_start=2409,
+  serialized_end=2471,
 )
 
 
@@ -780,8 +781,8 @@ _REJECTFACILITYREQUESTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2306,
-  serialized_end=2391,
+  serialized_start=2473,
+  serialized_end=2558,
 )
 
 
@@ -812,26 +813,30 @@ _GETFACILITYINFOREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2393,
-  serialized_end=2450,
+  serialized_start=2560,
+  serialized_end=2617,
 )
 
 _FACILITYREQUEST.fields_by_name['status'].enum_type = _REQUESTSTATUS
+_FACILITYREQUEST.fields_by_name['reject_reason'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _FACILITYREQUEST.fields_by_name['start'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _FACILITYREQUEST.fields_by_name['finish'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_FACILITY.fields_by_name['operating_hours'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_FACILITY.fields_by_name['description'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _FACILITYREQUESTWITHFACILITYINFO.fields_by_name['status'].enum_type = _REQUESTSTATUS
+_FACILITYREQUESTWITHFACILITYINFO.fields_by_name['reject_reason'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _FACILITYREQUESTWITHFACILITYINFO.fields_by_name['start'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _FACILITYREQUESTWITHFACILITYINFO.fields_by_name['finish'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _GETFACILITYLISTRESPONSE.fields_by_name['facilities'].message_type = _FACILITY
-_GETFACILITYREQUESTLISTRESPONSE.fields_by_name['requests'].message_type = _FACILITYREQUEST
+_GETFACILITYREQUESTLISTRESPONSE.fields_by_name['requests'].message_type = _FACILITYREQUESTWITHFACILITYINFO
 _GETFACILITYREQUESTSSTATUSRESPONSE.fields_by_name['requests'].message_type = _FACILITYREQUESTWITHFACILITYINFO
 _GETAVAILABLEFACILITYLISTRESPONSE.fields_by_name['facilities'].message_type = _FACILITY
 _GETAVAILABLETIMEOFFACILITYREQUEST.fields_by_name['start'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _GETAVAILABLETIMEOFFACILITYREQUEST.fields_by_name['end'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _GETAVAILABLETIMEOFFACILITYRESPONSE_DAY.containing_type = _GETAVAILABLETIMEOFFACILITYRESPONSE
 _GETAVAILABLETIMEOFFACILITYRESPONSE.fields_by_name['day'].message_type = _GETAVAILABLETIMEOFFACILITYRESPONSE_DAY
-_REQUESTFACILITYREQUESTREQUEST.fields_by_name['start'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
-_REQUESTFACILITYREQUESTREQUEST.fields_by_name['end'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_CREATEFACILITYREQUESTREQUEST.fields_by_name['start'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_CREATEFACILITYREQUESTREQUEST.fields_by_name['end'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 DESCRIPTOR.message_types_by_name['FacilityRequest'] = _FACILITYREQUEST
 DESCRIPTOR.message_types_by_name['Facility'] = _FACILITY
 DESCRIPTOR.message_types_by_name['FacilityRequestWithFacilityInfo'] = _FACILITYREQUESTWITHFACILITYINFO
@@ -844,7 +849,7 @@ DESCRIPTOR.message_types_by_name['GetFacilityRequestsStatusResponse'] = _GETFACI
 DESCRIPTOR.message_types_by_name['GetAvailableFacilityListResponse'] = _GETAVAILABLEFACILITYLISTRESPONSE
 DESCRIPTOR.message_types_by_name['GetAvailableTimeOfFacilityRequest'] = _GETAVAILABLETIMEOFFACILITYREQUEST
 DESCRIPTOR.message_types_by_name['GetAvailableTimeOfFacilityResponse'] = _GETAVAILABLETIMEOFFACILITYRESPONSE
-DESCRIPTOR.message_types_by_name['RequestFacilityRequestRequest'] = _REQUESTFACILITYREQUESTREQUEST
+DESCRIPTOR.message_types_by_name['CreateFacilityRequestRequest'] = _CREATEFACILITYREQUESTREQUEST
 DESCRIPTOR.message_types_by_name['ApproveFacilityRequestRequest'] = _APPROVEFACILITYREQUESTREQUEST
 DESCRIPTOR.message_types_by_name['RejectFacilityRequestRequest'] = _REJECTFACILITYREQUESTREQUEST
 DESCRIPTOR.message_types_by_name['GetFacilityInfoRequest'] = _GETFACILITYINFOREQUEST
@@ -943,12 +948,12 @@ GetAvailableTimeOfFacilityResponse = _reflection.GeneratedProtocolMessageType('G
 _sym_db.RegisterMessage(GetAvailableTimeOfFacilityResponse)
 _sym_db.RegisterMessage(GetAvailableTimeOfFacilityResponse.Day)
 
-RequestFacilityRequestRequest = _reflection.GeneratedProtocolMessageType('RequestFacilityRequestRequest', (_message.Message,), {
-  'DESCRIPTOR' : _REQUESTFACILITYREQUESTREQUEST,
+CreateFacilityRequestRequest = _reflection.GeneratedProtocolMessageType('CreateFacilityRequestRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CREATEFACILITYREQUESTREQUEST,
   '__module__' : 'hts.facility.service_pb2'
-  # @@protoc_insertion_point(class_scope:hts.facility.RequestFacilityRequestRequest)
+  # @@protoc_insertion_point(class_scope:hts.facility.CreateFacilityRequestRequest)
   })
-_sym_db.RegisterMessage(RequestFacilityRequestRequest)
+_sym_db.RegisterMessage(CreateFacilityRequestRequest)
 
 ApproveFacilityRequestRequest = _reflection.GeneratedProtocolMessageType('ApproveFacilityRequestRequest', (_message.Message,), {
   'DESCRIPTOR' : _APPROVEFACILITYREQUESTREQUEST,
@@ -982,8 +987,8 @@ _FACILITYSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=2511,
-  serialized_end=3459,
+  serialized_start=2678,
+  serialized_end=3624,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetFacilityList',
@@ -1036,11 +1041,11 @@ _FACILITYSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
-    name='RequestFacilityRequest',
-    full_name='hts.facility.FacilityService.RequestFacilityRequest',
+    name='CreateFacilityRequest',
+    full_name='hts.facility.FacilityService.CreateFacilityRequest',
     index=5,
     containing_service=None,
-    input_type=_REQUESTFACILITYREQUESTREQUEST,
+    input_type=_CREATEFACILITYREQUESTREQUEST,
     output_type=_FACILITYREQUEST,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
