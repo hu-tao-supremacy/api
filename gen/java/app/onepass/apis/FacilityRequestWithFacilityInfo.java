@@ -4,25 +4,28 @@
 package app.onepass.apis;
 
 /**
- * Protobuf type {@code hts.facility.FacilityRequest}
+ * Protobuf type {@code hts.facility.FacilityRequestWithFacilityInfo}
  */
-public final class FacilityRequest extends
+public final class FacilityRequestWithFacilityInfo extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:hts.facility.FacilityRequest)
-    FacilityRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:hts.facility.FacilityRequestWithFacilityInfo)
+    FacilityRequestWithFacilityInfoOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use FacilityRequest.newBuilder() to construct.
-  private FacilityRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use FacilityRequestWithFacilityInfo.newBuilder() to construct.
+  private FacilityRequestWithFacilityInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private FacilityRequest() {
+  private FacilityRequestWithFacilityInfo() {
+    facilityName_ = "";
+    operatingHours_ = "";
+    description_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new FacilityRequest();
+    return new FacilityRequestWithFacilityInfo();
   }
 
   @java.lang.Override
@@ -30,7 +33,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private FacilityRequest(
+  private FacilityRequestWithFacilityInfo(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -65,15 +68,20 @@ private static final long serialVersionUID = 0L;
           }
           case 32: {
 
-            isApproved_ = input.readInt64();
+            organizationId_ = input.readInt64();
             break;
           }
           case 40: {
 
+            isApproved_ = input.readInt64();
+            break;
+          }
+          case 48: {
+
             rejectReason_ = input.readInt64();
             break;
           }
-          case 50: {
+          case 58: {
             com.google.protobuf.Timestamp.Builder subBuilder = null;
             if (start_ != null) {
               subBuilder = start_.toBuilder();
@@ -86,7 +94,7 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
-          case 58: {
+          case 66: {
             com.google.protobuf.Timestamp.Builder subBuilder = null;
             if (finish_ != null) {
               subBuilder = finish_.toBuilder();
@@ -97,6 +105,34 @@ private static final long serialVersionUID = 0L;
               finish_ = subBuilder.buildPartial();
             }
 
+            break;
+          }
+          case 74: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            facilityName_ = s;
+            break;
+          }
+          case 80: {
+
+            latitude_ = input.readInt64();
+            break;
+          }
+          case 88: {
+
+            longitude_ = input.readInt64();
+            break;
+          }
+          case 98: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            operatingHours_ = s;
+            break;
+          }
+          case 106: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            description_ = s;
             break;
           }
           default: {
@@ -120,15 +156,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return app.onepass.apis.FacilityProto.internal_static_hts_facility_FacilityRequest_descriptor;
+    return app.onepass.apis.FacilityProto.internal_static_hts_facility_FacilityRequestWithFacilityInfo_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return app.onepass.apis.FacilityProto.internal_static_hts_facility_FacilityRequest_fieldAccessorTable
+    return app.onepass.apis.FacilityProto.internal_static_hts_facility_FacilityRequestWithFacilityInfo_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            app.onepass.apis.FacilityRequest.class, app.onepass.apis.FacilityRequest.Builder.class);
+            app.onepass.apis.FacilityRequestWithFacilityInfo.class, app.onepass.apis.FacilityRequestWithFacilityInfo.Builder.class);
   }
 
   public static final int ID_FIELD_NUMBER = 1;
@@ -164,10 +200,21 @@ private static final long serialVersionUID = 0L;
     return facilityId_;
   }
 
-  public static final int IS_APPROVED_FIELD_NUMBER = 4;
+  public static final int ORGANIZATION_ID_FIELD_NUMBER = 4;
+  private long organizationId_;
+  /**
+   * <code>int64 organization_id = 4 [json_name = "organizationId"];</code>
+   * @return The organizationId.
+   */
+  @java.lang.Override
+  public long getOrganizationId() {
+    return organizationId_;
+  }
+
+  public static final int IS_APPROVED_FIELD_NUMBER = 5;
   private long isApproved_;
   /**
-   * <code>int64 is_approved = 4 [json_name = "isApproved"];</code>
+   * <code>int64 is_approved = 5 [json_name = "isApproved"];</code>
    * @return The isApproved.
    */
   @java.lang.Override
@@ -175,10 +222,10 @@ private static final long serialVersionUID = 0L;
     return isApproved_;
   }
 
-  public static final int REJECT_REASON_FIELD_NUMBER = 5;
+  public static final int REJECT_REASON_FIELD_NUMBER = 6;
   private long rejectReason_;
   /**
-   * <code>int64 reject_reason = 5 [json_name = "rejectReason"];</code>
+   * <code>int64 reject_reason = 6 [json_name = "rejectReason"];</code>
    * @return The rejectReason.
    */
   @java.lang.Override
@@ -186,10 +233,10 @@ private static final long serialVersionUID = 0L;
     return rejectReason_;
   }
 
-  public static final int START_FIELD_NUMBER = 6;
+  public static final int START_FIELD_NUMBER = 7;
   private com.google.protobuf.Timestamp start_;
   /**
-   * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+   * <code>.google.protobuf.Timestamp start = 7 [json_name = "start"];</code>
    * @return Whether the start field is set.
    */
   @java.lang.Override
@@ -197,7 +244,7 @@ private static final long serialVersionUID = 0L;
     return start_ != null;
   }
   /**
-   * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+   * <code>.google.protobuf.Timestamp start = 7 [json_name = "start"];</code>
    * @return The start.
    */
   @java.lang.Override
@@ -205,17 +252,17 @@ private static final long serialVersionUID = 0L;
     return start_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : start_;
   }
   /**
-   * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+   * <code>.google.protobuf.Timestamp start = 7 [json_name = "start"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getStartOrBuilder() {
     return getStart();
   }
 
-  public static final int FINISH_FIELD_NUMBER = 7;
+  public static final int FINISH_FIELD_NUMBER = 8;
   private com.google.protobuf.Timestamp finish_;
   /**
-   * <code>.google.protobuf.Timestamp finish = 7 [json_name = "finish"];</code>
+   * <code>.google.protobuf.Timestamp finish = 8 [json_name = "finish"];</code>
    * @return Whether the finish field is set.
    */
   @java.lang.Override
@@ -223,7 +270,7 @@ private static final long serialVersionUID = 0L;
     return finish_ != null;
   }
   /**
-   * <code>.google.protobuf.Timestamp finish = 7 [json_name = "finish"];</code>
+   * <code>.google.protobuf.Timestamp finish = 8 [json_name = "finish"];</code>
    * @return The finish.
    */
   @java.lang.Override
@@ -231,11 +278,147 @@ private static final long serialVersionUID = 0L;
     return finish_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : finish_;
   }
   /**
-   * <code>.google.protobuf.Timestamp finish = 7 [json_name = "finish"];</code>
+   * <code>.google.protobuf.Timestamp finish = 8 [json_name = "finish"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getFinishOrBuilder() {
     return getFinish();
+  }
+
+  public static final int FACILITY_NAME_FIELD_NUMBER = 9;
+  private volatile java.lang.Object facilityName_;
+  /**
+   * <code>string facility_name = 9 [json_name = "facilityName"];</code>
+   * @return The facilityName.
+   */
+  @java.lang.Override
+  public java.lang.String getFacilityName() {
+    java.lang.Object ref = facilityName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      facilityName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string facility_name = 9 [json_name = "facilityName"];</code>
+   * @return The bytes for facilityName.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getFacilityNameBytes() {
+    java.lang.Object ref = facilityName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      facilityName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int LATITUDE_FIELD_NUMBER = 10;
+  private long latitude_;
+  /**
+   * <code>int64 latitude = 10 [json_name = "latitude"];</code>
+   * @return The latitude.
+   */
+  @java.lang.Override
+  public long getLatitude() {
+    return latitude_;
+  }
+
+  public static final int LONGITUDE_FIELD_NUMBER = 11;
+  private long longitude_;
+  /**
+   * <code>int64 longitude = 11 [json_name = "longitude"];</code>
+   * @return The longitude.
+   */
+  @java.lang.Override
+  public long getLongitude() {
+    return longitude_;
+  }
+
+  public static final int OPERATING_HOURS_FIELD_NUMBER = 12;
+  private volatile java.lang.Object operatingHours_;
+  /**
+   * <code>string operating_hours = 12 [json_name = "operatingHours"];</code>
+   * @return The operatingHours.
+   */
+  @java.lang.Override
+  public java.lang.String getOperatingHours() {
+    java.lang.Object ref = operatingHours_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      operatingHours_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string operating_hours = 12 [json_name = "operatingHours"];</code>
+   * @return The bytes for operatingHours.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getOperatingHoursBytes() {
+    java.lang.Object ref = operatingHours_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      operatingHours_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int DESCRIPTION_FIELD_NUMBER = 13;
+  private volatile java.lang.Object description_;
+  /**
+   * <code>string description = 13 [json_name = "description"];</code>
+   * @return The description.
+   */
+  @java.lang.Override
+  public java.lang.String getDescription() {
+    java.lang.Object ref = description_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      description_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string description = 13 [json_name = "description"];</code>
+   * @return The bytes for description.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getDescriptionBytes() {
+    java.lang.Object ref = description_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      description_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -261,17 +444,35 @@ private static final long serialVersionUID = 0L;
     if (facilityId_ != 0L) {
       output.writeInt64(3, facilityId_);
     }
+    if (organizationId_ != 0L) {
+      output.writeInt64(4, organizationId_);
+    }
     if (isApproved_ != 0L) {
-      output.writeInt64(4, isApproved_);
+      output.writeInt64(5, isApproved_);
     }
     if (rejectReason_ != 0L) {
-      output.writeInt64(5, rejectReason_);
+      output.writeInt64(6, rejectReason_);
     }
     if (start_ != null) {
-      output.writeMessage(6, getStart());
+      output.writeMessage(7, getStart());
     }
     if (finish_ != null) {
-      output.writeMessage(7, getFinish());
+      output.writeMessage(8, getFinish());
+    }
+    if (!getFacilityNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, facilityName_);
+    }
+    if (latitude_ != 0L) {
+      output.writeInt64(10, latitude_);
+    }
+    if (longitude_ != 0L) {
+      output.writeInt64(11, longitude_);
+    }
+    if (!getOperatingHoursBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 12, operatingHours_);
+    }
+    if (!getDescriptionBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 13, description_);
     }
     unknownFields.writeTo(output);
   }
@@ -294,21 +495,42 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(3, facilityId_);
     }
+    if (organizationId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(4, organizationId_);
+    }
     if (isApproved_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(4, isApproved_);
+        .computeInt64Size(5, isApproved_);
     }
     if (rejectReason_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(5, rejectReason_);
+        .computeInt64Size(6, rejectReason_);
     }
     if (start_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(6, getStart());
+        .computeMessageSize(7, getStart());
     }
     if (finish_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(7, getFinish());
+        .computeMessageSize(8, getFinish());
+    }
+    if (!getFacilityNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, facilityName_);
+    }
+    if (latitude_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(10, latitude_);
+    }
+    if (longitude_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(11, longitude_);
+    }
+    if (!getOperatingHoursBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, operatingHours_);
+    }
+    if (!getDescriptionBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, description_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -320,10 +542,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof app.onepass.apis.FacilityRequest)) {
+    if (!(obj instanceof app.onepass.apis.FacilityRequestWithFacilityInfo)) {
       return super.equals(obj);
     }
-    app.onepass.apis.FacilityRequest other = (app.onepass.apis.FacilityRequest) obj;
+    app.onepass.apis.FacilityRequestWithFacilityInfo other = (app.onepass.apis.FacilityRequestWithFacilityInfo) obj;
 
     if (getId()
         != other.getId()) return false;
@@ -331,6 +553,8 @@ private static final long serialVersionUID = 0L;
         != other.getEventId()) return false;
     if (getFacilityId()
         != other.getFacilityId()) return false;
+    if (getOrganizationId()
+        != other.getOrganizationId()) return false;
     if (getIsApproved()
         != other.getIsApproved()) return false;
     if (getRejectReason()
@@ -345,6 +569,16 @@ private static final long serialVersionUID = 0L;
       if (!getFinish()
           .equals(other.getFinish())) return false;
     }
+    if (!getFacilityName()
+        .equals(other.getFacilityName())) return false;
+    if (getLatitude()
+        != other.getLatitude()) return false;
+    if (getLongitude()
+        != other.getLongitude()) return false;
+    if (!getOperatingHours()
+        .equals(other.getOperatingHours())) return false;
+    if (!getDescription()
+        .equals(other.getDescription())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -365,6 +599,9 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + FACILITY_ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getFacilityId());
+    hash = (37 * hash) + ORGANIZATION_ID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getOrganizationId());
     hash = (37 * hash) + IS_APPROVED_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getIsApproved());
@@ -379,74 +616,86 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + FINISH_FIELD_NUMBER;
       hash = (53 * hash) + getFinish().hashCode();
     }
+    hash = (37 * hash) + FACILITY_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getFacilityName().hashCode();
+    hash = (37 * hash) + LATITUDE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getLatitude());
+    hash = (37 * hash) + LONGITUDE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getLongitude());
+    hash = (37 * hash) + OPERATING_HOURS_FIELD_NUMBER;
+    hash = (53 * hash) + getOperatingHours().hashCode();
+    hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+    hash = (53 * hash) + getDescription().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static app.onepass.apis.FacilityRequest parseFrom(
+  public static app.onepass.apis.FacilityRequestWithFacilityInfo parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.FacilityRequest parseFrom(
+  public static app.onepass.apis.FacilityRequestWithFacilityInfo parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.FacilityRequest parseFrom(
+  public static app.onepass.apis.FacilityRequestWithFacilityInfo parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.FacilityRequest parseFrom(
+  public static app.onepass.apis.FacilityRequestWithFacilityInfo parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.FacilityRequest parseFrom(byte[] data)
+  public static app.onepass.apis.FacilityRequestWithFacilityInfo parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.FacilityRequest parseFrom(
+  public static app.onepass.apis.FacilityRequestWithFacilityInfo parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.FacilityRequest parseFrom(java.io.InputStream input)
+  public static app.onepass.apis.FacilityRequestWithFacilityInfo parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.FacilityRequest parseFrom(
+  public static app.onepass.apis.FacilityRequestWithFacilityInfo parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.FacilityRequest parseDelimitedFrom(java.io.InputStream input)
+  public static app.onepass.apis.FacilityRequestWithFacilityInfo parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.FacilityRequest parseDelimitedFrom(
+  public static app.onepass.apis.FacilityRequestWithFacilityInfo parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.FacilityRequest parseFrom(
+  public static app.onepass.apis.FacilityRequestWithFacilityInfo parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.FacilityRequest parseFrom(
+  public static app.onepass.apis.FacilityRequestWithFacilityInfo parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -459,7 +708,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(app.onepass.apis.FacilityRequest prototype) {
+  public static Builder newBuilder(app.onepass.apis.FacilityRequestWithFacilityInfo prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -475,26 +724,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code hts.facility.FacilityRequest}
+   * Protobuf type {@code hts.facility.FacilityRequestWithFacilityInfo}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:hts.facility.FacilityRequest)
-      app.onepass.apis.FacilityRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:hts.facility.FacilityRequestWithFacilityInfo)
+      app.onepass.apis.FacilityRequestWithFacilityInfoOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_FacilityRequest_descriptor;
+      return app.onepass.apis.FacilityProto.internal_static_hts_facility_FacilityRequestWithFacilityInfo_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_FacilityRequest_fieldAccessorTable
+      return app.onepass.apis.FacilityProto.internal_static_hts_facility_FacilityRequestWithFacilityInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              app.onepass.apis.FacilityRequest.class, app.onepass.apis.FacilityRequest.Builder.class);
+              app.onepass.apis.FacilityRequestWithFacilityInfo.class, app.onepass.apis.FacilityRequestWithFacilityInfo.Builder.class);
     }
 
-    // Construct using app.onepass.apis.FacilityRequest.newBuilder()
+    // Construct using app.onepass.apis.FacilityRequestWithFacilityInfo.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -518,6 +767,8 @@ private static final long serialVersionUID = 0L;
 
       facilityId_ = 0L;
 
+      organizationId_ = 0L;
+
       isApproved_ = 0L;
 
       rejectReason_ = 0L;
@@ -534,23 +785,33 @@ private static final long serialVersionUID = 0L;
         finish_ = null;
         finishBuilder_ = null;
       }
+      facilityName_ = "";
+
+      latitude_ = 0L;
+
+      longitude_ = 0L;
+
+      operatingHours_ = "";
+
+      description_ = "";
+
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_FacilityRequest_descriptor;
+      return app.onepass.apis.FacilityProto.internal_static_hts_facility_FacilityRequestWithFacilityInfo_descriptor;
     }
 
     @java.lang.Override
-    public app.onepass.apis.FacilityRequest getDefaultInstanceForType() {
-      return app.onepass.apis.FacilityRequest.getDefaultInstance();
+    public app.onepass.apis.FacilityRequestWithFacilityInfo getDefaultInstanceForType() {
+      return app.onepass.apis.FacilityRequestWithFacilityInfo.getDefaultInstance();
     }
 
     @java.lang.Override
-    public app.onepass.apis.FacilityRequest build() {
-      app.onepass.apis.FacilityRequest result = buildPartial();
+    public app.onepass.apis.FacilityRequestWithFacilityInfo build() {
+      app.onepass.apis.FacilityRequestWithFacilityInfo result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -558,11 +819,12 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public app.onepass.apis.FacilityRequest buildPartial() {
-      app.onepass.apis.FacilityRequest result = new app.onepass.apis.FacilityRequest(this);
+    public app.onepass.apis.FacilityRequestWithFacilityInfo buildPartial() {
+      app.onepass.apis.FacilityRequestWithFacilityInfo result = new app.onepass.apis.FacilityRequestWithFacilityInfo(this);
       result.id_ = id_;
       result.eventId_ = eventId_;
       result.facilityId_ = facilityId_;
+      result.organizationId_ = organizationId_;
       result.isApproved_ = isApproved_;
       result.rejectReason_ = rejectReason_;
       if (startBuilder_ == null) {
@@ -575,6 +837,11 @@ private static final long serialVersionUID = 0L;
       } else {
         result.finish_ = finishBuilder_.build();
       }
+      result.facilityName_ = facilityName_;
+      result.latitude_ = latitude_;
+      result.longitude_ = longitude_;
+      result.operatingHours_ = operatingHours_;
+      result.description_ = description_;
       onBuilt();
       return result;
     }
@@ -613,16 +880,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof app.onepass.apis.FacilityRequest) {
-        return mergeFrom((app.onepass.apis.FacilityRequest)other);
+      if (other instanceof app.onepass.apis.FacilityRequestWithFacilityInfo) {
+        return mergeFrom((app.onepass.apis.FacilityRequestWithFacilityInfo)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(app.onepass.apis.FacilityRequest other) {
-      if (other == app.onepass.apis.FacilityRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(app.onepass.apis.FacilityRequestWithFacilityInfo other) {
+      if (other == app.onepass.apis.FacilityRequestWithFacilityInfo.getDefaultInstance()) return this;
       if (other.getId() != 0L) {
         setId(other.getId());
       }
@@ -631,6 +898,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getFacilityId() != 0L) {
         setFacilityId(other.getFacilityId());
+      }
+      if (other.getOrganizationId() != 0L) {
+        setOrganizationId(other.getOrganizationId());
       }
       if (other.getIsApproved() != 0L) {
         setIsApproved(other.getIsApproved());
@@ -643,6 +913,24 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasFinish()) {
         mergeFinish(other.getFinish());
+      }
+      if (!other.getFacilityName().isEmpty()) {
+        facilityName_ = other.facilityName_;
+        onChanged();
+      }
+      if (other.getLatitude() != 0L) {
+        setLatitude(other.getLatitude());
+      }
+      if (other.getLongitude() != 0L) {
+        setLongitude(other.getLongitude());
+      }
+      if (!other.getOperatingHours().isEmpty()) {
+        operatingHours_ = other.operatingHours_;
+        onChanged();
+      }
+      if (!other.getDescription().isEmpty()) {
+        description_ = other.description_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -659,11 +947,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      app.onepass.apis.FacilityRequest parsedMessage = null;
+      app.onepass.apis.FacilityRequestWithFacilityInfo parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (app.onepass.apis.FacilityRequest) e.getUnfinishedMessage();
+        parsedMessage = (app.onepass.apis.FacilityRequestWithFacilityInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -766,9 +1054,40 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private long organizationId_ ;
+    /**
+     * <code>int64 organization_id = 4 [json_name = "organizationId"];</code>
+     * @return The organizationId.
+     */
+    @java.lang.Override
+    public long getOrganizationId() {
+      return organizationId_;
+    }
+    /**
+     * <code>int64 organization_id = 4 [json_name = "organizationId"];</code>
+     * @param value The organizationId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrganizationId(long value) {
+      
+      organizationId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 organization_id = 4 [json_name = "organizationId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearOrganizationId() {
+      
+      organizationId_ = 0L;
+      onChanged();
+      return this;
+    }
+
     private long isApproved_ ;
     /**
-     * <code>int64 is_approved = 4 [json_name = "isApproved"];</code>
+     * <code>int64 is_approved = 5 [json_name = "isApproved"];</code>
      * @return The isApproved.
      */
     @java.lang.Override
@@ -776,7 +1095,7 @@ private static final long serialVersionUID = 0L;
       return isApproved_;
     }
     /**
-     * <code>int64 is_approved = 4 [json_name = "isApproved"];</code>
+     * <code>int64 is_approved = 5 [json_name = "isApproved"];</code>
      * @param value The isApproved to set.
      * @return This builder for chaining.
      */
@@ -787,7 +1106,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 is_approved = 4 [json_name = "isApproved"];</code>
+     * <code>int64 is_approved = 5 [json_name = "isApproved"];</code>
      * @return This builder for chaining.
      */
     public Builder clearIsApproved() {
@@ -799,7 +1118,7 @@ private static final long serialVersionUID = 0L;
 
     private long rejectReason_ ;
     /**
-     * <code>int64 reject_reason = 5 [json_name = "rejectReason"];</code>
+     * <code>int64 reject_reason = 6 [json_name = "rejectReason"];</code>
      * @return The rejectReason.
      */
     @java.lang.Override
@@ -807,7 +1126,7 @@ private static final long serialVersionUID = 0L;
       return rejectReason_;
     }
     /**
-     * <code>int64 reject_reason = 5 [json_name = "rejectReason"];</code>
+     * <code>int64 reject_reason = 6 [json_name = "rejectReason"];</code>
      * @param value The rejectReason to set.
      * @return This builder for chaining.
      */
@@ -818,7 +1137,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 reject_reason = 5 [json_name = "rejectReason"];</code>
+     * <code>int64 reject_reason = 6 [json_name = "rejectReason"];</code>
      * @return This builder for chaining.
      */
     public Builder clearRejectReason() {
@@ -832,14 +1151,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> startBuilder_;
     /**
-     * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+     * <code>.google.protobuf.Timestamp start = 7 [json_name = "start"];</code>
      * @return Whether the start field is set.
      */
     public boolean hasStart() {
       return startBuilder_ != null || start_ != null;
     }
     /**
-     * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+     * <code>.google.protobuf.Timestamp start = 7 [json_name = "start"];</code>
      * @return The start.
      */
     public com.google.protobuf.Timestamp getStart() {
@@ -850,7 +1169,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+     * <code>.google.protobuf.Timestamp start = 7 [json_name = "start"];</code>
      */
     public Builder setStart(com.google.protobuf.Timestamp value) {
       if (startBuilder_ == null) {
@@ -866,7 +1185,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+     * <code>.google.protobuf.Timestamp start = 7 [json_name = "start"];</code>
      */
     public Builder setStart(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -880,7 +1199,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+     * <code>.google.protobuf.Timestamp start = 7 [json_name = "start"];</code>
      */
     public Builder mergeStart(com.google.protobuf.Timestamp value) {
       if (startBuilder_ == null) {
@@ -898,7 +1217,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+     * <code>.google.protobuf.Timestamp start = 7 [json_name = "start"];</code>
      */
     public Builder clearStart() {
       if (startBuilder_ == null) {
@@ -912,7 +1231,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+     * <code>.google.protobuf.Timestamp start = 7 [json_name = "start"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getStartBuilder() {
       
@@ -920,7 +1239,7 @@ private static final long serialVersionUID = 0L;
       return getStartFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+     * <code>.google.protobuf.Timestamp start = 7 [json_name = "start"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getStartOrBuilder() {
       if (startBuilder_ != null) {
@@ -931,7 +1250,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp start = 6 [json_name = "start"];</code>
+     * <code>.google.protobuf.Timestamp start = 7 [json_name = "start"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -951,14 +1270,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> finishBuilder_;
     /**
-     * <code>.google.protobuf.Timestamp finish = 7 [json_name = "finish"];</code>
+     * <code>.google.protobuf.Timestamp finish = 8 [json_name = "finish"];</code>
      * @return Whether the finish field is set.
      */
     public boolean hasFinish() {
       return finishBuilder_ != null || finish_ != null;
     }
     /**
-     * <code>.google.protobuf.Timestamp finish = 7 [json_name = "finish"];</code>
+     * <code>.google.protobuf.Timestamp finish = 8 [json_name = "finish"];</code>
      * @return The finish.
      */
     public com.google.protobuf.Timestamp getFinish() {
@@ -969,7 +1288,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp finish = 7 [json_name = "finish"];</code>
+     * <code>.google.protobuf.Timestamp finish = 8 [json_name = "finish"];</code>
      */
     public Builder setFinish(com.google.protobuf.Timestamp value) {
       if (finishBuilder_ == null) {
@@ -985,7 +1304,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp finish = 7 [json_name = "finish"];</code>
+     * <code>.google.protobuf.Timestamp finish = 8 [json_name = "finish"];</code>
      */
     public Builder setFinish(
         com.google.protobuf.Timestamp.Builder builderForValue) {
@@ -999,7 +1318,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp finish = 7 [json_name = "finish"];</code>
+     * <code>.google.protobuf.Timestamp finish = 8 [json_name = "finish"];</code>
      */
     public Builder mergeFinish(com.google.protobuf.Timestamp value) {
       if (finishBuilder_ == null) {
@@ -1017,7 +1336,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp finish = 7 [json_name = "finish"];</code>
+     * <code>.google.protobuf.Timestamp finish = 8 [json_name = "finish"];</code>
      */
     public Builder clearFinish() {
       if (finishBuilder_ == null) {
@@ -1031,7 +1350,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Timestamp finish = 7 [json_name = "finish"];</code>
+     * <code>.google.protobuf.Timestamp finish = 8 [json_name = "finish"];</code>
      */
     public com.google.protobuf.Timestamp.Builder getFinishBuilder() {
       
@@ -1039,7 +1358,7 @@ private static final long serialVersionUID = 0L;
       return getFinishFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Timestamp finish = 7 [json_name = "finish"];</code>
+     * <code>.google.protobuf.Timestamp finish = 8 [json_name = "finish"];</code>
      */
     public com.google.protobuf.TimestampOrBuilder getFinishOrBuilder() {
       if (finishBuilder_ != null) {
@@ -1050,7 +1369,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Timestamp finish = 7 [json_name = "finish"];</code>
+     * <code>.google.protobuf.Timestamp finish = 8 [json_name = "finish"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
@@ -1065,6 +1384,296 @@ private static final long serialVersionUID = 0L;
       }
       return finishBuilder_;
     }
+
+    private java.lang.Object facilityName_ = "";
+    /**
+     * <code>string facility_name = 9 [json_name = "facilityName"];</code>
+     * @return The facilityName.
+     */
+    public java.lang.String getFacilityName() {
+      java.lang.Object ref = facilityName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        facilityName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string facility_name = 9 [json_name = "facilityName"];</code>
+     * @return The bytes for facilityName.
+     */
+    public com.google.protobuf.ByteString
+        getFacilityNameBytes() {
+      java.lang.Object ref = facilityName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        facilityName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string facility_name = 9 [json_name = "facilityName"];</code>
+     * @param value The facilityName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFacilityName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      facilityName_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string facility_name = 9 [json_name = "facilityName"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearFacilityName() {
+      
+      facilityName_ = getDefaultInstance().getFacilityName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string facility_name = 9 [json_name = "facilityName"];</code>
+     * @param value The bytes for facilityName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setFacilityNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      facilityName_ = value;
+      onChanged();
+      return this;
+    }
+
+    private long latitude_ ;
+    /**
+     * <code>int64 latitude = 10 [json_name = "latitude"];</code>
+     * @return The latitude.
+     */
+    @java.lang.Override
+    public long getLatitude() {
+      return latitude_;
+    }
+    /**
+     * <code>int64 latitude = 10 [json_name = "latitude"];</code>
+     * @param value The latitude to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLatitude(long value) {
+      
+      latitude_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 latitude = 10 [json_name = "latitude"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearLatitude() {
+      
+      latitude_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long longitude_ ;
+    /**
+     * <code>int64 longitude = 11 [json_name = "longitude"];</code>
+     * @return The longitude.
+     */
+    @java.lang.Override
+    public long getLongitude() {
+      return longitude_;
+    }
+    /**
+     * <code>int64 longitude = 11 [json_name = "longitude"];</code>
+     * @param value The longitude to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLongitude(long value) {
+      
+      longitude_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 longitude = 11 [json_name = "longitude"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearLongitude() {
+      
+      longitude_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object operatingHours_ = "";
+    /**
+     * <code>string operating_hours = 12 [json_name = "operatingHours"];</code>
+     * @return The operatingHours.
+     */
+    public java.lang.String getOperatingHours() {
+      java.lang.Object ref = operatingHours_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        operatingHours_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string operating_hours = 12 [json_name = "operatingHours"];</code>
+     * @return The bytes for operatingHours.
+     */
+    public com.google.protobuf.ByteString
+        getOperatingHoursBytes() {
+      java.lang.Object ref = operatingHours_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        operatingHours_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string operating_hours = 12 [json_name = "operatingHours"];</code>
+     * @param value The operatingHours to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOperatingHours(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      operatingHours_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string operating_hours = 12 [json_name = "operatingHours"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearOperatingHours() {
+      
+      operatingHours_ = getDefaultInstance().getOperatingHours();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string operating_hours = 12 [json_name = "operatingHours"];</code>
+     * @param value The bytes for operatingHours to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOperatingHoursBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      operatingHours_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object description_ = "";
+    /**
+     * <code>string description = 13 [json_name = "description"];</code>
+     * @return The description.
+     */
+    public java.lang.String getDescription() {
+      java.lang.Object ref = description_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        description_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string description = 13 [json_name = "description"];</code>
+     * @return The bytes for description.
+     */
+    public com.google.protobuf.ByteString
+        getDescriptionBytes() {
+      java.lang.Object ref = description_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        description_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string description = 13 [json_name = "description"];</code>
+     * @param value The description to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDescription(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      description_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string description = 13 [json_name = "description"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDescription() {
+      
+      description_ = getDefaultInstance().getDescription();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string description = 13 [json_name = "description"];</code>
+     * @param value The bytes for description to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDescriptionBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      description_ = value;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1078,41 +1687,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:hts.facility.FacilityRequest)
+    // @@protoc_insertion_point(builder_scope:hts.facility.FacilityRequestWithFacilityInfo)
   }
 
-  // @@protoc_insertion_point(class_scope:hts.facility.FacilityRequest)
-  private static final app.onepass.apis.FacilityRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:hts.facility.FacilityRequestWithFacilityInfo)
+  private static final app.onepass.apis.FacilityRequestWithFacilityInfo DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new app.onepass.apis.FacilityRequest();
+    DEFAULT_INSTANCE = new app.onepass.apis.FacilityRequestWithFacilityInfo();
   }
 
-  public static app.onepass.apis.FacilityRequest getDefaultInstance() {
+  public static app.onepass.apis.FacilityRequestWithFacilityInfo getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<FacilityRequest>
-      PARSER = new com.google.protobuf.AbstractParser<FacilityRequest>() {
+  private static final com.google.protobuf.Parser<FacilityRequestWithFacilityInfo>
+      PARSER = new com.google.protobuf.AbstractParser<FacilityRequestWithFacilityInfo>() {
     @java.lang.Override
-    public FacilityRequest parsePartialFrom(
+    public FacilityRequestWithFacilityInfo parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new FacilityRequest(input, extensionRegistry);
+      return new FacilityRequestWithFacilityInfo(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<FacilityRequest> parser() {
+  public static com.google.protobuf.Parser<FacilityRequestWithFacilityInfo> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<FacilityRequest> getParserForType() {
+  public com.google.protobuf.Parser<FacilityRequestWithFacilityInfo> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public app.onepass.apis.FacilityRequest getDefaultInstanceForType() {
+  public app.onepass.apis.FacilityRequestWithFacilityInfo getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
