@@ -84,6 +84,12 @@ message UpdateTagReq {
   int64 event_id = 3;
 }
 
+message HasEventReq {
+  int64 user_id = 1;
+  int64 organization_id = 2;
+  int64 event_id = 3;
+}
+
 message ReadOrganizationRes {
   repeated hts.common.Organization organizations = 1;
 }
@@ -113,4 +119,5 @@ service OrganizationService {
   rpc AddTag(UpdateTagReq) returns (hts.common.Result);
   rpc RemoveTag(UpdateTagReq) returns (hts.common.Result);
   rpc ReadTag(UserReq) returns (ReadTagRes);
+  rpc HasEvent(HasEventReq) returns (hts.common.Result);
 }
