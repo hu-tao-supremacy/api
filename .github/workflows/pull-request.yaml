@@ -1,0 +1,41 @@
+name: Generate on PR
+on:
+  pull_request:
+    paths:
+      - 'proto/**'
+jobs:
+  generate:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - run: |
+          echo "SHA7=${GITHUB_SHA::7}" >> $GITHUB_ENV
+      - run: |
+          export HOMEBREW_NO_AUTO_UPDATE=1
+
+          brew install tree
+
+          brew install protobuf
+
+          brew install protoc-gen-go-grpc
+          brew install protoc-gen-go
+
+          sudo python3 -m pip install grpcio
+          sudo python3 -m pip install grpcio-tools
+
+          sudo yarn
+
+          sudo wget https://repo1.maven.org/maven2/io/grpc/protoc-gen-grpc-java/1.35.0/protoc-gen-grpc-java-1.35.0-osx-x86_64.exe
+          sudo mv protoc-gen-grpc-java-1.35.0-osx-x86_64.exe protoc-gen-grpc-java
+          sudo chmod +x protoc-gen-grpc-java
+          sudo mv protoc-gen-grpc-java /usr/local/bin/.
+          which protoc-gen-grpc-java
+
+          brew tap bufbuid/buf
+          brew install buf
+      - run: |
+          make generate
+      - run: |
+          tree gen/
