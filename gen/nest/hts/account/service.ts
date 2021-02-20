@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
+import { Permission, User, Result } from "../../hts/common/common";
 import { Observable } from "rxjs";
-import { User, Result } from "../../hts/common/common";
 
 export const protobufPackage = "hts.account";
 
@@ -28,7 +28,7 @@ export interface InvalidateJWTRequest {
 export interface HasPermissionRequest {
   userId: number;
   organizationId: number;
-  permissionName: string;
+  permissionName: Permission;
 }
 
 export const HTS_ACCOUNT_PACKAGE_NAME = "hts.account";

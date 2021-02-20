@@ -20,14 +20,13 @@ public interface HasPermissionRequestOrBuilder extends
   long getOrganizationId();
 
   /**
-   * <code>string permission_name = 3 [json_name = "permissionName"];</code>
+   * <code>.hts.common.Permission permission_name = 3 [json_name = "permissionName"];</code>
+   * @return The enum numeric value on the wire for permissionName.
+   */
+  int getPermissionNameValue();
+  /**
+   * <code>.hts.common.Permission permission_name = 3 [json_name = "permissionName"];</code>
    * @return The permissionName.
    */
-  java.lang.String getPermissionName();
-  /**
-   * <code>string permission_name = 3 [json_name = "permissionName"];</code>
-   * @return The bytes for permissionName.
-   */
-  com.google.protobuf.ByteString
-      getPermissionNameBytes();
+  app.onepass.apis.Permission getPermissionName();
 }

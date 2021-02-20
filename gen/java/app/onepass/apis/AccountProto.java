@@ -62,22 +62,23 @@ public final class AccountProto {
       "s.common.UserR\004user\":\n\022GenerateJWTReques" +
       "t\022$\n\004user\030\001 \001(\0132\020.hts.common.UserR\004user\"" +
       "9\n\024InvalidateJWTRequest\022!\n\014access_token\030" +
-      "\001 \001(\tR\013accessToken\"\201\001\n\024HasPermissionRequ" +
+      "\001 \001(\tR\013accessToken\"\231\001\n\024HasPermissionRequ" +
       "est\022\027\n\007user_id\030\001 \001(\003R\006userId\022\'\n\017organiza" +
-      "tion_id\030\002 \001(\003R\016organizationId\022\'\n\017permiss" +
-      "ion_name\030\003 \001(\tR\016permissionName2\224\003\n\016Accou" +
-      "ntService\022J\n\017IsAuthenticated\022#.hts.accou" +
-      "nt.IsAuthenticatedRequest\032\022.hts.common.R" +
-      "esult\022b\n\021UpdateAccountInfo\022%.hts.account" +
-      ".UpdateAccountInfoRequest\032&.hts.account." +
-      "UpdateAccountInfoResponse\022B\n\013GenerateJWT" +
-      "\022\037.hts.account.GenerateJWTRequest\032\022.hts." +
-      "common.Result\022F\n\rInvalidateJWT\022!.hts.acc" +
-      "ount.InvalidateJWTRequest\032\022.hts.common.R" +
-      "esult\022F\n\rHasPermission\022!.hts.account.Has" +
-      "PermissionRequest\032\022.hts.common.ResultBD\n" +
-      "\020app.onepass.apisB\014AccountProtoP\001Z onepa" +
-      "ss.app/facility/hts/accountb\006proto3"
+      "tion_id\030\002 \001(\003R\016organizationId\022?\n\017permiss" +
+      "ion_name\030\003 \001(\0162\026.hts.common.PermissionR\016" +
+      "permissionName2\224\003\n\016AccountService\022J\n\017IsA" +
+      "uthenticated\022#.hts.account.IsAuthenticat" +
+      "edRequest\032\022.hts.common.Result\022b\n\021UpdateA" +
+      "ccountInfo\022%.hts.account.UpdateAccountIn" +
+      "foRequest\032&.hts.account.UpdateAccountInf" +
+      "oResponse\022B\n\013GenerateJWT\022\037.hts.account.G" +
+      "enerateJWTRequest\032\022.hts.common.Result\022F\n" +
+      "\rInvalidateJWT\022!.hts.account.InvalidateJ" +
+      "WTRequest\032\022.hts.common.Result\022F\n\rHasPerm" +
+      "ission\022!.hts.account.HasPermissionReques" +
+      "t\032\022.hts.common.ResultBD\n\020app.onepass.api" +
+      "sB\014AccountProtoP\001Z onepass.app/facility/" +
+      "hts/accountb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

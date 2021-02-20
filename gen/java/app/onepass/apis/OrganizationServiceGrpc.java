@@ -510,6 +510,37 @@ public final class OrganizationServiceGrpc {
     return getReadTagMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.HasEventReq,
+      app.onepass.apis.Result> getHasEventMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "HasEvent",
+      requestType = app.onepass.apis.HasEventReq.class,
+      responseType = app.onepass.apis.Result.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<app.onepass.apis.HasEventReq,
+      app.onepass.apis.Result> getHasEventMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.HasEventReq, app.onepass.apis.Result> getHasEventMethod;
+    if ((getHasEventMethod = OrganizationServiceGrpc.getHasEventMethod) == null) {
+      synchronized (OrganizationServiceGrpc.class) {
+        if ((getHasEventMethod = OrganizationServiceGrpc.getHasEventMethod) == null) {
+          OrganizationServiceGrpc.getHasEventMethod = getHasEventMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.HasEventReq, app.onepass.apis.Result>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "HasEvent"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.HasEventReq.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.Result.getDefaultInstance()))
+              .setSchemaDescriptor(new OrganizationServiceMethodDescriptorSupplier("HasEvent"))
+              .build();
+        }
+      }
+    }
+    return getHasEventMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -670,6 +701,13 @@ public final class OrganizationServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getReadTagMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void hasEvent(app.onepass.apis.HasEventReq request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.Result> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getHasEventMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -784,6 +822,13 @@ public final class OrganizationServiceGrpc {
                 app.onepass.apis.UserReq,
                 app.onepass.apis.ReadTagRes>(
                   this, METHODID_READ_TAG)))
+          .addMethod(
+            getHasEventMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                app.onepass.apis.HasEventReq,
+                app.onepass.apis.Result>(
+                  this, METHODID_HAS_EVENT)))
           .build();
     }
   }
@@ -929,6 +974,14 @@ public final class OrganizationServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getReadTagMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void hasEvent(app.onepass.apis.HasEventReq request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.Result> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getHasEventMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -1055,6 +1108,13 @@ public final class OrganizationServiceGrpc {
     public app.onepass.apis.ReadTagRes readTag(app.onepass.apis.UserReq request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getReadTagMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public app.onepass.apis.Result hasEvent(app.onepass.apis.HasEventReq request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getHasEventMethod(), getCallOptions(), request);
     }
   }
 
@@ -1199,6 +1259,14 @@ public final class OrganizationServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getReadTagMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.Result> hasEvent(
+        app.onepass.apis.HasEventReq request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getHasEventMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_CREATE_ORGANIZATION = 0;
@@ -1217,6 +1285,7 @@ public final class OrganizationServiceGrpc {
   private static final int METHODID_ADD_TAG = 13;
   private static final int METHODID_REMOVE_TAG = 14;
   private static final int METHODID_READ_TAG = 15;
+  private static final int METHODID_HAS_EVENT = 16;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1299,6 +1368,10 @@ public final class OrganizationServiceGrpc {
           serviceImpl.readTag((app.onepass.apis.UserReq) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.ReadTagRes>) responseObserver);
           break;
+        case METHODID_HAS_EVENT:
+          serviceImpl.hasEvent((app.onepass.apis.HasEventReq) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.Result>) responseObserver);
+          break;
         default:
           throw new AssertionError();
       }
@@ -1376,6 +1449,7 @@ public final class OrganizationServiceGrpc {
               .addMethod(getAddTagMethod())
               .addMethod(getRemoveTagMethod())
               .addMethod(getReadTagMethod())
+              .addMethod(getHasEventMethod())
               .build();
         }
       }

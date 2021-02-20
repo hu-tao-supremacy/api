@@ -35,6 +35,7 @@ type OrganizationServiceClient interface {
 	AddTag(ctx context.Context, in *UpdateTagReq, opts ...grpc.CallOption) (*common.Result, error)
 	RemoveTag(ctx context.Context, in *UpdateTagReq, opts ...grpc.CallOption) (*common.Result, error)
 	ReadTag(ctx context.Context, in *UserReq, opts ...grpc.CallOption) (*ReadTagRes, error)
+	HasEvent(ctx context.Context, in *HasEventReq, opts ...grpc.CallOption) (*common.Result, error)
 }
 
 type organizationServiceClient struct {
@@ -189,6 +190,15 @@ func (c *organizationServiceClient) ReadTag(ctx context.Context, in *UserReq, op
 	return out, nil
 }
 
+func (c *organizationServiceClient) HasEvent(ctx context.Context, in *HasEventReq, opts ...grpc.CallOption) (*common.Result, error) {
+	out := new(common.Result)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizationService/HasEvent", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // OrganizationServiceServer is the server API for OrganizationService service.
 // All implementations should embed UnimplementedOrganizationServiceServer
 // for forward compatibility
@@ -209,6 +219,7 @@ type OrganizationServiceServer interface {
 	AddTag(context.Context, *UpdateTagReq) (*common.Result, error)
 	RemoveTag(context.Context, *UpdateTagReq) (*common.Result, error)
 	ReadTag(context.Context, *UserReq) (*ReadTagRes, error)
+	HasEvent(context.Context, *HasEventReq) (*common.Result, error)
 }
 
 // UnimplementedOrganizationServiceServer should be embedded to have forward compatible implementations.
@@ -262,6 +273,9 @@ func (UnimplementedOrganizationServiceServer) RemoveTag(context.Context, *Update
 }
 func (UnimplementedOrganizationServiceServer) ReadTag(context.Context, *UserReq) (*ReadTagRes, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ReadTag not implemented")
+}
+func (UnimplementedOrganizationServiceServer) HasEvent(context.Context, *HasEventReq) (*common.Result, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method HasEvent not implemented")
 }
 
 // UnsafeOrganizationServiceServer may be embedded to opt out of forward compatibility for this service.
@@ -563,6 +577,24 @@ func _OrganizationService_ReadTag_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _OrganizationService_HasEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HasEventReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrganizationServiceServer).HasEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.organizer.OrganizationService/HasEvent",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrganizationServiceServer).HasEvent(ctx, req.(*HasEventReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // OrganizationService_ServiceDesc is the grpc.ServiceDesc for OrganizationService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -633,6 +665,10 @@ var OrganizationService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ReadTag",
 			Handler:    _OrganizationService_ReadTag_Handler,
+		},
+		{
+			MethodName: "HasEvent",
+			Handler:    _OrganizationService_HasEvent_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

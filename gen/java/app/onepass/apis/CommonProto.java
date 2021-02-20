@@ -160,38 +160,39 @@ public final class CommonProto {
       "\"\211\001\n\026OrganizationPermission\022\016\n\002id\030\001 \001(\003R" +
       "\002id\022\'\n\017organization_id\030\002 \001(\003R\016organizati" +
       "onId\0226\n\npermission\030\003 \001(\0162\026.hts.common.Pe" +
-      "rmissionR\npermission\"^\n\016UserPermission\022\016" +
+      "rmissionR\npermission\"w\n\016UserPermission\022\016" +
       "\n\002id\030\001 \001(\003R\002id\022\027\n\007user_id\030\002 \001(\003R\006userId\022" +
-      "#\n\rpermission_id\030\003 \001(\003R\014permissionId\"\262\002\n" +
-      "\017FacilityRequest\022\016\n\002id\030\001 \001(\003R\002id\022\031\n\010even" +
-      "t_id\030\002 \001(\003R\007eventId\022\037\n\013facility_id\030\003 \001(\003" +
-      "R\nfacilityId\022*\n\006status\030\004 \001(\0162\022.hts.commo" +
-      "n.StatusR\006status\022A\n\rreject_reason\030\005 \001(\0132" +
-      "\034.google.protobuf.StringValueR\014rejectRea" +
-      "son\0220\n\005start\030\006 \001(\0132\032.google.protobuf.Tim" +
-      "estampR\005start\0222\n\006finish\030\007 \001(\0132\032.google.p" +
-      "rotobuf.TimestampR\006finish\"\334\001\n\010Facility\022\016" +
-      "\n\002id\030\001 \001(\003R\002id\022\'\n\017organization_id\030\002 \001(\003R" +
-      "\016organizationId\022\022\n\004name\030\003 \001(\tR\004name\022\032\n\010l" +
-      "atitude\030\004 \001(\001R\010latitude\022\034\n\tlongitude\030\005 \001" +
-      "(\001R\tlongitude\022\'\n\017operating_hours\030\006 \001(\tR\016" +
-      "operatingHours\022 \n\013description\030\007 \001(\tR\013des" +
-      "cription*1\n\006Gender\022\010\n\004MALE\020\000\022\n\n\006FEMALE\020\001" +
-      "\022\021\n\rNOT_SPECIFIED\020\002*1\n\006Status\022\013\n\007PENDING" +
-      "\020\000\022\014\n\010APPROVED\020\001\022\014\n\010REJECTED\020\002*\276\003\n\nPermi" +
-      "ssion\022\027\n\023CREATE_ORGANIZATION\020\000\022\025\n\021READ_O" +
-      "RGANIZATION\020\001\022\027\n\023UPDATE_ORGANIZATION\020\002\022\027" +
-      "\n\023DELETE_ORGANIZATION\020\003\022\037\n\033ADD_MEMBERS_T" +
-      "O_ORGANIZATION\020\004\022$\n REMOVE_MEMBERS_FROM_" +
-      "ORGANIZATION\020\005\022\020\n\014CREATE_EVENT\020\006\022\016\n\nREAD" +
-      "_EVENT\020\007\022\020\n\014UPDATE_EVENT\020\010\022\020\n\014DELETE_EVE" +
-      "NT\020\t\022\016\n\nCREATE_TAG\020\n\022\014\n\010READ_TAG\020\013\022\016\n\nUP" +
-      "DATE_TAG\020\014\022\016\n\nDELETE_TAG\020\r\022\025\n\021ADD_TAGS_T" +
-      "O_EVENT\020\016\022\032\n\026REMOVE_TAGS_FROM_EVENT\020\017\022\023\n" +
-      "\017CREATE_FACILITY\020\020\022\021\n\rREAD_FACILITY\020\021\022\023\n" +
-      "\017UPDATE_FACILITY\020\022\022\023\n\017DELETE_FACILITY\020\023B" +
-      "B\n\020app.onepass.apisB\013CommonProtoP\001Z\037onep" +
-      "ass.app/facility/hts/commonb\006proto3"
+      "<\n\032organization_permission_id\030\003 \001(\003R\030org" +
+      "anizationPermissionId\"\262\002\n\017FacilityReques" +
+      "t\022\016\n\002id\030\001 \001(\003R\002id\022\031\n\010event_id\030\002 \001(\003R\007eve" +
+      "ntId\022\037\n\013facility_id\030\003 \001(\003R\nfacilityId\022*\n" +
+      "\006status\030\004 \001(\0162\022.hts.common.StatusR\006statu" +
+      "s\022A\n\rreject_reason\030\005 \001(\0132\034.google.protob" +
+      "uf.StringValueR\014rejectReason\0220\n\005start\030\006 " +
+      "\001(\0132\032.google.protobuf.TimestampR\005start\0222" +
+      "\n\006finish\030\007 \001(\0132\032.google.protobuf.Timesta" +
+      "mpR\006finish\"\334\001\n\010Facility\022\016\n\002id\030\001 \001(\003R\002id\022" +
+      "\'\n\017organization_id\030\002 \001(\003R\016organizationId" +
+      "\022\022\n\004name\030\003 \001(\tR\004name\022\032\n\010latitude\030\004 \001(\001R\010" +
+      "latitude\022\034\n\tlongitude\030\005 \001(\001R\tlongitude\022\'" +
+      "\n\017operating_hours\030\006 \001(\tR\016operatingHours\022" +
+      " \n\013description\030\007 \001(\tR\013description*1\n\006Gen" +
+      "der\022\010\n\004MALE\020\000\022\n\n\006FEMALE\020\001\022\021\n\rNOT_SPECIFI" +
+      "ED\020\002*1\n\006Status\022\013\n\007PENDING\020\000\022\014\n\010APPROVED\020" +
+      "\001\022\014\n\010REJECTED\020\002*\276\003\n\nPermission\022\027\n\023CREATE" +
+      "_ORGANIZATION\020\000\022\025\n\021READ_ORGANIZATION\020\001\022\027" +
+      "\n\023UPDATE_ORGANIZATION\020\002\022\027\n\023DELETE_ORGANI" +
+      "ZATION\020\003\022\037\n\033ADD_MEMBERS_TO_ORGANIZATION\020" +
+      "\004\022$\n REMOVE_MEMBERS_FROM_ORGANIZATION\020\005\022" +
+      "\020\n\014CREATE_EVENT\020\006\022\016\n\nREAD_EVENT\020\007\022\020\n\014UPD" +
+      "ATE_EVENT\020\010\022\020\n\014DELETE_EVENT\020\t\022\016\n\nCREATE_" +
+      "TAG\020\n\022\014\n\010READ_TAG\020\013\022\016\n\nUPDATE_TAG\020\014\022\016\n\nD" +
+      "ELETE_TAG\020\r\022\025\n\021ADD_TAGS_TO_EVENT\020\016\022\032\n\026RE" +
+      "MOVE_TAGS_FROM_EVENT\020\017\022\023\n\017CREATE_FACILIT" +
+      "Y\020\020\022\021\n\rREAD_FACILITY\020\021\022\023\n\017UPDATE_FACILIT" +
+      "Y\020\022\022\023\n\017DELETE_FACILITY\020\023BB\n\020app.onepass." +
+      "apisB\013CommonProtoP\001Z\037onepass.app/facilit" +
+      "y/hts/commonb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -288,7 +289,7 @@ public final class CommonProto {
     internal_static_hts_common_UserPermission_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_common_UserPermission_descriptor,
-        new java.lang.String[] { "Id", "UserId", "PermissionId", });
+        new java.lang.String[] { "Id", "UserId", "OrganizationPermissionId", });
     internal_static_hts_common_FacilityRequest_descriptor =
       getDescriptor().getMessageTypes().get(15);
     internal_static_hts_common_FacilityRequest_fieldAccessorTable = new

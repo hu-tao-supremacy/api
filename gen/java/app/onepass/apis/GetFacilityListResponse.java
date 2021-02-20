@@ -97,14 +97,14 @@ private static final long serialVersionUID = 0L;
   public static final int FACILITIES_FIELD_NUMBER = 1;
   private java.util.List<app.onepass.apis.Facility> facilities_;
   /**
-   * <code>repeated .hts.facility.Facility facilities = 1 [json_name = "facilities"];</code>
+   * <code>repeated .hts.common.Facility facilities = 1 [json_name = "facilities"];</code>
    */
   @java.lang.Override
   public java.util.List<app.onepass.apis.Facility> getFacilitiesList() {
     return facilities_;
   }
   /**
-   * <code>repeated .hts.facility.Facility facilities = 1 [json_name = "facilities"];</code>
+   * <code>repeated .hts.common.Facility facilities = 1 [json_name = "facilities"];</code>
    */
   @java.lang.Override
   public java.util.List<? extends app.onepass.apis.FacilityOrBuilder> 
@@ -112,21 +112,21 @@ private static final long serialVersionUID = 0L;
     return facilities_;
   }
   /**
-   * <code>repeated .hts.facility.Facility facilities = 1 [json_name = "facilities"];</code>
+   * <code>repeated .hts.common.Facility facilities = 1 [json_name = "facilities"];</code>
    */
   @java.lang.Override
   public int getFacilitiesCount() {
     return facilities_.size();
   }
   /**
-   * <code>repeated .hts.facility.Facility facilities = 1 [json_name = "facilities"];</code>
+   * <code>repeated .hts.common.Facility facilities = 1 [json_name = "facilities"];</code>
    */
   @java.lang.Override
   public app.onepass.apis.Facility getFacilities(int index) {
     return facilities_.get(index);
   }
   /**
-   * <code>repeated .hts.facility.Facility facilities = 1 [json_name = "facilities"];</code>
+   * <code>repeated .hts.common.Facility facilities = 1 [json_name = "facilities"];</code>
    */
   @java.lang.Override
   public app.onepass.apis.FacilityOrBuilder getFacilitiesOrBuilder(
@@ -489,7 +489,7 @@ private static final long serialVersionUID = 0L;
         app.onepass.apis.Facility, app.onepass.apis.Facility.Builder, app.onepass.apis.FacilityOrBuilder> facilitiesBuilder_;
 
     /**
-     * <code>repeated .hts.facility.Facility facilities = 1 [json_name = "facilities"];</code>
+     * <code>repeated .hts.common.Facility facilities = 1 [json_name = "facilities"];</code>
      */
     public java.util.List<app.onepass.apis.Facility> getFacilitiesList() {
       if (facilitiesBuilder_ == null) {
@@ -499,7 +499,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .hts.facility.Facility facilities = 1 [json_name = "facilities"];</code>
+     * <code>repeated .hts.common.Facility facilities = 1 [json_name = "facilities"];</code>
      */
     public int getFacilitiesCount() {
       if (facilitiesBuilder_ == null) {
@@ -509,7 +509,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .hts.facility.Facility facilities = 1 [json_name = "facilities"];</code>
+     * <code>repeated .hts.common.Facility facilities = 1 [json_name = "facilities"];</code>
      */
     public app.onepass.apis.Facility getFacilities(int index) {
       if (facilitiesBuilder_ == null) {
@@ -519,7 +519,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .hts.facility.Facility facilities = 1 [json_name = "facilities"];</code>
+     * <code>repeated .hts.common.Facility facilities = 1 [json_name = "facilities"];</code>
      */
     public Builder setFacilities(
         int index, app.onepass.apis.Facility value) {
@@ -536,7 +536,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.facility.Facility facilities = 1 [json_name = "facilities"];</code>
+     * <code>repeated .hts.common.Facility facilities = 1 [json_name = "facilities"];</code>
      */
     public Builder setFacilities(
         int index, app.onepass.apis.Facility.Builder builderForValue) {
@@ -550,7 +550,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.facility.Facility facilities = 1 [json_name = "facilities"];</code>
+     * <code>repeated .hts.common.Facility facilities = 1 [json_name = "facilities"];</code>
      */
     public Builder addFacilities(app.onepass.apis.Facility value) {
       if (facilitiesBuilder_ == null) {
@@ -566,7 +566,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.facility.Facility facilities = 1 [json_name = "facilities"];</code>
+     * <code>repeated .hts.common.Facility facilities = 1 [json_name = "facilities"];</code>
      */
     public Builder addFacilities(
         int index, app.onepass.apis.Facility value) {
@@ -583,7 +583,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.facility.Facility facilities = 1 [json_name = "facilities"];</code>
+     * <code>repeated .hts.common.Facility facilities = 1 [json_name = "facilities"];</code>
      */
     public Builder addFacilities(
         app.onepass.apis.Facility.Builder builderForValue) {
@@ -597,7 +597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.facility.Facility facilities = 1 [json_name = "facilities"];</code>
+     * <code>repeated .hts.common.Facility facilities = 1 [json_name = "facilities"];</code>
      */
     public Builder addFacilities(
         int index, app.onepass.apis.Facility.Builder builderForValue) {
@@ -611,7 +611,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.facility.Facility facilities = 1 [json_name = "facilities"];</code>
+     * <code>repeated .hts.common.Facility facilities = 1 [json_name = "facilities"];</code>
      */
     public Builder addAllFacilities(
         java.lang.Iterable<? extends app.onepass.apis.Facility> values) {
@@ -626,7 +626,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.facility.Facility facilities = 1 [json_name = "facilities"];</code>
+     * <code>repeated .hts.common.Facility facilities = 1 [json_name = "facilities"];</code>
      */
     public Builder clearFacilities() {
       if (facilitiesBuilder_ == null) {
@@ -639,7 +639,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.facility.Facility facilities = 1 [json_name = "facilities"];</code>
+     * <code>repeated .hts.common.Facility facilities = 1 [json_name = "facilities"];</code>
      */
     public Builder removeFacilities(int index) {
       if (facilitiesBuilder_ == null) {
@@ -652,14 +652,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.facility.Facility facilities = 1 [json_name = "facilities"];</code>
+     * <code>repeated .hts.common.Facility facilities = 1 [json_name = "facilities"];</code>
      */
     public app.onepass.apis.Facility.Builder getFacilitiesBuilder(
         int index) {
       return getFacilitiesFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .hts.facility.Facility facilities = 1 [json_name = "facilities"];</code>
+     * <code>repeated .hts.common.Facility facilities = 1 [json_name = "facilities"];</code>
      */
     public app.onepass.apis.FacilityOrBuilder getFacilitiesOrBuilder(
         int index) {
@@ -669,7 +669,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .hts.facility.Facility facilities = 1 [json_name = "facilities"];</code>
+     * <code>repeated .hts.common.Facility facilities = 1 [json_name = "facilities"];</code>
      */
     public java.util.List<? extends app.onepass.apis.FacilityOrBuilder> 
          getFacilitiesOrBuilderList() {
@@ -680,14 +680,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .hts.facility.Facility facilities = 1 [json_name = "facilities"];</code>
+     * <code>repeated .hts.common.Facility facilities = 1 [json_name = "facilities"];</code>
      */
     public app.onepass.apis.Facility.Builder addFacilitiesBuilder() {
       return getFacilitiesFieldBuilder().addBuilder(
           app.onepass.apis.Facility.getDefaultInstance());
     }
     /**
-     * <code>repeated .hts.facility.Facility facilities = 1 [json_name = "facilities"];</code>
+     * <code>repeated .hts.common.Facility facilities = 1 [json_name = "facilities"];</code>
      */
     public app.onepass.apis.Facility.Builder addFacilitiesBuilder(
         int index) {
@@ -695,7 +695,7 @@ private static final long serialVersionUID = 0L;
           index, app.onepass.apis.Facility.getDefaultInstance());
     }
     /**
-     * <code>repeated .hts.facility.Facility facilities = 1 [json_name = "facilities"];</code>
+     * <code>repeated .hts.common.Facility facilities = 1 [json_name = "facilities"];</code>
      */
     public java.util.List<app.onepass.apis.Facility.Builder> 
          getFacilitiesBuilderList() {
