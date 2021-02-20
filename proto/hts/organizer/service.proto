@@ -1,11 +1,11 @@
 syntax = "proto3";
 
-package hts.facility;
+package hts.organizer;
 
 option java_multiple_files = true;
 option java_package = "app.onepass.apis";
-option java_outer_classname = "FacilityProto";
-option go_package = "onepass.app/facility/hts/facility";
+option java_outer_classname = "OrganizerProto";
+option go_package = "onepass.app/facility/hts/organizer";
 
 import "hts/common/common.proto";
 import "google/protobuf/timestamp.proto";
