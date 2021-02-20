@@ -4,11 +4,11 @@
 package app.onepass.apis;
 
 /**
- * Protobuf type {@code hts.facility.UpdateEventDurationReq}
+ * Protobuf type {@code hts.organizer.UpdateEventDurationReq}
  */
 public final class UpdateEventDurationReq extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:hts.facility.UpdateEventDurationReq)
+    // @@protoc_insertion_point(message_implements:hts.organizer.UpdateEventDurationReq)
     UpdateEventDurationReqOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use UpdateEventDurationReq.newBuilder() to construct.
@@ -93,13 +93,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return app.onepass.apis.FacilityProto.internal_static_hts_facility_UpdateEventDurationReq_descriptor;
+    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_UpdateEventDurationReq_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return app.onepass.apis.FacilityProto.internal_static_hts_facility_UpdateEventDurationReq_fieldAccessorTable
+    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_UpdateEventDurationReq_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             app.onepass.apis.UpdateEventDurationReq.class, app.onepass.apis.UpdateEventDurationReq.Builder.class);
   }
@@ -129,14 +129,14 @@ private static final long serialVersionUID = 0L;
   public static final int DURATION_FIELD_NUMBER = 3;
   private java.util.List<app.onepass.apis.Duration> duration_;
   /**
-   * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+   * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
    */
   @java.lang.Override
   public java.util.List<app.onepass.apis.Duration> getDurationList() {
     return duration_;
   }
   /**
-   * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+   * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
    */
   @java.lang.Override
   public java.util.List<? extends app.onepass.apis.DurationOrBuilder> 
@@ -144,21 +144,21 @@ private static final long serialVersionUID = 0L;
     return duration_;
   }
   /**
-   * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+   * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
    */
   @java.lang.Override
   public int getDurationCount() {
     return duration_.size();
   }
   /**
-   * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+   * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
    */
   @java.lang.Override
   public app.onepass.apis.Duration getDuration(int index) {
     return duration_.get(index);
   }
   /**
-   * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+   * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
    */
   @java.lang.Override
   public app.onepass.apis.DurationOrBuilder getDurationOrBuilder(
@@ -348,21 +348,21 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code hts.facility.UpdateEventDurationReq}
+   * Protobuf type {@code hts.organizer.UpdateEventDurationReq}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:hts.facility.UpdateEventDurationReq)
+      // @@protoc_insertion_point(builder_implements:hts.organizer.UpdateEventDurationReq)
       app.onepass.apis.UpdateEventDurationReqOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_UpdateEventDurationReq_descriptor;
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_UpdateEventDurationReq_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_UpdateEventDurationReq_fieldAccessorTable
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_UpdateEventDurationReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               app.onepass.apis.UpdateEventDurationReq.class, app.onepass.apis.UpdateEventDurationReq.Builder.class);
     }
@@ -402,7 +402,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_UpdateEventDurationReq_descriptor;
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_UpdateEventDurationReq_descriptor;
     }
 
     @java.lang.Override
@@ -619,7 +619,7 @@ private static final long serialVersionUID = 0L;
         app.onepass.apis.Duration, app.onepass.apis.Duration.Builder, app.onepass.apis.DurationOrBuilder> durationBuilder_;
 
     /**
-     * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+     * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
      */
     public java.util.List<app.onepass.apis.Duration> getDurationList() {
       if (durationBuilder_ == null) {
@@ -629,7 +629,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+     * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
      */
     public int getDurationCount() {
       if (durationBuilder_ == null) {
@@ -639,7 +639,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+     * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
      */
     public app.onepass.apis.Duration getDuration(int index) {
       if (durationBuilder_ == null) {
@@ -649,7 +649,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+     * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
      */
     public Builder setDuration(
         int index, app.onepass.apis.Duration value) {
@@ -666,7 +666,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+     * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
      */
     public Builder setDuration(
         int index, app.onepass.apis.Duration.Builder builderForValue) {
@@ -680,7 +680,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+     * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
      */
     public Builder addDuration(app.onepass.apis.Duration value) {
       if (durationBuilder_ == null) {
@@ -696,7 +696,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+     * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
      */
     public Builder addDuration(
         int index, app.onepass.apis.Duration value) {
@@ -713,7 +713,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+     * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
      */
     public Builder addDuration(
         app.onepass.apis.Duration.Builder builderForValue) {
@@ -727,7 +727,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+     * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
      */
     public Builder addDuration(
         int index, app.onepass.apis.Duration.Builder builderForValue) {
@@ -741,7 +741,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+     * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
      */
     public Builder addAllDuration(
         java.lang.Iterable<? extends app.onepass.apis.Duration> values) {
@@ -756,7 +756,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+     * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
      */
     public Builder clearDuration() {
       if (durationBuilder_ == null) {
@@ -769,7 +769,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+     * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
      */
     public Builder removeDuration(int index) {
       if (durationBuilder_ == null) {
@@ -782,14 +782,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+     * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
      */
     public app.onepass.apis.Duration.Builder getDurationBuilder(
         int index) {
       return getDurationFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+     * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
      */
     public app.onepass.apis.DurationOrBuilder getDurationOrBuilder(
         int index) {
@@ -799,7 +799,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+     * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
      */
     public java.util.List<? extends app.onepass.apis.DurationOrBuilder> 
          getDurationOrBuilderList() {
@@ -810,14 +810,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+     * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
      */
     public app.onepass.apis.Duration.Builder addDurationBuilder() {
       return getDurationFieldBuilder().addBuilder(
           app.onepass.apis.Duration.getDefaultInstance());
     }
     /**
-     * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+     * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
      */
     public app.onepass.apis.Duration.Builder addDurationBuilder(
         int index) {
@@ -825,7 +825,7 @@ private static final long serialVersionUID = 0L;
           index, app.onepass.apis.Duration.getDefaultInstance());
     }
     /**
-     * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+     * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
      */
     public java.util.List<app.onepass.apis.Duration.Builder> 
          getDurationBuilderList() {
@@ -858,10 +858,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:hts.facility.UpdateEventDurationReq)
+    // @@protoc_insertion_point(builder_scope:hts.organizer.UpdateEventDurationReq)
   }
 
-  // @@protoc_insertion_point(class_scope:hts.facility.UpdateEventDurationReq)
+  // @@protoc_insertion_point(class_scope:hts.organizer.UpdateEventDurationReq)
   private static final app.onepass.apis.UpdateEventDurationReq DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new app.onepass.apis.UpdateEventDurationReq();

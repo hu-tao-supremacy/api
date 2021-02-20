@@ -4,7 +4,7 @@
 package app.onepass.apis;
 
 public interface UpdateOrganizationReqOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.facility.UpdateOrganizationReq)
+    // @@protoc_insertion_point(interface_extends:hts.organizer.UpdateOrganizationReq)
     com.google.protobuf.MessageOrBuilder {
 
   /**

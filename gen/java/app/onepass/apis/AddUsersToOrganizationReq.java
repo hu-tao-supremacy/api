@@ -4,11 +4,11 @@
 package app.onepass.apis;
 
 /**
- * Protobuf type {@code hts.facility.AddUsersToOrganizationReq}
+ * Protobuf type {@code hts.organizer.AddUsersToOrganizationReq}
  */
 public final class AddUsersToOrganizationReq extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:hts.facility.AddUsersToOrganizationReq)
+    // @@protoc_insertion_point(message_implements:hts.organizer.AddUsersToOrganizationReq)
     AddUsersToOrganizationReqOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use AddUsersToOrganizationReq.newBuilder() to construct.
@@ -100,13 +100,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return app.onepass.apis.FacilityProto.internal_static_hts_facility_AddUsersToOrganizationReq_descriptor;
+    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_AddUsersToOrganizationReq_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return app.onepass.apis.FacilityProto.internal_static_hts_facility_AddUsersToOrganizationReq_fieldAccessorTable
+    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_AddUsersToOrganizationReq_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             app.onepass.apis.AddUsersToOrganizationReq.class, app.onepass.apis.AddUsersToOrganizationReq.Builder.class);
   }
@@ -335,21 +335,21 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code hts.facility.AddUsersToOrganizationReq}
+   * Protobuf type {@code hts.organizer.AddUsersToOrganizationReq}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:hts.facility.AddUsersToOrganizationReq)
+      // @@protoc_insertion_point(builder_implements:hts.organizer.AddUsersToOrganizationReq)
       app.onepass.apis.AddUsersToOrganizationReqOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_AddUsersToOrganizationReq_descriptor;
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_AddUsersToOrganizationReq_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_AddUsersToOrganizationReq_fieldAccessorTable
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_AddUsersToOrganizationReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               app.onepass.apis.AddUsersToOrganizationReq.class, app.onepass.apis.AddUsersToOrganizationReq.Builder.class);
     }
@@ -382,7 +382,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_AddUsersToOrganizationReq_descriptor;
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_AddUsersToOrganizationReq_descriptor;
     }
 
     @java.lang.Override
@@ -622,10 +622,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:hts.facility.AddUsersToOrganizationReq)
+    // @@protoc_insertion_point(builder_scope:hts.organizer.AddUsersToOrganizationReq)
   }
 
-  // @@protoc_insertion_point(class_scope:hts.facility.AddUsersToOrganizationReq)
+  // @@protoc_insertion_point(class_scope:hts.organizer.AddUsersToOrganizationReq)
   private static final app.onepass.apis.AddUsersToOrganizationReq DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new app.onepass.apis.AddUsersToOrganizationReq();

@@ -4,11 +4,11 @@
 package app.onepass.apis;
 
 /**
- * Protobuf type {@code hts.facility.UpdateUsersInOrganizationReq}
+ * Protobuf type {@code hts.organizer.UpdateUsersInOrganizationReq}
  */
 public final class UpdateUsersInOrganizationReq extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:hts.facility.UpdateUsersInOrganizationReq)
+    // @@protoc_insertion_point(message_implements:hts.organizer.UpdateUsersInOrganizationReq)
     UpdateUsersInOrganizationReqOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use UpdateUsersInOrganizationReq.newBuilder() to construct.
@@ -100,13 +100,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return app.onepass.apis.FacilityProto.internal_static_hts_facility_UpdateUsersInOrganizationReq_descriptor;
+    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_UpdateUsersInOrganizationReq_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return app.onepass.apis.FacilityProto.internal_static_hts_facility_UpdateUsersInOrganizationReq_fieldAccessorTable
+    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_UpdateUsersInOrganizationReq_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             app.onepass.apis.UpdateUsersInOrganizationReq.class, app.onepass.apis.UpdateUsersInOrganizationReq.Builder.class);
   }
@@ -335,21 +335,21 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code hts.facility.UpdateUsersInOrganizationReq}
+   * Protobuf type {@code hts.organizer.UpdateUsersInOrganizationReq}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:hts.facility.UpdateUsersInOrganizationReq)
+      // @@protoc_insertion_point(builder_implements:hts.organizer.UpdateUsersInOrganizationReq)
       app.onepass.apis.UpdateUsersInOrganizationReqOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_UpdateUsersInOrganizationReq_descriptor;
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_UpdateUsersInOrganizationReq_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_UpdateUsersInOrganizationReq_fieldAccessorTable
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_UpdateUsersInOrganizationReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               app.onepass.apis.UpdateUsersInOrganizationReq.class, app.onepass.apis.UpdateUsersInOrganizationReq.Builder.class);
     }
@@ -382,7 +382,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_UpdateUsersInOrganizationReq_descriptor;
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_UpdateUsersInOrganizationReq_descriptor;
     }
 
     @java.lang.Override
@@ -622,10 +622,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:hts.facility.UpdateUsersInOrganizationReq)
+    // @@protoc_insertion_point(builder_scope:hts.organizer.UpdateUsersInOrganizationReq)
   }
 
-  // @@protoc_insertion_point(class_scope:hts.facility.UpdateUsersInOrganizationReq)
+  // @@protoc_insertion_point(class_scope:hts.organizer.UpdateUsersInOrganizationReq)
   private static final app.onepass.apis.UpdateUsersInOrganizationReq DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new app.onepass.apis.UpdateUsersInOrganizationReq();

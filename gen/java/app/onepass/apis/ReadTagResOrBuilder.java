@@ -4,7 +4,7 @@
 package app.onepass.apis;
 
 public interface ReadTagResOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.facility.ReadTagRes)
+    // @@protoc_insertion_point(interface_extends:hts.organizer.ReadTagRes)
     com.google.protobuf.MessageOrBuilder {
 
   /**

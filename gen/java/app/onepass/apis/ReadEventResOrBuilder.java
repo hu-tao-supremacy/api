@@ -4,7 +4,7 @@
 package app.onepass.apis;
 
 public interface ReadEventResOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.facility.ReadEventRes)
+    // @@protoc_insertion_point(interface_extends:hts.organizer.ReadEventRes)
     com.google.protobuf.MessageOrBuilder {
 
   /**

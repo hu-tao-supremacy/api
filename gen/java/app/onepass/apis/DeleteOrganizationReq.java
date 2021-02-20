@@ -4,11 +4,11 @@
 package app.onepass.apis;
 
 /**
- * Protobuf type {@code hts.facility.DeleteOrganizationReq}
+ * Protobuf type {@code hts.organizer.DeleteOrganizationReq}
  */
 public final class DeleteOrganizationReq extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:hts.facility.DeleteOrganizationReq)
+    // @@protoc_insertion_point(message_implements:hts.organizer.DeleteOrganizationReq)
     DeleteOrganizationReqOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use DeleteOrganizationReq.newBuilder() to construct.
@@ -79,13 +79,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return app.onepass.apis.FacilityProto.internal_static_hts_facility_DeleteOrganizationReq_descriptor;
+    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_DeleteOrganizationReq_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return app.onepass.apis.FacilityProto.internal_static_hts_facility_DeleteOrganizationReq_fieldAccessorTable
+    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_DeleteOrganizationReq_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             app.onepass.apis.DeleteOrganizationReq.class, app.onepass.apis.DeleteOrganizationReq.Builder.class);
   }
@@ -281,21 +281,21 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code hts.facility.DeleteOrganizationReq}
+   * Protobuf type {@code hts.organizer.DeleteOrganizationReq}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:hts.facility.DeleteOrganizationReq)
+      // @@protoc_insertion_point(builder_implements:hts.organizer.DeleteOrganizationReq)
       app.onepass.apis.DeleteOrganizationReqOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_DeleteOrganizationReq_descriptor;
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_DeleteOrganizationReq_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_DeleteOrganizationReq_fieldAccessorTable
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_DeleteOrganizationReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               app.onepass.apis.DeleteOrganizationReq.class, app.onepass.apis.DeleteOrganizationReq.Builder.class);
     }
@@ -328,7 +328,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_DeleteOrganizationReq_descriptor;
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_DeleteOrganizationReq_descriptor;
     }
 
     @java.lang.Override
@@ -507,10 +507,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:hts.facility.DeleteOrganizationReq)
+    // @@protoc_insertion_point(builder_scope:hts.organizer.DeleteOrganizationReq)
   }
 
-  // @@protoc_insertion_point(class_scope:hts.facility.DeleteOrganizationReq)
+  // @@protoc_insertion_point(class_scope:hts.organizer.DeleteOrganizationReq)
   private static final app.onepass.apis.DeleteOrganizationReq DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new app.onepass.apis.DeleteOrganizationReq();
