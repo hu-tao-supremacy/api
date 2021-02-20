@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private HasPermissionRequest() {
-    permissionName_ = "";
+    permissionName_ = 0;
   }
 
   @java.lang.Override
@@ -59,10 +59,10 @@ private static final long serialVersionUID = 0L;
             organizationId_ = input.readInt64();
             break;
           }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 24: {
+            int rawValue = input.readEnum();
 
-            permissionName_ = s;
+            permissionName_ = rawValue;
             break;
           }
           default: {
@@ -120,41 +120,22 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PERMISSION_NAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object permissionName_;
+  private int permissionName_;
   /**
-   * <code>string permission_name = 3 [json_name = "permissionName"];</code>
-   * @return The permissionName.
+   * <code>.hts.common.Permission permission_name = 3 [json_name = "permissionName"];</code>
+   * @return The enum numeric value on the wire for permissionName.
    */
-  @java.lang.Override
-  public java.lang.String getPermissionName() {
-    java.lang.Object ref = permissionName_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      permissionName_ = s;
-      return s;
-    }
+  @java.lang.Override public int getPermissionNameValue() {
+    return permissionName_;
   }
   /**
-   * <code>string permission_name = 3 [json_name = "permissionName"];</code>
-   * @return The bytes for permissionName.
+   * <code>.hts.common.Permission permission_name = 3 [json_name = "permissionName"];</code>
+   * @return The permissionName.
    */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getPermissionNameBytes() {
-    java.lang.Object ref = permissionName_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      permissionName_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  @java.lang.Override public app.onepass.apis.Permission getPermissionName() {
+    @SuppressWarnings("deprecation")
+    app.onepass.apis.Permission result = app.onepass.apis.Permission.valueOf(permissionName_);
+    return result == null ? app.onepass.apis.Permission.UNRECOGNIZED : result;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -177,8 +158,8 @@ private static final long serialVersionUID = 0L;
     if (organizationId_ != 0L) {
       output.writeInt64(2, organizationId_);
     }
-    if (!getPermissionNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, permissionName_);
+    if (permissionName_ != app.onepass.apis.Permission.CREATE_ORGANIZATION.getNumber()) {
+      output.writeEnum(3, permissionName_);
     }
     unknownFields.writeTo(output);
   }
@@ -197,8 +178,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(2, organizationId_);
     }
-    if (!getPermissionNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, permissionName_);
+    if (permissionName_ != app.onepass.apis.Permission.CREATE_ORGANIZATION.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(3, permissionName_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -219,8 +201,7 @@ private static final long serialVersionUID = 0L;
         != other.getUserId()) return false;
     if (getOrganizationId()
         != other.getOrganizationId()) return false;
-    if (!getPermissionName()
-        .equals(other.getPermissionName())) return false;
+    if (permissionName_ != other.permissionName_) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -239,7 +220,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getOrganizationId());
     hash = (37 * hash) + PERMISSION_NAME_FIELD_NUMBER;
-    hash = (53 * hash) + getPermissionName().hashCode();
+    hash = (53 * hash) + permissionName_;
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -377,7 +358,7 @@ private static final long serialVersionUID = 0L;
 
       organizationId_ = 0L;
 
-      permissionName_ = "";
+      permissionName_ = 0;
 
       return this;
     }
@@ -462,9 +443,8 @@ private static final long serialVersionUID = 0L;
       if (other.getOrganizationId() != 0L) {
         setOrganizationId(other.getOrganizationId());
       }
-      if (!other.getPermissionName().isEmpty()) {
-        permissionName_ = other.permissionName_;
-        onChanged();
+      if (other.permissionName_ != 0) {
+        setPermissionNameValue(other.getPermissionNameValue());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -557,78 +537,56 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object permissionName_ = "";
+    private int permissionName_ = 0;
     /**
-     * <code>string permission_name = 3 [json_name = "permissionName"];</code>
-     * @return The permissionName.
+     * <code>.hts.common.Permission permission_name = 3 [json_name = "permissionName"];</code>
+     * @return The enum numeric value on the wire for permissionName.
      */
-    public java.lang.String getPermissionName() {
-      java.lang.Object ref = permissionName_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        permissionName_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override public int getPermissionNameValue() {
+      return permissionName_;
     }
     /**
-     * <code>string permission_name = 3 [json_name = "permissionName"];</code>
-     * @return The bytes for permissionName.
-     */
-    public com.google.protobuf.ByteString
-        getPermissionNameBytes() {
-      java.lang.Object ref = permissionName_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        permissionName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string permission_name = 3 [json_name = "permissionName"];</code>
-     * @param value The permissionName to set.
+     * <code>.hts.common.Permission permission_name = 3 [json_name = "permissionName"];</code>
+     * @param value The enum numeric value on the wire for permissionName to set.
      * @return This builder for chaining.
      */
-    public Builder setPermissionName(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+    public Builder setPermissionNameValue(int value) {
+      
       permissionName_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string permission_name = 3 [json_name = "permissionName"];</code>
+     * <code>.hts.common.Permission permission_name = 3 [json_name = "permissionName"];</code>
+     * @return The permissionName.
+     */
+    @java.lang.Override
+    public app.onepass.apis.Permission getPermissionName() {
+      @SuppressWarnings("deprecation")
+      app.onepass.apis.Permission result = app.onepass.apis.Permission.valueOf(permissionName_);
+      return result == null ? app.onepass.apis.Permission.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.hts.common.Permission permission_name = 3 [json_name = "permissionName"];</code>
+     * @param value The permissionName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPermissionName(app.onepass.apis.Permission value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      permissionName_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.hts.common.Permission permission_name = 3 [json_name = "permissionName"];</code>
      * @return This builder for chaining.
      */
     public Builder clearPermissionName() {
       
-      permissionName_ = getDefaultInstance().getPermissionName();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string permission_name = 3 [json_name = "permissionName"];</code>
-     * @param value The bytes for permissionName to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPermissionNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      permissionName_ = value;
+      permissionName_ = 0;
       onChanged();
       return this;
     }

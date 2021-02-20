@@ -20,8 +20,8 @@ public interface UserPermissionOrBuilder extends
   long getUserId();
 
   /**
-   * <code>int64 permission_id = 3 [json_name = "permissionId"];</code>
-   * @return The permissionId.
+   * <code>int64 organization_permission_id = 3 [json_name = "organizationPermissionId"];</code>
+   * @return The organizationPermissionId.
    */
-  long getPermissionId();
+  long getOrganizationPermissionId();
 }

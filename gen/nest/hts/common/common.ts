@@ -141,7 +141,7 @@ export interface OrganizationPermission {
 export interface UserPermission {
   id: number;
   userId: number;
-  permissionId: number;
+  organizationPermissionId: number;
 }
 
 export interface FacilityRequest {

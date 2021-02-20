@@ -25,10 +25,10 @@ type FacilityServiceClient interface {
 	GetFacilityRequestsStatus(ctx context.Context, in *GetFacilityRequestsStatusRequest, opts ...grpc.CallOption) (*GetFacilityRequestsStatusResponse, error)
 	GetAvailableFacilityList(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*GetAvailableFacilityListResponse, error)
 	GetAvailableTimeOfFacility(ctx context.Context, in *GetAvailableTimeOfFacilityRequest, opts ...grpc.CallOption) (*GetAvailableTimeOfFacilityResponse, error)
-	CreateFacilityRequest(ctx context.Context, in *CreateFacilityRequestRequest, opts ...grpc.CallOption) (*FacilityRequest, error)
+	CreateFacilityRequest(ctx context.Context, in *CreateFacilityRequestRequest, opts ...grpc.CallOption) (*common.FacilityRequest, error)
 	ApproveFacilityRequest(ctx context.Context, in *ApproveFacilityRequestRequest, opts ...grpc.CallOption) (*common.Result, error)
 	RejectFacilityRequest(ctx context.Context, in *RejectFacilityRequestRequest, opts ...grpc.CallOption) (*common.Result, error)
-	GetFacilityInfo(ctx context.Context, in *GetFacilityInfoRequest, opts ...grpc.CallOption) (*Facility, error)
+	GetFacilityInfo(ctx context.Context, in *GetFacilityInfoRequest, opts ...grpc.CallOption) (*common.Facility, error)
 }
 
 type facilityServiceClient struct {
@@ -84,8 +84,8 @@ func (c *facilityServiceClient) GetAvailableTimeOfFacility(ctx context.Context, 
 	return out, nil
 }
 
-func (c *facilityServiceClient) CreateFacilityRequest(ctx context.Context, in *CreateFacilityRequestRequest, opts ...grpc.CallOption) (*FacilityRequest, error) {
-	out := new(FacilityRequest)
+func (c *facilityServiceClient) CreateFacilityRequest(ctx context.Context, in *CreateFacilityRequestRequest, opts ...grpc.CallOption) (*common.FacilityRequest, error) {
+	out := new(common.FacilityRequest)
 	err := c.cc.Invoke(ctx, "/hts.facility.FacilityService/CreateFacilityRequest", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -111,8 +111,8 @@ func (c *facilityServiceClient) RejectFacilityRequest(ctx context.Context, in *R
 	return out, nil
 }
 
-func (c *facilityServiceClient) GetFacilityInfo(ctx context.Context, in *GetFacilityInfoRequest, opts ...grpc.CallOption) (*Facility, error) {
-	out := new(Facility)
+func (c *facilityServiceClient) GetFacilityInfo(ctx context.Context, in *GetFacilityInfoRequest, opts ...grpc.CallOption) (*common.Facility, error) {
+	out := new(common.Facility)
 	err := c.cc.Invoke(ctx, "/hts.facility.FacilityService/GetFacilityInfo", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -129,10 +129,10 @@ type FacilityServiceServer interface {
 	GetFacilityRequestsStatus(context.Context, *GetFacilityRequestsStatusRequest) (*GetFacilityRequestsStatusResponse, error)
 	GetAvailableFacilityList(context.Context, *empty.Empty) (*GetAvailableFacilityListResponse, error)
 	GetAvailableTimeOfFacility(context.Context, *GetAvailableTimeOfFacilityRequest) (*GetAvailableTimeOfFacilityResponse, error)
-	CreateFacilityRequest(context.Context, *CreateFacilityRequestRequest) (*FacilityRequest, error)
+	CreateFacilityRequest(context.Context, *CreateFacilityRequestRequest) (*common.FacilityRequest, error)
 	ApproveFacilityRequest(context.Context, *ApproveFacilityRequestRequest) (*common.Result, error)
 	RejectFacilityRequest(context.Context, *RejectFacilityRequestRequest) (*common.Result, error)
-	GetFacilityInfo(context.Context, *GetFacilityInfoRequest) (*Facility, error)
+	GetFacilityInfo(context.Context, *GetFacilityInfoRequest) (*common.Facility, error)
 }
 
 // UnimplementedFacilityServiceServer should be embedded to have forward compatible implementations.
@@ -154,7 +154,7 @@ func (UnimplementedFacilityServiceServer) GetAvailableFacilityList(context.Conte
 func (UnimplementedFacilityServiceServer) GetAvailableTimeOfFacility(context.Context, *GetAvailableTimeOfFacilityRequest) (*GetAvailableTimeOfFacilityResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAvailableTimeOfFacility not implemented")
 }
-func (UnimplementedFacilityServiceServer) CreateFacilityRequest(context.Context, *CreateFacilityRequestRequest) (*FacilityRequest, error) {
+func (UnimplementedFacilityServiceServer) CreateFacilityRequest(context.Context, *CreateFacilityRequestRequest) (*common.FacilityRequest, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateFacilityRequest not implemented")
 }
 func (UnimplementedFacilityServiceServer) ApproveFacilityRequest(context.Context, *ApproveFacilityRequestRequest) (*common.Result, error) {
@@ -163,7 +163,7 @@ func (UnimplementedFacilityServiceServer) ApproveFacilityRequest(context.Context
 func (UnimplementedFacilityServiceServer) RejectFacilityRequest(context.Context, *RejectFacilityRequestRequest) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RejectFacilityRequest not implemented")
 }
-func (UnimplementedFacilityServiceServer) GetFacilityInfo(context.Context, *GetFacilityInfoRequest) (*Facility, error) {
+func (UnimplementedFacilityServiceServer) GetFacilityInfo(context.Context, *GetFacilityInfoRequest) (*common.Facility, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetFacilityInfo not implemented")
 }
 
