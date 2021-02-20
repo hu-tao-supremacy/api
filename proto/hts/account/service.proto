@@ -33,7 +33,7 @@ message InvalidateJWTRequest {
 message HasPermissionRequest {
   int64 user_id = 1;
   int64 organization_id = 2;
-  string permission_name = 3;
+  hts.common.Permission permission_name = 3;
 }
 
 service AccountService {
