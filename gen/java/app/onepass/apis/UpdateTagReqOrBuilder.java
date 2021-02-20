@@ -4,7 +4,7 @@
 package app.onepass.apis;
 
 public interface UpdateTagReqOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.facility.UpdateTagReq)
+    // @@protoc_insertion_point(interface_extends:hts.organizer.UpdateTagReq)
     com.google.protobuf.MessageOrBuilder {
 
   /**

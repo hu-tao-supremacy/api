@@ -4,11 +4,11 @@
 package app.onepass.apis;
 
 /**
- * Protobuf type {@code hts.facility.DeleteEventReq}
+ * Protobuf type {@code hts.organizer.DeleteEventReq}
  */
 public final class DeleteEventReq extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:hts.facility.DeleteEventReq)
+    // @@protoc_insertion_point(message_implements:hts.organizer.DeleteEventReq)
     DeleteEventReqOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use DeleteEventReq.newBuilder() to construct.
@@ -79,13 +79,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return app.onepass.apis.FacilityProto.internal_static_hts_facility_DeleteEventReq_descriptor;
+    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_DeleteEventReq_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return app.onepass.apis.FacilityProto.internal_static_hts_facility_DeleteEventReq_fieldAccessorTable
+    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_DeleteEventReq_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             app.onepass.apis.DeleteEventReq.class, app.onepass.apis.DeleteEventReq.Builder.class);
   }
@@ -281,21 +281,21 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code hts.facility.DeleteEventReq}
+   * Protobuf type {@code hts.organizer.DeleteEventReq}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:hts.facility.DeleteEventReq)
+      // @@protoc_insertion_point(builder_implements:hts.organizer.DeleteEventReq)
       app.onepass.apis.DeleteEventReqOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_DeleteEventReq_descriptor;
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_DeleteEventReq_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_DeleteEventReq_fieldAccessorTable
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_DeleteEventReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               app.onepass.apis.DeleteEventReq.class, app.onepass.apis.DeleteEventReq.Builder.class);
     }
@@ -328,7 +328,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_DeleteEventReq_descriptor;
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_DeleteEventReq_descriptor;
     }
 
     @java.lang.Override
@@ -507,10 +507,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:hts.facility.DeleteEventReq)
+    // @@protoc_insertion_point(builder_scope:hts.organizer.DeleteEventReq)
   }
 
-  // @@protoc_insertion_point(class_scope:hts.facility.DeleteEventReq)
+  // @@protoc_insertion_point(class_scope:hts.organizer.DeleteEventReq)
   private static final app.onepass.apis.DeleteEventReq DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new app.onepass.apis.DeleteEventReq();

@@ -4,11 +4,11 @@
 package app.onepass.apis;
 
 /**
- * Protobuf type {@code hts.facility.UpdateEventFacilityReq}
+ * Protobuf type {@code hts.organizer.UpdateEventFacilityReq}
  */
 public final class UpdateEventFacilityReq extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:hts.facility.UpdateEventFacilityReq)
+    // @@protoc_insertion_point(message_implements:hts.organizer.UpdateEventFacilityReq)
     UpdateEventFacilityReqOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use UpdateEventFacilityReq.newBuilder() to construct.
@@ -87,13 +87,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return app.onepass.apis.FacilityProto.internal_static_hts_facility_UpdateEventFacilityReq_descriptor;
+    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_UpdateEventFacilityReq_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return app.onepass.apis.FacilityProto.internal_static_hts_facility_UpdateEventFacilityReq_fieldAccessorTable
+    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_UpdateEventFacilityReq_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             app.onepass.apis.UpdateEventFacilityReq.class, app.onepass.apis.UpdateEventFacilityReq.Builder.class);
   }
@@ -308,21 +308,21 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code hts.facility.UpdateEventFacilityReq}
+   * Protobuf type {@code hts.organizer.UpdateEventFacilityReq}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:hts.facility.UpdateEventFacilityReq)
+      // @@protoc_insertion_point(builder_implements:hts.organizer.UpdateEventFacilityReq)
       app.onepass.apis.UpdateEventFacilityReqOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_UpdateEventFacilityReq_descriptor;
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_UpdateEventFacilityReq_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_UpdateEventFacilityReq_fieldAccessorTable
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_UpdateEventFacilityReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               app.onepass.apis.UpdateEventFacilityReq.class, app.onepass.apis.UpdateEventFacilityReq.Builder.class);
     }
@@ -359,7 +359,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_UpdateEventFacilityReq_descriptor;
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_UpdateEventFacilityReq_descriptor;
     }
 
     @java.lang.Override
@@ -630,10 +630,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:hts.facility.UpdateEventFacilityReq)
+    // @@protoc_insertion_point(builder_scope:hts.organizer.UpdateEventFacilityReq)
   }
 
-  // @@protoc_insertion_point(class_scope:hts.facility.UpdateEventFacilityReq)
+  // @@protoc_insertion_point(class_scope:hts.organizer.UpdateEventFacilityReq)
   private static final app.onepass.apis.UpdateEventFacilityReq DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new app.onepass.apis.UpdateEventFacilityReq();

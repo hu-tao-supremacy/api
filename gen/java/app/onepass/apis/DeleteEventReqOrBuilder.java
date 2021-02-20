@@ -4,7 +4,7 @@
 package app.onepass.apis;
 
 public interface DeleteEventReqOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.facility.DeleteEventReq)
+    // @@protoc_insertion_point(interface_extends:hts.organizer.DeleteEventReq)
     com.google.protobuf.MessageOrBuilder {
 
   /**

@@ -4,7 +4,7 @@
 package app.onepass.apis;
 
 public interface UpdateEventInfoReqOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.facility.UpdateEventInfoReq)
+    // @@protoc_insertion_point(interface_extends:hts.organizer.UpdateEventInfoReq)
     com.google.protobuf.MessageOrBuilder {
 
   /**

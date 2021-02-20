@@ -11,7 +11,7 @@ public final class OrganizationServiceGrpc {
 
   private OrganizationServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "hts.facility.OrganizationService";
+  public static final String SERVICE_NAME = "hts.organizer.OrganizationService";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<app.onepass.apis.CreateOrganizationReq,
@@ -1321,7 +1321,7 @@ public final class OrganizationServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return app.onepass.apis.FacilityProto.getDescriptor();
+      return app.onepass.apis.OrganizerProto.getDescriptor();
     }
 
     @java.lang.Override

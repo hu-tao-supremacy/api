@@ -4,7 +4,7 @@
 package app.onepass.apis;
 
 public interface UpdateRegistrationRequestReqOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.facility.UpdateRegistrationRequestReq)
+    // @@protoc_insertion_point(interface_extends:hts.organizer.UpdateRegistrationRequestReq)
     com.google.protobuf.MessageOrBuilder {
 
   /**

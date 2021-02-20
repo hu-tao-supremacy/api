@@ -4,7 +4,7 @@
 package app.onepass.apis;
 
 public interface DeleteOrganizationReqOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.facility.DeleteOrganizationReq)
+    // @@protoc_insertion_point(interface_extends:hts.organizer.DeleteOrganizationReq)
     com.google.protobuf.MessageOrBuilder {
 
   /**

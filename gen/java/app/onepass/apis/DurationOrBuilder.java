@@ -4,7 +4,7 @@
 package app.onepass.apis;
 
 public interface DurationOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.facility.Duration)
+    // @@protoc_insertion_point(interface_extends:hts.organizer.Duration)
     com.google.protobuf.MessageOrBuilder {
 
   /**

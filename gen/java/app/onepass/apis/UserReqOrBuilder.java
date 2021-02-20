@@ -4,7 +4,7 @@
 package app.onepass.apis;
 
 public interface UserReqOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.facility.UserReq)
+    // @@protoc_insertion_point(interface_extends:hts.organizer.UserReq)
     com.google.protobuf.MessageOrBuilder {
 
   /**

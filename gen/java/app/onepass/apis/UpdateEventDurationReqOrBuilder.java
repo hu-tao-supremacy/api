@@ -4,7 +4,7 @@
 package app.onepass.apis;
 
 public interface UpdateEventDurationReqOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.facility.UpdateEventDurationReq)
+    // @@protoc_insertion_point(interface_extends:hts.organizer.UpdateEventDurationReq)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -20,25 +20,25 @@ public interface UpdateEventDurationReqOrBuilder extends
   long getEventId();
 
   /**
-   * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+   * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
    */
   java.util.List<app.onepass.apis.Duration> 
       getDurationList();
   /**
-   * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+   * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
    */
   app.onepass.apis.Duration getDuration(int index);
   /**
-   * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+   * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
    */
   int getDurationCount();
   /**
-   * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+   * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
    */
   java.util.List<? extends app.onepass.apis.DurationOrBuilder> 
       getDurationOrBuilderList();
   /**
-   * <code>repeated .hts.facility.Duration duration = 3 [json_name = "duration"];</code>
+   * <code>repeated .hts.organizer.Duration duration = 3 [json_name = "duration"];</code>
    */
   app.onepass.apis.DurationOrBuilder getDurationOrBuilder(
       int index);
