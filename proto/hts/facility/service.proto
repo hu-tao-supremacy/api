@@ -13,8 +13,6 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
-// Model
-
 message FacilityRequestWithFacilityInfo {
     int64 id = 1;
     int64 event_id = 2;
