@@ -18,7 +18,7 @@ message FacilityRequestWithFacilityInfo {
     int64 event_id = 2;
     int64 facility_id = 3;
     int64 organization_id = 4;
-    hts.common.RequestStatus status = 5;
+    hts.common.Status status = 5;
     google.protobuf.StringValue reject_reason = 6;
     google.protobuf.Timestamp start = 7;
     google.protobuf.Timestamp finish = 8;
