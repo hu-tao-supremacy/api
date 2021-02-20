@@ -33,7 +33,7 @@ jobs:
           sudo mv protoc-gen-grpc-java /usr/local/bin/.
           which protoc-gen-grpc-java
 
-          brew tap bufbuid/buf
+          brew tap bufbuild/buf
           brew install buf
       - run: |
           make generate
