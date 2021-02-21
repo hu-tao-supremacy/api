@@ -56,8 +56,8 @@ enum Permission {
 }
 
 message OperatingHour {
-  int64 startHour = 1;
-  int64 finishHour = 2;
+  int64 start_hour = 1;
+  int64 finish_hour = 2;
   DayOfWeek day = 3;
 }
 
