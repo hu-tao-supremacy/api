@@ -25,7 +25,7 @@ message FacilityRequestWithFacilityInfo {
     string facility_name = 9;
     double latitude = 10;
     double longitude = 11;
-    string operating_hours = 12;
+    repeated hts.common.OperatingHour operating_hours = 12;
     string description = 13;
 }
 
