@@ -40,18 +40,20 @@ message GetFacilityListResponse {
 }
 
 message GetFacilityRequestListRequest {
-    int64 organization_id = 1;
+    int64 user_id = 1;
+    int64 organization_id = 2;
 }
 
 message GetFacilityRequestListResponse {
     repeated FacilityRequestWithFacilityInfo requests = 1; 
 }
 
-message GetFacilityRequestsStatusRequest {
-    int64 event_id = 1;
+message GetFacilityRequestsListStatusRequest {
+    int64 user_id = 1;
+    int64 event_id = 2;
 }
 
-message GetFacilityRequestsStatusResponse {
+message GetFacilityRequestsListStatusResponse {
     repeated FacilityRequestWithFacilityInfo requests = 1;
 }
 
@@ -74,34 +76,43 @@ message GetAvailableTimeOfFacilityResponse {
 
 message CreateFacilityRequestRequest {
     int64 user_id = 1;
-    int64 organization_id = 2;
-    int64 event_id = 3;
-    int64 facility_id = 4;
-    google.protobuf.Timestamp start = 5;
-    google.protobuf.Timestamp end = 6;
+    int64 event_id = 2;
+    int64 facility_id = 3;
+    google.protobuf.Timestamp start = 4;
+    google.protobuf.Timestamp end = 5;
 }
 
 message ApproveFacilityRequestRequest {
     int64 user_id = 1;
-    int64 organization_id = 2;
-    int64 request_id = 3;
+    int64 request_id = 2;
 }
 
 message RejectFacilityRequestRequest {
     int64 user_id = 1;
-    int64 organization_id = 2;
-    int64 request_id = 3;
-    google.protobuf.StringValue reason = 4;
+    int64 request_id = 2;
+    google.protobuf.StringValue reason = 3;
 }
 
 message GetFacilityInfoRequest {
     int64 facility_id = 1;
 }
 
+message GetFacilityRequestStatusRequest {
+    int64 user_id = 1;
+    int64 request_id = 2;
+}
+
+message GetFacilityRequestStatusFullRequest {
+    int64 user_id = 1;
+    int64 request_id = 2;
+}
+
 service FacilityService {
     rpc GetFacilityList(GetFacilityListRequest) returns (GetFacilityListResponse);
     rpc GetFacilityRequestList(GetFacilityRequestListRequest) returns (GetFacilityRequestListResponse);
-    rpc GetFacilityRequestsStatus(GetFacilityRequestsStatusRequest) returns (GetFacilityRequestsStatusResponse);
+    rpc GetFacilityRequestsListStatus(GetFacilityRequestsListStatusRequest) returns (GetFacilityRequestsListStatusResponse);
+    rpc GetFacilityRequestStatus(GetFacilityRequestStatusRequest) returns (hts.common.FacilityRequest);
+    rpc GetFacilityRequestStatusFull(GetFacilityRequestStatusFullRequest) returns (FacilityRequestWithFacilityInfo);
     rpc GetAvailableFacilityList(google.protobuf.Empty) returns (GetAvailableFacilityListResponse);
     rpc GetAvailableTimeOfFacility(GetAvailableTimeOfFacilityRequest) returns (GetAvailableTimeOfFacilityResponse);
     rpc CreateFacilityRequest(CreateFacilityRequestRequest) returns (hts.common.FacilityRequest);
