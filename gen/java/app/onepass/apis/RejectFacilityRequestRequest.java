@@ -55,15 +55,10 @@ private static final long serialVersionUID = 0L;
           }
           case 16: {
 
-            organizationId_ = input.readInt64();
-            break;
-          }
-          case 24: {
-
             requestId_ = input.readInt64();
             break;
           }
-          case 34: {
+          case 26: {
             com.google.protobuf.StringValue.Builder subBuilder = null;
             if (reason_ != null) {
               subBuilder = reason_.toBuilder();
@@ -119,21 +114,10 @@ private static final long serialVersionUID = 0L;
     return userId_;
   }
 
-  public static final int ORGANIZATION_ID_FIELD_NUMBER = 2;
-  private long organizationId_;
-  /**
-   * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
-   * @return The organizationId.
-   */
-  @java.lang.Override
-  public long getOrganizationId() {
-    return organizationId_;
-  }
-
-  public static final int REQUEST_ID_FIELD_NUMBER = 3;
+  public static final int REQUEST_ID_FIELD_NUMBER = 2;
   private long requestId_;
   /**
-   * <code>int64 request_id = 3 [json_name = "requestId"];</code>
+   * <code>int64 request_id = 2 [json_name = "requestId"];</code>
    * @return The requestId.
    */
   @java.lang.Override
@@ -141,10 +125,10 @@ private static final long serialVersionUID = 0L;
     return requestId_;
   }
 
-  public static final int REASON_FIELD_NUMBER = 4;
+  public static final int REASON_FIELD_NUMBER = 3;
   private com.google.protobuf.StringValue reason_;
   /**
-   * <code>.google.protobuf.StringValue reason = 4 [json_name = "reason"];</code>
+   * <code>.google.protobuf.StringValue reason = 3 [json_name = "reason"];</code>
    * @return Whether the reason field is set.
    */
   @java.lang.Override
@@ -152,7 +136,7 @@ private static final long serialVersionUID = 0L;
     return reason_ != null;
   }
   /**
-   * <code>.google.protobuf.StringValue reason = 4 [json_name = "reason"];</code>
+   * <code>.google.protobuf.StringValue reason = 3 [json_name = "reason"];</code>
    * @return The reason.
    */
   @java.lang.Override
@@ -160,7 +144,7 @@ private static final long serialVersionUID = 0L;
     return reason_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : reason_;
   }
   /**
-   * <code>.google.protobuf.StringValue reason = 4 [json_name = "reason"];</code>
+   * <code>.google.protobuf.StringValue reason = 3 [json_name = "reason"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.StringValueOrBuilder getReasonOrBuilder() {
@@ -184,14 +168,11 @@ private static final long serialVersionUID = 0L;
     if (userId_ != 0L) {
       output.writeInt64(1, userId_);
     }
-    if (organizationId_ != 0L) {
-      output.writeInt64(2, organizationId_);
-    }
     if (requestId_ != 0L) {
-      output.writeInt64(3, requestId_);
+      output.writeInt64(2, requestId_);
     }
     if (reason_ != null) {
-      output.writeMessage(4, getReason());
+      output.writeMessage(3, getReason());
     }
     unknownFields.writeTo(output);
   }
@@ -206,17 +187,13 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(1, userId_);
     }
-    if (organizationId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(2, organizationId_);
-    }
     if (requestId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(3, requestId_);
+        .computeInt64Size(2, requestId_);
     }
     if (reason_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(4, getReason());
+        .computeMessageSize(3, getReason());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -235,8 +212,6 @@ private static final long serialVersionUID = 0L;
 
     if (getUserId()
         != other.getUserId()) return false;
-    if (getOrganizationId()
-        != other.getOrganizationId()) return false;
     if (getRequestId()
         != other.getRequestId()) return false;
     if (hasReason() != other.hasReason()) return false;
@@ -258,9 +233,6 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getUserId());
-    hash = (37 * hash) + ORGANIZATION_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getOrganizationId());
     hash = (37 * hash) + REQUEST_ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getRequestId());
@@ -403,8 +375,6 @@ private static final long serialVersionUID = 0L;
       super.clear();
       userId_ = 0L;
 
-      organizationId_ = 0L;
-
       requestId_ = 0L;
 
       if (reasonBuilder_ == null) {
@@ -440,7 +410,6 @@ private static final long serialVersionUID = 0L;
     public app.onepass.apis.RejectFacilityRequestRequest buildPartial() {
       app.onepass.apis.RejectFacilityRequestRequest result = new app.onepass.apis.RejectFacilityRequestRequest(this);
       result.userId_ = userId_;
-      result.organizationId_ = organizationId_;
       result.requestId_ = requestId_;
       if (reasonBuilder_ == null) {
         result.reason_ = reason_;
@@ -497,9 +466,6 @@ private static final long serialVersionUID = 0L;
       if (other == app.onepass.apis.RejectFacilityRequestRequest.getDefaultInstance()) return this;
       if (other.getUserId() != 0L) {
         setUserId(other.getUserId());
-      }
-      if (other.getOrganizationId() != 0L) {
-        setOrganizationId(other.getOrganizationId());
       }
       if (other.getRequestId() != 0L) {
         setRequestId(other.getRequestId());
@@ -567,40 +533,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long organizationId_ ;
-    /**
-     * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
-     * @return The organizationId.
-     */
-    @java.lang.Override
-    public long getOrganizationId() {
-      return organizationId_;
-    }
-    /**
-     * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
-     * @param value The organizationId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrganizationId(long value) {
-      
-      organizationId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearOrganizationId() {
-      
-      organizationId_ = 0L;
-      onChanged();
-      return this;
-    }
-
     private long requestId_ ;
     /**
-     * <code>int64 request_id = 3 [json_name = "requestId"];</code>
+     * <code>int64 request_id = 2 [json_name = "requestId"];</code>
      * @return The requestId.
      */
     @java.lang.Override
@@ -608,7 +543,7 @@ private static final long serialVersionUID = 0L;
       return requestId_;
     }
     /**
-     * <code>int64 request_id = 3 [json_name = "requestId"];</code>
+     * <code>int64 request_id = 2 [json_name = "requestId"];</code>
      * @param value The requestId to set.
      * @return This builder for chaining.
      */
@@ -619,7 +554,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 request_id = 3 [json_name = "requestId"];</code>
+     * <code>int64 request_id = 2 [json_name = "requestId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearRequestId() {
@@ -633,14 +568,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> reasonBuilder_;
     /**
-     * <code>.google.protobuf.StringValue reason = 4 [json_name = "reason"];</code>
+     * <code>.google.protobuf.StringValue reason = 3 [json_name = "reason"];</code>
      * @return Whether the reason field is set.
      */
     public boolean hasReason() {
       return reasonBuilder_ != null || reason_ != null;
     }
     /**
-     * <code>.google.protobuf.StringValue reason = 4 [json_name = "reason"];</code>
+     * <code>.google.protobuf.StringValue reason = 3 [json_name = "reason"];</code>
      * @return The reason.
      */
     public com.google.protobuf.StringValue getReason() {
@@ -651,7 +586,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.StringValue reason = 4 [json_name = "reason"];</code>
+     * <code>.google.protobuf.StringValue reason = 3 [json_name = "reason"];</code>
      */
     public Builder setReason(com.google.protobuf.StringValue value) {
       if (reasonBuilder_ == null) {
@@ -667,7 +602,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.StringValue reason = 4 [json_name = "reason"];</code>
+     * <code>.google.protobuf.StringValue reason = 3 [json_name = "reason"];</code>
      */
     public Builder setReason(
         com.google.protobuf.StringValue.Builder builderForValue) {
@@ -681,7 +616,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.StringValue reason = 4 [json_name = "reason"];</code>
+     * <code>.google.protobuf.StringValue reason = 3 [json_name = "reason"];</code>
      */
     public Builder mergeReason(com.google.protobuf.StringValue value) {
       if (reasonBuilder_ == null) {
@@ -699,7 +634,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.StringValue reason = 4 [json_name = "reason"];</code>
+     * <code>.google.protobuf.StringValue reason = 3 [json_name = "reason"];</code>
      */
     public Builder clearReason() {
       if (reasonBuilder_ == null) {
@@ -713,7 +648,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.StringValue reason = 4 [json_name = "reason"];</code>
+     * <code>.google.protobuf.StringValue reason = 3 [json_name = "reason"];</code>
      */
     public com.google.protobuf.StringValue.Builder getReasonBuilder() {
       
@@ -721,7 +656,7 @@ private static final long serialVersionUID = 0L;
       return getReasonFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.StringValue reason = 4 [json_name = "reason"];</code>
+     * <code>.google.protobuf.StringValue reason = 3 [json_name = "reason"];</code>
      */
     public com.google.protobuf.StringValueOrBuilder getReasonOrBuilder() {
       if (reasonBuilder_ != null) {
@@ -732,7 +667,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.StringValue reason = 4 [json_name = "reason"];</code>
+     * <code>.google.protobuf.StringValue reason = 3 [json_name = "reason"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
