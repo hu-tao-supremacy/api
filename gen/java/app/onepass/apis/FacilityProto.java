@@ -112,7 +112,7 @@ public final class FacilityProto {
       "ty\032\027hts/common/common.proto\032\033google/prot" +
       "obuf/empty.proto\032\037google/protobuf/timest" +
       "amp.proto\032\036google/protobuf/wrappers.prot" +
-      "o\"\225\004\n\037FacilityRequestWithFacilityInfo\022\016\n" +
+      "o\"\260\004\n\037FacilityRequestWithFacilityInfo\022\016\n" +
       "\002id\030\001 \001(\003R\002id\022\031\n\010event_id\030\002 \001(\003R\007eventId" +
       "\022\037\n\013facility_id\030\003 \001(\003R\nfacilityId\022\'\n\017org" +
       "anization_id\030\004 \001(\003R\016organizationId\022*\n\006st" +
@@ -123,82 +123,83 @@ public final class FacilityProto {
       "inish\030\010 \001(\0132\032.google.protobuf.TimestampR" +
       "\006finish\022#\n\rfacility_name\030\t \001(\tR\014facility" +
       "Name\022\032\n\010latitude\030\n \001(\001R\010latitude\022\034\n\tlong" +
-      "itude\030\013 \001(\001R\tlongitude\022\'\n\017operating_hour" +
-      "s\030\014 \001(\tR\016operatingHours\022 \n\013description\030\r" +
-      " \001(\tR\013description\"A\n\026GetFacilityListRequ" +
-      "est\022\'\n\017organization_id\030\001 \001(\003R\016organizati" +
-      "onId\"O\n\027GetFacilityListResponse\0224\n\nfacil" +
-      "ities\030\001 \003(\0132\024.hts.common.FacilityR\nfacil" +
-      "ities\"a\n\035GetFacilityRequestListRequest\022\027" +
-      "\n\007user_id\030\001 \001(\003R\006userId\022\'\n\017organization_" +
-      "id\030\002 \001(\003R\016organizationId\"k\n\036GetFacilityR" +
-      "equestListResponse\022I\n\010requests\030\001 \003(\0132-.h" +
-      "ts.facility.FacilityRequestWithFacilityI" +
-      "nfoR\010requests\"Z\n$GetFacilityRequestsList" +
-      "StatusRequest\022\027\n\007user_id\030\001 \001(\003R\006userId\022\031" +
-      "\n\010event_id\030\002 \001(\003R\007eventId\"r\n%GetFacility" +
-      "RequestsListStatusResponse\022I\n\010requests\030\001" +
-      " \003(\0132-.hts.facility.FacilityRequestWithF" +
-      "acilityInfoR\010requests\"X\n GetAvailableFac" +
-      "ilityListResponse\0224\n\nfacilities\030\001 \003(\0132\024." +
-      "hts.common.FacilityR\nfacilities\"\244\001\n!GetA" +
-      "vailableTimeOfFacilityRequest\022\037\n\013facilit" +
-      "y_id\030\001 \001(\003R\nfacilityId\0220\n\005start\030\002 \001(\0132\032." +
-      "google.protobuf.TimestampR\005start\022,\n\003end\030" +
-      "\003 \001(\0132\032.google.protobuf.TimestampR\003end\"\215" +
-      "\001\n\"GetAvailableTimeOfFacilityResponse\022F\n" +
-      "\003day\030\001 \003(\01324.hts.facility.GetAvailableTi" +
-      "meOfFacilityResponse.DayR\003day\032\037\n\003Day\022\030\n\005" +
-      "items\030\001 \003(\010B\002\020\001R\005items\"\323\001\n\034CreateFacilit" +
-      "yRequestRequest\022\027\n\007user_id\030\001 \001(\003R\006userId" +
-      "\022\031\n\010event_id\030\002 \001(\003R\007eventId\022\037\n\013facility_" +
-      "id\030\003 \001(\003R\nfacilityId\0220\n\005start\030\004 \001(\0132\032.go" +
-      "ogle.protobuf.TimestampR\005start\022,\n\003end\030\005 " +
-      "\001(\0132\032.google.protobuf.TimestampR\003end\"W\n\035" +
-      "ApproveFacilityRequestRequest\022\027\n\007user_id" +
+      "itude\030\013 \001(\001R\tlongitude\022B\n\017operating_hour" +
+      "s\030\014 \003(\0132\031.hts.common.OperatingHourR\016oper" +
+      "atingHours\022 \n\013description\030\r \001(\tR\013descrip" +
+      "tion\"A\n\026GetFacilityListRequest\022\'\n\017organi" +
+      "zation_id\030\001 \001(\003R\016organizationId\"O\n\027GetFa" +
+      "cilityListResponse\0224\n\nfacilities\030\001 \003(\0132\024" +
+      ".hts.common.FacilityR\nfacilities\"a\n\035GetF" +
+      "acilityRequestListRequest\022\027\n\007user_id\030\001 \001" +
+      "(\003R\006userId\022\'\n\017organization_id\030\002 \001(\003R\016org" +
+      "anizationId\"k\n\036GetFacilityRequestListRes" +
+      "ponse\022I\n\010requests\030\001 \003(\0132-.hts.facility.F" +
+      "acilityRequestWithFacilityInfoR\010requests" +
+      "\"Z\n$GetFacilityRequestsListStatusRequest" +
+      "\022\027\n\007user_id\030\001 \001(\003R\006userId\022\031\n\010event_id\030\002 " +
+      "\001(\003R\007eventId\"r\n%GetFacilityRequestsListS" +
+      "tatusResponse\022I\n\010requests\030\001 \003(\0132-.hts.fa" +
+      "cility.FacilityRequestWithFacilityInfoR\010" +
+      "requests\"X\n GetAvailableFacilityListResp" +
+      "onse\0224\n\nfacilities\030\001 \003(\0132\024.hts.common.Fa" +
+      "cilityR\nfacilities\"\244\001\n!GetAvailableTimeO" +
+      "fFacilityRequest\022\037\n\013facility_id\030\001 \001(\003R\nf" +
+      "acilityId\0220\n\005start\030\002 \001(\0132\032.google.protob" +
+      "uf.TimestampR\005start\022,\n\003end\030\003 \001(\0132\032.googl" +
+      "e.protobuf.TimestampR\003end\"\215\001\n\"GetAvailab" +
+      "leTimeOfFacilityResponse\022F\n\003day\030\001 \003(\01324." +
+      "hts.facility.GetAvailableTimeOfFacilityR" +
+      "esponse.DayR\003day\032\037\n\003Day\022\030\n\005items\030\001 \003(\010B\002" +
+      "\020\001R\005items\"\323\001\n\034CreateFacilityRequestReque" +
+      "st\022\027\n\007user_id\030\001 \001(\003R\006userId\022\031\n\010event_id\030" +
+      "\002 \001(\003R\007eventId\022\037\n\013facility_id\030\003 \001(\003R\nfac" +
+      "ilityId\0220\n\005start\030\004 \001(\0132\032.google.protobuf" +
+      ".TimestampR\005start\022,\n\003end\030\005 \001(\0132\032.google." +
+      "protobuf.TimestampR\003end\"W\n\035ApproveFacili" +
+      "tyRequestRequest\022\027\n\007user_id\030\001 \001(\003R\006userI" +
+      "d\022\035\n\nrequest_id\030\002 \001(\003R\trequestId\"\214\001\n\034Rej" +
+      "ectFacilityRequestRequest\022\027\n\007user_id\030\001 \001" +
+      "(\003R\006userId\022\035\n\nrequest_id\030\002 \001(\003R\trequestI" +
+      "d\0224\n\006reason\030\003 \001(\0132\034.google.protobuf.Stri" +
+      "ngValueR\006reason\"9\n\026GetFacilityInfoReques" +
+      "t\022\037\n\013facility_id\030\001 \001(\003R\nfacilityId\"Y\n\037Ge" +
+      "tFacilityRequestStatusRequest\022\027\n\007user_id" +
       "\030\001 \001(\003R\006userId\022\035\n\nrequest_id\030\002 \001(\003R\trequ" +
-      "estId\"\214\001\n\034RejectFacilityRequestRequest\022\027" +
-      "\n\007user_id\030\001 \001(\003R\006userId\022\035\n\nrequest_id\030\002 " +
-      "\001(\003R\trequestId\0224\n\006reason\030\003 \001(\0132\034.google." +
-      "protobuf.StringValueR\006reason\"9\n\026GetFacil" +
-      "ityInfoRequest\022\037\n\013facility_id\030\001 \001(\003R\nfac" +
-      "ilityId\"Y\n\037GetFacilityRequestStatusReque" +
-      "st\022\027\n\007user_id\030\001 \001(\003R\006userId\022\035\n\nrequest_i" +
-      "d\030\002 \001(\003R\trequestId\"]\n#GetFacilityRequest" +
-      "StatusFullRequest\022\027\n\007user_id\030\001 \001(\003R\006user" +
-      "Id\022\035\n\nrequest_id\030\002 \001(\003R\trequestId2\246\t\n\017Fa" +
-      "cilityService\022^\n\017GetFacilityList\022$.hts.f" +
-      "acility.GetFacilityListRequest\032%.hts.fac" +
-      "ility.GetFacilityListResponse\022s\n\026GetFaci" +
-      "lityRequestList\022+.hts.facility.GetFacili" +
-      "tyRequestListRequest\032,.hts.facility.GetF" +
-      "acilityRequestListResponse\022\210\001\n\035GetFacili" +
-      "tyRequestsListStatus\0222.hts.facility.GetF" +
-      "acilityRequestsListStatusRequest\0323.hts.f" +
-      "acility.GetFacilityRequestsListStatusRes" +
-      "ponse\022f\n\030GetFacilityRequestStatus\022-.hts." +
-      "facility.GetFacilityRequestStatusRequest" +
-      "\032\033.hts.common.FacilityRequest\022\200\001\n\034GetFac" +
-      "ilityRequestStatusFull\0221.hts.facility.Ge" +
-      "tFacilityRequestStatusFullRequest\032-.hts." +
-      "facility.FacilityRequestWithFacilityInfo" +
-      "\022b\n\030GetAvailableFacilityList\022\026.google.pr" +
-      "otobuf.Empty\032..hts.facility.GetAvailable" +
-      "FacilityListResponse\022\177\n\032GetAvailableTime" +
-      "OfFacility\022/.hts.facility.GetAvailableTi" +
-      "meOfFacilityRequest\0320.hts.facility.GetAv" +
-      "ailableTimeOfFacilityResponse\022`\n\025CreateF" +
-      "acilityRequest\022*.hts.facility.CreateFaci" +
-      "lityRequestRequest\032\033.hts.common.Facility" +
-      "Request\022Y\n\026ApproveFacilityRequest\022+.hts." +
-      "facility.ApproveFacilityRequestRequest\032\022" +
-      ".hts.common.Result\022W\n\025RejectFacilityRequ" +
-      "est\022*.hts.facility.RejectFacilityRequest" +
-      "Request\032\022.hts.common.Result\022M\n\017GetFacili" +
-      "tyInfo\022$.hts.facility.GetFacilityInfoReq" +
-      "uest\032\024.hts.common.FacilityBF\n\020app.onepas" +
-      "s.apisB\rFacilityProtoP\001Z!onepass.app/fac" +
-      "ility/hts/facilityb\006proto3"
+      "estId\"]\n#GetFacilityRequestStatusFullReq" +
+      "uest\022\027\n\007user_id\030\001 \001(\003R\006userId\022\035\n\nrequest" +
+      "_id\030\002 \001(\003R\trequestId2\246\t\n\017FacilityService" +
+      "\022^\n\017GetFacilityList\022$.hts.facility.GetFa" +
+      "cilityListRequest\032%.hts.facility.GetFaci" +
+      "lityListResponse\022s\n\026GetFacilityRequestLi" +
+      "st\022+.hts.facility.GetFacilityRequestList" +
+      "Request\032,.hts.facility.GetFacilityReques" +
+      "tListResponse\022\210\001\n\035GetFacilityRequestsLis" +
+      "tStatus\0222.hts.facility.GetFacilityReques" +
+      "tsListStatusRequest\0323.hts.facility.GetFa" +
+      "cilityRequestsListStatusResponse\022f\n\030GetF" +
+      "acilityRequestStatus\022-.hts.facility.GetF" +
+      "acilityRequestStatusRequest\032\033.hts.common" +
+      ".FacilityRequest\022\200\001\n\034GetFacilityRequestS" +
+      "tatusFull\0221.hts.facility.GetFacilityRequ" +
+      "estStatusFullRequest\032-.hts.facility.Faci" +
+      "lityRequestWithFacilityInfo\022b\n\030GetAvaila" +
+      "bleFacilityList\022\026.google.protobuf.Empty\032" +
+      "..hts.facility.GetAvailableFacilityListR" +
+      "esponse\022\177\n\032GetAvailableTimeOfFacility\022/." +
+      "hts.facility.GetAvailableTimeOfFacilityR" +
+      "equest\0320.hts.facility.GetAvailableTimeOf" +
+      "FacilityResponse\022`\n\025CreateFacilityReques" +
+      "t\022*.hts.facility.CreateFacilityRequestRe" +
+      "quest\032\033.hts.common.FacilityRequest\022Y\n\026Ap" +
+      "proveFacilityRequest\022+.hts.facility.Appr" +
+      "oveFacilityRequestRequest\032\022.hts.common.R" +
+      "esult\022W\n\025RejectFacilityRequest\022*.hts.fac" +
+      "ility.RejectFacilityRequestRequest\032\022.hts" +
+      ".common.Result\022M\n\017GetFacilityInfo\022$.hts." +
+      "facility.GetFacilityInfoRequest\032\024.hts.co" +
+      "mmon.FacilityBF\n\020app.onepass.apisB\rFacil" +
+      "ityProtoP\001Z!onepass.app/facility/hts/fac" +
+      "ilityb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

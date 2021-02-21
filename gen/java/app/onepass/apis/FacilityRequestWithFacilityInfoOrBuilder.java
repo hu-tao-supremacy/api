@@ -112,16 +112,28 @@ public interface FacilityRequestWithFacilityInfoOrBuilder extends
   double getLongitude();
 
   /**
-   * <code>string operating_hours = 12 [json_name = "operatingHours"];</code>
-   * @return The operatingHours.
+   * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
    */
-  java.lang.String getOperatingHours();
+  java.util.List<app.onepass.apis.OperatingHour> 
+      getOperatingHoursList();
   /**
-   * <code>string operating_hours = 12 [json_name = "operatingHours"];</code>
-   * @return The bytes for operatingHours.
+   * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
    */
-  com.google.protobuf.ByteString
-      getOperatingHoursBytes();
+  app.onepass.apis.OperatingHour getOperatingHours(int index);
+  /**
+   * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
+   */
+  int getOperatingHoursCount();
+  /**
+   * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
+   */
+  java.util.List<? extends app.onepass.apis.OperatingHourOrBuilder> 
+      getOperatingHoursOrBuilderList();
+  /**
+   * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
+   */
+  app.onepass.apis.OperatingHourOrBuilder getOperatingHoursOrBuilder(
+      int index);
 
   /**
    * <code>string description = 13 [json_name = "description"];</code>
