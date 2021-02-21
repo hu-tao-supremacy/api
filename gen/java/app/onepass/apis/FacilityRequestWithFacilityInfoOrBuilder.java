@@ -100,16 +100,16 @@ public interface FacilityRequestWithFacilityInfoOrBuilder extends
       getFacilityNameBytes();
 
   /**
-   * <code>int64 latitude = 10 [json_name = "latitude"];</code>
+   * <code>double latitude = 10 [json_name = "latitude"];</code>
    * @return The latitude.
    */
-  long getLatitude();
+  double getLatitude();
 
   /**
-   * <code>int64 longitude = 11 [json_name = "longitude"];</code>
+   * <code>double longitude = 11 [json_name = "longitude"];</code>
    * @return The longitude.
    */
-  long getLongitude();
+  double getLongitude();
 
   /**
    * <code>string operating_hours = 12 [json_name = "operatingHours"];</code>

@@ -122,8 +122,8 @@ public final class FacilityProto {
       "2\032.google.protobuf.TimestampR\005start\0222\n\006f" +
       "inish\030\010 \001(\0132\032.google.protobuf.TimestampR" +
       "\006finish\022#\n\rfacility_name\030\t \001(\tR\014facility" +
-      "Name\022\032\n\010latitude\030\n \001(\003R\010latitude\022\034\n\tlong" +
-      "itude\030\013 \001(\003R\tlongitude\022\'\n\017operating_hour" +
+      "Name\022\032\n\010latitude\030\n \001(\001R\010latitude\022\034\n\tlong" +
+      "itude\030\013 \001(\001R\tlongitude\022\'\n\017operating_hour" +
       "s\030\014 \001(\tR\016operatingHours\022 \n\013description\030\r" +
       " \001(\tR\013description\"A\n\026GetFacilityListRequ" +
       "est\022\'\n\017organization_id\030\001 \001(\003R\016organizati" +

@@ -123,14 +123,14 @@ private static final long serialVersionUID = 0L;
             facilityName_ = s;
             break;
           }
-          case 80: {
+          case 81: {
 
-            latitude_ = input.readInt64();
+            latitude_ = input.readDouble();
             break;
           }
-          case 88: {
+          case 89: {
 
-            longitude_ = input.readInt64();
+            longitude_ = input.readDouble();
             break;
           }
           case 98: {
@@ -357,24 +357,24 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LATITUDE_FIELD_NUMBER = 10;
-  private long latitude_;
+  private double latitude_;
   /**
-   * <code>int64 latitude = 10 [json_name = "latitude"];</code>
+   * <code>double latitude = 10 [json_name = "latitude"];</code>
    * @return The latitude.
    */
   @java.lang.Override
-  public long getLatitude() {
+  public double getLatitude() {
     return latitude_;
   }
 
   public static final int LONGITUDE_FIELD_NUMBER = 11;
-  private long longitude_;
+  private double longitude_;
   /**
-   * <code>int64 longitude = 11 [json_name = "longitude"];</code>
+   * <code>double longitude = 11 [json_name = "longitude"];</code>
    * @return The longitude.
    */
   @java.lang.Override
-  public long getLongitude() {
+  public double getLongitude() {
     return longitude_;
   }
 
@@ -495,11 +495,11 @@ private static final long serialVersionUID = 0L;
     if (!getFacilityNameBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 9, facilityName_);
     }
-    if (latitude_ != 0L) {
-      output.writeInt64(10, latitude_);
+    if (latitude_ != 0D) {
+      output.writeDouble(10, latitude_);
     }
-    if (longitude_ != 0L) {
-      output.writeInt64(11, longitude_);
+    if (longitude_ != 0D) {
+      output.writeDouble(11, longitude_);
     }
     if (!getOperatingHoursBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 12, operatingHours_);
@@ -551,13 +551,13 @@ private static final long serialVersionUID = 0L;
     if (!getFacilityNameBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, facilityName_);
     }
-    if (latitude_ != 0L) {
+    if (latitude_ != 0D) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(10, latitude_);
+        .computeDoubleSize(10, latitude_);
     }
-    if (longitude_ != 0L) {
+    if (longitude_ != 0D) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(11, longitude_);
+        .computeDoubleSize(11, longitude_);
     }
     if (!getOperatingHoursBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, operatingHours_);
@@ -606,10 +606,12 @@ private static final long serialVersionUID = 0L;
     }
     if (!getFacilityName()
         .equals(other.getFacilityName())) return false;
-    if (getLatitude()
-        != other.getLatitude()) return false;
-    if (getLongitude()
-        != other.getLongitude()) return false;
+    if (java.lang.Double.doubleToLongBits(getLatitude())
+        != java.lang.Double.doubleToLongBits(
+            other.getLatitude())) return false;
+    if (java.lang.Double.doubleToLongBits(getLongitude())
+        != java.lang.Double.doubleToLongBits(
+            other.getLongitude())) return false;
     if (!getOperatingHours()
         .equals(other.getOperatingHours())) return false;
     if (!getDescription()
@@ -655,10 +657,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getFacilityName().hashCode();
     hash = (37 * hash) + LATITUDE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getLatitude());
+        java.lang.Double.doubleToLongBits(getLatitude()));
     hash = (37 * hash) + LONGITUDE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getLongitude());
+        java.lang.Double.doubleToLongBits(getLongitude()));
     hash = (37 * hash) + OPERATING_HOURS_FIELD_NUMBER;
     hash = (53 * hash) + getOperatingHours().hashCode();
     hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
@@ -826,9 +828,9 @@ private static final long serialVersionUID = 0L;
       }
       facilityName_ = "";
 
-      latitude_ = 0L;
+      latitude_ = 0D;
 
-      longitude_ = 0L;
+      longitude_ = 0D;
 
       operatingHours_ = "";
 
@@ -961,10 +963,10 @@ private static final long serialVersionUID = 0L;
         facilityName_ = other.facilityName_;
         onChanged();
       }
-      if (other.getLatitude() != 0L) {
+      if (other.getLatitude() != 0D) {
         setLatitude(other.getLatitude());
       }
-      if (other.getLongitude() != 0L) {
+      if (other.getLongitude() != 0D) {
         setLongitude(other.getLongitude());
       }
       if (!other.getOperatingHours().isEmpty()) {
@@ -1615,64 +1617,64 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long latitude_ ;
+    private double latitude_ ;
     /**
-     * <code>int64 latitude = 10 [json_name = "latitude"];</code>
+     * <code>double latitude = 10 [json_name = "latitude"];</code>
      * @return The latitude.
      */
     @java.lang.Override
-    public long getLatitude() {
+    public double getLatitude() {
       return latitude_;
     }
     /**
-     * <code>int64 latitude = 10 [json_name = "latitude"];</code>
+     * <code>double latitude = 10 [json_name = "latitude"];</code>
      * @param value The latitude to set.
      * @return This builder for chaining.
      */
-    public Builder setLatitude(long value) {
+    public Builder setLatitude(double value) {
       
       latitude_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 latitude = 10 [json_name = "latitude"];</code>
+     * <code>double latitude = 10 [json_name = "latitude"];</code>
      * @return This builder for chaining.
      */
     public Builder clearLatitude() {
       
-      latitude_ = 0L;
+      latitude_ = 0D;
       onChanged();
       return this;
     }
 
-    private long longitude_ ;
+    private double longitude_ ;
     /**
-     * <code>int64 longitude = 11 [json_name = "longitude"];</code>
+     * <code>double longitude = 11 [json_name = "longitude"];</code>
      * @return The longitude.
      */
     @java.lang.Override
-    public long getLongitude() {
+    public double getLongitude() {
       return longitude_;
     }
     /**
-     * <code>int64 longitude = 11 [json_name = "longitude"];</code>
+     * <code>double longitude = 11 [json_name = "longitude"];</code>
      * @param value The longitude to set.
      * @return This builder for chaining.
      */
-    public Builder setLongitude(long value) {
+    public Builder setLongitude(double value) {
       
       longitude_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 longitude = 11 [json_name = "longitude"];</code>
+     * <code>double longitude = 11 [json_name = "longitude"];</code>
      * @return This builder for chaining.
      */
     public Builder clearLongitude() {
       
-      longitude_ = 0L;
+      longitude_ = 0D;
       onChanged();
       return this;
     }
