@@ -94,7 +94,7 @@ public enum Gender
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return app.onepass.apis.CommonProto.getDescriptor().getEnumTypes().get(0);
+    return app.onepass.apis.CommonProto.getDescriptor().getEnumTypes().get(1);
   }
 
   private static final Gender[] VALUES = values();

@@ -4,37 +4,69 @@
 package app.onepass.apis;
 
 /**
- * Protobuf enum {@code hts.common.Status}
+ * Protobuf enum {@code hts.common.DayOfWeek}
  */
-public enum Status
+public enum DayOfWeek
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>PENDING = 0;</code>
+   * <code>MON = 0;</code>
    */
-  PENDING(0),
+  MON(0),
   /**
-   * <code>APPROVED = 1;</code>
+   * <code>TUE = 1;</code>
    */
-  APPROVED(1),
+  TUE(1),
   /**
-   * <code>REJECTED = 2;</code>
+   * <code>WED = 2;</code>
    */
-  REJECTED(2),
+  WED(2),
+  /**
+   * <code>THU = 3;</code>
+   */
+  THU(3),
+  /**
+   * <code>FRI = 4;</code>
+   */
+  FRI(4),
+  /**
+   * <code>SAT = 5;</code>
+   */
+  SAT(5),
+  /**
+   * <code>SUN = 6;</code>
+   */
+  SUN(6),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>PENDING = 0;</code>
+   * <code>MON = 0;</code>
    */
-  public static final int PENDING_VALUE = 0;
+  public static final int MON_VALUE = 0;
   /**
-   * <code>APPROVED = 1;</code>
+   * <code>TUE = 1;</code>
    */
-  public static final int APPROVED_VALUE = 1;
+  public static final int TUE_VALUE = 1;
   /**
-   * <code>REJECTED = 2;</code>
+   * <code>WED = 2;</code>
    */
-  public static final int REJECTED_VALUE = 2;
+  public static final int WED_VALUE = 2;
+  /**
+   * <code>THU = 3;</code>
+   */
+  public static final int THU_VALUE = 3;
+  /**
+   * <code>FRI = 4;</code>
+   */
+  public static final int FRI_VALUE = 4;
+  /**
+   * <code>SAT = 5;</code>
+   */
+  public static final int SAT_VALUE = 5;
+  /**
+   * <code>SUN = 6;</code>
+   */
+  public static final int SUN_VALUE = 6;
 
 
   public final int getNumber() {
@@ -51,7 +83,7 @@ public enum Status
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static Status valueOf(int value) {
+  public static DayOfWeek valueOf(int value) {
     return forNumber(value);
   }
 
@@ -59,24 +91,28 @@ public enum Status
    * @param value The numeric wire value of the corresponding enum entry.
    * @return The enum associated with the given numeric wire value.
    */
-  public static Status forNumber(int value) {
+  public static DayOfWeek forNumber(int value) {
     switch (value) {
-      case 0: return PENDING;
-      case 1: return APPROVED;
-      case 2: return REJECTED;
+      case 0: return MON;
+      case 1: return TUE;
+      case 2: return WED;
+      case 3: return THU;
+      case 4: return FRI;
+      case 5: return SAT;
+      case 6: return SUN;
       default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<Status>
+  public static com.google.protobuf.Internal.EnumLiteMap<DayOfWeek>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      Status> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<Status>() {
-          public Status findValueByNumber(int number) {
-            return Status.forNumber(number);
+      DayOfWeek> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<DayOfWeek>() {
+          public DayOfWeek findValueByNumber(int number) {
+            return DayOfWeek.forNumber(number);
           }
         };
 
@@ -94,12 +130,12 @@ public enum Status
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return app.onepass.apis.CommonProto.getDescriptor().getEnumTypes().get(2);
+    return app.onepass.apis.CommonProto.getDescriptor().getEnumTypes().get(0);
   }
 
-  private static final Status[] VALUES = values();
+  private static final DayOfWeek[] VALUES = values();
 
-  public static Status valueOf(
+  public static DayOfWeek valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new java.lang.IllegalArgumentException(
@@ -113,10 +149,10 @@ public enum Status
 
   private final int value;
 
-  private Status(int value) {
+  private DayOfWeek(int value) {
     this.value = value;
   }
 
-  // @@protoc_insertion_point(enum_scope:hts.common.Status)
+  // @@protoc_insertion_point(enum_scope:hts.common.DayOfWeek)
 }
 
