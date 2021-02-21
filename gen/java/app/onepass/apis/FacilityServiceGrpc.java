@@ -76,35 +76,97 @@ public final class FacilityServiceGrpc {
     return getGetFacilityRequestListMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GetFacilityRequestsStatusRequest,
-      app.onepass.apis.GetFacilityRequestsStatusResponse> getGetFacilityRequestsStatusMethod;
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GetFacilityRequestsListStatusRequest,
+      app.onepass.apis.GetFacilityRequestsListStatusResponse> getGetFacilityRequestsListStatusMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "GetFacilityRequestsStatus",
-      requestType = app.onepass.apis.GetFacilityRequestsStatusRequest.class,
-      responseType = app.onepass.apis.GetFacilityRequestsStatusResponse.class,
+      fullMethodName = SERVICE_NAME + '/' + "GetFacilityRequestsListStatus",
+      requestType = app.onepass.apis.GetFacilityRequestsListStatusRequest.class,
+      responseType = app.onepass.apis.GetFacilityRequestsListStatusResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<app.onepass.apis.GetFacilityRequestsStatusRequest,
-      app.onepass.apis.GetFacilityRequestsStatusResponse> getGetFacilityRequestsStatusMethod() {
-    io.grpc.MethodDescriptor<app.onepass.apis.GetFacilityRequestsStatusRequest, app.onepass.apis.GetFacilityRequestsStatusResponse> getGetFacilityRequestsStatusMethod;
-    if ((getGetFacilityRequestsStatusMethod = FacilityServiceGrpc.getGetFacilityRequestsStatusMethod) == null) {
+  public static io.grpc.MethodDescriptor<app.onepass.apis.GetFacilityRequestsListStatusRequest,
+      app.onepass.apis.GetFacilityRequestsListStatusResponse> getGetFacilityRequestsListStatusMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.GetFacilityRequestsListStatusRequest, app.onepass.apis.GetFacilityRequestsListStatusResponse> getGetFacilityRequestsListStatusMethod;
+    if ((getGetFacilityRequestsListStatusMethod = FacilityServiceGrpc.getGetFacilityRequestsListStatusMethod) == null) {
       synchronized (FacilityServiceGrpc.class) {
-        if ((getGetFacilityRequestsStatusMethod = FacilityServiceGrpc.getGetFacilityRequestsStatusMethod) == null) {
-          FacilityServiceGrpc.getGetFacilityRequestsStatusMethod = getGetFacilityRequestsStatusMethod =
-              io.grpc.MethodDescriptor.<app.onepass.apis.GetFacilityRequestsStatusRequest, app.onepass.apis.GetFacilityRequestsStatusResponse>newBuilder()
+        if ((getGetFacilityRequestsListStatusMethod = FacilityServiceGrpc.getGetFacilityRequestsListStatusMethod) == null) {
+          FacilityServiceGrpc.getGetFacilityRequestsListStatusMethod = getGetFacilityRequestsListStatusMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.GetFacilityRequestsListStatusRequest, app.onepass.apis.GetFacilityRequestsListStatusResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetFacilityRequestsStatus"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetFacilityRequestsListStatus"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  app.onepass.apis.GetFacilityRequestsStatusRequest.getDefaultInstance()))
+                  app.onepass.apis.GetFacilityRequestsListStatusRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  app.onepass.apis.GetFacilityRequestsStatusResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new FacilityServiceMethodDescriptorSupplier("GetFacilityRequestsStatus"))
+                  app.onepass.apis.GetFacilityRequestsListStatusResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new FacilityServiceMethodDescriptorSupplier("GetFacilityRequestsListStatus"))
               .build();
         }
       }
     }
-    return getGetFacilityRequestsStatusMethod;
+    return getGetFacilityRequestsListStatusMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GetFacilityRequestStatusRequest,
+      app.onepass.apis.FacilityRequest> getGetFacilityRequestStatusMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetFacilityRequestStatus",
+      requestType = app.onepass.apis.GetFacilityRequestStatusRequest.class,
+      responseType = app.onepass.apis.FacilityRequest.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<app.onepass.apis.GetFacilityRequestStatusRequest,
+      app.onepass.apis.FacilityRequest> getGetFacilityRequestStatusMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.GetFacilityRequestStatusRequest, app.onepass.apis.FacilityRequest> getGetFacilityRequestStatusMethod;
+    if ((getGetFacilityRequestStatusMethod = FacilityServiceGrpc.getGetFacilityRequestStatusMethod) == null) {
+      synchronized (FacilityServiceGrpc.class) {
+        if ((getGetFacilityRequestStatusMethod = FacilityServiceGrpc.getGetFacilityRequestStatusMethod) == null) {
+          FacilityServiceGrpc.getGetFacilityRequestStatusMethod = getGetFacilityRequestStatusMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.GetFacilityRequestStatusRequest, app.onepass.apis.FacilityRequest>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetFacilityRequestStatus"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.GetFacilityRequestStatusRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.FacilityRequest.getDefaultInstance()))
+              .setSchemaDescriptor(new FacilityServiceMethodDescriptorSupplier("GetFacilityRequestStatus"))
+              .build();
+        }
+      }
+    }
+    return getGetFacilityRequestStatusMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GetFacilityRequestStatusFullRequest,
+      app.onepass.apis.FacilityRequestWithFacilityInfo> getGetFacilityRequestStatusFullMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetFacilityRequestStatusFull",
+      requestType = app.onepass.apis.GetFacilityRequestStatusFullRequest.class,
+      responseType = app.onepass.apis.FacilityRequestWithFacilityInfo.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<app.onepass.apis.GetFacilityRequestStatusFullRequest,
+      app.onepass.apis.FacilityRequestWithFacilityInfo> getGetFacilityRequestStatusFullMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.GetFacilityRequestStatusFullRequest, app.onepass.apis.FacilityRequestWithFacilityInfo> getGetFacilityRequestStatusFullMethod;
+    if ((getGetFacilityRequestStatusFullMethod = FacilityServiceGrpc.getGetFacilityRequestStatusFullMethod) == null) {
+      synchronized (FacilityServiceGrpc.class) {
+        if ((getGetFacilityRequestStatusFullMethod = FacilityServiceGrpc.getGetFacilityRequestStatusFullMethod) == null) {
+          FacilityServiceGrpc.getGetFacilityRequestStatusFullMethod = getGetFacilityRequestStatusFullMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.GetFacilityRequestStatusFullRequest, app.onepass.apis.FacilityRequestWithFacilityInfo>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetFacilityRequestStatusFull"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.GetFacilityRequestStatusFullRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.FacilityRequestWithFacilityInfo.getDefaultInstance()))
+              .setSchemaDescriptor(new FacilityServiceMethodDescriptorSupplier("GetFacilityRequestStatusFull"))
+              .build();
+        }
+      }
+    }
+    return getGetFacilityRequestStatusFullMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
@@ -357,9 +419,23 @@ public final class FacilityServiceGrpc {
 
     /**
      */
-    public void getFacilityRequestsStatus(app.onepass.apis.GetFacilityRequestsStatusRequest request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.GetFacilityRequestsStatusResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetFacilityRequestsStatusMethod(), responseObserver);
+    public void getFacilityRequestsListStatus(app.onepass.apis.GetFacilityRequestsListStatusRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.GetFacilityRequestsListStatusResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetFacilityRequestsListStatusMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getFacilityRequestStatus(app.onepass.apis.GetFacilityRequestStatusRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.FacilityRequest> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetFacilityRequestStatusMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getFacilityRequestStatusFull(app.onepass.apis.GetFacilityRequestStatusFullRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.FacilityRequestWithFacilityInfo> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetFacilityRequestStatusFullMethod(), responseObserver);
     }
 
     /**
@@ -421,12 +497,26 @@ public final class FacilityServiceGrpc {
                 app.onepass.apis.GetFacilityRequestListResponse>(
                   this, METHODID_GET_FACILITY_REQUEST_LIST)))
           .addMethod(
-            getGetFacilityRequestsStatusMethod(),
+            getGetFacilityRequestsListStatusMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                app.onepass.apis.GetFacilityRequestsStatusRequest,
-                app.onepass.apis.GetFacilityRequestsStatusResponse>(
-                  this, METHODID_GET_FACILITY_REQUESTS_STATUS)))
+                app.onepass.apis.GetFacilityRequestsListStatusRequest,
+                app.onepass.apis.GetFacilityRequestsListStatusResponse>(
+                  this, METHODID_GET_FACILITY_REQUESTS_LIST_STATUS)))
+          .addMethod(
+            getGetFacilityRequestStatusMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                app.onepass.apis.GetFacilityRequestStatusRequest,
+                app.onepass.apis.FacilityRequest>(
+                  this, METHODID_GET_FACILITY_REQUEST_STATUS)))
+          .addMethod(
+            getGetFacilityRequestStatusFullMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                app.onepass.apis.GetFacilityRequestStatusFullRequest,
+                app.onepass.apis.FacilityRequestWithFacilityInfo>(
+                  this, METHODID_GET_FACILITY_REQUEST_STATUS_FULL)))
           .addMethod(
             getGetAvailableFacilityListMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -505,10 +595,26 @@ public final class FacilityServiceGrpc {
 
     /**
      */
-    public void getFacilityRequestsStatus(app.onepass.apis.GetFacilityRequestsStatusRequest request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.GetFacilityRequestsStatusResponse> responseObserver) {
+    public void getFacilityRequestsListStatus(app.onepass.apis.GetFacilityRequestsListStatusRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.GetFacilityRequestsListStatusResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getGetFacilityRequestsStatusMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getGetFacilityRequestsListStatusMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getFacilityRequestStatus(app.onepass.apis.GetFacilityRequestStatusRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.FacilityRequest> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetFacilityRequestStatusMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getFacilityRequestStatusFull(app.onepass.apis.GetFacilityRequestStatusFullRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.FacilityRequestWithFacilityInfo> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetFacilityRequestStatusFullMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -590,9 +696,23 @@ public final class FacilityServiceGrpc {
 
     /**
      */
-    public app.onepass.apis.GetFacilityRequestsStatusResponse getFacilityRequestsStatus(app.onepass.apis.GetFacilityRequestsStatusRequest request) {
+    public app.onepass.apis.GetFacilityRequestsListStatusResponse getFacilityRequestsListStatus(app.onepass.apis.GetFacilityRequestsListStatusRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getGetFacilityRequestsStatusMethod(), getCallOptions(), request);
+          getChannel(), getGetFacilityRequestsListStatusMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public app.onepass.apis.FacilityRequest getFacilityRequestStatus(app.onepass.apis.GetFacilityRequestStatusRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetFacilityRequestStatusMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public app.onepass.apis.FacilityRequestWithFacilityInfo getFacilityRequestStatusFull(app.onepass.apis.GetFacilityRequestStatusFullRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetFacilityRequestStatusFullMethod(), getCallOptions(), request);
     }
 
     /**
@@ -670,10 +790,26 @@ public final class FacilityServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.GetFacilityRequestsStatusResponse> getFacilityRequestsStatus(
-        app.onepass.apis.GetFacilityRequestsStatusRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.GetFacilityRequestsListStatusResponse> getFacilityRequestsListStatus(
+        app.onepass.apis.GetFacilityRequestsListStatusRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getGetFacilityRequestsStatusMethod(), getCallOptions()), request);
+          getChannel().newCall(getGetFacilityRequestsListStatusMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.FacilityRequest> getFacilityRequestStatus(
+        app.onepass.apis.GetFacilityRequestStatusRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetFacilityRequestStatusMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.FacilityRequestWithFacilityInfo> getFacilityRequestStatusFull(
+        app.onepass.apis.GetFacilityRequestStatusFullRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetFacilityRequestStatusFullMethod(), getCallOptions()), request);
     }
 
     /**
@@ -727,13 +863,15 @@ public final class FacilityServiceGrpc {
 
   private static final int METHODID_GET_FACILITY_LIST = 0;
   private static final int METHODID_GET_FACILITY_REQUEST_LIST = 1;
-  private static final int METHODID_GET_FACILITY_REQUESTS_STATUS = 2;
-  private static final int METHODID_GET_AVAILABLE_FACILITY_LIST = 3;
-  private static final int METHODID_GET_AVAILABLE_TIME_OF_FACILITY = 4;
-  private static final int METHODID_CREATE_FACILITY_REQUEST = 5;
-  private static final int METHODID_APPROVE_FACILITY_REQUEST = 6;
-  private static final int METHODID_REJECT_FACILITY_REQUEST = 7;
-  private static final int METHODID_GET_FACILITY_INFO = 8;
+  private static final int METHODID_GET_FACILITY_REQUESTS_LIST_STATUS = 2;
+  private static final int METHODID_GET_FACILITY_REQUEST_STATUS = 3;
+  private static final int METHODID_GET_FACILITY_REQUEST_STATUS_FULL = 4;
+  private static final int METHODID_GET_AVAILABLE_FACILITY_LIST = 5;
+  private static final int METHODID_GET_AVAILABLE_TIME_OF_FACILITY = 6;
+  private static final int METHODID_CREATE_FACILITY_REQUEST = 7;
+  private static final int METHODID_APPROVE_FACILITY_REQUEST = 8;
+  private static final int METHODID_REJECT_FACILITY_REQUEST = 9;
+  private static final int METHODID_GET_FACILITY_INFO = 10;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -760,9 +898,17 @@ public final class FacilityServiceGrpc {
           serviceImpl.getFacilityRequestList((app.onepass.apis.GetFacilityRequestListRequest) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.GetFacilityRequestListResponse>) responseObserver);
           break;
-        case METHODID_GET_FACILITY_REQUESTS_STATUS:
-          serviceImpl.getFacilityRequestsStatus((app.onepass.apis.GetFacilityRequestsStatusRequest) request,
-              (io.grpc.stub.StreamObserver<app.onepass.apis.GetFacilityRequestsStatusResponse>) responseObserver);
+        case METHODID_GET_FACILITY_REQUESTS_LIST_STATUS:
+          serviceImpl.getFacilityRequestsListStatus((app.onepass.apis.GetFacilityRequestsListStatusRequest) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.GetFacilityRequestsListStatusResponse>) responseObserver);
+          break;
+        case METHODID_GET_FACILITY_REQUEST_STATUS:
+          serviceImpl.getFacilityRequestStatus((app.onepass.apis.GetFacilityRequestStatusRequest) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.FacilityRequest>) responseObserver);
+          break;
+        case METHODID_GET_FACILITY_REQUEST_STATUS_FULL:
+          serviceImpl.getFacilityRequestStatusFull((app.onepass.apis.GetFacilityRequestStatusFullRequest) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.FacilityRequestWithFacilityInfo>) responseObserver);
           break;
         case METHODID_GET_AVAILABLE_FACILITY_LIST:
           serviceImpl.getAvailableFacilityList((com.google.protobuf.Empty) request,
@@ -851,7 +997,9 @@ public final class FacilityServiceGrpc {
               .setSchemaDescriptor(new FacilityServiceFileDescriptorSupplier())
               .addMethod(getGetFacilityListMethod())
               .addMethod(getGetFacilityRequestListMethod())
-              .addMethod(getGetFacilityRequestsStatusMethod())
+              .addMethod(getGetFacilityRequestsListStatusMethod())
+              .addMethod(getGetFacilityRequestStatusMethod())
+              .addMethod(getGetFacilityRequestStatusFullMethod())
               .addMethod(getGetAvailableFacilityListMethod())
               .addMethod(getGetAvailableTimeOfFacilityMethod())
               .addMethod(getCreateFacilityRequestMethod())

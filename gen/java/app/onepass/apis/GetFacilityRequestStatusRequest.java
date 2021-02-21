@@ -4,25 +4,25 @@
 package app.onepass.apis;
 
 /**
- * Protobuf type {@code hts.facility.ApproveFacilityRequestRequest}
+ * Protobuf type {@code hts.facility.GetFacilityRequestStatusRequest}
  */
-public final class ApproveFacilityRequestRequest extends
+public final class GetFacilityRequestStatusRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:hts.facility.ApproveFacilityRequestRequest)
-    ApproveFacilityRequestRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:hts.facility.GetFacilityRequestStatusRequest)
+    GetFacilityRequestStatusRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use ApproveFacilityRequestRequest.newBuilder() to construct.
-  private ApproveFacilityRequestRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use GetFacilityRequestStatusRequest.newBuilder() to construct.
+  private GetFacilityRequestStatusRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private ApproveFacilityRequestRequest() {
+  private GetFacilityRequestStatusRequest() {
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new ApproveFacilityRequestRequest();
+    return new GetFacilityRequestStatusRequest();
   }
 
   @java.lang.Override
@@ -30,7 +30,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ApproveFacilityRequestRequest(
+  private GetFacilityRequestStatusRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -79,15 +79,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return app.onepass.apis.FacilityProto.internal_static_hts_facility_ApproveFacilityRequestRequest_descriptor;
+    return app.onepass.apis.FacilityProto.internal_static_hts_facility_GetFacilityRequestStatusRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return app.onepass.apis.FacilityProto.internal_static_hts_facility_ApproveFacilityRequestRequest_fieldAccessorTable
+    return app.onepass.apis.FacilityProto.internal_static_hts_facility_GetFacilityRequestStatusRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            app.onepass.apis.ApproveFacilityRequestRequest.class, app.onepass.apis.ApproveFacilityRequestRequest.Builder.class);
+            app.onepass.apis.GetFacilityRequestStatusRequest.class, app.onepass.apis.GetFacilityRequestStatusRequest.Builder.class);
   }
 
   public static final int USER_ID_FIELD_NUMBER = 1;
@@ -159,10 +159,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof app.onepass.apis.ApproveFacilityRequestRequest)) {
+    if (!(obj instanceof app.onepass.apis.GetFacilityRequestStatusRequest)) {
       return super.equals(obj);
     }
-    app.onepass.apis.ApproveFacilityRequestRequest other = (app.onepass.apis.ApproveFacilityRequestRequest) obj;
+    app.onepass.apis.GetFacilityRequestStatusRequest other = (app.onepass.apis.GetFacilityRequestStatusRequest) obj;
 
     if (getUserId()
         != other.getUserId()) return false;
@@ -190,69 +190,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static app.onepass.apis.ApproveFacilityRequestRequest parseFrom(
+  public static app.onepass.apis.GetFacilityRequestStatusRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.ApproveFacilityRequestRequest parseFrom(
+  public static app.onepass.apis.GetFacilityRequestStatusRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.ApproveFacilityRequestRequest parseFrom(
+  public static app.onepass.apis.GetFacilityRequestStatusRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.ApproveFacilityRequestRequest parseFrom(
+  public static app.onepass.apis.GetFacilityRequestStatusRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.ApproveFacilityRequestRequest parseFrom(byte[] data)
+  public static app.onepass.apis.GetFacilityRequestStatusRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.ApproveFacilityRequestRequest parseFrom(
+  public static app.onepass.apis.GetFacilityRequestStatusRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.ApproveFacilityRequestRequest parseFrom(java.io.InputStream input)
+  public static app.onepass.apis.GetFacilityRequestStatusRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.ApproveFacilityRequestRequest parseFrom(
+  public static app.onepass.apis.GetFacilityRequestStatusRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.ApproveFacilityRequestRequest parseDelimitedFrom(java.io.InputStream input)
+  public static app.onepass.apis.GetFacilityRequestStatusRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.ApproveFacilityRequestRequest parseDelimitedFrom(
+  public static app.onepass.apis.GetFacilityRequestStatusRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.ApproveFacilityRequestRequest parseFrom(
+  public static app.onepass.apis.GetFacilityRequestStatusRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.ApproveFacilityRequestRequest parseFrom(
+  public static app.onepass.apis.GetFacilityRequestStatusRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -265,7 +265,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(app.onepass.apis.ApproveFacilityRequestRequest prototype) {
+  public static Builder newBuilder(app.onepass.apis.GetFacilityRequestStatusRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -281,26 +281,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code hts.facility.ApproveFacilityRequestRequest}
+   * Protobuf type {@code hts.facility.GetFacilityRequestStatusRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:hts.facility.ApproveFacilityRequestRequest)
-      app.onepass.apis.ApproveFacilityRequestRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:hts.facility.GetFacilityRequestStatusRequest)
+      app.onepass.apis.GetFacilityRequestStatusRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_ApproveFacilityRequestRequest_descriptor;
+      return app.onepass.apis.FacilityProto.internal_static_hts_facility_GetFacilityRequestStatusRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_ApproveFacilityRequestRequest_fieldAccessorTable
+      return app.onepass.apis.FacilityProto.internal_static_hts_facility_GetFacilityRequestStatusRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              app.onepass.apis.ApproveFacilityRequestRequest.class, app.onepass.apis.ApproveFacilityRequestRequest.Builder.class);
+              app.onepass.apis.GetFacilityRequestStatusRequest.class, app.onepass.apis.GetFacilityRequestStatusRequest.Builder.class);
     }
 
-    // Construct using app.onepass.apis.ApproveFacilityRequestRequest.newBuilder()
+    // Construct using app.onepass.apis.GetFacilityRequestStatusRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -328,17 +328,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return app.onepass.apis.FacilityProto.internal_static_hts_facility_ApproveFacilityRequestRequest_descriptor;
+      return app.onepass.apis.FacilityProto.internal_static_hts_facility_GetFacilityRequestStatusRequest_descriptor;
     }
 
     @java.lang.Override
-    public app.onepass.apis.ApproveFacilityRequestRequest getDefaultInstanceForType() {
-      return app.onepass.apis.ApproveFacilityRequestRequest.getDefaultInstance();
+    public app.onepass.apis.GetFacilityRequestStatusRequest getDefaultInstanceForType() {
+      return app.onepass.apis.GetFacilityRequestStatusRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public app.onepass.apis.ApproveFacilityRequestRequest build() {
-      app.onepass.apis.ApproveFacilityRequestRequest result = buildPartial();
+    public app.onepass.apis.GetFacilityRequestStatusRequest build() {
+      app.onepass.apis.GetFacilityRequestStatusRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -346,8 +346,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public app.onepass.apis.ApproveFacilityRequestRequest buildPartial() {
-      app.onepass.apis.ApproveFacilityRequestRequest result = new app.onepass.apis.ApproveFacilityRequestRequest(this);
+    public app.onepass.apis.GetFacilityRequestStatusRequest buildPartial() {
+      app.onepass.apis.GetFacilityRequestStatusRequest result = new app.onepass.apis.GetFacilityRequestStatusRequest(this);
       result.userId_ = userId_;
       result.requestId_ = requestId_;
       onBuilt();
@@ -388,16 +388,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof app.onepass.apis.ApproveFacilityRequestRequest) {
-        return mergeFrom((app.onepass.apis.ApproveFacilityRequestRequest)other);
+      if (other instanceof app.onepass.apis.GetFacilityRequestStatusRequest) {
+        return mergeFrom((app.onepass.apis.GetFacilityRequestStatusRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(app.onepass.apis.ApproveFacilityRequestRequest other) {
-      if (other == app.onepass.apis.ApproveFacilityRequestRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(app.onepass.apis.GetFacilityRequestStatusRequest other) {
+      if (other == app.onepass.apis.GetFacilityRequestStatusRequest.getDefaultInstance()) return this;
       if (other.getUserId() != 0L) {
         setUserId(other.getUserId());
       }
@@ -419,11 +419,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      app.onepass.apis.ApproveFacilityRequestRequest parsedMessage = null;
+      app.onepass.apis.GetFacilityRequestStatusRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (app.onepass.apis.ApproveFacilityRequestRequest) e.getUnfinishedMessage();
+        parsedMessage = (app.onepass.apis.GetFacilityRequestStatusRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -507,41 +507,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:hts.facility.ApproveFacilityRequestRequest)
+    // @@protoc_insertion_point(builder_scope:hts.facility.GetFacilityRequestStatusRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:hts.facility.ApproveFacilityRequestRequest)
-  private static final app.onepass.apis.ApproveFacilityRequestRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:hts.facility.GetFacilityRequestStatusRequest)
+  private static final app.onepass.apis.GetFacilityRequestStatusRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new app.onepass.apis.ApproveFacilityRequestRequest();
+    DEFAULT_INSTANCE = new app.onepass.apis.GetFacilityRequestStatusRequest();
   }
 
-  public static app.onepass.apis.ApproveFacilityRequestRequest getDefaultInstance() {
+  public static app.onepass.apis.GetFacilityRequestStatusRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<ApproveFacilityRequestRequest>
-      PARSER = new com.google.protobuf.AbstractParser<ApproveFacilityRequestRequest>() {
+  private static final com.google.protobuf.Parser<GetFacilityRequestStatusRequest>
+      PARSER = new com.google.protobuf.AbstractParser<GetFacilityRequestStatusRequest>() {
     @java.lang.Override
-    public ApproveFacilityRequestRequest parsePartialFrom(
+    public GetFacilityRequestStatusRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ApproveFacilityRequestRequest(input, extensionRegistry);
+      return new GetFacilityRequestStatusRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<ApproveFacilityRequestRequest> parser() {
+  public static com.google.protobuf.Parser<GetFacilityRequestStatusRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<ApproveFacilityRequestRequest> getParserForType() {
+  public com.google.protobuf.Parser<GetFacilityRequestStatusRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public app.onepass.apis.ApproveFacilityRequestRequest getDefaultInstanceForType() {
+  public app.onepass.apis.GetFacilityRequestStatusRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

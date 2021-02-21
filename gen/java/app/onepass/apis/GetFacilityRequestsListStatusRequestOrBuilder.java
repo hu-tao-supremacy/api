@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface ApproveFacilityRequestRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.facility.ApproveFacilityRequestRequest)
+public interface GetFacilityRequestsListStatusRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.facility.GetFacilityRequestsListStatusRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -14,8 +14,8 @@ public interface ApproveFacilityRequestRequestOrBuilder extends
   long getUserId();
 
   /**
-   * <code>int64 request_id = 2 [json_name = "requestId"];</code>
-   * @return The requestId.
+   * <code>int64 event_id = 2 [json_name = "eventId"];</code>
+   * @return The eventId.
    */
-  long getRequestId();
+  long getEventId();
 }
