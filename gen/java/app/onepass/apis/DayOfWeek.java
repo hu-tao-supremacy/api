@@ -9,64 +9,64 @@ package app.onepass.apis;
 public enum DayOfWeek
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>MON = 0;</code>
+   * <code>SUN = 0;</code>
    */
-  MON(0),
+  SUN(0),
   /**
-   * <code>TUE = 1;</code>
+   * <code>MON = 1;</code>
    */
-  TUE(1),
+  MON(1),
   /**
-   * <code>WED = 2;</code>
+   * <code>TUE = 2;</code>
    */
-  WED(2),
+  TUE(2),
   /**
-   * <code>THU = 3;</code>
+   * <code>WED = 3;</code>
    */
-  THU(3),
+  WED(3),
   /**
-   * <code>FRI = 4;</code>
+   * <code>THU = 4;</code>
    */
-  FRI(4),
+  THU(4),
   /**
-   * <code>SAT = 5;</code>
+   * <code>FRI = 5;</code>
    */
-  SAT(5),
+  FRI(5),
   /**
-   * <code>SUN = 6;</code>
+   * <code>SAT = 6;</code>
    */
-  SUN(6),
+  SAT(6),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>MON = 0;</code>
+   * <code>SUN = 0;</code>
    */
-  public static final int MON_VALUE = 0;
+  public static final int SUN_VALUE = 0;
   /**
-   * <code>TUE = 1;</code>
+   * <code>MON = 1;</code>
    */
-  public static final int TUE_VALUE = 1;
+  public static final int MON_VALUE = 1;
   /**
-   * <code>WED = 2;</code>
+   * <code>TUE = 2;</code>
    */
-  public static final int WED_VALUE = 2;
+  public static final int TUE_VALUE = 2;
   /**
-   * <code>THU = 3;</code>
+   * <code>WED = 3;</code>
    */
-  public static final int THU_VALUE = 3;
+  public static final int WED_VALUE = 3;
   /**
-   * <code>FRI = 4;</code>
+   * <code>THU = 4;</code>
    */
-  public static final int FRI_VALUE = 4;
+  public static final int THU_VALUE = 4;
   /**
-   * <code>SAT = 5;</code>
+   * <code>FRI = 5;</code>
    */
-  public static final int SAT_VALUE = 5;
+  public static final int FRI_VALUE = 5;
   /**
-   * <code>SUN = 6;</code>
+   * <code>SAT = 6;</code>
    */
-  public static final int SUN_VALUE = 6;
+  public static final int SAT_VALUE = 6;
 
 
   public final int getNumber() {
@@ -93,13 +93,13 @@ public enum DayOfWeek
    */
   public static DayOfWeek forNumber(int value) {
     switch (value) {
-      case 0: return MON;
-      case 1: return TUE;
-      case 2: return WED;
-      case 3: return THU;
-      case 4: return FRI;
-      case 5: return SAT;
-      case 6: return SUN;
+      case 0: return SUN;
+      case 1: return MON;
+      case 2: return TUE;
+      case 3: return WED;
+      case 4: return THU;
+      case 5: return FRI;
+      case 6: return SAT;
       default: return null;
     }
   }
