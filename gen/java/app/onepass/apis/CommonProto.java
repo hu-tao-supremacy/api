@@ -185,9 +185,9 @@ public final class CommonProto {
       "R\010latitude\022\034\n\tlongitude\030\005 \001(\001R\tlongitude" +
       "\022B\n\017operating_hours\030\006 \003(\0132\031.hts.common.O" +
       "peratingHourR\016operatingHours\022 \n\013descript" +
-      "ion\030\007 \001(\tR\013description*J\n\tDayOfWeek\022\007\n\003M" +
-      "ON\020\000\022\007\n\003TUE\020\001\022\007\n\003WED\020\002\022\007\n\003THU\020\003\022\007\n\003FRI\020\004" +
-      "\022\007\n\003SAT\020\005\022\007\n\003SUN\020\006*1\n\006Gender\022\010\n\004MALE\020\000\022\n" +
+      "ion\030\007 \001(\tR\013description*J\n\tDayOfWeek\022\007\n\003S" +
+      "UN\020\000\022\007\n\003MON\020\001\022\007\n\003TUE\020\002\022\007\n\003WED\020\003\022\007\n\003THU\020\004" +
+      "\022\007\n\003FRI\020\005\022\007\n\003SAT\020\006*1\n\006Gender\022\010\n\004MALE\020\000\022\n" +
       "\n\006FEMALE\020\001\022\021\n\rNOT_SPECIFIED\020\002*1\n\006Status\022" +
       "\013\n\007PENDING\020\000\022\014\n\010APPROVED\020\001\022\014\n\010REJECTED\020\002" +
       "*\276\003\n\nPermission\022\027\n\023CREATE_ORGANIZATION\020\000" +
