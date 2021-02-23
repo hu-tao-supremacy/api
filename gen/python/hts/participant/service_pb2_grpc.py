@@ -50,6 +50,11 @@ class ParticipantServiceStub(object):
                 request_serializer=hts_dot_participant_dot_service__pb2.GenerateQRRequest.SerializeToString,
                 response_deserializer=hts_dot_participant_dot_service__pb2.GenerateQRRespond.FromString,
                 )
+        self.GetEvent = channel.unary_unary(
+                '/hts.participant.ParticipantService/GetEvent',
+                request_serializer=hts_dot_participant_dot_service__pb2.GetEventRequest.SerializeToString,
+                response_deserializer=hts_dot_common_dot_common__pb2.Event.FromString,
+                )
 
 
 class ParticipantServiceServicer(object):
@@ -97,6 +102,12 @@ class ParticipantServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetEvent(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ParticipantServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -134,6 +145,11 @@ def add_ParticipantServiceServicer_to_server(servicer, server):
                     servicer.GenerateQR,
                     request_deserializer=hts_dot_participant_dot_service__pb2.GenerateQRRequest.FromString,
                     response_serializer=hts_dot_participant_dot_service__pb2.GenerateQRRespond.SerializeToString,
+            ),
+            'GetEvent': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetEvent,
+                    request_deserializer=hts_dot_participant_dot_service__pb2.GetEventRequest.FromString,
+                    response_serializer=hts_dot_common_dot_common__pb2.Event.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -261,5 +277,22 @@ class ParticipantService(object):
         return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GenerateQR',
             hts_dot_participant_dot_service__pb2.GenerateQRRequest.SerializeToString,
             hts_dot_participant_dot_service__pb2.GenerateQRRespond.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetEvent(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetEvent',
+            hts_dot_participant_dot_service__pb2.GetEventRequest.SerializeToString,
+            hts_dot_common_dot_common__pb2.Event.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

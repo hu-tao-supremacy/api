@@ -59,6 +59,11 @@ public final class ParticipantProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hts_participant_GenerateQRRespond_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_participant_GetEventRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_participant_GetEventRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -87,24 +92,27 @@ public final class ParticipantProto {
       "common.EventR\006events\"I\n\021GenerateQRReques" +
       "t\0224\n\nuser_event\030\001 \001(\0132\025.hts.common.UserE" +
       "ventR\tuserEvent\"\'\n\021GenerateQRRespond\022\022\n\004" +
-      "data\030\001 \001(\tR\004data2\322\004\n\022ParticipantService\022" +
-      "P\n\020IsEventAvailable\022(.hts.participant.Is" +
-      "EventAvailableRequest\032\022.hts.common.Resul" +
-      "t\022B\n\tJoinEvent\022!.hts.participant.JoinEve" +
-      "ntRequest\032\022.hts.common.Result\022F\n\013CancelE" +
-      "vent\022#.hts.participant.CancelEventReques" +
-      "t\032\022.hts.common.Result\022L\n\016CreateFeedback\022" +
-      "&.hts.participant.CreateFeedbackRequest\032" +
-      "\022.hts.common.Result\022L\n\016RemoveFeedback\022&." +
-      "hts.participant.RemoveFeedbackRequest\032\022." +
-      "hts.common.Result\022l\n\022SearchEventsByName\022" +
-      "*.hts.participant.SearchEventsByNameRequ" +
-      "est\032*.hts.participant.SearchEventsByName" +
-      "Respond\022T\n\nGenerateQR\022\".hts.participant." +
-      "GenerateQRRequest\032\".hts.participant.Gene" +
-      "rateQRRespondBL\n\020app.onepass.apisB\020Parti" +
-      "cipantProtoP\001Z$onepass.app/facility/hts/" +
-      "participantb\006proto3"
+      "data\030\001 \001(\tR\004data\",\n\017GetEventRequest\022\031\n\010e" +
+      "vent_id\030\001 \001(\003R\007eventId2\223\005\n\022ParticipantSe" +
+      "rvice\022P\n\020IsEventAvailable\022(.hts.particip" +
+      "ant.IsEventAvailableRequest\032\022.hts.common" +
+      ".Result\022B\n\tJoinEvent\022!.hts.participant.J" +
+      "oinEventRequest\032\022.hts.common.Result\022F\n\013C" +
+      "ancelEvent\022#.hts.participant.CancelEvent" +
+      "Request\032\022.hts.common.Result\022L\n\016CreateFee" +
+      "dback\022&.hts.participant.CreateFeedbackRe" +
+      "quest\032\022.hts.common.Result\022L\n\016RemoveFeedb" +
+      "ack\022&.hts.participant.RemoveFeedbackRequ" +
+      "est\032\022.hts.common.Result\022l\n\022SearchEventsB" +
+      "yName\022*.hts.participant.SearchEventsByNa" +
+      "meRequest\032*.hts.participant.SearchEvents" +
+      "ByNameRespond\022T\n\nGenerateQR\022\".hts.partic" +
+      "ipant.GenerateQRRequest\032\".hts.participan" +
+      "t.GenerateQRRespond\022?\n\010GetEvent\022 .hts.pa" +
+      "rticipant.GetEventRequest\032\021.hts.common.E" +
+      "ventBL\n\020app.onepass.apisB\020ParticipantPro" +
+      "toP\001Z$onepass.app/facility/hts/participa" +
+      "ntb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -165,6 +173,12 @@ public final class ParticipantProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_participant_GenerateQRRespond_descriptor,
         new java.lang.String[] { "Data", });
+    internal_static_hts_participant_GetEventRequest_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_hts_participant_GetEventRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_participant_GetEventRequest_descriptor,
+        new java.lang.String[] { "EventId", });
     app.onepass.apis.CommonProto.getDescriptor();
   }
 
