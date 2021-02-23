@@ -51,6 +51,5 @@ service ParticipantService {
     rpc RemoveFeedback(RemoveFeedbackRequest) returns (hts.common.Result);
     rpc SearchEventsByName(SearchEventsByNameRequest) returns (SearchEventsByNameRespond);
     rpc GenerateQR(GenerateQRRequest) returns (GenerateQRRespond);
-    rpc GenerateQR(GenerateQRRequest) returns (GenerateQRRespond);
     rpc GetEvent(GetEventRequest) returns (hts.common.Event);
 }
