@@ -39,6 +39,9 @@ message GenerateQRRequest {
 message GenerateQRRespond {
     string data = 1;
 }
+message GetEventRequest {
+    int64 event_id = 1;
+}
 
 service ParticipantService {
     rpc IsEventAvailable(IsEventAvailableRequest) returns (hts.common.Result);
@@ -48,4 +51,5 @@ service ParticipantService {
     rpc RemoveFeedback(RemoveFeedbackRequest) returns (hts.common.Result);
     rpc SearchEventsByName(SearchEventsByNameRequest) returns (SearchEventsByNameRespond);
     rpc GenerateQR(GenerateQRRequest) returns (GenerateQRRespond);
+    rpc GetEvent(GetEventRequest) returns (hts.common.Event);
 }
