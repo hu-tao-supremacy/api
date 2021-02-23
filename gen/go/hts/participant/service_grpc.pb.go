@@ -26,6 +26,7 @@ type ParticipantServiceClient interface {
 	RemoveFeedback(ctx context.Context, in *RemoveFeedbackRequest, opts ...grpc.CallOption) (*common.Result, error)
 	SearchEventsByName(ctx context.Context, in *SearchEventsByNameRequest, opts ...grpc.CallOption) (*SearchEventsByNameRespond, error)
 	GenerateQR(ctx context.Context, in *GenerateQRRequest, opts ...grpc.CallOption) (*GenerateQRRespond, error)
+	GetEvent(ctx context.Context, in *GetEventRequest, opts ...grpc.CallOption) (*common.Event, error)
 }
 
 type participantServiceClient struct {
@@ -99,6 +100,15 @@ func (c *participantServiceClient) GenerateQR(ctx context.Context, in *GenerateQ
 	return out, nil
 }
 
+func (c *participantServiceClient) GetEvent(ctx context.Context, in *GetEventRequest, opts ...grpc.CallOption) (*common.Event, error) {
+	out := new(common.Event)
+	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GetEvent", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ParticipantServiceServer is the server API for ParticipantService service.
 // All implementations should embed UnimplementedParticipantServiceServer
 // for forward compatibility
@@ -110,6 +120,7 @@ type ParticipantServiceServer interface {
 	RemoveFeedback(context.Context, *RemoveFeedbackRequest) (*common.Result, error)
 	SearchEventsByName(context.Context, *SearchEventsByNameRequest) (*SearchEventsByNameRespond, error)
 	GenerateQR(context.Context, *GenerateQRRequest) (*GenerateQRRespond, error)
+	GetEvent(context.Context, *GetEventRequest) (*common.Event, error)
 }
 
 // UnimplementedParticipantServiceServer should be embedded to have forward compatible implementations.
@@ -136,6 +147,9 @@ func (UnimplementedParticipantServiceServer) SearchEventsByName(context.Context,
 }
 func (UnimplementedParticipantServiceServer) GenerateQR(context.Context, *GenerateQRRequest) (*GenerateQRRespond, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateQR not implemented")
+}
+func (UnimplementedParticipantServiceServer) GetEvent(context.Context, *GetEventRequest) (*common.Event, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetEvent not implemented")
 }
 
 // UnsafeParticipantServiceServer may be embedded to opt out of forward compatibility for this service.
@@ -275,6 +289,24 @@ func _ParticipantService_GenerateQR_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ParticipantService_GetEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParticipantServiceServer).GetEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.participant.ParticipantService/GetEvent",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParticipantServiceServer).GetEvent(ctx, req.(*GetEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ParticipantService_ServiceDesc is the grpc.ServiceDesc for ParticipantService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -309,6 +341,10 @@ var ParticipantService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GenerateQR",
 			Handler:    _ParticipantService_GenerateQR_Handler,
+		},
+		{
+			MethodName: "GetEvent",
+			Handler:    _ParticipantService_GetEvent_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
