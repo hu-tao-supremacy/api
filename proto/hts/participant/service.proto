@@ -37,6 +37,14 @@ message GenerateQRResponse {
     string data = 1;
 }
 
+message GetFeedbackForEventResponse {
+    repeated hts.common.EventFeedback event_feedback = 1;
+}
+
+message EventsResponse {
+    repeated hts.common.Event event = 1;
+}
+
 service ParticipantService {
     rpc IsEventAvailable(hts.common.Event) returns (hts.common.Result);
     rpc JoinEvent(UserWithEventRequest) returns (hts.common.Result);
@@ -44,10 +52,10 @@ service ParticipantService {
     rpc CreateFeedback(CreateFeedbackRequest) returns (hts.common.Result);
     rpc HasSubmitFeedback(UserWithEventRequest) returns (hts.common.Result);
     rpc RemoveFeedback(hts.common.EventFeedback) returns (hts.common.Result);
-    rpc GetFeedbackForEvent(hts.common.Event) returns ({repeated hts.common.EventFeedback});
-    rpc SearchEventsByName(StringInputRequest) returns ({repeated hts.common.Event});
-    rpc SearchEventsByTag(StringInputRequest) returns ({repeated hts.common.Event});
+    rpc GetFeedbackForEvent(hts.common.Event) returns (GetFeedbackForEventResponse);
+    rpc SearchEventsByName(StringInputRequest) returns (EventsResponse);
+    rpc SearchEventsByTag(StringInputRequest) returns (EventsResponse);
     rpc GenerateQR(hts.common.UserEvent) returns (GenerateQRResponse);
     rpc GetEvent(GetEventRequest) returns (hts.common.Event);
-    rpc GetSuggestedEvent(google.protobuf.Empty) returns ({repeated hts.common.Event});
+    rpc GetSuggestedEvent(google.protobuf.Empty) returns (EventsResponse);
 }
