@@ -58,4 +58,5 @@ service ParticipantService {
     rpc GenerateQR(hts.common.UserEvent) returns (GenerateQRResponse);
     rpc GetEvent(GetEventRequest) returns (hts.common.Event);
     rpc GetSuggestedEvent(google.protobuf.Empty) returns (EventsResponse);
+    rpc GetAllEvent(google.protobuf.Empty) returns (EventsResponse);
 }
