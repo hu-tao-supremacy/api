@@ -61,7 +61,11 @@ export interface ParticipantServiceClient {
 
   removeFeedback(request: EventFeedback): Observable<Result>;
 
-  getFeedbackForEvent(request: Event): Observable<GetFeedbackForEventResponse>;
+  getFeedbackFromEvent(request: Event): Observable<GetFeedbackForEventResponse>;
+
+  getUserFeedbackForEvent(
+    request: UserWithEventRequest
+  ): Observable<EventsResponse>;
 
   searchEventsByName(request: StringInputRequest): Observable<EventsResponse>;
 
@@ -71,7 +75,9 @@ export interface ParticipantServiceClient {
 
   getEvent(request: GetEventRequest): Observable<Event>;
 
-  getSuggestedEvent(request: Empty): Observable<EventsResponse>;
+  getSuggestedEvents(request: Empty): Observable<EventsResponse>;
+
+  getAllEvents(request: Empty): Observable<EventsResponse>;
 }
 
 export interface ParticipantServiceController {
@@ -99,12 +105,16 @@ export interface ParticipantServiceController {
     request: EventFeedback
   ): Promise<Result> | Observable<Result> | Result;
 
-  getFeedbackForEvent(
+  getFeedbackFromEvent(
     request: Event
   ):
     | Promise<GetFeedbackForEventResponse>
     | Observable<GetFeedbackForEventResponse>
     | GetFeedbackForEventResponse;
+
+  getUserFeedbackForEvent(
+    request: UserWithEventRequest
+  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
   searchEventsByName(
     request: StringInputRequest
@@ -125,7 +135,11 @@ export interface ParticipantServiceController {
     request: GetEventRequest
   ): Promise<Event> | Observable<Event> | Event;
 
-  getSuggestedEvent(
+  getSuggestedEvents(
+    request: Empty
+  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
+
+  getAllEvents(
     request: Empty
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 }
@@ -139,12 +153,14 @@ export function ParticipantServiceControllerMethods() {
       "createFeedback",
       "hasSubmitFeedback",
       "removeFeedback",
-      "getFeedbackForEvent",
+      "getFeedbackFromEvent",
+      "getUserFeedbackForEvent",
       "searchEventsByName",
       "searchEventsByTag",
       "generateQR",
       "getEvent",
-      "getSuggestedEvent",
+      "getSuggestedEvents",
+      "getAllEvents",
     ];
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(
