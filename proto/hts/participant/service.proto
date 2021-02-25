@@ -60,4 +60,5 @@ service ParticipantService {
     rpc GetEvent(GetEventRequest) returns (hts.common.Event);
     rpc GetSuggestedEvents(google.protobuf.Empty) returns (EventsResponse);
     rpc GetAllEvents(google.protobuf.Empty) returns (EventsResponse);
+    rpc Ping(google.protobuf.Empty)) returns (hts.common.Result);
 }
