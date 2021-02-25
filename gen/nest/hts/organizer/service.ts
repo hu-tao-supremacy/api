@@ -10,6 +10,7 @@ import {
 } from "../../hts/common/common";
 import { Observable } from "rxjs";
 import { Timestamp } from "../../google/protobuf/timestamp";
+import { Empty } from "../../google/protobuf/empty";
 
 export const protobufPackage = "hts.organizer";
 
@@ -147,6 +148,8 @@ export interface OrganizationServiceClient {
   readTag(request: UserReq): Observable<ReadTagRes>;
 
   hasEvent(request: HasEventReq): Observable<Result>;
+
+  ping(request: Empty): Observable<Result>;
 }
 
 export interface OrganizationServiceController {
@@ -216,6 +219,8 @@ export interface OrganizationServiceController {
   ): Promise<ReadTagRes> | Observable<ReadTagRes> | ReadTagRes;
 
   hasEvent(request: HasEventReq): Promise<Result> | Observable<Result> | Result;
+
+  ping(request: Empty): Promise<Result> | Observable<Result> | Result;
 }
 
 export function OrganizationServiceControllerMethods() {
@@ -238,6 +243,7 @@ export function OrganizationServiceControllerMethods() {
       "removeTag",
       "readTag",
       "hasEvent",
+      "ping",
     ];
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(

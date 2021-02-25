@@ -78,6 +78,8 @@ export interface ParticipantServiceClient {
   getSuggestedEvents(request: Empty): Observable<EventsResponse>;
 
   getAllEvents(request: Empty): Observable<EventsResponse>;
+
+  ping(request: Empty): Observable<Result>;
 }
 
 export interface ParticipantServiceController {
@@ -142,6 +144,8 @@ export interface ParticipantServiceController {
   getAllEvents(
     request: Empty
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
+
+  ping(request: Empty): Promise<Result> | Observable<Result> | Result;
 }
 
 export function ParticipantServiceControllerMethods() {
@@ -161,6 +165,7 @@ export function ParticipantServiceControllerMethods() {
       "getEvent",
       "getSuggestedEvents",
       "getAllEvents",
+      "ping",
     ];
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(

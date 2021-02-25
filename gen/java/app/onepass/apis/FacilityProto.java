@@ -167,7 +167,7 @@ public final class FacilityProto {
       "\030\001 \001(\003R\006userId\022\035\n\nrequest_id\030\002 \001(\003R\trequ" +
       "estId\"]\n#GetFacilityRequestStatusFullReq" +
       "uest\022\027\n\007user_id\030\001 \001(\003R\006userId\022\035\n\nrequest" +
-      "_id\030\002 \001(\003R\trequestId2\246\t\n\017FacilityService" +
+      "_id\030\002 \001(\003R\trequestId2\332\t\n\017FacilityService" +
       "\022^\n\017GetFacilityList\022$.hts.facility.GetFa" +
       "cilityListRequest\032%.hts.facility.GetFaci" +
       "lityListResponse\022s\n\026GetFacilityRequestLi" +
@@ -197,9 +197,10 @@ public final class FacilityProto {
       "ility.RejectFacilityRequestRequest\032\022.hts" +
       ".common.Result\022M\n\017GetFacilityInfo\022$.hts." +
       "facility.GetFacilityInfoRequest\032\024.hts.co" +
-      "mmon.FacilityBF\n\020app.onepass.apisB\rFacil" +
-      "ityProtoP\001Z!onepass.app/facility/hts/fac" +
-      "ilityb\006proto3"
+      "mmon.Facility\0222\n\004Ping\022\026.google.protobuf." +
+      "Empty\032\022.hts.common.ResultBF\n\020app.onepass" +
+      ".apisB\rFacilityProtoP\001Z!onepass.app/faci" +
+      "lity/hts/facilityb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

@@ -448,6 +448,37 @@ public final class ParticipantServiceGrpc {
     return getGetAllEventsMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      app.onepass.apis.Result> getPingMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "Ping",
+      requestType = com.google.protobuf.Empty.class,
+      responseType = app.onepass.apis.Result.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      app.onepass.apis.Result> getPingMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, app.onepass.apis.Result> getPingMethod;
+    if ((getPingMethod = ParticipantServiceGrpc.getPingMethod) == null) {
+      synchronized (ParticipantServiceGrpc.class) {
+        if ((getPingMethod = ParticipantServiceGrpc.getPingMethod) == null) {
+          ParticipantServiceGrpc.getPingMethod = getPingMethod =
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, app.onepass.apis.Result>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Ping"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.Result.getDefaultInstance()))
+              .setSchemaDescriptor(new ParticipantServiceMethodDescriptorSupplier("Ping"))
+              .build();
+        }
+      }
+    }
+    return getPingMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -594,6 +625,13 @@ public final class ParticipantServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAllEventsMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void ping(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.Result> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getPingMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -694,6 +732,13 @@ public final class ParticipantServiceGrpc {
                 com.google.protobuf.Empty,
                 app.onepass.apis.EventsResponse>(
                   this, METHODID_GET_ALL_EVENTS)))
+          .addMethod(
+            getPingMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.google.protobuf.Empty,
+                app.onepass.apis.Result>(
+                  this, METHODID_PING)))
           .build();
     }
   }
@@ -823,6 +868,14 @@ public final class ParticipantServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetAllEventsMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void ping(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.Result> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getPingMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -935,6 +988,13 @@ public final class ParticipantServiceGrpc {
     public app.onepass.apis.EventsResponse getAllEvents(com.google.protobuf.Empty request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetAllEventsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public app.onepass.apis.Result ping(com.google.protobuf.Empty request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getPingMethod(), getCallOptions(), request);
     }
   }
 
@@ -1063,6 +1123,14 @@ public final class ParticipantServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetAllEventsMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.Result> ping(
+        com.google.protobuf.Empty request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getPingMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_IS_EVENT_AVAILABLE = 0;
@@ -1079,6 +1147,7 @@ public final class ParticipantServiceGrpc {
   private static final int METHODID_GET_EVENT = 11;
   private static final int METHODID_GET_SUGGESTED_EVENTS = 12;
   private static final int METHODID_GET_ALL_EVENTS = 13;
+  private static final int METHODID_PING = 14;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1152,6 +1221,10 @@ public final class ParticipantServiceGrpc {
         case METHODID_GET_ALL_EVENTS:
           serviceImpl.getAllEvents((com.google.protobuf.Empty) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.EventsResponse>) responseObserver);
+          break;
+        case METHODID_PING:
+          serviceImpl.ping((com.google.protobuf.Empty) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.Result>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -1228,6 +1301,7 @@ public final class ParticipantServiceGrpc {
               .addMethod(getGetEventMethod())
               .addMethod(getGetSuggestedEventsMethod())
               .addMethod(getGetAllEventsMethod())
+              .addMethod(getPingMethod())
               .build();
         }
       }
