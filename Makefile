@@ -3,7 +3,11 @@
 	@mkdir -p ./gen/nest
 	protoc -I ./proto --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./gen/nest --ts_proto_opt=nestJs=true \
 		./proto/hts/common/common.proto \
-		./proto/hts/account/service.proto
+		./proto/hts/account/service.proto \
+		./proto/hts/facility/service.proto \
+		./proto/hts/participant/service.proto \
+		./proto/hts/organizer/service.proto
+
 
 /gen/python:
 	@cd $(dirname $0)

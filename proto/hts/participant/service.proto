@@ -9,47 +9,53 @@ option go_package = "onepass.app/facility/hts/participant";
 
 import "hts/common/common.proto";
 
-message IsEventAvailableRequest {
-    hts.common.Event event = 1;
-}
-message JoinEventRequest {
-    hts.common.User user = 1;
-    hts.common.Event event = 2;
-}
-message CancelEventRequest {
-    hts.common.User user = 1;
-    hts.common.Event event = 2;
-}
-message CreateFeedbackRequest {
-    hts.common.User user = 1;
-    hts.common.EventFeedback feedback = 2;
-}
-message RemoveFeedbackRequest {
-    hts.common.EventFeedback feedback = 1;
-}
-message SearchEventsByNameRequest {
-    string name = 1;
-}
-message SearchEventsByNameRespond {
-    repeated hts.common.Event events = 1;
-}
+import "google/protobuf/empty.proto";
+
 message GenerateQRRequest {
     hts.common.UserEvent user_event = 1;
 }
-message GenerateQRRespond {
-    string data = 1;
-}
+
 message GetEventRequest {
     int64 event_id = 1;
 }
 
+message StringInputRequest {
+    string text = 1;
+}
+
+message UserWithEventRequest {
+    hts.common.User user = 1;
+    hts.common.Event event = 2;
+}
+
+message CreateFeedbackRequest {
+    hts.common.User user = 1;
+    hts.common.EventFeedback feedback = 2;
+}
+
+message GenerateQRResponse {
+    string data = 1;
+}
+
+message GetFeedbackForEventResponse {
+    repeated hts.common.EventFeedback event_feedback = 1;
+}
+
+message EventsResponse {
+    repeated hts.common.Event event = 1;
+}
+
 service ParticipantService {
-    rpc IsEventAvailable(IsEventAvailableRequest) returns (hts.common.Result);
-    rpc JoinEvent(JoinEventRequest) returns (hts.common.Result);
-    rpc CancelEvent(CancelEventRequest) returns (hts.common.Result);
+    rpc IsEventAvailable(hts.common.Event) returns (hts.common.Result);
+    rpc JoinEvent(UserWithEventRequest) returns (hts.common.Result);
+    rpc CancelEvent(UserWithEventRequest) returns (hts.common.Result);
     rpc CreateFeedback(CreateFeedbackRequest) returns (hts.common.Result);
-    rpc RemoveFeedback(RemoveFeedbackRequest) returns (hts.common.Result);
-    rpc SearchEventsByName(SearchEventsByNameRequest) returns (SearchEventsByNameRespond);
-    rpc GenerateQR(GenerateQRRequest) returns (GenerateQRRespond);
+    rpc HasSubmitFeedback(UserWithEventRequest) returns (hts.common.Result);
+    rpc RemoveFeedback(hts.common.EventFeedback) returns (hts.common.Result);
+    rpc GetFeedbackForEvent(hts.common.Event) returns (GetFeedbackForEventResponse);
+    rpc SearchEventsByName(StringInputRequest) returns (EventsResponse);
+    rpc SearchEventsByTag(StringInputRequest) returns (EventsResponse);
+    rpc GenerateQR(hts.common.UserEvent) returns (GenerateQRResponse);
     rpc GetEvent(GetEventRequest) returns (hts.common.Event);
+    rpc GetSuggestedEvent(google.protobuf.Empty) returns (EventsResponse);
 }
