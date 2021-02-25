@@ -9,6 +9,7 @@ option go_package = "onepass.app/facility/hts/organizer";
 
 import "hts/common/common.proto";
 import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
 
 message UserReq {
   int64 user_id = 1;
@@ -120,4 +121,5 @@ service OrganizationService {
   rpc RemoveTag(UpdateTagReq) returns (hts.common.Result);
   rpc ReadTag(UserReq) returns (ReadTagRes);
   rpc HasEvent(HasEventReq) returns (hts.common.Result);
+  rpc Ping(google.protobuf.Empty) returns (hts.common.Result);
 }
