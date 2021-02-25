@@ -52,12 +52,12 @@ service ParticipantService {
     rpc CreateFeedback(CreateFeedbackRequest) returns (hts.common.Result);
     rpc HasSubmitFeedback(UserWithEventRequest) returns (hts.common.Result);
     rpc RemoveFeedback(hts.common.EventFeedback) returns (hts.common.Result);
-    rpc GetFeedbackForEvent(hts.common.Event) returns (GetFeedbackForEventResponse);
+    rpc GetFeedbackFromEvent(hts.common.Event) returns (GetFeedbackForEventResponse);
     rpc GetUserFeedbackForEvent(UserWithEventRequest) returns (EventsResponse);
     rpc SearchEventsByName(StringInputRequest) returns (EventsResponse);
     rpc SearchEventsByTag(StringInputRequest) returns (EventsResponse);
     rpc GenerateQR(hts.common.UserEvent) returns (GenerateQRResponse);
     rpc GetEvent(GetEventRequest) returns (hts.common.Event);
-    rpc GetSuggestedEvent(google.protobuf.Empty) returns (EventsResponse);
-    rpc GetAllEvent(google.protobuf.Empty) returns (EventsResponse);
+    rpc GetSuggestedEvents(google.protobuf.Empty) returns (EventsResponse);
+    rpc GetAllEvents(google.protobuf.Empty) returns (EventsResponse);
 }
