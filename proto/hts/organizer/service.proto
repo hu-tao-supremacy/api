@@ -120,5 +120,5 @@ service OrganizationService {
   rpc RemoveTag(UpdateTagReq) returns (hts.common.Result);
   rpc ReadTag(UserReq) returns (ReadTagRes);
   rpc HasEvent(HasEventReq) returns (hts.common.Result);
-  rpc Ping(google.protobuf.Empty)) returns (hts.common.Result);
+  rpc Ping(google.protobuf.Empty) returns (hts.common.Result);
 }

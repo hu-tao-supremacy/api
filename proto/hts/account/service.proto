@@ -42,5 +42,5 @@ service AccountService {
   rpc GenerateJWT(GenerateJWTRequest) returns (hts.common.Result);
   rpc InvalidateJWT(InvalidateJWTRequest) returns (hts.common.Result);
   rpc HasPermission(HasPermissionRequest) returns (hts.common.Result);
-  rpc Ping(google.protobuf.Empty)) returns (hts.common.Result);
+  rpc Ping(google.protobuf.Empty) returns (hts.common.Result);
 }
