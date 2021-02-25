@@ -9,6 +9,7 @@ option go_package = "onepass.app/facility/hts/common";
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
 
 enum DayOfWeek {
   SUN = 0;
