@@ -355,6 +355,37 @@ public final class FacilityServiceGrpc {
     return getGetFacilityInfoMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      app.onepass.apis.Result> getPingMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "Ping",
+      requestType = com.google.protobuf.Empty.class,
+      responseType = app.onepass.apis.Result.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      app.onepass.apis.Result> getPingMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, app.onepass.apis.Result> getPingMethod;
+    if ((getPingMethod = FacilityServiceGrpc.getPingMethod) == null) {
+      synchronized (FacilityServiceGrpc.class) {
+        if ((getPingMethod = FacilityServiceGrpc.getPingMethod) == null) {
+          FacilityServiceGrpc.getPingMethod = getPingMethod =
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, app.onepass.apis.Result>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Ping"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.Result.getDefaultInstance()))
+              .setSchemaDescriptor(new FacilityServiceMethodDescriptorSupplier("Ping"))
+              .build();
+        }
+      }
+    }
+    return getPingMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -480,6 +511,13 @@ public final class FacilityServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetFacilityInfoMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void ping(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.Result> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getPingMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -559,6 +597,13 @@ public final class FacilityServiceGrpc {
                 app.onepass.apis.GetFacilityInfoRequest,
                 app.onepass.apis.Facility>(
                   this, METHODID_GET_FACILITY_INFO)))
+          .addMethod(
+            getPingMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.google.protobuf.Empty,
+                app.onepass.apis.Result>(
+                  this, METHODID_PING)))
           .build();
     }
   }
@@ -664,6 +709,14 @@ public final class FacilityServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetFacilityInfoMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void ping(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.Result> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getPingMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -755,6 +808,13 @@ public final class FacilityServiceGrpc {
     public app.onepass.apis.Facility getFacilityInfo(app.onepass.apis.GetFacilityInfoRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetFacilityInfoMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public app.onepass.apis.Result ping(com.google.protobuf.Empty request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getPingMethod(), getCallOptions(), request);
     }
   }
 
@@ -859,6 +919,14 @@ public final class FacilityServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetFacilityInfoMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.Result> ping(
+        com.google.protobuf.Empty request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getPingMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_FACILITY_LIST = 0;
@@ -872,6 +940,7 @@ public final class FacilityServiceGrpc {
   private static final int METHODID_APPROVE_FACILITY_REQUEST = 8;
   private static final int METHODID_REJECT_FACILITY_REQUEST = 9;
   private static final int METHODID_GET_FACILITY_INFO = 10;
+  private static final int METHODID_PING = 11;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -933,6 +1002,10 @@ public final class FacilityServiceGrpc {
         case METHODID_GET_FACILITY_INFO:
           serviceImpl.getFacilityInfo((app.onepass.apis.GetFacilityInfoRequest) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.Facility>) responseObserver);
+          break;
+        case METHODID_PING:
+          serviceImpl.ping((com.google.protobuf.Empty) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.Result>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -1006,6 +1079,7 @@ public final class FacilityServiceGrpc {
               .addMethod(getApproveFacilityRequestMethod())
               .addMethod(getRejectFacilityRequestMethod())
               .addMethod(getGetFacilityInfoMethod())
+              .addMethod(getPingMethod())
               .build();
         }
       }

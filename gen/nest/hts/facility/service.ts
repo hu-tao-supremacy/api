@@ -150,6 +150,8 @@ export interface FacilityServiceClient {
   ): Observable<Result>;
 
   getFacilityInfo(request: GetFacilityInfoRequest): Observable<Facility>;
+
+  ping(request: Empty): Observable<Result>;
 }
 
 export interface FacilityServiceController {
@@ -214,6 +216,8 @@ export interface FacilityServiceController {
   getFacilityInfo(
     request: GetFacilityInfoRequest
   ): Promise<Facility> | Observable<Facility> | Facility;
+
+  ping(request: Empty): Promise<Result> | Observable<Result> | Result;
 }
 
 export function FacilityServiceControllerMethods() {
@@ -230,6 +234,7 @@ export function FacilityServiceControllerMethods() {
       "approveFacilityRequest",
       "rejectFacilityRequest",
       "getFacilityInfo",
+      "ping",
     ];
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(

@@ -80,7 +80,7 @@ public final class ParticipantProto {
       "@\n\016event_feedback\030\001 \003(\0132\031.hts.common.Eve" +
       "ntFeedbackR\reventFeedback\"9\n\016EventsRespo" +
       "nse\022\'\n\005event\030\001 \003(\0132\021.hts.common.EventR\005e" +
-      "vent2\326\010\n\022ParticipantService\0229\n\020IsEventAv" +
+      "vent2\212\t\n\022ParticipantService\0229\n\020IsEventAv" +
       "ailable\022\021.hts.common.Event\032\022.hts.common." +
       "Result\022F\n\tJoinEvent\022%.hts.participant.Us" +
       "erWithEventRequest\032\022.hts.common.Result\022H" +
@@ -107,10 +107,11 @@ public final class ParticipantProto {
       "Event\022M\n\022GetSuggestedEvents\022\026.google.pro" +
       "tobuf.Empty\032\037.hts.participant.EventsResp" +
       "onse\022G\n\014GetAllEvents\022\026.google.protobuf.E" +
-      "mpty\032\037.hts.participant.EventsResponseBL\n" +
-      "\020app.onepass.apisB\020ParticipantProtoP\001Z$o" +
-      "nepass.app/facility/hts/participantb\006pro" +
-      "to3"
+      "mpty\032\037.hts.participant.EventsResponse\0222\n" +
+      "\004Ping\022\026.google.protobuf.Empty\032\022.hts.comm" +
+      "on.ResultBL\n\020app.onepass.apisB\020Participa" +
+      "ntProtoP\001Z$onepass.app/facility/hts/part" +
+      "icipantb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

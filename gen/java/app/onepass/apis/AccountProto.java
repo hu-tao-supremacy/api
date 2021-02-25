@@ -54,36 +54,39 @@ public final class AccountProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\031hts/account/service.proto\022\013hts.account" +
-      "\032\027hts/common/common.proto\";\n\026IsAuthentic" +
-      "atedRequest\022!\n\014access_token\030\001 \001(\tR\013acces" +
-      "sToken\"@\n\030UpdateAccountInfoRequest\022$\n\004us" +
-      "er\030\001 \001(\0132\020.hts.common.UserR\004user\"A\n\031Upda" +
-      "teAccountInfoResponse\022$\n\004user\030\001 \001(\0132\020.ht" +
-      "s.common.UserR\004user\":\n\022GenerateJWTReques" +
-      "t\022$\n\004user\030\001 \001(\0132\020.hts.common.UserR\004user\"" +
-      "9\n\024InvalidateJWTRequest\022!\n\014access_token\030" +
-      "\001 \001(\tR\013accessToken\"\231\001\n\024HasPermissionRequ" +
-      "est\022\027\n\007user_id\030\001 \001(\003R\006userId\022\'\n\017organiza" +
-      "tion_id\030\002 \001(\003R\016organizationId\022?\n\017permiss" +
-      "ion_name\030\003 \001(\0162\026.hts.common.PermissionR\016" +
-      "permissionName2\224\003\n\016AccountService\022J\n\017IsA" +
-      "uthenticated\022#.hts.account.IsAuthenticat" +
-      "edRequest\032\022.hts.common.Result\022b\n\021UpdateA" +
-      "ccountInfo\022%.hts.account.UpdateAccountIn" +
-      "foRequest\032&.hts.account.UpdateAccountInf" +
-      "oResponse\022B\n\013GenerateJWT\022\037.hts.account.G" +
-      "enerateJWTRequest\032\022.hts.common.Result\022F\n" +
-      "\rInvalidateJWT\022!.hts.account.InvalidateJ" +
-      "WTRequest\032\022.hts.common.Result\022F\n\rHasPerm" +
-      "ission\022!.hts.account.HasPermissionReques" +
-      "t\032\022.hts.common.ResultBD\n\020app.onepass.api" +
-      "sB\014AccountProtoP\001Z onepass.app/facility/" +
-      "hts/accountb\006proto3"
+      "\032\027hts/common/common.proto\032\033google/protob" +
+      "uf/empty.proto\";\n\026IsAuthenticatedRequest" +
+      "\022!\n\014access_token\030\001 \001(\tR\013accessToken\"@\n\030U" +
+      "pdateAccountInfoRequest\022$\n\004user\030\001 \001(\0132\020." +
+      "hts.common.UserR\004user\"A\n\031UpdateAccountIn" +
+      "foResponse\022$\n\004user\030\001 \001(\0132\020.hts.common.Us" +
+      "erR\004user\":\n\022GenerateJWTRequest\022$\n\004user\030\001" +
+      " \001(\0132\020.hts.common.UserR\004user\"9\n\024Invalida" +
+      "teJWTRequest\022!\n\014access_token\030\001 \001(\tR\013acce" +
+      "ssToken\"\231\001\n\024HasPermissionRequest\022\027\n\007user" +
+      "_id\030\001 \001(\003R\006userId\022\'\n\017organization_id\030\002 \001" +
+      "(\003R\016organizationId\022?\n\017permission_name\030\003 " +
+      "\001(\0162\026.hts.common.PermissionR\016permissionN" +
+      "ame2\310\003\n\016AccountService\022J\n\017IsAuthenticate" +
+      "d\022#.hts.account.IsAuthenticatedRequest\032\022" +
+      ".hts.common.Result\022b\n\021UpdateAccountInfo\022" +
+      "%.hts.account.UpdateAccountInfoRequest\032&" +
+      ".hts.account.UpdateAccountInfoResponse\022B" +
+      "\n\013GenerateJWT\022\037.hts.account.GenerateJWTR" +
+      "equest\032\022.hts.common.Result\022F\n\rInvalidate" +
+      "JWT\022!.hts.account.InvalidateJWTRequest\032\022" +
+      ".hts.common.Result\022F\n\rHasPermission\022!.ht" +
+      "s.account.HasPermissionRequest\032\022.hts.com" +
+      "mon.Result\0222\n\004Ping\022\026.google.protobuf.Emp" +
+      "ty\032\022.hts.common.ResultBD\n\020app.onepass.ap" +
+      "isB\014AccountProtoP\001Z onepass.app/facility" +
+      "/hts/accountb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           app.onepass.apis.CommonProto.getDescriptor(),
+          com.google.protobuf.EmptyProto.getDescriptor(),
         });
     internal_static_hts_account_IsAuthenticatedRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -122,6 +125,7 @@ public final class AccountProto {
         internal_static_hts_account_HasPermissionRequest_descriptor,
         new java.lang.String[] { "UserId", "OrganizationId", "PermissionName", });
     app.onepass.apis.CommonProto.getDescriptor();
+    com.google.protobuf.EmptyProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

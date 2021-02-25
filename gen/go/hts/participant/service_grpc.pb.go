@@ -34,6 +34,7 @@ type ParticipantServiceClient interface {
 	GetEvent(ctx context.Context, in *GetEventRequest, opts ...grpc.CallOption) (*common.Event, error)
 	GetSuggestedEvents(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*EventsResponse, error)
 	GetAllEvents(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*EventsResponse, error)
+	Ping(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*common.Result, error)
 }
 
 type participantServiceClient struct {
@@ -170,6 +171,15 @@ func (c *participantServiceClient) GetAllEvents(ctx context.Context, in *empty.E
 	return out, nil
 }
 
+func (c *participantServiceClient) Ping(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*common.Result, error) {
+	out := new(common.Result)
+	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/Ping", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ParticipantServiceServer is the server API for ParticipantService service.
 // All implementations should embed UnimplementedParticipantServiceServer
 // for forward compatibility
@@ -188,6 +198,7 @@ type ParticipantServiceServer interface {
 	GetEvent(context.Context, *GetEventRequest) (*common.Event, error)
 	GetSuggestedEvents(context.Context, *empty.Empty) (*EventsResponse, error)
 	GetAllEvents(context.Context, *empty.Empty) (*EventsResponse, error)
+	Ping(context.Context, *empty.Empty) (*common.Result, error)
 }
 
 // UnimplementedParticipantServiceServer should be embedded to have forward compatible implementations.
@@ -235,6 +246,9 @@ func (UnimplementedParticipantServiceServer) GetSuggestedEvents(context.Context,
 }
 func (UnimplementedParticipantServiceServer) GetAllEvents(context.Context, *empty.Empty) (*EventsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllEvents not implemented")
+}
+func (UnimplementedParticipantServiceServer) Ping(context.Context, *empty.Empty) (*common.Result, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Ping not implemented")
 }
 
 // UnsafeParticipantServiceServer may be embedded to opt out of forward compatibility for this service.
@@ -500,6 +514,24 @@ func _ParticipantService_GetAllEvents_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ParticipantService_Ping_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(empty.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParticipantServiceServer).Ping(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.participant.ParticipantService/Ping",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParticipantServiceServer).Ping(ctx, req.(*empty.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ParticipantService_ServiceDesc is the grpc.ServiceDesc for ParticipantService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -562,6 +594,10 @@ var ParticipantService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAllEvents",
 			Handler:    _ParticipantService_GetAllEvents_Handler,
+		},
+		{
+			MethodName: "Ping",
+			Handler:    _ParticipantService_Ping_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

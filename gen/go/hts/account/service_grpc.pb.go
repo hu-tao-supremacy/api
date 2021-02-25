@@ -4,6 +4,7 @@ package account
 
 import (
 	context "context"
+	empty "github.com/golang/protobuf/ptypes/empty"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -24,6 +25,7 @@ type AccountServiceClient interface {
 	GenerateJWT(ctx context.Context, in *GenerateJWTRequest, opts ...grpc.CallOption) (*common.Result, error)
 	InvalidateJWT(ctx context.Context, in *InvalidateJWTRequest, opts ...grpc.CallOption) (*common.Result, error)
 	HasPermission(ctx context.Context, in *HasPermissionRequest, opts ...grpc.CallOption) (*common.Result, error)
+	Ping(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*common.Result, error)
 }
 
 type accountServiceClient struct {
@@ -79,6 +81,15 @@ func (c *accountServiceClient) HasPermission(ctx context.Context, in *HasPermiss
 	return out, nil
 }
 
+func (c *accountServiceClient) Ping(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*common.Result, error) {
+	out := new(common.Result)
+	err := c.cc.Invoke(ctx, "/hts.account.AccountService/Ping", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // AccountServiceServer is the server API for AccountService service.
 // All implementations should embed UnimplementedAccountServiceServer
 // for forward compatibility
@@ -88,6 +99,7 @@ type AccountServiceServer interface {
 	GenerateJWT(context.Context, *GenerateJWTRequest) (*common.Result, error)
 	InvalidateJWT(context.Context, *InvalidateJWTRequest) (*common.Result, error)
 	HasPermission(context.Context, *HasPermissionRequest) (*common.Result, error)
+	Ping(context.Context, *empty.Empty) (*common.Result, error)
 }
 
 // UnimplementedAccountServiceServer should be embedded to have forward compatible implementations.
@@ -108,6 +120,9 @@ func (UnimplementedAccountServiceServer) InvalidateJWT(context.Context, *Invalid
 }
 func (UnimplementedAccountServiceServer) HasPermission(context.Context, *HasPermissionRequest) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method HasPermission not implemented")
+}
+func (UnimplementedAccountServiceServer) Ping(context.Context, *empty.Empty) (*common.Result, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Ping not implemented")
 }
 
 // UnsafeAccountServiceServer may be embedded to opt out of forward compatibility for this service.
@@ -211,6 +226,24 @@ func _AccountService_HasPermission_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _AccountService_Ping_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(empty.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountServiceServer).Ping(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.account.AccountService/Ping",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountServiceServer).Ping(ctx, req.(*empty.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // AccountService_ServiceDesc is the grpc.ServiceDesc for AccountService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -237,6 +270,10 @@ var AccountService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "HasPermission",
 			Handler:    _AccountService_HasPermission_Handler,
+		},
+		{
+			MethodName: "Ping",
+			Handler:    _AccountService_Ping_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

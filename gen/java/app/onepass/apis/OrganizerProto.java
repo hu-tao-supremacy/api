@@ -115,92 +115,95 @@ public final class OrganizerProto {
     java.lang.String[] descriptorData = {
       "\n\033hts/organizer/service.proto\022\rhts.organ" +
       "izer\032\027hts/common/common.proto\032\037google/pr" +
-      "otobuf/timestamp.proto\"\"\n\007UserReq\022\027\n\007use" +
-      "r_id\030\001 \001(\003R\006userId\"p\n\010Duration\0220\n\005start\030" +
-      "\001 \001(\0132\032.google.protobuf.TimestampR\005start" +
-      "\0222\n\006finish\030\002 \001(\0132\032.google.protobuf.Times" +
-      "tampR\006finish\"n\n\025CreateOrganizationReq\022\027\n" +
-      "\007user_id\030\001 \001(\003R\006userId\022<\n\014organization\030\002" +
-      " \001(\0132\030.hts.common.OrganizationR\014organiza" +
-      "tion\"\227\001\n\025UpdateOrganizationReq\022\027\n\007user_i" +
-      "d\030\001 \001(\003R\006userId\022\'\n\017organization_id\030\002 \001(\003" +
-      "R\016organizationId\022<\n\014organization\030\003 \001(\0132\030" +
-      ".hts.common.OrganizationR\014organization\"Y" +
-      "\n\025DeleteOrganizationReq\022\027\n\007user_id\030\001 \001(\003" +
-      "R\006userId\022\'\n\017organization_id\030\002 \001(\003R\016organ" +
-      "izationId\"S\n\031AddUsersToOrganizationReq\022\027" +
-      "\n\007user_id\030\001 \001(\003R\006userId\022\035\n\010user_ids\030\002 \003(" +
-      "\003B\002\020\001R\007userIds\"V\n\034UpdateUsersInOrganizat" +
-      "ionReq\022\027\n\007user_id\030\001 \001(\003R\006userId\022\035\n\010user_" +
-      "ids\030\002 \003(\003B\002\020\001R\007userIds\"R\n\016CreateEventReq" +
-      "\022\027\n\007user_id\030\001 \001(\003R\006userId\022\'\n\005event\030\002 \001(\013" +
-      "2\021.hts.common.EventR\005event\"V\n\022UpdateEven" +
-      "tInfoReq\022\027\n\007user_id\030\001 \001(\003R\006userId\022\'\n\005eve" +
-      "nt\030\002 \001(\0132\021.hts.common.EventR\005event\"c\n\026Up" +
-      "dateEventFacilityReq\022\027\n\007user_id\030\001 \001(\003R\006u" +
-      "serId\0220\n\010facility\030\002 \001(\0132\024.hts.common.Fac" +
-      "ilityR\010facility\"\201\001\n\026UpdateEventDurationR" +
-      "eq\022\027\n\007user_id\030\001 \001(\003R\006userId\022\031\n\010event_id\030" +
-      "\002 \001(\003R\007eventId\0223\n\010duration\030\003 \003(\0132\027.hts.o" +
-      "rganizer.DurationR\010duration\"D\n\016DeleteEve" +
-      "ntReq\022\027\n\007user_id\030\001 \001(\003R\006userId\022\031\n\010event_" +
-      "id\030\002 \001(\003R\007eventId\"\301\001\n\034UpdateRegistration" +
-      "RequestReq\022\027\n\007user_id\030\001 \001(\003R\006userId\022,\n\022r" +
-      "egistered_user_id\030\002 \001(\003R\020registeredUserI" +
-      "d\022.\n\023registered_event_id\030\003 \001(\003R\021register" +
-      "edEventId\022*\n\006status\030\004 \001(\0162\022.hts.common.S" +
-      "tatusR\006status\"_\n\014UpdateTagReq\022\027\n\007user_id" +
-      "\030\001 \001(\003R\006userId\022\033\n\007tag_ids\030\002 \003(\003B\002\020\001R\006tag" +
-      "Ids\022\031\n\010event_id\030\003 \001(\003R\007eventId\"j\n\013HasEve" +
-      "ntReq\022\027\n\007user_id\030\001 \001(\003R\006userId\022\'\n\017organi" +
-      "zation_id\030\002 \001(\003R\016organizationId\022\031\n\010event" +
-      "_id\030\003 \001(\003R\007eventId\"U\n\023ReadOrganizationRe" +
-      "s\022>\n\rorganizations\030\001 \003(\0132\030.hts.common.Or" +
-      "ganizationR\rorganizations\"9\n\014ReadEventRe" +
-      "s\022)\n\006events\030\001 \003(\0132\021.hts.common.EventR\006ev" +
-      "ents\"1\n\nReadTagRes\022#\n\004tags\030\001 \003(\0132\017.hts.c" +
-      "ommon.TagR\004tags2\225\n\n\023OrganizationService\022" +
-      "N\n\022CreateOrganization\022$.hts.organizer.Cr" +
-      "eateOrganizationReq\032\022.hts.common.Result\022" +
-      "N\n\020ReadOrganization\022\026.hts.organizer.User" +
-      "Req\032\".hts.organizer.ReadOrganizationRes\022" +
-      "N\n\022UpdateOrganization\022$.hts.organizer.Up" +
-      "dateOrganizationReq\032\022.hts.common.Result\022" +
-      "N\n\022DeleteOrganization\022$.hts.organizer.De" +
-      "leteOrganizationReq\032\022.hts.common.Result\022" +
-      "Y\n\026AddUsersToOrganization\022+.hts.organize" +
-      "r.UpdateUsersInOrganizationReq\032\022.hts.com" +
-      "mon.Result\022^\n\033RemoveUsersFromOrganizatio" +
-      "n\022+.hts.organizer.UpdateUsersInOrganizat" +
-      "ionReq\032\022.hts.common.Result\022@\n\013CreateEven" +
-      "t\022\035.hts.organizer.CreateEventReq\032\022.hts.c" +
-      "ommon.Result\022@\n\tReadEvent\022\026.hts.organize" +
-      "r.UserReq\032\033.hts.organizer.ReadEventRes\022H" +
-      "\n\017UpdateEventInfo\022!.hts.organizer.Update" +
-      "EventInfoReq\032\022.hts.common.Result\022P\n\023Upda" +
-      "teEventFacility\022%.hts.organizer.UpdateEv" +
-      "entFacilityReq\032\022.hts.common.Result\022P\n\023Up" +
-      "dateEventDuration\022%.hts.organizer.Update" +
-      "EventDurationReq\032\022.hts.common.Result\022@\n\013" +
-      "DeleteEvent\022\035.hts.organizer.DeleteEventR" +
-      "eq\032\022.hts.common.Result\022\\\n\031UpdateRegistra" +
-      "tionRequest\022+.hts.organizer.UpdateRegist" +
-      "rationRequestReq\032\022.hts.common.Result\0229\n\006" +
-      "AddTag\022\033.hts.organizer.UpdateTagReq\032\022.ht" +
-      "s.common.Result\022<\n\tRemoveTag\022\033.hts.organ" +
-      "izer.UpdateTagReq\032\022.hts.common.Result\022<\n" +
-      "\007ReadTag\022\026.hts.organizer.UserReq\032\031.hts.o" +
-      "rganizer.ReadTagRes\022:\n\010HasEvent\022\032.hts.or" +
-      "ganizer.HasEventReq\032\022.hts.common.ResultB" +
-      "H\n\020app.onepass.apisB\016OrganizerProtoP\001Z\"o" +
-      "nepass.app/facility/hts/organizerb\006proto" +
-      "3"
+      "otobuf/timestamp.proto\032\033google/protobuf/" +
+      "empty.proto\"\"\n\007UserReq\022\027\n\007user_id\030\001 \001(\003R" +
+      "\006userId\"p\n\010Duration\0220\n\005start\030\001 \001(\0132\032.goo" +
+      "gle.protobuf.TimestampR\005start\0222\n\006finish\030" +
+      "\002 \001(\0132\032.google.protobuf.TimestampR\006finis" +
+      "h\"n\n\025CreateOrganizationReq\022\027\n\007user_id\030\001 " +
+      "\001(\003R\006userId\022<\n\014organization\030\002 \001(\0132\030.hts." +
+      "common.OrganizationR\014organization\"\227\001\n\025Up" +
+      "dateOrganizationReq\022\027\n\007user_id\030\001 \001(\003R\006us" +
+      "erId\022\'\n\017organization_id\030\002 \001(\003R\016organizat" +
+      "ionId\022<\n\014organization\030\003 \001(\0132\030.hts.common" +
+      ".OrganizationR\014organization\"Y\n\025DeleteOrg" +
+      "anizationReq\022\027\n\007user_id\030\001 \001(\003R\006userId\022\'\n" +
+      "\017organization_id\030\002 \001(\003R\016organizationId\"S" +
+      "\n\031AddUsersToOrganizationReq\022\027\n\007user_id\030\001" +
+      " \001(\003R\006userId\022\035\n\010user_ids\030\002 \003(\003B\002\020\001R\007user" +
+      "Ids\"V\n\034UpdateUsersInOrganizationReq\022\027\n\007u" +
+      "ser_id\030\001 \001(\003R\006userId\022\035\n\010user_ids\030\002 \003(\003B\002" +
+      "\020\001R\007userIds\"R\n\016CreateEventReq\022\027\n\007user_id" +
+      "\030\001 \001(\003R\006userId\022\'\n\005event\030\002 \001(\0132\021.hts.comm" +
+      "on.EventR\005event\"V\n\022UpdateEventInfoReq\022\027\n" +
+      "\007user_id\030\001 \001(\003R\006userId\022\'\n\005event\030\002 \001(\0132\021." +
+      "hts.common.EventR\005event\"c\n\026UpdateEventFa" +
+      "cilityReq\022\027\n\007user_id\030\001 \001(\003R\006userId\0220\n\010fa" +
+      "cility\030\002 \001(\0132\024.hts.common.FacilityR\010faci" +
+      "lity\"\201\001\n\026UpdateEventDurationReq\022\027\n\007user_" +
+      "id\030\001 \001(\003R\006userId\022\031\n\010event_id\030\002 \001(\003R\007even" +
+      "tId\0223\n\010duration\030\003 \003(\0132\027.hts.organizer.Du" +
+      "rationR\010duration\"D\n\016DeleteEventReq\022\027\n\007us" +
+      "er_id\030\001 \001(\003R\006userId\022\031\n\010event_id\030\002 \001(\003R\007e" +
+      "ventId\"\301\001\n\034UpdateRegistrationRequestReq\022" +
+      "\027\n\007user_id\030\001 \001(\003R\006userId\022,\n\022registered_u" +
+      "ser_id\030\002 \001(\003R\020registeredUserId\022.\n\023regist" +
+      "ered_event_id\030\003 \001(\003R\021registeredEventId\022*" +
+      "\n\006status\030\004 \001(\0162\022.hts.common.StatusR\006stat" +
+      "us\"_\n\014UpdateTagReq\022\027\n\007user_id\030\001 \001(\003R\006use" +
+      "rId\022\033\n\007tag_ids\030\002 \003(\003B\002\020\001R\006tagIds\022\031\n\010even" +
+      "t_id\030\003 \001(\003R\007eventId\"j\n\013HasEventReq\022\027\n\007us" +
+      "er_id\030\001 \001(\003R\006userId\022\'\n\017organization_id\030\002" +
+      " \001(\003R\016organizationId\022\031\n\010event_id\030\003 \001(\003R\007" +
+      "eventId\"U\n\023ReadOrganizationRes\022>\n\rorgani" +
+      "zations\030\001 \003(\0132\030.hts.common.OrganizationR" +
+      "\rorganizations\"9\n\014ReadEventRes\022)\n\006events" +
+      "\030\001 \003(\0132\021.hts.common.EventR\006events\"1\n\nRea" +
+      "dTagRes\022#\n\004tags\030\001 \003(\0132\017.hts.common.TagR\004" +
+      "tags2\311\n\n\023OrganizationService\022N\n\022CreateOr" +
+      "ganization\022$.hts.organizer.CreateOrganiz" +
+      "ationReq\032\022.hts.common.Result\022N\n\020ReadOrga" +
+      "nization\022\026.hts.organizer.UserReq\032\".hts.o" +
+      "rganizer.ReadOrganizationRes\022N\n\022UpdateOr" +
+      "ganization\022$.hts.organizer.UpdateOrganiz" +
+      "ationReq\032\022.hts.common.Result\022N\n\022DeleteOr" +
+      "ganization\022$.hts.organizer.DeleteOrganiz" +
+      "ationReq\032\022.hts.common.Result\022Y\n\026AddUsers" +
+      "ToOrganization\022+.hts.organizer.UpdateUse" +
+      "rsInOrganizationReq\032\022.hts.common.Result\022" +
+      "^\n\033RemoveUsersFromOrganization\022+.hts.org" +
+      "anizer.UpdateUsersInOrganizationReq\032\022.ht" +
+      "s.common.Result\022@\n\013CreateEvent\022\035.hts.org" +
+      "anizer.CreateEventReq\032\022.hts.common.Resul" +
+      "t\022@\n\tReadEvent\022\026.hts.organizer.UserReq\032\033" +
+      ".hts.organizer.ReadEventRes\022H\n\017UpdateEve" +
+      "ntInfo\022!.hts.organizer.UpdateEventInfoRe" +
+      "q\032\022.hts.common.Result\022P\n\023UpdateEventFaci" +
+      "lity\022%.hts.organizer.UpdateEventFacility" +
+      "Req\032\022.hts.common.Result\022P\n\023UpdateEventDu" +
+      "ration\022%.hts.organizer.UpdateEventDurati" +
+      "onReq\032\022.hts.common.Result\022@\n\013DeleteEvent" +
+      "\022\035.hts.organizer.DeleteEventReq\032\022.hts.co" +
+      "mmon.Result\022\\\n\031UpdateRegistrationRequest" +
+      "\022+.hts.organizer.UpdateRegistrationReque" +
+      "stReq\032\022.hts.common.Result\0229\n\006AddTag\022\033.ht" +
+      "s.organizer.UpdateTagReq\032\022.hts.common.Re" +
+      "sult\022<\n\tRemoveTag\022\033.hts.organizer.Update" +
+      "TagReq\032\022.hts.common.Result\022<\n\007ReadTag\022\026." +
+      "hts.organizer.UserReq\032\031.hts.organizer.Re" +
+      "adTagRes\022:\n\010HasEvent\022\032.hts.organizer.Has" +
+      "EventReq\032\022.hts.common.Result\0222\n\004Ping\022\026.g" +
+      "oogle.protobuf.Empty\032\022.hts.common.Result" +
+      "BH\n\020app.onepass.apisB\016OrganizerProtoP\001Z\"" +
+      "onepass.app/facility/hts/organizerb\006prot" +
+      "o3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           app.onepass.apis.CommonProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
+          com.google.protobuf.EmptyProto.getDescriptor(),
         });
     internal_static_hts_organizer_UserReq_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -312,6 +315,7 @@ public final class OrganizerProto {
         new java.lang.String[] { "Tags", });
     app.onepass.apis.CommonProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
+    com.google.protobuf.EmptyProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

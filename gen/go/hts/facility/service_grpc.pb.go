@@ -31,6 +31,7 @@ type FacilityServiceClient interface {
 	ApproveFacilityRequest(ctx context.Context, in *ApproveFacilityRequestRequest, opts ...grpc.CallOption) (*common.Result, error)
 	RejectFacilityRequest(ctx context.Context, in *RejectFacilityRequestRequest, opts ...grpc.CallOption) (*common.Result, error)
 	GetFacilityInfo(ctx context.Context, in *GetFacilityInfoRequest, opts ...grpc.CallOption) (*common.Facility, error)
+	Ping(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*common.Result, error)
 }
 
 type facilityServiceClient struct {
@@ -140,6 +141,15 @@ func (c *facilityServiceClient) GetFacilityInfo(ctx context.Context, in *GetFaci
 	return out, nil
 }
 
+func (c *facilityServiceClient) Ping(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*common.Result, error) {
+	out := new(common.Result)
+	err := c.cc.Invoke(ctx, "/hts.facility.FacilityService/Ping", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // FacilityServiceServer is the server API for FacilityService service.
 // All implementations should embed UnimplementedFacilityServiceServer
 // for forward compatibility
@@ -155,6 +165,7 @@ type FacilityServiceServer interface {
 	ApproveFacilityRequest(context.Context, *ApproveFacilityRequestRequest) (*common.Result, error)
 	RejectFacilityRequest(context.Context, *RejectFacilityRequestRequest) (*common.Result, error)
 	GetFacilityInfo(context.Context, *GetFacilityInfoRequest) (*common.Facility, error)
+	Ping(context.Context, *empty.Empty) (*common.Result, error)
 }
 
 // UnimplementedFacilityServiceServer should be embedded to have forward compatible implementations.
@@ -193,6 +204,9 @@ func (UnimplementedFacilityServiceServer) RejectFacilityRequest(context.Context,
 }
 func (UnimplementedFacilityServiceServer) GetFacilityInfo(context.Context, *GetFacilityInfoRequest) (*common.Facility, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetFacilityInfo not implemented")
+}
+func (UnimplementedFacilityServiceServer) Ping(context.Context, *empty.Empty) (*common.Result, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Ping not implemented")
 }
 
 // UnsafeFacilityServiceServer may be embedded to opt out of forward compatibility for this service.
@@ -404,6 +418,24 @@ func _FacilityService_GetFacilityInfo_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FacilityService_Ping_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(empty.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FacilityServiceServer).Ping(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.facility.FacilityService/Ping",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FacilityServiceServer).Ping(ctx, req.(*empty.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // FacilityService_ServiceDesc is the grpc.ServiceDesc for FacilityService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -454,6 +486,10 @@ var FacilityService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetFacilityInfo",
 			Handler:    _FacilityService_GetFacilityInfo_Handler,
+		},
+		{
+			MethodName: "Ping",
+			Handler:    _FacilityService_Ping_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
