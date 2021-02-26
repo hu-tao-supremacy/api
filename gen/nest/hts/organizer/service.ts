@@ -125,7 +125,7 @@ export interface ReadTagByIdResult {
 
 export const HTS_ORGANIZER_PACKAGE_NAME = "hts.organizer";
 
-export interface OrganizationServiceClient {
+export interface OrganizerServiceClient {
   createOrganization(request: CreateOrganizationRequest): Observable<Result>;
 
   readOrganization(request: UserRequest): Observable<ReadOrganizationResult>;
@@ -177,7 +177,7 @@ export interface OrganizationServiceClient {
   ping(request: Empty): Observable<Result>;
 }
 
-export interface OrganizationServiceController {
+export interface OrganizerServiceController {
   createOrganization(
     request: CreateOrganizationRequest
   ): Promise<Result> | Observable<Result> | Result;
@@ -273,7 +273,7 @@ export interface OrganizationServiceController {
   ping(request: Empty): Promise<Result> | Observable<Result> | Result;
 }
 
-export function OrganizationServiceControllerMethods() {
+export function OrganizerServiceControllerMethods() {
   return function (constructor: Function) {
     const grpcMethods = [
       "createOrganization",
@@ -303,7 +303,7 @@ export function OrganizationServiceControllerMethods() {
         constructor.prototype,
         method
       );
-      GrpcMethod("OrganizationService", method)(
+      GrpcMethod("OrganizerService", method)(
         constructor.prototype[method],
         method,
         descriptor
@@ -315,7 +315,7 @@ export function OrganizationServiceControllerMethods() {
         constructor.prototype,
         method
       );
-      GrpcStreamMethod("OrganizationService", method)(
+      GrpcStreamMethod("OrganizerService", method)(
         constructor.prototype[method],
         method,
         descriptor
@@ -324,4 +324,4 @@ export function OrganizationServiceControllerMethods() {
   };
 }
 
-export const ORGANIZATION_SERVICE_NAME = "OrganizationService";
+export const ORGANIZER_SERVICE_NAME = "OrganizerService";
