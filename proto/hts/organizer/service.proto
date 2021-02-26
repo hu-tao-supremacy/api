@@ -123,7 +123,7 @@ message ReadTagByIdResult {
 service OrganizationService {
   rpc CreateOrganization(CreateOrganizationRequest) returns (hts.common.Result);
   rpc ReadOrganization(UserRequest) returns (ReadOrganizationResult);
-  rpc ReadOrganizationById(ReadByIdRequest) returns (ReadOrganizationByIdResult)
+  rpc ReadOrganizationById(ReadByIdRequest) returns (ReadOrganizationByIdResult);
   rpc UpdateOrganization(UpdateOrganizationRequest) returns (hts.common.Result);
   rpc DeleteOrganization(DeleteOrganizationRequest) returns (hts.common.Result);
   rpc AddUsersToOrganization(UpdateUsersInOrganizationRequest) returns (hts.common.Result);
