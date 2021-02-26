@@ -10,8 +10,13 @@ option go_package = "onepass.app/facility/hts/organizer";
 import "hts/common/common.proto";
 import "google/protobuf/timestamp.proto";
 
-message UserReq {
+message UserRequest {
   int64 user_id = 1;
+}
+
+message ReadByIdRequest {
+  int64 user_id = 1;
+  int64 read_id = 2;
 }
 
 message Duration {
@@ -19,105 +24,120 @@ message Duration {
   google.protobuf.Timestamp finish = 2;
 }
 
-message CreateOrganizationReq {
+message CreateOrganizationRequest {
   int64 user_id = 1;
   hts.common.Organization organization = 2;
 }
 
-message UpdateOrganizationReq {
+message UpdateOrganizationRequest {
   int64 user_id = 1;
   int64 organization_id = 2;
   hts.common.Organization organization = 3;
 }
 
-message DeleteOrganizationReq {
+message DeleteOrganizationRequest {
   int64 user_id = 1;
   int64 organization_id = 2;
 }
 
-message AddUsersToOrganizationReq {
+message AddUsersToOrganizationRequest {
   int64 user_id = 1;
   repeated int64 user_ids = 2 [packed=true];
 }
 
-message UpdateUsersInOrganizationReq {
+message UpdateUsersInOrganizationRequest {
   int64 user_id = 1;
   repeated int64 user_ids = 2 [packed=true];
 }
 
-message CreateEventReq {
+message CreateEventRequest {
   int64 user_id = 1;
   hts.common.Event event = 2;
 }
 
-message UpdateEventInfoReq {
+message UpdateEventInfoRequest {
   int64 user_id = 1;
   hts.common.Event event = 2;
 }
 
-message UpdateEventFacilityReq {
+message UpdateEventFacilityRequest {
   int64 user_id = 1;
   hts.common.Facility facility = 2;
 }
 
-message UpdateEventDurationReq {
+message UpdateEventDurationRequest {
   int64 user_id = 1;
   int64 event_id = 2;
   repeated Duration duration = 3;
 }
 
-message DeleteEventReq {
+message DeleteEventRequest {
   int64 user_id = 1;
   int64 event_id = 2;
 }
 
-message UpdateRegistrationRequestReq {
+message UpdateRegistrationRequestRequest {
   int64 user_id = 1;
   int64 registered_user_id = 2;
   int64 registered_event_id = 3;
   hts.common.Status status = 4;
 }
 
-message UpdateTagReq {
+message UpdateTagRequest {
   int64 user_id = 1;
   repeated int64 tag_ids = 2 [packed=true];
   int64 event_id = 3;
 }
 
-message HasEventReq {
+message HasEventRequest {
   int64 user_id = 1;
   int64 organization_id = 2;
   int64 event_id = 3;
 }
 
-message ReadOrganizationRes {
+message ReadOrganizationResult {
   repeated hts.common.Organization organizations = 1;
 }
 
-message ReadEventRes {
+message ReadOrganizationByIdResult {
+  hts.common.Organization organization = 1;
+}
+
+message ReadEventResult {
   repeated hts.common.Event events = 1;
 }
 
-message ReadTagRes {
+message ReadEventByIdResult {
+  hts.common.Event event = 1;
+}
+
+message ReadTagResult {
   repeated hts.common.Tag tags = 1;
 }
 
+message ReadTagByIdResult {
+  hts.common.Tag tag = 1;
+}
+
 service OrganizationService {
-  rpc CreateOrganization(CreateOrganizationReq) returns (hts.common.Result);
-  rpc ReadOrganization(UserReq) returns (ReadOrganizationRes);
-  rpc UpdateOrganization(UpdateOrganizationReq) returns (hts.common.Result);
-  rpc DeleteOrganization(DeleteOrganizationReq) returns (hts.common.Result);
-  rpc AddUsersToOrganization(UpdateUsersInOrganizationReq) returns (hts.common.Result);
-  rpc RemoveUsersFromOrganization(UpdateUsersInOrganizationReq) returns (hts.common.Result);
-  rpc CreateEvent(CreateEventReq) returns (hts.common.Result);
-  rpc ReadEvent(UserReq) returns (ReadEventRes);
-  rpc UpdateEventInfo(UpdateEventInfoReq) returns (hts.common.Result);
-  rpc UpdateEventFacility(UpdateEventFacilityReq) returns (hts.common.Result);
-  rpc UpdateEventDuration(UpdateEventDurationReq) returns (hts.common.Result);
-  rpc DeleteEvent(DeleteEventReq) returns (hts.common.Result);
-  rpc UpdateRegistrationRequest(UpdateRegistrationRequestReq) returns (hts.common.Result);
-  rpc AddTag(UpdateTagReq) returns (hts.common.Result);
-  rpc RemoveTag(UpdateTagReq) returns (hts.common.Result);
-  rpc ReadTag(UserReq) returns (ReadTagRes);
-  rpc HasEvent(HasEventReq) returns (hts.common.Result);
+  rpc CreateOrganization(CreateOrganizationRequest) returns (hts.common.Result);
+  rpc ReadOrganization(UserRequest) returns (ReadOrganizationResult);
+  rpc ReadOrganizationById(ReadByIdRequest) returns (ReadOrganizationByIdResult)
+  rpc UpdateOrganization(UpdateOrganizationRequest) returns (hts.common.Result);
+  rpc DeleteOrganization(DeleteOrganizationRequest) returns (hts.common.Result);
+  rpc AddUsersToOrganization(UpdateUsersInOrganizationRequest) returns (hts.common.Result);
+  rpc RemoveUsersFromOrganization(UpdateUsersInOrganizationRequest) returns (hts.common.Result);
+  rpc CreateEvent(CreateEventRequest) returns (hts.common.Result);
+  rpc ReadEvent(UserRequest) returns (ReadEventResult);
+  rpc ReadEventById(ReadByIdRequest) returns (ReadEventByIdResult);
+  rpc UpdateEventInfo(UpdateEventInfoRequest) returns (hts.common.Result);
+  rpc UpdateEventFacility(UpdateEventFacilityRequest) returns (hts.common.Result);
+  rpc UpdateEventDuration(UpdateEventDurationRequest) returns (hts.common.Result);
+  rpc DeleteEvent(DeleteEventRequest) returns (hts.common.Result);
+  rpc UpdateRegistrationRequest(UpdateRegistrationRequestRequest) returns (hts.common.Result);
+  rpc AddTag(UpdateTagRequest) returns (hts.common.Result);
+  rpc RemoveTag(UpdateTagRequest) returns (hts.common.Result);
+  rpc ReadTag(UserRequest) returns (ReadTagResult);
+  rpc ReadTagById(ReadByIdRequest) returns (ReadTagByIdResult);
+  rpc HasEvent(HasEventRequest) returns (hts.common.Result);
 }
