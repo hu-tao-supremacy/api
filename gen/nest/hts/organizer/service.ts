@@ -14,8 +14,13 @@ import { Empty } from "../../google/protobuf/empty";
 
 export const protobufPackage = "hts.organizer";
 
-export interface UserReq {
+export interface UserRequest {
   userId: number;
+}
+
+export interface ReadByIdRequest {
+  userId: number;
+  readId: number;
 }
 
 export interface Duration {
@@ -23,202 +28,247 @@ export interface Duration {
   finish: Timestamp | undefined;
 }
 
-export interface CreateOrganizationReq {
+export interface CreateOrganizationRequest {
   userId: number;
   organization: Organization | undefined;
 }
 
-export interface UpdateOrganizationReq {
+export interface UpdateOrganizationRequest {
   userId: number;
   organizationId: number;
   organization: Organization | undefined;
 }
 
-export interface DeleteOrganizationReq {
+export interface DeleteOrganizationRequest {
   userId: number;
   organizationId: number;
 }
 
-export interface AddUsersToOrganizationReq {
+export interface AddUsersToOrganizationRequest {
   userId: number;
   userIds: number[];
 }
 
-export interface UpdateUsersInOrganizationReq {
+export interface UpdateUsersInOrganizationRequest {
   userId: number;
   userIds: number[];
 }
 
-export interface CreateEventReq {
+export interface CreateEventRequest {
   userId: number;
   event: Event | undefined;
 }
 
-export interface UpdateEventInfoReq {
+export interface UpdateEventInfoRequest {
   userId: number;
   event: Event | undefined;
 }
 
-export interface UpdateEventFacilityReq {
+export interface UpdateEventFacilityRequest {
   userId: number;
   facility: Facility | undefined;
 }
 
-export interface UpdateEventDurationReq {
+export interface UpdateEventDurationRequest {
   userId: number;
   eventId: number;
   duration: Duration[];
 }
 
-export interface DeleteEventReq {
+export interface DeleteEventRequest {
   userId: number;
   eventId: number;
 }
 
-export interface UpdateRegistrationRequestReq {
+export interface UpdateRegistrationRequestRequest {
   userId: number;
   registeredUserId: number;
   registeredEventId: number;
   status: Status;
 }
 
-export interface UpdateTagReq {
+export interface UpdateTagRequest {
   userId: number;
   tagIds: number[];
   eventId: number;
 }
 
-export interface HasEventReq {
+export interface HasEventRequest {
   userId: number;
   organizationId: number;
   eventId: number;
 }
 
-export interface ReadOrganizationRes {
+export interface ReadOrganizationResult {
   organizations: Organization[];
 }
 
-export interface ReadEventRes {
+export interface ReadOrganizationByIdResult {
+  organization: Organization | undefined;
+}
+
+export interface ReadEventResult {
   events: Event[];
 }
 
-export interface ReadTagRes {
+export interface ReadEventByIdResult {
+  event: Event | undefined;
+}
+
+export interface ReadTagResult {
   tags: Tag[];
+}
+
+export interface ReadTagByIdResult {
+  tag: Tag | undefined;
 }
 
 export const HTS_ORGANIZER_PACKAGE_NAME = "hts.organizer";
 
 export interface OrganizationServiceClient {
-  createOrganization(request: CreateOrganizationReq): Observable<Result>;
+  createOrganization(request: CreateOrganizationRequest): Observable<Result>;
 
-  readOrganization(request: UserReq): Observable<ReadOrganizationRes>;
+  readOrganization(request: UserRequest): Observable<ReadOrganizationResult>;
 
-  updateOrganization(request: UpdateOrganizationReq): Observable<Result>;
+  readOrganizationById(
+    request: ReadByIdRequest
+  ): Observable<ReadOrganizationByIdResult>;
 
-  deleteOrganization(request: DeleteOrganizationReq): Observable<Result>;
+  updateOrganization(request: UpdateOrganizationRequest): Observable<Result>;
+
+  deleteOrganization(request: DeleteOrganizationRequest): Observable<Result>;
 
   addUsersToOrganization(
-    request: UpdateUsersInOrganizationReq
+    request: UpdateUsersInOrganizationRequest
   ): Observable<Result>;
 
   removeUsersFromOrganization(
-    request: UpdateUsersInOrganizationReq
+    request: UpdateUsersInOrganizationRequest
   ): Observable<Result>;
 
-  createEvent(request: CreateEventReq): Observable<Result>;
+  createEvent(request: CreateEventRequest): Observable<Result>;
 
-  readEvent(request: UserReq): Observable<ReadEventRes>;
+  readEvent(request: UserRequest): Observable<ReadEventResult>;
 
-  updateEventInfo(request: UpdateEventInfoReq): Observable<Result>;
+  readEventById(request: ReadByIdRequest): Observable<ReadEventByIdResult>;
 
-  updateEventFacility(request: UpdateEventFacilityReq): Observable<Result>;
+  updateEventInfo(request: UpdateEventInfoRequest): Observable<Result>;
 
-  updateEventDuration(request: UpdateEventDurationReq): Observable<Result>;
+  updateEventFacility(request: UpdateEventFacilityRequest): Observable<Result>;
 
-  deleteEvent(request: DeleteEventReq): Observable<Result>;
+  updateEventDuration(request: UpdateEventDurationRequest): Observable<Result>;
+
+  deleteEvent(request: DeleteEventRequest): Observable<Result>;
 
   updateRegistrationRequest(
-    request: UpdateRegistrationRequestReq
+    request: UpdateRegistrationRequestRequest
   ): Observable<Result>;
 
-  addTag(request: UpdateTagReq): Observable<Result>;
+  addTag(request: UpdateTagRequest): Observable<Result>;
 
-  removeTag(request: UpdateTagReq): Observable<Result>;
+  removeTag(request: UpdateTagRequest): Observable<Result>;
 
-  readTag(request: UserReq): Observable<ReadTagRes>;
+  readTag(request: UserRequest): Observable<ReadTagResult>;
 
-  hasEvent(request: HasEventReq): Observable<Result>;
+  readTagById(request: ReadByIdRequest): Observable<ReadTagByIdResult>;
+
+  hasEvent(request: HasEventRequest): Observable<Result>;
 
   ping(request: Empty): Observable<Result>;
 }
 
 export interface OrganizationServiceController {
   createOrganization(
-    request: CreateOrganizationReq
+    request: CreateOrganizationRequest
   ): Promise<Result> | Observable<Result> | Result;
 
   readOrganization(
-    request: UserReq
+    request: UserRequest
   ):
-    | Promise<ReadOrganizationRes>
-    | Observable<ReadOrganizationRes>
-    | ReadOrganizationRes;
+    | Promise<ReadOrganizationResult>
+    | Observable<ReadOrganizationResult>
+    | ReadOrganizationResult;
+
+  readOrganizationById(
+    request: ReadByIdRequest
+  ):
+    | Promise<ReadOrganizationByIdResult>
+    | Observable<ReadOrganizationByIdResult>
+    | ReadOrganizationByIdResult;
 
   updateOrganization(
-    request: UpdateOrganizationReq
+    request: UpdateOrganizationRequest
   ): Promise<Result> | Observable<Result> | Result;
 
   deleteOrganization(
-    request: DeleteOrganizationReq
+    request: DeleteOrganizationRequest
   ): Promise<Result> | Observable<Result> | Result;
 
   addUsersToOrganization(
-    request: UpdateUsersInOrganizationReq
+    request: UpdateUsersInOrganizationRequest
   ): Promise<Result> | Observable<Result> | Result;
 
   removeUsersFromOrganization(
-    request: UpdateUsersInOrganizationReq
+    request: UpdateUsersInOrganizationRequest
   ): Promise<Result> | Observable<Result> | Result;
 
   createEvent(
-    request: CreateEventReq
+    request: CreateEventRequest
   ): Promise<Result> | Observable<Result> | Result;
 
   readEvent(
-    request: UserReq
-  ): Promise<ReadEventRes> | Observable<ReadEventRes> | ReadEventRes;
+    request: UserRequest
+  ): Promise<ReadEventResult> | Observable<ReadEventResult> | ReadEventResult;
+
+  readEventById(
+    request: ReadByIdRequest
+  ):
+    | Promise<ReadEventByIdResult>
+    | Observable<ReadEventByIdResult>
+    | ReadEventByIdResult;
 
   updateEventInfo(
-    request: UpdateEventInfoReq
+    request: UpdateEventInfoRequest
   ): Promise<Result> | Observable<Result> | Result;
 
   updateEventFacility(
-    request: UpdateEventFacilityReq
+    request: UpdateEventFacilityRequest
   ): Promise<Result> | Observable<Result> | Result;
 
   updateEventDuration(
-    request: UpdateEventDurationReq
+    request: UpdateEventDurationRequest
   ): Promise<Result> | Observable<Result> | Result;
 
   deleteEvent(
-    request: DeleteEventReq
+    request: DeleteEventRequest
   ): Promise<Result> | Observable<Result> | Result;
 
   updateRegistrationRequest(
-    request: UpdateRegistrationRequestReq
+    request: UpdateRegistrationRequestRequest
   ): Promise<Result> | Observable<Result> | Result;
 
-  addTag(request: UpdateTagReq): Promise<Result> | Observable<Result> | Result;
+  addTag(
+    request: UpdateTagRequest
+  ): Promise<Result> | Observable<Result> | Result;
 
   removeTag(
-    request: UpdateTagReq
+    request: UpdateTagRequest
   ): Promise<Result> | Observable<Result> | Result;
 
   readTag(
-    request: UserReq
-  ): Promise<ReadTagRes> | Observable<ReadTagRes> | ReadTagRes;
+    request: UserRequest
+  ): Promise<ReadTagResult> | Observable<ReadTagResult> | ReadTagResult;
 
-  hasEvent(request: HasEventReq): Promise<Result> | Observable<Result> | Result;
+  readTagById(
+    request: ReadByIdRequest
+  ):
+    | Promise<ReadTagByIdResult>
+    | Observable<ReadTagByIdResult>
+    | ReadTagByIdResult;
+
+  hasEvent(
+    request: HasEventRequest
+  ): Promise<Result> | Observable<Result> | Result;
 
   ping(request: Empty): Promise<Result> | Observable<Result> | Result;
 }
@@ -228,12 +278,14 @@ export function OrganizationServiceControllerMethods() {
     const grpcMethods = [
       "createOrganization",
       "readOrganization",
+      "readOrganizationById",
       "updateOrganization",
       "deleteOrganization",
       "addUsersToOrganization",
       "removeUsersFromOrganization",
       "createEvent",
       "readEvent",
+      "readEventById",
       "updateEventInfo",
       "updateEventFacility",
       "updateEventDuration",
@@ -242,6 +294,7 @@ export function OrganizationServiceControllerMethods() {
       "addTag",
       "removeTag",
       "readTag",
+      "readTagById",
       "hasEvent",
       "ping",
     ];

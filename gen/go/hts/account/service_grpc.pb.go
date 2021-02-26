@@ -4,10 +4,10 @@ package account
 
 import (
 	context "context"
-	empty "github.com/golang/protobuf/ptypes/empty"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	common "onepass.app/facility/hts/common"
 )
 
@@ -25,7 +25,7 @@ type AccountServiceClient interface {
 	GenerateJWT(ctx context.Context, in *GenerateJWTRequest, opts ...grpc.CallOption) (*common.Result, error)
 	InvalidateJWT(ctx context.Context, in *InvalidateJWTRequest, opts ...grpc.CallOption) (*common.Result, error)
 	HasPermission(ctx context.Context, in *HasPermissionRequest, opts ...grpc.CallOption) (*common.Result, error)
-	Ping(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*common.Result, error)
+	Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*common.Result, error)
 }
 
 type accountServiceClient struct {
@@ -81,7 +81,7 @@ func (c *accountServiceClient) HasPermission(ctx context.Context, in *HasPermiss
 	return out, nil
 }
 
-func (c *accountServiceClient) Ping(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*common.Result, error) {
+func (c *accountServiceClient) Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*common.Result, error) {
 	out := new(common.Result)
 	err := c.cc.Invoke(ctx, "/hts.account.AccountService/Ping", in, out, opts...)
 	if err != nil {
@@ -99,7 +99,7 @@ type AccountServiceServer interface {
 	GenerateJWT(context.Context, *GenerateJWTRequest) (*common.Result, error)
 	InvalidateJWT(context.Context, *InvalidateJWTRequest) (*common.Result, error)
 	HasPermission(context.Context, *HasPermissionRequest) (*common.Result, error)
-	Ping(context.Context, *empty.Empty) (*common.Result, error)
+	Ping(context.Context, *emptypb.Empty) (*common.Result, error)
 }
 
 // UnimplementedAccountServiceServer should be embedded to have forward compatible implementations.
@@ -121,7 +121,7 @@ func (UnimplementedAccountServiceServer) InvalidateJWT(context.Context, *Invalid
 func (UnimplementedAccountServiceServer) HasPermission(context.Context, *HasPermissionRequest) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method HasPermission not implemented")
 }
-func (UnimplementedAccountServiceServer) Ping(context.Context, *empty.Empty) (*common.Result, error) {
+func (UnimplementedAccountServiceServer) Ping(context.Context, *emptypb.Empty) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Ping not implemented")
 }
 
@@ -227,7 +227,7 @@ func _AccountService_HasPermission_Handler(srv interface{}, ctx context.Context,
 }
 
 func _AccountService_Ping_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(empty.Empty)
+	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -239,7 +239,7 @@ func _AccountService_Ping_Handler(srv interface{}, ctx context.Context, dec func
 		FullMethod: "/hts.account.AccountService/Ping",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountServiceServer).Ping(ctx, req.(*empty.Empty))
+		return srv.(AccountServiceServer).Ping(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
