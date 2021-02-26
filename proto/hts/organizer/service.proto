@@ -141,4 +141,5 @@ service OrganizationService {
   rpc ReadTag(UserRequest) returns (ReadTagResult);
   rpc ReadTagById(ReadByIdRequest) returns (ReadTagByIdResult);
   rpc HasEvent(HasEventRequest) returns (hts.common.Result);
+  rpc Ping(google.protobuf.Empty) returns (hts.common.Result);
 }
