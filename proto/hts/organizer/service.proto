@@ -120,7 +120,7 @@ message ReadTagByIdResult {
   hts.common.Tag tag = 1;
 }
 
-service OrganizationService {
+service OrganizerService {
   rpc CreateOrganization(CreateOrganizationRequest) returns (hts.common.Result);
   rpc ReadOrganization(UserRequest) returns (ReadOrganizationResult);
   rpc ReadOrganizationById(ReadByIdRequest) returns (ReadOrganizationByIdResult);
