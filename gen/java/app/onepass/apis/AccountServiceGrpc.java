@@ -169,6 +169,37 @@ public final class AccountServiceGrpc {
     return getHasPermissionMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      app.onepass.apis.Result> getPingMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "Ping",
+      requestType = com.google.protobuf.Empty.class,
+      responseType = app.onepass.apis.Result.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      app.onepass.apis.Result> getPingMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, app.onepass.apis.Result> getPingMethod;
+    if ((getPingMethod = AccountServiceGrpc.getPingMethod) == null) {
+      synchronized (AccountServiceGrpc.class) {
+        if ((getPingMethod = AccountServiceGrpc.getPingMethod) == null) {
+          AccountServiceGrpc.getPingMethod = getPingMethod =
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, app.onepass.apis.Result>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Ping"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.Result.getDefaultInstance()))
+              .setSchemaDescriptor(new AccountServiceMethodDescriptorSupplier("Ping"))
+              .build();
+        }
+      }
+    }
+    return getPingMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -252,6 +283,13 @@ public final class AccountServiceGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getHasPermissionMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void ping(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.Result> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getPingMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -289,6 +327,13 @@ public final class AccountServiceGrpc {
                 app.onepass.apis.HasPermissionRequest,
                 app.onepass.apis.Result>(
                   this, METHODID_HAS_PERMISSION)))
+          .addMethod(
+            getPingMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.google.protobuf.Empty,
+                app.onepass.apis.Result>(
+                  this, METHODID_PING)))
           .build();
     }
   }
@@ -346,6 +391,14 @@ public final class AccountServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getHasPermissionMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void ping(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.Result> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getPingMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -395,6 +448,13 @@ public final class AccountServiceGrpc {
     public app.onepass.apis.Result hasPermission(app.onepass.apis.HasPermissionRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getHasPermissionMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public app.onepass.apis.Result ping(com.google.protobuf.Empty request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getPingMethod(), getCallOptions(), request);
     }
   }
 
@@ -451,6 +511,14 @@ public final class AccountServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getHasPermissionMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.Result> ping(
+        com.google.protobuf.Empty request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getPingMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_IS_AUTHENTICATED = 0;
@@ -458,6 +526,7 @@ public final class AccountServiceGrpc {
   private static final int METHODID_GENERATE_JWT = 2;
   private static final int METHODID_INVALIDATE_JWT = 3;
   private static final int METHODID_HAS_PERMISSION = 4;
+  private static final int METHODID_PING = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -494,6 +563,10 @@ public final class AccountServiceGrpc {
           break;
         case METHODID_HAS_PERMISSION:
           serviceImpl.hasPermission((app.onepass.apis.HasPermissionRequest) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.Result>) responseObserver);
+          break;
+        case METHODID_PING:
+          serviceImpl.ping((com.google.protobuf.Empty) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.Result>) responseObserver);
           break;
         default:
@@ -562,6 +635,7 @@ public final class AccountServiceGrpc {
               .addMethod(getGenerateJWTMethod())
               .addMethod(getInvalidateJWTMethod())
               .addMethod(getHasPermissionMethod())
+              .addMethod(getPingMethod())
               .build();
         }
       }

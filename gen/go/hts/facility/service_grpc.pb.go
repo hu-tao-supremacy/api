@@ -22,13 +22,16 @@ const _ = grpc.SupportPackageIsVersion7
 type FacilityServiceClient interface {
 	GetFacilityList(ctx context.Context, in *GetFacilityListRequest, opts ...grpc.CallOption) (*GetFacilityListResponse, error)
 	GetFacilityRequestList(ctx context.Context, in *GetFacilityRequestListRequest, opts ...grpc.CallOption) (*GetFacilityRequestListResponse, error)
-	GetFacilityRequestsStatus(ctx context.Context, in *GetFacilityRequestsStatusRequest, opts ...grpc.CallOption) (*GetFacilityRequestsStatusResponse, error)
+	GetFacilityRequestsListStatus(ctx context.Context, in *GetFacilityRequestsListStatusRequest, opts ...grpc.CallOption) (*GetFacilityRequestsListStatusResponse, error)
+	GetFacilityRequestStatus(ctx context.Context, in *GetFacilityRequestStatusRequest, opts ...grpc.CallOption) (*common.FacilityRequest, error)
+	GetFacilityRequestStatusFull(ctx context.Context, in *GetFacilityRequestStatusFullRequest, opts ...grpc.CallOption) (*FacilityRequestWithFacilityInfo, error)
 	GetAvailableFacilityList(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*GetAvailableFacilityListResponse, error)
 	GetAvailableTimeOfFacility(ctx context.Context, in *GetAvailableTimeOfFacilityRequest, opts ...grpc.CallOption) (*GetAvailableTimeOfFacilityResponse, error)
 	CreateFacilityRequest(ctx context.Context, in *CreateFacilityRequestRequest, opts ...grpc.CallOption) (*common.FacilityRequest, error)
 	ApproveFacilityRequest(ctx context.Context, in *ApproveFacilityRequestRequest, opts ...grpc.CallOption) (*common.Result, error)
 	RejectFacilityRequest(ctx context.Context, in *RejectFacilityRequestRequest, opts ...grpc.CallOption) (*common.Result, error)
 	GetFacilityInfo(ctx context.Context, in *GetFacilityInfoRequest, opts ...grpc.CallOption) (*common.Facility, error)
+	Ping(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*common.Result, error)
 }
 
 type facilityServiceClient struct {
@@ -57,9 +60,27 @@ func (c *facilityServiceClient) GetFacilityRequestList(ctx context.Context, in *
 	return out, nil
 }
 
-func (c *facilityServiceClient) GetFacilityRequestsStatus(ctx context.Context, in *GetFacilityRequestsStatusRequest, opts ...grpc.CallOption) (*GetFacilityRequestsStatusResponse, error) {
-	out := new(GetFacilityRequestsStatusResponse)
-	err := c.cc.Invoke(ctx, "/hts.facility.FacilityService/GetFacilityRequestsStatus", in, out, opts...)
+func (c *facilityServiceClient) GetFacilityRequestsListStatus(ctx context.Context, in *GetFacilityRequestsListStatusRequest, opts ...grpc.CallOption) (*GetFacilityRequestsListStatusResponse, error) {
+	out := new(GetFacilityRequestsListStatusResponse)
+	err := c.cc.Invoke(ctx, "/hts.facility.FacilityService/GetFacilityRequestsListStatus", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *facilityServiceClient) GetFacilityRequestStatus(ctx context.Context, in *GetFacilityRequestStatusRequest, opts ...grpc.CallOption) (*common.FacilityRequest, error) {
+	out := new(common.FacilityRequest)
+	err := c.cc.Invoke(ctx, "/hts.facility.FacilityService/GetFacilityRequestStatus", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *facilityServiceClient) GetFacilityRequestStatusFull(ctx context.Context, in *GetFacilityRequestStatusFullRequest, opts ...grpc.CallOption) (*FacilityRequestWithFacilityInfo, error) {
+	out := new(FacilityRequestWithFacilityInfo)
+	err := c.cc.Invoke(ctx, "/hts.facility.FacilityService/GetFacilityRequestStatusFull", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -120,19 +141,31 @@ func (c *facilityServiceClient) GetFacilityInfo(ctx context.Context, in *GetFaci
 	return out, nil
 }
 
+func (c *facilityServiceClient) Ping(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*common.Result, error) {
+	out := new(common.Result)
+	err := c.cc.Invoke(ctx, "/hts.facility.FacilityService/Ping", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // FacilityServiceServer is the server API for FacilityService service.
 // All implementations should embed UnimplementedFacilityServiceServer
 // for forward compatibility
 type FacilityServiceServer interface {
 	GetFacilityList(context.Context, *GetFacilityListRequest) (*GetFacilityListResponse, error)
 	GetFacilityRequestList(context.Context, *GetFacilityRequestListRequest) (*GetFacilityRequestListResponse, error)
-	GetFacilityRequestsStatus(context.Context, *GetFacilityRequestsStatusRequest) (*GetFacilityRequestsStatusResponse, error)
+	GetFacilityRequestsListStatus(context.Context, *GetFacilityRequestsListStatusRequest) (*GetFacilityRequestsListStatusResponse, error)
+	GetFacilityRequestStatus(context.Context, *GetFacilityRequestStatusRequest) (*common.FacilityRequest, error)
+	GetFacilityRequestStatusFull(context.Context, *GetFacilityRequestStatusFullRequest) (*FacilityRequestWithFacilityInfo, error)
 	GetAvailableFacilityList(context.Context, *empty.Empty) (*GetAvailableFacilityListResponse, error)
 	GetAvailableTimeOfFacility(context.Context, *GetAvailableTimeOfFacilityRequest) (*GetAvailableTimeOfFacilityResponse, error)
 	CreateFacilityRequest(context.Context, *CreateFacilityRequestRequest) (*common.FacilityRequest, error)
 	ApproveFacilityRequest(context.Context, *ApproveFacilityRequestRequest) (*common.Result, error)
 	RejectFacilityRequest(context.Context, *RejectFacilityRequestRequest) (*common.Result, error)
 	GetFacilityInfo(context.Context, *GetFacilityInfoRequest) (*common.Facility, error)
+	Ping(context.Context, *empty.Empty) (*common.Result, error)
 }
 
 // UnimplementedFacilityServiceServer should be embedded to have forward compatible implementations.
@@ -145,8 +178,14 @@ func (UnimplementedFacilityServiceServer) GetFacilityList(context.Context, *GetF
 func (UnimplementedFacilityServiceServer) GetFacilityRequestList(context.Context, *GetFacilityRequestListRequest) (*GetFacilityRequestListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetFacilityRequestList not implemented")
 }
-func (UnimplementedFacilityServiceServer) GetFacilityRequestsStatus(context.Context, *GetFacilityRequestsStatusRequest) (*GetFacilityRequestsStatusResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetFacilityRequestsStatus not implemented")
+func (UnimplementedFacilityServiceServer) GetFacilityRequestsListStatus(context.Context, *GetFacilityRequestsListStatusRequest) (*GetFacilityRequestsListStatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetFacilityRequestsListStatus not implemented")
+}
+func (UnimplementedFacilityServiceServer) GetFacilityRequestStatus(context.Context, *GetFacilityRequestStatusRequest) (*common.FacilityRequest, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetFacilityRequestStatus not implemented")
+}
+func (UnimplementedFacilityServiceServer) GetFacilityRequestStatusFull(context.Context, *GetFacilityRequestStatusFullRequest) (*FacilityRequestWithFacilityInfo, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetFacilityRequestStatusFull not implemented")
 }
 func (UnimplementedFacilityServiceServer) GetAvailableFacilityList(context.Context, *empty.Empty) (*GetAvailableFacilityListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAvailableFacilityList not implemented")
@@ -165,6 +204,9 @@ func (UnimplementedFacilityServiceServer) RejectFacilityRequest(context.Context,
 }
 func (UnimplementedFacilityServiceServer) GetFacilityInfo(context.Context, *GetFacilityInfoRequest) (*common.Facility, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetFacilityInfo not implemented")
+}
+func (UnimplementedFacilityServiceServer) Ping(context.Context, *empty.Empty) (*common.Result, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Ping not implemented")
 }
 
 // UnsafeFacilityServiceServer may be embedded to opt out of forward compatibility for this service.
@@ -214,20 +256,56 @@ func _FacilityService_GetFacilityRequestList_Handler(srv interface{}, ctx contex
 	return interceptor(ctx, in, info, handler)
 }
 
-func _FacilityService_GetFacilityRequestsStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetFacilityRequestsStatusRequest)
+func _FacilityService_GetFacilityRequestsListStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFacilityRequestsListStatusRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(FacilityServiceServer).GetFacilityRequestsStatus(ctx, in)
+		return srv.(FacilityServiceServer).GetFacilityRequestsListStatus(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.facility.FacilityService/GetFacilityRequestsStatus",
+		FullMethod: "/hts.facility.FacilityService/GetFacilityRequestsListStatus",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(FacilityServiceServer).GetFacilityRequestsStatus(ctx, req.(*GetFacilityRequestsStatusRequest))
+		return srv.(FacilityServiceServer).GetFacilityRequestsListStatus(ctx, req.(*GetFacilityRequestsListStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FacilityService_GetFacilityRequestStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFacilityRequestStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FacilityServiceServer).GetFacilityRequestStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.facility.FacilityService/GetFacilityRequestStatus",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FacilityServiceServer).GetFacilityRequestStatus(ctx, req.(*GetFacilityRequestStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FacilityService_GetFacilityRequestStatusFull_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetFacilityRequestStatusFullRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FacilityServiceServer).GetFacilityRequestStatusFull(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.facility.FacilityService/GetFacilityRequestStatusFull",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FacilityServiceServer).GetFacilityRequestStatusFull(ctx, req.(*GetFacilityRequestStatusFullRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -340,6 +418,24 @@ func _FacilityService_GetFacilityInfo_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FacilityService_Ping_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(empty.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FacilityServiceServer).Ping(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.facility.FacilityService/Ping",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FacilityServiceServer).Ping(ctx, req.(*empty.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // FacilityService_ServiceDesc is the grpc.ServiceDesc for FacilityService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -356,8 +452,16 @@ var FacilityService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _FacilityService_GetFacilityRequestList_Handler,
 		},
 		{
-			MethodName: "GetFacilityRequestsStatus",
-			Handler:    _FacilityService_GetFacilityRequestsStatus_Handler,
+			MethodName: "GetFacilityRequestsListStatus",
+			Handler:    _FacilityService_GetFacilityRequestsListStatus_Handler,
+		},
+		{
+			MethodName: "GetFacilityRequestStatus",
+			Handler:    _FacilityService_GetFacilityRequestStatus_Handler,
+		},
+		{
+			MethodName: "GetFacilityRequestStatusFull",
+			Handler:    _FacilityService_GetFacilityRequestStatusFull_Handler,
 		},
 		{
 			MethodName: "GetAvailableFacilityList",
@@ -382,6 +486,10 @@ var FacilityService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetFacilityInfo",
 			Handler:    _FacilityService_GetFacilityInfo_Handler,
+		},
+		{
+			MethodName: "Ping",
+			Handler:    _FacilityService_Ping_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

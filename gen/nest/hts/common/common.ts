@@ -3,6 +3,17 @@ import { Timestamp } from "../../google/protobuf/timestamp";
 
 export const protobufPackage = "hts.common";
 
+export enum DayOfWeek {
+  SUN = 0,
+  MON = 1,
+  TUE = 2,
+  WED = 3,
+  THU = 4,
+  FRI = 5,
+  SAT = 6,
+  UNRECOGNIZED = -1,
+}
+
 export enum Gender {
   MALE = 0,
   FEMALE = 1,
@@ -39,6 +50,12 @@ export enum Permission {
   UPDATE_FACILITY = 18,
   DELETE_FACILITY = 19,
   UNRECOGNIZED = -1,
+}
+
+export interface OperatingHour {
+  startHour: number;
+  finishHour: number;
+  day: DayOfWeek;
 }
 
 export interface Result {
@@ -160,7 +177,7 @@ export interface Facility {
   name: string;
   latitude: number;
   longitude: number;
-  operatingHours: string;
+  operatingHours: OperatingHour[];
   description: string;
 }
 

@@ -9,6 +9,7 @@ option java_outer_classname = "AccountProto";
 option go_package = "onepass.app/facility/hts/account";
 
 import "hts/common/common.proto";
+import "google/protobuf/empty.proto";
 
 message IsAuthenticatedRequest {
   string access_token = 1;
@@ -42,4 +43,5 @@ service AccountService {
   rpc GenerateJWT(GenerateJWTRequest) returns (hts.common.Result);
   rpc InvalidateJWT(InvalidateJWTRequest) returns (hts.common.Result);
   rpc HasPermission(HasPermissionRequest) returns (hts.common.Result);
+  rpc Ping(google.protobuf.Empty) returns (hts.common.Result);
 }

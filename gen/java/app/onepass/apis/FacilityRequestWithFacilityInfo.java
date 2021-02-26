@@ -18,7 +18,7 @@ private static final long serialVersionUID = 0L;
   private FacilityRequestWithFacilityInfo() {
     status_ = 0;
     facilityName_ = "";
-    operatingHours_ = "";
+    operatingHours_ = java.util.Collections.emptyList();
     description_ = "";
   }
 
@@ -42,6 +42,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -123,20 +124,23 @@ private static final long serialVersionUID = 0L;
             facilityName_ = s;
             break;
           }
-          case 80: {
+          case 81: {
 
-            latitude_ = input.readInt64();
+            latitude_ = input.readDouble();
             break;
           }
-          case 88: {
+          case 89: {
 
-            longitude_ = input.readInt64();
+            longitude_ = input.readDouble();
             break;
           }
           case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            operatingHours_ = s;
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              operatingHours_ = new java.util.ArrayList<app.onepass.apis.OperatingHour>();
+              mutable_bitField0_ |= 0x00000001;
+            }
+            operatingHours_.add(
+                input.readMessage(app.onepass.apis.OperatingHour.parser(), extensionRegistry));
             break;
           }
           case 106: {
@@ -160,6 +164,9 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        operatingHours_ = java.util.Collections.unmodifiableList(operatingHours_);
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -357,63 +364,65 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LATITUDE_FIELD_NUMBER = 10;
-  private long latitude_;
+  private double latitude_;
   /**
-   * <code>int64 latitude = 10 [json_name = "latitude"];</code>
+   * <code>double latitude = 10 [json_name = "latitude"];</code>
    * @return The latitude.
    */
   @java.lang.Override
-  public long getLatitude() {
+  public double getLatitude() {
     return latitude_;
   }
 
   public static final int LONGITUDE_FIELD_NUMBER = 11;
-  private long longitude_;
+  private double longitude_;
   /**
-   * <code>int64 longitude = 11 [json_name = "longitude"];</code>
+   * <code>double longitude = 11 [json_name = "longitude"];</code>
    * @return The longitude.
    */
   @java.lang.Override
-  public long getLongitude() {
+  public double getLongitude() {
     return longitude_;
   }
 
   public static final int OPERATING_HOURS_FIELD_NUMBER = 12;
-  private volatile java.lang.Object operatingHours_;
+  private java.util.List<app.onepass.apis.OperatingHour> operatingHours_;
   /**
-   * <code>string operating_hours = 12 [json_name = "operatingHours"];</code>
-   * @return The operatingHours.
+   * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
    */
   @java.lang.Override
-  public java.lang.String getOperatingHours() {
-    java.lang.Object ref = operatingHours_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      operatingHours_ = s;
-      return s;
-    }
+  public java.util.List<app.onepass.apis.OperatingHour> getOperatingHoursList() {
+    return operatingHours_;
   }
   /**
-   * <code>string operating_hours = 12 [json_name = "operatingHours"];</code>
-   * @return The bytes for operatingHours.
+   * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getOperatingHoursBytes() {
-    java.lang.Object ref = operatingHours_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      operatingHours_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public java.util.List<? extends app.onepass.apis.OperatingHourOrBuilder> 
+      getOperatingHoursOrBuilderList() {
+    return operatingHours_;
+  }
+  /**
+   * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
+   */
+  @java.lang.Override
+  public int getOperatingHoursCount() {
+    return operatingHours_.size();
+  }
+  /**
+   * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
+   */
+  @java.lang.Override
+  public app.onepass.apis.OperatingHour getOperatingHours(int index) {
+    return operatingHours_.get(index);
+  }
+  /**
+   * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
+   */
+  @java.lang.Override
+  public app.onepass.apis.OperatingHourOrBuilder getOperatingHoursOrBuilder(
+      int index) {
+    return operatingHours_.get(index);
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 13;
@@ -495,14 +504,14 @@ private static final long serialVersionUID = 0L;
     if (!getFacilityNameBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 9, facilityName_);
     }
-    if (latitude_ != 0L) {
-      output.writeInt64(10, latitude_);
+    if (latitude_ != 0D) {
+      output.writeDouble(10, latitude_);
     }
-    if (longitude_ != 0L) {
-      output.writeInt64(11, longitude_);
+    if (longitude_ != 0D) {
+      output.writeDouble(11, longitude_);
     }
-    if (!getOperatingHoursBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 12, operatingHours_);
+    for (int i = 0; i < operatingHours_.size(); i++) {
+      output.writeMessage(12, operatingHours_.get(i));
     }
     if (!getDescriptionBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 13, description_);
@@ -551,16 +560,17 @@ private static final long serialVersionUID = 0L;
     if (!getFacilityNameBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, facilityName_);
     }
-    if (latitude_ != 0L) {
+    if (latitude_ != 0D) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(10, latitude_);
+        .computeDoubleSize(10, latitude_);
     }
-    if (longitude_ != 0L) {
+    if (longitude_ != 0D) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(11, longitude_);
+        .computeDoubleSize(11, longitude_);
     }
-    if (!getOperatingHoursBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, operatingHours_);
+    for (int i = 0; i < operatingHours_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(12, operatingHours_.get(i));
     }
     if (!getDescriptionBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, description_);
@@ -606,12 +616,14 @@ private static final long serialVersionUID = 0L;
     }
     if (!getFacilityName()
         .equals(other.getFacilityName())) return false;
-    if (getLatitude()
-        != other.getLatitude()) return false;
-    if (getLongitude()
-        != other.getLongitude()) return false;
-    if (!getOperatingHours()
-        .equals(other.getOperatingHours())) return false;
+    if (java.lang.Double.doubleToLongBits(getLatitude())
+        != java.lang.Double.doubleToLongBits(
+            other.getLatitude())) return false;
+    if (java.lang.Double.doubleToLongBits(getLongitude())
+        != java.lang.Double.doubleToLongBits(
+            other.getLongitude())) return false;
+    if (!getOperatingHoursList()
+        .equals(other.getOperatingHoursList())) return false;
     if (!getDescription()
         .equals(other.getDescription())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -655,12 +667,14 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getFacilityName().hashCode();
     hash = (37 * hash) + LATITUDE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getLatitude());
+        java.lang.Double.doubleToLongBits(getLatitude()));
     hash = (37 * hash) + LONGITUDE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getLongitude());
-    hash = (37 * hash) + OPERATING_HOURS_FIELD_NUMBER;
-    hash = (53 * hash) + getOperatingHours().hashCode();
+        java.lang.Double.doubleToLongBits(getLongitude()));
+    if (getOperatingHoursCount() > 0) {
+      hash = (37 * hash) + OPERATING_HOURS_FIELD_NUMBER;
+      hash = (53 * hash) + getOperatingHoursList().hashCode();
+    }
     hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
     hash = (53 * hash) + getDescription().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -791,6 +805,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getOperatingHoursFieldBuilder();
       }
     }
     @java.lang.Override
@@ -826,12 +841,16 @@ private static final long serialVersionUID = 0L;
       }
       facilityName_ = "";
 
-      latitude_ = 0L;
+      latitude_ = 0D;
 
-      longitude_ = 0L;
+      longitude_ = 0D;
 
-      operatingHours_ = "";
-
+      if (operatingHoursBuilder_ == null) {
+        operatingHours_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+      } else {
+        operatingHoursBuilder_.clear();
+      }
       description_ = "";
 
       return this;
@@ -860,6 +879,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public app.onepass.apis.FacilityRequestWithFacilityInfo buildPartial() {
       app.onepass.apis.FacilityRequestWithFacilityInfo result = new app.onepass.apis.FacilityRequestWithFacilityInfo(this);
+      int from_bitField0_ = bitField0_;
       result.id_ = id_;
       result.eventId_ = eventId_;
       result.facilityId_ = facilityId_;
@@ -883,7 +903,15 @@ private static final long serialVersionUID = 0L;
       result.facilityName_ = facilityName_;
       result.latitude_ = latitude_;
       result.longitude_ = longitude_;
-      result.operatingHours_ = operatingHours_;
+      if (operatingHoursBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0)) {
+          operatingHours_ = java.util.Collections.unmodifiableList(operatingHours_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.operatingHours_ = operatingHours_;
+      } else {
+        result.operatingHours_ = operatingHoursBuilder_.build();
+      }
       result.description_ = description_;
       onBuilt();
       return result;
@@ -961,15 +989,37 @@ private static final long serialVersionUID = 0L;
         facilityName_ = other.facilityName_;
         onChanged();
       }
-      if (other.getLatitude() != 0L) {
+      if (other.getLatitude() != 0D) {
         setLatitude(other.getLatitude());
       }
-      if (other.getLongitude() != 0L) {
+      if (other.getLongitude() != 0D) {
         setLongitude(other.getLongitude());
       }
-      if (!other.getOperatingHours().isEmpty()) {
-        operatingHours_ = other.operatingHours_;
-        onChanged();
+      if (operatingHoursBuilder_ == null) {
+        if (!other.operatingHours_.isEmpty()) {
+          if (operatingHours_.isEmpty()) {
+            operatingHours_ = other.operatingHours_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureOperatingHoursIsMutable();
+            operatingHours_.addAll(other.operatingHours_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.operatingHours_.isEmpty()) {
+          if (operatingHoursBuilder_.isEmpty()) {
+            operatingHoursBuilder_.dispose();
+            operatingHoursBuilder_ = null;
+            operatingHours_ = other.operatingHours_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+            operatingHoursBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getOperatingHoursFieldBuilder() : null;
+          } else {
+            operatingHoursBuilder_.addAllMessages(other.operatingHours_);
+          }
+        }
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
@@ -1003,6 +1053,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private long id_ ;
     /**
@@ -1615,142 +1666,306 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long latitude_ ;
+    private double latitude_ ;
     /**
-     * <code>int64 latitude = 10 [json_name = "latitude"];</code>
+     * <code>double latitude = 10 [json_name = "latitude"];</code>
      * @return The latitude.
      */
     @java.lang.Override
-    public long getLatitude() {
+    public double getLatitude() {
       return latitude_;
     }
     /**
-     * <code>int64 latitude = 10 [json_name = "latitude"];</code>
+     * <code>double latitude = 10 [json_name = "latitude"];</code>
      * @param value The latitude to set.
      * @return This builder for chaining.
      */
-    public Builder setLatitude(long value) {
+    public Builder setLatitude(double value) {
       
       latitude_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 latitude = 10 [json_name = "latitude"];</code>
+     * <code>double latitude = 10 [json_name = "latitude"];</code>
      * @return This builder for chaining.
      */
     public Builder clearLatitude() {
       
-      latitude_ = 0L;
+      latitude_ = 0D;
       onChanged();
       return this;
     }
 
-    private long longitude_ ;
+    private double longitude_ ;
     /**
-     * <code>int64 longitude = 11 [json_name = "longitude"];</code>
+     * <code>double longitude = 11 [json_name = "longitude"];</code>
      * @return The longitude.
      */
     @java.lang.Override
-    public long getLongitude() {
+    public double getLongitude() {
       return longitude_;
     }
     /**
-     * <code>int64 longitude = 11 [json_name = "longitude"];</code>
+     * <code>double longitude = 11 [json_name = "longitude"];</code>
      * @param value The longitude to set.
      * @return This builder for chaining.
      */
-    public Builder setLongitude(long value) {
+    public Builder setLongitude(double value) {
       
       longitude_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 longitude = 11 [json_name = "longitude"];</code>
+     * <code>double longitude = 11 [json_name = "longitude"];</code>
      * @return This builder for chaining.
      */
     public Builder clearLongitude() {
       
-      longitude_ = 0L;
+      longitude_ = 0D;
       onChanged();
       return this;
     }
 
-    private java.lang.Object operatingHours_ = "";
+    private java.util.List<app.onepass.apis.OperatingHour> operatingHours_ =
+      java.util.Collections.emptyList();
+    private void ensureOperatingHoursIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        operatingHours_ = new java.util.ArrayList<app.onepass.apis.OperatingHour>(operatingHours_);
+        bitField0_ |= 0x00000001;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        app.onepass.apis.OperatingHour, app.onepass.apis.OperatingHour.Builder, app.onepass.apis.OperatingHourOrBuilder> operatingHoursBuilder_;
+
     /**
-     * <code>string operating_hours = 12 [json_name = "operatingHours"];</code>
-     * @return The operatingHours.
+     * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
      */
-    public java.lang.String getOperatingHours() {
-      java.lang.Object ref = operatingHours_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        operatingHours_ = s;
-        return s;
+    public java.util.List<app.onepass.apis.OperatingHour> getOperatingHoursList() {
+      if (operatingHoursBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(operatingHours_);
       } else {
-        return (java.lang.String) ref;
+        return operatingHoursBuilder_.getMessageList();
       }
     }
     /**
-     * <code>string operating_hours = 12 [json_name = "operatingHours"];</code>
-     * @return The bytes for operatingHours.
+     * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
      */
-    public com.google.protobuf.ByteString
-        getOperatingHoursBytes() {
-      java.lang.Object ref = operatingHours_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        operatingHours_ = b;
-        return b;
+    public int getOperatingHoursCount() {
+      if (operatingHoursBuilder_ == null) {
+        return operatingHours_.size();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        return operatingHoursBuilder_.getCount();
       }
     }
     /**
-     * <code>string operating_hours = 12 [json_name = "operatingHours"];</code>
-     * @param value The operatingHours to set.
-     * @return This builder for chaining.
+     * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
+     */
+    public app.onepass.apis.OperatingHour getOperatingHours(int index) {
+      if (operatingHoursBuilder_ == null) {
+        return operatingHours_.get(index);
+      } else {
+        return operatingHoursBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
      */
     public Builder setOperatingHours(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      operatingHours_ = value;
-      onChanged();
+        int index, app.onepass.apis.OperatingHour value) {
+      if (operatingHoursBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureOperatingHoursIsMutable();
+        operatingHours_.set(index, value);
+        onChanged();
+      } else {
+        operatingHoursBuilder_.setMessage(index, value);
+      }
       return this;
     }
     /**
-     * <code>string operating_hours = 12 [json_name = "operatingHours"];</code>
-     * @return This builder for chaining.
+     * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
+     */
+    public Builder setOperatingHours(
+        int index, app.onepass.apis.OperatingHour.Builder builderForValue) {
+      if (operatingHoursBuilder_ == null) {
+        ensureOperatingHoursIsMutable();
+        operatingHours_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        operatingHoursBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
+     */
+    public Builder addOperatingHours(app.onepass.apis.OperatingHour value) {
+      if (operatingHoursBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureOperatingHoursIsMutable();
+        operatingHours_.add(value);
+        onChanged();
+      } else {
+        operatingHoursBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
+     */
+    public Builder addOperatingHours(
+        int index, app.onepass.apis.OperatingHour value) {
+      if (operatingHoursBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureOperatingHoursIsMutable();
+        operatingHours_.add(index, value);
+        onChanged();
+      } else {
+        operatingHoursBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
+     */
+    public Builder addOperatingHours(
+        app.onepass.apis.OperatingHour.Builder builderForValue) {
+      if (operatingHoursBuilder_ == null) {
+        ensureOperatingHoursIsMutable();
+        operatingHours_.add(builderForValue.build());
+        onChanged();
+      } else {
+        operatingHoursBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
+     */
+    public Builder addOperatingHours(
+        int index, app.onepass.apis.OperatingHour.Builder builderForValue) {
+      if (operatingHoursBuilder_ == null) {
+        ensureOperatingHoursIsMutable();
+        operatingHours_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        operatingHoursBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
+     */
+    public Builder addAllOperatingHours(
+        java.lang.Iterable<? extends app.onepass.apis.OperatingHour> values) {
+      if (operatingHoursBuilder_ == null) {
+        ensureOperatingHoursIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, operatingHours_);
+        onChanged();
+      } else {
+        operatingHoursBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
      */
     public Builder clearOperatingHours() {
-      
-      operatingHours_ = getDefaultInstance().getOperatingHours();
-      onChanged();
+      if (operatingHoursBuilder_ == null) {
+        operatingHours_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+      } else {
+        operatingHoursBuilder_.clear();
+      }
       return this;
     }
     /**
-     * <code>string operating_hours = 12 [json_name = "operatingHours"];</code>
-     * @param value The bytes for operatingHours to set.
-     * @return This builder for chaining.
+     * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
      */
-    public Builder setOperatingHoursBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      operatingHours_ = value;
-      onChanged();
+    public Builder removeOperatingHours(int index) {
+      if (operatingHoursBuilder_ == null) {
+        ensureOperatingHoursIsMutable();
+        operatingHours_.remove(index);
+        onChanged();
+      } else {
+        operatingHoursBuilder_.remove(index);
+      }
       return this;
+    }
+    /**
+     * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
+     */
+    public app.onepass.apis.OperatingHour.Builder getOperatingHoursBuilder(
+        int index) {
+      return getOperatingHoursFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
+     */
+    public app.onepass.apis.OperatingHourOrBuilder getOperatingHoursOrBuilder(
+        int index) {
+      if (operatingHoursBuilder_ == null) {
+        return operatingHours_.get(index);  } else {
+        return operatingHoursBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
+     */
+    public java.util.List<? extends app.onepass.apis.OperatingHourOrBuilder> 
+         getOperatingHoursOrBuilderList() {
+      if (operatingHoursBuilder_ != null) {
+        return operatingHoursBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(operatingHours_);
+      }
+    }
+    /**
+     * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
+     */
+    public app.onepass.apis.OperatingHour.Builder addOperatingHoursBuilder() {
+      return getOperatingHoursFieldBuilder().addBuilder(
+          app.onepass.apis.OperatingHour.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
+     */
+    public app.onepass.apis.OperatingHour.Builder addOperatingHoursBuilder(
+        int index) {
+      return getOperatingHoursFieldBuilder().addBuilder(
+          index, app.onepass.apis.OperatingHour.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
+     */
+    public java.util.List<app.onepass.apis.OperatingHour.Builder> 
+         getOperatingHoursBuilderList() {
+      return getOperatingHoursFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        app.onepass.apis.OperatingHour, app.onepass.apis.OperatingHour.Builder, app.onepass.apis.OperatingHourOrBuilder> 
+        getOperatingHoursFieldBuilder() {
+      if (operatingHoursBuilder_ == null) {
+        operatingHoursBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            app.onepass.apis.OperatingHour, app.onepass.apis.OperatingHour.Builder, app.onepass.apis.OperatingHourOrBuilder>(
+                operatingHours_,
+                ((bitField0_ & 0x00000001) != 0),
+                getParentForChildren(),
+                isClean());
+        operatingHours_ = null;
+      }
+      return operatingHoursBuilder_;
     }
 
     private java.lang.Object description_ = "";

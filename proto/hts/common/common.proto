@@ -9,6 +9,17 @@ option go_package = "onepass.app/facility/hts/common";
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+
+enum DayOfWeek {
+  SUN = 0;
+  MON = 1;
+  TUE = 2;
+  WED = 3;
+  THU = 4;
+  FRI = 5;
+  SAT = 6;
+}
 
 enum Gender {
   MALE = 0;
@@ -43,6 +54,12 @@ enum Permission {
   READ_FACILITY = 17;
   UPDATE_FACILITY = 18;
   DELETE_FACILITY = 19;
+}
+
+message OperatingHour {
+  int64 start_hour = 1;
+  int64 finish_hour = 2;
+  DayOfWeek day = 3;
 }
 
 message Result {
@@ -164,6 +181,6 @@ message Facility {
   string name = 3;
   double latitude = 4;
   double longitude = 5;
-  string operating_hours = 6;
+  repeated OperatingHour operating_hours = 6;
   string description = 7;
 }

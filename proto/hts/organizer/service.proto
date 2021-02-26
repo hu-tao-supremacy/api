@@ -9,6 +9,7 @@ option go_package = "onepass.app/facility/hts/organizer";
 
 import "hts/common/common.proto";
 import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
 
 message UserRequest {
   int64 user_id = 1;

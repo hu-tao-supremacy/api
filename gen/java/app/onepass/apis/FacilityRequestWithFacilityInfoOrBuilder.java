@@ -100,28 +100,40 @@ public interface FacilityRequestWithFacilityInfoOrBuilder extends
       getFacilityNameBytes();
 
   /**
-   * <code>int64 latitude = 10 [json_name = "latitude"];</code>
+   * <code>double latitude = 10 [json_name = "latitude"];</code>
    * @return The latitude.
    */
-  long getLatitude();
+  double getLatitude();
 
   /**
-   * <code>int64 longitude = 11 [json_name = "longitude"];</code>
+   * <code>double longitude = 11 [json_name = "longitude"];</code>
    * @return The longitude.
    */
-  long getLongitude();
+  double getLongitude();
 
   /**
-   * <code>string operating_hours = 12 [json_name = "operatingHours"];</code>
-   * @return The operatingHours.
+   * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
    */
-  java.lang.String getOperatingHours();
+  java.util.List<app.onepass.apis.OperatingHour> 
+      getOperatingHoursList();
   /**
-   * <code>string operating_hours = 12 [json_name = "operatingHours"];</code>
-   * @return The bytes for operatingHours.
+   * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
    */
-  com.google.protobuf.ByteString
-      getOperatingHoursBytes();
+  app.onepass.apis.OperatingHour getOperatingHours(int index);
+  /**
+   * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
+   */
+  int getOperatingHoursCount();
+  /**
+   * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
+   */
+  java.util.List<? extends app.onepass.apis.OperatingHourOrBuilder> 
+      getOperatingHoursOrBuilderList();
+  /**
+   * <code>repeated .hts.common.OperatingHour operating_hours = 12 [json_name = "operatingHours"];</code>
+   */
+  app.onepass.apis.OperatingHourOrBuilder getOperatingHoursOrBuilder(
+      int index);
 
   /**
    * <code>string description = 13 [json_name = "description"];</code>

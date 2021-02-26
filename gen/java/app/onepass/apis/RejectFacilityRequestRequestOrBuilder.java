@@ -14,29 +14,23 @@ public interface RejectFacilityRequestRequestOrBuilder extends
   long getUserId();
 
   /**
-   * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
-   * @return The organizationId.
-   */
-  long getOrganizationId();
-
-  /**
-   * <code>int64 request_id = 3 [json_name = "requestId"];</code>
+   * <code>int64 request_id = 2 [json_name = "requestId"];</code>
    * @return The requestId.
    */
   long getRequestId();
 
   /**
-   * <code>.google.protobuf.StringValue reason = 4 [json_name = "reason"];</code>
+   * <code>.google.protobuf.StringValue reason = 3 [json_name = "reason"];</code>
    * @return Whether the reason field is set.
    */
   boolean hasReason();
   /**
-   * <code>.google.protobuf.StringValue reason = 4 [json_name = "reason"];</code>
+   * <code>.google.protobuf.StringValue reason = 3 [json_name = "reason"];</code>
    * @return The reason.
    */
   com.google.protobuf.StringValue getReason();
   /**
-   * <code>.google.protobuf.StringValue reason = 4 [json_name = "reason"];</code>
+   * <code>.google.protobuf.StringValue reason = 3 [json_name = "reason"];</code>
    */
   com.google.protobuf.StringValueOrBuilder getReasonOrBuilder();
 }

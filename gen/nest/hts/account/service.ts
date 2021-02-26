@@ -2,6 +2,7 @@
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
 import { Permission, User, Result } from "../../hts/common/common";
 import { Observable } from "rxjs";
+import { Empty } from "../../google/protobuf/empty";
 
 export const protobufPackage = "hts.account";
 
@@ -45,6 +46,8 @@ export interface AccountServiceClient {
   invalidateJWT(request: InvalidateJWTRequest): Observable<Result>;
 
   hasPermission(request: HasPermissionRequest): Observable<Result>;
+
+  ping(request: Empty): Observable<Result>;
 }
 
 export interface AccountServiceController {
@@ -70,6 +73,8 @@ export interface AccountServiceController {
   hasPermission(
     request: HasPermissionRequest
   ): Promise<Result> | Observable<Result> | Result;
+
+  ping(request: Empty): Promise<Result> | Observable<Result> | Result;
 }
 
 export function AccountServiceControllerMethods() {
@@ -80,6 +85,7 @@ export function AccountServiceControllerMethods() {
       "generateJWT",
       "invalidateJWT",
       "hasPermission",
+      "ping",
     ];
     for (const method of grpcMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(
