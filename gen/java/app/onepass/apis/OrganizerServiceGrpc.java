@@ -7,11 +7,11 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.35.0)",
     comments = "Source: hts/organizer/service.proto")
-public final class OrganizationServiceGrpc {
+public final class OrganizerServiceGrpc {
 
-  private OrganizationServiceGrpc() {}
+  private OrganizerServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "hts.organizer.OrganizationService";
+  public static final String SERVICE_NAME = "hts.organizer.OrganizerService";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<app.onepass.apis.CreateOrganizationRequest,
@@ -25,10 +25,10 @@ public final class OrganizationServiceGrpc {
   public static io.grpc.MethodDescriptor<app.onepass.apis.CreateOrganizationRequest,
       app.onepass.apis.Result> getCreateOrganizationMethod() {
     io.grpc.MethodDescriptor<app.onepass.apis.CreateOrganizationRequest, app.onepass.apis.Result> getCreateOrganizationMethod;
-    if ((getCreateOrganizationMethod = OrganizationServiceGrpc.getCreateOrganizationMethod) == null) {
-      synchronized (OrganizationServiceGrpc.class) {
-        if ((getCreateOrganizationMethod = OrganizationServiceGrpc.getCreateOrganizationMethod) == null) {
-          OrganizationServiceGrpc.getCreateOrganizationMethod = getCreateOrganizationMethod =
+    if ((getCreateOrganizationMethod = OrganizerServiceGrpc.getCreateOrganizationMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getCreateOrganizationMethod = OrganizerServiceGrpc.getCreateOrganizationMethod) == null) {
+          OrganizerServiceGrpc.getCreateOrganizationMethod = getCreateOrganizationMethod =
               io.grpc.MethodDescriptor.<app.onepass.apis.CreateOrganizationRequest, app.onepass.apis.Result>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateOrganization"))
@@ -37,7 +37,7 @@ public final class OrganizationServiceGrpc {
                   app.onepass.apis.CreateOrganizationRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.Result.getDefaultInstance()))
-              .setSchemaDescriptor(new OrganizationServiceMethodDescriptorSupplier("CreateOrganization"))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("CreateOrganization"))
               .build();
         }
       }
@@ -56,10 +56,10 @@ public final class OrganizationServiceGrpc {
   public static io.grpc.MethodDescriptor<app.onepass.apis.UserRequest,
       app.onepass.apis.ReadOrganizationResult> getReadOrganizationMethod() {
     io.grpc.MethodDescriptor<app.onepass.apis.UserRequest, app.onepass.apis.ReadOrganizationResult> getReadOrganizationMethod;
-    if ((getReadOrganizationMethod = OrganizationServiceGrpc.getReadOrganizationMethod) == null) {
-      synchronized (OrganizationServiceGrpc.class) {
-        if ((getReadOrganizationMethod = OrganizationServiceGrpc.getReadOrganizationMethod) == null) {
-          OrganizationServiceGrpc.getReadOrganizationMethod = getReadOrganizationMethod =
+    if ((getReadOrganizationMethod = OrganizerServiceGrpc.getReadOrganizationMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getReadOrganizationMethod = OrganizerServiceGrpc.getReadOrganizationMethod) == null) {
+          OrganizerServiceGrpc.getReadOrganizationMethod = getReadOrganizationMethod =
               io.grpc.MethodDescriptor.<app.onepass.apis.UserRequest, app.onepass.apis.ReadOrganizationResult>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ReadOrganization"))
@@ -68,7 +68,7 @@ public final class OrganizationServiceGrpc {
                   app.onepass.apis.UserRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.ReadOrganizationResult.getDefaultInstance()))
-              .setSchemaDescriptor(new OrganizationServiceMethodDescriptorSupplier("ReadOrganization"))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("ReadOrganization"))
               .build();
         }
       }
@@ -87,10 +87,10 @@ public final class OrganizationServiceGrpc {
   public static io.grpc.MethodDescriptor<app.onepass.apis.ReadByIdRequest,
       app.onepass.apis.ReadOrganizationByIdResult> getReadOrganizationByIdMethod() {
     io.grpc.MethodDescriptor<app.onepass.apis.ReadByIdRequest, app.onepass.apis.ReadOrganizationByIdResult> getReadOrganizationByIdMethod;
-    if ((getReadOrganizationByIdMethod = OrganizationServiceGrpc.getReadOrganizationByIdMethod) == null) {
-      synchronized (OrganizationServiceGrpc.class) {
-        if ((getReadOrganizationByIdMethod = OrganizationServiceGrpc.getReadOrganizationByIdMethod) == null) {
-          OrganizationServiceGrpc.getReadOrganizationByIdMethod = getReadOrganizationByIdMethod =
+    if ((getReadOrganizationByIdMethod = OrganizerServiceGrpc.getReadOrganizationByIdMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getReadOrganizationByIdMethod = OrganizerServiceGrpc.getReadOrganizationByIdMethod) == null) {
+          OrganizerServiceGrpc.getReadOrganizationByIdMethod = getReadOrganizationByIdMethod =
               io.grpc.MethodDescriptor.<app.onepass.apis.ReadByIdRequest, app.onepass.apis.ReadOrganizationByIdResult>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ReadOrganizationById"))
@@ -99,7 +99,7 @@ public final class OrganizationServiceGrpc {
                   app.onepass.apis.ReadByIdRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.ReadOrganizationByIdResult.getDefaultInstance()))
-              .setSchemaDescriptor(new OrganizationServiceMethodDescriptorSupplier("ReadOrganizationById"))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("ReadOrganizationById"))
               .build();
         }
       }
@@ -118,10 +118,10 @@ public final class OrganizationServiceGrpc {
   public static io.grpc.MethodDescriptor<app.onepass.apis.UpdateOrganizationRequest,
       app.onepass.apis.Result> getUpdateOrganizationMethod() {
     io.grpc.MethodDescriptor<app.onepass.apis.UpdateOrganizationRequest, app.onepass.apis.Result> getUpdateOrganizationMethod;
-    if ((getUpdateOrganizationMethod = OrganizationServiceGrpc.getUpdateOrganizationMethod) == null) {
-      synchronized (OrganizationServiceGrpc.class) {
-        if ((getUpdateOrganizationMethod = OrganizationServiceGrpc.getUpdateOrganizationMethod) == null) {
-          OrganizationServiceGrpc.getUpdateOrganizationMethod = getUpdateOrganizationMethod =
+    if ((getUpdateOrganizationMethod = OrganizerServiceGrpc.getUpdateOrganizationMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getUpdateOrganizationMethod = OrganizerServiceGrpc.getUpdateOrganizationMethod) == null) {
+          OrganizerServiceGrpc.getUpdateOrganizationMethod = getUpdateOrganizationMethod =
               io.grpc.MethodDescriptor.<app.onepass.apis.UpdateOrganizationRequest, app.onepass.apis.Result>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateOrganization"))
@@ -130,7 +130,7 @@ public final class OrganizationServiceGrpc {
                   app.onepass.apis.UpdateOrganizationRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.Result.getDefaultInstance()))
-              .setSchemaDescriptor(new OrganizationServiceMethodDescriptorSupplier("UpdateOrganization"))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("UpdateOrganization"))
               .build();
         }
       }
@@ -149,10 +149,10 @@ public final class OrganizationServiceGrpc {
   public static io.grpc.MethodDescriptor<app.onepass.apis.DeleteOrganizationRequest,
       app.onepass.apis.Result> getDeleteOrganizationMethod() {
     io.grpc.MethodDescriptor<app.onepass.apis.DeleteOrganizationRequest, app.onepass.apis.Result> getDeleteOrganizationMethod;
-    if ((getDeleteOrganizationMethod = OrganizationServiceGrpc.getDeleteOrganizationMethod) == null) {
-      synchronized (OrganizationServiceGrpc.class) {
-        if ((getDeleteOrganizationMethod = OrganizationServiceGrpc.getDeleteOrganizationMethod) == null) {
-          OrganizationServiceGrpc.getDeleteOrganizationMethod = getDeleteOrganizationMethod =
+    if ((getDeleteOrganizationMethod = OrganizerServiceGrpc.getDeleteOrganizationMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getDeleteOrganizationMethod = OrganizerServiceGrpc.getDeleteOrganizationMethod) == null) {
+          OrganizerServiceGrpc.getDeleteOrganizationMethod = getDeleteOrganizationMethod =
               io.grpc.MethodDescriptor.<app.onepass.apis.DeleteOrganizationRequest, app.onepass.apis.Result>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DeleteOrganization"))
@@ -161,7 +161,7 @@ public final class OrganizationServiceGrpc {
                   app.onepass.apis.DeleteOrganizationRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.Result.getDefaultInstance()))
-              .setSchemaDescriptor(new OrganizationServiceMethodDescriptorSupplier("DeleteOrganization"))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("DeleteOrganization"))
               .build();
         }
       }
@@ -180,10 +180,10 @@ public final class OrganizationServiceGrpc {
   public static io.grpc.MethodDescriptor<app.onepass.apis.UpdateUsersInOrganizationRequest,
       app.onepass.apis.Result> getAddUsersToOrganizationMethod() {
     io.grpc.MethodDescriptor<app.onepass.apis.UpdateUsersInOrganizationRequest, app.onepass.apis.Result> getAddUsersToOrganizationMethod;
-    if ((getAddUsersToOrganizationMethod = OrganizationServiceGrpc.getAddUsersToOrganizationMethod) == null) {
-      synchronized (OrganizationServiceGrpc.class) {
-        if ((getAddUsersToOrganizationMethod = OrganizationServiceGrpc.getAddUsersToOrganizationMethod) == null) {
-          OrganizationServiceGrpc.getAddUsersToOrganizationMethod = getAddUsersToOrganizationMethod =
+    if ((getAddUsersToOrganizationMethod = OrganizerServiceGrpc.getAddUsersToOrganizationMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getAddUsersToOrganizationMethod = OrganizerServiceGrpc.getAddUsersToOrganizationMethod) == null) {
+          OrganizerServiceGrpc.getAddUsersToOrganizationMethod = getAddUsersToOrganizationMethod =
               io.grpc.MethodDescriptor.<app.onepass.apis.UpdateUsersInOrganizationRequest, app.onepass.apis.Result>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "AddUsersToOrganization"))
@@ -192,7 +192,7 @@ public final class OrganizationServiceGrpc {
                   app.onepass.apis.UpdateUsersInOrganizationRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.Result.getDefaultInstance()))
-              .setSchemaDescriptor(new OrganizationServiceMethodDescriptorSupplier("AddUsersToOrganization"))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("AddUsersToOrganization"))
               .build();
         }
       }
@@ -211,10 +211,10 @@ public final class OrganizationServiceGrpc {
   public static io.grpc.MethodDescriptor<app.onepass.apis.UpdateUsersInOrganizationRequest,
       app.onepass.apis.Result> getRemoveUsersFromOrganizationMethod() {
     io.grpc.MethodDescriptor<app.onepass.apis.UpdateUsersInOrganizationRequest, app.onepass.apis.Result> getRemoveUsersFromOrganizationMethod;
-    if ((getRemoveUsersFromOrganizationMethod = OrganizationServiceGrpc.getRemoveUsersFromOrganizationMethod) == null) {
-      synchronized (OrganizationServiceGrpc.class) {
-        if ((getRemoveUsersFromOrganizationMethod = OrganizationServiceGrpc.getRemoveUsersFromOrganizationMethod) == null) {
-          OrganizationServiceGrpc.getRemoveUsersFromOrganizationMethod = getRemoveUsersFromOrganizationMethod =
+    if ((getRemoveUsersFromOrganizationMethod = OrganizerServiceGrpc.getRemoveUsersFromOrganizationMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getRemoveUsersFromOrganizationMethod = OrganizerServiceGrpc.getRemoveUsersFromOrganizationMethod) == null) {
+          OrganizerServiceGrpc.getRemoveUsersFromOrganizationMethod = getRemoveUsersFromOrganizationMethod =
               io.grpc.MethodDescriptor.<app.onepass.apis.UpdateUsersInOrganizationRequest, app.onepass.apis.Result>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "RemoveUsersFromOrganization"))
@@ -223,7 +223,7 @@ public final class OrganizationServiceGrpc {
                   app.onepass.apis.UpdateUsersInOrganizationRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.Result.getDefaultInstance()))
-              .setSchemaDescriptor(new OrganizationServiceMethodDescriptorSupplier("RemoveUsersFromOrganization"))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("RemoveUsersFromOrganization"))
               .build();
         }
       }
@@ -242,10 +242,10 @@ public final class OrganizationServiceGrpc {
   public static io.grpc.MethodDescriptor<app.onepass.apis.CreateEventRequest,
       app.onepass.apis.Result> getCreateEventMethod() {
     io.grpc.MethodDescriptor<app.onepass.apis.CreateEventRequest, app.onepass.apis.Result> getCreateEventMethod;
-    if ((getCreateEventMethod = OrganizationServiceGrpc.getCreateEventMethod) == null) {
-      synchronized (OrganizationServiceGrpc.class) {
-        if ((getCreateEventMethod = OrganizationServiceGrpc.getCreateEventMethod) == null) {
-          OrganizationServiceGrpc.getCreateEventMethod = getCreateEventMethod =
+    if ((getCreateEventMethod = OrganizerServiceGrpc.getCreateEventMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getCreateEventMethod = OrganizerServiceGrpc.getCreateEventMethod) == null) {
+          OrganizerServiceGrpc.getCreateEventMethod = getCreateEventMethod =
               io.grpc.MethodDescriptor.<app.onepass.apis.CreateEventRequest, app.onepass.apis.Result>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateEvent"))
@@ -254,7 +254,7 @@ public final class OrganizationServiceGrpc {
                   app.onepass.apis.CreateEventRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.Result.getDefaultInstance()))
-              .setSchemaDescriptor(new OrganizationServiceMethodDescriptorSupplier("CreateEvent"))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("CreateEvent"))
               .build();
         }
       }
@@ -273,10 +273,10 @@ public final class OrganizationServiceGrpc {
   public static io.grpc.MethodDescriptor<app.onepass.apis.UserRequest,
       app.onepass.apis.ReadEventResult> getReadEventMethod() {
     io.grpc.MethodDescriptor<app.onepass.apis.UserRequest, app.onepass.apis.ReadEventResult> getReadEventMethod;
-    if ((getReadEventMethod = OrganizationServiceGrpc.getReadEventMethod) == null) {
-      synchronized (OrganizationServiceGrpc.class) {
-        if ((getReadEventMethod = OrganizationServiceGrpc.getReadEventMethod) == null) {
-          OrganizationServiceGrpc.getReadEventMethod = getReadEventMethod =
+    if ((getReadEventMethod = OrganizerServiceGrpc.getReadEventMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getReadEventMethod = OrganizerServiceGrpc.getReadEventMethod) == null) {
+          OrganizerServiceGrpc.getReadEventMethod = getReadEventMethod =
               io.grpc.MethodDescriptor.<app.onepass.apis.UserRequest, app.onepass.apis.ReadEventResult>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ReadEvent"))
@@ -285,7 +285,7 @@ public final class OrganizationServiceGrpc {
                   app.onepass.apis.UserRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.ReadEventResult.getDefaultInstance()))
-              .setSchemaDescriptor(new OrganizationServiceMethodDescriptorSupplier("ReadEvent"))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("ReadEvent"))
               .build();
         }
       }
@@ -304,10 +304,10 @@ public final class OrganizationServiceGrpc {
   public static io.grpc.MethodDescriptor<app.onepass.apis.ReadByIdRequest,
       app.onepass.apis.ReadEventByIdResult> getReadEventByIdMethod() {
     io.grpc.MethodDescriptor<app.onepass.apis.ReadByIdRequest, app.onepass.apis.ReadEventByIdResult> getReadEventByIdMethod;
-    if ((getReadEventByIdMethod = OrganizationServiceGrpc.getReadEventByIdMethod) == null) {
-      synchronized (OrganizationServiceGrpc.class) {
-        if ((getReadEventByIdMethod = OrganizationServiceGrpc.getReadEventByIdMethod) == null) {
-          OrganizationServiceGrpc.getReadEventByIdMethod = getReadEventByIdMethod =
+    if ((getReadEventByIdMethod = OrganizerServiceGrpc.getReadEventByIdMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getReadEventByIdMethod = OrganizerServiceGrpc.getReadEventByIdMethod) == null) {
+          OrganizerServiceGrpc.getReadEventByIdMethod = getReadEventByIdMethod =
               io.grpc.MethodDescriptor.<app.onepass.apis.ReadByIdRequest, app.onepass.apis.ReadEventByIdResult>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ReadEventById"))
@@ -316,7 +316,7 @@ public final class OrganizationServiceGrpc {
                   app.onepass.apis.ReadByIdRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.ReadEventByIdResult.getDefaultInstance()))
-              .setSchemaDescriptor(new OrganizationServiceMethodDescriptorSupplier("ReadEventById"))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("ReadEventById"))
               .build();
         }
       }
@@ -335,10 +335,10 @@ public final class OrganizationServiceGrpc {
   public static io.grpc.MethodDescriptor<app.onepass.apis.UpdateEventInfoRequest,
       app.onepass.apis.Result> getUpdateEventInfoMethod() {
     io.grpc.MethodDescriptor<app.onepass.apis.UpdateEventInfoRequest, app.onepass.apis.Result> getUpdateEventInfoMethod;
-    if ((getUpdateEventInfoMethod = OrganizationServiceGrpc.getUpdateEventInfoMethod) == null) {
-      synchronized (OrganizationServiceGrpc.class) {
-        if ((getUpdateEventInfoMethod = OrganizationServiceGrpc.getUpdateEventInfoMethod) == null) {
-          OrganizationServiceGrpc.getUpdateEventInfoMethod = getUpdateEventInfoMethod =
+    if ((getUpdateEventInfoMethod = OrganizerServiceGrpc.getUpdateEventInfoMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getUpdateEventInfoMethod = OrganizerServiceGrpc.getUpdateEventInfoMethod) == null) {
+          OrganizerServiceGrpc.getUpdateEventInfoMethod = getUpdateEventInfoMethod =
               io.grpc.MethodDescriptor.<app.onepass.apis.UpdateEventInfoRequest, app.onepass.apis.Result>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateEventInfo"))
@@ -347,7 +347,7 @@ public final class OrganizationServiceGrpc {
                   app.onepass.apis.UpdateEventInfoRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.Result.getDefaultInstance()))
-              .setSchemaDescriptor(new OrganizationServiceMethodDescriptorSupplier("UpdateEventInfo"))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("UpdateEventInfo"))
               .build();
         }
       }
@@ -366,10 +366,10 @@ public final class OrganizationServiceGrpc {
   public static io.grpc.MethodDescriptor<app.onepass.apis.UpdateEventFacilityRequest,
       app.onepass.apis.Result> getUpdateEventFacilityMethod() {
     io.grpc.MethodDescriptor<app.onepass.apis.UpdateEventFacilityRequest, app.onepass.apis.Result> getUpdateEventFacilityMethod;
-    if ((getUpdateEventFacilityMethod = OrganizationServiceGrpc.getUpdateEventFacilityMethod) == null) {
-      synchronized (OrganizationServiceGrpc.class) {
-        if ((getUpdateEventFacilityMethod = OrganizationServiceGrpc.getUpdateEventFacilityMethod) == null) {
-          OrganizationServiceGrpc.getUpdateEventFacilityMethod = getUpdateEventFacilityMethod =
+    if ((getUpdateEventFacilityMethod = OrganizerServiceGrpc.getUpdateEventFacilityMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getUpdateEventFacilityMethod = OrganizerServiceGrpc.getUpdateEventFacilityMethod) == null) {
+          OrganizerServiceGrpc.getUpdateEventFacilityMethod = getUpdateEventFacilityMethod =
               io.grpc.MethodDescriptor.<app.onepass.apis.UpdateEventFacilityRequest, app.onepass.apis.Result>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateEventFacility"))
@@ -378,7 +378,7 @@ public final class OrganizationServiceGrpc {
                   app.onepass.apis.UpdateEventFacilityRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.Result.getDefaultInstance()))
-              .setSchemaDescriptor(new OrganizationServiceMethodDescriptorSupplier("UpdateEventFacility"))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("UpdateEventFacility"))
               .build();
         }
       }
@@ -397,10 +397,10 @@ public final class OrganizationServiceGrpc {
   public static io.grpc.MethodDescriptor<app.onepass.apis.UpdateEventDurationRequest,
       app.onepass.apis.Result> getUpdateEventDurationMethod() {
     io.grpc.MethodDescriptor<app.onepass.apis.UpdateEventDurationRequest, app.onepass.apis.Result> getUpdateEventDurationMethod;
-    if ((getUpdateEventDurationMethod = OrganizationServiceGrpc.getUpdateEventDurationMethod) == null) {
-      synchronized (OrganizationServiceGrpc.class) {
-        if ((getUpdateEventDurationMethod = OrganizationServiceGrpc.getUpdateEventDurationMethod) == null) {
-          OrganizationServiceGrpc.getUpdateEventDurationMethod = getUpdateEventDurationMethod =
+    if ((getUpdateEventDurationMethod = OrganizerServiceGrpc.getUpdateEventDurationMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getUpdateEventDurationMethod = OrganizerServiceGrpc.getUpdateEventDurationMethod) == null) {
+          OrganizerServiceGrpc.getUpdateEventDurationMethod = getUpdateEventDurationMethod =
               io.grpc.MethodDescriptor.<app.onepass.apis.UpdateEventDurationRequest, app.onepass.apis.Result>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateEventDuration"))
@@ -409,7 +409,7 @@ public final class OrganizationServiceGrpc {
                   app.onepass.apis.UpdateEventDurationRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.Result.getDefaultInstance()))
-              .setSchemaDescriptor(new OrganizationServiceMethodDescriptorSupplier("UpdateEventDuration"))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("UpdateEventDuration"))
               .build();
         }
       }
@@ -428,10 +428,10 @@ public final class OrganizationServiceGrpc {
   public static io.grpc.MethodDescriptor<app.onepass.apis.DeleteEventRequest,
       app.onepass.apis.Result> getDeleteEventMethod() {
     io.grpc.MethodDescriptor<app.onepass.apis.DeleteEventRequest, app.onepass.apis.Result> getDeleteEventMethod;
-    if ((getDeleteEventMethod = OrganizationServiceGrpc.getDeleteEventMethod) == null) {
-      synchronized (OrganizationServiceGrpc.class) {
-        if ((getDeleteEventMethod = OrganizationServiceGrpc.getDeleteEventMethod) == null) {
-          OrganizationServiceGrpc.getDeleteEventMethod = getDeleteEventMethod =
+    if ((getDeleteEventMethod = OrganizerServiceGrpc.getDeleteEventMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getDeleteEventMethod = OrganizerServiceGrpc.getDeleteEventMethod) == null) {
+          OrganizerServiceGrpc.getDeleteEventMethod = getDeleteEventMethod =
               io.grpc.MethodDescriptor.<app.onepass.apis.DeleteEventRequest, app.onepass.apis.Result>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "DeleteEvent"))
@@ -440,7 +440,7 @@ public final class OrganizationServiceGrpc {
                   app.onepass.apis.DeleteEventRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.Result.getDefaultInstance()))
-              .setSchemaDescriptor(new OrganizationServiceMethodDescriptorSupplier("DeleteEvent"))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("DeleteEvent"))
               .build();
         }
       }
@@ -459,10 +459,10 @@ public final class OrganizationServiceGrpc {
   public static io.grpc.MethodDescriptor<app.onepass.apis.UpdateRegistrationRequestRequest,
       app.onepass.apis.Result> getUpdateRegistrationRequestMethod() {
     io.grpc.MethodDescriptor<app.onepass.apis.UpdateRegistrationRequestRequest, app.onepass.apis.Result> getUpdateRegistrationRequestMethod;
-    if ((getUpdateRegistrationRequestMethod = OrganizationServiceGrpc.getUpdateRegistrationRequestMethod) == null) {
-      synchronized (OrganizationServiceGrpc.class) {
-        if ((getUpdateRegistrationRequestMethod = OrganizationServiceGrpc.getUpdateRegistrationRequestMethod) == null) {
-          OrganizationServiceGrpc.getUpdateRegistrationRequestMethod = getUpdateRegistrationRequestMethod =
+    if ((getUpdateRegistrationRequestMethod = OrganizerServiceGrpc.getUpdateRegistrationRequestMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getUpdateRegistrationRequestMethod = OrganizerServiceGrpc.getUpdateRegistrationRequestMethod) == null) {
+          OrganizerServiceGrpc.getUpdateRegistrationRequestMethod = getUpdateRegistrationRequestMethod =
               io.grpc.MethodDescriptor.<app.onepass.apis.UpdateRegistrationRequestRequest, app.onepass.apis.Result>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateRegistrationRequest"))
@@ -471,7 +471,7 @@ public final class OrganizationServiceGrpc {
                   app.onepass.apis.UpdateRegistrationRequestRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.Result.getDefaultInstance()))
-              .setSchemaDescriptor(new OrganizationServiceMethodDescriptorSupplier("UpdateRegistrationRequest"))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("UpdateRegistrationRequest"))
               .build();
         }
       }
@@ -490,10 +490,10 @@ public final class OrganizationServiceGrpc {
   public static io.grpc.MethodDescriptor<app.onepass.apis.UpdateTagRequest,
       app.onepass.apis.Result> getAddTagMethod() {
     io.grpc.MethodDescriptor<app.onepass.apis.UpdateTagRequest, app.onepass.apis.Result> getAddTagMethod;
-    if ((getAddTagMethod = OrganizationServiceGrpc.getAddTagMethod) == null) {
-      synchronized (OrganizationServiceGrpc.class) {
-        if ((getAddTagMethod = OrganizationServiceGrpc.getAddTagMethod) == null) {
-          OrganizationServiceGrpc.getAddTagMethod = getAddTagMethod =
+    if ((getAddTagMethod = OrganizerServiceGrpc.getAddTagMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getAddTagMethod = OrganizerServiceGrpc.getAddTagMethod) == null) {
+          OrganizerServiceGrpc.getAddTagMethod = getAddTagMethod =
               io.grpc.MethodDescriptor.<app.onepass.apis.UpdateTagRequest, app.onepass.apis.Result>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "AddTag"))
@@ -502,7 +502,7 @@ public final class OrganizationServiceGrpc {
                   app.onepass.apis.UpdateTagRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.Result.getDefaultInstance()))
-              .setSchemaDescriptor(new OrganizationServiceMethodDescriptorSupplier("AddTag"))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("AddTag"))
               .build();
         }
       }
@@ -521,10 +521,10 @@ public final class OrganizationServiceGrpc {
   public static io.grpc.MethodDescriptor<app.onepass.apis.UpdateTagRequest,
       app.onepass.apis.Result> getRemoveTagMethod() {
     io.grpc.MethodDescriptor<app.onepass.apis.UpdateTagRequest, app.onepass.apis.Result> getRemoveTagMethod;
-    if ((getRemoveTagMethod = OrganizationServiceGrpc.getRemoveTagMethod) == null) {
-      synchronized (OrganizationServiceGrpc.class) {
-        if ((getRemoveTagMethod = OrganizationServiceGrpc.getRemoveTagMethod) == null) {
-          OrganizationServiceGrpc.getRemoveTagMethod = getRemoveTagMethod =
+    if ((getRemoveTagMethod = OrganizerServiceGrpc.getRemoveTagMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getRemoveTagMethod = OrganizerServiceGrpc.getRemoveTagMethod) == null) {
+          OrganizerServiceGrpc.getRemoveTagMethod = getRemoveTagMethod =
               io.grpc.MethodDescriptor.<app.onepass.apis.UpdateTagRequest, app.onepass.apis.Result>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "RemoveTag"))
@@ -533,7 +533,7 @@ public final class OrganizationServiceGrpc {
                   app.onepass.apis.UpdateTagRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.Result.getDefaultInstance()))
-              .setSchemaDescriptor(new OrganizationServiceMethodDescriptorSupplier("RemoveTag"))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("RemoveTag"))
               .build();
         }
       }
@@ -552,10 +552,10 @@ public final class OrganizationServiceGrpc {
   public static io.grpc.MethodDescriptor<app.onepass.apis.UserRequest,
       app.onepass.apis.ReadTagResult> getReadTagMethod() {
     io.grpc.MethodDescriptor<app.onepass.apis.UserRequest, app.onepass.apis.ReadTagResult> getReadTagMethod;
-    if ((getReadTagMethod = OrganizationServiceGrpc.getReadTagMethod) == null) {
-      synchronized (OrganizationServiceGrpc.class) {
-        if ((getReadTagMethod = OrganizationServiceGrpc.getReadTagMethod) == null) {
-          OrganizationServiceGrpc.getReadTagMethod = getReadTagMethod =
+    if ((getReadTagMethod = OrganizerServiceGrpc.getReadTagMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getReadTagMethod = OrganizerServiceGrpc.getReadTagMethod) == null) {
+          OrganizerServiceGrpc.getReadTagMethod = getReadTagMethod =
               io.grpc.MethodDescriptor.<app.onepass.apis.UserRequest, app.onepass.apis.ReadTagResult>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ReadTag"))
@@ -564,7 +564,7 @@ public final class OrganizationServiceGrpc {
                   app.onepass.apis.UserRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.ReadTagResult.getDefaultInstance()))
-              .setSchemaDescriptor(new OrganizationServiceMethodDescriptorSupplier("ReadTag"))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("ReadTag"))
               .build();
         }
       }
@@ -583,10 +583,10 @@ public final class OrganizationServiceGrpc {
   public static io.grpc.MethodDescriptor<app.onepass.apis.ReadByIdRequest,
       app.onepass.apis.ReadTagByIdResult> getReadTagByIdMethod() {
     io.grpc.MethodDescriptor<app.onepass.apis.ReadByIdRequest, app.onepass.apis.ReadTagByIdResult> getReadTagByIdMethod;
-    if ((getReadTagByIdMethod = OrganizationServiceGrpc.getReadTagByIdMethod) == null) {
-      synchronized (OrganizationServiceGrpc.class) {
-        if ((getReadTagByIdMethod = OrganizationServiceGrpc.getReadTagByIdMethod) == null) {
-          OrganizationServiceGrpc.getReadTagByIdMethod = getReadTagByIdMethod =
+    if ((getReadTagByIdMethod = OrganizerServiceGrpc.getReadTagByIdMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getReadTagByIdMethod = OrganizerServiceGrpc.getReadTagByIdMethod) == null) {
+          OrganizerServiceGrpc.getReadTagByIdMethod = getReadTagByIdMethod =
               io.grpc.MethodDescriptor.<app.onepass.apis.ReadByIdRequest, app.onepass.apis.ReadTagByIdResult>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ReadTagById"))
@@ -595,7 +595,7 @@ public final class OrganizationServiceGrpc {
                   app.onepass.apis.ReadByIdRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.ReadTagByIdResult.getDefaultInstance()))
-              .setSchemaDescriptor(new OrganizationServiceMethodDescriptorSupplier("ReadTagById"))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("ReadTagById"))
               .build();
         }
       }
@@ -614,10 +614,10 @@ public final class OrganizationServiceGrpc {
   public static io.grpc.MethodDescriptor<app.onepass.apis.HasEventRequest,
       app.onepass.apis.Result> getHasEventMethod() {
     io.grpc.MethodDescriptor<app.onepass.apis.HasEventRequest, app.onepass.apis.Result> getHasEventMethod;
-    if ((getHasEventMethod = OrganizationServiceGrpc.getHasEventMethod) == null) {
-      synchronized (OrganizationServiceGrpc.class) {
-        if ((getHasEventMethod = OrganizationServiceGrpc.getHasEventMethod) == null) {
-          OrganizationServiceGrpc.getHasEventMethod = getHasEventMethod =
+    if ((getHasEventMethod = OrganizerServiceGrpc.getHasEventMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getHasEventMethod = OrganizerServiceGrpc.getHasEventMethod) == null) {
+          OrganizerServiceGrpc.getHasEventMethod = getHasEventMethod =
               io.grpc.MethodDescriptor.<app.onepass.apis.HasEventRequest, app.onepass.apis.Result>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "HasEvent"))
@@ -626,7 +626,7 @@ public final class OrganizationServiceGrpc {
                   app.onepass.apis.HasEventRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.Result.getDefaultInstance()))
-              .setSchemaDescriptor(new OrganizationServiceMethodDescriptorSupplier("HasEvent"))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("HasEvent"))
               .build();
         }
       }
@@ -645,10 +645,10 @@ public final class OrganizationServiceGrpc {
   public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
       app.onepass.apis.Result> getPingMethod() {
     io.grpc.MethodDescriptor<com.google.protobuf.Empty, app.onepass.apis.Result> getPingMethod;
-    if ((getPingMethod = OrganizationServiceGrpc.getPingMethod) == null) {
-      synchronized (OrganizationServiceGrpc.class) {
-        if ((getPingMethod = OrganizationServiceGrpc.getPingMethod) == null) {
-          OrganizationServiceGrpc.getPingMethod = getPingMethod =
+    if ((getPingMethod = OrganizerServiceGrpc.getPingMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getPingMethod = OrganizerServiceGrpc.getPingMethod) == null) {
+          OrganizerServiceGrpc.getPingMethod = getPingMethod =
               io.grpc.MethodDescriptor.<com.google.protobuf.Empty, app.onepass.apis.Result>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Ping"))
@@ -657,7 +657,7 @@ public final class OrganizationServiceGrpc {
                   com.google.protobuf.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.Result.getDefaultInstance()))
-              .setSchemaDescriptor(new OrganizationServiceMethodDescriptorSupplier("Ping"))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("Ping"))
               .build();
         }
       }
@@ -668,50 +668,50 @@ public final class OrganizationServiceGrpc {
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static OrganizationServiceStub newStub(io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<OrganizationServiceStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<OrganizationServiceStub>() {
+  public static OrganizerServiceStub newStub(io.grpc.Channel channel) {
+    io.grpc.stub.AbstractStub.StubFactory<OrganizerServiceStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<OrganizerServiceStub>() {
         @java.lang.Override
-        public OrganizationServiceStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new OrganizationServiceStub(channel, callOptions);
+        public OrganizerServiceStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new OrganizerServiceStub(channel, callOptions);
         }
       };
-    return OrganizationServiceStub.newStub(factory, channel);
+    return OrganizerServiceStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static OrganizationServiceBlockingStub newBlockingStub(
+  public static OrganizerServiceBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<OrganizationServiceBlockingStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<OrganizationServiceBlockingStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<OrganizerServiceBlockingStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<OrganizerServiceBlockingStub>() {
         @java.lang.Override
-        public OrganizationServiceBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new OrganizationServiceBlockingStub(channel, callOptions);
+        public OrganizerServiceBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new OrganizerServiceBlockingStub(channel, callOptions);
         }
       };
-    return OrganizationServiceBlockingStub.newStub(factory, channel);
+    return OrganizerServiceBlockingStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static OrganizationServiceFutureStub newFutureStub(
+  public static OrganizerServiceFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<OrganizationServiceFutureStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<OrganizationServiceFutureStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<OrganizerServiceFutureStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<OrganizerServiceFutureStub>() {
         @java.lang.Override
-        public OrganizationServiceFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new OrganizationServiceFutureStub(channel, callOptions);
+        public OrganizerServiceFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new OrganizerServiceFutureStub(channel, callOptions);
         }
       };
-    return OrganizationServiceFutureStub.newStub(factory, channel);
+    return OrganizerServiceFutureStub.newStub(factory, channel);
   }
 
   /**
    */
-  public static abstract class OrganizationServiceImplBase implements io.grpc.BindableService {
+  public static abstract class OrganizerServiceImplBase implements io.grpc.BindableService {
 
     /**
      */
@@ -1015,16 +1015,16 @@ public final class OrganizationServiceGrpc {
 
   /**
    */
-  public static final class OrganizationServiceStub extends io.grpc.stub.AbstractAsyncStub<OrganizationServiceStub> {
-    private OrganizationServiceStub(
+  public static final class OrganizerServiceStub extends io.grpc.stub.AbstractAsyncStub<OrganizerServiceStub> {
+    private OrganizerServiceStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected OrganizationServiceStub build(
+    protected OrganizerServiceStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new OrganizationServiceStub(channel, callOptions);
+      return new OrganizerServiceStub(channel, callOptions);
     }
 
     /**
@@ -1198,16 +1198,16 @@ public final class OrganizationServiceGrpc {
 
   /**
    */
-  public static final class OrganizationServiceBlockingStub extends io.grpc.stub.AbstractBlockingStub<OrganizationServiceBlockingStub> {
-    private OrganizationServiceBlockingStub(
+  public static final class OrganizerServiceBlockingStub extends io.grpc.stub.AbstractBlockingStub<OrganizerServiceBlockingStub> {
+    private OrganizerServiceBlockingStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected OrganizationServiceBlockingStub build(
+    protected OrganizerServiceBlockingStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new OrganizationServiceBlockingStub(channel, callOptions);
+      return new OrganizerServiceBlockingStub(channel, callOptions);
     }
 
     /**
@@ -1360,16 +1360,16 @@ public final class OrganizationServiceGrpc {
 
   /**
    */
-  public static final class OrganizationServiceFutureStub extends io.grpc.stub.AbstractFutureStub<OrganizationServiceFutureStub> {
-    private OrganizationServiceFutureStub(
+  public static final class OrganizerServiceFutureStub extends io.grpc.stub.AbstractFutureStub<OrganizerServiceFutureStub> {
+    private OrganizerServiceFutureStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected OrganizationServiceFutureStub build(
+    protected OrganizerServiceFutureStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new OrganizationServiceFutureStub(channel, callOptions);
+      return new OrganizerServiceFutureStub(channel, callOptions);
     }
 
     /**
@@ -1568,10 +1568,10 @@ public final class OrganizationServiceGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final OrganizationServiceImplBase serviceImpl;
+    private final OrganizerServiceImplBase serviceImpl;
     private final int methodId;
 
-    MethodHandlers(OrganizationServiceImplBase serviceImpl, int methodId) {
+    MethodHandlers(OrganizerServiceImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -1680,9 +1680,9 @@ public final class OrganizationServiceGrpc {
     }
   }
 
-  private static abstract class OrganizationServiceBaseDescriptorSupplier
+  private static abstract class OrganizerServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
-    OrganizationServiceBaseDescriptorSupplier() {}
+    OrganizerServiceBaseDescriptorSupplier() {}
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
@@ -1691,21 +1691,21 @@ public final class OrganizationServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
-      return getFileDescriptor().findServiceByName("OrganizationService");
+      return getFileDescriptor().findServiceByName("OrganizerService");
     }
   }
 
-  private static final class OrganizationServiceFileDescriptorSupplier
-      extends OrganizationServiceBaseDescriptorSupplier {
-    OrganizationServiceFileDescriptorSupplier() {}
+  private static final class OrganizerServiceFileDescriptorSupplier
+      extends OrganizerServiceBaseDescriptorSupplier {
+    OrganizerServiceFileDescriptorSupplier() {}
   }
 
-  private static final class OrganizationServiceMethodDescriptorSupplier
-      extends OrganizationServiceBaseDescriptorSupplier
+  private static final class OrganizerServiceMethodDescriptorSupplier
+      extends OrganizerServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoMethodDescriptorSupplier {
     private final String methodName;
 
-    OrganizationServiceMethodDescriptorSupplier(String methodName) {
+    OrganizerServiceMethodDescriptorSupplier(String methodName) {
       this.methodName = methodName;
     }
 
@@ -1720,11 +1720,11 @@ public final class OrganizationServiceGrpc {
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
     io.grpc.ServiceDescriptor result = serviceDescriptor;
     if (result == null) {
-      synchronized (OrganizationServiceGrpc.class) {
+      synchronized (OrganizerServiceGrpc.class) {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
-              .setSchemaDescriptor(new OrganizationServiceFileDescriptorSupplier())
+              .setSchemaDescriptor(new OrganizerServiceFileDescriptorSupplier())
               .addMethod(getCreateOrganizationMethod())
               .addMethod(getReadOrganizationMethod())
               .addMethod(getReadOrganizationByIdMethod())

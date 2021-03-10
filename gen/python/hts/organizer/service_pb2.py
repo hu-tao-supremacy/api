@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\020app.onepass.apisB\016OrganizerProtoP\001Z\"onepass.app/facility/hts/organizer',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1bhts/organizer/service.proto\x12\rhts.organizer\x1a\x17hts/common/common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bgoogle/protobuf/empty.proto\"&\n\x0bUserRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\"C\n\x0fReadByIdRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x17\n\x07read_id\x18\x02 \x01(\x03R\x06readId\"p\n\x08\x44uration\x12\x30\n\x05start\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12\x32\n\x06\x66inish\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x06\x66inish\"r\n\x19\x43reateOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12<\n\x0corganization\x18\x02 \x01(\x0b\x32\x18.hts.common.OrganizationR\x0corganization\"\x9b\x01\n\x19UpdateOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12<\n\x0corganization\x18\x03 \x01(\x0b\x32\x18.hts.common.OrganizationR\x0corganization\"]\n\x19\x44\x65leteOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\"W\n\x1d\x41\x64\x64UsersToOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x1d\n\x08user_ids\x18\x02 \x03(\x03\x42\x02\x10\x01R\x07userIds\"Z\n UpdateUsersInOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x1d\n\x08user_ids\x18\x02 \x03(\x03\x42\x02\x10\x01R\x07userIds\"V\n\x12\x43reateEventRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x05\x65vent\x18\x02 \x01(\x0b\x32\x11.hts.common.EventR\x05\x65vent\"Z\n\x16UpdateEventInfoRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x05\x65vent\x18\x02 \x01(\x0b\x32\x11.hts.common.EventR\x05\x65vent\"g\n\x1aUpdateEventFacilityRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x30\n\x08\x66\x61\x63ility\x18\x02 \x01(\x0b\x32\x14.hts.common.FacilityR\x08\x66\x61\x63ility\"\x85\x01\n\x1aUpdateEventDurationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12\x33\n\x08\x64uration\x18\x03 \x03(\x0b\x32\x17.hts.organizer.DurationR\x08\x64uration\"H\n\x12\x44\x65leteEventRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\"\xc5\x01\n UpdateRegistrationRequestRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12,\n\x12registered_user_id\x18\x02 \x01(\x03R\x10registeredUserId\x12.\n\x13registered_event_id\x18\x03 \x01(\x03R\x11registeredEventId\x12*\n\x06status\x18\x04 \x01(\x0e\x32\x12.hts.common.StatusR\x06status\"c\n\x10UpdateTagRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x1b\n\x07tag_ids\x18\x02 \x03(\x03\x42\x02\x10\x01R\x06tagIds\x12\x19\n\x08\x65vent_id\x18\x03 \x01(\x03R\x07\x65ventId\"n\n\x0fHasEventRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12\x19\n\x08\x65vent_id\x18\x03 \x01(\x03R\x07\x65ventId\"X\n\x16ReadOrganizationResult\x12>\n\rorganizations\x18\x01 \x03(\x0b\x32\x18.hts.common.OrganizationR\rorganizations\"Z\n\x1aReadOrganizationByIdResult\x12<\n\x0corganization\x18\x01 \x01(\x0b\x32\x18.hts.common.OrganizationR\x0corganization\"<\n\x0fReadEventResult\x12)\n\x06\x65vents\x18\x01 \x03(\x0b\x32\x11.hts.common.EventR\x06\x65vents\">\n\x13ReadEventByIdResult\x12\'\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x11.hts.common.EventR\x05\x65vent\"4\n\rReadTagResult\x12#\n\x04tags\x18\x01 \x03(\x0b\x32\x0f.hts.common.TagR\x04tags\"6\n\x11ReadTagByIdResult\x12!\n\x03tag\x18\x01 \x01(\x0b\x32\x0f.hts.common.TagR\x03tag2\x9f\r\n\x13OrganizationService\x12R\n\x12\x43reateOrganization\x12(.hts.organizer.CreateOrganizationRequest\x1a\x12.hts.common.Result\x12U\n\x10ReadOrganization\x12\x1a.hts.organizer.UserRequest\x1a%.hts.organizer.ReadOrganizationResult\x12\x61\n\x14ReadOrganizationById\x12\x1e.hts.organizer.ReadByIdRequest\x1a).hts.organizer.ReadOrganizationByIdResult\x12R\n\x12UpdateOrganization\x12(.hts.organizer.UpdateOrganizationRequest\x1a\x12.hts.common.Result\x12R\n\x12\x44\x65leteOrganization\x12(.hts.organizer.DeleteOrganizationRequest\x1a\x12.hts.common.Result\x12]\n\x16\x41\x64\x64UsersToOrganization\x12/.hts.organizer.UpdateUsersInOrganizationRequest\x1a\x12.hts.common.Result\x12\x62\n\x1bRemoveUsersFromOrganization\x12/.hts.organizer.UpdateUsersInOrganizationRequest\x1a\x12.hts.common.Result\x12\x44\n\x0b\x43reateEvent\x12!.hts.organizer.CreateEventRequest\x1a\x12.hts.common.Result\x12G\n\tReadEvent\x12\x1a.hts.organizer.UserRequest\x1a\x1e.hts.organizer.ReadEventResult\x12S\n\rReadEventById\x12\x1e.hts.organizer.ReadByIdRequest\x1a\".hts.organizer.ReadEventByIdResult\x12L\n\x0fUpdateEventInfo\x12%.hts.organizer.UpdateEventInfoRequest\x1a\x12.hts.common.Result\x12T\n\x13UpdateEventFacility\x12).hts.organizer.UpdateEventFacilityRequest\x1a\x12.hts.common.Result\x12T\n\x13UpdateEventDuration\x12).hts.organizer.UpdateEventDurationRequest\x1a\x12.hts.common.Result\x12\x44\n\x0b\x44\x65leteEvent\x12!.hts.organizer.DeleteEventRequest\x1a\x12.hts.common.Result\x12`\n\x19UpdateRegistrationRequest\x12/.hts.organizer.UpdateRegistrationRequestRequest\x1a\x12.hts.common.Result\x12=\n\x06\x41\x64\x64Tag\x12\x1f.hts.organizer.UpdateTagRequest\x1a\x12.hts.common.Result\x12@\n\tRemoveTag\x12\x1f.hts.organizer.UpdateTagRequest\x1a\x12.hts.common.Result\x12\x43\n\x07ReadTag\x12\x1a.hts.organizer.UserRequest\x1a\x1c.hts.organizer.ReadTagResult\x12O\n\x0bReadTagById\x12\x1e.hts.organizer.ReadByIdRequest\x1a .hts.organizer.ReadTagByIdResult\x12>\n\x08HasEvent\x12\x1e.hts.organizer.HasEventRequest\x1a\x12.hts.common.Result\x12\x32\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x12.hts.common.ResultBH\n\x10\x61pp.onepass.apisB\x0eOrganizerProtoP\x01Z\"onepass.app/facility/hts/organizerb\x06proto3'
+  serialized_pb=b'\n\x1bhts/organizer/service.proto\x12\rhts.organizer\x1a\x17hts/common/common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bgoogle/protobuf/empty.proto\"&\n\x0bUserRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\"C\n\x0fReadByIdRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x17\n\x07read_id\x18\x02 \x01(\x03R\x06readId\"p\n\x08\x44uration\x12\x30\n\x05start\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12\x32\n\x06\x66inish\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x06\x66inish\"r\n\x19\x43reateOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12<\n\x0corganization\x18\x02 \x01(\x0b\x32\x18.hts.common.OrganizationR\x0corganization\"\x9b\x01\n\x19UpdateOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12<\n\x0corganization\x18\x03 \x01(\x0b\x32\x18.hts.common.OrganizationR\x0corganization\"]\n\x19\x44\x65leteOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\"W\n\x1d\x41\x64\x64UsersToOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x1d\n\x08user_ids\x18\x02 \x03(\x03\x42\x02\x10\x01R\x07userIds\"Z\n UpdateUsersInOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x1d\n\x08user_ids\x18\x02 \x03(\x03\x42\x02\x10\x01R\x07userIds\"V\n\x12\x43reateEventRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x05\x65vent\x18\x02 \x01(\x0b\x32\x11.hts.common.EventR\x05\x65vent\"Z\n\x16UpdateEventInfoRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x05\x65vent\x18\x02 \x01(\x0b\x32\x11.hts.common.EventR\x05\x65vent\"g\n\x1aUpdateEventFacilityRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x30\n\x08\x66\x61\x63ility\x18\x02 \x01(\x0b\x32\x14.hts.common.FacilityR\x08\x66\x61\x63ility\"\x85\x01\n\x1aUpdateEventDurationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12\x33\n\x08\x64uration\x18\x03 \x03(\x0b\x32\x17.hts.organizer.DurationR\x08\x64uration\"H\n\x12\x44\x65leteEventRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\"\xc5\x01\n UpdateRegistrationRequestRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12,\n\x12registered_user_id\x18\x02 \x01(\x03R\x10registeredUserId\x12.\n\x13registered_event_id\x18\x03 \x01(\x03R\x11registeredEventId\x12*\n\x06status\x18\x04 \x01(\x0e\x32\x12.hts.common.StatusR\x06status\"c\n\x10UpdateTagRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x1b\n\x07tag_ids\x18\x02 \x03(\x03\x42\x02\x10\x01R\x06tagIds\x12\x19\n\x08\x65vent_id\x18\x03 \x01(\x03R\x07\x65ventId\"n\n\x0fHasEventRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12\x19\n\x08\x65vent_id\x18\x03 \x01(\x03R\x07\x65ventId\"X\n\x16ReadOrganizationResult\x12>\n\rorganizations\x18\x01 \x03(\x0b\x32\x18.hts.common.OrganizationR\rorganizations\"Z\n\x1aReadOrganizationByIdResult\x12<\n\x0corganization\x18\x01 \x01(\x0b\x32\x18.hts.common.OrganizationR\x0corganization\"<\n\x0fReadEventResult\x12)\n\x06\x65vents\x18\x01 \x03(\x0b\x32\x11.hts.common.EventR\x06\x65vents\">\n\x13ReadEventByIdResult\x12\'\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x11.hts.common.EventR\x05\x65vent\"4\n\rReadTagResult\x12#\n\x04tags\x18\x01 \x03(\x0b\x32\x0f.hts.common.TagR\x04tags\"6\n\x11ReadTagByIdResult\x12!\n\x03tag\x18\x01 \x01(\x0b\x32\x0f.hts.common.TagR\x03tag2\x9c\r\n\x10OrganizerService\x12R\n\x12\x43reateOrganization\x12(.hts.organizer.CreateOrganizationRequest\x1a\x12.hts.common.Result\x12U\n\x10ReadOrganization\x12\x1a.hts.organizer.UserRequest\x1a%.hts.organizer.ReadOrganizationResult\x12\x61\n\x14ReadOrganizationById\x12\x1e.hts.organizer.ReadByIdRequest\x1a).hts.organizer.ReadOrganizationByIdResult\x12R\n\x12UpdateOrganization\x12(.hts.organizer.UpdateOrganizationRequest\x1a\x12.hts.common.Result\x12R\n\x12\x44\x65leteOrganization\x12(.hts.organizer.DeleteOrganizationRequest\x1a\x12.hts.common.Result\x12]\n\x16\x41\x64\x64UsersToOrganization\x12/.hts.organizer.UpdateUsersInOrganizationRequest\x1a\x12.hts.common.Result\x12\x62\n\x1bRemoveUsersFromOrganization\x12/.hts.organizer.UpdateUsersInOrganizationRequest\x1a\x12.hts.common.Result\x12\x44\n\x0b\x43reateEvent\x12!.hts.organizer.CreateEventRequest\x1a\x12.hts.common.Result\x12G\n\tReadEvent\x12\x1a.hts.organizer.UserRequest\x1a\x1e.hts.organizer.ReadEventResult\x12S\n\rReadEventById\x12\x1e.hts.organizer.ReadByIdRequest\x1a\".hts.organizer.ReadEventByIdResult\x12L\n\x0fUpdateEventInfo\x12%.hts.organizer.UpdateEventInfoRequest\x1a\x12.hts.common.Result\x12T\n\x13UpdateEventFacility\x12).hts.organizer.UpdateEventFacilityRequest\x1a\x12.hts.common.Result\x12T\n\x13UpdateEventDuration\x12).hts.organizer.UpdateEventDurationRequest\x1a\x12.hts.common.Result\x12\x44\n\x0b\x44\x65leteEvent\x12!.hts.organizer.DeleteEventRequest\x1a\x12.hts.common.Result\x12`\n\x19UpdateRegistrationRequest\x12/.hts.organizer.UpdateRegistrationRequestRequest\x1a\x12.hts.common.Result\x12=\n\x06\x41\x64\x64Tag\x12\x1f.hts.organizer.UpdateTagRequest\x1a\x12.hts.common.Result\x12@\n\tRemoveTag\x12\x1f.hts.organizer.UpdateTagRequest\x1a\x12.hts.common.Result\x12\x43\n\x07ReadTag\x12\x1a.hts.organizer.UserRequest\x1a\x1c.hts.organizer.ReadTagResult\x12O\n\x0bReadTagById\x12\x1e.hts.organizer.ReadByIdRequest\x1a .hts.organizer.ReadTagByIdResult\x12>\n\x08HasEvent\x12\x1e.hts.organizer.HasEventRequest\x1a\x12.hts.common.Result\x12\x32\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x12.hts.common.ResultBH\n\x10\x61pp.onepass.apisB\x0eOrganizerProtoP\x01Z\"onepass.app/facility/hts/organizerb\x06proto3'
   ,
   dependencies=[hts_dot_common_dot_common__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,])
 
@@ -1078,19 +1078,19 @@ _ADDUSERSTOORGANIZATIONREQUEST.fields_by_name['user_ids']._options = None
 _UPDATEUSERSINORGANIZATIONREQUEST.fields_by_name['user_ids']._options = None
 _UPDATETAGREQUEST.fields_by_name['tag_ids']._options = None
 
-_ORGANIZATIONSERVICE = _descriptor.ServiceDescriptor(
-  name='OrganizationService',
-  full_name='hts.organizer.OrganizationService',
+_ORGANIZERSERVICE = _descriptor.ServiceDescriptor(
+  name='OrganizerService',
+  full_name='hts.organizer.OrganizerService',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
   serialized_start=2233,
-  serialized_end=3928,
+  serialized_end=3925,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateOrganization',
-    full_name='hts.organizer.OrganizationService.CreateOrganization',
+    full_name='hts.organizer.OrganizerService.CreateOrganization',
     index=0,
     containing_service=None,
     input_type=_CREATEORGANIZATIONREQUEST,
@@ -1100,7 +1100,7 @@ _ORGANIZATIONSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='ReadOrganization',
-    full_name='hts.organizer.OrganizationService.ReadOrganization',
+    full_name='hts.organizer.OrganizerService.ReadOrganization',
     index=1,
     containing_service=None,
     input_type=_USERREQUEST,
@@ -1110,7 +1110,7 @@ _ORGANIZATIONSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='ReadOrganizationById',
-    full_name='hts.organizer.OrganizationService.ReadOrganizationById',
+    full_name='hts.organizer.OrganizerService.ReadOrganizationById',
     index=2,
     containing_service=None,
     input_type=_READBYIDREQUEST,
@@ -1120,7 +1120,7 @@ _ORGANIZATIONSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='UpdateOrganization',
-    full_name='hts.organizer.OrganizationService.UpdateOrganization',
+    full_name='hts.organizer.OrganizerService.UpdateOrganization',
     index=3,
     containing_service=None,
     input_type=_UPDATEORGANIZATIONREQUEST,
@@ -1130,7 +1130,7 @@ _ORGANIZATIONSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='DeleteOrganization',
-    full_name='hts.organizer.OrganizationService.DeleteOrganization',
+    full_name='hts.organizer.OrganizerService.DeleteOrganization',
     index=4,
     containing_service=None,
     input_type=_DELETEORGANIZATIONREQUEST,
@@ -1140,7 +1140,7 @@ _ORGANIZATIONSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='AddUsersToOrganization',
-    full_name='hts.organizer.OrganizationService.AddUsersToOrganization',
+    full_name='hts.organizer.OrganizerService.AddUsersToOrganization',
     index=5,
     containing_service=None,
     input_type=_UPDATEUSERSINORGANIZATIONREQUEST,
@@ -1150,7 +1150,7 @@ _ORGANIZATIONSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='RemoveUsersFromOrganization',
-    full_name='hts.organizer.OrganizationService.RemoveUsersFromOrganization',
+    full_name='hts.organizer.OrganizerService.RemoveUsersFromOrganization',
     index=6,
     containing_service=None,
     input_type=_UPDATEUSERSINORGANIZATIONREQUEST,
@@ -1160,7 +1160,7 @@ _ORGANIZATIONSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='CreateEvent',
-    full_name='hts.organizer.OrganizationService.CreateEvent',
+    full_name='hts.organizer.OrganizerService.CreateEvent',
     index=7,
     containing_service=None,
     input_type=_CREATEEVENTREQUEST,
@@ -1170,7 +1170,7 @@ _ORGANIZATIONSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='ReadEvent',
-    full_name='hts.organizer.OrganizationService.ReadEvent',
+    full_name='hts.organizer.OrganizerService.ReadEvent',
     index=8,
     containing_service=None,
     input_type=_USERREQUEST,
@@ -1180,7 +1180,7 @@ _ORGANIZATIONSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='ReadEventById',
-    full_name='hts.organizer.OrganizationService.ReadEventById',
+    full_name='hts.organizer.OrganizerService.ReadEventById',
     index=9,
     containing_service=None,
     input_type=_READBYIDREQUEST,
@@ -1190,7 +1190,7 @@ _ORGANIZATIONSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='UpdateEventInfo',
-    full_name='hts.organizer.OrganizationService.UpdateEventInfo',
+    full_name='hts.organizer.OrganizerService.UpdateEventInfo',
     index=10,
     containing_service=None,
     input_type=_UPDATEEVENTINFOREQUEST,
@@ -1200,7 +1200,7 @@ _ORGANIZATIONSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='UpdateEventFacility',
-    full_name='hts.organizer.OrganizationService.UpdateEventFacility',
+    full_name='hts.organizer.OrganizerService.UpdateEventFacility',
     index=11,
     containing_service=None,
     input_type=_UPDATEEVENTFACILITYREQUEST,
@@ -1210,7 +1210,7 @@ _ORGANIZATIONSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='UpdateEventDuration',
-    full_name='hts.organizer.OrganizationService.UpdateEventDuration',
+    full_name='hts.organizer.OrganizerService.UpdateEventDuration',
     index=12,
     containing_service=None,
     input_type=_UPDATEEVENTDURATIONREQUEST,
@@ -1220,7 +1220,7 @@ _ORGANIZATIONSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='DeleteEvent',
-    full_name='hts.organizer.OrganizationService.DeleteEvent',
+    full_name='hts.organizer.OrganizerService.DeleteEvent',
     index=13,
     containing_service=None,
     input_type=_DELETEEVENTREQUEST,
@@ -1230,7 +1230,7 @@ _ORGANIZATIONSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='UpdateRegistrationRequest',
-    full_name='hts.organizer.OrganizationService.UpdateRegistrationRequest',
+    full_name='hts.organizer.OrganizerService.UpdateRegistrationRequest',
     index=14,
     containing_service=None,
     input_type=_UPDATEREGISTRATIONREQUESTREQUEST,
@@ -1240,7 +1240,7 @@ _ORGANIZATIONSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='AddTag',
-    full_name='hts.organizer.OrganizationService.AddTag',
+    full_name='hts.organizer.OrganizerService.AddTag',
     index=15,
     containing_service=None,
     input_type=_UPDATETAGREQUEST,
@@ -1250,7 +1250,7 @@ _ORGANIZATIONSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='RemoveTag',
-    full_name='hts.organizer.OrganizationService.RemoveTag',
+    full_name='hts.organizer.OrganizerService.RemoveTag',
     index=16,
     containing_service=None,
     input_type=_UPDATETAGREQUEST,
@@ -1260,7 +1260,7 @@ _ORGANIZATIONSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='ReadTag',
-    full_name='hts.organizer.OrganizationService.ReadTag',
+    full_name='hts.organizer.OrganizerService.ReadTag',
     index=17,
     containing_service=None,
     input_type=_USERREQUEST,
@@ -1270,7 +1270,7 @@ _ORGANIZATIONSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='ReadTagById',
-    full_name='hts.organizer.OrganizationService.ReadTagById',
+    full_name='hts.organizer.OrganizerService.ReadTagById',
     index=18,
     containing_service=None,
     input_type=_READBYIDREQUEST,
@@ -1280,7 +1280,7 @@ _ORGANIZATIONSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='HasEvent',
-    full_name='hts.organizer.OrganizationService.HasEvent',
+    full_name='hts.organizer.OrganizerService.HasEvent',
     index=19,
     containing_service=None,
     input_type=_HASEVENTREQUEST,
@@ -1290,7 +1290,7 @@ _ORGANIZATIONSERVICE = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='Ping',
-    full_name='hts.organizer.OrganizationService.Ping',
+    full_name='hts.organizer.OrganizerService.Ping',
     index=20,
     containing_service=None,
     input_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
@@ -1299,8 +1299,8 @@ _ORGANIZATIONSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
 ])
-_sym_db.RegisterServiceDescriptor(_ORGANIZATIONSERVICE)
+_sym_db.RegisterServiceDescriptor(_ORGANIZERSERVICE)
 
-DESCRIPTOR.services_by_name['OrganizationService'] = _ORGANIZATIONSERVICE
+DESCRIPTOR.services_by_name['OrganizerService'] = _ORGANIZERSERVICE
 
 # @@protoc_insertion_point(module_scope)
