@@ -10,6 +10,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: |
           which go
-          sudo ln -s /usr/local/opt/go /usr/local/bin/go
+          cat /usr/local/opt/go
+          sudo ln -s /usr/local/bin/go /usr/local/opt/go
           brew tap bufbuild/buf
           brew install buf --ignore-dependencies
