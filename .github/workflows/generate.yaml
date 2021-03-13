@@ -18,6 +18,8 @@ jobs:
           echo "SHA7=${GITHUB_SHA::7}" >> $GITHUB_ENV
       - run: |
           which go
+          brew upgrade
+
           brew install tree
 
           brew install protobuf
