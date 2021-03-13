@@ -9,9 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: brew linkage
-      - uses: actions/setup-go@v2
-        with:
-          go-version: "^1.16.0"
       - run: |
+          brew link --overwrite go
           brew tap hu-tao-supremacy/buf
           brew install buf --ignore-dependencies
