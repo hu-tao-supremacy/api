@@ -9,5 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
+          which go
           brew tap bufbuild/buf
           brew install buf --ignore-dependencies
