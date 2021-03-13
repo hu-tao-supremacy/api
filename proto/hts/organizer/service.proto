@@ -15,7 +15,7 @@ message UserRequest {
   int64 user_id = 1;
 }
 
-message ReadByIdRequest {
+message GetByIdRequest {
   int64 user_id = 1;
   int64 read_id = 2;
 }
@@ -67,7 +67,7 @@ message UpdateEventDurationRequest {
   repeated Duration duration = 3;
 }
 
-message DeleteEventRequest {
+message RemoveEventRequest {
   int64 user_id = 1;
   int64 event_id = 2;
 }
@@ -96,51 +96,51 @@ message HasEventRequest {
   int64 event_id = 3;
 }
 
-message ReadOrganizationResponse {
+message GetOrganizationResponse {
   repeated hts.common.Organization organizations = 1;
 }
 
-message ReadOrganizationByIdResponse {
+message GetOrganizationByIdResponse {
   hts.common.Organization organization = 1;
 }
 
-message ReadEventResponse {
+message GetEventResponse {
   repeated hts.common.Event events = 1;
 }
 
-message ReadEventByIdResponse {
+message GetEventByIdResponse {
   hts.common.Event event = 1;
 }
 
-message ReadTagResponse {
+message GetTagResponse {
   repeated hts.common.Tag tags = 1;
 }
 
-message ReadTagByIdResponse {
+message GetTagByIdResponse {
   hts.common.Tag tag = 1;
 }
 
 service OrganizerService {
   rpc CreateOrganization(CreateOrganizationRequest) returns (hts.common.Result);
-  rpc GetOrganization(UserRequest) returns (ReadOrganizationResponse);
-  rpc GetOrganizationById(ReadByIdRequest) returns (ReadOrganizationByIdResponse);
+  rpc GetOrganization(UserRequest) returns (GetOrganizationResponse);
+  rpc GetOrganizationById(GetByIdRequest) returns (GetOrganizationByIdResponse);
   rpc UpdateOrganization(UpdateOrganizationRequest) returns (hts.common.Result);
   rpc RemoveOrganization(DeleteOrganizationRequest) returns (hts.common.Result);
   rpc AddUsersToOrganization(UpdateUsersInOrganizationRequest) returns (hts.common.Result);
   rpc RemoveUsersFromOrganization(UpdateUsersInOrganizationRequest) returns (hts.common.Result);
   rpc CreateEvent(CreateEventRequest) returns (hts.common.Result);
-  rpc GetEvent(UserRequest) returns (ReadEventResponse);
-  rpc GetEventById(ReadByIdRequest) returns (ReadEventByIdResponse);
+  rpc GetEvent(UserRequest) returns (GetEventResponse);
+  rpc GetEventById(GetByIdRequest) returns (GetEventByIdResponse);
   rpc UpdateEventInfo(UpdateEventInfoRequest) returns (hts.common.Result);
   rpc UpdateEventFacility(UpdateEventFacilityRequest) returns (hts.common.Result);
   rpc UpdateEventDuration(UpdateEventDurationRequest) returns (hts.common.Result);
-  rpc RemoveEvent(DeleteEventRequest) returns (hts.common.Result);
+  rpc RemoveEvent(RemoveEventRequest) returns (hts.common.Result);
   rpc UpdateRegistrationRequest(UpdateRegistrationRequestRequest) returns (hts.common.Result);
   rpc CreateTag(CreateTagRequest) returns (hts.common.Result);
   rpc AddTag(UpdateTagRequest) returns (hts.common.Result);
   rpc RemoveTag(UpdateTagRequest) returns (hts.common.Result);
-  rpc ReadTag(UserRequest) returns (ReadTagResponse);
-  rpc ReadTagById(ReadByIdRequest) returns (ReadTagByIdResponse);
+  rpc GetTag(UserRequest) returns (GetTagResponse);
+  rpc GetTagById(GetByIdRequest) returns (GetTagByIdResponse);
   rpc HasEvent(HasEventRequest) returns (hts.common.Result);
   rpc Ping(google.protobuf.Empty) returns (hts.common.Result);
 }
