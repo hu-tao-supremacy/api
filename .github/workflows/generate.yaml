@@ -35,8 +35,8 @@ jobs:
           sudo mv protoc-gen-grpc-java /usr/local/bin/.
           which protoc-gen-grpc-java
 
-          brew tap bufbuild/buf
-          brew install bufbuild/buf@0.38.0
+          brew tap bufbuild/buf/@0.38.0
+          brew install buf
       - run: |
           git checkout -b gen/${{ env.SHA7 }}
           rm -rf gen/
