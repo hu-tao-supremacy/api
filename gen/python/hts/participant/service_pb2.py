@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\020app.onepass.apisB\020ParticipantProtoP\001Z$onepass.app/facility/hts/participant',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1dhts/participant/service.proto\x12\x0fhts.participant\x1a\x17hts/common/common.proto\x1a\x1bgoogle/protobuf/empty.proto\"I\n\x11GenerateQRRequest\x12\x34\n\nuser_event\x18\x01 \x01(\x0b\x32\x15.hts.common.UserEventR\tuserEvent\",\n\x0fGetEventRequest\x12\x19\n\x08\x65vent_id\x18\x01 \x01(\x03R\x07\x65ventId\"(\n\x12StringInputRequest\x12\x12\n\x04text\x18\x01 \x01(\tR\x04text\"e\n\x14UserWithEventRequest\x12$\n\x04user\x18\x01 \x01(\x0b\x32\x10.hts.common.UserR\x04user\x12\'\n\x05\x65vent\x18\x02 \x01(\x0b\x32\x11.hts.common.EventR\x05\x65vent\"t\n\x15\x43reateFeedbackRequest\x12$\n\x04user\x18\x01 \x01(\x0b\x32\x10.hts.common.UserR\x04user\x12\x35\n\x08\x66\x65\x65\x64\x62\x61\x63k\x18\x02 \x01(\x0b\x32\x19.hts.common.EventFeedbackR\x08\x66\x65\x65\x64\x62\x61\x63k\"(\n\x12GenerateQRResponse\x12\x12\n\x04\x64\x61ta\x18\x01 \x01(\tR\x04\x64\x61ta\"_\n\x1bGetFeedbackForEventResponse\x12@\n\x0e\x65vent_feedback\x18\x01 \x03(\x0b\x32\x19.hts.common.EventFeedbackR\reventFeedback\"9\n\x0e\x45ventsResponse\x12\'\n\x05\x65vent\x18\x01 \x03(\x0b\x32\x11.hts.common.EventR\x05\x65vent2\x8a\t\n\x12ParticipantService\x12\x39\n\x10IsEventAvailable\x12\x11.hts.common.Event\x1a\x12.hts.common.Result\x12\x46\n\tJoinEvent\x12%.hts.participant.UserWithEventRequest\x1a\x12.hts.common.Result\x12H\n\x0b\x43\x61ncelEvent\x12%.hts.participant.UserWithEventRequest\x1a\x12.hts.common.Result\x12L\n\x0e\x43reateFeedback\x12&.hts.participant.CreateFeedbackRequest\x1a\x12.hts.common.Result\x12N\n\x11HasSubmitFeedback\x12%.hts.participant.UserWithEventRequest\x1a\x12.hts.common.Result\x12?\n\x0eRemoveFeedback\x12\x19.hts.common.EventFeedback\x1a\x12.hts.common.Result\x12W\n\x14GetFeedbackFromEvent\x12\x11.hts.common.Event\x1a,.hts.participant.GetFeedbackForEventResponse\x12\x61\n\x17GetUserFeedbackForEvent\x12%.hts.participant.UserWithEventRequest\x1a\x1f.hts.participant.EventsResponse\x12Z\n\x12SearchEventsByName\x12#.hts.participant.StringInputRequest\x1a\x1f.hts.participant.EventsResponse\x12Y\n\x11SearchEventsByTag\x12#.hts.participant.StringInputRequest\x1a\x1f.hts.participant.EventsResponse\x12H\n\nGenerateQR\x12\x15.hts.common.UserEvent\x1a#.hts.participant.GenerateQRResponse\x12?\n\x08GetEvent\x12 .hts.participant.GetEventRequest\x1a\x11.hts.common.Event\x12M\n\x12GetSuggestedEvents\x12\x16.google.protobuf.Empty\x1a\x1f.hts.participant.EventsResponse\x12G\n\x0cGetAllEvents\x12\x16.google.protobuf.Empty\x1a\x1f.hts.participant.EventsResponse\x12\x32\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x12.hts.common.ResultBL\n\x10\x61pp.onepass.apisB\x10ParticipantProtoP\x01Z$onepass.app/facility/hts/participantb\x06proto3'
+  serialized_pb=b'\n\x1dhts/participant/service.proto\x12\x0fhts.participant\x1a\x17hts/common/common.proto\x1a\x1bgoogle/protobuf/empty.proto\"I\n\x11GenerateQRRequest\x12\x34\n\nuser_event\x18\x01 \x01(\x0b\x32\x15.hts.common.UserEventR\tuserEvent\",\n\x0fGetEventRequest\x12\x19\n\x08\x65vent_id\x18\x01 \x01(\x03R\x07\x65ventId\"(\n\x12StringInputRequest\x12\x12\n\x04text\x18\x01 \x01(\tR\x04text\"e\n\x14UserWithEventRequest\x12$\n\x04user\x18\x01 \x01(\x0b\x32\x10.hts.common.UserR\x04user\x12\'\n\x05\x65vent\x18\x02 \x01(\x0b\x32\x11.hts.common.EventR\x05\x65vent\"t\n\x15\x43reateFeedbackRequest\x12$\n\x04user\x18\x01 \x01(\x0b\x32\x10.hts.common.UserR\x04user\x12\x35\n\x08\x66\x65\x65\x64\x62\x61\x63k\x18\x02 \x01(\x0b\x32\x19.hts.common.EventFeedbackR\x08\x66\x65\x65\x64\x62\x61\x63k\"(\n\x12GenerateQRResponse\x12\x12\n\x04\x64\x61ta\x18\x01 \x01(\tR\x04\x64\x61ta\"a\n\x1dGetFeedbacksFromEventResponse\x12@\n\x0e\x65vent_feedback\x18\x01 \x03(\x0b\x32\x19.hts.common.EventFeedbackR\reventFeedback\"9\n\x0e\x45ventsResponse\x12\'\n\x05\x65vent\x18\x01 \x03(\x0b\x32\x11.hts.common.EventR\x05\x65vent2\x9a\t\n\x12ParticipantService\x12\x39\n\x10IsEventAvailable\x12\x11.hts.common.Event\x1a\x12.hts.common.Result\x12\x45\n\tJoinEvent\x12%.hts.participant.UserWithEventRequest\x1a\x11.hts.common.Event\x12G\n\x0b\x43\x61ncelEvent\x12%.hts.participant.UserWithEventRequest\x1a\x11.hts.common.Event\x12S\n\x0e\x43reateFeedback\x12&.hts.participant.CreateFeedbackRequest\x1a\x19.hts.common.EventFeedback\x12U\n\x11HasSubmitFeedback\x12%.hts.participant.UserWithEventRequest\x1a\x19.hts.common.EventFeedback\x12\x46\n\x0eRemoveFeedback\x12\x19.hts.common.EventFeedback\x1a\x19.hts.common.EventFeedback\x12Z\n\x15GetFeedbacksFromEvent\x12\x11.hts.common.Event\x1a..hts.participant.GetFeedbacksFromEventResponse\x12[\n\x17GetUserFeedbackForEvent\x12%.hts.participant.UserWithEventRequest\x1a\x19.hts.common.EventFeedback\x12Z\n\x12SearchEventsByName\x12#.hts.participant.StringInputRequest\x1a\x1f.hts.participant.EventsResponse\x12Y\n\x11SearchEventsByTag\x12#.hts.participant.StringInputRequest\x1a\x1f.hts.participant.EventsResponse\x12H\n\nGenerateQR\x12\x15.hts.common.UserEvent\x1a#.hts.participant.GenerateQRResponse\x12?\n\x08GetEvent\x12 .hts.participant.GetEventRequest\x1a\x11.hts.common.Event\x12M\n\x12GetSuggestedEvents\x12\x16.google.protobuf.Empty\x1a\x1f.hts.participant.EventsResponse\x12G\n\x0cGetAllEvents\x12\x16.google.protobuf.Empty\x1a\x1f.hts.participant.EventsResponse\x12\x32\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x12.hts.common.ResultBL\n\x10\x61pp.onepass.apisB\x10ParticipantProtoP\x01Z$onepass.app/facility/hts/participantb\x06proto3'
   ,
   dependencies=[hts_dot_common_dot_common__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,])
 
@@ -234,16 +234,16 @@ _GENERATEQRRESPONSE = _descriptor.Descriptor(
 )
 
 
-_GETFEEDBACKFOREVENTRESPONSE = _descriptor.Descriptor(
-  name='GetFeedbackForEventResponse',
-  full_name='hts.participant.GetFeedbackForEventResponse',
+_GETFEEDBACKSFROMEVENTRESPONSE = _descriptor.Descriptor(
+  name='GetFeedbacksFromEventResponse',
+  full_name='hts.participant.GetFeedbacksFromEventResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='event_feedback', full_name='hts.participant.GetFeedbackForEventResponse.event_feedback', index=0,
+      name='event_feedback', full_name='hts.participant.GetFeedbacksFromEventResponse.event_feedback', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -262,7 +262,7 @@ _GETFEEDBACKFOREVENTRESPONSE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=530,
-  serialized_end=625,
+  serialized_end=627,
 )
 
 
@@ -293,8 +293,8 @@ _EVENTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=627,
-  serialized_end=684,
+  serialized_start=629,
+  serialized_end=686,
 )
 
 _GENERATEQRREQUEST.fields_by_name['user_event'].message_type = hts_dot_common_dot_common__pb2._USEREVENT
@@ -302,7 +302,7 @@ _USERWITHEVENTREQUEST.fields_by_name['user'].message_type = hts_dot_common_dot_c
 _USERWITHEVENTREQUEST.fields_by_name['event'].message_type = hts_dot_common_dot_common__pb2._EVENT
 _CREATEFEEDBACKREQUEST.fields_by_name['user'].message_type = hts_dot_common_dot_common__pb2._USER
 _CREATEFEEDBACKREQUEST.fields_by_name['feedback'].message_type = hts_dot_common_dot_common__pb2._EVENTFEEDBACK
-_GETFEEDBACKFOREVENTRESPONSE.fields_by_name['event_feedback'].message_type = hts_dot_common_dot_common__pb2._EVENTFEEDBACK
+_GETFEEDBACKSFROMEVENTRESPONSE.fields_by_name['event_feedback'].message_type = hts_dot_common_dot_common__pb2._EVENTFEEDBACK
 _EVENTSRESPONSE.fields_by_name['event'].message_type = hts_dot_common_dot_common__pb2._EVENT
 DESCRIPTOR.message_types_by_name['GenerateQRRequest'] = _GENERATEQRREQUEST
 DESCRIPTOR.message_types_by_name['GetEventRequest'] = _GETEVENTREQUEST
@@ -310,7 +310,7 @@ DESCRIPTOR.message_types_by_name['StringInputRequest'] = _STRINGINPUTREQUEST
 DESCRIPTOR.message_types_by_name['UserWithEventRequest'] = _USERWITHEVENTREQUEST
 DESCRIPTOR.message_types_by_name['CreateFeedbackRequest'] = _CREATEFEEDBACKREQUEST
 DESCRIPTOR.message_types_by_name['GenerateQRResponse'] = _GENERATEQRRESPONSE
-DESCRIPTOR.message_types_by_name['GetFeedbackForEventResponse'] = _GETFEEDBACKFOREVENTRESPONSE
+DESCRIPTOR.message_types_by_name['GetFeedbacksFromEventResponse'] = _GETFEEDBACKSFROMEVENTRESPONSE
 DESCRIPTOR.message_types_by_name['EventsResponse'] = _EVENTSRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -356,12 +356,12 @@ GenerateQRResponse = _reflection.GeneratedProtocolMessageType('GenerateQRRespons
   })
 _sym_db.RegisterMessage(GenerateQRResponse)
 
-GetFeedbackForEventResponse = _reflection.GeneratedProtocolMessageType('GetFeedbackForEventResponse', (_message.Message,), {
-  'DESCRIPTOR' : _GETFEEDBACKFOREVENTRESPONSE,
+GetFeedbacksFromEventResponse = _reflection.GeneratedProtocolMessageType('GetFeedbacksFromEventResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETFEEDBACKSFROMEVENTRESPONSE,
   '__module__' : 'hts.participant.service_pb2'
-  # @@protoc_insertion_point(class_scope:hts.participant.GetFeedbackForEventResponse)
+  # @@protoc_insertion_point(class_scope:hts.participant.GetFeedbacksFromEventResponse)
   })
-_sym_db.RegisterMessage(GetFeedbackForEventResponse)
+_sym_db.RegisterMessage(GetFeedbacksFromEventResponse)
 
 EventsResponse = _reflection.GeneratedProtocolMessageType('EventsResponse', (_message.Message,), {
   'DESCRIPTOR' : _EVENTSRESPONSE,
@@ -380,8 +380,8 @@ _PARTICIPANTSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=687,
-  serialized_end=1849,
+  serialized_start=689,
+  serialized_end=1867,
   methods=[
   _descriptor.MethodDescriptor(
     name='IsEventAvailable',
@@ -399,7 +399,7 @@ _PARTICIPANTSERVICE = _descriptor.ServiceDescriptor(
     index=1,
     containing_service=None,
     input_type=_USERWITHEVENTREQUEST,
-    output_type=hts_dot_common_dot_common__pb2._RESULT,
+    output_type=hts_dot_common_dot_common__pb2._EVENT,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -409,7 +409,7 @@ _PARTICIPANTSERVICE = _descriptor.ServiceDescriptor(
     index=2,
     containing_service=None,
     input_type=_USERWITHEVENTREQUEST,
-    output_type=hts_dot_common_dot_common__pb2._RESULT,
+    output_type=hts_dot_common_dot_common__pb2._EVENT,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -419,7 +419,7 @@ _PARTICIPANTSERVICE = _descriptor.ServiceDescriptor(
     index=3,
     containing_service=None,
     input_type=_CREATEFEEDBACKREQUEST,
-    output_type=hts_dot_common_dot_common__pb2._RESULT,
+    output_type=hts_dot_common_dot_common__pb2._EVENTFEEDBACK,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -429,7 +429,7 @@ _PARTICIPANTSERVICE = _descriptor.ServiceDescriptor(
     index=4,
     containing_service=None,
     input_type=_USERWITHEVENTREQUEST,
-    output_type=hts_dot_common_dot_common__pb2._RESULT,
+    output_type=hts_dot_common_dot_common__pb2._EVENTFEEDBACK,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -439,17 +439,17 @@ _PARTICIPANTSERVICE = _descriptor.ServiceDescriptor(
     index=5,
     containing_service=None,
     input_type=hts_dot_common_dot_common__pb2._EVENTFEEDBACK,
-    output_type=hts_dot_common_dot_common__pb2._RESULT,
+    output_type=hts_dot_common_dot_common__pb2._EVENTFEEDBACK,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
-    name='GetFeedbackFromEvent',
-    full_name='hts.participant.ParticipantService.GetFeedbackFromEvent',
+    name='GetFeedbacksFromEvent',
+    full_name='hts.participant.ParticipantService.GetFeedbacksFromEvent',
     index=6,
     containing_service=None,
     input_type=hts_dot_common_dot_common__pb2._EVENT,
-    output_type=_GETFEEDBACKFOREVENTRESPONSE,
+    output_type=_GETFEEDBACKSFROMEVENTRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -459,7 +459,7 @@ _PARTICIPANTSERVICE = _descriptor.ServiceDescriptor(
     index=7,
     containing_service=None,
     input_type=_USERWITHEVENTREQUEST,
-    output_type=_EVENTSRESPONSE,
+    output_type=hts_dot_common_dot_common__pb2._EVENTFEEDBACK,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
