@@ -35,7 +35,7 @@ jobs:
           sudo mv protoc-gen-grpc-java /usr/local/bin/.
           which protoc-gen-grpc-java
 
-          brew unlink go@1.15
+          brew upgrade go
           brew tap bufbuild/buf
           brew install buf
       - run: |
