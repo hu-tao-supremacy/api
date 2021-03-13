@@ -9,5 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          brew tap bufbuild/buf 2>/dev/null
-          brew install buf --quiet 2>/dev/null
+          brew doctor
+          brew tap bufbuild/buf
+          brew install buf --quiet
