@@ -47,13 +47,13 @@ message EventsResponse {
 
 service ParticipantService {
     rpc IsEventAvailable(hts.common.Event) returns (hts.common.Result);
-    rpc JoinEvent(UserWithEventRequest) returns (hts.common.Result);
-    rpc CancelEvent(UserWithEventRequest) returns (hts.common.Result);
-    rpc CreateFeedback(CreateFeedbackRequest) returns (hts.common.Result);
-    rpc HasSubmitFeedback(UserWithEventRequest) returns (hts.common.Result);
-    rpc RemoveFeedback(hts.common.EventFeedback) returns (hts.common.Result);
-    rpc GetFeedbackFromEvent(hts.common.Event) returns (GetFeedbackForEventResponse);
-    rpc GetUserFeedbackForEvent(UserWithEventRequest) returns (EventsResponse);
+    rpc JoinEvent(UserWithEventRequest) returns (hts.common.Event);
+    rpc CancelEvent(UserWithEventRequest) returns (hts.common.Event);
+    rpc CreateFeedback(CreateFeedbackRequest) returns (hts.common.EventFeedback);
+    rpc HasSubmitFeedback(UserWithEventRequest) returns (hts.common.EventFeedback);
+    rpc RemoveFeedback(hts.common.EventFeedback) returns (hts.common.EventFeedback);
+    rpc GetFeedbacksFromEvent(hts.common.Event) returns (GetFeedbackForEventResponse);
+    rpc GetUserFeedbackForEvent(UserWithEventRequest) returns (hts.common.EventFeedback);
     rpc SearchEventsByName(StringInputRequest) returns (EventsResponse);
     rpc SearchEventsByTag(StringInputRequest) returns (EventsResponse);
     rpc GenerateQR(hts.common.UserEvent) returns (GenerateQRResponse);
