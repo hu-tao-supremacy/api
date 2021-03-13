@@ -12,5 +12,6 @@ jobs:
         with:
           go-version: "^1.16.0"
       - run: |
+          brew list --versions
           brew tap hu-tao-supremacy/buf
           brew install buf
