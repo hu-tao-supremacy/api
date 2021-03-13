@@ -8,7 +8,6 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - run: brew linkage
       - run: |
           brew link --overwrite go
           brew tap hu-tao-supremacy/buf
