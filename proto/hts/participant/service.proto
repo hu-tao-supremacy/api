@@ -37,7 +37,7 @@ message GenerateQRResponse {
     string data = 1;
 }
 
-message GetFeedbacksForEventResponse {
+message GetFeedbacksFromEventResponse {
     repeated hts.common.EventFeedback event_feedback = 1;
 }
 
@@ -52,7 +52,7 @@ service ParticipantService {
     rpc CreateFeedback(CreateFeedbackRequest) returns (hts.common.EventFeedback);
     rpc HasSubmitFeedback(UserWithEventRequest) returns (hts.common.EventFeedback);
     rpc RemoveFeedback(hts.common.EventFeedback) returns (hts.common.EventFeedback);
-    rpc GetFeedbacksFromEvent(hts.common.Event) returns (GetFeedbacksForEventResponse);
+    rpc GetFeedbacksFromEvent(hts.common.Event) returns (GetFeedbacksFromEventResponse);
     rpc GetUserFeedbackForEvent(UserWithEventRequest) returns (hts.common.EventFeedback);
     rpc SearchEventsByName(StringInputRequest) returns (EventsResponse);
     rpc SearchEventsByTag(StringInputRequest) returns (EventsResponse);
