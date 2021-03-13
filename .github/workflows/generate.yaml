@@ -17,6 +17,7 @@ jobs:
       - run: |
           echo "SHA7=${GITHUB_SHA::7}" >> $GITHUB_ENV
       - run: |
+          which go
           brew install tree
 
           brew install protobuf
