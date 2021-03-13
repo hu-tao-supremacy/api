@@ -125,7 +125,7 @@ service OrganizerService {
   rpc GetOrganization(UserRequest) returns (GetOrganizationResponse);
   rpc GetOrganizationById(GetByIdRequest) returns (GetOrganizationByIdResponse);
   rpc UpdateOrganization(UpdateOrganizationRequest) returns (hts.common.Result);
-  rpc RemoveOrganization(DeleteOrganizationRequest) returns (hts.common.Result);
+  rpc RemoveOrganization(RemoveOrganizationRequest) returns (hts.common.Result);
   rpc AddUsersToOrganization(UpdateUsersInOrganizationRequest) returns (hts.common.Result);
   rpc RemoveUsersFromOrganization(UpdateUsersInOrganizationRequest) returns (hts.common.Result);
   rpc CreateEvent(CreateEventRequest) returns (hts.common.Result);
