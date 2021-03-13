@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface GetFeedbackForEventResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.participant.GetFeedbackForEventResponse)
+public interface GetFeedbacksFromEventResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.participant.GetFeedbacksFromEventResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**

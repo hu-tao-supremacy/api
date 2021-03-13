@@ -38,7 +38,7 @@ export interface GenerateQRResponse {
   data: string;
 }
 
-export interface GetFeedbackForEventResponse {
+export interface GetFeedbacksFromEventResponse {
   eventFeedback: EventFeedback[];
 }
 
@@ -51,21 +51,23 @@ export const HTS_PARTICIPANT_PACKAGE_NAME = "hts.participant";
 export interface ParticipantServiceClient {
   isEventAvailable(request: Event): Observable<Result>;
 
-  joinEvent(request: UserWithEventRequest): Observable<Result>;
+  joinEvent(request: UserWithEventRequest): Observable<Event>;
 
-  cancelEvent(request: UserWithEventRequest): Observable<Result>;
+  cancelEvent(request: UserWithEventRequest): Observable<Event>;
 
-  createFeedback(request: CreateFeedbackRequest): Observable<Result>;
+  createFeedback(request: CreateFeedbackRequest): Observable<EventFeedback>;
 
-  hasSubmitFeedback(request: UserWithEventRequest): Observable<Result>;
+  hasSubmitFeedback(request: UserWithEventRequest): Observable<EventFeedback>;
 
-  removeFeedback(request: EventFeedback): Observable<Result>;
+  removeFeedback(request: EventFeedback): Observable<EventFeedback>;
 
-  getFeedbackFromEvent(request: Event): Observable<GetFeedbackForEventResponse>;
+  getFeedbacksFromEvent(
+    request: Event
+  ): Observable<GetFeedbacksFromEventResponse>;
 
   getUserFeedbackForEvent(
     request: UserWithEventRequest
-  ): Observable<EventsResponse>;
+  ): Observable<EventFeedback>;
 
   searchEventsByName(request: StringInputRequest): Observable<EventsResponse>;
 
@@ -89,34 +91,34 @@ export interface ParticipantServiceController {
 
   joinEvent(
     request: UserWithEventRequest
-  ): Promise<Result> | Observable<Result> | Result;
+  ): Promise<Event> | Observable<Event> | Event;
 
   cancelEvent(
     request: UserWithEventRequest
-  ): Promise<Result> | Observable<Result> | Result;
+  ): Promise<Event> | Observable<Event> | Event;
 
   createFeedback(
     request: CreateFeedbackRequest
-  ): Promise<Result> | Observable<Result> | Result;
+  ): Promise<EventFeedback> | Observable<EventFeedback> | EventFeedback;
 
   hasSubmitFeedback(
     request: UserWithEventRequest
-  ): Promise<Result> | Observable<Result> | Result;
+  ): Promise<EventFeedback> | Observable<EventFeedback> | EventFeedback;
 
   removeFeedback(
     request: EventFeedback
-  ): Promise<Result> | Observable<Result> | Result;
+  ): Promise<EventFeedback> | Observable<EventFeedback> | EventFeedback;
 
-  getFeedbackFromEvent(
+  getFeedbacksFromEvent(
     request: Event
   ):
-    | Promise<GetFeedbackForEventResponse>
-    | Observable<GetFeedbackForEventResponse>
-    | GetFeedbackForEventResponse;
+    | Promise<GetFeedbacksFromEventResponse>
+    | Observable<GetFeedbacksFromEventResponse>
+    | GetFeedbacksFromEventResponse;
 
   getUserFeedbackForEvent(
     request: UserWithEventRequest
-  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
+  ): Promise<EventFeedback> | Observable<EventFeedback> | EventFeedback;
 
   searchEventsByName(
     request: StringInputRequest
@@ -157,7 +159,7 @@ export function ParticipantServiceControllerMethods() {
       "createFeedback",
       "hasSubmitFeedback",
       "removeFeedback",
-      "getFeedbackFromEvent",
+      "getFeedbacksFromEvent",
       "getUserFeedbackForEvent",
       "searchEventsByName",
       "searchEventsByTag",

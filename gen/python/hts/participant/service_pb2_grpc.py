@@ -24,37 +24,37 @@ class ParticipantServiceStub(object):
         self.JoinEvent = channel.unary_unary(
                 '/hts.participant.ParticipantService/JoinEvent',
                 request_serializer=hts_dot_participant_dot_service__pb2.UserWithEventRequest.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
+                response_deserializer=hts_dot_common_dot_common__pb2.Event.FromString,
                 )
         self.CancelEvent = channel.unary_unary(
                 '/hts.participant.ParticipantService/CancelEvent',
                 request_serializer=hts_dot_participant_dot_service__pb2.UserWithEventRequest.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
+                response_deserializer=hts_dot_common_dot_common__pb2.Event.FromString,
                 )
         self.CreateFeedback = channel.unary_unary(
                 '/hts.participant.ParticipantService/CreateFeedback',
                 request_serializer=hts_dot_participant_dot_service__pb2.CreateFeedbackRequest.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
+                response_deserializer=hts_dot_common_dot_common__pb2.EventFeedback.FromString,
                 )
         self.HasSubmitFeedback = channel.unary_unary(
                 '/hts.participant.ParticipantService/HasSubmitFeedback',
                 request_serializer=hts_dot_participant_dot_service__pb2.UserWithEventRequest.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
+                response_deserializer=hts_dot_common_dot_common__pb2.EventFeedback.FromString,
                 )
         self.RemoveFeedback = channel.unary_unary(
                 '/hts.participant.ParticipantService/RemoveFeedback',
                 request_serializer=hts_dot_common_dot_common__pb2.EventFeedback.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
+                response_deserializer=hts_dot_common_dot_common__pb2.EventFeedback.FromString,
                 )
-        self.GetFeedbackFromEvent = channel.unary_unary(
-                '/hts.participant.ParticipantService/GetFeedbackFromEvent',
+        self.GetFeedbacksFromEvent = channel.unary_unary(
+                '/hts.participant.ParticipantService/GetFeedbacksFromEvent',
                 request_serializer=hts_dot_common_dot_common__pb2.Event.SerializeToString,
-                response_deserializer=hts_dot_participant_dot_service__pb2.GetFeedbackForEventResponse.FromString,
+                response_deserializer=hts_dot_participant_dot_service__pb2.GetFeedbacksFromEventResponse.FromString,
                 )
         self.GetUserFeedbackForEvent = channel.unary_unary(
                 '/hts.participant.ParticipantService/GetUserFeedbackForEvent',
                 request_serializer=hts_dot_participant_dot_service__pb2.UserWithEventRequest.SerializeToString,
-                response_deserializer=hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
+                response_deserializer=hts_dot_common_dot_common__pb2.EventFeedback.FromString,
                 )
         self.SearchEventsByName = channel.unary_unary(
                 '/hts.participant.ParticipantService/SearchEventsByName',
@@ -132,7 +132,7 @@ class ParticipantServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetFeedbackFromEvent(self, request, context):
+    def GetFeedbacksFromEvent(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -197,37 +197,37 @@ def add_ParticipantServiceServicer_to_server(servicer, server):
             'JoinEvent': grpc.unary_unary_rpc_method_handler(
                     servicer.JoinEvent,
                     request_deserializer=hts_dot_participant_dot_service__pb2.UserWithEventRequest.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
+                    response_serializer=hts_dot_common_dot_common__pb2.Event.SerializeToString,
             ),
             'CancelEvent': grpc.unary_unary_rpc_method_handler(
                     servicer.CancelEvent,
                     request_deserializer=hts_dot_participant_dot_service__pb2.UserWithEventRequest.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
+                    response_serializer=hts_dot_common_dot_common__pb2.Event.SerializeToString,
             ),
             'CreateFeedback': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateFeedback,
                     request_deserializer=hts_dot_participant_dot_service__pb2.CreateFeedbackRequest.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
+                    response_serializer=hts_dot_common_dot_common__pb2.EventFeedback.SerializeToString,
             ),
             'HasSubmitFeedback': grpc.unary_unary_rpc_method_handler(
                     servicer.HasSubmitFeedback,
                     request_deserializer=hts_dot_participant_dot_service__pb2.UserWithEventRequest.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
+                    response_serializer=hts_dot_common_dot_common__pb2.EventFeedback.SerializeToString,
             ),
             'RemoveFeedback': grpc.unary_unary_rpc_method_handler(
                     servicer.RemoveFeedback,
                     request_deserializer=hts_dot_common_dot_common__pb2.EventFeedback.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
+                    response_serializer=hts_dot_common_dot_common__pb2.EventFeedback.SerializeToString,
             ),
-            'GetFeedbackFromEvent': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetFeedbackFromEvent,
+            'GetFeedbacksFromEvent': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetFeedbacksFromEvent,
                     request_deserializer=hts_dot_common_dot_common__pb2.Event.FromString,
-                    response_serializer=hts_dot_participant_dot_service__pb2.GetFeedbackForEventResponse.SerializeToString,
+                    response_serializer=hts_dot_participant_dot_service__pb2.GetFeedbacksFromEventResponse.SerializeToString,
             ),
             'GetUserFeedbackForEvent': grpc.unary_unary_rpc_method_handler(
                     servicer.GetUserFeedbackForEvent,
                     request_deserializer=hts_dot_participant_dot_service__pb2.UserWithEventRequest.FromString,
-                    response_serializer=hts_dot_participant_dot_service__pb2.EventsResponse.SerializeToString,
+                    response_serializer=hts_dot_common_dot_common__pb2.EventFeedback.SerializeToString,
             ),
             'SearchEventsByName': grpc.unary_unary_rpc_method_handler(
                     servicer.SearchEventsByName,
@@ -304,7 +304,7 @@ class ParticipantService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/JoinEvent',
             hts_dot_participant_dot_service__pb2.UserWithEventRequest.SerializeToString,
-            hts_dot_common_dot_common__pb2.Result.FromString,
+            hts_dot_common_dot_common__pb2.Event.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -321,7 +321,7 @@ class ParticipantService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/CancelEvent',
             hts_dot_participant_dot_service__pb2.UserWithEventRequest.SerializeToString,
-            hts_dot_common_dot_common__pb2.Result.FromString,
+            hts_dot_common_dot_common__pb2.Event.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -338,7 +338,7 @@ class ParticipantService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/CreateFeedback',
             hts_dot_participant_dot_service__pb2.CreateFeedbackRequest.SerializeToString,
-            hts_dot_common_dot_common__pb2.Result.FromString,
+            hts_dot_common_dot_common__pb2.EventFeedback.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -355,7 +355,7 @@ class ParticipantService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/HasSubmitFeedback',
             hts_dot_participant_dot_service__pb2.UserWithEventRequest.SerializeToString,
-            hts_dot_common_dot_common__pb2.Result.FromString,
+            hts_dot_common_dot_common__pb2.EventFeedback.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -372,12 +372,12 @@ class ParticipantService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/RemoveFeedback',
             hts_dot_common_dot_common__pb2.EventFeedback.SerializeToString,
-            hts_dot_common_dot_common__pb2.Result.FromString,
+            hts_dot_common_dot_common__pb2.EventFeedback.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetFeedbackFromEvent(request,
+    def GetFeedbacksFromEvent(request,
             target,
             options=(),
             channel_credentials=None,
@@ -387,9 +387,9 @@ class ParticipantService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetFeedbackFromEvent',
+        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetFeedbacksFromEvent',
             hts_dot_common_dot_common__pb2.Event.SerializeToString,
-            hts_dot_participant_dot_service__pb2.GetFeedbackForEventResponse.FromString,
+            hts_dot_participant_dot_service__pb2.GetFeedbacksFromEventResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -406,7 +406,7 @@ class ParticipantService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetUserFeedbackForEvent',
             hts_dot_participant_dot_service__pb2.UserWithEventRequest.SerializeToString,
-            hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
+            hts_dot_common_dot_common__pb2.EventFeedback.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
