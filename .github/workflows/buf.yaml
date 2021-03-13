@@ -9,8 +9,5 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          brew unlink go@1.15
-          brew install go@1.16
-          brew link --overwrite go@1.16
-          brew tap hu-tao-supremacy/buf
+          brew tap bufbuild/buf
           brew install buf --ignore-dependencies
