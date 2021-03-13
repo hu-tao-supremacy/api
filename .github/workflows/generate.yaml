@@ -17,6 +17,9 @@ jobs:
       - run: |
           echo "SHA7=${GITHUB_SHA::7}" >> $GITHUB_ENV
       - run: |
+          brew upgrade go
+          brew link go@1.16
+
           brew install tree
 
           brew install protobuf
@@ -35,7 +38,6 @@ jobs:
           sudo mv protoc-gen-grpc-java /usr/local/bin/.
           which protoc-gen-grpc-java
 
-          brew upgrade go
           brew tap bufbuild/buf
           brew install buf
       - run: |
