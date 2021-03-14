@@ -76,6 +76,11 @@ private static final long serialVersionUID = 0L;
             input.popLimit(limit);
             break;
           }
+          case 24: {
+
+            organizationId_ = input.readInt64();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -150,6 +155,17 @@ private static final long serialVersionUID = 0L;
   }
   private int userIdsMemoizedSerializedSize = -1;
 
+  public static final int ORGANIZATION_ID_FIELD_NUMBER = 3;
+  private long organizationId_;
+  /**
+   * <code>int64 organization_id = 3 [json_name = "organizationId"];</code>
+   * @return The organizationId.
+   */
+  @java.lang.Override
+  public long getOrganizationId() {
+    return organizationId_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -174,6 +190,9 @@ private static final long serialVersionUID = 0L;
     }
     for (int i = 0; i < userIds_.size(); i++) {
       output.writeInt64NoTag(userIds_.getLong(i));
+    }
+    if (organizationId_ != 0L) {
+      output.writeInt64(3, organizationId_);
     }
     unknownFields.writeTo(output);
   }
@@ -202,6 +221,10 @@ private static final long serialVersionUID = 0L;
       }
       userIdsMemoizedSerializedSize = dataSize;
     }
+    if (organizationId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(3, organizationId_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -221,6 +244,8 @@ private static final long serialVersionUID = 0L;
         != other.getUserId()) return false;
     if (!getUserIdsList()
         .equals(other.getUserIdsList())) return false;
+    if (getOrganizationId()
+        != other.getOrganizationId()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -239,6 +264,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + USER_IDS_FIELD_NUMBER;
       hash = (53 * hash) + getUserIdsList().hashCode();
     }
+    hash = (37 * hash) + ORGANIZATION_ID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getOrganizationId());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -376,6 +404,8 @@ private static final long serialVersionUID = 0L;
 
       userIds_ = emptyLongList();
       bitField0_ = (bitField0_ & ~0x00000001);
+      organizationId_ = 0L;
+
       return this;
     }
 
@@ -409,6 +439,7 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.userIds_ = userIds_;
+      result.organizationId_ = organizationId_;
       onBuilt();
       return result;
     }
@@ -469,6 +500,9 @@ private static final long serialVersionUID = 0L;
           userIds_.addAll(other.userIds_);
         }
         onChanged();
+      }
+      if (other.getOrganizationId() != 0L) {
+        setOrganizationId(other.getOrganizationId());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -606,6 +640,37 @@ private static final long serialVersionUID = 0L;
     public Builder clearUserIds() {
       userIds_ = emptyLongList();
       bitField0_ = (bitField0_ & ~0x00000001);
+      onChanged();
+      return this;
+    }
+
+    private long organizationId_ ;
+    /**
+     * <code>int64 organization_id = 3 [json_name = "organizationId"];</code>
+     * @return The organizationId.
+     */
+    @java.lang.Override
+    public long getOrganizationId() {
+      return organizationId_;
+    }
+    /**
+     * <code>int64 organization_id = 3 [json_name = "organizationId"];</code>
+     * @param value The organizationId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrganizationId(long value) {
+      
+      organizationId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 organization_id = 3 [json_name = "organizationId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearOrganizationId() {
+      
+      organizationId_ = 0L;
       onChanged();
       return this;
     }
