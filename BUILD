@@ -1,6 +1,6 @@
 proto_library(
     name = "common_proto",
-    src = ["proto/hts/common/common.proto"],
+    srcs = ["proto/hts/common/common.proto"],
     deps = [
         "@com_google_protobuf//:timestamp_proto",
         "@com_google_protobuf//:empty_proto",
@@ -10,7 +10,7 @@ proto_library(
 
 proto_library(
     name = "account_proto",
-    src = ["proto/hts/account/service.proto"],
+    srcs = ["proto/hts/account/service.proto"],
     deps = [
         "@com_google_protobuf//:timestamp_proto",
         "@com_google_protobuf//:empty_proto",
@@ -21,7 +21,7 @@ proto_library(
 
 proto_library(
     name = "facility_proto",
-    src = ["proto/hts/facility/service.proto"],
+    srcs = ["proto/hts/facility/service.proto"],
     deps = [
         "@com_google_protobuf//:timestamp_proto",
         "@com_google_protobuf//:empty_proto",
@@ -32,7 +32,7 @@ proto_library(
 
 proto_library(
     name = "organizer_proto",
-    src = ["proto/hts/organizer/service.proto"],
+    srcs = ["proto/hts/organizer/service.proto"],
     deps = [
         "@com_google_protobuf//:timestamp_proto",
         "@com_google_protobuf//:empty_proto",
@@ -43,7 +43,7 @@ proto_library(
 
 proto_library(
     name = "participant_proto",
-    src = ["proto/hts/participant/service.proto"],
+    srcs = ["proto/hts/participant/service.proto"],
     deps = [
         "@com_google_protobuf//:timestamp_proto",
         "@com_google_protobuf//:empty_proto",
