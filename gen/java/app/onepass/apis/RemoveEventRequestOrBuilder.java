@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface ReadByIdRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.organizer.ReadByIdRequest)
+public interface RemoveEventRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.organizer.RemoveEventRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -14,8 +14,8 @@ public interface ReadByIdRequestOrBuilder extends
   long getUserId();
 
   /**
-   * <code>int64 read_id = 2 [json_name = "readId"];</code>
-   * @return The readId.
+   * <code>int64 event_id = 2 [json_name = "eventId"];</code>
+   * @return The eventId.
    */
-  long getReadId();
+  long getEventId();
 }

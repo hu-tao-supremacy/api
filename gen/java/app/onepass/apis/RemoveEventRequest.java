@@ -4,25 +4,25 @@
 package app.onepass.apis;
 
 /**
- * Protobuf type {@code hts.organizer.ReadEventByIdResult}
+ * Protobuf type {@code hts.organizer.RemoveEventRequest}
  */
-public final class ReadEventByIdResult extends
+public final class RemoveEventRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:hts.organizer.ReadEventByIdResult)
-    ReadEventByIdResultOrBuilder {
+    // @@protoc_insertion_point(message_implements:hts.organizer.RemoveEventRequest)
+    RemoveEventRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use ReadEventByIdResult.newBuilder() to construct.
-  private ReadEventByIdResult(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use RemoveEventRequest.newBuilder() to construct.
+  private RemoveEventRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private ReadEventByIdResult() {
+  private RemoveEventRequest() {
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new ReadEventByIdResult();
+    return new RemoveEventRequest();
   }
 
   @java.lang.Override
@@ -30,7 +30,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ReadEventByIdResult(
+  private RemoveEventRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -48,17 +48,14 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
-            app.onepass.apis.Event.Builder subBuilder = null;
-            if (event_ != null) {
-              subBuilder = event_.toBuilder();
-            }
-            event_ = input.readMessage(app.onepass.apis.Event.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(event_);
-              event_ = subBuilder.buildPartial();
-            }
+          case 8: {
 
+            userId_ = input.readInt64();
+            break;
+          }
+          case 16: {
+
+            eventId_ = input.readInt64();
             break;
           }
           default: {
@@ -82,41 +79,37 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_ReadEventByIdResult_descriptor;
+    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_RemoveEventRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_ReadEventByIdResult_fieldAccessorTable
+    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_RemoveEventRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            app.onepass.apis.ReadEventByIdResult.class, app.onepass.apis.ReadEventByIdResult.Builder.class);
+            app.onepass.apis.RemoveEventRequest.class, app.onepass.apis.RemoveEventRequest.Builder.class);
   }
 
-  public static final int EVENT_FIELD_NUMBER = 1;
-  private app.onepass.apis.Event event_;
+  public static final int USER_ID_FIELD_NUMBER = 1;
+  private long userId_;
   /**
-   * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
-   * @return Whether the event field is set.
+   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * @return The userId.
    */
   @java.lang.Override
-  public boolean hasEvent() {
-    return event_ != null;
+  public long getUserId() {
+    return userId_;
   }
+
+  public static final int EVENT_ID_FIELD_NUMBER = 2;
+  private long eventId_;
   /**
-   * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
-   * @return The event.
+   * <code>int64 event_id = 2 [json_name = "eventId"];</code>
+   * @return The eventId.
    */
   @java.lang.Override
-  public app.onepass.apis.Event getEvent() {
-    return event_ == null ? app.onepass.apis.Event.getDefaultInstance() : event_;
-  }
-  /**
-   * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
-   */
-  @java.lang.Override
-  public app.onepass.apis.EventOrBuilder getEventOrBuilder() {
-    return getEvent();
+  public long getEventId() {
+    return eventId_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -133,8 +126,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (event_ != null) {
-      output.writeMessage(1, getEvent());
+    if (userId_ != 0L) {
+      output.writeInt64(1, userId_);
+    }
+    if (eventId_ != 0L) {
+      output.writeInt64(2, eventId_);
     }
     unknownFields.writeTo(output);
   }
@@ -145,9 +141,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (event_ != null) {
+    if (userId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getEvent());
+        .computeInt64Size(1, userId_);
+    }
+    if (eventId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(2, eventId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -159,16 +159,15 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof app.onepass.apis.ReadEventByIdResult)) {
+    if (!(obj instanceof app.onepass.apis.RemoveEventRequest)) {
       return super.equals(obj);
     }
-    app.onepass.apis.ReadEventByIdResult other = (app.onepass.apis.ReadEventByIdResult) obj;
+    app.onepass.apis.RemoveEventRequest other = (app.onepass.apis.RemoveEventRequest) obj;
 
-    if (hasEvent() != other.hasEvent()) return false;
-    if (hasEvent()) {
-      if (!getEvent()
-          .equals(other.getEvent())) return false;
-    }
+    if (getUserId()
+        != other.getUserId()) return false;
+    if (getEventId()
+        != other.getEventId()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -180,78 +179,80 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (hasEvent()) {
-      hash = (37 * hash) + EVENT_FIELD_NUMBER;
-      hash = (53 * hash) + getEvent().hashCode();
-    }
+    hash = (37 * hash) + USER_ID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getUserId());
+    hash = (37 * hash) + EVENT_ID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getEventId());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static app.onepass.apis.ReadEventByIdResult parseFrom(
+  public static app.onepass.apis.RemoveEventRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.ReadEventByIdResult parseFrom(
+  public static app.onepass.apis.RemoveEventRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.ReadEventByIdResult parseFrom(
+  public static app.onepass.apis.RemoveEventRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.ReadEventByIdResult parseFrom(
+  public static app.onepass.apis.RemoveEventRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.ReadEventByIdResult parseFrom(byte[] data)
+  public static app.onepass.apis.RemoveEventRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.ReadEventByIdResult parseFrom(
+  public static app.onepass.apis.RemoveEventRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.ReadEventByIdResult parseFrom(java.io.InputStream input)
+  public static app.onepass.apis.RemoveEventRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.ReadEventByIdResult parseFrom(
+  public static app.onepass.apis.RemoveEventRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.ReadEventByIdResult parseDelimitedFrom(java.io.InputStream input)
+  public static app.onepass.apis.RemoveEventRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.ReadEventByIdResult parseDelimitedFrom(
+  public static app.onepass.apis.RemoveEventRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.ReadEventByIdResult parseFrom(
+  public static app.onepass.apis.RemoveEventRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.ReadEventByIdResult parseFrom(
+  public static app.onepass.apis.RemoveEventRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -264,7 +265,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(app.onepass.apis.ReadEventByIdResult prototype) {
+  public static Builder newBuilder(app.onepass.apis.RemoveEventRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -280,26 +281,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code hts.organizer.ReadEventByIdResult}
+   * Protobuf type {@code hts.organizer.RemoveEventRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:hts.organizer.ReadEventByIdResult)
-      app.onepass.apis.ReadEventByIdResultOrBuilder {
+      // @@protoc_insertion_point(builder_implements:hts.organizer.RemoveEventRequest)
+      app.onepass.apis.RemoveEventRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_ReadEventByIdResult_descriptor;
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_RemoveEventRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_ReadEventByIdResult_fieldAccessorTable
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_RemoveEventRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              app.onepass.apis.ReadEventByIdResult.class, app.onepass.apis.ReadEventByIdResult.Builder.class);
+              app.onepass.apis.RemoveEventRequest.class, app.onepass.apis.RemoveEventRequest.Builder.class);
     }
 
-    // Construct using app.onepass.apis.ReadEventByIdResult.newBuilder()
+    // Construct using app.onepass.apis.RemoveEventRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -317,29 +318,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (eventBuilder_ == null) {
-        event_ = null;
-      } else {
-        event_ = null;
-        eventBuilder_ = null;
-      }
+      userId_ = 0L;
+
+      eventId_ = 0L;
+
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_ReadEventByIdResult_descriptor;
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_RemoveEventRequest_descriptor;
     }
 
     @java.lang.Override
-    public app.onepass.apis.ReadEventByIdResult getDefaultInstanceForType() {
-      return app.onepass.apis.ReadEventByIdResult.getDefaultInstance();
+    public app.onepass.apis.RemoveEventRequest getDefaultInstanceForType() {
+      return app.onepass.apis.RemoveEventRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public app.onepass.apis.ReadEventByIdResult build() {
-      app.onepass.apis.ReadEventByIdResult result = buildPartial();
+    public app.onepass.apis.RemoveEventRequest build() {
+      app.onepass.apis.RemoveEventRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -347,13 +346,10 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public app.onepass.apis.ReadEventByIdResult buildPartial() {
-      app.onepass.apis.ReadEventByIdResult result = new app.onepass.apis.ReadEventByIdResult(this);
-      if (eventBuilder_ == null) {
-        result.event_ = event_;
-      } else {
-        result.event_ = eventBuilder_.build();
-      }
+    public app.onepass.apis.RemoveEventRequest buildPartial() {
+      app.onepass.apis.RemoveEventRequest result = new app.onepass.apis.RemoveEventRequest(this);
+      result.userId_ = userId_;
+      result.eventId_ = eventId_;
       onBuilt();
       return result;
     }
@@ -392,18 +388,21 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof app.onepass.apis.ReadEventByIdResult) {
-        return mergeFrom((app.onepass.apis.ReadEventByIdResult)other);
+      if (other instanceof app.onepass.apis.RemoveEventRequest) {
+        return mergeFrom((app.onepass.apis.RemoveEventRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(app.onepass.apis.ReadEventByIdResult other) {
-      if (other == app.onepass.apis.ReadEventByIdResult.getDefaultInstance()) return this;
-      if (other.hasEvent()) {
-        mergeEvent(other.getEvent());
+    public Builder mergeFrom(app.onepass.apis.RemoveEventRequest other) {
+      if (other == app.onepass.apis.RemoveEventRequest.getDefaultInstance()) return this;
+      if (other.getUserId() != 0L) {
+        setUserId(other.getUserId());
+      }
+      if (other.getEventId() != 0L) {
+        setEventId(other.getEventId());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -420,11 +419,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      app.onepass.apis.ReadEventByIdResult parsedMessage = null;
+      app.onepass.apis.RemoveEventRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (app.onepass.apis.ReadEventByIdResult) e.getUnfinishedMessage();
+        parsedMessage = (app.onepass.apis.RemoveEventRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -434,123 +433,66 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private app.onepass.apis.Event event_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        app.onepass.apis.Event, app.onepass.apis.Event.Builder, app.onepass.apis.EventOrBuilder> eventBuilder_;
+    private long userId_ ;
     /**
-     * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
-     * @return Whether the event field is set.
+     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * @return The userId.
      */
-    public boolean hasEvent() {
-      return eventBuilder_ != null || event_ != null;
+    @java.lang.Override
+    public long getUserId() {
+      return userId_;
     }
     /**
-     * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
-     * @return The event.
+     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * @param value The userId to set.
+     * @return This builder for chaining.
      */
-    public app.onepass.apis.Event getEvent() {
-      if (eventBuilder_ == null) {
-        return event_ == null ? app.onepass.apis.Event.getDefaultInstance() : event_;
-      } else {
-        return eventBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
-     */
-    public Builder setEvent(app.onepass.apis.Event value) {
-      if (eventBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        event_ = value;
-        onChanged();
-      } else {
-        eventBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
-     */
-    public Builder setEvent(
-        app.onepass.apis.Event.Builder builderForValue) {
-      if (eventBuilder_ == null) {
-        event_ = builderForValue.build();
-        onChanged();
-      } else {
-        eventBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
-     */
-    public Builder mergeEvent(app.onepass.apis.Event value) {
-      if (eventBuilder_ == null) {
-        if (event_ != null) {
-          event_ =
-            app.onepass.apis.Event.newBuilder(event_).mergeFrom(value).buildPartial();
-        } else {
-          event_ = value;
-        }
-        onChanged();
-      } else {
-        eventBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
-     */
-    public Builder clearEvent() {
-      if (eventBuilder_ == null) {
-        event_ = null;
-        onChanged();
-      } else {
-        event_ = null;
-        eventBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
-     */
-    public app.onepass.apis.Event.Builder getEventBuilder() {
+    public Builder setUserId(long value) {
       
+      userId_ = value;
       onChanged();
-      return getEventFieldBuilder().getBuilder();
+      return this;
     }
     /**
-     * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
+     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * @return This builder for chaining.
      */
-    public app.onepass.apis.EventOrBuilder getEventOrBuilder() {
-      if (eventBuilder_ != null) {
-        return eventBuilder_.getMessageOrBuilder();
-      } else {
-        return event_ == null ?
-            app.onepass.apis.Event.getDefaultInstance() : event_;
-      }
+    public Builder clearUserId() {
+      
+      userId_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long eventId_ ;
+    /**
+     * <code>int64 event_id = 2 [json_name = "eventId"];</code>
+     * @return The eventId.
+     */
+    @java.lang.Override
+    public long getEventId() {
+      return eventId_;
     }
     /**
-     * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
+     * <code>int64 event_id = 2 [json_name = "eventId"];</code>
+     * @param value The eventId to set.
+     * @return This builder for chaining.
      */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        app.onepass.apis.Event, app.onepass.apis.Event.Builder, app.onepass.apis.EventOrBuilder> 
-        getEventFieldBuilder() {
-      if (eventBuilder_ == null) {
-        eventBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            app.onepass.apis.Event, app.onepass.apis.Event.Builder, app.onepass.apis.EventOrBuilder>(
-                getEvent(),
-                getParentForChildren(),
-                isClean());
-        event_ = null;
-      }
-      return eventBuilder_;
+    public Builder setEventId(long value) {
+      
+      eventId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 event_id = 2 [json_name = "eventId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearEventId() {
+      
+      eventId_ = 0L;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -565,41 +507,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:hts.organizer.ReadEventByIdResult)
+    // @@protoc_insertion_point(builder_scope:hts.organizer.RemoveEventRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:hts.organizer.ReadEventByIdResult)
-  private static final app.onepass.apis.ReadEventByIdResult DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:hts.organizer.RemoveEventRequest)
+  private static final app.onepass.apis.RemoveEventRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new app.onepass.apis.ReadEventByIdResult();
+    DEFAULT_INSTANCE = new app.onepass.apis.RemoveEventRequest();
   }
 
-  public static app.onepass.apis.ReadEventByIdResult getDefaultInstance() {
+  public static app.onepass.apis.RemoveEventRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<ReadEventByIdResult>
-      PARSER = new com.google.protobuf.AbstractParser<ReadEventByIdResult>() {
+  private static final com.google.protobuf.Parser<RemoveEventRequest>
+      PARSER = new com.google.protobuf.AbstractParser<RemoveEventRequest>() {
     @java.lang.Override
-    public ReadEventByIdResult parsePartialFrom(
+    public RemoveEventRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ReadEventByIdResult(input, extensionRegistry);
+      return new RemoveEventRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<ReadEventByIdResult> parser() {
+  public static com.google.protobuf.Parser<RemoveEventRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<ReadEventByIdResult> getParserForType() {
+  public com.google.protobuf.Parser<RemoveEventRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public app.onepass.apis.ReadEventByIdResult getDefaultInstanceForType() {
+  public app.onepass.apis.RemoveEventRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

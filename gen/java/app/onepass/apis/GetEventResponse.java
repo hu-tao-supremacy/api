@@ -4,26 +4,26 @@
 package app.onepass.apis;
 
 /**
- * Protobuf type {@code hts.organizer.ReadTagResult}
+ * Protobuf type {@code hts.organizer.GetEventResponse}
  */
-public final class ReadTagResult extends
+public final class GetEventResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:hts.organizer.ReadTagResult)
-    ReadTagResultOrBuilder {
+    // @@protoc_insertion_point(message_implements:hts.organizer.GetEventResponse)
+    GetEventResponseOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use ReadTagResult.newBuilder() to construct.
-  private ReadTagResult(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use GetEventResponse.newBuilder() to construct.
+  private GetEventResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private ReadTagResult() {
-    tags_ = java.util.Collections.emptyList();
+  private GetEventResponse() {
+    events_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new ReadTagResult();
+    return new GetEventResponse();
   }
 
   @java.lang.Override
@@ -31,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ReadTagResult(
+  private GetEventResponse(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -52,11 +52,11 @@ private static final long serialVersionUID = 0L;
             break;
           case 10: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              tags_ = new java.util.ArrayList<app.onepass.apis.Tag>();
+              events_ = new java.util.ArrayList<app.onepass.apis.Event>();
               mutable_bitField0_ |= 0x00000001;
             }
-            tags_.add(
-                input.readMessage(app.onepass.apis.Tag.parser(), extensionRegistry));
+            events_.add(
+                input.readMessage(app.onepass.apis.Event.parser(), extensionRegistry));
             break;
           }
           default: {
@@ -75,7 +75,7 @@ private static final long serialVersionUID = 0L;
           e).setUnfinishedMessage(this);
     } finally {
       if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        tags_ = java.util.Collections.unmodifiableList(tags_);
+        events_ = java.util.Collections.unmodifiableList(events_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -83,55 +83,55 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_ReadTagResult_descriptor;
+    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_GetEventResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_ReadTagResult_fieldAccessorTable
+    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_GetEventResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            app.onepass.apis.ReadTagResult.class, app.onepass.apis.ReadTagResult.Builder.class);
+            app.onepass.apis.GetEventResponse.class, app.onepass.apis.GetEventResponse.Builder.class);
   }
 
-  public static final int TAGS_FIELD_NUMBER = 1;
-  private java.util.List<app.onepass.apis.Tag> tags_;
+  public static final int EVENTS_FIELD_NUMBER = 1;
+  private java.util.List<app.onepass.apis.Event> events_;
   /**
-   * <code>repeated .hts.common.Tag tags = 1 [json_name = "tags"];</code>
+   * <code>repeated .hts.common.Event events = 1 [json_name = "events"];</code>
    */
   @java.lang.Override
-  public java.util.List<app.onepass.apis.Tag> getTagsList() {
-    return tags_;
+  public java.util.List<app.onepass.apis.Event> getEventsList() {
+    return events_;
   }
   /**
-   * <code>repeated .hts.common.Tag tags = 1 [json_name = "tags"];</code>
+   * <code>repeated .hts.common.Event events = 1 [json_name = "events"];</code>
    */
   @java.lang.Override
-  public java.util.List<? extends app.onepass.apis.TagOrBuilder> 
-      getTagsOrBuilderList() {
-    return tags_;
+  public java.util.List<? extends app.onepass.apis.EventOrBuilder> 
+      getEventsOrBuilderList() {
+    return events_;
   }
   /**
-   * <code>repeated .hts.common.Tag tags = 1 [json_name = "tags"];</code>
+   * <code>repeated .hts.common.Event events = 1 [json_name = "events"];</code>
    */
   @java.lang.Override
-  public int getTagsCount() {
-    return tags_.size();
+  public int getEventsCount() {
+    return events_.size();
   }
   /**
-   * <code>repeated .hts.common.Tag tags = 1 [json_name = "tags"];</code>
+   * <code>repeated .hts.common.Event events = 1 [json_name = "events"];</code>
    */
   @java.lang.Override
-  public app.onepass.apis.Tag getTags(int index) {
-    return tags_.get(index);
+  public app.onepass.apis.Event getEvents(int index) {
+    return events_.get(index);
   }
   /**
-   * <code>repeated .hts.common.Tag tags = 1 [json_name = "tags"];</code>
+   * <code>repeated .hts.common.Event events = 1 [json_name = "events"];</code>
    */
   @java.lang.Override
-  public app.onepass.apis.TagOrBuilder getTagsOrBuilder(
+  public app.onepass.apis.EventOrBuilder getEventsOrBuilder(
       int index) {
-    return tags_.get(index);
+    return events_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -148,8 +148,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    for (int i = 0; i < tags_.size(); i++) {
-      output.writeMessage(1, tags_.get(i));
+    for (int i = 0; i < events_.size(); i++) {
+      output.writeMessage(1, events_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -160,9 +160,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    for (int i = 0; i < tags_.size(); i++) {
+    for (int i = 0; i < events_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, tags_.get(i));
+        .computeMessageSize(1, events_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -174,13 +174,13 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof app.onepass.apis.ReadTagResult)) {
+    if (!(obj instanceof app.onepass.apis.GetEventResponse)) {
       return super.equals(obj);
     }
-    app.onepass.apis.ReadTagResult other = (app.onepass.apis.ReadTagResult) obj;
+    app.onepass.apis.GetEventResponse other = (app.onepass.apis.GetEventResponse) obj;
 
-    if (!getTagsList()
-        .equals(other.getTagsList())) return false;
+    if (!getEventsList()
+        .equals(other.getEventsList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -192,78 +192,78 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (getTagsCount() > 0) {
-      hash = (37 * hash) + TAGS_FIELD_NUMBER;
-      hash = (53 * hash) + getTagsList().hashCode();
+    if (getEventsCount() > 0) {
+      hash = (37 * hash) + EVENTS_FIELD_NUMBER;
+      hash = (53 * hash) + getEventsList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static app.onepass.apis.ReadTagResult parseFrom(
+  public static app.onepass.apis.GetEventResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.ReadTagResult parseFrom(
+  public static app.onepass.apis.GetEventResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.ReadTagResult parseFrom(
+  public static app.onepass.apis.GetEventResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.ReadTagResult parseFrom(
+  public static app.onepass.apis.GetEventResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.ReadTagResult parseFrom(byte[] data)
+  public static app.onepass.apis.GetEventResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.ReadTagResult parseFrom(
+  public static app.onepass.apis.GetEventResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.ReadTagResult parseFrom(java.io.InputStream input)
+  public static app.onepass.apis.GetEventResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.ReadTagResult parseFrom(
+  public static app.onepass.apis.GetEventResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.ReadTagResult parseDelimitedFrom(java.io.InputStream input)
+  public static app.onepass.apis.GetEventResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.ReadTagResult parseDelimitedFrom(
+  public static app.onepass.apis.GetEventResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.ReadTagResult parseFrom(
+  public static app.onepass.apis.GetEventResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.ReadTagResult parseFrom(
+  public static app.onepass.apis.GetEventResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -276,7 +276,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(app.onepass.apis.ReadTagResult prototype) {
+  public static Builder newBuilder(app.onepass.apis.GetEventResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -292,26 +292,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code hts.organizer.ReadTagResult}
+   * Protobuf type {@code hts.organizer.GetEventResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:hts.organizer.ReadTagResult)
-      app.onepass.apis.ReadTagResultOrBuilder {
+      // @@protoc_insertion_point(builder_implements:hts.organizer.GetEventResponse)
+      app.onepass.apis.GetEventResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_ReadTagResult_descriptor;
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_GetEventResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_ReadTagResult_fieldAccessorTable
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_GetEventResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              app.onepass.apis.ReadTagResult.class, app.onepass.apis.ReadTagResult.Builder.class);
+              app.onepass.apis.GetEventResponse.class, app.onepass.apis.GetEventResponse.Builder.class);
     }
 
-    // Construct using app.onepass.apis.ReadTagResult.newBuilder()
+    // Construct using app.onepass.apis.GetEventResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -324,17 +324,17 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
-        getTagsFieldBuilder();
+        getEventsFieldBuilder();
       }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (tagsBuilder_ == null) {
-        tags_ = java.util.Collections.emptyList();
+      if (eventsBuilder_ == null) {
+        events_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
       } else {
-        tagsBuilder_.clear();
+        eventsBuilder_.clear();
       }
       return this;
     }
@@ -342,17 +342,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_ReadTagResult_descriptor;
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_GetEventResponse_descriptor;
     }
 
     @java.lang.Override
-    public app.onepass.apis.ReadTagResult getDefaultInstanceForType() {
-      return app.onepass.apis.ReadTagResult.getDefaultInstance();
+    public app.onepass.apis.GetEventResponse getDefaultInstanceForType() {
+      return app.onepass.apis.GetEventResponse.getDefaultInstance();
     }
 
     @java.lang.Override
-    public app.onepass.apis.ReadTagResult build() {
-      app.onepass.apis.ReadTagResult result = buildPartial();
+    public app.onepass.apis.GetEventResponse build() {
+      app.onepass.apis.GetEventResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -360,17 +360,17 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public app.onepass.apis.ReadTagResult buildPartial() {
-      app.onepass.apis.ReadTagResult result = new app.onepass.apis.ReadTagResult(this);
+    public app.onepass.apis.GetEventResponse buildPartial() {
+      app.onepass.apis.GetEventResponse result = new app.onepass.apis.GetEventResponse(this);
       int from_bitField0_ = bitField0_;
-      if (tagsBuilder_ == null) {
+      if (eventsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
-          tags_ = java.util.Collections.unmodifiableList(tags_);
+          events_ = java.util.Collections.unmodifiableList(events_);
           bitField0_ = (bitField0_ & ~0x00000001);
         }
-        result.tags_ = tags_;
+        result.events_ = events_;
       } else {
-        result.tags_ = tagsBuilder_.build();
+        result.events_ = eventsBuilder_.build();
       }
       onBuilt();
       return result;
@@ -410,39 +410,39 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof app.onepass.apis.ReadTagResult) {
-        return mergeFrom((app.onepass.apis.ReadTagResult)other);
+      if (other instanceof app.onepass.apis.GetEventResponse) {
+        return mergeFrom((app.onepass.apis.GetEventResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(app.onepass.apis.ReadTagResult other) {
-      if (other == app.onepass.apis.ReadTagResult.getDefaultInstance()) return this;
-      if (tagsBuilder_ == null) {
-        if (!other.tags_.isEmpty()) {
-          if (tags_.isEmpty()) {
-            tags_ = other.tags_;
+    public Builder mergeFrom(app.onepass.apis.GetEventResponse other) {
+      if (other == app.onepass.apis.GetEventResponse.getDefaultInstance()) return this;
+      if (eventsBuilder_ == null) {
+        if (!other.events_.isEmpty()) {
+          if (events_.isEmpty()) {
+            events_ = other.events_;
             bitField0_ = (bitField0_ & ~0x00000001);
           } else {
-            ensureTagsIsMutable();
-            tags_.addAll(other.tags_);
+            ensureEventsIsMutable();
+            events_.addAll(other.events_);
           }
           onChanged();
         }
       } else {
-        if (!other.tags_.isEmpty()) {
-          if (tagsBuilder_.isEmpty()) {
-            tagsBuilder_.dispose();
-            tagsBuilder_ = null;
-            tags_ = other.tags_;
+        if (!other.events_.isEmpty()) {
+          if (eventsBuilder_.isEmpty()) {
+            eventsBuilder_.dispose();
+            eventsBuilder_ = null;
+            events_ = other.events_;
             bitField0_ = (bitField0_ & ~0x00000001);
-            tagsBuilder_ = 
+            eventsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getTagsFieldBuilder() : null;
+                 getEventsFieldBuilder() : null;
           } else {
-            tagsBuilder_.addAllMessages(other.tags_);
+            eventsBuilder_.addAllMessages(other.events_);
           }
         }
       }
@@ -461,11 +461,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      app.onepass.apis.ReadTagResult parsedMessage = null;
+      app.onepass.apis.GetEventResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (app.onepass.apis.ReadTagResult) e.getUnfinishedMessage();
+        parsedMessage = (app.onepass.apis.GetEventResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -476,244 +476,244 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.util.List<app.onepass.apis.Tag> tags_ =
+    private java.util.List<app.onepass.apis.Event> events_ =
       java.util.Collections.emptyList();
-    private void ensureTagsIsMutable() {
+    private void ensureEventsIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
-        tags_ = new java.util.ArrayList<app.onepass.apis.Tag>(tags_);
+        events_ = new java.util.ArrayList<app.onepass.apis.Event>(events_);
         bitField0_ |= 0x00000001;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        app.onepass.apis.Tag, app.onepass.apis.Tag.Builder, app.onepass.apis.TagOrBuilder> tagsBuilder_;
+        app.onepass.apis.Event, app.onepass.apis.Event.Builder, app.onepass.apis.EventOrBuilder> eventsBuilder_;
 
     /**
-     * <code>repeated .hts.common.Tag tags = 1 [json_name = "tags"];</code>
+     * <code>repeated .hts.common.Event events = 1 [json_name = "events"];</code>
      */
-    public java.util.List<app.onepass.apis.Tag> getTagsList() {
-      if (tagsBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(tags_);
+    public java.util.List<app.onepass.apis.Event> getEventsList() {
+      if (eventsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(events_);
       } else {
-        return tagsBuilder_.getMessageList();
+        return eventsBuilder_.getMessageList();
       }
     }
     /**
-     * <code>repeated .hts.common.Tag tags = 1 [json_name = "tags"];</code>
+     * <code>repeated .hts.common.Event events = 1 [json_name = "events"];</code>
      */
-    public int getTagsCount() {
-      if (tagsBuilder_ == null) {
-        return tags_.size();
+    public int getEventsCount() {
+      if (eventsBuilder_ == null) {
+        return events_.size();
       } else {
-        return tagsBuilder_.getCount();
+        return eventsBuilder_.getCount();
       }
     }
     /**
-     * <code>repeated .hts.common.Tag tags = 1 [json_name = "tags"];</code>
+     * <code>repeated .hts.common.Event events = 1 [json_name = "events"];</code>
      */
-    public app.onepass.apis.Tag getTags(int index) {
-      if (tagsBuilder_ == null) {
-        return tags_.get(index);
+    public app.onepass.apis.Event getEvents(int index) {
+      if (eventsBuilder_ == null) {
+        return events_.get(index);
       } else {
-        return tagsBuilder_.getMessage(index);
+        return eventsBuilder_.getMessage(index);
       }
     }
     /**
-     * <code>repeated .hts.common.Tag tags = 1 [json_name = "tags"];</code>
+     * <code>repeated .hts.common.Event events = 1 [json_name = "events"];</code>
      */
-    public Builder setTags(
-        int index, app.onepass.apis.Tag value) {
-      if (tagsBuilder_ == null) {
+    public Builder setEvents(
+        int index, app.onepass.apis.Event value) {
+      if (eventsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureTagsIsMutable();
-        tags_.set(index, value);
+        ensureEventsIsMutable();
+        events_.set(index, value);
         onChanged();
       } else {
-        tagsBuilder_.setMessage(index, value);
+        eventsBuilder_.setMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .hts.common.Tag tags = 1 [json_name = "tags"];</code>
+     * <code>repeated .hts.common.Event events = 1 [json_name = "events"];</code>
      */
-    public Builder setTags(
-        int index, app.onepass.apis.Tag.Builder builderForValue) {
-      if (tagsBuilder_ == null) {
-        ensureTagsIsMutable();
-        tags_.set(index, builderForValue.build());
+    public Builder setEvents(
+        int index, app.onepass.apis.Event.Builder builderForValue) {
+      if (eventsBuilder_ == null) {
+        ensureEventsIsMutable();
+        events_.set(index, builderForValue.build());
         onChanged();
       } else {
-        tagsBuilder_.setMessage(index, builderForValue.build());
+        eventsBuilder_.setMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .hts.common.Tag tags = 1 [json_name = "tags"];</code>
+     * <code>repeated .hts.common.Event events = 1 [json_name = "events"];</code>
      */
-    public Builder addTags(app.onepass.apis.Tag value) {
-      if (tagsBuilder_ == null) {
+    public Builder addEvents(app.onepass.apis.Event value) {
+      if (eventsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureTagsIsMutable();
-        tags_.add(value);
+        ensureEventsIsMutable();
+        events_.add(value);
         onChanged();
       } else {
-        tagsBuilder_.addMessage(value);
+        eventsBuilder_.addMessage(value);
       }
       return this;
     }
     /**
-     * <code>repeated .hts.common.Tag tags = 1 [json_name = "tags"];</code>
+     * <code>repeated .hts.common.Event events = 1 [json_name = "events"];</code>
      */
-    public Builder addTags(
-        int index, app.onepass.apis.Tag value) {
-      if (tagsBuilder_ == null) {
+    public Builder addEvents(
+        int index, app.onepass.apis.Event value) {
+      if (eventsBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureTagsIsMutable();
-        tags_.add(index, value);
+        ensureEventsIsMutable();
+        events_.add(index, value);
         onChanged();
       } else {
-        tagsBuilder_.addMessage(index, value);
+        eventsBuilder_.addMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .hts.common.Tag tags = 1 [json_name = "tags"];</code>
+     * <code>repeated .hts.common.Event events = 1 [json_name = "events"];</code>
      */
-    public Builder addTags(
-        app.onepass.apis.Tag.Builder builderForValue) {
-      if (tagsBuilder_ == null) {
-        ensureTagsIsMutable();
-        tags_.add(builderForValue.build());
+    public Builder addEvents(
+        app.onepass.apis.Event.Builder builderForValue) {
+      if (eventsBuilder_ == null) {
+        ensureEventsIsMutable();
+        events_.add(builderForValue.build());
         onChanged();
       } else {
-        tagsBuilder_.addMessage(builderForValue.build());
+        eventsBuilder_.addMessage(builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .hts.common.Tag tags = 1 [json_name = "tags"];</code>
+     * <code>repeated .hts.common.Event events = 1 [json_name = "events"];</code>
      */
-    public Builder addTags(
-        int index, app.onepass.apis.Tag.Builder builderForValue) {
-      if (tagsBuilder_ == null) {
-        ensureTagsIsMutable();
-        tags_.add(index, builderForValue.build());
+    public Builder addEvents(
+        int index, app.onepass.apis.Event.Builder builderForValue) {
+      if (eventsBuilder_ == null) {
+        ensureEventsIsMutable();
+        events_.add(index, builderForValue.build());
         onChanged();
       } else {
-        tagsBuilder_.addMessage(index, builderForValue.build());
+        eventsBuilder_.addMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .hts.common.Tag tags = 1 [json_name = "tags"];</code>
+     * <code>repeated .hts.common.Event events = 1 [json_name = "events"];</code>
      */
-    public Builder addAllTags(
-        java.lang.Iterable<? extends app.onepass.apis.Tag> values) {
-      if (tagsBuilder_ == null) {
-        ensureTagsIsMutable();
+    public Builder addAllEvents(
+        java.lang.Iterable<? extends app.onepass.apis.Event> values) {
+      if (eventsBuilder_ == null) {
+        ensureEventsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, tags_);
+            values, events_);
         onChanged();
       } else {
-        tagsBuilder_.addAllMessages(values);
+        eventsBuilder_.addAllMessages(values);
       }
       return this;
     }
     /**
-     * <code>repeated .hts.common.Tag tags = 1 [json_name = "tags"];</code>
+     * <code>repeated .hts.common.Event events = 1 [json_name = "events"];</code>
      */
-    public Builder clearTags() {
-      if (tagsBuilder_ == null) {
-        tags_ = java.util.Collections.emptyList();
+    public Builder clearEvents() {
+      if (eventsBuilder_ == null) {
+        events_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
       } else {
-        tagsBuilder_.clear();
+        eventsBuilder_.clear();
       }
       return this;
     }
     /**
-     * <code>repeated .hts.common.Tag tags = 1 [json_name = "tags"];</code>
+     * <code>repeated .hts.common.Event events = 1 [json_name = "events"];</code>
      */
-    public Builder removeTags(int index) {
-      if (tagsBuilder_ == null) {
-        ensureTagsIsMutable();
-        tags_.remove(index);
+    public Builder removeEvents(int index) {
+      if (eventsBuilder_ == null) {
+        ensureEventsIsMutable();
+        events_.remove(index);
         onChanged();
       } else {
-        tagsBuilder_.remove(index);
+        eventsBuilder_.remove(index);
       }
       return this;
     }
     /**
-     * <code>repeated .hts.common.Tag tags = 1 [json_name = "tags"];</code>
+     * <code>repeated .hts.common.Event events = 1 [json_name = "events"];</code>
      */
-    public app.onepass.apis.Tag.Builder getTagsBuilder(
+    public app.onepass.apis.Event.Builder getEventsBuilder(
         int index) {
-      return getTagsFieldBuilder().getBuilder(index);
+      return getEventsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .hts.common.Tag tags = 1 [json_name = "tags"];</code>
+     * <code>repeated .hts.common.Event events = 1 [json_name = "events"];</code>
      */
-    public app.onepass.apis.TagOrBuilder getTagsOrBuilder(
+    public app.onepass.apis.EventOrBuilder getEventsOrBuilder(
         int index) {
-      if (tagsBuilder_ == null) {
-        return tags_.get(index);  } else {
-        return tagsBuilder_.getMessageOrBuilder(index);
+      if (eventsBuilder_ == null) {
+        return events_.get(index);  } else {
+        return eventsBuilder_.getMessageOrBuilder(index);
       }
     }
     /**
-     * <code>repeated .hts.common.Tag tags = 1 [json_name = "tags"];</code>
+     * <code>repeated .hts.common.Event events = 1 [json_name = "events"];</code>
      */
-    public java.util.List<? extends app.onepass.apis.TagOrBuilder> 
-         getTagsOrBuilderList() {
-      if (tagsBuilder_ != null) {
-        return tagsBuilder_.getMessageOrBuilderList();
+    public java.util.List<? extends app.onepass.apis.EventOrBuilder> 
+         getEventsOrBuilderList() {
+      if (eventsBuilder_ != null) {
+        return eventsBuilder_.getMessageOrBuilderList();
       } else {
-        return java.util.Collections.unmodifiableList(tags_);
+        return java.util.Collections.unmodifiableList(events_);
       }
     }
     /**
-     * <code>repeated .hts.common.Tag tags = 1 [json_name = "tags"];</code>
+     * <code>repeated .hts.common.Event events = 1 [json_name = "events"];</code>
      */
-    public app.onepass.apis.Tag.Builder addTagsBuilder() {
-      return getTagsFieldBuilder().addBuilder(
-          app.onepass.apis.Tag.getDefaultInstance());
+    public app.onepass.apis.Event.Builder addEventsBuilder() {
+      return getEventsFieldBuilder().addBuilder(
+          app.onepass.apis.Event.getDefaultInstance());
     }
     /**
-     * <code>repeated .hts.common.Tag tags = 1 [json_name = "tags"];</code>
+     * <code>repeated .hts.common.Event events = 1 [json_name = "events"];</code>
      */
-    public app.onepass.apis.Tag.Builder addTagsBuilder(
+    public app.onepass.apis.Event.Builder addEventsBuilder(
         int index) {
-      return getTagsFieldBuilder().addBuilder(
-          index, app.onepass.apis.Tag.getDefaultInstance());
+      return getEventsFieldBuilder().addBuilder(
+          index, app.onepass.apis.Event.getDefaultInstance());
     }
     /**
-     * <code>repeated .hts.common.Tag tags = 1 [json_name = "tags"];</code>
+     * <code>repeated .hts.common.Event events = 1 [json_name = "events"];</code>
      */
-    public java.util.List<app.onepass.apis.Tag.Builder> 
-         getTagsBuilderList() {
-      return getTagsFieldBuilder().getBuilderList();
+    public java.util.List<app.onepass.apis.Event.Builder> 
+         getEventsBuilderList() {
+      return getEventsFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        app.onepass.apis.Tag, app.onepass.apis.Tag.Builder, app.onepass.apis.TagOrBuilder> 
-        getTagsFieldBuilder() {
-      if (tagsBuilder_ == null) {
-        tagsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            app.onepass.apis.Tag, app.onepass.apis.Tag.Builder, app.onepass.apis.TagOrBuilder>(
-                tags_,
+        app.onepass.apis.Event, app.onepass.apis.Event.Builder, app.onepass.apis.EventOrBuilder> 
+        getEventsFieldBuilder() {
+      if (eventsBuilder_ == null) {
+        eventsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            app.onepass.apis.Event, app.onepass.apis.Event.Builder, app.onepass.apis.EventOrBuilder>(
+                events_,
                 ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),
                 isClean());
-        tags_ = null;
+        events_ = null;
       }
-      return tagsBuilder_;
+      return eventsBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -728,41 +728,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:hts.organizer.ReadTagResult)
+    // @@protoc_insertion_point(builder_scope:hts.organizer.GetEventResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:hts.organizer.ReadTagResult)
-  private static final app.onepass.apis.ReadTagResult DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:hts.organizer.GetEventResponse)
+  private static final app.onepass.apis.GetEventResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new app.onepass.apis.ReadTagResult();
+    DEFAULT_INSTANCE = new app.onepass.apis.GetEventResponse();
   }
 
-  public static app.onepass.apis.ReadTagResult getDefaultInstance() {
+  public static app.onepass.apis.GetEventResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<ReadTagResult>
-      PARSER = new com.google.protobuf.AbstractParser<ReadTagResult>() {
+  private static final com.google.protobuf.Parser<GetEventResponse>
+      PARSER = new com.google.protobuf.AbstractParser<GetEventResponse>() {
     @java.lang.Override
-    public ReadTagResult parsePartialFrom(
+    public GetEventResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ReadTagResult(input, extensionRegistry);
+      return new GetEventResponse(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<ReadTagResult> parser() {
+  public static com.google.protobuf.Parser<GetEventResponse> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<ReadTagResult> getParserForType() {
+  public com.google.protobuf.Parser<GetEventResponse> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public app.onepass.apis.ReadTagResult getDefaultInstanceForType() {
+  public app.onepass.apis.GetEventResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

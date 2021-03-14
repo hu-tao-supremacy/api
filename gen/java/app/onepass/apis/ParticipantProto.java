@@ -80,7 +80,7 @@ public final class ParticipantProto {
       "e\022@\n\016event_feedback\030\001 \003(\0132\031.hts.common.E" +
       "ventFeedbackR\reventFeedback\"9\n\016EventsRes" +
       "ponse\022\'\n\005event\030\001 \003(\0132\021.hts.common.EventR" +
-      "\005event2\232\t\n\022ParticipantService\0229\n\020IsEvent" +
+      "\005event2\233\t\n\022ParticipantService\0229\n\020IsEvent" +
       "Available\022\021.hts.common.Event\032\022.hts.commo" +
       "n.Result\022E\n\tJoinEvent\022%.hts.participant." +
       "UserWithEventRequest\032\021.hts.common.Event\022" +
@@ -94,24 +94,24 @@ public final class ParticipantProto {
       "tFeedback\032\031.hts.common.EventFeedback\022Z\n\025" +
       "GetFeedbacksFromEvent\022\021.hts.common.Event" +
       "\032..hts.participant.GetFeedbacksFromEvent" +
-      "Response\022[\n\027GetUserFeedbackForEvent\022%.ht" +
-      "s.participant.UserWithEventRequest\032\031.hts" +
-      ".common.EventFeedback\022Z\n\022SearchEventsByN" +
-      "ame\022#.hts.participant.StringInputRequest" +
-      "\032\037.hts.participant.EventsResponse\022Y\n\021Sea" +
-      "rchEventsByTag\022#.hts.participant.StringI" +
-      "nputRequest\032\037.hts.participant.EventsResp" +
-      "onse\022H\n\nGenerateQR\022\025.hts.common.UserEven" +
-      "t\032#.hts.participant.GenerateQRResponse\022?" +
-      "\n\010GetEvent\022 .hts.participant.GetEventReq" +
-      "uest\032\021.hts.common.Event\022M\n\022GetSuggestedE" +
-      "vents\022\026.google.protobuf.Empty\032\037.hts.part" +
-      "icipant.EventsResponse\022G\n\014GetAllEvents\022\026" +
-      ".google.protobuf.Empty\032\037.hts.participant" +
-      ".EventsResponse\0222\n\004Ping\022\026.google.protobu" +
-      "f.Empty\032\022.hts.common.ResultBL\n\020app.onepa" +
-      "ss.apisB\020ParticipantProtoP\001Z$onepass.app" +
-      "/facility/hts/participantb\006proto3"
+      "Response\022\\\n\030GetUserFeedbackFromEvent\022%.h" +
+      "ts.participant.UserWithEventRequest\032\031.ht" +
+      "s.common.EventFeedback\022Z\n\022SearchEventsBy" +
+      "Name\022#.hts.participant.StringInputReques" +
+      "t\032\037.hts.participant.EventsResponse\022Y\n\021Se" +
+      "archEventsByTag\022#.hts.participant.String" +
+      "InputRequest\032\037.hts.participant.EventsRes" +
+      "ponse\022H\n\nGenerateQR\022\025.hts.common.UserEve" +
+      "nt\032#.hts.participant.GenerateQRResponse\022" +
+      "?\n\010GetEvent\022 .hts.participant.GetEventRe" +
+      "quest\032\021.hts.common.Event\022M\n\022GetSuggested" +
+      "Events\022\026.google.protobuf.Empty\032\037.hts.par" +
+      "ticipant.EventsResponse\022G\n\014GetAllEvents\022" +
+      "\026.google.protobuf.Empty\032\037.hts.participan" +
+      "t.EventsResponse\0222\n\004Ping\022\026.google.protob" +
+      "uf.Empty\032\022.hts.common.ResultBL\n\020app.onep" +
+      "ass.apisB\020ParticipantProtoP\001Z$onepass.ap" +
+      "p/facility/hts/participantb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

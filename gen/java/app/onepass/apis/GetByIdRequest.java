@@ -4,26 +4,25 @@
 package app.onepass.apis;
 
 /**
- * Protobuf type {@code hts.organizer.AddUsersToOrganizationRequest}
+ * Protobuf type {@code hts.organizer.GetByIdRequest}
  */
-public final class AddUsersToOrganizationRequest extends
+public final class GetByIdRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:hts.organizer.AddUsersToOrganizationRequest)
-    AddUsersToOrganizationRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:hts.organizer.GetByIdRequest)
+    GetByIdRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use AddUsersToOrganizationRequest.newBuilder() to construct.
-  private AddUsersToOrganizationRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use GetByIdRequest.newBuilder() to construct.
+  private GetByIdRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private AddUsersToOrganizationRequest() {
-    userIds_ = emptyLongList();
+  private GetByIdRequest() {
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new AddUsersToOrganizationRequest();
+    return new GetByIdRequest();
   }
 
   @java.lang.Override
@@ -31,7 +30,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AddUsersToOrganizationRequest(
+  private GetByIdRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -39,7 +38,6 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
-    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -56,24 +54,8 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 16: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              userIds_ = newLongList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            userIds_.addLong(input.readInt64());
-            break;
-          }
-          case 18: {
-            int length = input.readRawVarint32();
-            int limit = input.pushLimit(length);
-            if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-              userIds_ = newLongList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            while (input.getBytesUntilLimit() > 0) {
-              userIds_.addLong(input.readInt64());
-            }
-            input.popLimit(limit);
+
+            readId_ = input.readInt64();
             break;
           }
           default: {
@@ -91,24 +73,21 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        userIds_.makeImmutable(); // C
-      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_AddUsersToOrganizationRequest_descriptor;
+    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_GetByIdRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_AddUsersToOrganizationRequest_fieldAccessorTable
+    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_GetByIdRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            app.onepass.apis.AddUsersToOrganizationRequest.class, app.onepass.apis.AddUsersToOrganizationRequest.Builder.class);
+            app.onepass.apis.GetByIdRequest.class, app.onepass.apis.GetByIdRequest.Builder.class);
   }
 
   public static final int USER_ID_FIELD_NUMBER = 1;
@@ -122,33 +101,16 @@ private static final long serialVersionUID = 0L;
     return userId_;
   }
 
-  public static final int USER_IDS_FIELD_NUMBER = 2;
-  private com.google.protobuf.Internal.LongList userIds_;
+  public static final int READ_ID_FIELD_NUMBER = 2;
+  private long readId_;
   /**
-   * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
-   * @return A list containing the userIds.
+   * <code>int64 read_id = 2 [json_name = "readId"];</code>
+   * @return The readId.
    */
   @java.lang.Override
-  public java.util.List<java.lang.Long>
-      getUserIdsList() {
-    return userIds_;
+  public long getReadId() {
+    return readId_;
   }
-  /**
-   * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
-   * @return The count of userIds.
-   */
-  public int getUserIdsCount() {
-    return userIds_.size();
-  }
-  /**
-   * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
-   * @param index The index of the element to return.
-   * @return The userIds at the given index.
-   */
-  public long getUserIds(int index) {
-    return userIds_.getLong(index);
-  }
-  private int userIdsMemoizedSerializedSize = -1;
 
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
@@ -164,16 +126,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    getSerializedSize();
     if (userId_ != 0L) {
       output.writeInt64(1, userId_);
     }
-    if (getUserIdsList().size() > 0) {
-      output.writeUInt32NoTag(18);
-      output.writeUInt32NoTag(userIdsMemoizedSerializedSize);
-    }
-    for (int i = 0; i < userIds_.size(); i++) {
-      output.writeInt64NoTag(userIds_.getLong(i));
+    if (readId_ != 0L) {
+      output.writeInt64(2, readId_);
     }
     unknownFields.writeTo(output);
   }
@@ -188,19 +145,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(1, userId_);
     }
-    {
-      int dataSize = 0;
-      for (int i = 0; i < userIds_.size(); i++) {
-        dataSize += com.google.protobuf.CodedOutputStream
-          .computeInt64SizeNoTag(userIds_.getLong(i));
-      }
-      size += dataSize;
-      if (!getUserIdsList().isEmpty()) {
-        size += 1;
-        size += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(dataSize);
-      }
-      userIdsMemoizedSerializedSize = dataSize;
+    if (readId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(2, readId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -212,15 +159,15 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof app.onepass.apis.AddUsersToOrganizationRequest)) {
+    if (!(obj instanceof app.onepass.apis.GetByIdRequest)) {
       return super.equals(obj);
     }
-    app.onepass.apis.AddUsersToOrganizationRequest other = (app.onepass.apis.AddUsersToOrganizationRequest) obj;
+    app.onepass.apis.GetByIdRequest other = (app.onepass.apis.GetByIdRequest) obj;
 
     if (getUserId()
         != other.getUserId()) return false;
-    if (!getUserIdsList()
-        .equals(other.getUserIdsList())) return false;
+    if (getReadId()
+        != other.getReadId()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -235,78 +182,77 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getUserId());
-    if (getUserIdsCount() > 0) {
-      hash = (37 * hash) + USER_IDS_FIELD_NUMBER;
-      hash = (53 * hash) + getUserIdsList().hashCode();
-    }
+    hash = (37 * hash) + READ_ID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getReadId());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static app.onepass.apis.AddUsersToOrganizationRequest parseFrom(
+  public static app.onepass.apis.GetByIdRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.AddUsersToOrganizationRequest parseFrom(
+  public static app.onepass.apis.GetByIdRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.AddUsersToOrganizationRequest parseFrom(
+  public static app.onepass.apis.GetByIdRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.AddUsersToOrganizationRequest parseFrom(
+  public static app.onepass.apis.GetByIdRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.AddUsersToOrganizationRequest parseFrom(byte[] data)
+  public static app.onepass.apis.GetByIdRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.AddUsersToOrganizationRequest parseFrom(
+  public static app.onepass.apis.GetByIdRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.AddUsersToOrganizationRequest parseFrom(java.io.InputStream input)
+  public static app.onepass.apis.GetByIdRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.AddUsersToOrganizationRequest parseFrom(
+  public static app.onepass.apis.GetByIdRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.AddUsersToOrganizationRequest parseDelimitedFrom(java.io.InputStream input)
+  public static app.onepass.apis.GetByIdRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.AddUsersToOrganizationRequest parseDelimitedFrom(
+  public static app.onepass.apis.GetByIdRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.AddUsersToOrganizationRequest parseFrom(
+  public static app.onepass.apis.GetByIdRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.AddUsersToOrganizationRequest parseFrom(
+  public static app.onepass.apis.GetByIdRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -319,7 +265,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(app.onepass.apis.AddUsersToOrganizationRequest prototype) {
+  public static Builder newBuilder(app.onepass.apis.GetByIdRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -335,26 +281,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code hts.organizer.AddUsersToOrganizationRequest}
+   * Protobuf type {@code hts.organizer.GetByIdRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:hts.organizer.AddUsersToOrganizationRequest)
-      app.onepass.apis.AddUsersToOrganizationRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:hts.organizer.GetByIdRequest)
+      app.onepass.apis.GetByIdRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_AddUsersToOrganizationRequest_descriptor;
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_GetByIdRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_AddUsersToOrganizationRequest_fieldAccessorTable
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_GetByIdRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              app.onepass.apis.AddUsersToOrganizationRequest.class, app.onepass.apis.AddUsersToOrganizationRequest.Builder.class);
+              app.onepass.apis.GetByIdRequest.class, app.onepass.apis.GetByIdRequest.Builder.class);
     }
 
-    // Construct using app.onepass.apis.AddUsersToOrganizationRequest.newBuilder()
+    // Construct using app.onepass.apis.GetByIdRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -374,25 +320,25 @@ private static final long serialVersionUID = 0L;
       super.clear();
       userId_ = 0L;
 
-      userIds_ = emptyLongList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      readId_ = 0L;
+
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_AddUsersToOrganizationRequest_descriptor;
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_GetByIdRequest_descriptor;
     }
 
     @java.lang.Override
-    public app.onepass.apis.AddUsersToOrganizationRequest getDefaultInstanceForType() {
-      return app.onepass.apis.AddUsersToOrganizationRequest.getDefaultInstance();
+    public app.onepass.apis.GetByIdRequest getDefaultInstanceForType() {
+      return app.onepass.apis.GetByIdRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public app.onepass.apis.AddUsersToOrganizationRequest build() {
-      app.onepass.apis.AddUsersToOrganizationRequest result = buildPartial();
+    public app.onepass.apis.GetByIdRequest build() {
+      app.onepass.apis.GetByIdRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -400,15 +346,10 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public app.onepass.apis.AddUsersToOrganizationRequest buildPartial() {
-      app.onepass.apis.AddUsersToOrganizationRequest result = new app.onepass.apis.AddUsersToOrganizationRequest(this);
-      int from_bitField0_ = bitField0_;
+    public app.onepass.apis.GetByIdRequest buildPartial() {
+      app.onepass.apis.GetByIdRequest result = new app.onepass.apis.GetByIdRequest(this);
       result.userId_ = userId_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        userIds_.makeImmutable();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.userIds_ = userIds_;
+      result.readId_ = readId_;
       onBuilt();
       return result;
     }
@@ -447,28 +388,21 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof app.onepass.apis.AddUsersToOrganizationRequest) {
-        return mergeFrom((app.onepass.apis.AddUsersToOrganizationRequest)other);
+      if (other instanceof app.onepass.apis.GetByIdRequest) {
+        return mergeFrom((app.onepass.apis.GetByIdRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(app.onepass.apis.AddUsersToOrganizationRequest other) {
-      if (other == app.onepass.apis.AddUsersToOrganizationRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(app.onepass.apis.GetByIdRequest other) {
+      if (other == app.onepass.apis.GetByIdRequest.getDefaultInstance()) return this;
       if (other.getUserId() != 0L) {
         setUserId(other.getUserId());
       }
-      if (!other.userIds_.isEmpty()) {
-        if (userIds_.isEmpty()) {
-          userIds_ = other.userIds_;
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          ensureUserIdsIsMutable();
-          userIds_.addAll(other.userIds_);
-        }
-        onChanged();
+      if (other.getReadId() != 0L) {
+        setReadId(other.getReadId());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -485,11 +419,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      app.onepass.apis.AddUsersToOrganizationRequest parsedMessage = null;
+      app.onepass.apis.GetByIdRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (app.onepass.apis.AddUsersToOrganizationRequest) e.getUnfinishedMessage();
+        parsedMessage = (app.onepass.apis.GetByIdRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -498,7 +432,6 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
-    private int bitField0_;
 
     private long userId_ ;
     /**
@@ -531,81 +464,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList userIds_ = emptyLongList();
-    private void ensureUserIdsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
-        userIds_ = mutableCopy(userIds_);
-        bitField0_ |= 0x00000001;
-       }
-    }
+    private long readId_ ;
     /**
-     * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
-     * @return A list containing the userIds.
+     * <code>int64 read_id = 2 [json_name = "readId"];</code>
+     * @return The readId.
      */
-    public java.util.List<java.lang.Long>
-        getUserIdsList() {
-      return ((bitField0_ & 0x00000001) != 0) ?
-               java.util.Collections.unmodifiableList(userIds_) : userIds_;
+    @java.lang.Override
+    public long getReadId() {
+      return readId_;
     }
     /**
-     * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
-     * @return The count of userIds.
-     */
-    public int getUserIdsCount() {
-      return userIds_.size();
-    }
-    /**
-     * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
-     * @param index The index of the element to return.
-     * @return The userIds at the given index.
-     */
-    public long getUserIds(int index) {
-      return userIds_.getLong(index);
-    }
-    /**
-     * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
-     * @param index The index to set the value at.
-     * @param value The userIds to set.
+     * <code>int64 read_id = 2 [json_name = "readId"];</code>
+     * @param value The readId to set.
      * @return This builder for chaining.
      */
-    public Builder setUserIds(
-        int index, long value) {
-      ensureUserIdsIsMutable();
-      userIds_.setLong(index, value);
+    public Builder setReadId(long value) {
+      
+      readId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
-     * @param value The userIds to add.
+     * <code>int64 read_id = 2 [json_name = "readId"];</code>
      * @return This builder for chaining.
      */
-    public Builder addUserIds(long value) {
-      ensureUserIdsIsMutable();
-      userIds_.addLong(value);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
-     * @param values The userIds to add.
-     * @return This builder for chaining.
-     */
-    public Builder addAllUserIds(
-        java.lang.Iterable<? extends java.lang.Long> values) {
-      ensureUserIdsIsMutable();
-      com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, userIds_);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearUserIds() {
-      userIds_ = emptyLongList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+    public Builder clearReadId() {
+      
+      readId_ = 0L;
       onChanged();
       return this;
     }
@@ -622,41 +507,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:hts.organizer.AddUsersToOrganizationRequest)
+    // @@protoc_insertion_point(builder_scope:hts.organizer.GetByIdRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:hts.organizer.AddUsersToOrganizationRequest)
-  private static final app.onepass.apis.AddUsersToOrganizationRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:hts.organizer.GetByIdRequest)
+  private static final app.onepass.apis.GetByIdRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new app.onepass.apis.AddUsersToOrganizationRequest();
+    DEFAULT_INSTANCE = new app.onepass.apis.GetByIdRequest();
   }
 
-  public static app.onepass.apis.AddUsersToOrganizationRequest getDefaultInstance() {
+  public static app.onepass.apis.GetByIdRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<AddUsersToOrganizationRequest>
-      PARSER = new com.google.protobuf.AbstractParser<AddUsersToOrganizationRequest>() {
+  private static final com.google.protobuf.Parser<GetByIdRequest>
+      PARSER = new com.google.protobuf.AbstractParser<GetByIdRequest>() {
     @java.lang.Override
-    public AddUsersToOrganizationRequest parsePartialFrom(
+    public GetByIdRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AddUsersToOrganizationRequest(input, extensionRegistry);
+      return new GetByIdRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<AddUsersToOrganizationRequest> parser() {
+  public static com.google.protobuf.Parser<GetByIdRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<AddUsersToOrganizationRequest> getParserForType() {
+  public com.google.protobuf.Parser<GetByIdRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public app.onepass.apis.AddUsersToOrganizationRequest getDefaultInstanceForType() {
+  public app.onepass.apis.GetByIdRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

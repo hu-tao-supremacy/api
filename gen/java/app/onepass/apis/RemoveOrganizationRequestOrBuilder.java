@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface DeleteOrganizationRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.organizer.DeleteOrganizationRequest)
+public interface RemoveOrganizationRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.organizer.RemoveOrganizationRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
