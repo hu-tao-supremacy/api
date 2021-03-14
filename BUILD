@@ -70,3 +70,14 @@ go_grpc_compile(
         ":participant_proto",
     ],
 )
+
+load("@rules_proto_grpc//js:defs.bzl", "js_grpc_node_compile")
+
+js_grpc_node_compile(
+    name = "api-gateway",
+    prefix_path = "bzl-gen",
+    protos = [
+        ":common_proto",
+        ":account_proto"
+    ],
+)
