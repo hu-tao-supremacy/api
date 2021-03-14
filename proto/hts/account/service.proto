@@ -8,7 +8,7 @@ option java_package = "app.onepass.apis";
 option java_outer_classname = "AccountProto";
 option go_package = "onepass.app/facility/hts/account";
 
-import "hts/common/common.proto";
+import "proto/hts/common/common.proto";
 import "google/protobuf/empty.proto";
 
 message IsAuthenticatedRequest {
