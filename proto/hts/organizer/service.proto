@@ -44,6 +44,7 @@ message RemoveOrganizationRequest {
 message UpdateUsersInOrganizationRequest {
   int64 user_id = 1;
   repeated int64 user_ids = 2 [packed=true];
+  int64 organization_id = 3;
 }
 
 message CreateEventRequest {
