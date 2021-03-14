@@ -1,6 +1,6 @@
 proto_library(
     name = "common_proto",
-    srcs = ["proto/hts/common/common.proto"],
+    srcs = ["hts/common/common.proto"],
     visibility = ["//visibility:public"],
     deps = [
         "@com_google_protobuf//:timestamp_proto",
@@ -11,7 +11,7 @@ proto_library(
 
 proto_library(
     name = "account_proto",
-    srcs = ["proto/hts/account/service.proto"],
+    srcs = ["hts/account/service.proto"],
     visibility = ["//visibility:public"],
     deps = [
         "@com_google_protobuf//:timestamp_proto",
@@ -23,7 +23,7 @@ proto_library(
 
 proto_library(
     name = "facility_proto",
-    srcs = ["proto/hts/facility/service.proto"],
+    srcs = ["hts/facility/service.proto"],
     visibility = ["//visibility:public"],
     deps = [
         "@com_google_protobuf//:timestamp_proto",
@@ -35,7 +35,7 @@ proto_library(
 
 proto_library(
     name = "organizer_proto",
-    srcs = ["proto/hts/organizer/service.proto"],
+    srcs = ["hts/organizer/service.proto"],
     visibility = ["//visibility:public"],
     deps = [
         "@com_google_protobuf//:timestamp_proto",
@@ -47,7 +47,7 @@ proto_library(
 
 proto_library(
     name = "participant_proto",
-    srcs = ["proto/hts/participant/service.proto"],
+    srcs = ["hts/participant/service.proto"],
     visibility = ["//visibility:public"],
     deps = [
         "@com_google_protobuf//:timestamp_proto",
@@ -65,9 +65,6 @@ go_grpc_compile(
     deps = [
         ":common_proto",
         ":account_proto",
-        ":facility_proto",
-        ":organizer_proto",
-        ":participant_proto",
     ],
 )
 
