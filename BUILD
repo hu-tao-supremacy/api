@@ -61,7 +61,7 @@ load("@rules_proto_grpc//go:defs.bzl", "go_grpc_compile")
 
 go_grpc_compile(
     name = "go",
-    prefix_path = "bzl-gen",
+    prefix_path = "gen",
     deps = [
         ":common_proto",
         ":account_proto",
@@ -72,7 +72,7 @@ load("@rules_proto_grpc//js:defs.bzl", "js_grpc_node_compile")
 
 js_grpc_node_compile(
     name = "api-gateway",
-    prefix_path = "bzl-gen",
+    prefix_path = "gen",
     protos = [
         ":common_proto",
         ":account_proto"
@@ -83,7 +83,7 @@ load("@rules_proto_grpc//java:defs.bzl", "java_grpc_compile")
 
 java_grpc_compile(
     name = "java",
-    prefix_path = "bzl-gen",
+    prefix_path = "gen",
     protos = [
         ":common_proto",
         ":account_proto"
@@ -94,7 +94,7 @@ load("@rules_proto_grpc//python:defs.bzl", "python_grpc_compile")
 
 python_grpc_compile(
     name = "python",
-    prefix_path = "bzl-gen",
+    prefix_path = "gen",
     protos = [
         ":common_proto",
         ":account_proto"
