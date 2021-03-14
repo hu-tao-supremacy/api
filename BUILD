@@ -96,7 +96,7 @@ java_grpc_compile(
 load("@rules_proto_grpc//python:defs.bzl", "python_grpc_compile")
 
 python_grpc_compile(
-    name = "java",
+    name = "python",
     prefix_path = "bzl-gen",
     protos = [
         ":common_proto",
