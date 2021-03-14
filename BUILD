@@ -60,7 +60,7 @@ go_grpc_compile(
         ":common_proto",
         ":account_proto",
         ":facility_proto",
-        ":organizer_proto".
+        ":organizer_proto",
         ":participant_proto",
     ],
 )
