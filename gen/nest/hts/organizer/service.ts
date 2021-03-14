@@ -47,6 +47,7 @@ export interface RemoveOrganizationRequest {
 export interface UpdateUsersInOrganizationRequest {
   userId: number;
   userIds: number[];
+  organizationId: number;
 }
 
 export interface CreateEventRequest {

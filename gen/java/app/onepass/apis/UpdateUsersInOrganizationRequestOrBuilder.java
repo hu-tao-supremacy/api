@@ -29,4 +29,10 @@ public interface UpdateUsersInOrganizationRequestOrBuilder extends
    * @return The userIds at the given index.
    */
   long getUserIds(int index);
+
+  /**
+   * <code>int64 organization_id = 3 [json_name = "organizationId"];</code>
+   * @return The organizationId.
+   */
+  long getOrganizationId();
 }
