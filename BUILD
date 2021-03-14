@@ -52,10 +52,11 @@ proto_library(
     ],
 )
 
-load("@build_stack_rules_proto//go:go_grpc_compile.bzl", "go_grpc_compile")
+load("@rules_proto_grpc//go:defs.bzl", "go_grpc_compile")
 
 go_grpc_compile(
     name = "go",
+    prefix_path = "bzl-gen",
     deps = [
         ":common_proto",
         ":account_proto",
