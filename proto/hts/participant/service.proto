@@ -53,7 +53,7 @@ service ParticipantService {
     rpc HasSubmitFeedback(UserWithEventRequest) returns (hts.common.EventFeedback);
     rpc RemoveFeedback(hts.common.EventFeedback) returns (hts.common.EventFeedback);
     rpc GetFeedbacksFromEvent(hts.common.Event) returns (GetFeedbacksFromEventResponse);
-    rpc GetUserFeedbackForEvent(UserWithEventRequest) returns (hts.common.EventFeedback);
+    rpc GetUserFeedbackFromEvent(UserWithEventRequest) returns (hts.common.EventFeedback);
     rpc SearchEventsByName(StringInputRequest) returns (EventsResponse);
     rpc SearchEventsByTag(StringInputRequest) returns (EventsResponse);
     rpc GenerateQR(hts.common.UserEvent) returns (GenerateQRResponse);
