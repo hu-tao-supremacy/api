@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface ReadTagByIdResultOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.organizer.ReadTagByIdResult)
+public interface GetTagByIdResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.organizer.GetTagByIdResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**
