@@ -4,18 +4,18 @@
 package app.onepass.apis;
 
 /**
- * Protobuf type {@code hts.organizer.ReadOrganizationResult}
+ * Protobuf type {@code hts.organizer.GetOrganizationResponse}
  */
-public final class ReadOrganizationResult extends
+public final class GetOrganizationResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:hts.organizer.ReadOrganizationResult)
-    ReadOrganizationResultOrBuilder {
+    // @@protoc_insertion_point(message_implements:hts.organizer.GetOrganizationResponse)
+    GetOrganizationResponseOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use ReadOrganizationResult.newBuilder() to construct.
-  private ReadOrganizationResult(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use GetOrganizationResponse.newBuilder() to construct.
+  private GetOrganizationResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private ReadOrganizationResult() {
+  private GetOrganizationResponse() {
     organizations_ = java.util.Collections.emptyList();
   }
 
@@ -23,7 +23,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new ReadOrganizationResult();
+    return new GetOrganizationResponse();
   }
 
   @java.lang.Override
@@ -31,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ReadOrganizationResult(
+  private GetOrganizationResponse(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -83,15 +83,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_ReadOrganizationResult_descriptor;
+    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_GetOrganizationResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_ReadOrganizationResult_fieldAccessorTable
+    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_GetOrganizationResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            app.onepass.apis.ReadOrganizationResult.class, app.onepass.apis.ReadOrganizationResult.Builder.class);
+            app.onepass.apis.GetOrganizationResponse.class, app.onepass.apis.GetOrganizationResponse.Builder.class);
   }
 
   public static final int ORGANIZATIONS_FIELD_NUMBER = 1;
@@ -174,10 +174,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof app.onepass.apis.ReadOrganizationResult)) {
+    if (!(obj instanceof app.onepass.apis.GetOrganizationResponse)) {
       return super.equals(obj);
     }
-    app.onepass.apis.ReadOrganizationResult other = (app.onepass.apis.ReadOrganizationResult) obj;
+    app.onepass.apis.GetOrganizationResponse other = (app.onepass.apis.GetOrganizationResponse) obj;
 
     if (!getOrganizationsList()
         .equals(other.getOrganizationsList())) return false;
@@ -201,69 +201,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static app.onepass.apis.ReadOrganizationResult parseFrom(
+  public static app.onepass.apis.GetOrganizationResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.ReadOrganizationResult parseFrom(
+  public static app.onepass.apis.GetOrganizationResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.ReadOrganizationResult parseFrom(
+  public static app.onepass.apis.GetOrganizationResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.ReadOrganizationResult parseFrom(
+  public static app.onepass.apis.GetOrganizationResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.ReadOrganizationResult parseFrom(byte[] data)
+  public static app.onepass.apis.GetOrganizationResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.ReadOrganizationResult parseFrom(
+  public static app.onepass.apis.GetOrganizationResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.ReadOrganizationResult parseFrom(java.io.InputStream input)
+  public static app.onepass.apis.GetOrganizationResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.ReadOrganizationResult parseFrom(
+  public static app.onepass.apis.GetOrganizationResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.ReadOrganizationResult parseDelimitedFrom(java.io.InputStream input)
+  public static app.onepass.apis.GetOrganizationResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.ReadOrganizationResult parseDelimitedFrom(
+  public static app.onepass.apis.GetOrganizationResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.ReadOrganizationResult parseFrom(
+  public static app.onepass.apis.GetOrganizationResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.ReadOrganizationResult parseFrom(
+  public static app.onepass.apis.GetOrganizationResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -276,7 +276,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(app.onepass.apis.ReadOrganizationResult prototype) {
+  public static Builder newBuilder(app.onepass.apis.GetOrganizationResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -292,26 +292,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code hts.organizer.ReadOrganizationResult}
+   * Protobuf type {@code hts.organizer.GetOrganizationResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:hts.organizer.ReadOrganizationResult)
-      app.onepass.apis.ReadOrganizationResultOrBuilder {
+      // @@protoc_insertion_point(builder_implements:hts.organizer.GetOrganizationResponse)
+      app.onepass.apis.GetOrganizationResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_ReadOrganizationResult_descriptor;
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_GetOrganizationResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_ReadOrganizationResult_fieldAccessorTable
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_GetOrganizationResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              app.onepass.apis.ReadOrganizationResult.class, app.onepass.apis.ReadOrganizationResult.Builder.class);
+              app.onepass.apis.GetOrganizationResponse.class, app.onepass.apis.GetOrganizationResponse.Builder.class);
     }
 
-    // Construct using app.onepass.apis.ReadOrganizationResult.newBuilder()
+    // Construct using app.onepass.apis.GetOrganizationResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -342,17 +342,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_ReadOrganizationResult_descriptor;
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_GetOrganizationResponse_descriptor;
     }
 
     @java.lang.Override
-    public app.onepass.apis.ReadOrganizationResult getDefaultInstanceForType() {
-      return app.onepass.apis.ReadOrganizationResult.getDefaultInstance();
+    public app.onepass.apis.GetOrganizationResponse getDefaultInstanceForType() {
+      return app.onepass.apis.GetOrganizationResponse.getDefaultInstance();
     }
 
     @java.lang.Override
-    public app.onepass.apis.ReadOrganizationResult build() {
-      app.onepass.apis.ReadOrganizationResult result = buildPartial();
+    public app.onepass.apis.GetOrganizationResponse build() {
+      app.onepass.apis.GetOrganizationResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -360,8 +360,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public app.onepass.apis.ReadOrganizationResult buildPartial() {
-      app.onepass.apis.ReadOrganizationResult result = new app.onepass.apis.ReadOrganizationResult(this);
+    public app.onepass.apis.GetOrganizationResponse buildPartial() {
+      app.onepass.apis.GetOrganizationResponse result = new app.onepass.apis.GetOrganizationResponse(this);
       int from_bitField0_ = bitField0_;
       if (organizationsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
@@ -410,16 +410,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof app.onepass.apis.ReadOrganizationResult) {
-        return mergeFrom((app.onepass.apis.ReadOrganizationResult)other);
+      if (other instanceof app.onepass.apis.GetOrganizationResponse) {
+        return mergeFrom((app.onepass.apis.GetOrganizationResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(app.onepass.apis.ReadOrganizationResult other) {
-      if (other == app.onepass.apis.ReadOrganizationResult.getDefaultInstance()) return this;
+    public Builder mergeFrom(app.onepass.apis.GetOrganizationResponse other) {
+      if (other == app.onepass.apis.GetOrganizationResponse.getDefaultInstance()) return this;
       if (organizationsBuilder_ == null) {
         if (!other.organizations_.isEmpty()) {
           if (organizations_.isEmpty()) {
@@ -461,11 +461,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      app.onepass.apis.ReadOrganizationResult parsedMessage = null;
+      app.onepass.apis.GetOrganizationResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (app.onepass.apis.ReadOrganizationResult) e.getUnfinishedMessage();
+        parsedMessage = (app.onepass.apis.GetOrganizationResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -728,41 +728,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:hts.organizer.ReadOrganizationResult)
+    // @@protoc_insertion_point(builder_scope:hts.organizer.GetOrganizationResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:hts.organizer.ReadOrganizationResult)
-  private static final app.onepass.apis.ReadOrganizationResult DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:hts.organizer.GetOrganizationResponse)
+  private static final app.onepass.apis.GetOrganizationResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new app.onepass.apis.ReadOrganizationResult();
+    DEFAULT_INSTANCE = new app.onepass.apis.GetOrganizationResponse();
   }
 
-  public static app.onepass.apis.ReadOrganizationResult getDefaultInstance() {
+  public static app.onepass.apis.GetOrganizationResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<ReadOrganizationResult>
-      PARSER = new com.google.protobuf.AbstractParser<ReadOrganizationResult>() {
+  private static final com.google.protobuf.Parser<GetOrganizationResponse>
+      PARSER = new com.google.protobuf.AbstractParser<GetOrganizationResponse>() {
     @java.lang.Override
-    public ReadOrganizationResult parsePartialFrom(
+    public GetOrganizationResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ReadOrganizationResult(input, extensionRegistry);
+      return new GetOrganizationResponse(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<ReadOrganizationResult> parser() {
+  public static com.google.protobuf.Parser<GetOrganizationResponse> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<ReadOrganizationResult> getParserForType() {
+  public com.google.protobuf.Parser<GetOrganizationResponse> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public app.onepass.apis.ReadOrganizationResult getDefaultInstanceForType() {
+  public app.onepass.apis.GetOrganizationResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

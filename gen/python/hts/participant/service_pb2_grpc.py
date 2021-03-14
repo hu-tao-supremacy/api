@@ -51,8 +51,8 @@ class ParticipantServiceStub(object):
                 request_serializer=hts_dot_common_dot_common__pb2.Event.SerializeToString,
                 response_deserializer=hts_dot_participant_dot_service__pb2.GetFeedbacksFromEventResponse.FromString,
                 )
-        self.GetUserFeedbackForEvent = channel.unary_unary(
-                '/hts.participant.ParticipantService/GetUserFeedbackForEvent',
+        self.GetUserFeedbackFromEvent = channel.unary_unary(
+                '/hts.participant.ParticipantService/GetUserFeedbackFromEvent',
                 request_serializer=hts_dot_participant_dot_service__pb2.UserWithEventRequest.SerializeToString,
                 response_deserializer=hts_dot_common_dot_common__pb2.EventFeedback.FromString,
                 )
@@ -138,7 +138,7 @@ class ParticipantServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetUserFeedbackForEvent(self, request, context):
+    def GetUserFeedbackFromEvent(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -224,8 +224,8 @@ def add_ParticipantServiceServicer_to_server(servicer, server):
                     request_deserializer=hts_dot_common_dot_common__pb2.Event.FromString,
                     response_serializer=hts_dot_participant_dot_service__pb2.GetFeedbacksFromEventResponse.SerializeToString,
             ),
-            'GetUserFeedbackForEvent': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetUserFeedbackForEvent,
+            'GetUserFeedbackFromEvent': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetUserFeedbackFromEvent,
                     request_deserializer=hts_dot_participant_dot_service__pb2.UserWithEventRequest.FromString,
                     response_serializer=hts_dot_common_dot_common__pb2.EventFeedback.SerializeToString,
             ),
@@ -394,7 +394,7 @@ class ParticipantService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetUserFeedbackForEvent(request,
+    def GetUserFeedbackFromEvent(request,
             target,
             options=(),
             channel_credentials=None,
@@ -404,7 +404,7 @@ class ParticipantService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetUserFeedbackForEvent',
+        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetUserFeedbackFromEvent',
             hts_dot_participant_dot_service__pb2.UserWithEventRequest.SerializeToString,
             hts_dot_common_dot_common__pb2.EventFeedback.FromString,
             options, channel_credentials,

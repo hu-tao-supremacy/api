@@ -21,24 +21,25 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type OrganizerServiceClient interface {
 	CreateOrganization(ctx context.Context, in *CreateOrganizationRequest, opts ...grpc.CallOption) (*common.Result, error)
-	ReadOrganization(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*ReadOrganizationResult, error)
-	ReadOrganizationById(ctx context.Context, in *ReadByIdRequest, opts ...grpc.CallOption) (*ReadOrganizationByIdResult, error)
+	GetOrganization(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*GetOrganizationResponse, error)
+	GetOrganizationById(ctx context.Context, in *GetByIdRequest, opts ...grpc.CallOption) (*GetOrganizationByIdResponse, error)
 	UpdateOrganization(ctx context.Context, in *UpdateOrganizationRequest, opts ...grpc.CallOption) (*common.Result, error)
-	DeleteOrganization(ctx context.Context, in *DeleteOrganizationRequest, opts ...grpc.CallOption) (*common.Result, error)
+	RemoveOrganization(ctx context.Context, in *RemoveOrganizationRequest, opts ...grpc.CallOption) (*common.Result, error)
 	AddUsersToOrganization(ctx context.Context, in *UpdateUsersInOrganizationRequest, opts ...grpc.CallOption) (*common.Result, error)
 	RemoveUsersFromOrganization(ctx context.Context, in *UpdateUsersInOrganizationRequest, opts ...grpc.CallOption) (*common.Result, error)
 	CreateEvent(ctx context.Context, in *CreateEventRequest, opts ...grpc.CallOption) (*common.Result, error)
-	ReadEvent(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*ReadEventResult, error)
-	ReadEventById(ctx context.Context, in *ReadByIdRequest, opts ...grpc.CallOption) (*ReadEventByIdResult, error)
+	GetEvent(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*GetEventResponse, error)
+	GetEventById(ctx context.Context, in *GetByIdRequest, opts ...grpc.CallOption) (*GetEventByIdResponse, error)
 	UpdateEventInfo(ctx context.Context, in *UpdateEventInfoRequest, opts ...grpc.CallOption) (*common.Result, error)
 	UpdateEventFacility(ctx context.Context, in *UpdateEventFacilityRequest, opts ...grpc.CallOption) (*common.Result, error)
 	UpdateEventDuration(ctx context.Context, in *UpdateEventDurationRequest, opts ...grpc.CallOption) (*common.Result, error)
-	DeleteEvent(ctx context.Context, in *DeleteEventRequest, opts ...grpc.CallOption) (*common.Result, error)
+	RemoveEvent(ctx context.Context, in *RemoveEventRequest, opts ...grpc.CallOption) (*common.Result, error)
 	UpdateRegistrationRequest(ctx context.Context, in *UpdateRegistrationRequestRequest, opts ...grpc.CallOption) (*common.Result, error)
+	CreateTag(ctx context.Context, in *CreateTagRequest, opts ...grpc.CallOption) (*common.Result, error)
 	AddTag(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*common.Result, error)
 	RemoveTag(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*common.Result, error)
-	ReadTag(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*ReadTagResult, error)
-	ReadTagById(ctx context.Context, in *ReadByIdRequest, opts ...grpc.CallOption) (*ReadTagByIdResult, error)
+	GetTag(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*GetTagResponse, error)
+	GetTagById(ctx context.Context, in *GetByIdRequest, opts ...grpc.CallOption) (*GetTagByIdResponse, error)
 	HasEvent(ctx context.Context, in *HasEventRequest, opts ...grpc.CallOption) (*common.Result, error)
 	Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*common.Result, error)
 }
@@ -60,18 +61,18 @@ func (c *organizerServiceClient) CreateOrganization(ctx context.Context, in *Cre
 	return out, nil
 }
 
-func (c *organizerServiceClient) ReadOrganization(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*ReadOrganizationResult, error) {
-	out := new(ReadOrganizationResult)
-	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/ReadOrganization", in, out, opts...)
+func (c *organizerServiceClient) GetOrganization(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*GetOrganizationResponse, error) {
+	out := new(GetOrganizationResponse)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/GetOrganization", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *organizerServiceClient) ReadOrganizationById(ctx context.Context, in *ReadByIdRequest, opts ...grpc.CallOption) (*ReadOrganizationByIdResult, error) {
-	out := new(ReadOrganizationByIdResult)
-	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/ReadOrganizationById", in, out, opts...)
+func (c *organizerServiceClient) GetOrganizationById(ctx context.Context, in *GetByIdRequest, opts ...grpc.CallOption) (*GetOrganizationByIdResponse, error) {
+	out := new(GetOrganizationByIdResponse)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/GetOrganizationById", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -87,9 +88,9 @@ func (c *organizerServiceClient) UpdateOrganization(ctx context.Context, in *Upd
 	return out, nil
 }
 
-func (c *organizerServiceClient) DeleteOrganization(ctx context.Context, in *DeleteOrganizationRequest, opts ...grpc.CallOption) (*common.Result, error) {
+func (c *organizerServiceClient) RemoveOrganization(ctx context.Context, in *RemoveOrganizationRequest, opts ...grpc.CallOption) (*common.Result, error) {
 	out := new(common.Result)
-	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/DeleteOrganization", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/RemoveOrganization", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -123,18 +124,18 @@ func (c *organizerServiceClient) CreateEvent(ctx context.Context, in *CreateEven
 	return out, nil
 }
 
-func (c *organizerServiceClient) ReadEvent(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*ReadEventResult, error) {
-	out := new(ReadEventResult)
-	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/ReadEvent", in, out, opts...)
+func (c *organizerServiceClient) GetEvent(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*GetEventResponse, error) {
+	out := new(GetEventResponse)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/GetEvent", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *organizerServiceClient) ReadEventById(ctx context.Context, in *ReadByIdRequest, opts ...grpc.CallOption) (*ReadEventByIdResult, error) {
-	out := new(ReadEventByIdResult)
-	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/ReadEventById", in, out, opts...)
+func (c *organizerServiceClient) GetEventById(ctx context.Context, in *GetByIdRequest, opts ...grpc.CallOption) (*GetEventByIdResponse, error) {
+	out := new(GetEventByIdResponse)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/GetEventById", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -168,9 +169,9 @@ func (c *organizerServiceClient) UpdateEventDuration(ctx context.Context, in *Up
 	return out, nil
 }
 
-func (c *organizerServiceClient) DeleteEvent(ctx context.Context, in *DeleteEventRequest, opts ...grpc.CallOption) (*common.Result, error) {
+func (c *organizerServiceClient) RemoveEvent(ctx context.Context, in *RemoveEventRequest, opts ...grpc.CallOption) (*common.Result, error) {
 	out := new(common.Result)
-	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/DeleteEvent", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/RemoveEvent", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -180,6 +181,15 @@ func (c *organizerServiceClient) DeleteEvent(ctx context.Context, in *DeleteEven
 func (c *organizerServiceClient) UpdateRegistrationRequest(ctx context.Context, in *UpdateRegistrationRequestRequest, opts ...grpc.CallOption) (*common.Result, error) {
 	out := new(common.Result)
 	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/UpdateRegistrationRequest", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *organizerServiceClient) CreateTag(ctx context.Context, in *CreateTagRequest, opts ...grpc.CallOption) (*common.Result, error) {
+	out := new(common.Result)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/CreateTag", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -204,18 +214,18 @@ func (c *organizerServiceClient) RemoveTag(ctx context.Context, in *UpdateTagReq
 	return out, nil
 }
 
-func (c *organizerServiceClient) ReadTag(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*ReadTagResult, error) {
-	out := new(ReadTagResult)
-	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/ReadTag", in, out, opts...)
+func (c *organizerServiceClient) GetTag(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*GetTagResponse, error) {
+	out := new(GetTagResponse)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/GetTag", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *organizerServiceClient) ReadTagById(ctx context.Context, in *ReadByIdRequest, opts ...grpc.CallOption) (*ReadTagByIdResult, error) {
-	out := new(ReadTagByIdResult)
-	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/ReadTagById", in, out, opts...)
+func (c *organizerServiceClient) GetTagById(ctx context.Context, in *GetByIdRequest, opts ...grpc.CallOption) (*GetTagByIdResponse, error) {
+	out := new(GetTagByIdResponse)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/GetTagById", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -245,24 +255,25 @@ func (c *organizerServiceClient) Ping(ctx context.Context, in *emptypb.Empty, op
 // for forward compatibility
 type OrganizerServiceServer interface {
 	CreateOrganization(context.Context, *CreateOrganizationRequest) (*common.Result, error)
-	ReadOrganization(context.Context, *UserRequest) (*ReadOrganizationResult, error)
-	ReadOrganizationById(context.Context, *ReadByIdRequest) (*ReadOrganizationByIdResult, error)
+	GetOrganization(context.Context, *UserRequest) (*GetOrganizationResponse, error)
+	GetOrganizationById(context.Context, *GetByIdRequest) (*GetOrganizationByIdResponse, error)
 	UpdateOrganization(context.Context, *UpdateOrganizationRequest) (*common.Result, error)
-	DeleteOrganization(context.Context, *DeleteOrganizationRequest) (*common.Result, error)
+	RemoveOrganization(context.Context, *RemoveOrganizationRequest) (*common.Result, error)
 	AddUsersToOrganization(context.Context, *UpdateUsersInOrganizationRequest) (*common.Result, error)
 	RemoveUsersFromOrganization(context.Context, *UpdateUsersInOrganizationRequest) (*common.Result, error)
 	CreateEvent(context.Context, *CreateEventRequest) (*common.Result, error)
-	ReadEvent(context.Context, *UserRequest) (*ReadEventResult, error)
-	ReadEventById(context.Context, *ReadByIdRequest) (*ReadEventByIdResult, error)
+	GetEvent(context.Context, *UserRequest) (*GetEventResponse, error)
+	GetEventById(context.Context, *GetByIdRequest) (*GetEventByIdResponse, error)
 	UpdateEventInfo(context.Context, *UpdateEventInfoRequest) (*common.Result, error)
 	UpdateEventFacility(context.Context, *UpdateEventFacilityRequest) (*common.Result, error)
 	UpdateEventDuration(context.Context, *UpdateEventDurationRequest) (*common.Result, error)
-	DeleteEvent(context.Context, *DeleteEventRequest) (*common.Result, error)
+	RemoveEvent(context.Context, *RemoveEventRequest) (*common.Result, error)
 	UpdateRegistrationRequest(context.Context, *UpdateRegistrationRequestRequest) (*common.Result, error)
+	CreateTag(context.Context, *CreateTagRequest) (*common.Result, error)
 	AddTag(context.Context, *UpdateTagRequest) (*common.Result, error)
 	RemoveTag(context.Context, *UpdateTagRequest) (*common.Result, error)
-	ReadTag(context.Context, *UserRequest) (*ReadTagResult, error)
-	ReadTagById(context.Context, *ReadByIdRequest) (*ReadTagByIdResult, error)
+	GetTag(context.Context, *UserRequest) (*GetTagResponse, error)
+	GetTagById(context.Context, *GetByIdRequest) (*GetTagByIdResponse, error)
 	HasEvent(context.Context, *HasEventRequest) (*common.Result, error)
 	Ping(context.Context, *emptypb.Empty) (*common.Result, error)
 }
@@ -274,17 +285,17 @@ type UnimplementedOrganizerServiceServer struct {
 func (UnimplementedOrganizerServiceServer) CreateOrganization(context.Context, *CreateOrganizationRequest) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateOrganization not implemented")
 }
-func (UnimplementedOrganizerServiceServer) ReadOrganization(context.Context, *UserRequest) (*ReadOrganizationResult, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ReadOrganization not implemented")
+func (UnimplementedOrganizerServiceServer) GetOrganization(context.Context, *UserRequest) (*GetOrganizationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetOrganization not implemented")
 }
-func (UnimplementedOrganizerServiceServer) ReadOrganizationById(context.Context, *ReadByIdRequest) (*ReadOrganizationByIdResult, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ReadOrganizationById not implemented")
+func (UnimplementedOrganizerServiceServer) GetOrganizationById(context.Context, *GetByIdRequest) (*GetOrganizationByIdResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetOrganizationById not implemented")
 }
 func (UnimplementedOrganizerServiceServer) UpdateOrganization(context.Context, *UpdateOrganizationRequest) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateOrganization not implemented")
 }
-func (UnimplementedOrganizerServiceServer) DeleteOrganization(context.Context, *DeleteOrganizationRequest) (*common.Result, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteOrganization not implemented")
+func (UnimplementedOrganizerServiceServer) RemoveOrganization(context.Context, *RemoveOrganizationRequest) (*common.Result, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveOrganization not implemented")
 }
 func (UnimplementedOrganizerServiceServer) AddUsersToOrganization(context.Context, *UpdateUsersInOrganizationRequest) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddUsersToOrganization not implemented")
@@ -295,11 +306,11 @@ func (UnimplementedOrganizerServiceServer) RemoveUsersFromOrganization(context.C
 func (UnimplementedOrganizerServiceServer) CreateEvent(context.Context, *CreateEventRequest) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateEvent not implemented")
 }
-func (UnimplementedOrganizerServiceServer) ReadEvent(context.Context, *UserRequest) (*ReadEventResult, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ReadEvent not implemented")
+func (UnimplementedOrganizerServiceServer) GetEvent(context.Context, *UserRequest) (*GetEventResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetEvent not implemented")
 }
-func (UnimplementedOrganizerServiceServer) ReadEventById(context.Context, *ReadByIdRequest) (*ReadEventByIdResult, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ReadEventById not implemented")
+func (UnimplementedOrganizerServiceServer) GetEventById(context.Context, *GetByIdRequest) (*GetEventByIdResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetEventById not implemented")
 }
 func (UnimplementedOrganizerServiceServer) UpdateEventInfo(context.Context, *UpdateEventInfoRequest) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateEventInfo not implemented")
@@ -310,11 +321,14 @@ func (UnimplementedOrganizerServiceServer) UpdateEventFacility(context.Context, 
 func (UnimplementedOrganizerServiceServer) UpdateEventDuration(context.Context, *UpdateEventDurationRequest) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateEventDuration not implemented")
 }
-func (UnimplementedOrganizerServiceServer) DeleteEvent(context.Context, *DeleteEventRequest) (*common.Result, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteEvent not implemented")
+func (UnimplementedOrganizerServiceServer) RemoveEvent(context.Context, *RemoveEventRequest) (*common.Result, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveEvent not implemented")
 }
 func (UnimplementedOrganizerServiceServer) UpdateRegistrationRequest(context.Context, *UpdateRegistrationRequestRequest) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateRegistrationRequest not implemented")
+}
+func (UnimplementedOrganizerServiceServer) CreateTag(context.Context, *CreateTagRequest) (*common.Result, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateTag not implemented")
 }
 func (UnimplementedOrganizerServiceServer) AddTag(context.Context, *UpdateTagRequest) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddTag not implemented")
@@ -322,11 +336,11 @@ func (UnimplementedOrganizerServiceServer) AddTag(context.Context, *UpdateTagReq
 func (UnimplementedOrganizerServiceServer) RemoveTag(context.Context, *UpdateTagRequest) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoveTag not implemented")
 }
-func (UnimplementedOrganizerServiceServer) ReadTag(context.Context, *UserRequest) (*ReadTagResult, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ReadTag not implemented")
+func (UnimplementedOrganizerServiceServer) GetTag(context.Context, *UserRequest) (*GetTagResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTag not implemented")
 }
-func (UnimplementedOrganizerServiceServer) ReadTagById(context.Context, *ReadByIdRequest) (*ReadTagByIdResult, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ReadTagById not implemented")
+func (UnimplementedOrganizerServiceServer) GetTagById(context.Context, *GetByIdRequest) (*GetTagByIdResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTagById not implemented")
 }
 func (UnimplementedOrganizerServiceServer) HasEvent(context.Context, *HasEventRequest) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method HasEvent not implemented")
@@ -364,38 +378,38 @@ func _OrganizerService_CreateOrganization_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
-func _OrganizerService_ReadOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _OrganizerService_GetOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OrganizerServiceServer).ReadOrganization(ctx, in)
+		return srv.(OrganizerServiceServer).GetOrganization(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.organizer.OrganizerService/ReadOrganization",
+		FullMethod: "/hts.organizer.OrganizerService/GetOrganization",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OrganizerServiceServer).ReadOrganization(ctx, req.(*UserRequest))
+		return srv.(OrganizerServiceServer).GetOrganization(ctx, req.(*UserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _OrganizerService_ReadOrganizationById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReadByIdRequest)
+func _OrganizerService_GetOrganizationById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetByIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OrganizerServiceServer).ReadOrganizationById(ctx, in)
+		return srv.(OrganizerServiceServer).GetOrganizationById(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.organizer.OrganizerService/ReadOrganizationById",
+		FullMethod: "/hts.organizer.OrganizerService/GetOrganizationById",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OrganizerServiceServer).ReadOrganizationById(ctx, req.(*ReadByIdRequest))
+		return srv.(OrganizerServiceServer).GetOrganizationById(ctx, req.(*GetByIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -418,20 +432,20 @@ func _OrganizerService_UpdateOrganization_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
-func _OrganizerService_DeleteOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteOrganizationRequest)
+func _OrganizerService_RemoveOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveOrganizationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OrganizerServiceServer).DeleteOrganization(ctx, in)
+		return srv.(OrganizerServiceServer).RemoveOrganization(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.organizer.OrganizerService/DeleteOrganization",
+		FullMethod: "/hts.organizer.OrganizerService/RemoveOrganization",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OrganizerServiceServer).DeleteOrganization(ctx, req.(*DeleteOrganizationRequest))
+		return srv.(OrganizerServiceServer).RemoveOrganization(ctx, req.(*RemoveOrganizationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -490,38 +504,38 @@ func _OrganizerService_CreateEvent_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
-func _OrganizerService_ReadEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _OrganizerService_GetEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OrganizerServiceServer).ReadEvent(ctx, in)
+		return srv.(OrganizerServiceServer).GetEvent(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.organizer.OrganizerService/ReadEvent",
+		FullMethod: "/hts.organizer.OrganizerService/GetEvent",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OrganizerServiceServer).ReadEvent(ctx, req.(*UserRequest))
+		return srv.(OrganizerServiceServer).GetEvent(ctx, req.(*UserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _OrganizerService_ReadEventById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReadByIdRequest)
+func _OrganizerService_GetEventById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetByIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OrganizerServiceServer).ReadEventById(ctx, in)
+		return srv.(OrganizerServiceServer).GetEventById(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.organizer.OrganizerService/ReadEventById",
+		FullMethod: "/hts.organizer.OrganizerService/GetEventById",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OrganizerServiceServer).ReadEventById(ctx, req.(*ReadByIdRequest))
+		return srv.(OrganizerServiceServer).GetEventById(ctx, req.(*GetByIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -580,20 +594,20 @@ func _OrganizerService_UpdateEventDuration_Handler(srv interface{}, ctx context.
 	return interceptor(ctx, in, info, handler)
 }
 
-func _OrganizerService_DeleteEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteEventRequest)
+func _OrganizerService_RemoveEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveEventRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OrganizerServiceServer).DeleteEvent(ctx, in)
+		return srv.(OrganizerServiceServer).RemoveEvent(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.organizer.OrganizerService/DeleteEvent",
+		FullMethod: "/hts.organizer.OrganizerService/RemoveEvent",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OrganizerServiceServer).DeleteEvent(ctx, req.(*DeleteEventRequest))
+		return srv.(OrganizerServiceServer).RemoveEvent(ctx, req.(*RemoveEventRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -612,6 +626,24 @@ func _OrganizerService_UpdateRegistrationRequest_Handler(srv interface{}, ctx co
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OrganizerServiceServer).UpdateRegistrationRequest(ctx, req.(*UpdateRegistrationRequestRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OrganizerService_CreateTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateTagRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrganizerServiceServer).CreateTag(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.organizer.OrganizerService/CreateTag",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrganizerServiceServer).CreateTag(ctx, req.(*CreateTagRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -652,38 +684,38 @@ func _OrganizerService_RemoveTag_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
-func _OrganizerService_ReadTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _OrganizerService_GetTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OrganizerServiceServer).ReadTag(ctx, in)
+		return srv.(OrganizerServiceServer).GetTag(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.organizer.OrganizerService/ReadTag",
+		FullMethod: "/hts.organizer.OrganizerService/GetTag",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OrganizerServiceServer).ReadTag(ctx, req.(*UserRequest))
+		return srv.(OrganizerServiceServer).GetTag(ctx, req.(*UserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _OrganizerService_ReadTagById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ReadByIdRequest)
+func _OrganizerService_GetTagById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetByIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OrganizerServiceServer).ReadTagById(ctx, in)
+		return srv.(OrganizerServiceServer).GetTagById(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.organizer.OrganizerService/ReadTagById",
+		FullMethod: "/hts.organizer.OrganizerService/GetTagById",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OrganizerServiceServer).ReadTagById(ctx, req.(*ReadByIdRequest))
+		return srv.(OrganizerServiceServer).GetTagById(ctx, req.(*GetByIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -736,20 +768,20 @@ var OrganizerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _OrganizerService_CreateOrganization_Handler,
 		},
 		{
-			MethodName: "ReadOrganization",
-			Handler:    _OrganizerService_ReadOrganization_Handler,
+			MethodName: "GetOrganization",
+			Handler:    _OrganizerService_GetOrganization_Handler,
 		},
 		{
-			MethodName: "ReadOrganizationById",
-			Handler:    _OrganizerService_ReadOrganizationById_Handler,
+			MethodName: "GetOrganizationById",
+			Handler:    _OrganizerService_GetOrganizationById_Handler,
 		},
 		{
 			MethodName: "UpdateOrganization",
 			Handler:    _OrganizerService_UpdateOrganization_Handler,
 		},
 		{
-			MethodName: "DeleteOrganization",
-			Handler:    _OrganizerService_DeleteOrganization_Handler,
+			MethodName: "RemoveOrganization",
+			Handler:    _OrganizerService_RemoveOrganization_Handler,
 		},
 		{
 			MethodName: "AddUsersToOrganization",
@@ -764,12 +796,12 @@ var OrganizerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _OrganizerService_CreateEvent_Handler,
 		},
 		{
-			MethodName: "ReadEvent",
-			Handler:    _OrganizerService_ReadEvent_Handler,
+			MethodName: "GetEvent",
+			Handler:    _OrganizerService_GetEvent_Handler,
 		},
 		{
-			MethodName: "ReadEventById",
-			Handler:    _OrganizerService_ReadEventById_Handler,
+			MethodName: "GetEventById",
+			Handler:    _OrganizerService_GetEventById_Handler,
 		},
 		{
 			MethodName: "UpdateEventInfo",
@@ -784,12 +816,16 @@ var OrganizerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _OrganizerService_UpdateEventDuration_Handler,
 		},
 		{
-			MethodName: "DeleteEvent",
-			Handler:    _OrganizerService_DeleteEvent_Handler,
+			MethodName: "RemoveEvent",
+			Handler:    _OrganizerService_RemoveEvent_Handler,
 		},
 		{
 			MethodName: "UpdateRegistrationRequest",
 			Handler:    _OrganizerService_UpdateRegistrationRequest_Handler,
+		},
+		{
+			MethodName: "CreateTag",
+			Handler:    _OrganizerService_CreateTag_Handler,
 		},
 		{
 			MethodName: "AddTag",
@@ -800,12 +836,12 @@ var OrganizerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _OrganizerService_RemoveTag_Handler,
 		},
 		{
-			MethodName: "ReadTag",
-			Handler:    _OrganizerService_ReadTag_Handler,
+			MethodName: "GetTag",
+			Handler:    _OrganizerService_GetTag_Handler,
 		},
 		{
-			MethodName: "ReadTagById",
-			Handler:    _OrganizerService_ReadTagById_Handler,
+			MethodName: "GetTagById",
+			Handler:    _OrganizerService_GetTagById_Handler,
 		},
 		{
 			MethodName: "HasEvent",

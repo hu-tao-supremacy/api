@@ -65,7 +65,7 @@ export interface ParticipantServiceClient {
     request: Event
   ): Observable<GetFeedbacksFromEventResponse>;
 
-  getUserFeedbackForEvent(
+  getUserFeedbackFromEvent(
     request: UserWithEventRequest
   ): Observable<EventFeedback>;
 
@@ -116,7 +116,7 @@ export interface ParticipantServiceController {
     | Observable<GetFeedbacksFromEventResponse>
     | GetFeedbacksFromEventResponse;
 
-  getUserFeedbackForEvent(
+  getUserFeedbackFromEvent(
     request: UserWithEventRequest
   ): Promise<EventFeedback> | Observable<EventFeedback> | EventFeedback;
 
@@ -160,7 +160,7 @@ export function ParticipantServiceControllerMethods() {
       "hasSubmitFeedback",
       "removeFeedback",
       "getFeedbacksFromEvent",
-      "getUserFeedbackForEvent",
+      "getUserFeedbackFromEvent",
       "searchEventsByName",
       "searchEventsByTag",
       "generateQR",

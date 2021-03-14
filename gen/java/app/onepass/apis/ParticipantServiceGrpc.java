@@ -232,34 +232,34 @@ public final class ParticipantServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<app.onepass.apis.UserWithEventRequest,
-      app.onepass.apis.EventFeedback> getGetUserFeedbackForEventMethod;
+      app.onepass.apis.EventFeedback> getGetUserFeedbackFromEventMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "GetUserFeedbackForEvent",
+      fullMethodName = SERVICE_NAME + '/' + "GetUserFeedbackFromEvent",
       requestType = app.onepass.apis.UserWithEventRequest.class,
       responseType = app.onepass.apis.EventFeedback.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<app.onepass.apis.UserWithEventRequest,
-      app.onepass.apis.EventFeedback> getGetUserFeedbackForEventMethod() {
-    io.grpc.MethodDescriptor<app.onepass.apis.UserWithEventRequest, app.onepass.apis.EventFeedback> getGetUserFeedbackForEventMethod;
-    if ((getGetUserFeedbackForEventMethod = ParticipantServiceGrpc.getGetUserFeedbackForEventMethod) == null) {
+      app.onepass.apis.EventFeedback> getGetUserFeedbackFromEventMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.UserWithEventRequest, app.onepass.apis.EventFeedback> getGetUserFeedbackFromEventMethod;
+    if ((getGetUserFeedbackFromEventMethod = ParticipantServiceGrpc.getGetUserFeedbackFromEventMethod) == null) {
       synchronized (ParticipantServiceGrpc.class) {
-        if ((getGetUserFeedbackForEventMethod = ParticipantServiceGrpc.getGetUserFeedbackForEventMethod) == null) {
-          ParticipantServiceGrpc.getGetUserFeedbackForEventMethod = getGetUserFeedbackForEventMethod =
+        if ((getGetUserFeedbackFromEventMethod = ParticipantServiceGrpc.getGetUserFeedbackFromEventMethod) == null) {
+          ParticipantServiceGrpc.getGetUserFeedbackFromEventMethod = getGetUserFeedbackFromEventMethod =
               io.grpc.MethodDescriptor.<app.onepass.apis.UserWithEventRequest, app.onepass.apis.EventFeedback>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetUserFeedbackForEvent"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetUserFeedbackFromEvent"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.UserWithEventRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.EventFeedback.getDefaultInstance()))
-              .setSchemaDescriptor(new ParticipantServiceMethodDescriptorSupplier("GetUserFeedbackForEvent"))
+              .setSchemaDescriptor(new ParticipantServiceMethodDescriptorSupplier("GetUserFeedbackFromEvent"))
               .build();
         }
       }
     }
-    return getGetUserFeedbackForEventMethod;
+    return getGetUserFeedbackFromEventMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<app.onepass.apis.StringInputRequest,
@@ -578,9 +578,9 @@ public final class ParticipantServiceGrpc {
 
     /**
      */
-    public void getUserFeedbackForEvent(app.onepass.apis.UserWithEventRequest request,
+    public void getUserFeedbackFromEvent(app.onepass.apis.UserWithEventRequest request,
         io.grpc.stub.StreamObserver<app.onepass.apis.EventFeedback> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetUserFeedbackForEventMethod(), responseObserver);
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetUserFeedbackFromEventMethod(), responseObserver);
     }
 
     /**
@@ -684,12 +684,12 @@ public final class ParticipantServiceGrpc {
                 app.onepass.apis.GetFeedbacksFromEventResponse>(
                   this, METHODID_GET_FEEDBACKS_FROM_EVENT)))
           .addMethod(
-            getGetUserFeedbackForEventMethod(),
+            getGetUserFeedbackFromEventMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 app.onepass.apis.UserWithEventRequest,
                 app.onepass.apis.EventFeedback>(
-                  this, METHODID_GET_USER_FEEDBACK_FOR_EVENT)))
+                  this, METHODID_GET_USER_FEEDBACK_FROM_EVENT)))
           .addMethod(
             getSearchEventsByNameMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -815,10 +815,10 @@ public final class ParticipantServiceGrpc {
 
     /**
      */
-    public void getUserFeedbackForEvent(app.onepass.apis.UserWithEventRequest request,
+    public void getUserFeedbackFromEvent(app.onepass.apis.UserWithEventRequest request,
         io.grpc.stub.StreamObserver<app.onepass.apis.EventFeedback> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getGetUserFeedbackForEventMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getGetUserFeedbackFromEventMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -943,9 +943,9 @@ public final class ParticipantServiceGrpc {
 
     /**
      */
-    public app.onepass.apis.EventFeedback getUserFeedbackForEvent(app.onepass.apis.UserWithEventRequest request) {
+    public app.onepass.apis.EventFeedback getUserFeedbackFromEvent(app.onepass.apis.UserWithEventRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getGetUserFeedbackForEventMethod(), getCallOptions(), request);
+          getChannel(), getGetUserFeedbackFromEventMethod(), getCallOptions(), request);
     }
 
     /**
@@ -1070,10 +1070,10 @@ public final class ParticipantServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.EventFeedback> getUserFeedbackForEvent(
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.EventFeedback> getUserFeedbackFromEvent(
         app.onepass.apis.UserWithEventRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getGetUserFeedbackForEventMethod(), getCallOptions()), request);
+          getChannel().newCall(getGetUserFeedbackFromEventMethod(), getCallOptions()), request);
     }
 
     /**
@@ -1140,7 +1140,7 @@ public final class ParticipantServiceGrpc {
   private static final int METHODID_HAS_SUBMIT_FEEDBACK = 4;
   private static final int METHODID_REMOVE_FEEDBACK = 5;
   private static final int METHODID_GET_FEEDBACKS_FROM_EVENT = 6;
-  private static final int METHODID_GET_USER_FEEDBACK_FOR_EVENT = 7;
+  private static final int METHODID_GET_USER_FEEDBACK_FROM_EVENT = 7;
   private static final int METHODID_SEARCH_EVENTS_BY_NAME = 8;
   private static final int METHODID_SEARCH_EVENTS_BY_TAG = 9;
   private static final int METHODID_GENERATE_QR = 10;
@@ -1194,8 +1194,8 @@ public final class ParticipantServiceGrpc {
           serviceImpl.getFeedbacksFromEvent((app.onepass.apis.Event) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.GetFeedbacksFromEventResponse>) responseObserver);
           break;
-        case METHODID_GET_USER_FEEDBACK_FOR_EVENT:
-          serviceImpl.getUserFeedbackForEvent((app.onepass.apis.UserWithEventRequest) request,
+        case METHODID_GET_USER_FEEDBACK_FROM_EVENT:
+          serviceImpl.getUserFeedbackFromEvent((app.onepass.apis.UserWithEventRequest) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.EventFeedback>) responseObserver);
           break;
         case METHODID_SEARCH_EVENTS_BY_NAME:
@@ -1294,7 +1294,7 @@ public final class ParticipantServiceGrpc {
               .addMethod(getHasSubmitFeedbackMethod())
               .addMethod(getRemoveFeedbackMethod())
               .addMethod(getGetFeedbacksFromEventMethod())
-              .addMethod(getGetUserFeedbackForEventMethod())
+              .addMethod(getGetUserFeedbackFromEventMethod())
               .addMethod(getSearchEventsByNameMethod())
               .addMethod(getSearchEventsByTagMethod())
               .addMethod(getGenerateQRMethod())

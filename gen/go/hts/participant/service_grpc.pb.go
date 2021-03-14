@@ -27,7 +27,7 @@ type ParticipantServiceClient interface {
 	HasSubmitFeedback(ctx context.Context, in *UserWithEventRequest, opts ...grpc.CallOption) (*common.EventFeedback, error)
 	RemoveFeedback(ctx context.Context, in *common.EventFeedback, opts ...grpc.CallOption) (*common.EventFeedback, error)
 	GetFeedbacksFromEvent(ctx context.Context, in *common.Event, opts ...grpc.CallOption) (*GetFeedbacksFromEventResponse, error)
-	GetUserFeedbackForEvent(ctx context.Context, in *UserWithEventRequest, opts ...grpc.CallOption) (*common.EventFeedback, error)
+	GetUserFeedbackFromEvent(ctx context.Context, in *UserWithEventRequest, opts ...grpc.CallOption) (*common.EventFeedback, error)
 	SearchEventsByName(ctx context.Context, in *StringInputRequest, opts ...grpc.CallOption) (*EventsResponse, error)
 	SearchEventsByTag(ctx context.Context, in *StringInputRequest, opts ...grpc.CallOption) (*EventsResponse, error)
 	GenerateQR(ctx context.Context, in *common.UserEvent, opts ...grpc.CallOption) (*GenerateQRResponse, error)
@@ -108,9 +108,9 @@ func (c *participantServiceClient) GetFeedbacksFromEvent(ctx context.Context, in
 	return out, nil
 }
 
-func (c *participantServiceClient) GetUserFeedbackForEvent(ctx context.Context, in *UserWithEventRequest, opts ...grpc.CallOption) (*common.EventFeedback, error) {
+func (c *participantServiceClient) GetUserFeedbackFromEvent(ctx context.Context, in *UserWithEventRequest, opts ...grpc.CallOption) (*common.EventFeedback, error) {
 	out := new(common.EventFeedback)
-	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GetUserFeedbackForEvent", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GetUserFeedbackFromEvent", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -191,7 +191,7 @@ type ParticipantServiceServer interface {
 	HasSubmitFeedback(context.Context, *UserWithEventRequest) (*common.EventFeedback, error)
 	RemoveFeedback(context.Context, *common.EventFeedback) (*common.EventFeedback, error)
 	GetFeedbacksFromEvent(context.Context, *common.Event) (*GetFeedbacksFromEventResponse, error)
-	GetUserFeedbackForEvent(context.Context, *UserWithEventRequest) (*common.EventFeedback, error)
+	GetUserFeedbackFromEvent(context.Context, *UserWithEventRequest) (*common.EventFeedback, error)
 	SearchEventsByName(context.Context, *StringInputRequest) (*EventsResponse, error)
 	SearchEventsByTag(context.Context, *StringInputRequest) (*EventsResponse, error)
 	GenerateQR(context.Context, *common.UserEvent) (*GenerateQRResponse, error)
@@ -226,8 +226,8 @@ func (UnimplementedParticipantServiceServer) RemoveFeedback(context.Context, *co
 func (UnimplementedParticipantServiceServer) GetFeedbacksFromEvent(context.Context, *common.Event) (*GetFeedbacksFromEventResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetFeedbacksFromEvent not implemented")
 }
-func (UnimplementedParticipantServiceServer) GetUserFeedbackForEvent(context.Context, *UserWithEventRequest) (*common.EventFeedback, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetUserFeedbackForEvent not implemented")
+func (UnimplementedParticipantServiceServer) GetUserFeedbackFromEvent(context.Context, *UserWithEventRequest) (*common.EventFeedback, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserFeedbackFromEvent not implemented")
 }
 func (UnimplementedParticipantServiceServer) SearchEventsByName(context.Context, *StringInputRequest) (*EventsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SearchEventsByName not implemented")
@@ -388,20 +388,20 @@ func _ParticipantService_GetFeedbacksFromEvent_Handler(srv interface{}, ctx cont
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ParticipantService_GetUserFeedbackForEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ParticipantService_GetUserFeedbackFromEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UserWithEventRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ParticipantServiceServer).GetUserFeedbackForEvent(ctx, in)
+		return srv.(ParticipantServiceServer).GetUserFeedbackFromEvent(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.participant.ParticipantService/GetUserFeedbackForEvent",
+		FullMethod: "/hts.participant.ParticipantService/GetUserFeedbackFromEvent",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ParticipantServiceServer).GetUserFeedbackForEvent(ctx, req.(*UserWithEventRequest))
+		return srv.(ParticipantServiceServer).GetUserFeedbackFromEvent(ctx, req.(*UserWithEventRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -568,8 +568,8 @@ var ParticipantService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ParticipantService_GetFeedbacksFromEvent_Handler,
 		},
 		{
-			MethodName: "GetUserFeedbackForEvent",
-			Handler:    _ParticipantService_GetUserFeedbackForEvent_Handler,
+			MethodName: "GetUserFeedbackFromEvent",
+			Handler:    _ParticipantService_GetUserFeedbackFromEvent_Handler,
 		},
 		{
 			MethodName: "SearchEventsByName",
