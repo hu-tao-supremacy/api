@@ -81,3 +81,14 @@ js_grpc_node_compile(
         ":account_proto"
     ],
 )
+
+load("@rules_proto_grpc//java:defs.bzl", "java_grpc_compile")
+
+java_grpc_compile(
+    name = "java",
+    prefix_path = "bzl-gen",
+    protos = [
+        ":common_proto",
+        ":account_proto"
+    ],
+)
