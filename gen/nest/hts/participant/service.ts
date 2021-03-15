@@ -7,7 +7,10 @@ import {
   Event,
   EventFeedback,
   Result,
+  Facility,
+  Organization,
 } from "../../hts/common/common";
+import { Timestamp } from "../../google/protobuf/timestamp";
 import { Empty } from "../../google/protobuf/empty";
 
 export const protobufPackage = "hts.participant";
@@ -46,10 +49,15 @@ export interface EventsResponse {
   event: Event[];
 }
 
+export interface IsEventAvailableRequest {
+  event: Event | undefined;
+  date: Timestamp | undefined;
+}
+
 export const HTS_PARTICIPANT_PACKAGE_NAME = "hts.participant";
 
 export interface ParticipantServiceClient {
-  isEventAvailable(request: Event): Observable<Result>;
+  isEventAvailable(request: IsEventAvailableRequest): Observable<Result>;
 
   joinEvent(request: UserWithEventRequest): Observable<Event>;
 
@@ -69,24 +77,30 @@ export interface ParticipantServiceClient {
     request: UserWithEventRequest
   ): Observable<EventFeedback>;
 
-  searchEventsByName(request: StringInputRequest): Observable<EventsResponse>;
-
-  searchEventsByTag(request: StringInputRequest): Observable<EventsResponse>;
-
-  generateQR(request: UserEvent): Observable<GenerateQRResponse>;
-
   getEvent(request: GetEventRequest): Observable<Event>;
+
+  getEventsByName(request: StringInputRequest): Observable<EventsResponse>;
+
+  getEventsByTag(request: StringInputRequest): Observable<EventsResponse>;
+
+  getEventsByDate(request: Timestamp): Observable<EventsResponse>;
+
+  getEventsByFacility(request: Facility): Observable<EventsResponse>;
+
+  getEventsByOrganization(request: Organization): Observable<EventsResponse>;
+
+  getAllEvents(request: Empty): Observable<EventsResponse>;
 
   getSuggestedEvents(request: Empty): Observable<EventsResponse>;
 
-  getAllEvents(request: Empty): Observable<EventsResponse>;
+  generateQR(request: UserEvent): Observable<GenerateQRResponse>;
 
   ping(request: Empty): Observable<Result>;
 }
 
 export interface ParticipantServiceController {
   isEventAvailable(
-    request: Event
+    request: IsEventAvailableRequest
   ): Promise<Result> | Observable<Result> | Result;
 
   joinEvent(
@@ -120,12 +134,36 @@ export interface ParticipantServiceController {
     request: UserWithEventRequest
   ): Promise<EventFeedback> | Observable<EventFeedback> | EventFeedback;
 
-  searchEventsByName(
+  getEvent(
+    request: GetEventRequest
+  ): Promise<Event> | Observable<Event> | Event;
+
+  getEventsByName(
     request: StringInputRequest
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
-  searchEventsByTag(
+  getEventsByTag(
     request: StringInputRequest
+  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
+
+  getEventsByDate(
+    request: Timestamp
+  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
+
+  getEventsByFacility(
+    request: Facility
+  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
+
+  getEventsByOrganization(
+    request: Organization
+  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
+
+  getAllEvents(
+    request: Empty
+  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
+
+  getSuggestedEvents(
+    request: Empty
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
   generateQR(
@@ -134,18 +172,6 @@ export interface ParticipantServiceController {
     | Promise<GenerateQRResponse>
     | Observable<GenerateQRResponse>
     | GenerateQRResponse;
-
-  getEvent(
-    request: GetEventRequest
-  ): Promise<Event> | Observable<Event> | Event;
-
-  getSuggestedEvents(
-    request: Empty
-  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
-
-  getAllEvents(
-    request: Empty
-  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
   ping(request: Empty): Promise<Result> | Observable<Result> | Result;
 }
@@ -161,12 +187,15 @@ export function ParticipantServiceControllerMethods() {
       "removeFeedback",
       "getFeedbacksFromEvent",
       "getUserFeedbackFromEvent",
-      "searchEventsByName",
-      "searchEventsByTag",
-      "generateQR",
       "getEvent",
-      "getSuggestedEvents",
+      "getEventsByName",
+      "getEventsByTag",
+      "getEventsByDate",
+      "getEventsByFacility",
+      "getEventsByOrganization",
       "getAllEvents",
+      "getSuggestedEvents",
+      "generateQR",
       "ping",
     ];
     for (const method of grpcMethods) {
