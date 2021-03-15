@@ -87,7 +87,7 @@ js_grpc_node_compile(
 
 load("@rules_proto_grpc//java:defs.bzl", "java_grpc_compile")
 
-java_proto_library(
+java_grpc_compile(
     name = "java",
     prefix_path = "gen",
     protos = [
