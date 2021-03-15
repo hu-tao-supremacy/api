@@ -14,7 +14,13 @@ generate:
 	mkdir -p gen/python
 
 	mv bazel-bin/go/gen/hts gen/go/.
+
 	mv bazel-bin/java/gen/java.srcjar gen/java/.
+	mv gen/java/java.srcjar gen/java/java.zip
+	ditto -xk gen/java/java.zip gen/java
+	rm -rf gen/java/java.zip
+	rm -rf gen/java/META-INF
+
 	# mv bazel-bin/nest/gen/hts gen/nest/.
 	mv bazel-bin/api-gateway/gen/hts gen/api-gateway/.
 	mv bazel-bin/python/gen/hts gen/python/.
