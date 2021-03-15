@@ -1,21 +1,7 @@
-/gen/nest:
+generate:
 	@cd $(dirname $0)
-	@mkdir -p ./gen/nest
-	protoc -I ./proto --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./gen/nest --ts_proto_opt=nestJs=true \
-		./proto/hts/common/common.proto \
-		./proto/hts/account/service.proto \
-		./proto/hts/facility/service.proto \
-		./proto/hts/participant/service.proto \
-		./proto/hts/organizer/service.proto
-
-
-/gen/python:
-	@cd $(dirname $0)
-	@mkdir -p ./gen/python
-	python3 -m grpc_tools.protoc -I ./proto --python_out=./gen/python --grpc_python_out=./gen/python \
-		./proto/hts/common/common.proto \
-		./proto/hts/participant/service.proto
-
-generate: /gen/nest /gen/python
-	@cd $(dirname $0)
-	buf generate
+	bazel build //:go
+	bazel build //:python
+	bazel build //:api-gateway
+	bazel build //:java
+	bazel build //:nest
