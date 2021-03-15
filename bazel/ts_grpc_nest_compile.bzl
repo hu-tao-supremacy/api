@@ -21,6 +21,7 @@ ts_grpc_nest_compile_aspect = aspect(
             providers = [ProtoPluginInfo],
             default = [
                 Label("//bazel:ts_plugin"),
+                Label("//bazel:grpc_ts_plugin"),
             ],
         ),
         _prefix = attr.string(
@@ -51,6 +52,7 @@ _rule = rule(
             providers = [ProtoPluginInfo],
             default = [
                 Label("//bazel:ts_plugin"),
+                Label("//bazel:grpc_ts_plugin"),
             ],
             doc = "List of protoc plugins to apply",
         ),
