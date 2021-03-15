@@ -10,6 +10,7 @@ option go_package = "onepass.app/facility/hts/participant";
 import "hts/common/common.proto";
 
 import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
 
 message GenerateQRRequest {
     hts.common.UserEvent user_event = 1;
@@ -45,20 +46,33 @@ message EventsResponse {
     repeated hts.common.Event event = 1;
 }
 
+message IsEventAvailableRequest {
+    hts.common.Event event = 1;
+    google.protobuf.Timestamp date = 2;
+}
+
 service ParticipantService {
-    rpc IsEventAvailable(hts.common.Event) returns (hts.common.Result);
+    rpc IsEventAvailable(IsEventAvailableRequest) returns (hts.common.Result);
+
     rpc JoinEvent(UserWithEventRequest) returns (hts.common.Event);
     rpc CancelEvent(UserWithEventRequest) returns (hts.common.Event);
+
     rpc CreateFeedback(CreateFeedbackRequest) returns (hts.common.EventFeedback);
     rpc HasSubmitFeedback(UserWithEventRequest) returns (hts.common.EventFeedback);
     rpc RemoveFeedback(hts.common.EventFeedback) returns (hts.common.EventFeedback);
+
     rpc GetFeedbacksFromEvent(hts.common.Event) returns (GetFeedbacksFromEventResponse);
     rpc GetUserFeedbackFromEvent(UserWithEventRequest) returns (hts.common.EventFeedback);
-    rpc SearchEventsByName(StringInputRequest) returns (EventsResponse);
-    rpc SearchEventsByTag(StringInputRequest) returns (EventsResponse);
-    rpc GenerateQR(hts.common.UserEvent) returns (GenerateQRResponse);
+
     rpc GetEvent(GetEventRequest) returns (hts.common.Event);
-    rpc GetSuggestedEvents(google.protobuf.Empty) returns (EventsResponse);
+    rpc GetEventsByName(StringInputRequest) returns (EventsResponse);
+    rpc GetEventsByTag(StringInputRequest) returns (EventsResponse);
+    rpc GetEventsByDate(google.protobuf.Timestamp) returns (EventsResponse);
+    rpc GetEventsByFacility(hts.common.Facility) returns (EventsResponse);
+    rpc GetEventsByOrganization(hts.common.Organization) returns (EventsResponse);
     rpc GetAllEvents(google.protobuf.Empty) returns (EventsResponse);
+    rpc GetSuggestedEvents(google.protobuf.Empty) returns (EventsResponse);
+
+    rpc GenerateQR(hts.common.UserEvent) returns (GenerateQRResponse);
     rpc Ping(google.protobuf.Empty) returns (hts.common.Result);
 }
