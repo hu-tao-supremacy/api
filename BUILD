@@ -65,6 +65,9 @@ go_grpc_compile(
     deps = [
         ":common_proto",
         ":account_proto",
+        ":facility_proto",
+        ":organizer_proto",
+        ":participant_proto"
     ],
 )
 
@@ -75,7 +78,10 @@ js_grpc_node_compile(
     prefix_path = "gen",
     protos = [
         ":common_proto",
-        ":account_proto"
+        ":account_proto",
+        ":facility_proto",
+        ":organizer_proto",
+        ":participant_proto"
     ],
 )
 
@@ -86,7 +92,10 @@ java_grpc_compile(
     prefix_path = "gen",
     protos = [
         ":common_proto",
-        ":account_proto"
+        ":account_proto",
+        ":facility_proto",
+        ":organizer_proto",
+        ":participant_proto"
     ],
 )
 
@@ -97,6 +106,9 @@ python_grpc_compile(
     prefix_path = "gen",
     protos = [
         ":common_proto",
-        ":account_proto"
+        ":account_proto",
+        ":facility_proto",
+        ":organizer_proto",
+        ":participant_proto"
     ],
 )
