@@ -17,8 +17,11 @@ generate:
 
 	mv bazel-bin/java/gen/java.srcjar gen/java/.
 	mv gen/java/java.srcjar gen/java/java.zip
+	mv gen/java/java_grpc.srcjar gen/java/java_grpc.zip
 	ditto -xk gen/java/java.zip gen/java
+	ditto -xk gen/java/java_grpc.zip gen/java
 	rm -rf gen/java/java.zip
+	rm -rf gen/java/java_grpc.zip
 	rm -rf gen/java/META-INF
 
 	# mv bazel-bin/nest/gen/hts gen/nest/.
