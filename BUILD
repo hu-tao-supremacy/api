@@ -74,7 +74,7 @@ go_grpc_compile(
 load("@rules_proto_grpc//js:defs.bzl", "js_grpc_node_compile")
 
 js_grpc_node_compile(
-    name = "api-gateway",
+    name = "nest",
     prefix_path = "gen",
     protos = [
         ":common_proto",
