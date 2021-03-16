@@ -4,14 +4,17 @@ generate:
 	bazel build //:python
 	bazel build //:java
 	bazel build //:nest
+	bazel build //:api-gateway
 
 	rm -rf gen
 	mkdir -p gen/go
 	mkdir -p gen/java
 	mkdir -p gen/nest
+	mkdir -p gen/api-gateway
 	mkdir -p gen/python
 
 	mv bazel-bin/go/gen/hts gen/go/.
+	mv bazel-bin/python/gen/hts gen/python/.
 
 	mv bazel-bin/java/gen/java.srcjar gen/java/.
 	mv bazel-bin/java/gen/java_grpc.srcjar gen/java/.
