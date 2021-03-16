@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package hts.participant;
+
+option java_multiple_files = true;
+option java_package = "app.onepass.apis";
+option java_outer_classname = "ParticipantProto";
+option go_package = "onepass.app/facility/hts/participant";
+
+import "hts/common/common.proto";
+
+import "google/protobuf/empty.proto";
+
+message GenerateQRRequest {
+    hts.common.UserEvent user_event = 1;
+}
+
+message GetEventRequest {
+    int64 event_id = 1;
+}
+
+message StringInputRequest {
+    string text = 1;
+}
+
+message UserWithEventRequest {
+    hts.common.User user = 1;
+    hts.common.Event event = 2;
+}
+
+message CreateFeedbackRequest {
+    hts.common.User user = 1;
+    hts.common.EventFeedback feedback = 2;
+}
+
+message GenerateQRResponse {
+    string data = 1;
+}
+
+message GetFeedbacksFromEventResponse {
+    repeated hts.common.EventFeedback event_feedback = 1;
+}
+
+message EventsResponse {
+    repeated hts.common.Event event = 1;
+}
+
+service ParticipantService {
+    rpc IsEventAvailable(hts.common.Event) returns (hts.common.Result);
+    rpc JoinEvent(UserWithEventRequest) returns (hts.common.Event);
+    rpc CancelEvent(UserWithEventRequest) returns (hts.common.Event);
+    rpc CreateFeedback(CreateFeedbackRequest) returns (hts.common.EventFeedback);
+    rpc HasSubmitFeedback(UserWithEventRequest) returns (hts.common.EventFeedback);
+    rpc RemoveFeedback(hts.common.EventFeedback) returns (hts.common.EventFeedback);
+    rpc GetFeedbacksFromEvent(hts.common.Event) returns (GetFeedbacksFromEventResponse);
+    rpc GetUserFeedbackForEvent(UserWithEventRequest) returns (hts.common.EventFeedback);
+    rpc SearchEventsByName(StringInputRequest) returns (EventsResponse);
+    rpc SearchEventsByTag(StringInputRequest) returns (EventsResponse);
+    rpc GenerateQR(hts.common.UserEvent) returns (GenerateQRResponse);
+    rpc GetEvent(GetEventRequest) returns (hts.common.Event);
+    rpc GetSuggestedEvents(google.protobuf.Empty) returns (EventsResponse);
+    rpc GetAllEvents(google.protobuf.Empty) returns (EventsResponse);
+    rpc Ping(google.protobuf.Empty) returns (hts.common.Result);
+}

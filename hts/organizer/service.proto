@@ -1,0 +1,145 @@
+syntax = "proto3";
+
+package hts.organizer;
+
+option java_multiple_files = true;
+option java_package = "app.onepass.apis";
+option java_outer_classname = "OrganizerProto";
+option go_package = "onepass.app/facility/hts/organizer";
+
+import "hts/common/common.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+message UserRequest {
+  int64 user_id = 1;
+}
+
+message ReadByIdRequest {
+  int64 user_id = 1;
+  int64 read_id = 2;
+}
+
+message Duration {
+  google.protobuf.Timestamp start = 1;
+  google.protobuf.Timestamp finish = 2;
+}
+
+message CreateOrganizationRequest {
+  int64 user_id = 1;
+  hts.common.Organization organization = 2;
+}
+
+message UpdateOrganizationRequest {
+  int64 user_id = 1;
+  int64 organization_id = 2;
+  hts.common.Organization organization = 3;
+}
+
+message DeleteOrganizationRequest {
+  int64 user_id = 1;
+  int64 organization_id = 2;
+}
+
+message AddUsersToOrganizationRequest {
+  int64 user_id = 1;
+  repeated int64 user_ids = 2 [packed=true];
+}
+
+message UpdateUsersInOrganizationRequest {
+  int64 user_id = 1;
+  repeated int64 user_ids = 2 [packed=true];
+}
+
+message CreateEventRequest {
+  int64 user_id = 1;
+  hts.common.Event event = 2;
+}
+
+message UpdateEventInfoRequest {
+  int64 user_id = 1;
+  hts.common.Event event = 2;
+}
+
+message UpdateEventFacilityRequest {
+  int64 user_id = 1;
+  hts.common.Facility facility = 2;
+}
+
+message UpdateEventDurationRequest {
+  int64 user_id = 1;
+  int64 event_id = 2;
+  repeated Duration duration = 3;
+}
+
+message DeleteEventRequest {
+  int64 user_id = 1;
+  int64 event_id = 2;
+}
+
+message UpdateRegistrationRequestRequest {
+  int64 user_id = 1;
+  int64 registered_user_id = 2;
+  int64 registered_event_id = 3;
+  hts.common.Status status = 4;
+}
+
+message UpdateTagRequest {
+  int64 user_id = 1;
+  repeated int64 tag_ids = 2 [packed=true];
+  int64 event_id = 3;
+}
+
+message HasEventRequest {
+  int64 user_id = 1;
+  int64 organization_id = 2;
+  int64 event_id = 3;
+}
+
+message ReadOrganizationResult {
+  repeated hts.common.Organization organizations = 1;
+}
+
+message ReadOrganizationByIdResult {
+  hts.common.Organization organization = 1;
+}
+
+message ReadEventResult {
+  repeated hts.common.Event events = 1;
+}
+
+message ReadEventByIdResult {
+  hts.common.Event event = 1;
+}
+
+message ReadTagResult {
+  repeated hts.common.Tag tags = 1;
+}
+
+message ReadTagByIdResult {
+  hts.common.Tag tag = 1;
+}
+
+service OrganizerService {
+  rpc CreateOrganization(CreateOrganizationRequest) returns (hts.common.Result);
+  rpc ReadOrganization(UserRequest) returns (ReadOrganizationResult);
+  rpc ReadOrganizationById(ReadByIdRequest) returns (ReadOrganizationByIdResult);
+  rpc UpdateOrganization(UpdateOrganizationRequest) returns (hts.common.Result);
+  rpc DeleteOrganization(DeleteOrganizationRequest) returns (hts.common.Result);
+  rpc AddUsersToOrganization(UpdateUsersInOrganizationRequest) returns (hts.common.Result);
+  rpc RemoveUsersFromOrganization(UpdateUsersInOrganizationRequest) returns (hts.common.Result);
+  rpc CreateEvent(CreateEventRequest) returns (hts.common.Result);
+  rpc ReadEvent(UserRequest) returns (ReadEventResult);
+  rpc ReadEventById(ReadByIdRequest) returns (ReadEventByIdResult);
+  rpc UpdateEventInfo(UpdateEventInfoRequest) returns (hts.common.Result);
+  rpc UpdateEventFacility(UpdateEventFacilityRequest) returns (hts.common.Result);
+  rpc UpdateEventDuration(UpdateEventDurationRequest) returns (hts.common.Result);
+  rpc DeleteEvent(DeleteEventRequest) returns (hts.common.Result);
+  rpc UpdateRegistrationRequest(UpdateRegistrationRequestRequest) returns (hts.common.Result);
+  rpc AddTag(UpdateTagRequest) returns (hts.common.Result);
+  rpc RemoveTag(UpdateTagRequest) returns (hts.common.Result);
+  rpc ReadTag(UserRequest) returns (ReadTagResult);
+  rpc ReadTagById(ReadByIdRequest) returns (ReadTagByIdResult);
+  rpc HasEvent(HasEventRequest) returns (hts.common.Result);
+  rpc Ping(google.protobuf.Empty) returns (hts.common.Result);
+}
