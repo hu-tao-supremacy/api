@@ -285,7 +285,7 @@ export interface OrganizerServiceController {
 
 export function OrganizerServiceControllerMethods() {
   return function (constructor: Function) {
-    const grpcMethods = [
+    const grpcMethods: string[] = [
       "createOrganization",
       "getOrganization",
       "getOrganizationById",
@@ -320,7 +320,7 @@ export function OrganizerServiceControllerMethods() {
         descriptor
       );
     }
-    const grpcStreamMethods = [];
+    const grpcStreamMethods: string[] = [];
     for (const method of grpcStreamMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(
         constructor.prototype,

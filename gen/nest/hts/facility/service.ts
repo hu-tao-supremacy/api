@@ -222,7 +222,7 @@ export interface FacilityServiceController {
 
 export function FacilityServiceControllerMethods() {
   return function (constructor: Function) {
-    const grpcMethods = [
+    const grpcMethods: string[] = [
       "getFacilityList",
       "getFacilityRequestList",
       "getFacilityRequestsListStatus",
@@ -247,7 +247,7 @@ export function FacilityServiceControllerMethods() {
         descriptor
       );
     }
-    const grpcStreamMethods = [];
+    const grpcStreamMethods: string[] = [];
     for (const method of grpcStreamMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(
         constructor.prototype,

@@ -151,7 +151,7 @@ func (c *facilityServiceClient) Ping(ctx context.Context, in *emptypb.Empty, opt
 }
 
 // FacilityServiceServer is the server API for FacilityService service.
-// All implementations should embed UnimplementedFacilityServiceServer
+// All implementations must embed UnimplementedFacilityServiceServer
 // for forward compatibility
 type FacilityServiceServer interface {
 	GetFacilityList(context.Context, *GetFacilityListRequest) (*GetFacilityListResponse, error)
@@ -166,9 +166,10 @@ type FacilityServiceServer interface {
 	RejectFacilityRequest(context.Context, *RejectFacilityRequestRequest) (*common.Result, error)
 	GetFacilityInfo(context.Context, *GetFacilityInfoRequest) (*common.Facility, error)
 	Ping(context.Context, *emptypb.Empty) (*common.Result, error)
+	mustEmbedUnimplementedFacilityServiceServer()
 }
 
-// UnimplementedFacilityServiceServer should be embedded to have forward compatible implementations.
+// UnimplementedFacilityServiceServer must be embedded to have forward compatible implementations.
 type UnimplementedFacilityServiceServer struct {
 }
 
@@ -208,6 +209,7 @@ func (UnimplementedFacilityServiceServer) GetFacilityInfo(context.Context, *GetF
 func (UnimplementedFacilityServiceServer) Ping(context.Context, *emptypb.Empty) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Ping not implemented")
 }
+func (UnimplementedFacilityServiceServer) mustEmbedUnimplementedFacilityServiceServer() {}
 
 // UnsafeFacilityServiceServer may be embedded to opt out of forward compatibility for this service.
 // Use of this interface is not recommended, as added methods to FacilityServiceServer will

@@ -79,7 +79,7 @@ export interface AccountServiceController {
 
 export function AccountServiceControllerMethods() {
   return function (constructor: Function) {
-    const grpcMethods = [
+    const grpcMethods: string[] = [
       "isAuthenticated",
       "updateAccountInfo",
       "generateJWT",
@@ -98,7 +98,7 @@ export function AccountServiceControllerMethods() {
         descriptor
       );
     }
-    const grpcStreamMethods = [];
+    const grpcStreamMethods: string[] = [];
     for (const method of grpcStreamMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(
         constructor.prototype,

@@ -211,7 +211,7 @@ func (c *participantServiceClient) Ping(ctx context.Context, in *emptypb.Empty, 
 }
 
 // ParticipantServiceServer is the server API for ParticipantService service.
-// All implementations should embed UnimplementedParticipantServiceServer
+// All implementations must embed UnimplementedParticipantServiceServer
 // for forward compatibility
 type ParticipantServiceServer interface {
 	IsEventAvailable(context.Context, *IsEventAvailableRequest) (*common.Result, error)
@@ -232,9 +232,10 @@ type ParticipantServiceServer interface {
 	GetEventsByDate(context.Context, *StringInputRequest) (*EventsResponse, error)
 	GenerateQR(context.Context, *common.UserEvent) (*GenerateQRResponse, error)
 	Ping(context.Context, *emptypb.Empty) (*common.Result, error)
+	mustEmbedUnimplementedParticipantServiceServer()
 }
 
-// UnimplementedParticipantServiceServer should be embedded to have forward compatible implementations.
+// UnimplementedParticipantServiceServer must be embedded to have forward compatible implementations.
 type UnimplementedParticipantServiceServer struct {
 }
 
@@ -292,6 +293,7 @@ func (UnimplementedParticipantServiceServer) GenerateQR(context.Context, *common
 func (UnimplementedParticipantServiceServer) Ping(context.Context, *emptypb.Empty) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Ping not implemented")
 }
+func (UnimplementedParticipantServiceServer) mustEmbedUnimplementedParticipantServiceServer() {}
 
 // UnsafeParticipantServiceServer may be embedded to opt out of forward compatibility for this service.
 // Use of this interface is not recommended, as added methods to ParticipantServiceServer will
