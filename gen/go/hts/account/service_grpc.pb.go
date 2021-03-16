@@ -91,7 +91,7 @@ func (c *accountServiceClient) Ping(ctx context.Context, in *emptypb.Empty, opts
 }
 
 // AccountServiceServer is the server API for AccountService service.
-// All implementations should embed UnimplementedAccountServiceServer
+// All implementations must embed UnimplementedAccountServiceServer
 // for forward compatibility
 type AccountServiceServer interface {
 	IsAuthenticated(context.Context, *IsAuthenticatedRequest) (*common.Result, error)
@@ -100,9 +100,10 @@ type AccountServiceServer interface {
 	InvalidateJWT(context.Context, *InvalidateJWTRequest) (*common.Result, error)
 	HasPermission(context.Context, *HasPermissionRequest) (*common.Result, error)
 	Ping(context.Context, *emptypb.Empty) (*common.Result, error)
+	mustEmbedUnimplementedAccountServiceServer()
 }
 
-// UnimplementedAccountServiceServer should be embedded to have forward compatible implementations.
+// UnimplementedAccountServiceServer must be embedded to have forward compatible implementations.
 type UnimplementedAccountServiceServer struct {
 }
 
@@ -124,6 +125,7 @@ func (UnimplementedAccountServiceServer) HasPermission(context.Context, *HasPerm
 func (UnimplementedAccountServiceServer) Ping(context.Context, *emptypb.Empty) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Ping not implemented")
 }
+func (UnimplementedAccountServiceServer) mustEmbedUnimplementedAccountServiceServer() {}
 
 // UnsafeAccountServiceServer may be embedded to opt out of forward compatibility for this service.
 // Use of this interface is not recommended, as added methods to AccountServiceServer will

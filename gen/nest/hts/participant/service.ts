@@ -182,7 +182,7 @@ export interface ParticipantServiceController {
 
 export function ParticipantServiceControllerMethods() {
   return function (constructor: Function) {
-    const grpcMethods = [
+    const grpcMethods: string[] = [
       "isEventAvailable",
       "joinEvent",
       "cancelEvent",
@@ -213,7 +213,7 @@ export function ParticipantServiceControllerMethods() {
         descriptor
       );
     }
-    const grpcStreamMethods = [];
+    const grpcStreamMethods: string[] = [];
     for (const method of grpcStreamMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(
         constructor.prototype,
