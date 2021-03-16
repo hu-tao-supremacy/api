@@ -33,12 +33,17 @@ rules_proto_grpc_go_repos()
 
 load("@rules_proto_grpc//js:repositories.bzl", rules_proto_grpc_js_repos = "js_repos")
 rules_proto_grpc_js_repos()
+
+
+
 load("@build_bazel_rules_nodejs//:index.bzl", "yarn_install")
+
 yarn_install(
     name = "npm",
     package_json = "@rules_proto_grpc//js:requirements/package.json",  # This should be changed to your local package.json which should contain the dependencies required
     yarn_lock = "@rules_proto_grpc//js:requirements/yarn.lock",
 )
+
 yarn_install(
     name = "npm",
     package_json = "//bazel/rules:requirements/package.json",  # This should be changed to your local package.json which should contain the dependencies required
@@ -46,12 +51,7 @@ yarn_install(
 )
 
 
-load("@rules_proto_grpc//:repositories.bzl", "rules_proto_grpc_repos", "rules_proto_grpc_toolchains")
-rules_proto_grpc_toolchains()
-rules_proto_grpc_repos()
-load("@rules_proto//proto:repositories.bzl", "rules_proto_dependencies", "rules_proto_toolchains")
-rules_proto_dependencies()
-rules_proto_toolchains()
+
 load("@rules_proto_grpc//java:repositories.bzl", rules_proto_grpc_java_repos = "java_repos")
 rules_proto_grpc_java_repos()
 
