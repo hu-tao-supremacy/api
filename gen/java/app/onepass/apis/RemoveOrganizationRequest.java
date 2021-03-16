@@ -4,26 +4,25 @@
 package app.onepass.apis;
 
 /**
- * Protobuf type {@code hts.organizer.UpdateUsersInOrganizationRequest}
+ * Protobuf type {@code hts.organizer.RemoveOrganizationRequest}
  */
-public final class UpdateUsersInOrganizationRequest extends
+public final class RemoveOrganizationRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:hts.organizer.UpdateUsersInOrganizationRequest)
-    UpdateUsersInOrganizationRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:hts.organizer.RemoveOrganizationRequest)
+    RemoveOrganizationRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use UpdateUsersInOrganizationRequest.newBuilder() to construct.
-  private UpdateUsersInOrganizationRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use RemoveOrganizationRequest.newBuilder() to construct.
+  private RemoveOrganizationRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private UpdateUsersInOrganizationRequest() {
-    userIds_ = emptyLongList();
+  private RemoveOrganizationRequest() {
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new UpdateUsersInOrganizationRequest();
+    return new RemoveOrganizationRequest();
   }
 
   @java.lang.Override
@@ -31,7 +30,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UpdateUsersInOrganizationRequest(
+  private RemoveOrganizationRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -39,7 +38,6 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
-    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -56,27 +54,6 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 16: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              userIds_ = newLongList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            userIds_.addLong(input.readInt64());
-            break;
-          }
-          case 18: {
-            int length = input.readRawVarint32();
-            int limit = input.pushLimit(length);
-            if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-              userIds_ = newLongList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            while (input.getBytesUntilLimit() > 0) {
-              userIds_.addLong(input.readInt64());
-            }
-            input.popLimit(limit);
-            break;
-          }
-          case 24: {
 
             organizationId_ = input.readInt64();
             break;
@@ -96,24 +73,21 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        userIds_.makeImmutable(); // C
-      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_UpdateUsersInOrganizationRequest_descriptor;
+    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_RemoveOrganizationRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_UpdateUsersInOrganizationRequest_fieldAccessorTable
+    return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_RemoveOrganizationRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            app.onepass.apis.UpdateUsersInOrganizationRequest.class, app.onepass.apis.UpdateUsersInOrganizationRequest.Builder.class);
+            app.onepass.apis.RemoveOrganizationRequest.class, app.onepass.apis.RemoveOrganizationRequest.Builder.class);
   }
 
   public static final int USER_ID_FIELD_NUMBER = 1;
@@ -127,38 +101,10 @@ private static final long serialVersionUID = 0L;
     return userId_;
   }
 
-  public static final int USER_IDS_FIELD_NUMBER = 2;
-  private com.google.protobuf.Internal.LongList userIds_;
-  /**
-   * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
-   * @return A list containing the userIds.
-   */
-  @java.lang.Override
-  public java.util.List<java.lang.Long>
-      getUserIdsList() {
-    return userIds_;
-  }
-  /**
-   * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
-   * @return The count of userIds.
-   */
-  public int getUserIdsCount() {
-    return userIds_.size();
-  }
-  /**
-   * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
-   * @param index The index of the element to return.
-   * @return The userIds at the given index.
-   */
-  public long getUserIds(int index) {
-    return userIds_.getLong(index);
-  }
-  private int userIdsMemoizedSerializedSize = -1;
-
-  public static final int ORGANIZATION_ID_FIELD_NUMBER = 3;
+  public static final int ORGANIZATION_ID_FIELD_NUMBER = 2;
   private long organizationId_;
   /**
-   * <code>int64 organization_id = 3 [json_name = "organizationId"];</code>
+   * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
    * @return The organizationId.
    */
   @java.lang.Override
@@ -180,19 +126,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    getSerializedSize();
     if (userId_ != 0L) {
       output.writeInt64(1, userId_);
     }
-    if (getUserIdsList().size() > 0) {
-      output.writeUInt32NoTag(18);
-      output.writeUInt32NoTag(userIdsMemoizedSerializedSize);
-    }
-    for (int i = 0; i < userIds_.size(); i++) {
-      output.writeInt64NoTag(userIds_.getLong(i));
-    }
     if (organizationId_ != 0L) {
-      output.writeInt64(3, organizationId_);
+      output.writeInt64(2, organizationId_);
     }
     unknownFields.writeTo(output);
   }
@@ -207,23 +145,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(1, userId_);
     }
-    {
-      int dataSize = 0;
-      for (int i = 0; i < userIds_.size(); i++) {
-        dataSize += com.google.protobuf.CodedOutputStream
-          .computeInt64SizeNoTag(userIds_.getLong(i));
-      }
-      size += dataSize;
-      if (!getUserIdsList().isEmpty()) {
-        size += 1;
-        size += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(dataSize);
-      }
-      userIdsMemoizedSerializedSize = dataSize;
-    }
     if (organizationId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(3, organizationId_);
+        .computeInt64Size(2, organizationId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -235,15 +159,13 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof app.onepass.apis.UpdateUsersInOrganizationRequest)) {
+    if (!(obj instanceof app.onepass.apis.RemoveOrganizationRequest)) {
       return super.equals(obj);
     }
-    app.onepass.apis.UpdateUsersInOrganizationRequest other = (app.onepass.apis.UpdateUsersInOrganizationRequest) obj;
+    app.onepass.apis.RemoveOrganizationRequest other = (app.onepass.apis.RemoveOrganizationRequest) obj;
 
     if (getUserId()
         != other.getUserId()) return false;
-    if (!getUserIdsList()
-        .equals(other.getUserIdsList())) return false;
     if (getOrganizationId()
         != other.getOrganizationId()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -260,10 +182,6 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getUserId());
-    if (getUserIdsCount() > 0) {
-      hash = (37 * hash) + USER_IDS_FIELD_NUMBER;
-      hash = (53 * hash) + getUserIdsList().hashCode();
-    }
     hash = (37 * hash) + ORGANIZATION_ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getOrganizationId());
@@ -272,69 +190,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static app.onepass.apis.UpdateUsersInOrganizationRequest parseFrom(
+  public static app.onepass.apis.RemoveOrganizationRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.UpdateUsersInOrganizationRequest parseFrom(
+  public static app.onepass.apis.RemoveOrganizationRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.UpdateUsersInOrganizationRequest parseFrom(
+  public static app.onepass.apis.RemoveOrganizationRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.UpdateUsersInOrganizationRequest parseFrom(
+  public static app.onepass.apis.RemoveOrganizationRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.UpdateUsersInOrganizationRequest parseFrom(byte[] data)
+  public static app.onepass.apis.RemoveOrganizationRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.UpdateUsersInOrganizationRequest parseFrom(
+  public static app.onepass.apis.RemoveOrganizationRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.UpdateUsersInOrganizationRequest parseFrom(java.io.InputStream input)
+  public static app.onepass.apis.RemoveOrganizationRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.UpdateUsersInOrganizationRequest parseFrom(
+  public static app.onepass.apis.RemoveOrganizationRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.UpdateUsersInOrganizationRequest parseDelimitedFrom(java.io.InputStream input)
+  public static app.onepass.apis.RemoveOrganizationRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.UpdateUsersInOrganizationRequest parseDelimitedFrom(
+  public static app.onepass.apis.RemoveOrganizationRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.UpdateUsersInOrganizationRequest parseFrom(
+  public static app.onepass.apis.RemoveOrganizationRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.UpdateUsersInOrganizationRequest parseFrom(
+  public static app.onepass.apis.RemoveOrganizationRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -347,7 +265,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(app.onepass.apis.UpdateUsersInOrganizationRequest prototype) {
+  public static Builder newBuilder(app.onepass.apis.RemoveOrganizationRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -363,26 +281,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code hts.organizer.UpdateUsersInOrganizationRequest}
+   * Protobuf type {@code hts.organizer.RemoveOrganizationRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:hts.organizer.UpdateUsersInOrganizationRequest)
-      app.onepass.apis.UpdateUsersInOrganizationRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:hts.organizer.RemoveOrganizationRequest)
+      app.onepass.apis.RemoveOrganizationRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_UpdateUsersInOrganizationRequest_descriptor;
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_RemoveOrganizationRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_UpdateUsersInOrganizationRequest_fieldAccessorTable
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_RemoveOrganizationRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              app.onepass.apis.UpdateUsersInOrganizationRequest.class, app.onepass.apis.UpdateUsersInOrganizationRequest.Builder.class);
+              app.onepass.apis.RemoveOrganizationRequest.class, app.onepass.apis.RemoveOrganizationRequest.Builder.class);
     }
 
-    // Construct using app.onepass.apis.UpdateUsersInOrganizationRequest.newBuilder()
+    // Construct using app.onepass.apis.RemoveOrganizationRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -402,8 +320,6 @@ private static final long serialVersionUID = 0L;
       super.clear();
       userId_ = 0L;
 
-      userIds_ = emptyLongList();
-      bitField0_ = (bitField0_ & ~0x00000001);
       organizationId_ = 0L;
 
       return this;
@@ -412,17 +328,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_UpdateUsersInOrganizationRequest_descriptor;
+      return app.onepass.apis.OrganizerProto.internal_static_hts_organizer_RemoveOrganizationRequest_descriptor;
     }
 
     @java.lang.Override
-    public app.onepass.apis.UpdateUsersInOrganizationRequest getDefaultInstanceForType() {
-      return app.onepass.apis.UpdateUsersInOrganizationRequest.getDefaultInstance();
+    public app.onepass.apis.RemoveOrganizationRequest getDefaultInstanceForType() {
+      return app.onepass.apis.RemoveOrganizationRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public app.onepass.apis.UpdateUsersInOrganizationRequest build() {
-      app.onepass.apis.UpdateUsersInOrganizationRequest result = buildPartial();
+    public app.onepass.apis.RemoveOrganizationRequest build() {
+      app.onepass.apis.RemoveOrganizationRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -430,15 +346,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public app.onepass.apis.UpdateUsersInOrganizationRequest buildPartial() {
-      app.onepass.apis.UpdateUsersInOrganizationRequest result = new app.onepass.apis.UpdateUsersInOrganizationRequest(this);
-      int from_bitField0_ = bitField0_;
+    public app.onepass.apis.RemoveOrganizationRequest buildPartial() {
+      app.onepass.apis.RemoveOrganizationRequest result = new app.onepass.apis.RemoveOrganizationRequest(this);
       result.userId_ = userId_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        userIds_.makeImmutable();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.userIds_ = userIds_;
       result.organizationId_ = organizationId_;
       onBuilt();
       return result;
@@ -478,28 +388,18 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof app.onepass.apis.UpdateUsersInOrganizationRequest) {
-        return mergeFrom((app.onepass.apis.UpdateUsersInOrganizationRequest)other);
+      if (other instanceof app.onepass.apis.RemoveOrganizationRequest) {
+        return mergeFrom((app.onepass.apis.RemoveOrganizationRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(app.onepass.apis.UpdateUsersInOrganizationRequest other) {
-      if (other == app.onepass.apis.UpdateUsersInOrganizationRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(app.onepass.apis.RemoveOrganizationRequest other) {
+      if (other == app.onepass.apis.RemoveOrganizationRequest.getDefaultInstance()) return this;
       if (other.getUserId() != 0L) {
         setUserId(other.getUserId());
-      }
-      if (!other.userIds_.isEmpty()) {
-        if (userIds_.isEmpty()) {
-          userIds_ = other.userIds_;
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          ensureUserIdsIsMutable();
-          userIds_.addAll(other.userIds_);
-        }
-        onChanged();
       }
       if (other.getOrganizationId() != 0L) {
         setOrganizationId(other.getOrganizationId());
@@ -519,11 +419,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      app.onepass.apis.UpdateUsersInOrganizationRequest parsedMessage = null;
+      app.onepass.apis.RemoveOrganizationRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (app.onepass.apis.UpdateUsersInOrganizationRequest) e.getUnfinishedMessage();
+        parsedMessage = (app.onepass.apis.RemoveOrganizationRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -532,7 +432,6 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
-    private int bitField0_;
 
     private long userId_ ;
     /**
@@ -565,88 +464,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList userIds_ = emptyLongList();
-    private void ensureUserIdsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
-        userIds_ = mutableCopy(userIds_);
-        bitField0_ |= 0x00000001;
-       }
-    }
-    /**
-     * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
-     * @return A list containing the userIds.
-     */
-    public java.util.List<java.lang.Long>
-        getUserIdsList() {
-      return ((bitField0_ & 0x00000001) != 0) ?
-               java.util.Collections.unmodifiableList(userIds_) : userIds_;
-    }
-    /**
-     * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
-     * @return The count of userIds.
-     */
-    public int getUserIdsCount() {
-      return userIds_.size();
-    }
-    /**
-     * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
-     * @param index The index of the element to return.
-     * @return The userIds at the given index.
-     */
-    public long getUserIds(int index) {
-      return userIds_.getLong(index);
-    }
-    /**
-     * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
-     * @param index The index to set the value at.
-     * @param value The userIds to set.
-     * @return This builder for chaining.
-     */
-    public Builder setUserIds(
-        int index, long value) {
-      ensureUserIdsIsMutable();
-      userIds_.setLong(index, value);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
-     * @param value The userIds to add.
-     * @return This builder for chaining.
-     */
-    public Builder addUserIds(long value) {
-      ensureUserIdsIsMutable();
-      userIds_.addLong(value);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
-     * @param values The userIds to add.
-     * @return This builder for chaining.
-     */
-    public Builder addAllUserIds(
-        java.lang.Iterable<? extends java.lang.Long> values) {
-      ensureUserIdsIsMutable();
-      com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, userIds_);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearUserIds() {
-      userIds_ = emptyLongList();
-      bitField0_ = (bitField0_ & ~0x00000001);
-      onChanged();
-      return this;
-    }
-
     private long organizationId_ ;
     /**
-     * <code>int64 organization_id = 3 [json_name = "organizationId"];</code>
+     * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
      * @return The organizationId.
      */
     @java.lang.Override
@@ -654,7 +474,7 @@ private static final long serialVersionUID = 0L;
       return organizationId_;
     }
     /**
-     * <code>int64 organization_id = 3 [json_name = "organizationId"];</code>
+     * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
      * @param value The organizationId to set.
      * @return This builder for chaining.
      */
@@ -665,7 +485,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 organization_id = 3 [json_name = "organizationId"];</code>
+     * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearOrganizationId() {
@@ -687,41 +507,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:hts.organizer.UpdateUsersInOrganizationRequest)
+    // @@protoc_insertion_point(builder_scope:hts.organizer.RemoveOrganizationRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:hts.organizer.UpdateUsersInOrganizationRequest)
-  private static final app.onepass.apis.UpdateUsersInOrganizationRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:hts.organizer.RemoveOrganizationRequest)
+  private static final app.onepass.apis.RemoveOrganizationRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new app.onepass.apis.UpdateUsersInOrganizationRequest();
+    DEFAULT_INSTANCE = new app.onepass.apis.RemoveOrganizationRequest();
   }
 
-  public static app.onepass.apis.UpdateUsersInOrganizationRequest getDefaultInstance() {
+  public static app.onepass.apis.RemoveOrganizationRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<UpdateUsersInOrganizationRequest>
-      PARSER = new com.google.protobuf.AbstractParser<UpdateUsersInOrganizationRequest>() {
+  private static final com.google.protobuf.Parser<RemoveOrganizationRequest>
+      PARSER = new com.google.protobuf.AbstractParser<RemoveOrganizationRequest>() {
     @java.lang.Override
-    public UpdateUsersInOrganizationRequest parsePartialFrom(
+    public RemoveOrganizationRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpdateUsersInOrganizationRequest(input, extensionRegistry);
+      return new RemoveOrganizationRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<UpdateUsersInOrganizationRequest> parser() {
+  public static com.google.protobuf.Parser<RemoveOrganizationRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<UpdateUsersInOrganizationRequest> getParserForType() {
+  public com.google.protobuf.Parser<RemoveOrganizationRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public app.onepass.apis.UpdateUsersInOrganizationRequest getDefaultInstanceForType() {
+  public app.onepass.apis.RemoveOrganizationRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

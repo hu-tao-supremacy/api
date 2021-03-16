@@ -18,7 +18,7 @@ export interface UserRequest {
   userId: number;
 }
 
-export interface ReadByIdRequest {
+export interface GetByIdRequest {
   userId: number;
   readId: number;
 }
@@ -39,19 +39,15 @@ export interface UpdateOrganizationRequest {
   organization: Organization | undefined;
 }
 
-export interface DeleteOrganizationRequest {
+export interface RemoveOrganizationRequest {
   userId: number;
   organizationId: number;
-}
-
-export interface AddUsersToOrganizationRequest {
-  userId: number;
-  userIds: number[];
 }
 
 export interface UpdateUsersInOrganizationRequest {
   userId: number;
   userIds: number[];
+  organizationId: number;
 }
 
 export interface CreateEventRequest {
@@ -75,7 +71,7 @@ export interface UpdateEventDurationRequest {
   duration: Duration[];
 }
 
-export interface DeleteEventRequest {
+export interface RemoveEventRequest {
   userId: number;
   eventId: number;
 }
@@ -85,6 +81,11 @@ export interface UpdateRegistrationRequestRequest {
   registeredUserId: number;
   registeredEventId: number;
   status: Status;
+}
+
+export interface CreateTagRequest {
+  userId: number;
+  tag: Tag | undefined;
 }
 
 export interface UpdateTagRequest {
@@ -99,27 +100,27 @@ export interface HasEventRequest {
   eventId: number;
 }
 
-export interface ReadOrganizationResult {
+export interface GetOrganizationResponse {
   organizations: Organization[];
 }
 
-export interface ReadOrganizationByIdResult {
+export interface GetOrganizationByIdResponse {
   organization: Organization | undefined;
 }
 
-export interface ReadEventResult {
+export interface GetEventResponse {
   events: Event[];
 }
 
-export interface ReadEventByIdResult {
+export interface GetEventByIdResponse {
   event: Event | undefined;
 }
 
-export interface ReadTagResult {
+export interface GetTagResponse {
   tags: Tag[];
 }
 
-export interface ReadTagByIdResult {
+export interface GetTagByIdResponse {
   tag: Tag | undefined;
 }
 
@@ -128,15 +129,15 @@ export const HTS_ORGANIZER_PACKAGE_NAME = "hts.organizer";
 export interface OrganizerServiceClient {
   createOrganization(request: CreateOrganizationRequest): Observable<Result>;
 
-  readOrganization(request: UserRequest): Observable<ReadOrganizationResult>;
+  getOrganization(request: UserRequest): Observable<GetOrganizationResponse>;
 
-  readOrganizationById(
-    request: ReadByIdRequest
-  ): Observable<ReadOrganizationByIdResult>;
+  getOrganizationById(
+    request: GetByIdRequest
+  ): Observable<GetOrganizationByIdResponse>;
 
   updateOrganization(request: UpdateOrganizationRequest): Observable<Result>;
 
-  deleteOrganization(request: DeleteOrganizationRequest): Observable<Result>;
+  removeOrganization(request: RemoveOrganizationRequest): Observable<Result>;
 
   addUsersToOrganization(
     request: UpdateUsersInOrganizationRequest
@@ -148,9 +149,9 @@ export interface OrganizerServiceClient {
 
   createEvent(request: CreateEventRequest): Observable<Result>;
 
-  readEvent(request: UserRequest): Observable<ReadEventResult>;
+  getEvent(request: UserRequest): Observable<GetEventResponse>;
 
-  readEventById(request: ReadByIdRequest): Observable<ReadEventByIdResult>;
+  getEventById(request: GetByIdRequest): Observable<GetEventByIdResponse>;
 
   updateEventInfo(request: UpdateEventInfoRequest): Observable<Result>;
 
@@ -158,19 +159,21 @@ export interface OrganizerServiceClient {
 
   updateEventDuration(request: UpdateEventDurationRequest): Observable<Result>;
 
-  deleteEvent(request: DeleteEventRequest): Observable<Result>;
+  removeEvent(request: RemoveEventRequest): Observable<Result>;
 
   updateRegistrationRequest(
     request: UpdateRegistrationRequestRequest
   ): Observable<Result>;
 
+  createTag(request: CreateTagRequest): Observable<Result>;
+
   addTag(request: UpdateTagRequest): Observable<Result>;
 
   removeTag(request: UpdateTagRequest): Observable<Result>;
 
-  readTag(request: UserRequest): Observable<ReadTagResult>;
+  getTag(request: UserRequest): Observable<GetTagResponse>;
 
-  readTagById(request: ReadByIdRequest): Observable<ReadTagByIdResult>;
+  getTagById(request: GetByIdRequest): Observable<GetTagByIdResponse>;
 
   hasEvent(request: HasEventRequest): Observable<Result>;
 
@@ -182,26 +185,26 @@ export interface OrganizerServiceController {
     request: CreateOrganizationRequest
   ): Promise<Result> | Observable<Result> | Result;
 
-  readOrganization(
+  getOrganization(
     request: UserRequest
   ):
-    | Promise<ReadOrganizationResult>
-    | Observable<ReadOrganizationResult>
-    | ReadOrganizationResult;
+    | Promise<GetOrganizationResponse>
+    | Observable<GetOrganizationResponse>
+    | GetOrganizationResponse;
 
-  readOrganizationById(
-    request: ReadByIdRequest
+  getOrganizationById(
+    request: GetByIdRequest
   ):
-    | Promise<ReadOrganizationByIdResult>
-    | Observable<ReadOrganizationByIdResult>
-    | ReadOrganizationByIdResult;
+    | Promise<GetOrganizationByIdResponse>
+    | Observable<GetOrganizationByIdResponse>
+    | GetOrganizationByIdResponse;
 
   updateOrganization(
     request: UpdateOrganizationRequest
   ): Promise<Result> | Observable<Result> | Result;
 
-  deleteOrganization(
-    request: DeleteOrganizationRequest
+  removeOrganization(
+    request: RemoveOrganizationRequest
   ): Promise<Result> | Observable<Result> | Result;
 
   addUsersToOrganization(
@@ -216,16 +219,19 @@ export interface OrganizerServiceController {
     request: CreateEventRequest
   ): Promise<Result> | Observable<Result> | Result;
 
-  readEvent(
+  getEvent(
     request: UserRequest
-  ): Promise<ReadEventResult> | Observable<ReadEventResult> | ReadEventResult;
-
-  readEventById(
-    request: ReadByIdRequest
   ):
-    | Promise<ReadEventByIdResult>
-    | Observable<ReadEventByIdResult>
-    | ReadEventByIdResult;
+    | Promise<GetEventResponse>
+    | Observable<GetEventResponse>
+    | GetEventResponse;
+
+  getEventById(
+    request: GetByIdRequest
+  ):
+    | Promise<GetEventByIdResponse>
+    | Observable<GetEventByIdResponse>
+    | GetEventByIdResponse;
 
   updateEventInfo(
     request: UpdateEventInfoRequest
@@ -239,12 +245,16 @@ export interface OrganizerServiceController {
     request: UpdateEventDurationRequest
   ): Promise<Result> | Observable<Result> | Result;
 
-  deleteEvent(
-    request: DeleteEventRequest
+  removeEvent(
+    request: RemoveEventRequest
   ): Promise<Result> | Observable<Result> | Result;
 
   updateRegistrationRequest(
     request: UpdateRegistrationRequestRequest
+  ): Promise<Result> | Observable<Result> | Result;
+
+  createTag(
+    request: CreateTagRequest
   ): Promise<Result> | Observable<Result> | Result;
 
   addTag(
@@ -255,16 +265,16 @@ export interface OrganizerServiceController {
     request: UpdateTagRequest
   ): Promise<Result> | Observable<Result> | Result;
 
-  readTag(
+  getTag(
     request: UserRequest
-  ): Promise<ReadTagResult> | Observable<ReadTagResult> | ReadTagResult;
+  ): Promise<GetTagResponse> | Observable<GetTagResponse> | GetTagResponse;
 
-  readTagById(
-    request: ReadByIdRequest
+  getTagById(
+    request: GetByIdRequest
   ):
-    | Promise<ReadTagByIdResult>
-    | Observable<ReadTagByIdResult>
-    | ReadTagByIdResult;
+    | Promise<GetTagByIdResponse>
+    | Observable<GetTagByIdResponse>
+    | GetTagByIdResponse;
 
   hasEvent(
     request: HasEventRequest
@@ -277,24 +287,25 @@ export function OrganizerServiceControllerMethods() {
   return function (constructor: Function) {
     const grpcMethods = [
       "createOrganization",
-      "readOrganization",
-      "readOrganizationById",
+      "getOrganization",
+      "getOrganizationById",
       "updateOrganization",
-      "deleteOrganization",
+      "removeOrganization",
       "addUsersToOrganization",
       "removeUsersFromOrganization",
       "createEvent",
-      "readEvent",
-      "readEventById",
+      "getEvent",
+      "getEventById",
       "updateEventInfo",
       "updateEventFacility",
       "updateEventDuration",
-      "deleteEvent",
+      "removeEvent",
       "updateRegistrationRequest",
+      "createTag",
       "addTag",
       "removeTag",
-      "readTag",
-      "readTagById",
+      "getTag",
+      "getTagById",
       "hasEvent",
       "ping",
     ];
