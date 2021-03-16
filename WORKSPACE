@@ -45,7 +45,7 @@ yarn_install(
 )
 
 yarn_install(
-    name = "npm",
+    name = "npm_nest",
     package_json = "//bazel/rules:requirements/package.json",  # This should be changed to your local package.json which should contain the dependencies required
     yarn_lock = "//bazel/rules:requirements/yarn.lock",
 )

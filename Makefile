@@ -16,8 +16,8 @@ generate:
 	mv bazel-bin/go/gen/hts gen/go/.
 	mv bazel-bin/python/gen/hts gen/python/.
 
-	mv bazel-bin/java/gen/java.srcjar gen/java/.
-	mv bazel-bin/java/gen/java_grpc.srcjar gen/java/.
+	cp -r bazel-bin/java/gen/java.srcjar gen/java/.
+	cp -r bazel-bin/java/gen/java_grpc.srcjar gen/java/.
 	mv gen/java/java.srcjar gen/java/java.zip
 	mv gen/java/java_grpc.srcjar gen/java/java_grpc.zip
 	ditto -xk gen/java/java.zip gen/java
@@ -26,5 +26,6 @@ generate:
 	rm -rf gen/java/java_grpc.zip
 	rm -rf gen/java/META-INF
 
-	mv bazel-bin/nest/gen/hts gen/nest/.
-	mv bazel-bin/api-gateway/gen/hts gen/api-gateway/.
+	cp -r bazel-bin/nest/gen/hts gen/nest/.
+	cp -r bazel-bin/nest/gen/google gen/nest/.
+	cp -r bazel-bin/api-gateway/gen/hts gen/api-gateway/.
