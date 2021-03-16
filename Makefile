@@ -1,3 +1,7 @@
+setup:
+	@cd $(dirname $0)
+	ln -s hts/ proto/hts/
+
 generate:
 	@cd $(dirname $0)
 	bazel build //:go
