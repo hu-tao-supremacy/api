@@ -1,6 +1,6 @@
 setup:
 	@cd $(dirname $0)
-	ln -s hts/ proto/hts/
+	ln -s proto/hts hts
 
 generate:
 	@cd $(dirname $0)
