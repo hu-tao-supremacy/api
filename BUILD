@@ -74,6 +74,20 @@ go_grpc_compile(
 load("@rules_proto_grpc//js:defs.bzl", "js_grpc_node_compile")
 
 js_grpc_node_compile(
+    name = "api-gateway",
+    prefix_path = "gen",
+    protos = [
+        ":common_proto",
+        ":account_proto",
+        ":facility_proto",
+        ":organizer_proto",
+        ":participant_proto"
+    ],
+)
+
+load("//bazel/rules:ts_proto_compile.bzl", "ts_proto_compile")
+
+ts_proto_compile(
     name = "nest",
     prefix_path = "gen",
     protos = [
@@ -84,6 +98,7 @@ js_grpc_node_compile(
         ":participant_proto"
     ],
 )
+
 
 load("@rules_proto_grpc//java:defs.bzl", "java_grpc_compile")
 

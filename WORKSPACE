@@ -39,7 +39,11 @@ yarn_install(
     package_json = "@rules_proto_grpc//js:requirements/package.json",  # This should be changed to your local package.json which should contain the dependencies required
     yarn_lock = "@rules_proto_grpc//js:requirements/yarn.lock",
 )
-
+yarn_install(
+    name = "npm",
+    package_json = "//bazel/rules:requirements/package.json",  # This should be changed to your local package.json which should contain the dependencies required
+    yarn_lock = "//bazel/rules:requirements/yarn.lock",
+)
 
 
 load("@rules_proto_grpc//:repositories.bzl", "rules_proto_grpc_repos", "rules_proto_grpc_toolchains")
