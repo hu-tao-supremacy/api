@@ -7,8 +7,6 @@ import {
   Event,
   EventFeedback,
   Result,
-  Facility,
-  Organization,
 } from "../../hts/common/common";
 import { Timestamp } from "../../google/protobuf/timestamp";
 import { Empty } from "../../google/protobuf/empty";
@@ -79,19 +77,25 @@ export interface ParticipantServiceClient {
 
   getEvent(request: GetEventRequest): Observable<Event>;
 
-  getEventsByName(request: StringInputRequest): Observable<EventsResponse>;
-
-  getEventsByTag(request: StringInputRequest): Observable<EventsResponse>;
-
-  getEventsByDate(request: Timestamp): Observable<EventsResponse>;
-
-  getEventsByFacility(request: Facility): Observable<EventsResponse>;
-
-  getEventsByOrganization(request: Organization): Observable<EventsResponse>;
-
   getAllEvents(request: Empty): Observable<EventsResponse>;
 
   getSuggestedEvents(request: Empty): Observable<EventsResponse>;
+
+  getEventsByNameString(
+    request: StringInputRequest
+  ): Observable<EventsResponse>;
+
+  getEventsByTagString(request: StringInputRequest): Observable<EventsResponse>;
+
+  getEventsByFacilityString(
+    request: StringInputRequest
+  ): Observable<EventsResponse>;
+
+  getEventsByOrganizationString(
+    request: StringInputRequest
+  ): Observable<EventsResponse>;
+
+  getEventsByDate(request: StringInputRequest): Observable<EventsResponse>;
 
   generateQR(request: UserEvent): Observable<GenerateQRResponse>;
 
@@ -138,32 +142,32 @@ export interface ParticipantServiceController {
     request: GetEventRequest
   ): Promise<Event> | Observable<Event> | Event;
 
-  getEventsByName(
-    request: StringInputRequest
-  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
-
-  getEventsByTag(
-    request: StringInputRequest
-  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
-
-  getEventsByDate(
-    request: Timestamp
-  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
-
-  getEventsByFacility(
-    request: Facility
-  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
-
-  getEventsByOrganization(
-    request: Organization
-  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
-
   getAllEvents(
     request: Empty
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
   getSuggestedEvents(
     request: Empty
+  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
+
+  getEventsByNameString(
+    request: StringInputRequest
+  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
+
+  getEventsByTagString(
+    request: StringInputRequest
+  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
+
+  getEventsByFacilityString(
+    request: StringInputRequest
+  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
+
+  getEventsByOrganizationString(
+    request: StringInputRequest
+  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
+
+  getEventsByDate(
+    request: StringInputRequest
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
   generateQR(
@@ -178,7 +182,7 @@ export interface ParticipantServiceController {
 
 export function ParticipantServiceControllerMethods() {
   return function (constructor: Function) {
-    const grpcMethods = [
+    const grpcMethods: string[] = [
       "isEventAvailable",
       "joinEvent",
       "cancelEvent",
@@ -188,13 +192,13 @@ export function ParticipantServiceControllerMethods() {
       "getFeedbacksFromEvent",
       "getUserFeedbackFromEvent",
       "getEvent",
-      "getEventsByName",
-      "getEventsByTag",
-      "getEventsByDate",
-      "getEventsByFacility",
-      "getEventsByOrganization",
       "getAllEvents",
       "getSuggestedEvents",
+      "getEventsByNameString",
+      "getEventsByTagString",
+      "getEventsByFacilityString",
+      "getEventsByOrganizationString",
+      "getEventsByDate",
       "generateQR",
       "ping",
     ];
@@ -209,7 +213,7 @@ export function ParticipantServiceControllerMethods() {
         descriptor
       );
     }
-    const grpcStreamMethods = [];
+    const grpcStreamMethods: string[] = [];
     for (const method of grpcStreamMethods) {
       const descriptor: any = Reflect.getOwnPropertyDescriptor(
         constructor.prototype,

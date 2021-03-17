@@ -251,7 +251,7 @@ func (c *organizerServiceClient) Ping(ctx context.Context, in *emptypb.Empty, op
 }
 
 // OrganizerServiceServer is the server API for OrganizerService service.
-// All implementations should embed UnimplementedOrganizerServiceServer
+// All implementations must embed UnimplementedOrganizerServiceServer
 // for forward compatibility
 type OrganizerServiceServer interface {
 	CreateOrganization(context.Context, *CreateOrganizationRequest) (*common.Result, error)
@@ -276,9 +276,10 @@ type OrganizerServiceServer interface {
 	GetTagById(context.Context, *GetByIdRequest) (*GetTagByIdResponse, error)
 	HasEvent(context.Context, *HasEventRequest) (*common.Result, error)
 	Ping(context.Context, *emptypb.Empty) (*common.Result, error)
+	mustEmbedUnimplementedOrganizerServiceServer()
 }
 
-// UnimplementedOrganizerServiceServer should be embedded to have forward compatible implementations.
+// UnimplementedOrganizerServiceServer must be embedded to have forward compatible implementations.
 type UnimplementedOrganizerServiceServer struct {
 }
 
@@ -348,6 +349,7 @@ func (UnimplementedOrganizerServiceServer) HasEvent(context.Context, *HasEventRe
 func (UnimplementedOrganizerServiceServer) Ping(context.Context, *emptypb.Empty) (*common.Result, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Ping not implemented")
 }
+func (UnimplementedOrganizerServiceServer) mustEmbedUnimplementedOrganizerServiceServer() {}
 
 // UnsafeOrganizerServiceServer may be embedded to opt out of forward compatibility for this service.
 // Use of this interface is not recommended, as added methods to OrganizerServiceServer will
