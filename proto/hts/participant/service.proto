@@ -68,10 +68,10 @@ service ParticipantService {
     rpc GetAllEvents(google.protobuf.Empty) returns (EventsResponse);
     rpc GetSuggestedEvents(google.protobuf.Empty) returns (EventsResponse);
 
-    rpc GetEventsByNameString(StringInputRequest) returns (EventsResponse);
-    rpc GetEventsByTagString(StringInputRequest) returns (EventsResponse);
-    rpc GetEventsByFacilityString(StringInputRequest) returns (EventsResponse);
-    rpc GetEventsByOrganizationString(StringInputRequest) returns (EventsResponse);
+    rpc GetEventsByStringOfName(StringInputRequest) returns (EventsResponse);
+    rpc GetEventsByStringOfTag(StringInputRequest) returns (EventsResponse);
+    rpc GetEventsByStringOfFacility(StringInputRequest) returns (EventsResponse);
+    rpc GetEventsByStringOfOrganization(StringInputRequest) returns (EventsResponse);
     rpc GetEventsByDate(StringInputRequest) returns (EventsResponse);
 
     rpc GenerateQR(hts.common.UserEvent) returns (GenerateQRResponse);
