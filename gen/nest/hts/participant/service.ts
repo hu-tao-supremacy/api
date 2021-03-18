@@ -7,6 +7,9 @@ import {
   Event,
   EventFeedback,
   Result,
+  Tag,
+  Organization,
+  Facility,
 } from "../../hts/common/common";
 import { Timestamp } from "../../google/protobuf/timestamp";
 import { Empty } from "../../google/protobuf/empty";
@@ -81,19 +84,15 @@ export interface ParticipantServiceClient {
 
   getSuggestedEvents(request: Empty): Observable<EventsResponse>;
 
-  getEventsByNameString(
+  getEventsByStringOfName(
     request: StringInputRequest
   ): Observable<EventsResponse>;
 
-  getEventsByTagString(request: StringInputRequest): Observable<EventsResponse>;
+  getEventsByTag(request: Tag): Observable<EventsResponse>;
 
-  getEventsByFacilityString(
-    request: StringInputRequest
-  ): Observable<EventsResponse>;
+  getEventsByOrganization(request: Organization): Observable<EventsResponse>;
 
-  getEventsByOrganizationString(
-    request: StringInputRequest
-  ): Observable<EventsResponse>;
+  getEventsByFacility(request: Facility): Observable<EventsResponse>;
 
   getEventsByDate(request: StringInputRequest): Observable<EventsResponse>;
 
@@ -150,20 +149,20 @@ export interface ParticipantServiceController {
     request: Empty
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
-  getEventsByNameString(
+  getEventsByStringOfName(
     request: StringInputRequest
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
-  getEventsByTagString(
-    request: StringInputRequest
+  getEventsByTag(
+    request: Tag
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
-  getEventsByFacilityString(
-    request: StringInputRequest
+  getEventsByOrganization(
+    request: Organization
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
-  getEventsByOrganizationString(
-    request: StringInputRequest
+  getEventsByFacility(
+    request: Facility
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
   getEventsByDate(
@@ -194,10 +193,10 @@ export function ParticipantServiceControllerMethods() {
       "getEvent",
       "getAllEvents",
       "getSuggestedEvents",
-      "getEventsByNameString",
-      "getEventsByTagString",
-      "getEventsByFacilityString",
-      "getEventsByOrganizationString",
+      "getEventsByStringOfName",
+      "getEventsByTag",
+      "getEventsByOrganization",
+      "getEventsByFacility",
       "getEventsByDate",
       "generateQR",
       "ping",

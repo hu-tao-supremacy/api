@@ -40,6 +40,28 @@ function deserialize_hts_common_EventFeedback(buffer_arg) {
   return hts_common_common_pb.EventFeedback.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_hts_common_Facility(arg) {
+  if (!(arg instanceof hts_common_common_pb.Facility)) {
+    throw new Error('Expected argument of type hts.common.Facility');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_hts_common_Facility(buffer_arg) {
+  return hts_common_common_pb.Facility.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_hts_common_Organization(arg) {
+  if (!(arg instanceof hts_common_common_pb.Organization)) {
+    throw new Error('Expected argument of type hts.common.Organization');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_hts_common_Organization(buffer_arg) {
+  return hts_common_common_pb.Organization.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_hts_common_Result(arg) {
   if (!(arg instanceof hts_common_common_pb.Result)) {
     throw new Error('Expected argument of type hts.common.Result');
@@ -49,6 +71,17 @@ function serialize_hts_common_Result(arg) {
 
 function deserialize_hts_common_Result(buffer_arg) {
   return hts_common_common_pb.Result.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_hts_common_Tag(arg) {
+  if (!(arg instanceof hts_common_common_pb.Tag)) {
+    throw new Error('Expected argument of type hts.common.Tag');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_hts_common_Tag(buffer_arg) {
+  return hts_common_common_pb.Tag.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_hts_common_UserEvent(arg) {
@@ -273,8 +306,8 @@ var ParticipantServiceService = exports.ParticipantServiceService = {
     responseSerialize: serialize_hts_participant_EventsResponse,
     responseDeserialize: deserialize_hts_participant_EventsResponse,
   },
-  getEventsByNameString: {
-    path: '/hts.participant.ParticipantService/GetEventsByNameString',
+  getEventsByStringOfName: {
+    path: '/hts.participant.ParticipantService/GetEventsByStringOfName',
     requestStream: false,
     responseStream: false,
     requestType: hts_participant_service_pb.StringInputRequest,
@@ -284,36 +317,36 @@ var ParticipantServiceService = exports.ParticipantServiceService = {
     responseSerialize: serialize_hts_participant_EventsResponse,
     responseDeserialize: deserialize_hts_participant_EventsResponse,
   },
-  getEventsByTagString: {
-    path: '/hts.participant.ParticipantService/GetEventsByTagString',
+  getEventsByTag: {
+    path: '/hts.participant.ParticipantService/GetEventsByTag',
     requestStream: false,
     responseStream: false,
-    requestType: hts_participant_service_pb.StringInputRequest,
+    requestType: hts_common_common_pb.Tag,
     responseType: hts_participant_service_pb.EventsResponse,
-    requestSerialize: serialize_hts_participant_StringInputRequest,
-    requestDeserialize: deserialize_hts_participant_StringInputRequest,
+    requestSerialize: serialize_hts_common_Tag,
+    requestDeserialize: deserialize_hts_common_Tag,
     responseSerialize: serialize_hts_participant_EventsResponse,
     responseDeserialize: deserialize_hts_participant_EventsResponse,
   },
-  getEventsByFacilityString: {
-    path: '/hts.participant.ParticipantService/GetEventsByFacilityString',
+  getEventsByOrganization: {
+    path: '/hts.participant.ParticipantService/GetEventsByOrganization',
     requestStream: false,
     responseStream: false,
-    requestType: hts_participant_service_pb.StringInputRequest,
+    requestType: hts_common_common_pb.Organization,
     responseType: hts_participant_service_pb.EventsResponse,
-    requestSerialize: serialize_hts_participant_StringInputRequest,
-    requestDeserialize: deserialize_hts_participant_StringInputRequest,
+    requestSerialize: serialize_hts_common_Organization,
+    requestDeserialize: deserialize_hts_common_Organization,
     responseSerialize: serialize_hts_participant_EventsResponse,
     responseDeserialize: deserialize_hts_participant_EventsResponse,
   },
-  getEventsByOrganizationString: {
-    path: '/hts.participant.ParticipantService/GetEventsByOrganizationString',
+  getEventsByFacility: {
+    path: '/hts.participant.ParticipantService/GetEventsByFacility',
     requestStream: false,
     responseStream: false,
-    requestType: hts_participant_service_pb.StringInputRequest,
+    requestType: hts_common_common_pb.Facility,
     responseType: hts_participant_service_pb.EventsResponse,
-    requestSerialize: serialize_hts_participant_StringInputRequest,
-    requestDeserialize: deserialize_hts_participant_StringInputRequest,
+    requestSerialize: serialize_hts_common_Facility,
+    requestDeserialize: deserialize_hts_common_Facility,
     responseSerialize: serialize_hts_participant_EventsResponse,
     responseDeserialize: deserialize_hts_participant_EventsResponse,
   },

@@ -71,24 +71,24 @@ class ParticipantServiceStub(object):
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
                 response_deserializer=hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
                 )
-        self.GetEventsByNameString = channel.unary_unary(
-                '/hts.participant.ParticipantService/GetEventsByNameString',
+        self.GetEventsByStringOfName = channel.unary_unary(
+                '/hts.participant.ParticipantService/GetEventsByStringOfName',
                 request_serializer=hts_dot_participant_dot_service__pb2.StringInputRequest.SerializeToString,
                 response_deserializer=hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
                 )
-        self.GetEventsByTagString = channel.unary_unary(
-                '/hts.participant.ParticipantService/GetEventsByTagString',
-                request_serializer=hts_dot_participant_dot_service__pb2.StringInputRequest.SerializeToString,
+        self.GetEventsByTag = channel.unary_unary(
+                '/hts.participant.ParticipantService/GetEventsByTag',
+                request_serializer=hts_dot_common_dot_common__pb2.Tag.SerializeToString,
                 response_deserializer=hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
                 )
-        self.GetEventsByFacilityString = channel.unary_unary(
-                '/hts.participant.ParticipantService/GetEventsByFacilityString',
-                request_serializer=hts_dot_participant_dot_service__pb2.StringInputRequest.SerializeToString,
+        self.GetEventsByOrganization = channel.unary_unary(
+                '/hts.participant.ParticipantService/GetEventsByOrganization',
+                request_serializer=hts_dot_common_dot_common__pb2.Organization.SerializeToString,
                 response_deserializer=hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
                 )
-        self.GetEventsByOrganizationString = channel.unary_unary(
-                '/hts.participant.ParticipantService/GetEventsByOrganizationString',
-                request_serializer=hts_dot_participant_dot_service__pb2.StringInputRequest.SerializeToString,
+        self.GetEventsByFacility = channel.unary_unary(
+                '/hts.participant.ParticipantService/GetEventsByFacility',
+                request_serializer=hts_dot_common_dot_common__pb2.Facility.SerializeToString,
                 response_deserializer=hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
                 )
         self.GetEventsByDate = channel.unary_unary(
@@ -177,25 +177,25 @@ class ParticipantServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetEventsByNameString(self, request, context):
+    def GetEventsByStringOfName(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetEventsByTagString(self, request, context):
+    def GetEventsByTag(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetEventsByFacilityString(self, request, context):
+    def GetEventsByOrganization(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetEventsByOrganizationString(self, request, context):
+    def GetEventsByFacility(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -277,24 +277,24 @@ def add_ParticipantServiceServicer_to_server(servicer, server):
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                     response_serializer=hts_dot_participant_dot_service__pb2.EventsResponse.SerializeToString,
             ),
-            'GetEventsByNameString': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetEventsByNameString,
+            'GetEventsByStringOfName': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetEventsByStringOfName,
                     request_deserializer=hts_dot_participant_dot_service__pb2.StringInputRequest.FromString,
                     response_serializer=hts_dot_participant_dot_service__pb2.EventsResponse.SerializeToString,
             ),
-            'GetEventsByTagString': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetEventsByTagString,
-                    request_deserializer=hts_dot_participant_dot_service__pb2.StringInputRequest.FromString,
+            'GetEventsByTag': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetEventsByTag,
+                    request_deserializer=hts_dot_common_dot_common__pb2.Tag.FromString,
                     response_serializer=hts_dot_participant_dot_service__pb2.EventsResponse.SerializeToString,
             ),
-            'GetEventsByFacilityString': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetEventsByFacilityString,
-                    request_deserializer=hts_dot_participant_dot_service__pb2.StringInputRequest.FromString,
+            'GetEventsByOrganization': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetEventsByOrganization,
+                    request_deserializer=hts_dot_common_dot_common__pb2.Organization.FromString,
                     response_serializer=hts_dot_participant_dot_service__pb2.EventsResponse.SerializeToString,
             ),
-            'GetEventsByOrganizationString': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetEventsByOrganizationString,
-                    request_deserializer=hts_dot_participant_dot_service__pb2.StringInputRequest.FromString,
+            'GetEventsByFacility': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetEventsByFacility,
+                    request_deserializer=hts_dot_common_dot_common__pb2.Facility.FromString,
                     response_serializer=hts_dot_participant_dot_service__pb2.EventsResponse.SerializeToString,
             ),
             'GetEventsByDate': grpc.unary_unary_rpc_method_handler(
@@ -510,7 +510,7 @@ class ParticipantService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetEventsByNameString(request,
+    def GetEventsByStringOfName(request,
             target,
             options=(),
             channel_credentials=None,
@@ -520,14 +520,14 @@ class ParticipantService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetEventsByNameString',
+        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetEventsByStringOfName',
             hts_dot_participant_dot_service__pb2.StringInputRequest.SerializeToString,
             hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetEventsByTagString(request,
+    def GetEventsByTag(request,
             target,
             options=(),
             channel_credentials=None,
@@ -537,14 +537,14 @@ class ParticipantService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetEventsByTagString',
-            hts_dot_participant_dot_service__pb2.StringInputRequest.SerializeToString,
+        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetEventsByTag',
+            hts_dot_common_dot_common__pb2.Tag.SerializeToString,
             hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetEventsByFacilityString(request,
+    def GetEventsByOrganization(request,
             target,
             options=(),
             channel_credentials=None,
@@ -554,14 +554,14 @@ class ParticipantService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetEventsByFacilityString',
-            hts_dot_participant_dot_service__pb2.StringInputRequest.SerializeToString,
+        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetEventsByOrganization',
+            hts_dot_common_dot_common__pb2.Organization.SerializeToString,
             hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetEventsByOrganizationString(request,
+    def GetEventsByFacility(request,
             target,
             options=(),
             channel_credentials=None,
@@ -571,8 +571,8 @@ class ParticipantService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetEventsByOrganizationString',
-            hts_dot_participant_dot_service__pb2.StringInputRequest.SerializeToString,
+        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetEventsByFacility',
+            hts_dot_common_dot_common__pb2.Facility.SerializeToString,
             hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
