@@ -79,7 +79,7 @@ service ParticipantService {
     // Get events from search string
     rpc GetEventsByStringOfName(StringInputRequest) returns (EventsResponse);
     // Get events from specified Tag
-    rpc GetEventsByTag(hts.common.proto.Tag) returns (EventsResponse);
+    rpc GetEventsByTag(hts.common.Tag) returns (EventsResponse);
     // Get event from specified organization
     rpc GetEventsByOrganization(hts.common.Organization) returns (EventsResponse);
     // Get event from specified facility
