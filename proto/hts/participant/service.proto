@@ -52,28 +52,44 @@ message IsEventAvailableRequest {
 }
 
 service ParticipantService {
+    // Check whether event's start date is before specified date
     rpc IsEventAvailable(IsEventAvailableRequest) returns (hts.common.Result);
 
+    // Let user join / cancel events
     rpc JoinEvent(UserWithEventRequest) returns (hts.common.Event);
     rpc CancelEvent(UserWithEventRequest) returns (hts.common.Event);
 
+    // Let user create / check / remove feedback
     rpc CreateFeedback(CreateFeedbackRequest) returns (hts.common.EventFeedback);
     rpc HasSubmitFeedback(UserWithEventRequest) returns (hts.common.EventFeedback);
     rpc RemoveFeedback(hts.common.EventFeedback) returns (hts.common.EventFeedback);
 
+    // Return feedback from specific event
     rpc GetFeedbacksFromEvent(hts.common.Event) returns (GetFeedbacksFromEventResponse);
+    // Return feedback of user from specific event
     rpc GetUserFeedbackFromEvent(UserWithEventRequest) returns (hts.common.EventFeedback);
 
+    // Return event object from event_id
     rpc GetEvent(GetEventRequest) returns (hts.common.Event);
+    // Return all event in database
     rpc GetAllEvents(google.protobuf.Empty) returns (EventsResponse);
+    // Return 10 random events --> waiting for machine learning implementation
     rpc GetSuggestedEvents(google.protobuf.Empty) returns (EventsResponse);
 
-    rpc GetEventsByNameString(StringInputRequest) returns (EventsResponse);
-    rpc GetEventsByTagString(StringInputRequest) returns (EventsResponse);
-    rpc GetEventsByFacilityString(StringInputRequest) returns (EventsResponse);
-    rpc GetEventsByOrganizationString(StringInputRequest) returns (EventsResponse);
+    // Get events from search string
+    rpc GetEventsByStringOfName(StringInputRequest) returns (EventsResponse);
+    // Get events from specified Tag
+    rpc GetEventsByTag(hts.common.Tag) returns (EventsResponse);
+    // Get event from specified organization
+    rpc GetEventsByOrganization(hts.common.Organization) returns (EventsResponse);
+    // Get event from specified facility
+    rpc GetEventsByFacility(hts.common.Facility) returns (EventsResponse);
+    // Get event from specified date
     rpc GetEventsByDate(StringInputRequest) returns (EventsResponse);
 
+    // Generate QR from combination of ID, User_ID, Event_ID
     rpc GenerateQR(hts.common.UserEvent) returns (GenerateQRResponse);
+
+    // Ping methods to check signal
     rpc Ping(google.protobuf.Empty) returns (hts.common.Result);
 }
