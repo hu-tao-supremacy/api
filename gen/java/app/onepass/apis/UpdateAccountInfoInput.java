@@ -4,26 +4,25 @@
 package app.onepass.apis;
 
 /**
- * Protobuf type {@code hts.account.IsAuthenticatedRequest}
+ * Protobuf type {@code hts.account.UpdateAccountInfoInput}
  */
-public final class IsAuthenticatedRequest extends
+public final class UpdateAccountInfoInput extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:hts.account.IsAuthenticatedRequest)
-    IsAuthenticatedRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:hts.account.UpdateAccountInfoInput)
+    UpdateAccountInfoInputOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use IsAuthenticatedRequest.newBuilder() to construct.
-  private IsAuthenticatedRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use UpdateAccountInfoInput.newBuilder() to construct.
+  private UpdateAccountInfoInput(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private IsAuthenticatedRequest() {
-    accessToken_ = "";
+  private UpdateAccountInfoInput() {
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new IsAuthenticatedRequest();
+    return new UpdateAccountInfoInput();
   }
 
   @java.lang.Override
@@ -31,7 +30,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private IsAuthenticatedRequest(
+  private UpdateAccountInfoInput(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -50,9 +49,16 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+            app.onepass.apis.User.Builder subBuilder = null;
+            if (user_ != null) {
+              subBuilder = user_.toBuilder();
+            }
+            user_ = input.readMessage(app.onepass.apis.User.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(user_);
+              user_ = subBuilder.buildPartial();
+            }
 
-            accessToken_ = s;
             break;
           }
           default: {
@@ -76,53 +82,41 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return app.onepass.apis.AccountProto.internal_static_hts_account_IsAuthenticatedRequest_descriptor;
+    return app.onepass.apis.AccountProto.internal_static_hts_account_UpdateAccountInfoInput_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return app.onepass.apis.AccountProto.internal_static_hts_account_IsAuthenticatedRequest_fieldAccessorTable
+    return app.onepass.apis.AccountProto.internal_static_hts_account_UpdateAccountInfoInput_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            app.onepass.apis.IsAuthenticatedRequest.class, app.onepass.apis.IsAuthenticatedRequest.Builder.class);
+            app.onepass.apis.UpdateAccountInfoInput.class, app.onepass.apis.UpdateAccountInfoInput.Builder.class);
   }
 
-  public static final int ACCESS_TOKEN_FIELD_NUMBER = 1;
-  private volatile java.lang.Object accessToken_;
+  public static final int USER_FIELD_NUMBER = 1;
+  private app.onepass.apis.User user_;
   /**
-   * <code>string access_token = 1 [json_name = "accessToken"];</code>
-   * @return The accessToken.
+   * <code>.hts.common.User user = 1 [json_name = "user"];</code>
+   * @return Whether the user field is set.
    */
   @java.lang.Override
-  public java.lang.String getAccessToken() {
-    java.lang.Object ref = accessToken_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      accessToken_ = s;
-      return s;
-    }
+  public boolean hasUser() {
+    return user_ != null;
   }
   /**
-   * <code>string access_token = 1 [json_name = "accessToken"];</code>
-   * @return The bytes for accessToken.
+   * <code>.hts.common.User user = 1 [json_name = "user"];</code>
+   * @return The user.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getAccessTokenBytes() {
-    java.lang.Object ref = accessToken_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      accessToken_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public app.onepass.apis.User getUser() {
+    return user_ == null ? app.onepass.apis.User.getDefaultInstance() : user_;
+  }
+  /**
+   * <code>.hts.common.User user = 1 [json_name = "user"];</code>
+   */
+  @java.lang.Override
+  public app.onepass.apis.UserOrBuilder getUserOrBuilder() {
+    return getUser();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -139,8 +133,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getAccessTokenBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, accessToken_);
+    if (user_ != null) {
+      output.writeMessage(1, getUser());
     }
     unknownFields.writeTo(output);
   }
@@ -151,8 +145,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getAccessTokenBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, accessToken_);
+    if (user_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(1, getUser());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -164,13 +159,16 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof app.onepass.apis.IsAuthenticatedRequest)) {
+    if (!(obj instanceof app.onepass.apis.UpdateAccountInfoInput)) {
       return super.equals(obj);
     }
-    app.onepass.apis.IsAuthenticatedRequest other = (app.onepass.apis.IsAuthenticatedRequest) obj;
+    app.onepass.apis.UpdateAccountInfoInput other = (app.onepass.apis.UpdateAccountInfoInput) obj;
 
-    if (!getAccessToken()
-        .equals(other.getAccessToken())) return false;
+    if (hasUser() != other.hasUser()) return false;
+    if (hasUser()) {
+      if (!getUser()
+          .equals(other.getUser())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -182,76 +180,78 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ACCESS_TOKEN_FIELD_NUMBER;
-    hash = (53 * hash) + getAccessToken().hashCode();
+    if (hasUser()) {
+      hash = (37 * hash) + USER_FIELD_NUMBER;
+      hash = (53 * hash) + getUser().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static app.onepass.apis.IsAuthenticatedRequest parseFrom(
+  public static app.onepass.apis.UpdateAccountInfoInput parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.IsAuthenticatedRequest parseFrom(
+  public static app.onepass.apis.UpdateAccountInfoInput parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.IsAuthenticatedRequest parseFrom(
+  public static app.onepass.apis.UpdateAccountInfoInput parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.IsAuthenticatedRequest parseFrom(
+  public static app.onepass.apis.UpdateAccountInfoInput parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.IsAuthenticatedRequest parseFrom(byte[] data)
+  public static app.onepass.apis.UpdateAccountInfoInput parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.IsAuthenticatedRequest parseFrom(
+  public static app.onepass.apis.UpdateAccountInfoInput parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.IsAuthenticatedRequest parseFrom(java.io.InputStream input)
+  public static app.onepass.apis.UpdateAccountInfoInput parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.IsAuthenticatedRequest parseFrom(
+  public static app.onepass.apis.UpdateAccountInfoInput parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.IsAuthenticatedRequest parseDelimitedFrom(java.io.InputStream input)
+  public static app.onepass.apis.UpdateAccountInfoInput parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.IsAuthenticatedRequest parseDelimitedFrom(
+  public static app.onepass.apis.UpdateAccountInfoInput parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.IsAuthenticatedRequest parseFrom(
+  public static app.onepass.apis.UpdateAccountInfoInput parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.IsAuthenticatedRequest parseFrom(
+  public static app.onepass.apis.UpdateAccountInfoInput parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -264,7 +264,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(app.onepass.apis.IsAuthenticatedRequest prototype) {
+  public static Builder newBuilder(app.onepass.apis.UpdateAccountInfoInput prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -280,26 +280,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code hts.account.IsAuthenticatedRequest}
+   * Protobuf type {@code hts.account.UpdateAccountInfoInput}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:hts.account.IsAuthenticatedRequest)
-      app.onepass.apis.IsAuthenticatedRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:hts.account.UpdateAccountInfoInput)
+      app.onepass.apis.UpdateAccountInfoInputOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return app.onepass.apis.AccountProto.internal_static_hts_account_IsAuthenticatedRequest_descriptor;
+      return app.onepass.apis.AccountProto.internal_static_hts_account_UpdateAccountInfoInput_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return app.onepass.apis.AccountProto.internal_static_hts_account_IsAuthenticatedRequest_fieldAccessorTable
+      return app.onepass.apis.AccountProto.internal_static_hts_account_UpdateAccountInfoInput_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              app.onepass.apis.IsAuthenticatedRequest.class, app.onepass.apis.IsAuthenticatedRequest.Builder.class);
+              app.onepass.apis.UpdateAccountInfoInput.class, app.onepass.apis.UpdateAccountInfoInput.Builder.class);
     }
 
-    // Construct using app.onepass.apis.IsAuthenticatedRequest.newBuilder()
+    // Construct using app.onepass.apis.UpdateAccountInfoInput.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -317,25 +317,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      accessToken_ = "";
-
+      if (userBuilder_ == null) {
+        user_ = null;
+      } else {
+        user_ = null;
+        userBuilder_ = null;
+      }
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return app.onepass.apis.AccountProto.internal_static_hts_account_IsAuthenticatedRequest_descriptor;
+      return app.onepass.apis.AccountProto.internal_static_hts_account_UpdateAccountInfoInput_descriptor;
     }
 
     @java.lang.Override
-    public app.onepass.apis.IsAuthenticatedRequest getDefaultInstanceForType() {
-      return app.onepass.apis.IsAuthenticatedRequest.getDefaultInstance();
+    public app.onepass.apis.UpdateAccountInfoInput getDefaultInstanceForType() {
+      return app.onepass.apis.UpdateAccountInfoInput.getDefaultInstance();
     }
 
     @java.lang.Override
-    public app.onepass.apis.IsAuthenticatedRequest build() {
-      app.onepass.apis.IsAuthenticatedRequest result = buildPartial();
+    public app.onepass.apis.UpdateAccountInfoInput build() {
+      app.onepass.apis.UpdateAccountInfoInput result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -343,9 +347,13 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public app.onepass.apis.IsAuthenticatedRequest buildPartial() {
-      app.onepass.apis.IsAuthenticatedRequest result = new app.onepass.apis.IsAuthenticatedRequest(this);
-      result.accessToken_ = accessToken_;
+    public app.onepass.apis.UpdateAccountInfoInput buildPartial() {
+      app.onepass.apis.UpdateAccountInfoInput result = new app.onepass.apis.UpdateAccountInfoInput(this);
+      if (userBuilder_ == null) {
+        result.user_ = user_;
+      } else {
+        result.user_ = userBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -384,19 +392,18 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof app.onepass.apis.IsAuthenticatedRequest) {
-        return mergeFrom((app.onepass.apis.IsAuthenticatedRequest)other);
+      if (other instanceof app.onepass.apis.UpdateAccountInfoInput) {
+        return mergeFrom((app.onepass.apis.UpdateAccountInfoInput)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(app.onepass.apis.IsAuthenticatedRequest other) {
-      if (other == app.onepass.apis.IsAuthenticatedRequest.getDefaultInstance()) return this;
-      if (!other.getAccessToken().isEmpty()) {
-        accessToken_ = other.accessToken_;
-        onChanged();
+    public Builder mergeFrom(app.onepass.apis.UpdateAccountInfoInput other) {
+      if (other == app.onepass.apis.UpdateAccountInfoInput.getDefaultInstance()) return this;
+      if (other.hasUser()) {
+        mergeUser(other.getUser());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -413,11 +420,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      app.onepass.apis.IsAuthenticatedRequest parsedMessage = null;
+      app.onepass.apis.UpdateAccountInfoInput parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (app.onepass.apis.IsAuthenticatedRequest) e.getUnfinishedMessage();
+        parsedMessage = (app.onepass.apis.UpdateAccountInfoInput) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -427,80 +434,123 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object accessToken_ = "";
+    private app.onepass.apis.User user_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        app.onepass.apis.User, app.onepass.apis.User.Builder, app.onepass.apis.UserOrBuilder> userBuilder_;
     /**
-     * <code>string access_token = 1 [json_name = "accessToken"];</code>
-     * @return The accessToken.
+     * <code>.hts.common.User user = 1 [json_name = "user"];</code>
+     * @return Whether the user field is set.
      */
-    public java.lang.String getAccessToken() {
-      java.lang.Object ref = accessToken_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        accessToken_ = s;
-        return s;
+    public boolean hasUser() {
+      return userBuilder_ != null || user_ != null;
+    }
+    /**
+     * <code>.hts.common.User user = 1 [json_name = "user"];</code>
+     * @return The user.
+     */
+    public app.onepass.apis.User getUser() {
+      if (userBuilder_ == null) {
+        return user_ == null ? app.onepass.apis.User.getDefaultInstance() : user_;
       } else {
-        return (java.lang.String) ref;
+        return userBuilder_.getMessage();
       }
     }
     /**
-     * <code>string access_token = 1 [json_name = "accessToken"];</code>
-     * @return The bytes for accessToken.
+     * <code>.hts.common.User user = 1 [json_name = "user"];</code>
      */
-    public com.google.protobuf.ByteString
-        getAccessTokenBytes() {
-      java.lang.Object ref = accessToken_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        accessToken_ = b;
-        return b;
+    public Builder setUser(app.onepass.apis.User value) {
+      if (userBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        user_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        userBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.hts.common.User user = 1 [json_name = "user"];</code>
+     */
+    public Builder setUser(
+        app.onepass.apis.User.Builder builderForValue) {
+      if (userBuilder_ == null) {
+        user_ = builderForValue.build();
+        onChanged();
+      } else {
+        userBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.hts.common.User user = 1 [json_name = "user"];</code>
+     */
+    public Builder mergeUser(app.onepass.apis.User value) {
+      if (userBuilder_ == null) {
+        if (user_ != null) {
+          user_ =
+            app.onepass.apis.User.newBuilder(user_).mergeFrom(value).buildPartial();
+        } else {
+          user_ = value;
+        }
+        onChanged();
+      } else {
+        userBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.hts.common.User user = 1 [json_name = "user"];</code>
+     */
+    public Builder clearUser() {
+      if (userBuilder_ == null) {
+        user_ = null;
+        onChanged();
+      } else {
+        user_ = null;
+        userBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.hts.common.User user = 1 [json_name = "user"];</code>
+     */
+    public app.onepass.apis.User.Builder getUserBuilder() {
+      
+      onChanged();
+      return getUserFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.hts.common.User user = 1 [json_name = "user"];</code>
+     */
+    public app.onepass.apis.UserOrBuilder getUserOrBuilder() {
+      if (userBuilder_ != null) {
+        return userBuilder_.getMessageOrBuilder();
+      } else {
+        return user_ == null ?
+            app.onepass.apis.User.getDefaultInstance() : user_;
       }
     }
     /**
-     * <code>string access_token = 1 [json_name = "accessToken"];</code>
-     * @param value The accessToken to set.
-     * @return This builder for chaining.
+     * <code>.hts.common.User user = 1 [json_name = "user"];</code>
      */
-    public Builder setAccessToken(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      accessToken_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string access_token = 1 [json_name = "accessToken"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearAccessToken() {
-      
-      accessToken_ = getDefaultInstance().getAccessToken();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string access_token = 1 [json_name = "accessToken"];</code>
-     * @param value The bytes for accessToken to set.
-     * @return This builder for chaining.
-     */
-    public Builder setAccessTokenBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      accessToken_ = value;
-      onChanged();
-      return this;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        app.onepass.apis.User, app.onepass.apis.User.Builder, app.onepass.apis.UserOrBuilder> 
+        getUserFieldBuilder() {
+      if (userBuilder_ == null) {
+        userBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            app.onepass.apis.User, app.onepass.apis.User.Builder, app.onepass.apis.UserOrBuilder>(
+                getUser(),
+                getParentForChildren(),
+                isClean());
+        user_ = null;
+      }
+      return userBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -515,41 +565,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:hts.account.IsAuthenticatedRequest)
+    // @@protoc_insertion_point(builder_scope:hts.account.UpdateAccountInfoInput)
   }
 
-  // @@protoc_insertion_point(class_scope:hts.account.IsAuthenticatedRequest)
-  private static final app.onepass.apis.IsAuthenticatedRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:hts.account.UpdateAccountInfoInput)
+  private static final app.onepass.apis.UpdateAccountInfoInput DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new app.onepass.apis.IsAuthenticatedRequest();
+    DEFAULT_INSTANCE = new app.onepass.apis.UpdateAccountInfoInput();
   }
 
-  public static app.onepass.apis.IsAuthenticatedRequest getDefaultInstance() {
+  public static app.onepass.apis.UpdateAccountInfoInput getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<IsAuthenticatedRequest>
-      PARSER = new com.google.protobuf.AbstractParser<IsAuthenticatedRequest>() {
+  private static final com.google.protobuf.Parser<UpdateAccountInfoInput>
+      PARSER = new com.google.protobuf.AbstractParser<UpdateAccountInfoInput>() {
     @java.lang.Override
-    public IsAuthenticatedRequest parsePartialFrom(
+    public UpdateAccountInfoInput parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new IsAuthenticatedRequest(input, extensionRegistry);
+      return new UpdateAccountInfoInput(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<IsAuthenticatedRequest> parser() {
+  public static com.google.protobuf.Parser<UpdateAccountInfoInput> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<IsAuthenticatedRequest> getParserForType() {
+  public com.google.protobuf.Parser<UpdateAccountInfoInput> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public app.onepass.apis.IsAuthenticatedRequest getDefaultInstanceForType() {
+  public app.onepass.apis.UpdateAccountInfoInput getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

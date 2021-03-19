@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface HasPermissionRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.account.HasPermissionRequest)
+public interface HasPermissionInputOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.account.HasPermissionInput)
     com.google.protobuf.MessageOrBuilder {
 
   /**

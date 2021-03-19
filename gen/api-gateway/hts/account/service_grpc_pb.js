@@ -17,70 +17,70 @@ function deserialize_google_protobuf_Empty(buffer_arg) {
   return google_protobuf_empty_pb.Empty.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_hts_account_GenerateJWTRequest(arg) {
-  if (!(arg instanceof hts_account_service_pb.GenerateJWTRequest)) {
-    throw new Error('Expected argument of type hts.account.GenerateJWTRequest');
+function serialize_hts_account_GenerateJWTInput(arg) {
+  if (!(arg instanceof hts_account_service_pb.GenerateJWTInput)) {
+    throw new Error('Expected argument of type hts.account.GenerateJWTInput');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_hts_account_GenerateJWTRequest(buffer_arg) {
-  return hts_account_service_pb.GenerateJWTRequest.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_hts_account_GenerateJWTInput(buffer_arg) {
+  return hts_account_service_pb.GenerateJWTInput.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_hts_account_HasPermissionRequest(arg) {
-  if (!(arg instanceof hts_account_service_pb.HasPermissionRequest)) {
-    throw new Error('Expected argument of type hts.account.HasPermissionRequest');
+function serialize_hts_account_HasPermissionInput(arg) {
+  if (!(arg instanceof hts_account_service_pb.HasPermissionInput)) {
+    throw new Error('Expected argument of type hts.account.HasPermissionInput');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_hts_account_HasPermissionRequest(buffer_arg) {
-  return hts_account_service_pb.HasPermissionRequest.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_hts_account_HasPermissionInput(buffer_arg) {
+  return hts_account_service_pb.HasPermissionInput.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_hts_account_InvalidateJWTRequest(arg) {
-  if (!(arg instanceof hts_account_service_pb.InvalidateJWTRequest)) {
-    throw new Error('Expected argument of type hts.account.InvalidateJWTRequest');
+function serialize_hts_account_InvalidateJWTInput(arg) {
+  if (!(arg instanceof hts_account_service_pb.InvalidateJWTInput)) {
+    throw new Error('Expected argument of type hts.account.InvalidateJWTInput');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_hts_account_InvalidateJWTRequest(buffer_arg) {
-  return hts_account_service_pb.InvalidateJWTRequest.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_hts_account_InvalidateJWTInput(buffer_arg) {
+  return hts_account_service_pb.InvalidateJWTInput.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_hts_account_IsAuthenticatedRequest(arg) {
-  if (!(arg instanceof hts_account_service_pb.IsAuthenticatedRequest)) {
-    throw new Error('Expected argument of type hts.account.IsAuthenticatedRequest');
+function serialize_hts_account_IsAuthenticatedInput(arg) {
+  if (!(arg instanceof hts_account_service_pb.IsAuthenticatedInput)) {
+    throw new Error('Expected argument of type hts.account.IsAuthenticatedInput');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_hts_account_IsAuthenticatedRequest(buffer_arg) {
-  return hts_account_service_pb.IsAuthenticatedRequest.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_hts_account_IsAuthenticatedInput(buffer_arg) {
+  return hts_account_service_pb.IsAuthenticatedInput.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_hts_account_UpdateAccountInfoRequest(arg) {
-  if (!(arg instanceof hts_account_service_pb.UpdateAccountInfoRequest)) {
-    throw new Error('Expected argument of type hts.account.UpdateAccountInfoRequest');
+function serialize_hts_account_UpdateAccountInfoInput(arg) {
+  if (!(arg instanceof hts_account_service_pb.UpdateAccountInfoInput)) {
+    throw new Error('Expected argument of type hts.account.UpdateAccountInfoInput');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_hts_account_UpdateAccountInfoRequest(buffer_arg) {
-  return hts_account_service_pb.UpdateAccountInfoRequest.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_hts_account_UpdateAccountInfoInput(buffer_arg) {
+  return hts_account_service_pb.UpdateAccountInfoInput.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_hts_account_UpdateAccountInfoResponse(arg) {
-  if (!(arg instanceof hts_account_service_pb.UpdateAccountInfoResponse)) {
-    throw new Error('Expected argument of type hts.account.UpdateAccountInfoResponse');
+function serialize_hts_account_UpdateAccountInfoOutput(arg) {
+  if (!(arg instanceof hts_account_service_pb.UpdateAccountInfoOutput)) {
+    throw new Error('Expected argument of type hts.account.UpdateAccountInfoOutput');
   }
   return Buffer.from(arg.serializeBinary());
 }
 
-function deserialize_hts_account_UpdateAccountInfoResponse(buffer_arg) {
-  return hts_account_service_pb.UpdateAccountInfoResponse.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_hts_account_UpdateAccountInfoOutput(buffer_arg) {
+  return hts_account_service_pb.UpdateAccountInfoOutput.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_hts_common_Result(arg) {
@@ -100,10 +100,10 @@ var AccountServiceService = exports.AccountServiceService = {
     path: '/hts.account.AccountService/IsAuthenticated',
     requestStream: false,
     responseStream: false,
-    requestType: hts_account_service_pb.IsAuthenticatedRequest,
+    requestType: hts_account_service_pb.IsAuthenticatedInput,
     responseType: hts_common_common_pb.Result,
-    requestSerialize: serialize_hts_account_IsAuthenticatedRequest,
-    requestDeserialize: deserialize_hts_account_IsAuthenticatedRequest,
+    requestSerialize: serialize_hts_account_IsAuthenticatedInput,
+    requestDeserialize: deserialize_hts_account_IsAuthenticatedInput,
     responseSerialize: serialize_hts_common_Result,
     responseDeserialize: deserialize_hts_common_Result,
   },
@@ -111,21 +111,21 @@ var AccountServiceService = exports.AccountServiceService = {
     path: '/hts.account.AccountService/UpdateAccountInfo',
     requestStream: false,
     responseStream: false,
-    requestType: hts_account_service_pb.UpdateAccountInfoRequest,
-    responseType: hts_account_service_pb.UpdateAccountInfoResponse,
-    requestSerialize: serialize_hts_account_UpdateAccountInfoRequest,
-    requestDeserialize: deserialize_hts_account_UpdateAccountInfoRequest,
-    responseSerialize: serialize_hts_account_UpdateAccountInfoResponse,
-    responseDeserialize: deserialize_hts_account_UpdateAccountInfoResponse,
+    requestType: hts_account_service_pb.UpdateAccountInfoInput,
+    responseType: hts_account_service_pb.UpdateAccountInfoOutput,
+    requestSerialize: serialize_hts_account_UpdateAccountInfoInput,
+    requestDeserialize: deserialize_hts_account_UpdateAccountInfoInput,
+    responseSerialize: serialize_hts_account_UpdateAccountInfoOutput,
+    responseDeserialize: deserialize_hts_account_UpdateAccountInfoOutput,
   },
   generateJWT: {
     path: '/hts.account.AccountService/GenerateJWT',
     requestStream: false,
     responseStream: false,
-    requestType: hts_account_service_pb.GenerateJWTRequest,
+    requestType: hts_account_service_pb.GenerateJWTInput,
     responseType: hts_common_common_pb.Result,
-    requestSerialize: serialize_hts_account_GenerateJWTRequest,
-    requestDeserialize: deserialize_hts_account_GenerateJWTRequest,
+    requestSerialize: serialize_hts_account_GenerateJWTInput,
+    requestDeserialize: deserialize_hts_account_GenerateJWTInput,
     responseSerialize: serialize_hts_common_Result,
     responseDeserialize: deserialize_hts_common_Result,
   },
@@ -133,10 +133,10 @@ var AccountServiceService = exports.AccountServiceService = {
     path: '/hts.account.AccountService/InvalidateJWT',
     requestStream: false,
     responseStream: false,
-    requestType: hts_account_service_pb.InvalidateJWTRequest,
+    requestType: hts_account_service_pb.InvalidateJWTInput,
     responseType: hts_common_common_pb.Result,
-    requestSerialize: serialize_hts_account_InvalidateJWTRequest,
-    requestDeserialize: deserialize_hts_account_InvalidateJWTRequest,
+    requestSerialize: serialize_hts_account_InvalidateJWTInput,
+    requestDeserialize: deserialize_hts_account_InvalidateJWTInput,
     responseSerialize: serialize_hts_common_Result,
     responseDeserialize: deserialize_hts_common_Result,
   },
@@ -144,10 +144,10 @@ var AccountServiceService = exports.AccountServiceService = {
     path: '/hts.account.AccountService/HasPermission',
     requestStream: false,
     responseStream: false,
-    requestType: hts_account_service_pb.HasPermissionRequest,
+    requestType: hts_account_service_pb.HasPermissionInput,
     responseType: hts_common_common_pb.Result,
-    requestSerialize: serialize_hts_account_HasPermissionRequest,
-    requestDeserialize: deserialize_hts_account_HasPermissionRequest,
+    requestSerialize: serialize_hts_account_HasPermissionInput,
+    requestDeserialize: deserialize_hts_account_HasPermissionInput,
     responseSerialize: serialize_hts_common_Result,
     responseDeserialize: deserialize_hts_common_Result,
   },

@@ -6,27 +6,27 @@ import { Empty } from "../../google/protobuf/empty";
 
 export const protobufPackage = "hts.account";
 
-export interface IsAuthenticatedRequest {
+export interface IsAuthenticatedInput {
   accessToken: string;
 }
 
-export interface UpdateAccountInfoRequest {
+export interface UpdateAccountInfoInput {
   user: User | undefined;
 }
 
-export interface UpdateAccountInfoResponse {
+export interface UpdateAccountInfoOutput {
   user: User | undefined;
 }
 
-export interface GenerateJWTRequest {
+export interface GenerateJWTInput {
   user: User | undefined;
 }
 
-export interface InvalidateJWTRequest {
+export interface InvalidateJWTInput {
   accessToken: string;
 }
 
-export interface HasPermissionRequest {
+export interface HasPermissionInput {
   userId: number;
   organizationId: number;
   permissionName: Permission;
@@ -35,43 +35,43 @@ export interface HasPermissionRequest {
 export const HTS_ACCOUNT_PACKAGE_NAME = "hts.account";
 
 export interface AccountServiceClient {
-  isAuthenticated(request: IsAuthenticatedRequest): Observable<Result>;
+  isAuthenticated(request: IsAuthenticatedInput): Observable<Result>;
 
   updateAccountInfo(
-    request: UpdateAccountInfoRequest
-  ): Observable<UpdateAccountInfoResponse>;
+    request: UpdateAccountInfoInput
+  ): Observable<UpdateAccountInfoOutput>;
 
-  generateJWT(request: GenerateJWTRequest): Observable<Result>;
+  generateJWT(request: GenerateJWTInput): Observable<Result>;
 
-  invalidateJWT(request: InvalidateJWTRequest): Observable<Result>;
+  invalidateJWT(request: InvalidateJWTInput): Observable<Result>;
 
-  hasPermission(request: HasPermissionRequest): Observable<Result>;
+  hasPermission(request: HasPermissionInput): Observable<Result>;
 
   ping(request: Empty): Observable<Result>;
 }
 
 export interface AccountServiceController {
   isAuthenticated(
-    request: IsAuthenticatedRequest
+    request: IsAuthenticatedInput
   ): Promise<Result> | Observable<Result> | Result;
 
   updateAccountInfo(
-    request: UpdateAccountInfoRequest
+    request: UpdateAccountInfoInput
   ):
-    | Promise<UpdateAccountInfoResponse>
-    | Observable<UpdateAccountInfoResponse>
-    | UpdateAccountInfoResponse;
+    | Promise<UpdateAccountInfoOutput>
+    | Observable<UpdateAccountInfoOutput>
+    | UpdateAccountInfoOutput;
 
   generateJWT(
-    request: GenerateJWTRequest
+    request: GenerateJWTInput
   ): Promise<Result> | Observable<Result> | Result;
 
   invalidateJWT(
-    request: InvalidateJWTRequest
+    request: InvalidateJWTInput
   ): Promise<Result> | Observable<Result> | Result;
 
   hasPermission(
-    request: HasPermissionRequest
+    request: HasPermissionInput
   ): Promise<Result> | Observable<Result> | Result;
 
   ping(request: Empty): Promise<Result> | Observable<Result> | Result;

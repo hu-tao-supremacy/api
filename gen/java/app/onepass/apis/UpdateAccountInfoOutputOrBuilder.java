@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface UpdateAccountInfoRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.account.UpdateAccountInfoRequest)
+public interface UpdateAccountInfoOutputOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.account.UpdateAccountInfoOutput)
     com.google.protobuf.MessageOrBuilder {
 
   /**
