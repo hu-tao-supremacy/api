@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\020app.onepass.apisB\014AccountProtoP\001Z onepass.app/facility/hts/account',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x19hts/account/service.proto\x12\x0bhts.account\x1a\x17hts/common/common.proto\x1a\x1bgoogle/protobuf/empty.proto\"9\n\x14IsAuthenticatedInput\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x01 \x01(\tR\x0b\x61\x63\x63\x65ssToken\">\n\x16UpdateAccountInfoInput\x12$\n\x04user\x18\x01 \x01(\x0b\x32\x10.hts.common.UserR\x04user\"?\n\x17UpdateAccountInfoOutput\x12$\n\x04user\x18\x01 \x01(\x0b\x32\x10.hts.common.UserR\x04user\"8\n\x10GenerateJWTInput\x12$\n\x04user\x18\x01 \x01(\x0b\x32\x10.hts.common.UserR\x04user\"7\n\x12InvalidateJWTInput\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x01 \x01(\tR\x0b\x61\x63\x63\x65ssToken\"\x97\x01\n\x12HasPermissionInput\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12?\n\x0fpermission_name\x18\x03 \x01(\x0e\x32\x16.hts.common.PermissionR\x0epermissionName2\xbc\x03\n\x0e\x41\x63\x63ountService\x12H\n\x0fIsAuthenticated\x12!.hts.account.IsAuthenticatedInput\x1a\x12.hts.common.Result\x12^\n\x11UpdateAccountInfo\x12#.hts.account.UpdateAccountInfoInput\x1a$.hts.account.UpdateAccountInfoOutput\x12@\n\x0bGenerateJWT\x12\x1d.hts.account.GenerateJWTInput\x1a\x12.hts.common.Result\x12\x44\n\rInvalidateJWT\x12\x1f.hts.account.InvalidateJWTInput\x1a\x12.hts.common.Result\x12\x44\n\rHasPermission\x12\x1f.hts.account.HasPermissionInput\x1a\x12.hts.common.Result\x12\x32\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x12.hts.common.ResultBD\n\x10\x61pp.onepass.apisB\x0c\x41\x63\x63ountProtoP\x01Z onepass.app/facility/hts/accountb\x06proto3'
+  serialized_pb=b'\n\x19hts/account/service.proto\x12\x0bhts.account\x1a\x17hts/common/common.proto\x1a\x1bgoogle/protobuf/empty.proto\"9\n\x14IsAuthenticatedInput\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x01 \x01(\tR\x0b\x61\x63\x63\x65ssToken\">\n\x16UpdateAccountInfoInput\x12$\n\x04user\x18\x01 \x01(\x0b\x32\x10.hts.common.UserR\x04user\"?\n\x17UpdateAccountInfoOutput\x12$\n\x04user\x18\x01 \x01(\x0b\x32\x10.hts.common.UserR\x04user\"8\n\x10GenerateJWTInput\x12$\n\x04user\x18\x01 \x01(\x0b\x32\x10.hts.common.UserR\x04user\"7\n\x12InvalidateJWTInput\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x01 \x01(\tR\x0b\x61\x63\x63\x65ssToken\"\x97\x01\n\x12HasPermissionInput\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12?\n\x0fpermission_name\x18\x03 \x01(\x0e\x32\x16.hts.common.PermissionR\x0epermissionName2\x8b\x04\n\x0e\x41\x63\x63ountService\x12H\n\x0fIsAuthenticated\x12!.hts.account.IsAuthenticatedInput\x1a\x12.hts.common.Result\x12^\n\x11UpdateAccountInfo\x12#.hts.account.UpdateAccountInfoInput\x1a$.hts.account.UpdateAccountInfoOutput\x12@\n\x0bGenerateJWT\x12\x1d.hts.account.GenerateJWTInput\x1a\x12.hts.common.Result\x12\x44\n\rInvalidateJWT\x12\x1f.hts.account.InvalidateJWTInput\x1a\x12.hts.common.Result\x12\x44\n\rHasPermission\x12\x1f.hts.account.HasPermissionInput\x1a\x12.hts.common.Result\x12M\n\x12ValidatePermission\x12\x1f.hts.account.HasPermissionInput\x1a\x16.google.protobuf.Empty\x12\x32\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x12.hts.common.ResultBD\n\x10\x61pp.onepass.apisB\x0c\x41\x63\x63ountProtoP\x01Z onepass.app/facility/hts/accountb\x06proto3'
   ,
   dependencies=[hts_dot_common_dot_common__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,])
 
@@ -298,7 +298,7 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
   serialized_start=554,
-  serialized_end=998,
+  serialized_end=1077,
   methods=[
   _descriptor.MethodDescriptor(
     name='IsAuthenticated',
@@ -351,9 +351,19 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='ValidatePermission',
+    full_name='hts.account.AccountService.ValidatePermission',
+    index=5,
+    containing_service=None,
+    input_type=_HASPERMISSIONINPUT,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='Ping',
     full_name='hts.account.AccountService.Ping',
-    index=5,
+    index=6,
     containing_service=None,
     input_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     output_type=hts_dot_common_dot_common__pb2._RESULT,

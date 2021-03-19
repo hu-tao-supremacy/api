@@ -66,7 +66,7 @@ public final class AccountProto {
       "\n\022HasPermissionInput\022\027\n\007user_id\030\001 \001(\003R\006u" +
       "serId\022\'\n\017organization_id\030\002 \001(\003R\016organiza" +
       "tionId\022?\n\017permission_name\030\003 \001(\0162\026.hts.co" +
-      "mmon.PermissionR\016permissionName2\274\003\n\016Acco" +
+      "mmon.PermissionR\016permissionName2\213\004\n\016Acco" +
       "untService\022H\n\017IsAuthenticated\022!.hts.acco" +
       "unt.IsAuthenticatedInput\032\022.hts.common.Re" +
       "sult\022^\n\021UpdateAccountInfo\022#.hts.account." +
@@ -76,10 +76,12 @@ public final class AccountProto {
       "Result\022D\n\rInvalidateJWT\022\037.hts.account.In" +
       "validateJWTInput\032\022.hts.common.Result\022D\n\r" +
       "HasPermission\022\037.hts.account.HasPermissio" +
-      "nInput\032\022.hts.common.Result\0222\n\004Ping\022\026.goo" +
-      "gle.protobuf.Empty\032\022.hts.common.ResultBD" +
-      "\n\020app.onepass.apisB\014AccountProtoP\001Z onep" +
-      "ass.app/facility/hts/accountb\006proto3"
+      "nInput\032\022.hts.common.Result\022M\n\022ValidatePe" +
+      "rmission\022\037.hts.account.HasPermissionInpu" +
+      "t\032\026.google.protobuf.Empty\0222\n\004Ping\022\026.goog" +
+      "le.protobuf.Empty\032\022.hts.common.ResultBD\n" +
+      "\020app.onepass.apisB\014AccountProtoP\001Z onepa" +
+      "ss.app/facility/hts/accountb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

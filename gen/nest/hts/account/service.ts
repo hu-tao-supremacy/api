@@ -47,6 +47,8 @@ export interface AccountServiceClient {
 
   hasPermission(request: HasPermissionInput): Observable<Result>;
 
+  validatePermission(request: HasPermissionInput): Observable<Empty>;
+
   ping(request: Empty): Observable<Result>;
 }
 
@@ -74,6 +76,8 @@ export interface AccountServiceController {
     request: HasPermissionInput
   ): Promise<Result> | Observable<Result> | Result;
 
+  validatePermission(request: HasPermissionInput): void;
+
   ping(request: Empty): Promise<Result> | Observable<Result> | Result;
 }
 
@@ -85,6 +89,7 @@ export function AccountServiceControllerMethods() {
       "generateJWT",
       "invalidateJWT",
       "hasPermission",
+      "validatePermission",
       "ping",
     ];
     for (const method of grpcMethods) {

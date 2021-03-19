@@ -14,6 +14,7 @@ interface IAccountServiceService extends grpc.ServiceDefinition<grpc.UntypedServ
   generateJWT: grpc.MethodDefinition<hts_account_service_pb.GenerateJWTInput, hts_common_common_pb.Result>;
   invalidateJWT: grpc.MethodDefinition<hts_account_service_pb.InvalidateJWTInput, hts_common_common_pb.Result>;
   hasPermission: grpc.MethodDefinition<hts_account_service_pb.HasPermissionInput, hts_common_common_pb.Result>;
+  validatePermission: grpc.MethodDefinition<hts_account_service_pb.HasPermissionInput, google_protobuf_empty_pb.Empty>;
   ping: grpc.MethodDefinition<google_protobuf_empty_pb.Empty, hts_common_common_pb.Result>;
 }
 
@@ -25,6 +26,7 @@ export interface IAccountServiceServer extends grpc.UntypedServiceImplementation
   generateJWT: grpc.handleUnaryCall<hts_account_service_pb.GenerateJWTInput, hts_common_common_pb.Result>;
   invalidateJWT: grpc.handleUnaryCall<hts_account_service_pb.InvalidateJWTInput, hts_common_common_pb.Result>;
   hasPermission: grpc.handleUnaryCall<hts_account_service_pb.HasPermissionInput, hts_common_common_pb.Result>;
+  validatePermission: grpc.handleUnaryCall<hts_account_service_pb.HasPermissionInput, google_protobuf_empty_pb.Empty>;
   ping: grpc.handleUnaryCall<google_protobuf_empty_pb.Empty, hts_common_common_pb.Result>;
 }
 
@@ -45,6 +47,9 @@ export class AccountServiceClient extends grpc.Client {
   hasPermission(argument: hts_account_service_pb.HasPermissionInput, callback: grpc.requestCallback<hts_common_common_pb.Result>): grpc.ClientUnaryCall;
   hasPermission(argument: hts_account_service_pb.HasPermissionInput, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<hts_common_common_pb.Result>): grpc.ClientUnaryCall;
   hasPermission(argument: hts_account_service_pb.HasPermissionInput, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<hts_common_common_pb.Result>): grpc.ClientUnaryCall;
+  validatePermission(argument: hts_account_service_pb.HasPermissionInput, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;
+  validatePermission(argument: hts_account_service_pb.HasPermissionInput, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;
+  validatePermission(argument: hts_account_service_pb.HasPermissionInput, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<google_protobuf_empty_pb.Empty>): grpc.ClientUnaryCall;
   ping(argument: google_protobuf_empty_pb.Empty, callback: grpc.requestCallback<hts_common_common_pb.Result>): grpc.ClientUnaryCall;
   ping(argument: google_protobuf_empty_pb.Empty, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<hts_common_common_pb.Result>): grpc.ClientUnaryCall;
   ping(argument: google_protobuf_empty_pb.Empty, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<hts_common_common_pb.Result>): grpc.ClientUnaryCall;

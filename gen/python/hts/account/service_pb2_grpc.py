@@ -41,6 +41,11 @@ class AccountServiceStub(object):
                 request_serializer=hts_dot_account_dot_service__pb2.HasPermissionInput.SerializeToString,
                 response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
                 )
+        self.ValidatePermission = channel.unary_unary(
+                '/hts.account.AccountService/ValidatePermission',
+                request_serializer=hts_dot_account_dot_service__pb2.HasPermissionInput.SerializeToString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                )
         self.Ping = channel.unary_unary(
                 '/hts.account.AccountService/Ping',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
@@ -81,6 +86,12 @@ class AccountServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ValidatePermission(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Ping(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -114,6 +125,11 @@ def add_AccountServiceServicer_to_server(servicer, server):
                     servicer.HasPermission,
                     request_deserializer=hts_dot_account_dot_service__pb2.HasPermissionInput.FromString,
                     response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
+            ),
+            'ValidatePermission': grpc.unary_unary_rpc_method_handler(
+                    servicer.ValidatePermission,
+                    request_deserializer=hts_dot_account_dot_service__pb2.HasPermissionInput.FromString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'Ping': grpc.unary_unary_rpc_method_handler(
                     servicer.Ping,
@@ -212,6 +228,23 @@ class AccountService(object):
         return grpc.experimental.unary_unary(request, target, '/hts.account.AccountService/HasPermission',
             hts_dot_account_dot_service__pb2.HasPermissionInput.SerializeToString,
             hts_dot_common_dot_common__pb2.Result.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ValidatePermission(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.account.AccountService/ValidatePermission',
+            hts_dot_account_dot_service__pb2.HasPermissionInput.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

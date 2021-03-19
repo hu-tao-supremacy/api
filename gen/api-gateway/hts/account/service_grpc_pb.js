@@ -151,6 +151,17 @@ var AccountServiceService = exports.AccountServiceService = {
     responseSerialize: serialize_hts_common_Result,
     responseDeserialize: deserialize_hts_common_Result,
   },
+  validatePermission: {
+    path: '/hts.account.AccountService/ValidatePermission',
+    requestStream: false,
+    responseStream: false,
+    requestType: hts_account_service_pb.HasPermissionInput,
+    responseType: google_protobuf_empty_pb.Empty,
+    requestSerialize: serialize_hts_account_HasPermissionInput,
+    requestDeserialize: deserialize_hts_account_HasPermissionInput,
+    responseSerialize: serialize_google_protobuf_Empty,
+    responseDeserialize: deserialize_google_protobuf_Empty,
+  },
   ping: {
     path: '/hts.account.AccountService/Ping',
     requestStream: false,
