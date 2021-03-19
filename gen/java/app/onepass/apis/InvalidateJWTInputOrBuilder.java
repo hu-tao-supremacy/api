@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface IsAuthenticatedRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.account.IsAuthenticatedRequest)
+public interface InvalidateJWTInputOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.account.InvalidateJWTInput)
     com.google.protobuf.MessageOrBuilder {
 
   /**

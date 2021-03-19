@@ -4,25 +4,25 @@
 package app.onepass.apis;
 
 /**
- * Protobuf type {@code hts.account.UpdateAccountInfoRequest}
+ * Protobuf type {@code hts.account.GenerateJWTInput}
  */
-public final class UpdateAccountInfoRequest extends
+public final class GenerateJWTInput extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:hts.account.UpdateAccountInfoRequest)
-    UpdateAccountInfoRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:hts.account.GenerateJWTInput)
+    GenerateJWTInputOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use UpdateAccountInfoRequest.newBuilder() to construct.
-  private UpdateAccountInfoRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use GenerateJWTInput.newBuilder() to construct.
+  private GenerateJWTInput(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private UpdateAccountInfoRequest() {
+  private GenerateJWTInput() {
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new UpdateAccountInfoRequest();
+    return new GenerateJWTInput();
   }
 
   @java.lang.Override
@@ -30,7 +30,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UpdateAccountInfoRequest(
+  private GenerateJWTInput(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -82,15 +82,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return app.onepass.apis.AccountProto.internal_static_hts_account_UpdateAccountInfoRequest_descriptor;
+    return app.onepass.apis.AccountProto.internal_static_hts_account_GenerateJWTInput_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return app.onepass.apis.AccountProto.internal_static_hts_account_UpdateAccountInfoRequest_fieldAccessorTable
+    return app.onepass.apis.AccountProto.internal_static_hts_account_GenerateJWTInput_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            app.onepass.apis.UpdateAccountInfoRequest.class, app.onepass.apis.UpdateAccountInfoRequest.Builder.class);
+            app.onepass.apis.GenerateJWTInput.class, app.onepass.apis.GenerateJWTInput.Builder.class);
   }
 
   public static final int USER_FIELD_NUMBER = 1;
@@ -159,10 +159,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof app.onepass.apis.UpdateAccountInfoRequest)) {
+    if (!(obj instanceof app.onepass.apis.GenerateJWTInput)) {
       return super.equals(obj);
     }
-    app.onepass.apis.UpdateAccountInfoRequest other = (app.onepass.apis.UpdateAccountInfoRequest) obj;
+    app.onepass.apis.GenerateJWTInput other = (app.onepass.apis.GenerateJWTInput) obj;
 
     if (hasUser() != other.hasUser()) return false;
     if (hasUser()) {
@@ -189,69 +189,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static app.onepass.apis.UpdateAccountInfoRequest parseFrom(
+  public static app.onepass.apis.GenerateJWTInput parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.UpdateAccountInfoRequest parseFrom(
+  public static app.onepass.apis.GenerateJWTInput parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.UpdateAccountInfoRequest parseFrom(
+  public static app.onepass.apis.GenerateJWTInput parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.UpdateAccountInfoRequest parseFrom(
+  public static app.onepass.apis.GenerateJWTInput parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.UpdateAccountInfoRequest parseFrom(byte[] data)
+  public static app.onepass.apis.GenerateJWTInput parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.UpdateAccountInfoRequest parseFrom(
+  public static app.onepass.apis.GenerateJWTInput parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.UpdateAccountInfoRequest parseFrom(java.io.InputStream input)
+  public static app.onepass.apis.GenerateJWTInput parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.UpdateAccountInfoRequest parseFrom(
+  public static app.onepass.apis.GenerateJWTInput parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.UpdateAccountInfoRequest parseDelimitedFrom(java.io.InputStream input)
+  public static app.onepass.apis.GenerateJWTInput parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.UpdateAccountInfoRequest parseDelimitedFrom(
+  public static app.onepass.apis.GenerateJWTInput parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.UpdateAccountInfoRequest parseFrom(
+  public static app.onepass.apis.GenerateJWTInput parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.UpdateAccountInfoRequest parseFrom(
+  public static app.onepass.apis.GenerateJWTInput parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -264,7 +264,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(app.onepass.apis.UpdateAccountInfoRequest prototype) {
+  public static Builder newBuilder(app.onepass.apis.GenerateJWTInput prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -280,26 +280,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code hts.account.UpdateAccountInfoRequest}
+   * Protobuf type {@code hts.account.GenerateJWTInput}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:hts.account.UpdateAccountInfoRequest)
-      app.onepass.apis.UpdateAccountInfoRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:hts.account.GenerateJWTInput)
+      app.onepass.apis.GenerateJWTInputOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return app.onepass.apis.AccountProto.internal_static_hts_account_UpdateAccountInfoRequest_descriptor;
+      return app.onepass.apis.AccountProto.internal_static_hts_account_GenerateJWTInput_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return app.onepass.apis.AccountProto.internal_static_hts_account_UpdateAccountInfoRequest_fieldAccessorTable
+      return app.onepass.apis.AccountProto.internal_static_hts_account_GenerateJWTInput_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              app.onepass.apis.UpdateAccountInfoRequest.class, app.onepass.apis.UpdateAccountInfoRequest.Builder.class);
+              app.onepass.apis.GenerateJWTInput.class, app.onepass.apis.GenerateJWTInput.Builder.class);
     }
 
-    // Construct using app.onepass.apis.UpdateAccountInfoRequest.newBuilder()
+    // Construct using app.onepass.apis.GenerateJWTInput.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -329,17 +329,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return app.onepass.apis.AccountProto.internal_static_hts_account_UpdateAccountInfoRequest_descriptor;
+      return app.onepass.apis.AccountProto.internal_static_hts_account_GenerateJWTInput_descriptor;
     }
 
     @java.lang.Override
-    public app.onepass.apis.UpdateAccountInfoRequest getDefaultInstanceForType() {
-      return app.onepass.apis.UpdateAccountInfoRequest.getDefaultInstance();
+    public app.onepass.apis.GenerateJWTInput getDefaultInstanceForType() {
+      return app.onepass.apis.GenerateJWTInput.getDefaultInstance();
     }
 
     @java.lang.Override
-    public app.onepass.apis.UpdateAccountInfoRequest build() {
-      app.onepass.apis.UpdateAccountInfoRequest result = buildPartial();
+    public app.onepass.apis.GenerateJWTInput build() {
+      app.onepass.apis.GenerateJWTInput result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -347,8 +347,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public app.onepass.apis.UpdateAccountInfoRequest buildPartial() {
-      app.onepass.apis.UpdateAccountInfoRequest result = new app.onepass.apis.UpdateAccountInfoRequest(this);
+    public app.onepass.apis.GenerateJWTInput buildPartial() {
+      app.onepass.apis.GenerateJWTInput result = new app.onepass.apis.GenerateJWTInput(this);
       if (userBuilder_ == null) {
         result.user_ = user_;
       } else {
@@ -392,16 +392,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof app.onepass.apis.UpdateAccountInfoRequest) {
-        return mergeFrom((app.onepass.apis.UpdateAccountInfoRequest)other);
+      if (other instanceof app.onepass.apis.GenerateJWTInput) {
+        return mergeFrom((app.onepass.apis.GenerateJWTInput)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(app.onepass.apis.UpdateAccountInfoRequest other) {
-      if (other == app.onepass.apis.UpdateAccountInfoRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(app.onepass.apis.GenerateJWTInput other) {
+      if (other == app.onepass.apis.GenerateJWTInput.getDefaultInstance()) return this;
       if (other.hasUser()) {
         mergeUser(other.getUser());
       }
@@ -420,11 +420,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      app.onepass.apis.UpdateAccountInfoRequest parsedMessage = null;
+      app.onepass.apis.GenerateJWTInput parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (app.onepass.apis.UpdateAccountInfoRequest) e.getUnfinishedMessage();
+        parsedMessage = (app.onepass.apis.GenerateJWTInput) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -565,41 +565,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:hts.account.UpdateAccountInfoRequest)
+    // @@protoc_insertion_point(builder_scope:hts.account.GenerateJWTInput)
   }
 
-  // @@protoc_insertion_point(class_scope:hts.account.UpdateAccountInfoRequest)
-  private static final app.onepass.apis.UpdateAccountInfoRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:hts.account.GenerateJWTInput)
+  private static final app.onepass.apis.GenerateJWTInput DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new app.onepass.apis.UpdateAccountInfoRequest();
+    DEFAULT_INSTANCE = new app.onepass.apis.GenerateJWTInput();
   }
 
-  public static app.onepass.apis.UpdateAccountInfoRequest getDefaultInstance() {
+  public static app.onepass.apis.GenerateJWTInput getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<UpdateAccountInfoRequest>
-      PARSER = new com.google.protobuf.AbstractParser<UpdateAccountInfoRequest>() {
+  private static final com.google.protobuf.Parser<GenerateJWTInput>
+      PARSER = new com.google.protobuf.AbstractParser<GenerateJWTInput>() {
     @java.lang.Override
-    public UpdateAccountInfoRequest parsePartialFrom(
+    public GenerateJWTInput parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpdateAccountInfoRequest(input, extensionRegistry);
+      return new GenerateJWTInput(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<UpdateAccountInfoRequest> parser() {
+  public static com.google.protobuf.Parser<GenerateJWTInput> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<UpdateAccountInfoRequest> getParserForType() {
+  public com.google.protobuf.Parser<GenerateJWTInput> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public app.onepass.apis.UpdateAccountInfoRequest getDefaultInstanceForType() {
+  public app.onepass.apis.GenerateJWTInput getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

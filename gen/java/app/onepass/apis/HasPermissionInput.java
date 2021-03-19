@@ -4,18 +4,18 @@
 package app.onepass.apis;
 
 /**
- * Protobuf type {@code hts.account.HasPermissionRequest}
+ * Protobuf type {@code hts.account.HasPermissionInput}
  */
-public final class HasPermissionRequest extends
+public final class HasPermissionInput extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:hts.account.HasPermissionRequest)
-    HasPermissionRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:hts.account.HasPermissionInput)
+    HasPermissionInputOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use HasPermissionRequest.newBuilder() to construct.
-  private HasPermissionRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use HasPermissionInput.newBuilder() to construct.
+  private HasPermissionInput(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private HasPermissionRequest() {
+  private HasPermissionInput() {
     permissionName_ = 0;
   }
 
@@ -23,7 +23,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new HasPermissionRequest();
+    return new HasPermissionInput();
   }
 
   @java.lang.Override
@@ -31,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HasPermissionRequest(
+  private HasPermissionInput(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -86,15 +86,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return app.onepass.apis.AccountProto.internal_static_hts_account_HasPermissionRequest_descriptor;
+    return app.onepass.apis.AccountProto.internal_static_hts_account_HasPermissionInput_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return app.onepass.apis.AccountProto.internal_static_hts_account_HasPermissionRequest_fieldAccessorTable
+    return app.onepass.apis.AccountProto.internal_static_hts_account_HasPermissionInput_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            app.onepass.apis.HasPermissionRequest.class, app.onepass.apis.HasPermissionRequest.Builder.class);
+            app.onepass.apis.HasPermissionInput.class, app.onepass.apis.HasPermissionInput.Builder.class);
   }
 
   public static final int USER_ID_FIELD_NUMBER = 1;
@@ -192,10 +192,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof app.onepass.apis.HasPermissionRequest)) {
+    if (!(obj instanceof app.onepass.apis.HasPermissionInput)) {
       return super.equals(obj);
     }
-    app.onepass.apis.HasPermissionRequest other = (app.onepass.apis.HasPermissionRequest) obj;
+    app.onepass.apis.HasPermissionInput other = (app.onepass.apis.HasPermissionInput) obj;
 
     if (getUserId()
         != other.getUserId()) return false;
@@ -226,69 +226,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static app.onepass.apis.HasPermissionRequest parseFrom(
+  public static app.onepass.apis.HasPermissionInput parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.HasPermissionRequest parseFrom(
+  public static app.onepass.apis.HasPermissionInput parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.HasPermissionRequest parseFrom(
+  public static app.onepass.apis.HasPermissionInput parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.HasPermissionRequest parseFrom(
+  public static app.onepass.apis.HasPermissionInput parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.HasPermissionRequest parseFrom(byte[] data)
+  public static app.onepass.apis.HasPermissionInput parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.HasPermissionRequest parseFrom(
+  public static app.onepass.apis.HasPermissionInput parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.HasPermissionRequest parseFrom(java.io.InputStream input)
+  public static app.onepass.apis.HasPermissionInput parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.HasPermissionRequest parseFrom(
+  public static app.onepass.apis.HasPermissionInput parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.HasPermissionRequest parseDelimitedFrom(java.io.InputStream input)
+  public static app.onepass.apis.HasPermissionInput parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.HasPermissionRequest parseDelimitedFrom(
+  public static app.onepass.apis.HasPermissionInput parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.HasPermissionRequest parseFrom(
+  public static app.onepass.apis.HasPermissionInput parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.HasPermissionRequest parseFrom(
+  public static app.onepass.apis.HasPermissionInput parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -301,7 +301,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(app.onepass.apis.HasPermissionRequest prototype) {
+  public static Builder newBuilder(app.onepass.apis.HasPermissionInput prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -317,26 +317,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code hts.account.HasPermissionRequest}
+   * Protobuf type {@code hts.account.HasPermissionInput}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:hts.account.HasPermissionRequest)
-      app.onepass.apis.HasPermissionRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:hts.account.HasPermissionInput)
+      app.onepass.apis.HasPermissionInputOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return app.onepass.apis.AccountProto.internal_static_hts_account_HasPermissionRequest_descriptor;
+      return app.onepass.apis.AccountProto.internal_static_hts_account_HasPermissionInput_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return app.onepass.apis.AccountProto.internal_static_hts_account_HasPermissionRequest_fieldAccessorTable
+      return app.onepass.apis.AccountProto.internal_static_hts_account_HasPermissionInput_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              app.onepass.apis.HasPermissionRequest.class, app.onepass.apis.HasPermissionRequest.Builder.class);
+              app.onepass.apis.HasPermissionInput.class, app.onepass.apis.HasPermissionInput.Builder.class);
     }
 
-    // Construct using app.onepass.apis.HasPermissionRequest.newBuilder()
+    // Construct using app.onepass.apis.HasPermissionInput.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -366,17 +366,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return app.onepass.apis.AccountProto.internal_static_hts_account_HasPermissionRequest_descriptor;
+      return app.onepass.apis.AccountProto.internal_static_hts_account_HasPermissionInput_descriptor;
     }
 
     @java.lang.Override
-    public app.onepass.apis.HasPermissionRequest getDefaultInstanceForType() {
-      return app.onepass.apis.HasPermissionRequest.getDefaultInstance();
+    public app.onepass.apis.HasPermissionInput getDefaultInstanceForType() {
+      return app.onepass.apis.HasPermissionInput.getDefaultInstance();
     }
 
     @java.lang.Override
-    public app.onepass.apis.HasPermissionRequest build() {
-      app.onepass.apis.HasPermissionRequest result = buildPartial();
+    public app.onepass.apis.HasPermissionInput build() {
+      app.onepass.apis.HasPermissionInput result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -384,8 +384,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public app.onepass.apis.HasPermissionRequest buildPartial() {
-      app.onepass.apis.HasPermissionRequest result = new app.onepass.apis.HasPermissionRequest(this);
+    public app.onepass.apis.HasPermissionInput buildPartial() {
+      app.onepass.apis.HasPermissionInput result = new app.onepass.apis.HasPermissionInput(this);
       result.userId_ = userId_;
       result.organizationId_ = organizationId_;
       result.permissionName_ = permissionName_;
@@ -427,16 +427,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof app.onepass.apis.HasPermissionRequest) {
-        return mergeFrom((app.onepass.apis.HasPermissionRequest)other);
+      if (other instanceof app.onepass.apis.HasPermissionInput) {
+        return mergeFrom((app.onepass.apis.HasPermissionInput)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(app.onepass.apis.HasPermissionRequest other) {
-      if (other == app.onepass.apis.HasPermissionRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(app.onepass.apis.HasPermissionInput other) {
+      if (other == app.onepass.apis.HasPermissionInput.getDefaultInstance()) return this;
       if (other.getUserId() != 0L) {
         setUserId(other.getUserId());
       }
@@ -461,11 +461,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      app.onepass.apis.HasPermissionRequest parsedMessage = null;
+      app.onepass.apis.HasPermissionInput parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (app.onepass.apis.HasPermissionRequest) e.getUnfinishedMessage();
+        parsedMessage = (app.onepass.apis.HasPermissionInput) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -603,41 +603,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:hts.account.HasPermissionRequest)
+    // @@protoc_insertion_point(builder_scope:hts.account.HasPermissionInput)
   }
 
-  // @@protoc_insertion_point(class_scope:hts.account.HasPermissionRequest)
-  private static final app.onepass.apis.HasPermissionRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:hts.account.HasPermissionInput)
+  private static final app.onepass.apis.HasPermissionInput DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new app.onepass.apis.HasPermissionRequest();
+    DEFAULT_INSTANCE = new app.onepass.apis.HasPermissionInput();
   }
 
-  public static app.onepass.apis.HasPermissionRequest getDefaultInstance() {
+  public static app.onepass.apis.HasPermissionInput getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<HasPermissionRequest>
-      PARSER = new com.google.protobuf.AbstractParser<HasPermissionRequest>() {
+  private static final com.google.protobuf.Parser<HasPermissionInput>
+      PARSER = new com.google.protobuf.AbstractParser<HasPermissionInput>() {
     @java.lang.Override
-    public HasPermissionRequest parsePartialFrom(
+    public HasPermissionInput parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HasPermissionRequest(input, extensionRegistry);
+      return new HasPermissionInput(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<HasPermissionRequest> parser() {
+  public static com.google.protobuf.Parser<HasPermissionInput> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<HasPermissionRequest> getParserForType() {
+  public com.google.protobuf.Parser<HasPermissionInput> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public app.onepass.apis.HasPermissionRequest getDefaultInstanceForType() {
+  public app.onepass.apis.HasPermissionInput getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
