@@ -103,7 +103,7 @@ message Event {
   google.protobuf.StringValue profile_image_hash = 11;
   google.protobuf.StringValue map_image = 12;
   google.protobuf.StringValue map_image_hash = 13;
-  string contact = 10;
+  string contact = 14;
 }
 
 message UserEventFeedback {
