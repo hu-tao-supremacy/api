@@ -9,8 +9,8 @@ load(
     "proto_compile_impl",
 )
 
-# Create aspect for ts_proto_compile
-ts_proto_compile_aspect = aspect(
+# Create aspect for nest_proto_compile
+nest_proto_compile_aspect = aspect(
     implementation = proto_compile_aspect_impl,
     provides = [ProtoLibraryAspectNodeInfo],
     attr_aspects = ["deps"],
@@ -20,12 +20,12 @@ ts_proto_compile_aspect = aspect(
             doc = "List of protoc plugins to apply",
             providers = [ProtoPluginInfo],
             default = [
-                Label("//bazel/rules:ts_plugin"),
+                Label("//bazel/rules:nest_plugin"),
             ],
         ),
         _prefix = attr.string(
             doc = "String used to disambiguate aspects when generating outputs",
-            default = "ts_proto_compile_aspect",
+            default = "nest_proto_compile_aspect",
         ),
     ),
     toolchains = [str(Label("@rules_proto_grpc//protobuf:toolchain_type"))],
@@ -44,13 +44,13 @@ _rule = rule(
         deps = attr.label_list(
             mandatory = False,
             providers = [ProtoInfo, ProtoLibraryAspectNodeInfo],
-            aspects = [ts_proto_compile_aspect],
+            aspects = [nest_proto_compile_aspect],
             doc = "DEPRECATED: Use protos attr",
         ),
         _plugins = attr.label_list(
             providers = [ProtoPluginInfo],
             default = [
-                Label("//bazel/rules:ts_plugin"),
+                Label("//bazel/rules:nest_plugin"),
             ],
             doc = "List of protoc plugins to apply",
         ),
@@ -59,7 +59,7 @@ _rule = rule(
 )
 
 # Create macro for converting attrs and passing to compile
-def ts_proto_compile(**kwargs):
+def nest_proto_compile(**kwargs):
     _rule(
         verbose_string = "{}".format(kwargs.get("verbose", 0)),
         **kwargs
