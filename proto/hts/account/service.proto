@@ -11,37 +11,37 @@ option go_package = "onepass.app/facility/hts/account";
 import "hts/common/common.proto";
 import "google/protobuf/empty.proto";
 
-message IsAuthenticatedRequest {
+message IsAuthenticatedInput {
   string access_token = 1;
 }
 
-message UpdateAccountInfoRequest {
+message UpdateAccountInfoInput {
   hts.common.User user = 1;
 }
 
-message UpdateAccountInfoResponse {
+message UpdateAccountInfoOutput {
   hts.common.User user = 1;
 }
 
-message GenerateJWTRequest {
+message GenerateJWTInput {
   hts.common.User user = 1;
 }
 
-message InvalidateJWTRequest {
+message InvalidateJWTInput {
   string access_token = 1;
 }
 
-message HasPermissionRequest {
+message HasPermissionInput {
   int64 user_id = 1;
   int64 organization_id = 2;
   hts.common.Permission permission_name = 3;
 }
 
 service AccountService {
-  rpc IsAuthenticated(IsAuthenticatedRequest) returns (hts.common.Result);
-  rpc UpdateAccountInfo(UpdateAccountInfoRequest) returns (UpdateAccountInfoResponse);
-  rpc GenerateJWT(GenerateJWTRequest) returns (hts.common.Result);
-  rpc InvalidateJWT(InvalidateJWTRequest) returns (hts.common.Result);
-  rpc HasPermission(HasPermissionRequest) returns (hts.common.Result);
+  rpc IsAuthenticated(IsAuthenticatedInput) returns (hts.common.Result);
+  rpc UpdateAccountInfo(UpdateAccountInfoInput) returns (UpdateAccountInfoOutput);
+  rpc GenerateJWT(GenerateJWTInput) returns (hts.common.Result);
+  rpc InvalidateJWT(InvalidateJWTInput) returns (hts.common.Result);
+  rpc HasPermission(HasPermissionInput) returns (hts.common.Result);
   rpc Ping(google.protobuf.Empty) returns (hts.common.Result);
 }
