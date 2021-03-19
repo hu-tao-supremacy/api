@@ -99,6 +99,10 @@ message Event {
   google.protobuf.StringValue cover_image_hash = 7;
   google.protobuf.StringValue poster_image = 8;
   google.protobuf.StringValue poster_image_hash = 9;
+  google.protobuf.StringValue profile_image = 10;
+  google.protobuf.StringValue profile_image_hash = 11;
+  google.protobuf.StringValue map_image = 12;
+  google.protobuf.StringValue map_image_hash = 13;
   string contact = 10;
 }
 
