@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { StringValue, Int64Value } from "../../google/protobuf/wrappers";
 import { Timestamp } from "../../google/protobuf/timestamp";
 
 export const protobufPackage = "hts.common";
@@ -68,10 +69,11 @@ export interface User {
   firstName: string;
   lastName: string;
   email: string;
-  nickname: string | undefined;
-  chulaId: string | undefined;
+  nickname: StringValue | undefined;
+  chulaId: StringValue | undefined;
   isChulaStudent: boolean;
   gender: Gender;
+  address: StringValue | undefined;
 }
 
 export interface Organization {
@@ -89,13 +91,13 @@ export interface UserOrganization {
 export interface Event {
   id: number;
   organizationId: number;
-  eventLocationId: number | undefined;
+  eventLocationId: Int64Value | undefined;
   description: string;
   name: string;
-  coverImage: string | undefined;
-  coverImageHash: string | undefined;
-  posterImage: string | undefined;
-  posterImageHash: string | undefined;
+  coverImage: StringValue | undefined;
+  coverImageHash: StringValue | undefined;
+  posterImage: StringValue | undefined;
+  posterImageHash: StringValue | undefined;
   contact: string;
 }
 
@@ -166,7 +168,7 @@ export interface FacilityRequest {
   eventId: number;
   facilityId: number;
   status: Status;
-  rejectReason: string | undefined;
+  rejectReason: StringValue | undefined;
   start: Timestamp | undefined;
   finish: Timestamp | undefined;
 }

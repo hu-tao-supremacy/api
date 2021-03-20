@@ -95,4 +95,19 @@ public interface UserOrBuilder extends
    * @return The gender.
    */
   app.onepass.apis.Gender getGender();
+
+  /**
+   * <code>.google.protobuf.StringValue address = 9 [json_name = "address"];</code>
+   * @return Whether the address field is set.
+   */
+  boolean hasAddress();
+  /**
+   * <code>.google.protobuf.StringValue address = 9 [json_name = "address"];</code>
+   * @return The address.
+   */
+  com.google.protobuf.StringValue getAddress();
+  /**
+   * <code>.google.protobuf.StringValue address = 9 [json_name = "address"];</code>
+   */
+  com.google.protobuf.StringValueOrBuilder getAddressOrBuilder();
 }
