@@ -76,6 +76,7 @@ message User {
   bool is_chula_student = 7;
   Gender gender = 8;
   google.protobuf.StringValue address = 9;
+  google.protobuf.StringValue profile_picture = 10;
 }
 
 message Organization {
