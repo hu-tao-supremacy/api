@@ -20,25 +20,10 @@ public final class AccountProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hts_account_IsAuthenticatedInput_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_hts_account_UpdateAccountInfoInput_descriptor;
+    internal_static_hts_account_GenerateJWTOutput_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_hts_account_UpdateAccountInfoInput_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_hts_account_UpdateAccountInfoOutput_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_hts_account_UpdateAccountInfoOutput_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_hts_account_GenerateJWTInput_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_hts_account_GenerateJWTInput_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_hts_account_InvalidateJWTInput_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_hts_account_InvalidateJWTInput_fieldAccessorTable;
+      internal_static_hts_account_GenerateJWTOutput_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_hts_account_HasPermissionInput_descriptor;
   static final 
@@ -56,30 +41,25 @@ public final class AccountProto {
       "\n\031hts/account/service.proto\022\013hts.account" +
       "\032\027hts/common/common.proto\032\033google/protob" +
       "uf/empty.proto\"9\n\024IsAuthenticatedInput\022!" +
-      "\n\014access_token\030\001 \001(\tR\013accessToken\">\n\026Upd" +
-      "ateAccountInfoInput\022$\n\004user\030\001 \001(\0132\020.hts." +
-      "common.UserR\004user\"?\n\027UpdateAccountInfoOu" +
-      "tput\022$\n\004user\030\001 \001(\0132\020.hts.common.UserR\004us" +
-      "er\"8\n\020GenerateJWTInput\022$\n\004user\030\001 \001(\0132\020.h" +
-      "ts.common.UserR\004user\"7\n\022InvalidateJWTInp" +
-      "ut\022!\n\014access_token\030\001 \001(\tR\013accessToken\"\227\001" +
-      "\n\022HasPermissionInput\022\027\n\007user_id\030\001 \001(\003R\006u" +
-      "serId\022\'\n\017organization_id\030\002 \001(\003R\016organiza" +
-      "tionId\022?\n\017permission_name\030\003 \001(\0162\026.hts.co" +
-      "mmon.PermissionR\016permissionName2\274\003\n\016Acco" +
-      "untService\022H\n\017IsAuthenticated\022!.hts.acco" +
-      "unt.IsAuthenticatedInput\032\022.hts.common.Re" +
-      "sult\022^\n\021UpdateAccountInfo\022#.hts.account." +
-      "UpdateAccountInfoInput\032$.hts.account.Upd" +
-      "ateAccountInfoOutput\022@\n\013GenerateJWT\022\035.ht" +
-      "s.account.GenerateJWTInput\032\022.hts.common." +
-      "Result\022D\n\rInvalidateJWT\022\037.hts.account.In" +
-      "validateJWTInput\032\022.hts.common.Result\022D\n\r" +
-      "HasPermission\022\037.hts.account.HasPermissio" +
-      "nInput\032\022.hts.common.Result\0222\n\004Ping\022\026.goo" +
-      "gle.protobuf.Empty\032\022.hts.common.ResultBD" +
-      "\n\020app.onepass.apisB\014AccountProtoP\001Z onep" +
-      "ass.app/facility/hts/accountb\006proto3"
+      "\n\014access_token\030\001 \001(\tR\013accessToken\"6\n\021Gen" +
+      "erateJWTOutput\022!\n\014access_token\030\001 \001(\tR\013ac" +
+      "cessToken\"\227\001\n\022HasPermissionInput\022\027\n\007user" +
+      "_id\030\001 \001(\003R\006userId\022\'\n\017organization_id\030\002 \001" +
+      "(\003R\016organizationId\022?\n\017permission_name\030\003 " +
+      "\001(\0162\026.hts.common.PermissionR\016permissionN" +
+      "ame2\235\003\n\016AccountService\022H\n\017IsAuthenticate" +
+      "d\022!.hts.account.IsAuthenticatedInput\032\022.h" +
+      "ts.common.Result\0227\n\021UpdateAccountInfo\022\020." +
+      "hts.common.User\032\020.hts.common.User\022?\n\013Gen" +
+      "erateJWT\022\020.hts.common.User\032\036.hts.account" +
+      ".GenerateJWTOutput\022D\n\rHasPermission\022\037.ht" +
+      "s.account.HasPermissionInput\032\022.hts.commo" +
+      "n.Result\022M\n\022ValidatePermission\022\037.hts.acc" +
+      "ount.HasPermissionInput\032\026.google.protobu" +
+      "f.Empty\0222\n\004Ping\022\026.google.protobuf.Empty\032" +
+      "\022.hts.common.ResultBD\n\020app.onepass.apisB" +
+      "\014AccountProtoP\001Z onepass.app/facility/ht" +
+      "s/accountb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -93,32 +73,14 @@ public final class AccountProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_account_IsAuthenticatedInput_descriptor,
         new java.lang.String[] { "AccessToken", });
-    internal_static_hts_account_UpdateAccountInfoInput_descriptor =
+    internal_static_hts_account_GenerateJWTOutput_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_hts_account_UpdateAccountInfoInput_fieldAccessorTable = new
+    internal_static_hts_account_GenerateJWTOutput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_hts_account_UpdateAccountInfoInput_descriptor,
-        new java.lang.String[] { "User", });
-    internal_static_hts_account_UpdateAccountInfoOutput_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_hts_account_UpdateAccountInfoOutput_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_hts_account_UpdateAccountInfoOutput_descriptor,
-        new java.lang.String[] { "User", });
-    internal_static_hts_account_GenerateJWTInput_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_hts_account_GenerateJWTInput_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_hts_account_GenerateJWTInput_descriptor,
-        new java.lang.String[] { "User", });
-    internal_static_hts_account_InvalidateJWTInput_descriptor =
-      getDescriptor().getMessageTypes().get(4);
-    internal_static_hts_account_InvalidateJWTInput_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_hts_account_InvalidateJWTInput_descriptor,
+        internal_static_hts_account_GenerateJWTOutput_descriptor,
         new java.lang.String[] { "AccessToken", });
     internal_static_hts_account_HasPermissionInput_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_hts_account_HasPermissionInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_account_HasPermissionInput_descriptor,
