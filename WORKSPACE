@@ -50,7 +50,11 @@ yarn_install(
     yarn_lock = "//bazel/rules:requirements/yarn.lock",
 )
 
-
+yarn_install(
+    name = "npm_gql",
+    package_json = "//bazel/gql:requirements/package.json",  # This should be changed to your local package.json which should contain the dependencies required
+    yarn_lock = "//bazel/gql:requirements/yarn.lock",
+)
 
 load("@rules_proto_grpc//java:repositories.bzl", rules_proto_grpc_java_repos = "java_repos")
 rules_proto_grpc_java_repos()
