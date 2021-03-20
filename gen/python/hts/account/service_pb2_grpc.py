@@ -23,23 +23,23 @@ class AccountServiceStub(object):
                 )
         self.UpdateAccountInfo = channel.unary_unary(
                 '/hts.account.AccountService/UpdateAccountInfo',
-                request_serializer=hts_dot_account_dot_service__pb2.UpdateAccountInfoInput.SerializeToString,
-                response_deserializer=hts_dot_account_dot_service__pb2.UpdateAccountInfoOutput.FromString,
+                request_serializer=hts_dot_common_dot_common__pb2.User.SerializeToString,
+                response_deserializer=hts_dot_common_dot_common__pb2.User.FromString,
                 )
         self.GenerateJWT = channel.unary_unary(
                 '/hts.account.AccountService/GenerateJWT',
-                request_serializer=hts_dot_account_dot_service__pb2.GenerateJWTInput.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
-                )
-        self.InvalidateJWT = channel.unary_unary(
-                '/hts.account.AccountService/InvalidateJWT',
-                request_serializer=hts_dot_account_dot_service__pb2.InvalidateJWTInput.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
+                request_serializer=hts_dot_common_dot_common__pb2.User.SerializeToString,
+                response_deserializer=hts_dot_account_dot_service__pb2.GenerateJWTOutput.FromString,
                 )
         self.HasPermission = channel.unary_unary(
                 '/hts.account.AccountService/HasPermission',
                 request_serializer=hts_dot_account_dot_service__pb2.HasPermissionInput.SerializeToString,
                 response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
+                )
+        self.ValidatePermission = channel.unary_unary(
+                '/hts.account.AccountService/ValidatePermission',
+                request_serializer=hts_dot_account_dot_service__pb2.HasPermissionInput.SerializeToString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
         self.Ping = channel.unary_unary(
                 '/hts.account.AccountService/Ping',
@@ -69,13 +69,13 @@ class AccountServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def InvalidateJWT(self, request, context):
+    def HasPermission(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def HasPermission(self, request, context):
+    def ValidatePermission(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -97,23 +97,23 @@ def add_AccountServiceServicer_to_server(servicer, server):
             ),
             'UpdateAccountInfo': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateAccountInfo,
-                    request_deserializer=hts_dot_account_dot_service__pb2.UpdateAccountInfoInput.FromString,
-                    response_serializer=hts_dot_account_dot_service__pb2.UpdateAccountInfoOutput.SerializeToString,
+                    request_deserializer=hts_dot_common_dot_common__pb2.User.FromString,
+                    response_serializer=hts_dot_common_dot_common__pb2.User.SerializeToString,
             ),
             'GenerateJWT': grpc.unary_unary_rpc_method_handler(
                     servicer.GenerateJWT,
-                    request_deserializer=hts_dot_account_dot_service__pb2.GenerateJWTInput.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
-            ),
-            'InvalidateJWT': grpc.unary_unary_rpc_method_handler(
-                    servicer.InvalidateJWT,
-                    request_deserializer=hts_dot_account_dot_service__pb2.InvalidateJWTInput.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
+                    request_deserializer=hts_dot_common_dot_common__pb2.User.FromString,
+                    response_serializer=hts_dot_account_dot_service__pb2.GenerateJWTOutput.SerializeToString,
             ),
             'HasPermission': grpc.unary_unary_rpc_method_handler(
                     servicer.HasPermission,
                     request_deserializer=hts_dot_account_dot_service__pb2.HasPermissionInput.FromString,
                     response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
+            ),
+            'ValidatePermission': grpc.unary_unary_rpc_method_handler(
+                    servicer.ValidatePermission,
+                    request_deserializer=hts_dot_account_dot_service__pb2.HasPermissionInput.FromString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'Ping': grpc.unary_unary_rpc_method_handler(
                     servicer.Ping,
@@ -159,8 +159,8 @@ class AccountService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.account.AccountService/UpdateAccountInfo',
-            hts_dot_account_dot_service__pb2.UpdateAccountInfoInput.SerializeToString,
-            hts_dot_account_dot_service__pb2.UpdateAccountInfoOutput.FromString,
+            hts_dot_common_dot_common__pb2.User.SerializeToString,
+            hts_dot_common_dot_common__pb2.User.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -176,25 +176,8 @@ class AccountService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.account.AccountService/GenerateJWT',
-            hts_dot_account_dot_service__pb2.GenerateJWTInput.SerializeToString,
-            hts_dot_common_dot_common__pb2.Result.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def InvalidateJWT(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hts.account.AccountService/InvalidateJWT',
-            hts_dot_account_dot_service__pb2.InvalidateJWTInput.SerializeToString,
-            hts_dot_common_dot_common__pb2.Result.FromString,
+            hts_dot_common_dot_common__pb2.User.SerializeToString,
+            hts_dot_account_dot_service__pb2.GenerateJWTOutput.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -212,6 +195,23 @@ class AccountService(object):
         return grpc.experimental.unary_unary(request, target, '/hts.account.AccountService/HasPermission',
             hts_dot_account_dot_service__pb2.HasPermissionInput.SerializeToString,
             hts_dot_common_dot_common__pb2.Result.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ValidatePermission(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.account.AccountService/ValidatePermission',
+            hts_dot_account_dot_service__pb2.HasPermissionInput.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

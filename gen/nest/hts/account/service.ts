@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
-import { Permission, User, Result } from "../../hts/common/common";
+import { Permission, Result, User } from "../../hts/common/common";
 import { Observable } from "rxjs";
 import { Empty } from "../../google/protobuf/empty";
 
@@ -10,19 +10,7 @@ export interface IsAuthenticatedInput {
   accessToken: string;
 }
 
-export interface UpdateAccountInfoInput {
-  user: User | undefined;
-}
-
-export interface UpdateAccountInfoOutput {
-  user: User | undefined;
-}
-
-export interface GenerateJWTInput {
-  user: User | undefined;
-}
-
-export interface InvalidateJWTInput {
+export interface GenerateJWTOutput {
   accessToken: string;
 }
 
@@ -37,15 +25,13 @@ export const HTS_ACCOUNT_PACKAGE_NAME = "hts.account";
 export interface AccountServiceClient {
   isAuthenticated(request: IsAuthenticatedInput): Observable<Result>;
 
-  updateAccountInfo(
-    request: UpdateAccountInfoInput
-  ): Observable<UpdateAccountInfoOutput>;
+  updateAccountInfo(request: User): Observable<User>;
 
-  generateJWT(request: GenerateJWTInput): Observable<Result>;
-
-  invalidateJWT(request: InvalidateJWTInput): Observable<Result>;
+  generateJWT(request: User): Observable<GenerateJWTOutput>;
 
   hasPermission(request: HasPermissionInput): Observable<Result>;
+
+  validatePermission(request: HasPermissionInput): Observable<Empty>;
 
   ping(request: Empty): Observable<Result>;
 }
@@ -55,24 +41,20 @@ export interface AccountServiceController {
     request: IsAuthenticatedInput
   ): Promise<Result> | Observable<Result> | Result;
 
-  updateAccountInfo(
-    request: UpdateAccountInfoInput
-  ):
-    | Promise<UpdateAccountInfoOutput>
-    | Observable<UpdateAccountInfoOutput>
-    | UpdateAccountInfoOutput;
+  updateAccountInfo(request: User): Promise<User> | Observable<User> | User;
 
   generateJWT(
-    request: GenerateJWTInput
-  ): Promise<Result> | Observable<Result> | Result;
-
-  invalidateJWT(
-    request: InvalidateJWTInput
-  ): Promise<Result> | Observable<Result> | Result;
+    request: User
+  ):
+    | Promise<GenerateJWTOutput>
+    | Observable<GenerateJWTOutput>
+    | GenerateJWTOutput;
 
   hasPermission(
     request: HasPermissionInput
   ): Promise<Result> | Observable<Result> | Result;
+
+  validatePermission(request: HasPermissionInput): void;
 
   ping(request: Empty): Promise<Result> | Observable<Result> | Result;
 }
@@ -83,8 +65,8 @@ export function AccountServiceControllerMethods() {
       "isAuthenticated",
       "updateAccountInfo",
       "generateJWT",
-      "invalidateJWT",
       "hasPermission",
+      "validatePermission",
       "ping",
     ];
     for (const method of grpcMethods) {
