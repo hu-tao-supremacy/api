@@ -1,7 +1,4 @@
 /* eslint-disable */
-import { StringValue, Int64Value } from "../../google/protobuf/wrappers";
-import { Timestamp } from "../../google/protobuf/timestamp";
-
 export const protobufPackage = "hts.common";
 
 export enum DayOfWeek {
@@ -69,12 +66,12 @@ export interface User {
   firstName: string;
   lastName: string;
   email: string;
-  nickname: StringValue | undefined;
-  chulaId: StringValue | undefined;
+  nickname: string | undefined;
+  chulaId: string | undefined;
   isChulaStudent: boolean;
   gender: Gender;
-  address: StringValue | undefined;
-  profilePicture: StringValue | undefined;
+  address: string | undefined;
+  profilePicture: string | undefined;
 }
 
 export interface Organization {
@@ -92,13 +89,13 @@ export interface UserOrganization {
 export interface Event {
   id: number;
   organizationId: number;
-  eventLocationId: Int64Value | undefined;
+  eventLocationId: number | undefined;
   description: string;
   name: string;
-  coverImage: StringValue | undefined;
-  coverImageHash: StringValue | undefined;
-  posterImage: StringValue | undefined;
-  posterImageHash: StringValue | undefined;
+  coverImage: string | undefined;
+  coverImageHash: string | undefined;
+  posterImage: string | undefined;
+  posterImageHash: string | undefined;
   contact: string;
 }
 
@@ -130,8 +127,8 @@ export interface UserEvent {
 export interface EventDuration {
   id: number;
   eventId: number;
-  start: Timestamp | undefined;
-  finish: Timestamp | undefined;
+  start: Date | undefined;
+  finish: Date | undefined;
 }
 
 export interface EventRegistration {
@@ -169,9 +166,9 @@ export interface FacilityRequest {
   eventId: number;
   facilityId: number;
   status: Status;
-  rejectReason: StringValue | undefined;
-  start: Timestamp | undefined;
-  finish: Timestamp | undefined;
+  rejectReason: string | undefined;
+  start: Date | undefined;
+  finish: Date | undefined;
 }
 
 export interface Facility {
@@ -183,5 +180,3 @@ export interface Facility {
   operatingHours: OperatingHour[];
   description: string;
 }
-
-export const HTS_COMMON_PACKAGE_NAME = "hts.common";

@@ -112,6 +112,32 @@ private static final long serialVersionUID = 0L;
             gender_ = rawValue;
             break;
           }
+          case 74: {
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (address_ != null) {
+              subBuilder = address_.toBuilder();
+            }
+            address_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(address_);
+              address_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 82: {
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (profilePicture_ != null) {
+              subBuilder = profilePicture_.toBuilder();
+            }
+            profilePicture_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(profilePicture_);
+              profilePicture_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -351,6 +377,58 @@ private static final long serialVersionUID = 0L;
     return result == null ? app.onepass.apis.Gender.UNRECOGNIZED : result;
   }
 
+  public static final int ADDRESS_FIELD_NUMBER = 9;
+  private com.google.protobuf.StringValue address_;
+  /**
+   * <code>.google.protobuf.StringValue address = 9 [json_name = "address"];</code>
+   * @return Whether the address field is set.
+   */
+  @java.lang.Override
+  public boolean hasAddress() {
+    return address_ != null;
+  }
+  /**
+   * <code>.google.protobuf.StringValue address = 9 [json_name = "address"];</code>
+   * @return The address.
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValue getAddress() {
+    return address_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : address_;
+  }
+  /**
+   * <code>.google.protobuf.StringValue address = 9 [json_name = "address"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValueOrBuilder getAddressOrBuilder() {
+    return getAddress();
+  }
+
+  public static final int PROFILE_PICTURE_FIELD_NUMBER = 10;
+  private com.google.protobuf.StringValue profilePicture_;
+  /**
+   * <code>.google.protobuf.StringValue profile_picture = 10 [json_name = "profilePicture"];</code>
+   * @return Whether the profilePicture field is set.
+   */
+  @java.lang.Override
+  public boolean hasProfilePicture() {
+    return profilePicture_ != null;
+  }
+  /**
+   * <code>.google.protobuf.StringValue profile_picture = 10 [json_name = "profilePicture"];</code>
+   * @return The profilePicture.
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValue getProfilePicture() {
+    return profilePicture_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : profilePicture_;
+  }
+  /**
+   * <code>.google.protobuf.StringValue profile_picture = 10 [json_name = "profilePicture"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValueOrBuilder getProfilePictureOrBuilder() {
+    return getProfilePicture();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -388,6 +466,12 @@ private static final long serialVersionUID = 0L;
     }
     if (gender_ != app.onepass.apis.Gender.MALE.getNumber()) {
       output.writeEnum(8, gender_);
+    }
+    if (address_ != null) {
+      output.writeMessage(9, getAddress());
+    }
+    if (profilePicture_ != null) {
+      output.writeMessage(10, getProfilePicture());
     }
     unknownFields.writeTo(output);
   }
@@ -427,6 +511,14 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(8, gender_);
     }
+    if (address_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(9, getAddress());
+    }
+    if (profilePicture_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(10, getProfilePicture());
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -463,6 +555,16 @@ private static final long serialVersionUID = 0L;
     if (getIsChulaStudent()
         != other.getIsChulaStudent()) return false;
     if (gender_ != other.gender_) return false;
+    if (hasAddress() != other.hasAddress()) return false;
+    if (hasAddress()) {
+      if (!getAddress()
+          .equals(other.getAddress())) return false;
+    }
+    if (hasProfilePicture() != other.hasProfilePicture()) return false;
+    if (hasProfilePicture()) {
+      if (!getProfilePicture()
+          .equals(other.getProfilePicture())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -496,6 +598,14 @@ private static final long serialVersionUID = 0L;
         getIsChulaStudent());
     hash = (37 * hash) + GENDER_FIELD_NUMBER;
     hash = (53 * hash) + gender_;
+    if (hasAddress()) {
+      hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getAddress().hashCode();
+    }
+    if (hasProfilePicture()) {
+      hash = (37 * hash) + PROFILE_PICTURE_FIELD_NUMBER;
+      hash = (53 * hash) + getProfilePicture().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -653,6 +763,18 @@ private static final long serialVersionUID = 0L;
 
       gender_ = 0;
 
+      if (addressBuilder_ == null) {
+        address_ = null;
+      } else {
+        address_ = null;
+        addressBuilder_ = null;
+      }
+      if (profilePictureBuilder_ == null) {
+        profilePicture_ = null;
+      } else {
+        profilePicture_ = null;
+        profilePictureBuilder_ = null;
+      }
       return this;
     }
 
@@ -695,6 +817,16 @@ private static final long serialVersionUID = 0L;
       }
       result.isChulaStudent_ = isChulaStudent_;
       result.gender_ = gender_;
+      if (addressBuilder_ == null) {
+        result.address_ = address_;
+      } else {
+        result.address_ = addressBuilder_.build();
+      }
+      if (profilePictureBuilder_ == null) {
+        result.profilePicture_ = profilePicture_;
+      } else {
+        result.profilePicture_ = profilePictureBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -769,6 +901,12 @@ private static final long serialVersionUID = 0L;
       }
       if (other.gender_ != 0) {
         setGenderValue(other.getGenderValue());
+      }
+      if (other.hasAddress()) {
+        mergeAddress(other.getAddress());
+      }
+      if (other.hasProfilePicture()) {
+        mergeProfilePicture(other.getProfilePicture());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1379,6 +1517,244 @@ private static final long serialVersionUID = 0L;
       gender_ = 0;
       onChanged();
       return this;
+    }
+
+    private com.google.protobuf.StringValue address_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> addressBuilder_;
+    /**
+     * <code>.google.protobuf.StringValue address = 9 [json_name = "address"];</code>
+     * @return Whether the address field is set.
+     */
+    public boolean hasAddress() {
+      return addressBuilder_ != null || address_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue address = 9 [json_name = "address"];</code>
+     * @return The address.
+     */
+    public com.google.protobuf.StringValue getAddress() {
+      if (addressBuilder_ == null) {
+        return address_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : address_;
+      } else {
+        return addressBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue address = 9 [json_name = "address"];</code>
+     */
+    public Builder setAddress(com.google.protobuf.StringValue value) {
+      if (addressBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        address_ = value;
+        onChanged();
+      } else {
+        addressBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue address = 9 [json_name = "address"];</code>
+     */
+    public Builder setAddress(
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (addressBuilder_ == null) {
+        address_ = builderForValue.build();
+        onChanged();
+      } else {
+        addressBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue address = 9 [json_name = "address"];</code>
+     */
+    public Builder mergeAddress(com.google.protobuf.StringValue value) {
+      if (addressBuilder_ == null) {
+        if (address_ != null) {
+          address_ =
+            com.google.protobuf.StringValue.newBuilder(address_).mergeFrom(value).buildPartial();
+        } else {
+          address_ = value;
+        }
+        onChanged();
+      } else {
+        addressBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue address = 9 [json_name = "address"];</code>
+     */
+    public Builder clearAddress() {
+      if (addressBuilder_ == null) {
+        address_ = null;
+        onChanged();
+      } else {
+        address_ = null;
+        addressBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue address = 9 [json_name = "address"];</code>
+     */
+    public com.google.protobuf.StringValue.Builder getAddressBuilder() {
+      
+      onChanged();
+      return getAddressFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.StringValue address = 9 [json_name = "address"];</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getAddressOrBuilder() {
+      if (addressBuilder_ != null) {
+        return addressBuilder_.getMessageOrBuilder();
+      } else {
+        return address_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : address_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue address = 9 [json_name = "address"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getAddressFieldBuilder() {
+      if (addressBuilder_ == null) {
+        addressBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getAddress(),
+                getParentForChildren(),
+                isClean());
+        address_ = null;
+      }
+      return addressBuilder_;
+    }
+
+    private com.google.protobuf.StringValue profilePicture_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> profilePictureBuilder_;
+    /**
+     * <code>.google.protobuf.StringValue profile_picture = 10 [json_name = "profilePicture"];</code>
+     * @return Whether the profilePicture field is set.
+     */
+    public boolean hasProfilePicture() {
+      return profilePictureBuilder_ != null || profilePicture_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_picture = 10 [json_name = "profilePicture"];</code>
+     * @return The profilePicture.
+     */
+    public com.google.protobuf.StringValue getProfilePicture() {
+      if (profilePictureBuilder_ == null) {
+        return profilePicture_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : profilePicture_;
+      } else {
+        return profilePictureBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_picture = 10 [json_name = "profilePicture"];</code>
+     */
+    public Builder setProfilePicture(com.google.protobuf.StringValue value) {
+      if (profilePictureBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        profilePicture_ = value;
+        onChanged();
+      } else {
+        profilePictureBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_picture = 10 [json_name = "profilePicture"];</code>
+     */
+    public Builder setProfilePicture(
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (profilePictureBuilder_ == null) {
+        profilePicture_ = builderForValue.build();
+        onChanged();
+      } else {
+        profilePictureBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_picture = 10 [json_name = "profilePicture"];</code>
+     */
+    public Builder mergeProfilePicture(com.google.protobuf.StringValue value) {
+      if (profilePictureBuilder_ == null) {
+        if (profilePicture_ != null) {
+          profilePicture_ =
+            com.google.protobuf.StringValue.newBuilder(profilePicture_).mergeFrom(value).buildPartial();
+        } else {
+          profilePicture_ = value;
+        }
+        onChanged();
+      } else {
+        profilePictureBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_picture = 10 [json_name = "profilePicture"];</code>
+     */
+    public Builder clearProfilePicture() {
+      if (profilePictureBuilder_ == null) {
+        profilePicture_ = null;
+        onChanged();
+      } else {
+        profilePicture_ = null;
+        profilePictureBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_picture = 10 [json_name = "profilePicture"];</code>
+     */
+    public com.google.protobuf.StringValue.Builder getProfilePictureBuilder() {
+      
+      onChanged();
+      return getProfilePictureFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_picture = 10 [json_name = "profilePicture"];</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getProfilePictureOrBuilder() {
+      if (profilePictureBuilder_ != null) {
+        return profilePictureBuilder_.getMessageOrBuilder();
+      } else {
+        return profilePicture_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : profilePicture_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_picture = 10 [json_name = "profilePicture"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getProfilePictureFieldBuilder() {
+      if (profilePictureBuilder_ == null) {
+        profilePictureBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getProfilePicture(),
+                getParentForChildren(),
+                isClean());
+        profilePicture_ = null;
+      }
+      return profilePictureBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
