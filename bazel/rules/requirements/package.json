@@ -4,6 +4,6 @@
     "google-protobuf": "3.15.3",
     "grpc-tools": "1.10.0",
     "grpc-web": "1.2.1",
-    "ts-proto": "github:hu-tao-supremacy/ts-proto#main"
+    "ts-proto": "github:hu-tao-supremacy/ts-proto#28d74bbb6c3fbf707f88b4746f45683a16d54047"
   }
 }
