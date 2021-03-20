@@ -63,4 +63,4 @@ def gql_ts_proto_compile(**kwargs):
     _rule(
         verbose_string = "{}".format(kwargs.get("verbose", 0)),
         **kwargs
-    )m
+    )
