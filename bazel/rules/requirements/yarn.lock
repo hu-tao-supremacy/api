@@ -4363,9 +4363,9 @@ ts-proto-descriptors@^1.2.0:
   dependencies:
     protobufjs "^6.8.8"
 
-"ts-proto@git://github.com/hu-tao-supremacy/ts-proto.git#28d74bbb6c3fbf707f88b4746f45683a16d54047":
+"ts-proto@git://github.com/hu-tao-supremacy/ts-proto.git#69c530efa3b3f685131e8b18f4336af680d83858":
   version "1.74.0"
-  resolved "git://github.com/hu-tao-supremacy/ts-proto.git#28d74bbb6c3fbf707f88b4746f45683a16d54047"
+  resolved "git://github.com/hu-tao-supremacy/ts-proto.git#69c530efa3b3f685131e8b18f4336af680d83858"
   dependencies:
     "@grpc/proto-loader" "^0.5.4"
     "@improbable-eng/grpc-web" "^0.13.0"
