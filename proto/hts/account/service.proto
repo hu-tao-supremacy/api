@@ -29,7 +29,6 @@ service AccountService {
   rpc IsAuthenticated(IsAuthenticatedInput) returns (hts.common.Result);
   rpc UpdateAccountInfo(hts.common.User) returns (hts.common.User);
   rpc GenerateJWT(hts.common.User) returns (GenerateJWTOutput);
-  rpc InvalidateJWT(InvalidateJWTInput) returns (hts.common.Result);
   rpc HasPermission(HasPermissionInput) returns (hts.common.Result);
   rpc ValidatePermission(HasPermissionInput) returns (google.protobuf.Empty);
   rpc Ping(google.protobuf.Empty) returns (hts.common.Result);
