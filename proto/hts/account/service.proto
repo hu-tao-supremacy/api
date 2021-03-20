@@ -15,19 +15,7 @@ message IsAuthenticatedInput {
   string access_token = 1;
 }
 
-message UpdateAccountInfoInput {
-  hts.common.User user = 1;
-}
-
-message UpdateAccountInfoOutput {
-  hts.common.User user = 1;
-}
-
-message GenerateJWTInput {
-  hts.common.User user = 1;
-}
-
-message InvalidateJWTInput {
+message GenerateJWTOutput {
   string access_token = 1;
 }
 
@@ -39,8 +27,8 @@ message HasPermissionInput {
 
 service AccountService {
   rpc IsAuthenticated(IsAuthenticatedInput) returns (hts.common.Result);
-  rpc UpdateAccountInfo(UpdateAccountInfoInput) returns (UpdateAccountInfoOutput);
-  rpc GenerateJWT(GenerateJWTInput) returns (hts.common.Result);
+  rpc UpdateAccountInfo(hts.common.User) returns (hts.common.User);
+  rpc GenerateJWT(hts.common.User) returns (GenerateJWTOutput);
   rpc InvalidateJWT(InvalidateJWTInput) returns (hts.common.Result);
   rpc HasPermission(HasPermissionInput) returns (hts.common.Result);
   rpc ValidatePermission(HasPermissionInput) returns (google.protobuf.Empty);
