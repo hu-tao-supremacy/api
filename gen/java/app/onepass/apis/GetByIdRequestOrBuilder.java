@@ -8,14 +8,8 @@ public interface GetByIdRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
-   * @return The userId.
+   * <code>int64 id = 1 [json_name = "id"];</code>
+   * @return The id.
    */
-  long getUserId();
-
-  /**
-   * <code>int64 read_id = 2 [json_name = "readId"];</code>
-   * @return The readId.
-   */
-  long getReadId();
+  long getId();
 }
