@@ -26,9 +26,9 @@ message HasPermissionRequest {
 }
 
 service AccountService {
-  rpc IsAuthenticated(IsAuthenticatedRequest) returns (google.protobuf.Empty);
+  rpc IsAuthenticated(IsAuthenticatedRequest) returns (google.protobuf.BoolValue);
   rpc UpdateAccountInfo(hts.common.User) returns (hts.common.User);
   rpc GenerateJWT(hts.common.User) returns (GenerateJWTResponse);
-  rpc HasPermission(HasPermissionRequest) returns (google.protobuf.Empty);
+  rpc HasPermission(HasPermissionRequest) returns (google.protobuf.BoolValue);
   rpc Ping(google.protobuf.Empty) returns (google.protobuf.BoolValue);
 }
