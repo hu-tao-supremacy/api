@@ -85,7 +85,7 @@ service ParticipantService {
     // Get event from specified facility
     rpc GetEventsByFacility(hts.common.Facility) returns (EventsResponse);
     // Get event from specified date
-    rpc GetEventsByDate(StringInputRequest) returns (EventsResponse);
+    rpc GetEventsByDate(google.protobuf.Timestamp) returns (EventsResponse);
 
     // Generate QR from combination of ID, User_ID, Event_ID
     rpc GenerateQR(hts.common.UserEvent) returns (GenerateQRResponse);
