@@ -3,7 +3,6 @@ import {
   Status,
   Organization,
   Event,
-  Facility,
   Tag,
   Result,
 } from "../../hts/common/common";
@@ -46,14 +45,9 @@ export interface CreateEventRequest {
   event: Event | undefined;
 }
 
-export interface UpdateEventInfoRequest {
+export interface UpdateEventRequest {
   userId: number;
   event: Event | undefined;
-}
-
-export interface UpdateEventFacilityRequest {
-  userId: number;
-  facility: Facility | undefined;
 }
 
 export interface UpdateEventDurationRequest {
@@ -116,7 +110,7 @@ export interface GetTagByIdResponse {
 
 export interface OrganizerService {
   CreateOrganization(request: CreateOrganizationRequest): Promise<Empty>;
-  GetOrganization(request: Empty): Promise<GetOrganizationByIdResponse>;
+  GetOrganization(request: Empty): Promise<GetOrganizationResponse>;
   GetOrganizationById(
     request: GetByIdRequest
   ): Promise<GetOrganizationByIdResponse>;
@@ -129,7 +123,7 @@ export interface OrganizerService {
     request: UpdateUsersInOrganizationRequest
   ): Promise<Empty>;
   CreateEvent(request: CreateEventRequest): Promise<Empty>;
-  UpdateEventInfo(request: UpdateEventInfoRequest): Promise<Empty>;
+  UpdateEvent(request: UpdateEventRequest): Promise<Empty>;
   UpdateEventDuration(request: UpdateEventDurationRequest): Promise<Empty>;
   RemoveEvent(request: RemoveEventRequest): Promise<Empty>;
   UpdateRegistrationRequest(
