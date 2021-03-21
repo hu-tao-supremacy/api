@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface GenerateJWTOutputOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.account.GenerateJWTOutput)
+public interface IsAuthenticatedRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.account.IsAuthenticatedRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

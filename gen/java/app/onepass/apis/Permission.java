@@ -9,168 +9,112 @@ package app.onepass.apis;
 public enum Permission
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>CREATE_ORGANIZATION = 0;</code>
+   * <code>ORGANIZATION_UPDATE = 0;</code>
    */
-  CREATE_ORGANIZATION(0),
+  ORGANIZATION_UPDATE(0),
   /**
-   * <code>READ_ORGANIZATION = 1;</code>
+   * <code>ORGANIZATION_REMOVE = 1;</code>
    */
-  READ_ORGANIZATION(1),
+  ORGANIZATION_REMOVE(1),
   /**
-   * <code>UPDATE_ORGANIZATION = 2;</code>
+   * <code>ORGANIZATION_MEMBER_ADD = 2;</code>
    */
-  UPDATE_ORGANIZATION(2),
+  ORGANIZATION_MEMBER_ADD(2),
   /**
-   * <code>DELETE_ORGANIZATION = 3;</code>
+   * <code>ORGANIZATION_MEMBER_REMOVE = 3;</code>
    */
-  DELETE_ORGANIZATION(3),
+  ORGANIZATION_MEMBER_REMOVE(3),
   /**
-   * <code>ADD_MEMBERS_TO_ORGANIZATION = 4;</code>
+   * <code>EVENT_CREATE = 4;</code>
    */
-  ADD_MEMBERS_TO_ORGANIZATION(4),
+  EVENT_CREATE(4),
   /**
-   * <code>REMOVE_MEMBERS_FROM_ORGANIZATION = 5;</code>
+   * <code>EVENT_UPDATE = 5;</code>
    */
-  REMOVE_MEMBERS_FROM_ORGANIZATION(5),
+  EVENT_UPDATE(5),
   /**
-   * <code>CREATE_EVENT = 6;</code>
+   * <code>EVENT_REMOVE = 6;</code>
    */
-  CREATE_EVENT(6),
+  EVENT_REMOVE(6),
   /**
-   * <code>READ_EVENT = 7;</code>
+   * <code>TAG_CREATE = 7;</code>
    */
-  READ_EVENT(7),
+  TAG_CREATE(7),
   /**
-   * <code>UPDATE_EVENT = 8;</code>
+   * <code>TAG_REMOVE = 8;</code>
    */
-  UPDATE_EVENT(8),
+  TAG_REMOVE(8),
   /**
-   * <code>DELETE_EVENT = 9;</code>
+   * <code>EVENT_TAG_UPDATE = 9;</code>
    */
-  DELETE_EVENT(9),
+  EVENT_TAG_UPDATE(9),
   /**
-   * <code>CREATE_TAG = 10;</code>
+   * <code>FACILITY_CREATE = 10;</code>
    */
-  CREATE_TAG(10),
+  FACILITY_CREATE(10),
   /**
-   * <code>READ_TAG = 11;</code>
+   * <code>FACILITY_UPDATE = 11;</code>
    */
-  READ_TAG(11),
+  FACILITY_UPDATE(11),
   /**
-   * <code>UPDATE_TAG = 12;</code>
+   * <code>FACILITY_REMOVE = 12;</code>
    */
-  UPDATE_TAG(12),
-  /**
-   * <code>DELETE_TAG = 13;</code>
-   */
-  DELETE_TAG(13),
-  /**
-   * <code>ADD_TAGS_TO_EVENT = 14;</code>
-   */
-  ADD_TAGS_TO_EVENT(14),
-  /**
-   * <code>REMOVE_TAGS_FROM_EVENT = 15;</code>
-   */
-  REMOVE_TAGS_FROM_EVENT(15),
-  /**
-   * <code>CREATE_FACILITY = 16;</code>
-   */
-  CREATE_FACILITY(16),
-  /**
-   * <code>READ_FACILITY = 17;</code>
-   */
-  READ_FACILITY(17),
-  /**
-   * <code>UPDATE_FACILITY = 18;</code>
-   */
-  UPDATE_FACILITY(18),
-  /**
-   * <code>DELETE_FACILITY = 19;</code>
-   */
-  DELETE_FACILITY(19),
+  FACILITY_REMOVE(12),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>CREATE_ORGANIZATION = 0;</code>
+   * <code>ORGANIZATION_UPDATE = 0;</code>
    */
-  public static final int CREATE_ORGANIZATION_VALUE = 0;
+  public static final int ORGANIZATION_UPDATE_VALUE = 0;
   /**
-   * <code>READ_ORGANIZATION = 1;</code>
+   * <code>ORGANIZATION_REMOVE = 1;</code>
    */
-  public static final int READ_ORGANIZATION_VALUE = 1;
+  public static final int ORGANIZATION_REMOVE_VALUE = 1;
   /**
-   * <code>UPDATE_ORGANIZATION = 2;</code>
+   * <code>ORGANIZATION_MEMBER_ADD = 2;</code>
    */
-  public static final int UPDATE_ORGANIZATION_VALUE = 2;
+  public static final int ORGANIZATION_MEMBER_ADD_VALUE = 2;
   /**
-   * <code>DELETE_ORGANIZATION = 3;</code>
+   * <code>ORGANIZATION_MEMBER_REMOVE = 3;</code>
    */
-  public static final int DELETE_ORGANIZATION_VALUE = 3;
+  public static final int ORGANIZATION_MEMBER_REMOVE_VALUE = 3;
   /**
-   * <code>ADD_MEMBERS_TO_ORGANIZATION = 4;</code>
+   * <code>EVENT_CREATE = 4;</code>
    */
-  public static final int ADD_MEMBERS_TO_ORGANIZATION_VALUE = 4;
+  public static final int EVENT_CREATE_VALUE = 4;
   /**
-   * <code>REMOVE_MEMBERS_FROM_ORGANIZATION = 5;</code>
+   * <code>EVENT_UPDATE = 5;</code>
    */
-  public static final int REMOVE_MEMBERS_FROM_ORGANIZATION_VALUE = 5;
+  public static final int EVENT_UPDATE_VALUE = 5;
   /**
-   * <code>CREATE_EVENT = 6;</code>
+   * <code>EVENT_REMOVE = 6;</code>
    */
-  public static final int CREATE_EVENT_VALUE = 6;
+  public static final int EVENT_REMOVE_VALUE = 6;
   /**
-   * <code>READ_EVENT = 7;</code>
+   * <code>TAG_CREATE = 7;</code>
    */
-  public static final int READ_EVENT_VALUE = 7;
+  public static final int TAG_CREATE_VALUE = 7;
   /**
-   * <code>UPDATE_EVENT = 8;</code>
+   * <code>TAG_REMOVE = 8;</code>
    */
-  public static final int UPDATE_EVENT_VALUE = 8;
+  public static final int TAG_REMOVE_VALUE = 8;
   /**
-   * <code>DELETE_EVENT = 9;</code>
+   * <code>EVENT_TAG_UPDATE = 9;</code>
    */
-  public static final int DELETE_EVENT_VALUE = 9;
+  public static final int EVENT_TAG_UPDATE_VALUE = 9;
   /**
-   * <code>CREATE_TAG = 10;</code>
+   * <code>FACILITY_CREATE = 10;</code>
    */
-  public static final int CREATE_TAG_VALUE = 10;
+  public static final int FACILITY_CREATE_VALUE = 10;
   /**
-   * <code>READ_TAG = 11;</code>
+   * <code>FACILITY_UPDATE = 11;</code>
    */
-  public static final int READ_TAG_VALUE = 11;
+  public static final int FACILITY_UPDATE_VALUE = 11;
   /**
-   * <code>UPDATE_TAG = 12;</code>
+   * <code>FACILITY_REMOVE = 12;</code>
    */
-  public static final int UPDATE_TAG_VALUE = 12;
-  /**
-   * <code>DELETE_TAG = 13;</code>
-   */
-  public static final int DELETE_TAG_VALUE = 13;
-  /**
-   * <code>ADD_TAGS_TO_EVENT = 14;</code>
-   */
-  public static final int ADD_TAGS_TO_EVENT_VALUE = 14;
-  /**
-   * <code>REMOVE_TAGS_FROM_EVENT = 15;</code>
-   */
-  public static final int REMOVE_TAGS_FROM_EVENT_VALUE = 15;
-  /**
-   * <code>CREATE_FACILITY = 16;</code>
-   */
-  public static final int CREATE_FACILITY_VALUE = 16;
-  /**
-   * <code>READ_FACILITY = 17;</code>
-   */
-  public static final int READ_FACILITY_VALUE = 17;
-  /**
-   * <code>UPDATE_FACILITY = 18;</code>
-   */
-  public static final int UPDATE_FACILITY_VALUE = 18;
-  /**
-   * <code>DELETE_FACILITY = 19;</code>
-   */
-  public static final int DELETE_FACILITY_VALUE = 19;
+  public static final int FACILITY_REMOVE_VALUE = 12;
 
 
   public final int getNumber() {
@@ -197,26 +141,19 @@ public enum Permission
    */
   public static Permission forNumber(int value) {
     switch (value) {
-      case 0: return CREATE_ORGANIZATION;
-      case 1: return READ_ORGANIZATION;
-      case 2: return UPDATE_ORGANIZATION;
-      case 3: return DELETE_ORGANIZATION;
-      case 4: return ADD_MEMBERS_TO_ORGANIZATION;
-      case 5: return REMOVE_MEMBERS_FROM_ORGANIZATION;
-      case 6: return CREATE_EVENT;
-      case 7: return READ_EVENT;
-      case 8: return UPDATE_EVENT;
-      case 9: return DELETE_EVENT;
-      case 10: return CREATE_TAG;
-      case 11: return READ_TAG;
-      case 12: return UPDATE_TAG;
-      case 13: return DELETE_TAG;
-      case 14: return ADD_TAGS_TO_EVENT;
-      case 15: return REMOVE_TAGS_FROM_EVENT;
-      case 16: return CREATE_FACILITY;
-      case 17: return READ_FACILITY;
-      case 18: return UPDATE_FACILITY;
-      case 19: return DELETE_FACILITY;
+      case 0: return ORGANIZATION_UPDATE;
+      case 1: return ORGANIZATION_REMOVE;
+      case 2: return ORGANIZATION_MEMBER_ADD;
+      case 3: return ORGANIZATION_MEMBER_REMOVE;
+      case 4: return EVENT_CREATE;
+      case 5: return EVENT_UPDATE;
+      case 6: return EVENT_REMOVE;
+      case 7: return TAG_CREATE;
+      case 8: return TAG_REMOVE;
+      case 9: return EVENT_TAG_UPDATE;
+      case 10: return FACILITY_CREATE;
+      case 11: return FACILITY_UPDATE;
+      case 12: return FACILITY_REMOVE;
       default: return null;
     }
   }
