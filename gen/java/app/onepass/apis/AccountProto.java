@@ -20,10 +20,10 @@ public final class AccountProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hts_account_IsAuthenticatedRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_hts_account_GenerateJWTResponse_descriptor;
+    internal_static_hts_account_GenerateAuthTokenResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_hts_account_GenerateJWTResponse_fieldAccessorTable;
+      internal_static_hts_account_GenerateAuthTokenResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_hts_account_HasPermissionRequest_descriptor;
   static final 
@@ -42,24 +42,24 @@ public final class AccountProto {
       "\032\027hts/common/common.proto\032\033google/protob" +
       "uf/empty.proto\032\036google/protobuf/wrappers" +
       ".proto\";\n\026IsAuthenticatedRequest\022!\n\014acce" +
-      "ss_token\030\001 \001(\tR\013accessToken\"8\n\023GenerateJ" +
-      "WTResponse\022!\n\014access_token\030\001 \001(\tR\013access" +
-      "Token\"\231\001\n\024HasPermissionRequest\022\027\n\007user_i" +
-      "d\030\001 \001(\003R\006userId\022\'\n\017organization_id\030\002 \001(\003" +
-      "R\016organizationId\022?\n\017permission_name\030\003 \001(" +
-      "\0162\026.hts.common.PermissionR\016permissionNam" +
-      "e2\354\002\n\016AccountService\022R\n\017IsAuthenticated\022" +
-      "#.hts.account.IsAuthenticatedRequest\032\032.g" +
-      "oogle.protobuf.BoolValue\0227\n\021UpdateAccoun" +
-      "tInfo\022\020.hts.common.User\032\020.hts.common.Use" +
-      "r\022A\n\013GenerateJWT\022\020.hts.common.User\032 .hts" +
-      ".account.GenerateJWTResponse\022N\n\rHasPermi" +
-      "ssion\022!.hts.account.HasPermissionRequest" +
-      "\032\032.google.protobuf.BoolValue\022:\n\004Ping\022\026.g" +
-      "oogle.protobuf.Empty\032\032.google.protobuf.B" +
-      "oolValueBD\n\020app.onepass.apisB\014AccountPro" +
-      "toP\001Z onepass.app/facility/hts/accountb\006" +
-      "proto3"
+      "ss_token\030\001 \001(\tR\013accessToken\">\n\031GenerateA" +
+      "uthTokenResponse\022!\n\014access_token\030\001 \001(\tR\013" +
+      "accessToken\"\231\001\n\024HasPermissionRequest\022\027\n\007" +
+      "user_id\030\001 \001(\003R\006userId\022\'\n\017organization_id" +
+      "\030\002 \001(\003R\016organizationId\022?\n\017permission_nam" +
+      "e\030\003 \001(\0162\026.hts.common.PermissionR\016permiss" +
+      "ionName2\370\002\n\016AccountService\022R\n\017IsAuthenti" +
+      "cated\022#.hts.account.IsAuthenticatedReque" +
+      "st\032\032.google.protobuf.BoolValue\0227\n\021Update" +
+      "AccountInfo\022\020.hts.common.User\032\020.hts.comm" +
+      "on.User\022M\n\021GenerateAuthToken\022\020.hts.commo" +
+      "n.User\032&.hts.account.GenerateAuthTokenRe" +
+      "sponse\022N\n\rHasPermission\022!.hts.account.Ha" +
+      "sPermissionRequest\032\032.google.protobuf.Boo" +
+      "lValue\022:\n\004Ping\022\026.google.protobuf.Empty\032\032" +
+      ".google.protobuf.BoolValueBD\n\020app.onepas" +
+      "s.apisB\014AccountProtoP\001Z onepass.app/faci" +
+      "lity/hts/accountb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -74,11 +74,11 @@ public final class AccountProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_account_IsAuthenticatedRequest_descriptor,
         new java.lang.String[] { "AccessToken", });
-    internal_static_hts_account_GenerateJWTResponse_descriptor =
+    internal_static_hts_account_GenerateAuthTokenResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_hts_account_GenerateJWTResponse_fieldAccessorTable = new
+    internal_static_hts_account_GenerateAuthTokenResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_hts_account_GenerateJWTResponse_descriptor,
+        internal_static_hts_account_GenerateAuthTokenResponse_descriptor,
         new java.lang.String[] { "AccessToken", });
     internal_static_hts_account_HasPermissionRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);

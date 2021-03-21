@@ -11,7 +11,7 @@ export interface IsAuthenticatedRequest {
   accessToken: string;
 }
 
-export interface GenerateJWTResponse {
+export interface GenerateAuthTokenResponse {
   accessToken: string;
 }
 
@@ -28,7 +28,7 @@ export interface AccountServiceClient {
 
   updateAccountInfo(request: User): Observable<User>;
 
-  generateJWT(request: User): Observable<GenerateJWTResponse>;
+  generateAuthToken(request: User): Observable<GenerateAuthTokenResponse>;
 
   hasPermission(request: HasPermissionRequest): Observable<BoolValue>;
 
@@ -42,12 +42,12 @@ export interface AccountServiceController {
 
   updateAccountInfo(request: User): Promise<User> | Observable<User> | User;
 
-  generateJWT(
+  generateAuthToken(
     request: User
   ):
-    | Promise<GenerateJWTResponse>
-    | Observable<GenerateJWTResponse>
-    | GenerateJWTResponse;
+    | Promise<GenerateAuthTokenResponse>
+    | Observable<GenerateAuthTokenResponse>
+    | GenerateAuthTokenResponse;
 
   hasPermission(
     request: HasPermissionRequest
@@ -61,7 +61,7 @@ export function AccountServiceControllerMethods() {
     const grpcMethods: string[] = [
       "isAuthenticated",
       "updateAccountInfo",
-      "generateJWT",
+      "generateAuthToken",
       "hasPermission",
       "ping",
     ];

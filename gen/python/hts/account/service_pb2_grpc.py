@@ -27,10 +27,10 @@ class AccountServiceStub(object):
                 request_serializer=hts_dot_common_dot_common__pb2.User.SerializeToString,
                 response_deserializer=hts_dot_common_dot_common__pb2.User.FromString,
                 )
-        self.GenerateJWT = channel.unary_unary(
-                '/hts.account.AccountService/GenerateJWT',
+        self.GenerateAuthToken = channel.unary_unary(
+                '/hts.account.AccountService/GenerateAuthToken',
                 request_serializer=hts_dot_common_dot_common__pb2.User.SerializeToString,
-                response_deserializer=hts_dot_account_dot_service__pb2.GenerateJWTResponse.FromString,
+                response_deserializer=hts_dot_account_dot_service__pb2.GenerateAuthTokenResponse.FromString,
                 )
         self.HasPermission = channel.unary_unary(
                 '/hts.account.AccountService/HasPermission',
@@ -59,7 +59,7 @@ class AccountServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GenerateJWT(self, request, context):
+    def GenerateAuthToken(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -90,10 +90,10 @@ def add_AccountServiceServicer_to_server(servicer, server):
                     request_deserializer=hts_dot_common_dot_common__pb2.User.FromString,
                     response_serializer=hts_dot_common_dot_common__pb2.User.SerializeToString,
             ),
-            'GenerateJWT': grpc.unary_unary_rpc_method_handler(
-                    servicer.GenerateJWT,
+            'GenerateAuthToken': grpc.unary_unary_rpc_method_handler(
+                    servicer.GenerateAuthToken,
                     request_deserializer=hts_dot_common_dot_common__pb2.User.FromString,
-                    response_serializer=hts_dot_account_dot_service__pb2.GenerateJWTResponse.SerializeToString,
+                    response_serializer=hts_dot_account_dot_service__pb2.GenerateAuthTokenResponse.SerializeToString,
             ),
             'HasPermission': grpc.unary_unary_rpc_method_handler(
                     servicer.HasPermission,
@@ -150,7 +150,7 @@ class AccountService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GenerateJWT(request,
+    def GenerateAuthToken(request,
             target,
             options=(),
             channel_credentials=None,
@@ -160,9 +160,9 @@ class AccountService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hts.account.AccountService/GenerateJWT',
+        return grpc.experimental.unary_unary(request, target, '/hts.account.AccountService/GenerateAuthToken',
             hts_dot_common_dot_common__pb2.User.SerializeToString,
-            hts_dot_account_dot_service__pb2.GenerateJWTResponse.FromString,
+            hts_dot_account_dot_service__pb2.GenerateAuthTokenResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
