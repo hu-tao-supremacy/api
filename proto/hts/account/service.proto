@@ -9,6 +9,7 @@ option go_package = "onepass.app/facility/hts/account";
 
 import "hts/common/common.proto";
 import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto"
 
 message IsAuthenticatedInput {
   string access_token = 1;
@@ -25,10 +26,9 @@ message HasPermissionInput {
 }
 
 service AccountService {
-  rpc IsAuthenticated(IsAuthenticatedInput) returns (hts.common.Result);
+  rpc IsAuthenticated(IsAuthenticatedInput) returns (google.protobuf.Empty);
   rpc UpdateAccountInfo(hts.common.User) returns (hts.common.User);
   rpc GenerateJWT(hts.common.User) returns (GenerateJWTOutput);
-  rpc HasPermission(HasPermissionInput) returns (hts.common.Result);
-  rpc ValidatePermission(HasPermissionInput) returns (google.protobuf.Empty);
-  rpc Ping(google.protobuf.Empty) returns (hts.common.Result);
+  rpc HasPermission(HasPermissionInput) returns (google.protobuf.Empty);
+  rpc Ping(google.protobuf.Empty) returns (google.protobuf.BoolValue);
 }
