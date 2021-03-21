@@ -20,7 +20,7 @@ jobs:
       - uses: actions/cache@v1
         with:
           path: "/private/var/tmp/_bazel_runner"
-          key: bazel
+          key: bazel-${{ hashFiles('BUILD') }}
       - run: |
           git checkout -b gen/${{ env.SHA7 }}
           rm -rf gen/
