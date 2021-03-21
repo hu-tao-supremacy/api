@@ -27,7 +27,6 @@ message CreateOrganizationRequest {
 
 message UpdateOrganizationRequest {
   int64 user_id = 1;
-  int64 organization_id = 2;
   hts.common.Organization organization = 3;
 }
 
