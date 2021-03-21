@@ -479,27 +479,27 @@ public final class ParticipantServiceGrpc {
     return getGetEventsByFacilityMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.StringInputRequest,
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Timestamp,
       app.onepass.apis.EventsResponse> getGetEventsByDateMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "GetEventsByDate",
-      requestType = app.onepass.apis.StringInputRequest.class,
+      requestType = com.google.protobuf.Timestamp.class,
       responseType = app.onepass.apis.EventsResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<app.onepass.apis.StringInputRequest,
+  public static io.grpc.MethodDescriptor<com.google.protobuf.Timestamp,
       app.onepass.apis.EventsResponse> getGetEventsByDateMethod() {
-    io.grpc.MethodDescriptor<app.onepass.apis.StringInputRequest, app.onepass.apis.EventsResponse> getGetEventsByDateMethod;
+    io.grpc.MethodDescriptor<com.google.protobuf.Timestamp, app.onepass.apis.EventsResponse> getGetEventsByDateMethod;
     if ((getGetEventsByDateMethod = ParticipantServiceGrpc.getGetEventsByDateMethod) == null) {
       synchronized (ParticipantServiceGrpc.class) {
         if ((getGetEventsByDateMethod = ParticipantServiceGrpc.getGetEventsByDateMethod) == null) {
           ParticipantServiceGrpc.getGetEventsByDateMethod = getGetEventsByDateMethod =
-              io.grpc.MethodDescriptor.<app.onepass.apis.StringInputRequest, app.onepass.apis.EventsResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.google.protobuf.Timestamp, app.onepass.apis.EventsResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetEventsByDate"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  app.onepass.apis.StringInputRequest.getDefaultInstance()))
+                  com.google.protobuf.Timestamp.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.EventsResponse.getDefaultInstance()))
               .setSchemaDescriptor(new ParticipantServiceMethodDescriptorSupplier("GetEventsByDate"))
@@ -727,7 +727,7 @@ public final class ParticipantServiceGrpc {
 
     /**
      */
-    public void getEventsByDate(app.onepass.apis.StringInputRequest request,
+    public void getEventsByDate(com.google.protobuf.Timestamp request,
         io.grpc.stub.StreamObserver<app.onepass.apis.EventsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetEventsByDateMethod(), responseObserver);
     }
@@ -857,7 +857,7 @@ public final class ParticipantServiceGrpc {
             getGetEventsByDateMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                app.onepass.apis.StringInputRequest,
+                com.google.protobuf.Timestamp,
                 app.onepass.apis.EventsResponse>(
                   this, METHODID_GET_EVENTS_BY_DATE)))
           .addMethod(
@@ -1014,7 +1014,7 @@ public final class ParticipantServiceGrpc {
 
     /**
      */
-    public void getEventsByDate(app.onepass.apis.StringInputRequest request,
+    public void getEventsByDate(com.google.protobuf.Timestamp request,
         io.grpc.stub.StreamObserver<app.onepass.apis.EventsResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetEventsByDateMethod(), getCallOptions()), request, responseObserver);
@@ -1158,7 +1158,7 @@ public final class ParticipantServiceGrpc {
 
     /**
      */
-    public app.onepass.apis.EventsResponse getEventsByDate(app.onepass.apis.StringInputRequest request) {
+    public app.onepass.apis.EventsResponse getEventsByDate(com.google.protobuf.Timestamp request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetEventsByDateMethod(), getCallOptions(), request);
     }
@@ -1315,7 +1315,7 @@ public final class ParticipantServiceGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.EventsResponse> getEventsByDate(
-        app.onepass.apis.StringInputRequest request) {
+        com.google.protobuf.Timestamp request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetEventsByDateMethod(), getCallOptions()), request);
     }
@@ -1434,7 +1434,7 @@ public final class ParticipantServiceGrpc {
               (io.grpc.stub.StreamObserver<app.onepass.apis.EventsResponse>) responseObserver);
           break;
         case METHODID_GET_EVENTS_BY_DATE:
-          serviceImpl.getEventsByDate((app.onepass.apis.StringInputRequest) request,
+          serviceImpl.getEventsByDate((com.google.protobuf.Timestamp) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.EventsResponse>) responseObserver);
           break;
         case METHODID_GENERATE_QR:

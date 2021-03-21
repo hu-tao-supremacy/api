@@ -70,7 +70,7 @@ export interface ParticipantService {
   GetEventsByTag(request: Tag): Promise<EventsResponse>;
   GetEventsByOrganization(request: Organization): Promise<EventsResponse>;
   GetEventsByFacility(request: Facility): Promise<EventsResponse>;
-  GetEventsByDate(request: StringInputRequest): Promise<EventsResponse>;
+  GetEventsByDate(request: Date): Promise<EventsResponse>;
   GenerateQR(request: UserEvent): Promise<GenerateQRResponse>;
   Ping(request: Empty): Promise<Result>;
 }

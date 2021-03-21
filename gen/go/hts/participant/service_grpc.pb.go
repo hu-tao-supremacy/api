@@ -8,6 +8,7 @@ import (
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
 	emptypb "google.golang.org/protobuf/types/known/emptypb"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	common "onepass.app/facility/hts/common"
 )
 
@@ -35,7 +36,7 @@ type ParticipantServiceClient interface {
 	GetEventsByTag(ctx context.Context, in *common.Tag, opts ...grpc.CallOption) (*EventsResponse, error)
 	GetEventsByOrganization(ctx context.Context, in *common.Organization, opts ...grpc.CallOption) (*EventsResponse, error)
 	GetEventsByFacility(ctx context.Context, in *common.Facility, opts ...grpc.CallOption) (*EventsResponse, error)
-	GetEventsByDate(ctx context.Context, in *StringInputRequest, opts ...grpc.CallOption) (*EventsResponse, error)
+	GetEventsByDate(ctx context.Context, in *timestamppb.Timestamp, opts ...grpc.CallOption) (*EventsResponse, error)
 	GenerateQR(ctx context.Context, in *common.UserEvent, opts ...grpc.CallOption) (*GenerateQRResponse, error)
 	Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*common.Result, error)
 }
@@ -183,7 +184,7 @@ func (c *participantServiceClient) GetEventsByFacility(ctx context.Context, in *
 	return out, nil
 }
 
-func (c *participantServiceClient) GetEventsByDate(ctx context.Context, in *StringInputRequest, opts ...grpc.CallOption) (*EventsResponse, error) {
+func (c *participantServiceClient) GetEventsByDate(ctx context.Context, in *timestamppb.Timestamp, opts ...grpc.CallOption) (*EventsResponse, error) {
 	out := new(EventsResponse)
 	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GetEventsByDate", in, out, opts...)
 	if err != nil {
@@ -229,7 +230,7 @@ type ParticipantServiceServer interface {
 	GetEventsByTag(context.Context, *common.Tag) (*EventsResponse, error)
 	GetEventsByOrganization(context.Context, *common.Organization) (*EventsResponse, error)
 	GetEventsByFacility(context.Context, *common.Facility) (*EventsResponse, error)
-	GetEventsByDate(context.Context, *StringInputRequest) (*EventsResponse, error)
+	GetEventsByDate(context.Context, *timestamppb.Timestamp) (*EventsResponse, error)
 	GenerateQR(context.Context, *common.UserEvent) (*GenerateQRResponse, error)
 	Ping(context.Context, *emptypb.Empty) (*common.Result, error)
 	mustEmbedUnimplementedParticipantServiceServer()
@@ -284,7 +285,7 @@ func (UnimplementedParticipantServiceServer) GetEventsByOrganization(context.Con
 func (UnimplementedParticipantServiceServer) GetEventsByFacility(context.Context, *common.Facility) (*EventsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetEventsByFacility not implemented")
 }
-func (UnimplementedParticipantServiceServer) GetEventsByDate(context.Context, *StringInputRequest) (*EventsResponse, error) {
+func (UnimplementedParticipantServiceServer) GetEventsByDate(context.Context, *timestamppb.Timestamp) (*EventsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetEventsByDate not implemented")
 }
 func (UnimplementedParticipantServiceServer) GenerateQR(context.Context, *common.UserEvent) (*GenerateQRResponse, error) {
@@ -577,7 +578,7 @@ func _ParticipantService_GetEventsByFacility_Handler(srv interface{}, ctx contex
 }
 
 func _ParticipantService_GetEventsByDate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StringInputRequest)
+	in := new(timestamppb.Timestamp)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -589,7 +590,7 @@ func _ParticipantService_GetEventsByDate_Handler(srv interface{}, ctx context.Co
 		FullMethod: "/hts.participant.ParticipantService/GetEventsByDate",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ParticipantServiceServer).GetEventsByDate(ctx, req.(*StringInputRequest))
+		return srv.(ParticipantServiceServer).GetEventsByDate(ctx, req.(*timestamppb.Timestamp))
 	}
 	return interceptor(ctx, in, info, handler)
 }
