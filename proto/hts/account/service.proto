@@ -15,7 +15,7 @@ message IsAuthenticatedRequest {
   string access_token = 1;
 }
 
-message GenerateJWTResponse {
+message GenerateAuthTokenResponse {
   string access_token = 1;
 }
 
@@ -28,7 +28,7 @@ message HasPermissionRequest {
 service AccountService {
   rpc IsAuthenticated(IsAuthenticatedRequest) returns (google.protobuf.BoolValue);
   rpc UpdateAccountInfo(hts.common.User) returns (hts.common.User);
-  rpc GenerateJWT(hts.common.User) returns (GenerateJWTResponse);
+  rpc GenerateAuthToken(hts.common.User) returns (GenerateAuthTokenResponse);
   rpc HasPermission(HasPermissionRequest) returns (google.protobuf.BoolValue);
   rpc Ping(google.protobuf.Empty) returns (google.protobuf.BoolValue);
 }
