@@ -3,6 +3,7 @@
 import grpc
 
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from hts.common import common_pb2 as hts_dot_common_dot_common__pb2
 from hts.participant import service_pb2 as hts_dot_participant_dot_service__pb2
 
@@ -93,7 +94,7 @@ class ParticipantServiceStub(object):
                 )
         self.GetEventsByDate = channel.unary_unary(
                 '/hts.participant.ParticipantService/GetEventsByDate',
-                request_serializer=hts_dot_participant_dot_service__pb2.StringInputRequest.SerializeToString,
+                request_serializer=google_dot_protobuf_dot_timestamp__pb2.Timestamp.SerializeToString,
                 response_deserializer=hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
                 )
         self.GenerateQR = channel.unary_unary(
@@ -299,7 +300,7 @@ def add_ParticipantServiceServicer_to_server(servicer, server):
             ),
             'GetEventsByDate': grpc.unary_unary_rpc_method_handler(
                     servicer.GetEventsByDate,
-                    request_deserializer=hts_dot_participant_dot_service__pb2.StringInputRequest.FromString,
+                    request_deserializer=google_dot_protobuf_dot_timestamp__pb2.Timestamp.FromString,
                     response_serializer=hts_dot_participant_dot_service__pb2.EventsResponse.SerializeToString,
             ),
             'GenerateQR': grpc.unary_unary_rpc_method_handler(
@@ -589,7 +590,7 @@ class ParticipantService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetEventsByDate',
-            hts_dot_participant_dot_service__pb2.StringInputRequest.SerializeToString,
+            google_dot_protobuf_dot_timestamp__pb2.Timestamp.SerializeToString,
             hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

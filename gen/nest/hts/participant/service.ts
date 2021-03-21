@@ -94,7 +94,7 @@ export interface ParticipantServiceClient {
 
   getEventsByFacility(request: Facility): Observable<EventsResponse>;
 
-  getEventsByDate(request: StringInputRequest): Observable<EventsResponse>;
+  getEventsByDate(request: Timestamp): Observable<EventsResponse>;
 
   generateQR(request: UserEvent): Observable<GenerateQRResponse>;
 
@@ -166,7 +166,7 @@ export interface ParticipantServiceController {
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
   getEventsByDate(
-    request: StringInputRequest
+    request: Timestamp
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
   generateQR(
