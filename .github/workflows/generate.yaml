@@ -19,7 +19,7 @@ jobs:
           echo "SHA7=${GITHUB_SHA::7}" >> $GITHUB_ENV
       - uses: actions/cache@v1
         with:
-          path: "/home/runner/.cache/bazel"
+          path: "/private/var/tmp/_bazel_runner"
           key: bazel
       - run: |
           git checkout -b gen/${{ env.SHA7 }}
