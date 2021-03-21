@@ -4,7 +4,6 @@ import {
   Status,
   Organization,
   Event,
-  Facility,
   Tag,
   Result,
 } from "../../hts/common/common";
@@ -49,14 +48,9 @@ export interface CreateEventRequest {
   event: Event | undefined;
 }
 
-export interface UpdateEventInfoRequest {
+export interface UpdateEventRequest {
   userId: number;
   event: Event | undefined;
-}
-
-export interface UpdateEventFacilityRequest {
-  userId: number;
-  facility: Facility | undefined;
 }
 
 export interface UpdateEventDurationRequest {
@@ -122,7 +116,7 @@ export const HTS_ORGANIZER_PACKAGE_NAME = "hts.organizer";
 export interface OrganizerServiceClient {
   createOrganization(request: CreateOrganizationRequest): Observable<Empty>;
 
-  getOrganization(request: Empty): Observable<GetOrganizationByIdResponse>;
+  getOrganization(request: Empty): Observable<GetOrganizationResponse>;
 
   getOrganizationById(
     request: GetByIdRequest
@@ -142,7 +136,7 @@ export interface OrganizerServiceClient {
 
   createEvent(request: CreateEventRequest): Observable<Empty>;
 
-  updateEventInfo(request: UpdateEventInfoRequest): Observable<Empty>;
+  updateEvent(request: UpdateEventRequest): Observable<Empty>;
 
   updateEventDuration(request: UpdateEventDurationRequest): Observable<Empty>;
 
@@ -173,9 +167,9 @@ export interface OrganizerServiceController {
   getOrganization(
     request: Empty
   ):
-    | Promise<GetOrganizationByIdResponse>
-    | Observable<GetOrganizationByIdResponse>
-    | GetOrganizationByIdResponse;
+    | Promise<GetOrganizationResponse>
+    | Observable<GetOrganizationResponse>
+    | GetOrganizationResponse;
 
   getOrganizationById(
     request: GetByIdRequest
@@ -194,7 +188,7 @@ export interface OrganizerServiceController {
 
   createEvent(request: CreateEventRequest): void;
 
-  updateEventInfo(request: UpdateEventInfoRequest): void;
+  updateEvent(request: UpdateEventRequest): void;
 
   updateEventDuration(request: UpdateEventDurationRequest): void;
 
@@ -237,7 +231,7 @@ export function OrganizerServiceControllerMethods() {
       "addUsersToOrganization",
       "removeUsersFromOrganization",
       "createEvent",
-      "updateEventInfo",
+      "updateEvent",
       "updateEventDuration",
       "removeEvent",
       "updateRegistrationRequest",

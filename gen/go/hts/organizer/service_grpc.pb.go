@@ -21,14 +21,14 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type OrganizerServiceClient interface {
 	CreateOrganization(ctx context.Context, in *CreateOrganizationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	GetOrganization(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetOrganizationByIdResponse, error)
+	GetOrganization(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetOrganizationResponse, error)
 	GetOrganizationById(ctx context.Context, in *GetByIdRequest, opts ...grpc.CallOption) (*GetOrganizationByIdResponse, error)
 	UpdateOrganization(ctx context.Context, in *UpdateOrganizationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	RemoveOrganization(ctx context.Context, in *RemoveOrganizationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	AddUsersToOrganization(ctx context.Context, in *UpdateUsersInOrganizationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	RemoveUsersFromOrganization(ctx context.Context, in *UpdateUsersInOrganizationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	CreateEvent(ctx context.Context, in *CreateEventRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	UpdateEventInfo(ctx context.Context, in *UpdateEventInfoRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	UpdateEvent(ctx context.Context, in *UpdateEventRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	UpdateEventDuration(ctx context.Context, in *UpdateEventDurationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	RemoveEvent(ctx context.Context, in *RemoveEventRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	UpdateRegistrationRequest(ctx context.Context, in *UpdateRegistrationRequestRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -58,8 +58,8 @@ func (c *organizerServiceClient) CreateOrganization(ctx context.Context, in *Cre
 	return out, nil
 }
 
-func (c *organizerServiceClient) GetOrganization(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetOrganizationByIdResponse, error) {
-	out := new(GetOrganizationByIdResponse)
+func (c *organizerServiceClient) GetOrganization(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetOrganizationResponse, error) {
+	out := new(GetOrganizationResponse)
 	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/GetOrganization", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -121,9 +121,9 @@ func (c *organizerServiceClient) CreateEvent(ctx context.Context, in *CreateEven
 	return out, nil
 }
 
-func (c *organizerServiceClient) UpdateEventInfo(ctx context.Context, in *UpdateEventInfoRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *organizerServiceClient) UpdateEvent(ctx context.Context, in *UpdateEventRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/UpdateEventInfo", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/UpdateEvent", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -225,14 +225,14 @@ func (c *organizerServiceClient) Ping(ctx context.Context, in *emptypb.Empty, op
 // for forward compatibility
 type OrganizerServiceServer interface {
 	CreateOrganization(context.Context, *CreateOrganizationRequest) (*emptypb.Empty, error)
-	GetOrganization(context.Context, *emptypb.Empty) (*GetOrganizationByIdResponse, error)
+	GetOrganization(context.Context, *emptypb.Empty) (*GetOrganizationResponse, error)
 	GetOrganizationById(context.Context, *GetByIdRequest) (*GetOrganizationByIdResponse, error)
 	UpdateOrganization(context.Context, *UpdateOrganizationRequest) (*emptypb.Empty, error)
 	RemoveOrganization(context.Context, *RemoveOrganizationRequest) (*emptypb.Empty, error)
 	AddUsersToOrganization(context.Context, *UpdateUsersInOrganizationRequest) (*emptypb.Empty, error)
 	RemoveUsersFromOrganization(context.Context, *UpdateUsersInOrganizationRequest) (*emptypb.Empty, error)
 	CreateEvent(context.Context, *CreateEventRequest) (*emptypb.Empty, error)
-	UpdateEventInfo(context.Context, *UpdateEventInfoRequest) (*emptypb.Empty, error)
+	UpdateEvent(context.Context, *UpdateEventRequest) (*emptypb.Empty, error)
 	UpdateEventDuration(context.Context, *UpdateEventDurationRequest) (*emptypb.Empty, error)
 	RemoveEvent(context.Context, *RemoveEventRequest) (*emptypb.Empty, error)
 	UpdateRegistrationRequest(context.Context, *UpdateRegistrationRequestRequest) (*emptypb.Empty, error)
@@ -253,7 +253,7 @@ type UnimplementedOrganizerServiceServer struct {
 func (UnimplementedOrganizerServiceServer) CreateOrganization(context.Context, *CreateOrganizationRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateOrganization not implemented")
 }
-func (UnimplementedOrganizerServiceServer) GetOrganization(context.Context, *emptypb.Empty) (*GetOrganizationByIdResponse, error) {
+func (UnimplementedOrganizerServiceServer) GetOrganization(context.Context, *emptypb.Empty) (*GetOrganizationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOrganization not implemented")
 }
 func (UnimplementedOrganizerServiceServer) GetOrganizationById(context.Context, *GetByIdRequest) (*GetOrganizationByIdResponse, error) {
@@ -274,8 +274,8 @@ func (UnimplementedOrganizerServiceServer) RemoveUsersFromOrganization(context.C
 func (UnimplementedOrganizerServiceServer) CreateEvent(context.Context, *CreateEventRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateEvent not implemented")
 }
-func (UnimplementedOrganizerServiceServer) UpdateEventInfo(context.Context, *UpdateEventInfoRequest) (*emptypb.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateEventInfo not implemented")
+func (UnimplementedOrganizerServiceServer) UpdateEvent(context.Context, *UpdateEventRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateEvent not implemented")
 }
 func (UnimplementedOrganizerServiceServer) UpdateEventDuration(context.Context, *UpdateEventDurationRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateEventDuration not implemented")
@@ -464,20 +464,20 @@ func _OrganizerService_CreateEvent_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
-func _OrganizerService_UpdateEventInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateEventInfoRequest)
+func _OrganizerService_UpdateEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateEventRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OrganizerServiceServer).UpdateEventInfo(ctx, in)
+		return srv.(OrganizerServiceServer).UpdateEvent(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.organizer.OrganizerService/UpdateEventInfo",
+		FullMethod: "/hts.organizer.OrganizerService/UpdateEvent",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OrganizerServiceServer).UpdateEventInfo(ctx, req.(*UpdateEventInfoRequest))
+		return srv.(OrganizerServiceServer).UpdateEvent(ctx, req.(*UpdateEventRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -702,8 +702,8 @@ var OrganizerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _OrganizerService_CreateEvent_Handler,
 		},
 		{
-			MethodName: "UpdateEventInfo",
-			Handler:    _OrganizerService_UpdateEventInfo_Handler,
+			MethodName: "UpdateEvent",
+			Handler:    _OrganizerService_UpdateEvent_Handler,
 		},
 		{
 			MethodName: "UpdateEventDuration",

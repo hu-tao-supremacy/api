@@ -24,7 +24,7 @@ class OrganizerServiceStub(object):
         self.GetOrganization = channel.unary_unary(
                 '/hts.organizer.OrganizerService/GetOrganization',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-                response_deserializer=hts_dot_organizer_dot_service__pb2.GetOrganizationByIdResponse.FromString,
+                response_deserializer=hts_dot_organizer_dot_service__pb2.GetOrganizationResponse.FromString,
                 )
         self.GetOrganizationById = channel.unary_unary(
                 '/hts.organizer.OrganizerService/GetOrganizationById',
@@ -56,9 +56,9 @@ class OrganizerServiceStub(object):
                 request_serializer=hts_dot_organizer_dot_service__pb2.CreateEventRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
-        self.UpdateEventInfo = channel.unary_unary(
-                '/hts.organizer.OrganizerService/UpdateEventInfo',
-                request_serializer=hts_dot_organizer_dot_service__pb2.UpdateEventInfoRequest.SerializeToString,
+        self.UpdateEvent = channel.unary_unary(
+                '/hts.organizer.OrganizerService/UpdateEvent',
+                request_serializer=hts_dot_organizer_dot_service__pb2.UpdateEventRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
         self.UpdateEventDuration = channel.unary_unary(
@@ -164,7 +164,7 @@ class OrganizerServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UpdateEventInfo(self, request, context):
+    def UpdateEvent(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -241,7 +241,7 @@ def add_OrganizerServiceServicer_to_server(servicer, server):
             'GetOrganization': grpc.unary_unary_rpc_method_handler(
                     servicer.GetOrganization,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                    response_serializer=hts_dot_organizer_dot_service__pb2.GetOrganizationByIdResponse.SerializeToString,
+                    response_serializer=hts_dot_organizer_dot_service__pb2.GetOrganizationResponse.SerializeToString,
             ),
             'GetOrganizationById': grpc.unary_unary_rpc_method_handler(
                     servicer.GetOrganizationById,
@@ -273,9 +273,9 @@ def add_OrganizerServiceServicer_to_server(servicer, server):
                     request_deserializer=hts_dot_organizer_dot_service__pb2.CreateEventRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
-            'UpdateEventInfo': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateEventInfo,
-                    request_deserializer=hts_dot_organizer_dot_service__pb2.UpdateEventInfoRequest.FromString,
+            'UpdateEvent': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateEvent,
+                    request_deserializer=hts_dot_organizer_dot_service__pb2.UpdateEventRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'UpdateEventDuration': grpc.unary_unary_rpc_method_handler(
@@ -368,7 +368,7 @@ class OrganizerService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/GetOrganization',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            hts_dot_organizer_dot_service__pb2.GetOrganizationByIdResponse.FromString,
+            hts_dot_organizer_dot_service__pb2.GetOrganizationResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -475,7 +475,7 @@ class OrganizerService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def UpdateEventInfo(request,
+    def UpdateEvent(request,
             target,
             options=(),
             channel_credentials=None,
@@ -485,8 +485,8 @@ class OrganizerService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/UpdateEventInfo',
-            hts_dot_organizer_dot_service__pb2.UpdateEventInfoRequest.SerializeToString,
+        return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/UpdateEvent',
+            hts_dot_organizer_dot_service__pb2.UpdateEventRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
