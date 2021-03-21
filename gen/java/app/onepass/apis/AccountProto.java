@@ -40,32 +40,32 @@ public final class AccountProto {
     java.lang.String[] descriptorData = {
       "\n\031hts/account/service.proto\022\013hts.account" +
       "\032\027hts/common/common.proto\032\033google/protob" +
-      "uf/empty.proto\"9\n\024IsAuthenticatedInput\022!" +
-      "\n\014access_token\030\001 \001(\tR\013accessToken\"6\n\021Gen" +
-      "erateJWTOutput\022!\n\014access_token\030\001 \001(\tR\013ac" +
-      "cessToken\"\227\001\n\022HasPermissionInput\022\027\n\007user" +
-      "_id\030\001 \001(\003R\006userId\022\'\n\017organization_id\030\002 \001" +
-      "(\003R\016organizationId\022?\n\017permission_name\030\003 " +
-      "\001(\0162\026.hts.common.PermissionR\016permissionN" +
-      "ame2\235\003\n\016AccountService\022H\n\017IsAuthenticate" +
-      "d\022!.hts.account.IsAuthenticatedInput\032\022.h" +
-      "ts.common.Result\0227\n\021UpdateAccountInfo\022\020." +
-      "hts.common.User\032\020.hts.common.User\022?\n\013Gen" +
-      "erateJWT\022\020.hts.common.User\032\036.hts.account" +
-      ".GenerateJWTOutput\022D\n\rHasPermission\022\037.ht" +
-      "s.account.HasPermissionInput\032\022.hts.commo" +
-      "n.Result\022M\n\022ValidatePermission\022\037.hts.acc" +
-      "ount.HasPermissionInput\032\026.google.protobu" +
-      "f.Empty\0222\n\004Ping\022\026.google.protobuf.Empty\032" +
-      "\022.hts.common.ResultBD\n\020app.onepass.apisB" +
-      "\014AccountProtoP\001Z onepass.app/facility/ht" +
-      "s/accountb\006proto3"
+      "uf/empty.proto\032\036google/protobuf/wrappers" +
+      ".proto\"9\n\024IsAuthenticatedInput\022!\n\014access" +
+      "_token\030\001 \001(\tR\013accessToken\"6\n\021GenerateJWT" +
+      "Output\022!\n\014access_token\030\001 \001(\tR\013accessToke" +
+      "n\"\227\001\n\022HasPermissionInput\022\027\n\007user_id\030\001 \001(" +
+      "\003R\006userId\022\'\n\017organization_id\030\002 \001(\003R\016orga" +
+      "nizationId\022?\n\017permission_name\030\003 \001(\0162\026.ht" +
+      "s.common.PermissionR\016permissionName2\336\002\n\016" +
+      "AccountService\022L\n\017IsAuthenticated\022!.hts." +
+      "account.IsAuthenticatedInput\032\026.google.pr" +
+      "otobuf.Empty\0227\n\021UpdateAccountInfo\022\020.hts." +
+      "common.User\032\020.hts.common.User\022?\n\013Generat" +
+      "eJWT\022\020.hts.common.User\032\036.hts.account.Gen" +
+      "erateJWTOutput\022H\n\rHasPermission\022\037.hts.ac" +
+      "count.HasPermissionInput\032\026.google.protob" +
+      "uf.Empty\022:\n\004Ping\022\026.google.protobuf.Empty" +
+      "\032\032.google.protobuf.BoolValueBD\n\020app.onep" +
+      "ass.apisB\014AccountProtoP\001Z onepass.app/fa" +
+      "cility/hts/accountb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           app.onepass.apis.CommonProto.getDescriptor(),
           com.google.protobuf.EmptyProto.getDescriptor(),
+          com.google.protobuf.WrappersProto.getDescriptor(),
         });
     internal_static_hts_account_IsAuthenticatedInput_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -87,6 +87,7 @@ public final class AccountProto {
         new java.lang.String[] { "UserId", "OrganizationId", "PermissionName", });
     app.onepass.apis.CommonProto.getDescriptor();
     com.google.protobuf.EmptyProto.getDescriptor();
+    com.google.protobuf.WrappersProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

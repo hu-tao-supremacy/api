@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { Permission, Result, User } from "../../hts/common/common";
+import { Permission, User } from "../../hts/common/common";
 import { Empty } from "../../google/protobuf/empty";
 
 export const protobufPackage = "hts.account";
@@ -19,10 +19,9 @@ export interface HasPermissionInput {
 }
 
 export interface AccountService {
-  IsAuthenticated(request: IsAuthenticatedInput): Promise<Result>;
+  IsAuthenticated(request: IsAuthenticatedInput): Promise<Empty>;
   UpdateAccountInfo(request: User): Promise<User>;
   GenerateJWT(request: User): Promise<GenerateJWTOutput>;
-  HasPermission(request: HasPermissionInput): Promise<Result>;
-  ValidatePermission(request: HasPermissionInput): Promise<Empty>;
-  Ping(request: Empty): Promise<Result>;
+  HasPermission(request: HasPermissionInput): Promise<Empty>;
+  Ping(request: Empty): Promise<boolean | undefined>;
 }

@@ -1,8 +1,9 @@
 /* eslint-disable */
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
-import { Permission, Result, User } from "../../hts/common/common";
+import { Permission, User } from "../../hts/common/common";
 import { Observable } from "rxjs";
 import { Empty } from "../../google/protobuf/empty";
+import { BoolValue } from "../../google/protobuf/wrappers";
 
 export const protobufPackage = "hts.account";
 
@@ -23,23 +24,19 @@ export interface HasPermissionInput {
 export const HTS_ACCOUNT_PACKAGE_NAME = "hts.account";
 
 export interface AccountServiceClient {
-  isAuthenticated(request: IsAuthenticatedInput): Observable<Result>;
+  isAuthenticated(request: IsAuthenticatedInput): Observable<Empty>;
 
   updateAccountInfo(request: User): Observable<User>;
 
   generateJWT(request: User): Observable<GenerateJWTOutput>;
 
-  hasPermission(request: HasPermissionInput): Observable<Result>;
+  hasPermission(request: HasPermissionInput): Observable<Empty>;
 
-  validatePermission(request: HasPermissionInput): Observable<Empty>;
-
-  ping(request: Empty): Observable<Result>;
+  ping(request: Empty): Observable<BoolValue>;
 }
 
 export interface AccountServiceController {
-  isAuthenticated(
-    request: IsAuthenticatedInput
-  ): Promise<Result> | Observable<Result> | Result;
+  isAuthenticated(request: IsAuthenticatedInput): void;
 
   updateAccountInfo(request: User): Promise<User> | Observable<User> | User;
 
@@ -50,13 +47,9 @@ export interface AccountServiceController {
     | Observable<GenerateJWTOutput>
     | GenerateJWTOutput;
 
-  hasPermission(
-    request: HasPermissionInput
-  ): Promise<Result> | Observable<Result> | Result;
+  hasPermission(request: HasPermissionInput): void;
 
-  validatePermission(request: HasPermissionInput): void;
-
-  ping(request: Empty): Promise<Result> | Observable<Result> | Result;
+  ping(request: Empty): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
 }
 
 export function AccountServiceControllerMethods() {
@@ -66,7 +59,6 @@ export function AccountServiceControllerMethods() {
       "updateAccountInfo",
       "generateJWT",
       "hasPermission",
-      "validatePermission",
       "ping",
     ];
     for (const method of grpcMethods) {
