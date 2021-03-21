@@ -50,12 +50,7 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            userId_ = input.readInt64();
-            break;
-          }
-          case 16: {
-
-            readId_ = input.readInt64();
+            id_ = input.readInt64();
             break;
           }
           default: {
@@ -90,26 +85,15 @@ private static final long serialVersionUID = 0L;
             app.onepass.apis.GetByIdRequest.class, app.onepass.apis.GetByIdRequest.Builder.class);
   }
 
-  public static final int USER_ID_FIELD_NUMBER = 1;
-  private long userId_;
+  public static final int ID_FIELD_NUMBER = 1;
+  private long id_;
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
-   * @return The userId.
+   * <code>int64 id = 1 [json_name = "id"];</code>
+   * @return The id.
    */
   @java.lang.Override
-  public long getUserId() {
-    return userId_;
-  }
-
-  public static final int READ_ID_FIELD_NUMBER = 2;
-  private long readId_;
-  /**
-   * <code>int64 read_id = 2 [json_name = "readId"];</code>
-   * @return The readId.
-   */
-  @java.lang.Override
-  public long getReadId() {
-    return readId_;
+  public long getId() {
+    return id_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -126,11 +110,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (userId_ != 0L) {
-      output.writeInt64(1, userId_);
-    }
-    if (readId_ != 0L) {
-      output.writeInt64(2, readId_);
+    if (id_ != 0L) {
+      output.writeInt64(1, id_);
     }
     unknownFields.writeTo(output);
   }
@@ -141,13 +122,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (userId_ != 0L) {
+    if (id_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, userId_);
-    }
-    if (readId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(2, readId_);
+        .computeInt64Size(1, id_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -164,10 +141,8 @@ private static final long serialVersionUID = 0L;
     }
     app.onepass.apis.GetByIdRequest other = (app.onepass.apis.GetByIdRequest) obj;
 
-    if (getUserId()
-        != other.getUserId()) return false;
-    if (getReadId()
-        != other.getReadId()) return false;
+    if (getId()
+        != other.getId()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -179,12 +154,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + USER_ID_FIELD_NUMBER;
+    hash = (37 * hash) + ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getUserId());
-    hash = (37 * hash) + READ_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getReadId());
+        getId());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -318,9 +290,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      userId_ = 0L;
-
-      readId_ = 0L;
+      id_ = 0L;
 
       return this;
     }
@@ -348,8 +318,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public app.onepass.apis.GetByIdRequest buildPartial() {
       app.onepass.apis.GetByIdRequest result = new app.onepass.apis.GetByIdRequest(this);
-      result.userId_ = userId_;
-      result.readId_ = readId_;
+      result.id_ = id_;
       onBuilt();
       return result;
     }
@@ -398,11 +367,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(app.onepass.apis.GetByIdRequest other) {
       if (other == app.onepass.apis.GetByIdRequest.getDefaultInstance()) return this;
-      if (other.getUserId() != 0L) {
-        setUserId(other.getUserId());
-      }
-      if (other.getReadId() != 0L) {
-        setReadId(other.getReadId());
+      if (other.getId() != 0L) {
+        setId(other.getId());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -433,64 +399,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long userId_ ;
+    private long id_ ;
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
-     * @return The userId.
+     * <code>int64 id = 1 [json_name = "id"];</code>
+     * @return The id.
      */
     @java.lang.Override
-    public long getUserId() {
-      return userId_;
+    public long getId() {
+      return id_;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
-     * @param value The userId to set.
+     * <code>int64 id = 1 [json_name = "id"];</code>
+     * @param value The id to set.
      * @return This builder for chaining.
      */
-    public Builder setUserId(long value) {
+    public Builder setId(long value) {
       
-      userId_ = value;
+      id_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int64 id = 1 [json_name = "id"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearUserId() {
+    public Builder clearId() {
       
-      userId_ = 0L;
-      onChanged();
-      return this;
-    }
-
-    private long readId_ ;
-    /**
-     * <code>int64 read_id = 2 [json_name = "readId"];</code>
-     * @return The readId.
-     */
-    @java.lang.Override
-    public long getReadId() {
-      return readId_;
-    }
-    /**
-     * <code>int64 read_id = 2 [json_name = "readId"];</code>
-     * @param value The readId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setReadId(long value) {
-      
-      readId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int64 read_id = 2 [json_name = "readId"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearReadId() {
-      
-      readId_ = 0L;
+      id_ = 0L;
       onChanged();
       return this;
     }

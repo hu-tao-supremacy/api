@@ -11,13 +11,8 @@ import { Empty } from "../../google/protobuf/empty";
 
 export const protobufPackage = "hts.organizer";
 
-export interface UserRequest {
-  userId: number;
-}
-
 export interface GetByIdRequest {
-  userId: number;
-  readId: number;
+  id: number;
 }
 
 export interface Duration {
@@ -32,7 +27,6 @@ export interface CreateOrganizationRequest {
 
 export interface UpdateOrganizationRequest {
   userId: number;
-  organizationId: number;
   organization: Organization | undefined;
 }
 
@@ -92,7 +86,6 @@ export interface UpdateTagRequest {
 }
 
 export interface HasEventRequest {
-  userId: number;
   organizationId: number;
   eventId: number;
 }
@@ -122,34 +115,31 @@ export interface GetTagByIdResponse {
 }
 
 export interface OrganizerService {
-  CreateOrganization(request: CreateOrganizationRequest): Promise<Result>;
-  GetOrganization(request: UserRequest): Promise<GetOrganizationResponse>;
+  CreateOrganization(request: CreateOrganizationRequest): Promise<Empty>;
+  GetOrganization(request: Empty): Promise<GetOrganizationByIdResponse>;
   GetOrganizationById(
     request: GetByIdRequest
   ): Promise<GetOrganizationByIdResponse>;
-  UpdateOrganization(request: UpdateOrganizationRequest): Promise<Result>;
-  RemoveOrganization(request: RemoveOrganizationRequest): Promise<Result>;
+  UpdateOrganization(request: UpdateOrganizationRequest): Promise<Empty>;
+  RemoveOrganization(request: RemoveOrganizationRequest): Promise<Empty>;
   AddUsersToOrganization(
     request: UpdateUsersInOrganizationRequest
-  ): Promise<Result>;
+  ): Promise<Empty>;
   RemoveUsersFromOrganization(
     request: UpdateUsersInOrganizationRequest
-  ): Promise<Result>;
-  CreateEvent(request: CreateEventRequest): Promise<Result>;
-  GetEvent(request: UserRequest): Promise<GetEventResponse>;
-  GetEventById(request: GetByIdRequest): Promise<GetEventByIdResponse>;
-  UpdateEventInfo(request: UpdateEventInfoRequest): Promise<Result>;
-  UpdateEventFacility(request: UpdateEventFacilityRequest): Promise<Result>;
-  UpdateEventDuration(request: UpdateEventDurationRequest): Promise<Result>;
-  RemoveEvent(request: RemoveEventRequest): Promise<Result>;
+  ): Promise<Empty>;
+  CreateEvent(request: CreateEventRequest): Promise<Empty>;
+  UpdateEventInfo(request: UpdateEventInfoRequest): Promise<Empty>;
+  UpdateEventDuration(request: UpdateEventDurationRequest): Promise<Empty>;
+  RemoveEvent(request: RemoveEventRequest): Promise<Empty>;
   UpdateRegistrationRequest(
     request: UpdateRegistrationRequestRequest
-  ): Promise<Result>;
-  CreateTag(request: CreateTagRequest): Promise<Result>;
-  AddTag(request: UpdateTagRequest): Promise<Result>;
-  RemoveTag(request: UpdateTagRequest): Promise<Result>;
-  GetTag(request: UserRequest): Promise<GetTagResponse>;
+  ): Promise<Empty>;
+  CreateTag(request: CreateTagRequest): Promise<Empty>;
+  AddTag(request: UpdateTagRequest): Promise<Empty>;
+  RemoveTag(request: UpdateTagRequest): Promise<Empty>;
+  GetTag(request: Empty): Promise<GetTagResponse>;
   GetTagById(request: GetByIdRequest): Promise<GetTagByIdResponse>;
-  HasEvent(request: HasEventRequest): Promise<Result>;
+  HasEvent(request: HasEventRequest): Promise<Event>;
   Ping(request: Empty): Promise<Result>;
 }

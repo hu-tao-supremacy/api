@@ -14,23 +14,17 @@ public interface UpdateOrganizationRequestOrBuilder extends
   long getUserId();
 
   /**
-   * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
-   * @return The organizationId.
-   */
-  long getOrganizationId();
-
-  /**
-   * <code>.hts.common.Organization organization = 3 [json_name = "organization"];</code>
+   * <code>.hts.common.Organization organization = 2 [json_name = "organization"];</code>
    * @return Whether the organization field is set.
    */
   boolean hasOrganization();
   /**
-   * <code>.hts.common.Organization organization = 3 [json_name = "organization"];</code>
+   * <code>.hts.common.Organization organization = 2 [json_name = "organization"];</code>
    * @return The organization.
    */
   app.onepass.apis.Organization getOrganization();
   /**
-   * <code>.hts.common.Organization organization = 3 [json_name = "organization"];</code>
+   * <code>.hts.common.Organization organization = 2 [json_name = "organization"];</code>
    */
   app.onepass.apis.OrganizationOrBuilder getOrganizationOrBuilder();
 }

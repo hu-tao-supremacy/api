@@ -19,12 +19,12 @@ class OrganizerServiceStub(object):
         self.CreateOrganization = channel.unary_unary(
                 '/hts.organizer.OrganizerService/CreateOrganization',
                 request_serializer=hts_dot_organizer_dot_service__pb2.CreateOrganizationRequest.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
         self.GetOrganization = channel.unary_unary(
                 '/hts.organizer.OrganizerService/GetOrganization',
-                request_serializer=hts_dot_organizer_dot_service__pb2.UserRequest.SerializeToString,
-                response_deserializer=hts_dot_organizer_dot_service__pb2.GetOrganizationResponse.FromString,
+                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                response_deserializer=hts_dot_organizer_dot_service__pb2.GetOrganizationByIdResponse.FromString,
                 )
         self.GetOrganizationById = channel.unary_unary(
                 '/hts.organizer.OrganizerService/GetOrganizationById',
@@ -34,81 +34,66 @@ class OrganizerServiceStub(object):
         self.UpdateOrganization = channel.unary_unary(
                 '/hts.organizer.OrganizerService/UpdateOrganization',
                 request_serializer=hts_dot_organizer_dot_service__pb2.UpdateOrganizationRequest.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
         self.RemoveOrganization = channel.unary_unary(
                 '/hts.organizer.OrganizerService/RemoveOrganization',
                 request_serializer=hts_dot_organizer_dot_service__pb2.RemoveOrganizationRequest.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
         self.AddUsersToOrganization = channel.unary_unary(
                 '/hts.organizer.OrganizerService/AddUsersToOrganization',
                 request_serializer=hts_dot_organizer_dot_service__pb2.UpdateUsersInOrganizationRequest.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
         self.RemoveUsersFromOrganization = channel.unary_unary(
                 '/hts.organizer.OrganizerService/RemoveUsersFromOrganization',
                 request_serializer=hts_dot_organizer_dot_service__pb2.UpdateUsersInOrganizationRequest.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
         self.CreateEvent = channel.unary_unary(
                 '/hts.organizer.OrganizerService/CreateEvent',
                 request_serializer=hts_dot_organizer_dot_service__pb2.CreateEventRequest.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
-                )
-        self.GetEvent = channel.unary_unary(
-                '/hts.organizer.OrganizerService/GetEvent',
-                request_serializer=hts_dot_organizer_dot_service__pb2.UserRequest.SerializeToString,
-                response_deserializer=hts_dot_organizer_dot_service__pb2.GetEventResponse.FromString,
-                )
-        self.GetEventById = channel.unary_unary(
-                '/hts.organizer.OrganizerService/GetEventById',
-                request_serializer=hts_dot_organizer_dot_service__pb2.GetByIdRequest.SerializeToString,
-                response_deserializer=hts_dot_organizer_dot_service__pb2.GetEventByIdResponse.FromString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
         self.UpdateEventInfo = channel.unary_unary(
                 '/hts.organizer.OrganizerService/UpdateEventInfo',
                 request_serializer=hts_dot_organizer_dot_service__pb2.UpdateEventInfoRequest.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
-                )
-        self.UpdateEventFacility = channel.unary_unary(
-                '/hts.organizer.OrganizerService/UpdateEventFacility',
-                request_serializer=hts_dot_organizer_dot_service__pb2.UpdateEventFacilityRequest.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
         self.UpdateEventDuration = channel.unary_unary(
                 '/hts.organizer.OrganizerService/UpdateEventDuration',
                 request_serializer=hts_dot_organizer_dot_service__pb2.UpdateEventDurationRequest.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
         self.RemoveEvent = channel.unary_unary(
                 '/hts.organizer.OrganizerService/RemoveEvent',
                 request_serializer=hts_dot_organizer_dot_service__pb2.RemoveEventRequest.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
         self.UpdateRegistrationRequest = channel.unary_unary(
                 '/hts.organizer.OrganizerService/UpdateRegistrationRequest',
                 request_serializer=hts_dot_organizer_dot_service__pb2.UpdateRegistrationRequestRequest.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
         self.CreateTag = channel.unary_unary(
                 '/hts.organizer.OrganizerService/CreateTag',
                 request_serializer=hts_dot_organizer_dot_service__pb2.CreateTagRequest.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
         self.AddTag = channel.unary_unary(
                 '/hts.organizer.OrganizerService/AddTag',
                 request_serializer=hts_dot_organizer_dot_service__pb2.UpdateTagRequest.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
         self.RemoveTag = channel.unary_unary(
                 '/hts.organizer.OrganizerService/RemoveTag',
                 request_serializer=hts_dot_organizer_dot_service__pb2.UpdateTagRequest.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
         self.GetTag = channel.unary_unary(
                 '/hts.organizer.OrganizerService/GetTag',
-                request_serializer=hts_dot_organizer_dot_service__pb2.UserRequest.SerializeToString,
+                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
                 response_deserializer=hts_dot_organizer_dot_service__pb2.GetTagResponse.FromString,
                 )
         self.GetTagById = channel.unary_unary(
@@ -119,7 +104,7 @@ class OrganizerServiceStub(object):
         self.HasEvent = channel.unary_unary(
                 '/hts.organizer.OrganizerService/HasEvent',
                 request_serializer=hts_dot_organizer_dot_service__pb2.HasEventRequest.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
+                response_deserializer=hts_dot_common_dot_common__pb2.Event.FromString,
                 )
         self.Ping = channel.unary_unary(
                 '/hts.organizer.OrganizerService/Ping',
@@ -179,25 +164,7 @@ class OrganizerServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetEvent(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetEventById(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def UpdateEventInfo(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def UpdateEventFacility(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -269,12 +236,12 @@ def add_OrganizerServiceServicer_to_server(servicer, server):
             'CreateOrganization': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateOrganization,
                     request_deserializer=hts_dot_organizer_dot_service__pb2.CreateOrganizationRequest.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'GetOrganization': grpc.unary_unary_rpc_method_handler(
                     servicer.GetOrganization,
-                    request_deserializer=hts_dot_organizer_dot_service__pb2.UserRequest.FromString,
-                    response_serializer=hts_dot_organizer_dot_service__pb2.GetOrganizationResponse.SerializeToString,
+                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                    response_serializer=hts_dot_organizer_dot_service__pb2.GetOrganizationByIdResponse.SerializeToString,
             ),
             'GetOrganizationById': grpc.unary_unary_rpc_method_handler(
                     servicer.GetOrganizationById,
@@ -284,81 +251,66 @@ def add_OrganizerServiceServicer_to_server(servicer, server):
             'UpdateOrganization': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateOrganization,
                     request_deserializer=hts_dot_organizer_dot_service__pb2.UpdateOrganizationRequest.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'RemoveOrganization': grpc.unary_unary_rpc_method_handler(
                     servicer.RemoveOrganization,
                     request_deserializer=hts_dot_organizer_dot_service__pb2.RemoveOrganizationRequest.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'AddUsersToOrganization': grpc.unary_unary_rpc_method_handler(
                     servicer.AddUsersToOrganization,
                     request_deserializer=hts_dot_organizer_dot_service__pb2.UpdateUsersInOrganizationRequest.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'RemoveUsersFromOrganization': grpc.unary_unary_rpc_method_handler(
                     servicer.RemoveUsersFromOrganization,
                     request_deserializer=hts_dot_organizer_dot_service__pb2.UpdateUsersInOrganizationRequest.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'CreateEvent': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateEvent,
                     request_deserializer=hts_dot_organizer_dot_service__pb2.CreateEventRequest.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
-            ),
-            'GetEvent': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetEvent,
-                    request_deserializer=hts_dot_organizer_dot_service__pb2.UserRequest.FromString,
-                    response_serializer=hts_dot_organizer_dot_service__pb2.GetEventResponse.SerializeToString,
-            ),
-            'GetEventById': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetEventById,
-                    request_deserializer=hts_dot_organizer_dot_service__pb2.GetByIdRequest.FromString,
-                    response_serializer=hts_dot_organizer_dot_service__pb2.GetEventByIdResponse.SerializeToString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'UpdateEventInfo': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateEventInfo,
                     request_deserializer=hts_dot_organizer_dot_service__pb2.UpdateEventInfoRequest.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
-            ),
-            'UpdateEventFacility': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateEventFacility,
-                    request_deserializer=hts_dot_organizer_dot_service__pb2.UpdateEventFacilityRequest.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'UpdateEventDuration': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateEventDuration,
                     request_deserializer=hts_dot_organizer_dot_service__pb2.UpdateEventDurationRequest.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'RemoveEvent': grpc.unary_unary_rpc_method_handler(
                     servicer.RemoveEvent,
                     request_deserializer=hts_dot_organizer_dot_service__pb2.RemoveEventRequest.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'UpdateRegistrationRequest': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateRegistrationRequest,
                     request_deserializer=hts_dot_organizer_dot_service__pb2.UpdateRegistrationRequestRequest.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'CreateTag': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateTag,
                     request_deserializer=hts_dot_organizer_dot_service__pb2.CreateTagRequest.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'AddTag': grpc.unary_unary_rpc_method_handler(
                     servicer.AddTag,
                     request_deserializer=hts_dot_organizer_dot_service__pb2.UpdateTagRequest.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'RemoveTag': grpc.unary_unary_rpc_method_handler(
                     servicer.RemoveTag,
                     request_deserializer=hts_dot_organizer_dot_service__pb2.UpdateTagRequest.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'GetTag': grpc.unary_unary_rpc_method_handler(
                     servicer.GetTag,
-                    request_deserializer=hts_dot_organizer_dot_service__pb2.UserRequest.FromString,
+                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                     response_serializer=hts_dot_organizer_dot_service__pb2.GetTagResponse.SerializeToString,
             ),
             'GetTagById': grpc.unary_unary_rpc_method_handler(
@@ -369,7 +321,7 @@ def add_OrganizerServiceServicer_to_server(servicer, server):
             'HasEvent': grpc.unary_unary_rpc_method_handler(
                     servicer.HasEvent,
                     request_deserializer=hts_dot_organizer_dot_service__pb2.HasEventRequest.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
+                    response_serializer=hts_dot_common_dot_common__pb2.Event.SerializeToString,
             ),
             'Ping': grpc.unary_unary_rpc_method_handler(
                     servicer.Ping,
@@ -399,7 +351,7 @@ class OrganizerService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/CreateOrganization',
             hts_dot_organizer_dot_service__pb2.CreateOrganizationRequest.SerializeToString,
-            hts_dot_common_dot_common__pb2.Result.FromString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -415,8 +367,8 @@ class OrganizerService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/GetOrganization',
-            hts_dot_organizer_dot_service__pb2.UserRequest.SerializeToString,
-            hts_dot_organizer_dot_service__pb2.GetOrganizationResponse.FromString,
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            hts_dot_organizer_dot_service__pb2.GetOrganizationByIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -450,7 +402,7 @@ class OrganizerService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/UpdateOrganization',
             hts_dot_organizer_dot_service__pb2.UpdateOrganizationRequest.SerializeToString,
-            hts_dot_common_dot_common__pb2.Result.FromString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -467,7 +419,7 @@ class OrganizerService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/RemoveOrganization',
             hts_dot_organizer_dot_service__pb2.RemoveOrganizationRequest.SerializeToString,
-            hts_dot_common_dot_common__pb2.Result.FromString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -484,7 +436,7 @@ class OrganizerService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/AddUsersToOrganization',
             hts_dot_organizer_dot_service__pb2.UpdateUsersInOrganizationRequest.SerializeToString,
-            hts_dot_common_dot_common__pb2.Result.FromString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -501,7 +453,7 @@ class OrganizerService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/RemoveUsersFromOrganization',
             hts_dot_organizer_dot_service__pb2.UpdateUsersInOrganizationRequest.SerializeToString,
-            hts_dot_common_dot_common__pb2.Result.FromString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -518,41 +470,7 @@ class OrganizerService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/CreateEvent',
             hts_dot_organizer_dot_service__pb2.CreateEventRequest.SerializeToString,
-            hts_dot_common_dot_common__pb2.Result.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetEvent(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/GetEvent',
-            hts_dot_organizer_dot_service__pb2.UserRequest.SerializeToString,
-            hts_dot_organizer_dot_service__pb2.GetEventResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetEventById(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/GetEventById',
-            hts_dot_organizer_dot_service__pb2.GetByIdRequest.SerializeToString,
-            hts_dot_organizer_dot_service__pb2.GetEventByIdResponse.FromString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -569,24 +487,7 @@ class OrganizerService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/UpdateEventInfo',
             hts_dot_organizer_dot_service__pb2.UpdateEventInfoRequest.SerializeToString,
-            hts_dot_common_dot_common__pb2.Result.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def UpdateEventFacility(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/UpdateEventFacility',
-            hts_dot_organizer_dot_service__pb2.UpdateEventFacilityRequest.SerializeToString,
-            hts_dot_common_dot_common__pb2.Result.FromString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -603,7 +504,7 @@ class OrganizerService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/UpdateEventDuration',
             hts_dot_organizer_dot_service__pb2.UpdateEventDurationRequest.SerializeToString,
-            hts_dot_common_dot_common__pb2.Result.FromString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -620,7 +521,7 @@ class OrganizerService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/RemoveEvent',
             hts_dot_organizer_dot_service__pb2.RemoveEventRequest.SerializeToString,
-            hts_dot_common_dot_common__pb2.Result.FromString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -637,7 +538,7 @@ class OrganizerService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/UpdateRegistrationRequest',
             hts_dot_organizer_dot_service__pb2.UpdateRegistrationRequestRequest.SerializeToString,
-            hts_dot_common_dot_common__pb2.Result.FromString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -654,7 +555,7 @@ class OrganizerService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/CreateTag',
             hts_dot_organizer_dot_service__pb2.CreateTagRequest.SerializeToString,
-            hts_dot_common_dot_common__pb2.Result.FromString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -671,7 +572,7 @@ class OrganizerService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/AddTag',
             hts_dot_organizer_dot_service__pb2.UpdateTagRequest.SerializeToString,
-            hts_dot_common_dot_common__pb2.Result.FromString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -688,7 +589,7 @@ class OrganizerService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/RemoveTag',
             hts_dot_organizer_dot_service__pb2.UpdateTagRequest.SerializeToString,
-            hts_dot_common_dot_common__pb2.Result.FromString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -704,7 +605,7 @@ class OrganizerService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/GetTag',
-            hts_dot_organizer_dot_service__pb2.UserRequest.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             hts_dot_organizer_dot_service__pb2.GetTagResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -739,7 +640,7 @@ class OrganizerService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/HasEvent',
             hts_dot_organizer_dot_service__pb2.HasEventRequest.SerializeToString,
-            hts_dot_common_dot_common__pb2.Result.FromString,
+            hts_dot_common_dot_common__pb2.Event.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

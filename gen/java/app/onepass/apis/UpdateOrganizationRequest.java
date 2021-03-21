@@ -53,12 +53,7 @@ private static final long serialVersionUID = 0L;
             userId_ = input.readInt64();
             break;
           }
-          case 16: {
-
-            organizationId_ = input.readInt64();
-            break;
-          }
-          case 26: {
+          case 18: {
             app.onepass.apis.Organization.Builder subBuilder = null;
             if (organization_ != null) {
               subBuilder = organization_.toBuilder();
@@ -114,21 +109,10 @@ private static final long serialVersionUID = 0L;
     return userId_;
   }
 
-  public static final int ORGANIZATION_ID_FIELD_NUMBER = 2;
-  private long organizationId_;
-  /**
-   * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
-   * @return The organizationId.
-   */
-  @java.lang.Override
-  public long getOrganizationId() {
-    return organizationId_;
-  }
-
-  public static final int ORGANIZATION_FIELD_NUMBER = 3;
+  public static final int ORGANIZATION_FIELD_NUMBER = 2;
   private app.onepass.apis.Organization organization_;
   /**
-   * <code>.hts.common.Organization organization = 3 [json_name = "organization"];</code>
+   * <code>.hts.common.Organization organization = 2 [json_name = "organization"];</code>
    * @return Whether the organization field is set.
    */
   @java.lang.Override
@@ -136,7 +120,7 @@ private static final long serialVersionUID = 0L;
     return organization_ != null;
   }
   /**
-   * <code>.hts.common.Organization organization = 3 [json_name = "organization"];</code>
+   * <code>.hts.common.Organization organization = 2 [json_name = "organization"];</code>
    * @return The organization.
    */
   @java.lang.Override
@@ -144,7 +128,7 @@ private static final long serialVersionUID = 0L;
     return organization_ == null ? app.onepass.apis.Organization.getDefaultInstance() : organization_;
   }
   /**
-   * <code>.hts.common.Organization organization = 3 [json_name = "organization"];</code>
+   * <code>.hts.common.Organization organization = 2 [json_name = "organization"];</code>
    */
   @java.lang.Override
   public app.onepass.apis.OrganizationOrBuilder getOrganizationOrBuilder() {
@@ -168,11 +152,8 @@ private static final long serialVersionUID = 0L;
     if (userId_ != 0L) {
       output.writeInt64(1, userId_);
     }
-    if (organizationId_ != 0L) {
-      output.writeInt64(2, organizationId_);
-    }
     if (organization_ != null) {
-      output.writeMessage(3, getOrganization());
+      output.writeMessage(2, getOrganization());
     }
     unknownFields.writeTo(output);
   }
@@ -187,13 +168,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(1, userId_);
     }
-    if (organizationId_ != 0L) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(2, organizationId_);
-    }
     if (organization_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, getOrganization());
+        .computeMessageSize(2, getOrganization());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -212,8 +189,6 @@ private static final long serialVersionUID = 0L;
 
     if (getUserId()
         != other.getUserId()) return false;
-    if (getOrganizationId()
-        != other.getOrganizationId()) return false;
     if (hasOrganization() != other.hasOrganization()) return false;
     if (hasOrganization()) {
       if (!getOrganization()
@@ -233,9 +208,6 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getUserId());
-    hash = (37 * hash) + ORGANIZATION_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getOrganizationId());
     if (hasOrganization()) {
       hash = (37 * hash) + ORGANIZATION_FIELD_NUMBER;
       hash = (53 * hash) + getOrganization().hashCode();
@@ -375,8 +347,6 @@ private static final long serialVersionUID = 0L;
       super.clear();
       userId_ = 0L;
 
-      organizationId_ = 0L;
-
       if (organizationBuilder_ == null) {
         organization_ = null;
       } else {
@@ -410,7 +380,6 @@ private static final long serialVersionUID = 0L;
     public app.onepass.apis.UpdateOrganizationRequest buildPartial() {
       app.onepass.apis.UpdateOrganizationRequest result = new app.onepass.apis.UpdateOrganizationRequest(this);
       result.userId_ = userId_;
-      result.organizationId_ = organizationId_;
       if (organizationBuilder_ == null) {
         result.organization_ = organization_;
       } else {
@@ -466,9 +435,6 @@ private static final long serialVersionUID = 0L;
       if (other == app.onepass.apis.UpdateOrganizationRequest.getDefaultInstance()) return this;
       if (other.getUserId() != 0L) {
         setUserId(other.getUserId());
-      }
-      if (other.getOrganizationId() != 0L) {
-        setOrganizationId(other.getOrganizationId());
       }
       if (other.hasOrganization()) {
         mergeOrganization(other.getOrganization());
@@ -533,49 +499,18 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long organizationId_ ;
-    /**
-     * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
-     * @return The organizationId.
-     */
-    @java.lang.Override
-    public long getOrganizationId() {
-      return organizationId_;
-    }
-    /**
-     * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
-     * @param value The organizationId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setOrganizationId(long value) {
-      
-      organizationId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearOrganizationId() {
-      
-      organizationId_ = 0L;
-      onChanged();
-      return this;
-    }
-
     private app.onepass.apis.Organization organization_;
     private com.google.protobuf.SingleFieldBuilderV3<
         app.onepass.apis.Organization, app.onepass.apis.Organization.Builder, app.onepass.apis.OrganizationOrBuilder> organizationBuilder_;
     /**
-     * <code>.hts.common.Organization organization = 3 [json_name = "organization"];</code>
+     * <code>.hts.common.Organization organization = 2 [json_name = "organization"];</code>
      * @return Whether the organization field is set.
      */
     public boolean hasOrganization() {
       return organizationBuilder_ != null || organization_ != null;
     }
     /**
-     * <code>.hts.common.Organization organization = 3 [json_name = "organization"];</code>
+     * <code>.hts.common.Organization organization = 2 [json_name = "organization"];</code>
      * @return The organization.
      */
     public app.onepass.apis.Organization getOrganization() {
@@ -586,7 +521,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.hts.common.Organization organization = 3 [json_name = "organization"];</code>
+     * <code>.hts.common.Organization organization = 2 [json_name = "organization"];</code>
      */
     public Builder setOrganization(app.onepass.apis.Organization value) {
       if (organizationBuilder_ == null) {
@@ -602,7 +537,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.hts.common.Organization organization = 3 [json_name = "organization"];</code>
+     * <code>.hts.common.Organization organization = 2 [json_name = "organization"];</code>
      */
     public Builder setOrganization(
         app.onepass.apis.Organization.Builder builderForValue) {
@@ -616,7 +551,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.hts.common.Organization organization = 3 [json_name = "organization"];</code>
+     * <code>.hts.common.Organization organization = 2 [json_name = "organization"];</code>
      */
     public Builder mergeOrganization(app.onepass.apis.Organization value) {
       if (organizationBuilder_ == null) {
@@ -634,7 +569,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.hts.common.Organization organization = 3 [json_name = "organization"];</code>
+     * <code>.hts.common.Organization organization = 2 [json_name = "organization"];</code>
      */
     public Builder clearOrganization() {
       if (organizationBuilder_ == null) {
@@ -648,7 +583,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.hts.common.Organization organization = 3 [json_name = "organization"];</code>
+     * <code>.hts.common.Organization organization = 2 [json_name = "organization"];</code>
      */
     public app.onepass.apis.Organization.Builder getOrganizationBuilder() {
       
@@ -656,7 +591,7 @@ private static final long serialVersionUID = 0L;
       return getOrganizationFieldBuilder().getBuilder();
     }
     /**
-     * <code>.hts.common.Organization organization = 3 [json_name = "organization"];</code>
+     * <code>.hts.common.Organization organization = 2 [json_name = "organization"];</code>
      */
     public app.onepass.apis.OrganizationOrBuilder getOrganizationOrBuilder() {
       if (organizationBuilder_ != null) {
@@ -667,7 +602,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.hts.common.Organization organization = 3 [json_name = "organization"];</code>
+     * <code>.hts.common.Organization organization = 2 [json_name = "organization"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         app.onepass.apis.Organization, app.onepass.apis.Organization.Builder, app.onepass.apis.OrganizationOrBuilder> 
