@@ -17,7 +17,7 @@ jobs:
           fetch-depth: 0
       - run: |
           echo "SHA7=${GITHUB_SHA::7}" >> $GITHUB_ENV
-      - uses: actions/cache@v1
+      - uses: actions/cache@v2
         with:
           path: "/private/var/tmp/_bazel_runner"
           key: bazel-${{ hashFiles('BUILD') }}
