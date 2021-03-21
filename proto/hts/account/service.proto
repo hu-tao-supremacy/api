@@ -11,24 +11,24 @@ import "hts/common/common.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
 
-message IsAuthenticatedInput {
+message IsAuthenticatedRequest {
   string access_token = 1;
 }
 
-message GenerateJWTOutput {
+message GenerateJWTResponse {
   string access_token = 1;
 }
 
-message HasPermissionInput {
+message HasPermissionRequest {
   int64 user_id = 1;
   int64 organization_id = 2;
   hts.common.Permission permission_name = 3;
 }
 
 service AccountService {
-  rpc IsAuthenticated(IsAuthenticatedInput) returns (google.protobuf.Empty);
+  rpc IsAuthenticated(IsAuthenticatedRequest) returns (google.protobuf.Empty);
   rpc UpdateAccountInfo(hts.common.User) returns (hts.common.User);
-  rpc GenerateJWT(hts.common.User) returns (GenerateJWTOutput);
-  rpc HasPermission(HasPermissionInput) returns (google.protobuf.Empty);
+  rpc GenerateJWT(hts.common.User) returns (GenerateJWTResponse);
+  rpc HasPermission(HasPermissionRequest) returns (google.protobuf.Empty);
   rpc Ping(google.protobuf.Empty) returns (google.protobuf.BoolValue);
 }
