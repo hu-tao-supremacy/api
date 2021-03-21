@@ -8,6 +8,7 @@ import (
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
 	emptypb "google.golang.org/protobuf/types/known/emptypb"
+	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	common "onepass.app/facility/hts/common"
 )
 
@@ -20,12 +21,11 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AccountServiceClient interface {
-	IsAuthenticated(ctx context.Context, in *IsAuthenticatedInput, opts ...grpc.CallOption) (*common.Result, error)
+	IsAuthenticated(ctx context.Context, in *IsAuthenticatedRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	UpdateAccountInfo(ctx context.Context, in *common.User, opts ...grpc.CallOption) (*common.User, error)
-	GenerateJWT(ctx context.Context, in *common.User, opts ...grpc.CallOption) (*GenerateJWTOutput, error)
-	HasPermission(ctx context.Context, in *HasPermissionInput, opts ...grpc.CallOption) (*common.Result, error)
-	ValidatePermission(ctx context.Context, in *HasPermissionInput, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*common.Result, error)
+	GenerateJWT(ctx context.Context, in *common.User, opts ...grpc.CallOption) (*GenerateJWTResponse, error)
+	HasPermission(ctx context.Context, in *HasPermissionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 }
 
 type accountServiceClient struct {
@@ -36,8 +36,8 @@ func NewAccountServiceClient(cc grpc.ClientConnInterface) AccountServiceClient {
 	return &accountServiceClient{cc}
 }
 
-func (c *accountServiceClient) IsAuthenticated(ctx context.Context, in *IsAuthenticatedInput, opts ...grpc.CallOption) (*common.Result, error) {
-	out := new(common.Result)
+func (c *accountServiceClient) IsAuthenticated(ctx context.Context, in *IsAuthenticatedRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, "/hts.account.AccountService/IsAuthenticated", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -54,8 +54,8 @@ func (c *accountServiceClient) UpdateAccountInfo(ctx context.Context, in *common
 	return out, nil
 }
 
-func (c *accountServiceClient) GenerateJWT(ctx context.Context, in *common.User, opts ...grpc.CallOption) (*GenerateJWTOutput, error) {
-	out := new(GenerateJWTOutput)
+func (c *accountServiceClient) GenerateJWT(ctx context.Context, in *common.User, opts ...grpc.CallOption) (*GenerateJWTResponse, error) {
+	out := new(GenerateJWTResponse)
 	err := c.cc.Invoke(ctx, "/hts.account.AccountService/GenerateJWT", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -63,8 +63,8 @@ func (c *accountServiceClient) GenerateJWT(ctx context.Context, in *common.User,
 	return out, nil
 }
 
-func (c *accountServiceClient) HasPermission(ctx context.Context, in *HasPermissionInput, opts ...grpc.CallOption) (*common.Result, error) {
-	out := new(common.Result)
+func (c *accountServiceClient) HasPermission(ctx context.Context, in *HasPermissionRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
 	err := c.cc.Invoke(ctx, "/hts.account.AccountService/HasPermission", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -72,17 +72,8 @@ func (c *accountServiceClient) HasPermission(ctx context.Context, in *HasPermiss
 	return out, nil
 }
 
-func (c *accountServiceClient) ValidatePermission(ctx context.Context, in *HasPermissionInput, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, "/hts.account.AccountService/ValidatePermission", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *accountServiceClient) Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*common.Result, error) {
-	out := new(common.Result)
+func (c *accountServiceClient) Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error) {
+	out := new(wrapperspb.BoolValue)
 	err := c.cc.Invoke(ctx, "/hts.account.AccountService/Ping", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -94,12 +85,11 @@ func (c *accountServiceClient) Ping(ctx context.Context, in *emptypb.Empty, opts
 // All implementations must embed UnimplementedAccountServiceServer
 // for forward compatibility
 type AccountServiceServer interface {
-	IsAuthenticated(context.Context, *IsAuthenticatedInput) (*common.Result, error)
+	IsAuthenticated(context.Context, *IsAuthenticatedRequest) (*emptypb.Empty, error)
 	UpdateAccountInfo(context.Context, *common.User) (*common.User, error)
-	GenerateJWT(context.Context, *common.User) (*GenerateJWTOutput, error)
-	HasPermission(context.Context, *HasPermissionInput) (*common.Result, error)
-	ValidatePermission(context.Context, *HasPermissionInput) (*emptypb.Empty, error)
-	Ping(context.Context, *emptypb.Empty) (*common.Result, error)
+	GenerateJWT(context.Context, *common.User) (*GenerateJWTResponse, error)
+	HasPermission(context.Context, *HasPermissionRequest) (*emptypb.Empty, error)
+	Ping(context.Context, *emptypb.Empty) (*wrapperspb.BoolValue, error)
 	mustEmbedUnimplementedAccountServiceServer()
 }
 
@@ -107,22 +97,19 @@ type AccountServiceServer interface {
 type UnimplementedAccountServiceServer struct {
 }
 
-func (UnimplementedAccountServiceServer) IsAuthenticated(context.Context, *IsAuthenticatedInput) (*common.Result, error) {
+func (UnimplementedAccountServiceServer) IsAuthenticated(context.Context, *IsAuthenticatedRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method IsAuthenticated not implemented")
 }
 func (UnimplementedAccountServiceServer) UpdateAccountInfo(context.Context, *common.User) (*common.User, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateAccountInfo not implemented")
 }
-func (UnimplementedAccountServiceServer) GenerateJWT(context.Context, *common.User) (*GenerateJWTOutput, error) {
+func (UnimplementedAccountServiceServer) GenerateJWT(context.Context, *common.User) (*GenerateJWTResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateJWT not implemented")
 }
-func (UnimplementedAccountServiceServer) HasPermission(context.Context, *HasPermissionInput) (*common.Result, error) {
+func (UnimplementedAccountServiceServer) HasPermission(context.Context, *HasPermissionRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method HasPermission not implemented")
 }
-func (UnimplementedAccountServiceServer) ValidatePermission(context.Context, *HasPermissionInput) (*emptypb.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ValidatePermission not implemented")
-}
-func (UnimplementedAccountServiceServer) Ping(context.Context, *emptypb.Empty) (*common.Result, error) {
+func (UnimplementedAccountServiceServer) Ping(context.Context, *emptypb.Empty) (*wrapperspb.BoolValue, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Ping not implemented")
 }
 func (UnimplementedAccountServiceServer) mustEmbedUnimplementedAccountServiceServer() {}
@@ -139,7 +126,7 @@ func RegisterAccountServiceServer(s grpc.ServiceRegistrar, srv AccountServiceSer
 }
 
 func _AccountService_IsAuthenticated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(IsAuthenticatedInput)
+	in := new(IsAuthenticatedRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -151,7 +138,7 @@ func _AccountService_IsAuthenticated_Handler(srv interface{}, ctx context.Contex
 		FullMethod: "/hts.account.AccountService/IsAuthenticated",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountServiceServer).IsAuthenticated(ctx, req.(*IsAuthenticatedInput))
+		return srv.(AccountServiceServer).IsAuthenticated(ctx, req.(*IsAuthenticatedRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -193,7 +180,7 @@ func _AccountService_GenerateJWT_Handler(srv interface{}, ctx context.Context, d
 }
 
 func _AccountService_HasPermission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasPermissionInput)
+	in := new(HasPermissionRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -205,25 +192,7 @@ func _AccountService_HasPermission_Handler(srv interface{}, ctx context.Context,
 		FullMethod: "/hts.account.AccountService/HasPermission",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountServiceServer).HasPermission(ctx, req.(*HasPermissionInput))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _AccountService_ValidatePermission_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HasPermissionInput)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AccountServiceServer).ValidatePermission(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/hts.account.AccountService/ValidatePermission",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountServiceServer).ValidatePermission(ctx, req.(*HasPermissionInput))
+		return srv.(AccountServiceServer).HasPermission(ctx, req.(*HasPermissionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -268,10 +237,6 @@ var AccountService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "HasPermission",
 			Handler:    _AccountService_HasPermission_Handler,
-		},
-		{
-			MethodName: "ValidatePermission",
-			Handler:    _AccountService_ValidatePermission_Handler,
 		},
 		{
 			MethodName: "Ping",
