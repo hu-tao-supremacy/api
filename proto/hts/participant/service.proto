@@ -10,7 +10,7 @@ option go_package = "onepass.app/facility/hts/participant";
 import "hts/common/common.proto";
 
 import "google/protobuf/empty.proto";
-import "google.protobuf.BoolValue";
+import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
 
 message GenerateQRRequest {
