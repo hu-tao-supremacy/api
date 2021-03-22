@@ -10,6 +10,7 @@ option go_package = "onepass.app/facility/hts/participant";
 import "hts/common/common.proto";
 
 import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
 
 message GenerateQRRequest {
@@ -51,17 +52,21 @@ message IsEventAvailableRequest {
     google.protobuf.Timestamp date = 2;
 }
 
+message GetUpcomingEventsRequest {
+    google.protobuf.Timestamp start = 1;
+    google.protobuf.Timestamp end = 2;
+}
+
 service ParticipantService {
     // Check whether event's start date is before specified date
-    rpc IsEventAvailable(IsEventAvailableRequest) returns (hts.common.Result);
+    rpc IsEventAvailable(IsEventAvailableRequest) returns (google.protobuf.BoolValue);
 
     // Let user join / cancel events
     rpc JoinEvent(UserWithEventRequest) returns (hts.common.Event);
     rpc CancelEvent(UserWithEventRequest) returns (hts.common.Event);
 
-    // Let user create / check / remove feedback
+    // Let user create / remove feedback
     rpc CreateFeedback(CreateFeedbackRequest) returns (hts.common.EventFeedback);
-    rpc HasSubmitFeedback(UserWithEventRequest) returns (hts.common.EventFeedback);
     rpc RemoveFeedback(hts.common.EventFeedback) returns (hts.common.EventFeedback);
 
     // Return feedback from specific event
@@ -87,9 +92,12 @@ service ParticipantService {
     // Get event from specified date
     rpc GetEventsByDate(google.protobuf.Timestamp) returns (EventsResponse);
 
+    // Get events from range of date
+    rpc GetUpcomingEvents(GetUpcomingEventsRequest) returns (EventsResponse);
+
     // Generate QR from combination of ID, User_ID, Event_ID
     rpc GenerateQR(hts.common.UserEvent) returns (GenerateQRResponse);
 
     // Ping methods to check signal
-    rpc Ping(google.protobuf.Empty) returns (hts.common.Result);
+    rpc Ping(google.protobuf.Empty) returns (google.protobuf.BoolValue);
 }
