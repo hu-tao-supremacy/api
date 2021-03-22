@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\020app.onepass.apisB\014AccountProtoP\001Z onepass.app/facility/hts/account',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x19hts/account/service.proto\x12\x0bhts.account\x1a\x17hts/common/common.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1egoogle/protobuf/wrappers.proto\";\n\x16IsAuthenticatedRequest\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x01 \x01(\tR\x0b\x61\x63\x63\x65ssToken\"8\n\x13GenerateJWTResponse\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x01 \x01(\tR\x0b\x61\x63\x63\x65ssToken\"\x99\x01\n\x14HasPermissionRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12?\n\x0fpermission_name\x18\x03 \x01(\x0e\x32\x16.hts.common.PermissionR\x0epermissionName2\xec\x02\n\x0e\x41\x63\x63ountService\x12R\n\x0fIsAuthenticated\x12#.hts.account.IsAuthenticatedRequest\x1a\x1a.google.protobuf.BoolValue\x12\x37\n\x11UpdateAccountInfo\x12\x10.hts.common.User\x1a\x10.hts.common.User\x12\x41\n\x0bGenerateJWT\x12\x10.hts.common.User\x1a .hts.account.GenerateJWTResponse\x12N\n\rHasPermission\x12!.hts.account.HasPermissionRequest\x1a\x1a.google.protobuf.BoolValue\x12:\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x1a.google.protobuf.BoolValueBD\n\x10\x61pp.onepass.apisB\x0c\x41\x63\x63ountProtoP\x01Z onepass.app/facility/hts/accountb\x06proto3'
+  serialized_pb=b'\n\x19hts/account/service.proto\x12\x0bhts.account\x1a\x17hts/common/common.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1egoogle/protobuf/wrappers.proto\";\n\x16IsAuthenticatedRequest\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x01 \x01(\tR\x0b\x61\x63\x63\x65ssToken\">\n\x19GenerateAuthTokenResponse\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x01 \x01(\tR\x0b\x61\x63\x63\x65ssToken\"\x99\x01\n\x14HasPermissionRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12?\n\x0fpermission_name\x18\x03 \x01(\x0e\x32\x16.hts.common.PermissionR\x0epermissionName2\xf8\x02\n\x0e\x41\x63\x63ountService\x12R\n\x0fIsAuthenticated\x12#.hts.account.IsAuthenticatedRequest\x1a\x1a.google.protobuf.BoolValue\x12\x37\n\x11UpdateAccountInfo\x12\x10.hts.common.User\x1a\x10.hts.common.User\x12M\n\x11GenerateAuthToken\x12\x10.hts.common.User\x1a&.hts.account.GenerateAuthTokenResponse\x12N\n\rHasPermission\x12!.hts.account.HasPermissionRequest\x1a\x1a.google.protobuf.BoolValue\x12:\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x1a.google.protobuf.BoolValueBD\n\x10\x61pp.onepass.apisB\x0c\x41\x63\x63ountProtoP\x01Z onepass.app/facility/hts/accountb\x06proto3'
   ,
   dependencies=[hts_dot_common_dot_common__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
@@ -61,16 +61,16 @@ _ISAUTHENTICATEDREQUEST = _descriptor.Descriptor(
 )
 
 
-_GENERATEJWTRESPONSE = _descriptor.Descriptor(
-  name='GenerateJWTResponse',
-  full_name='hts.account.GenerateJWTResponse',
+_GENERATEAUTHTOKENRESPONSE = _descriptor.Descriptor(
+  name='GenerateAuthTokenResponse',
+  full_name='hts.account.GenerateAuthTokenResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='access_token', full_name='hts.account.GenerateJWTResponse.access_token', index=0,
+      name='access_token', full_name='hts.account.GenerateAuthTokenResponse.access_token', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -89,7 +89,7 @@ _GENERATEJWTRESPONSE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=189,
-  serialized_end=245,
+  serialized_end=251,
 )
 
 
@@ -134,13 +134,13 @@ _HASPERMISSIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=248,
-  serialized_end=401,
+  serialized_start=254,
+  serialized_end=407,
 )
 
 _HASPERMISSIONREQUEST.fields_by_name['permission_name'].enum_type = hts_dot_common_dot_common__pb2._PERMISSION
 DESCRIPTOR.message_types_by_name['IsAuthenticatedRequest'] = _ISAUTHENTICATEDREQUEST
-DESCRIPTOR.message_types_by_name['GenerateJWTResponse'] = _GENERATEJWTRESPONSE
+DESCRIPTOR.message_types_by_name['GenerateAuthTokenResponse'] = _GENERATEAUTHTOKENRESPONSE
 DESCRIPTOR.message_types_by_name['HasPermissionRequest'] = _HASPERMISSIONREQUEST
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -151,12 +151,12 @@ IsAuthenticatedRequest = _reflection.GeneratedProtocolMessageType('IsAuthenticat
   })
 _sym_db.RegisterMessage(IsAuthenticatedRequest)
 
-GenerateJWTResponse = _reflection.GeneratedProtocolMessageType('GenerateJWTResponse', (_message.Message,), {
-  'DESCRIPTOR' : _GENERATEJWTRESPONSE,
+GenerateAuthTokenResponse = _reflection.GeneratedProtocolMessageType('GenerateAuthTokenResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GENERATEAUTHTOKENRESPONSE,
   '__module__' : 'hts.account.service_pb2'
-  # @@protoc_insertion_point(class_scope:hts.account.GenerateJWTResponse)
+  # @@protoc_insertion_point(class_scope:hts.account.GenerateAuthTokenResponse)
   })
-_sym_db.RegisterMessage(GenerateJWTResponse)
+_sym_db.RegisterMessage(GenerateAuthTokenResponse)
 
 HasPermissionRequest = _reflection.GeneratedProtocolMessageType('HasPermissionRequest', (_message.Message,), {
   'DESCRIPTOR' : _HASPERMISSIONREQUEST,
@@ -175,8 +175,8 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=404,
-  serialized_end=768,
+  serialized_start=410,
+  serialized_end=786,
   methods=[
   _descriptor.MethodDescriptor(
     name='IsAuthenticated',
@@ -199,12 +199,12 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
-    name='GenerateJWT',
-    full_name='hts.account.AccountService.GenerateJWT',
+    name='GenerateAuthToken',
+    full_name='hts.account.AccountService.GenerateAuthToken',
     index=2,
     containing_service=None,
     input_type=hts_dot_common_dot_common__pb2._USER,
-    output_type=_GENERATEJWTRESPONSE,
+    output_type=_GENERATEAUTHTOKENRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
