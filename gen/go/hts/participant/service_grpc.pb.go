@@ -9,6 +9,7 @@ import (
 	status "google.golang.org/grpc/status"
 	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
+	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	common "onepass.app/facility/hts/common"
 )
 
@@ -21,11 +22,10 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ParticipantServiceClient interface {
-	IsEventAvailable(ctx context.Context, in *IsEventAvailableRequest, opts ...grpc.CallOption) (*common.Result, error)
+	IsEventAvailable(ctx context.Context, in *IsEventAvailableRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 	JoinEvent(ctx context.Context, in *UserWithEventRequest, opts ...grpc.CallOption) (*common.Event, error)
 	CancelEvent(ctx context.Context, in *UserWithEventRequest, opts ...grpc.CallOption) (*common.Event, error)
 	CreateFeedback(ctx context.Context, in *CreateFeedbackRequest, opts ...grpc.CallOption) (*common.EventFeedback, error)
-	HasSubmitFeedback(ctx context.Context, in *UserWithEventRequest, opts ...grpc.CallOption) (*common.EventFeedback, error)
 	RemoveFeedback(ctx context.Context, in *common.EventFeedback, opts ...grpc.CallOption) (*common.EventFeedback, error)
 	GetFeedbacksFromEvent(ctx context.Context, in *common.Event, opts ...grpc.CallOption) (*GetFeedbacksFromEventResponse, error)
 	GetUserFeedbackFromEvent(ctx context.Context, in *UserWithEventRequest, opts ...grpc.CallOption) (*common.EventFeedback, error)
@@ -37,8 +37,9 @@ type ParticipantServiceClient interface {
 	GetEventsByOrganization(ctx context.Context, in *common.Organization, opts ...grpc.CallOption) (*EventsResponse, error)
 	GetEventsByFacility(ctx context.Context, in *common.Facility, opts ...grpc.CallOption) (*EventsResponse, error)
 	GetEventsByDate(ctx context.Context, in *timestamppb.Timestamp, opts ...grpc.CallOption) (*EventsResponse, error)
+	GetUpcomingEvents(ctx context.Context, in *GetUpcomingEventsRequest, opts ...grpc.CallOption) (*EventsResponse, error)
 	GenerateQR(ctx context.Context, in *common.UserEvent, opts ...grpc.CallOption) (*GenerateQRResponse, error)
-	Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*common.Result, error)
+	Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 }
 
 type participantServiceClient struct {
@@ -49,8 +50,8 @@ func NewParticipantServiceClient(cc grpc.ClientConnInterface) ParticipantService
 	return &participantServiceClient{cc}
 }
 
-func (c *participantServiceClient) IsEventAvailable(ctx context.Context, in *IsEventAvailableRequest, opts ...grpc.CallOption) (*common.Result, error) {
-	out := new(common.Result)
+func (c *participantServiceClient) IsEventAvailable(ctx context.Context, in *IsEventAvailableRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error) {
+	out := new(wrapperspb.BoolValue)
 	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/IsEventAvailable", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -79,15 +80,6 @@ func (c *participantServiceClient) CancelEvent(ctx context.Context, in *UserWith
 func (c *participantServiceClient) CreateFeedback(ctx context.Context, in *CreateFeedbackRequest, opts ...grpc.CallOption) (*common.EventFeedback, error) {
 	out := new(common.EventFeedback)
 	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/CreateFeedback", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *participantServiceClient) HasSubmitFeedback(ctx context.Context, in *UserWithEventRequest, opts ...grpc.CallOption) (*common.EventFeedback, error) {
-	out := new(common.EventFeedback)
-	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/HasSubmitFeedback", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -193,6 +185,15 @@ func (c *participantServiceClient) GetEventsByDate(ctx context.Context, in *time
 	return out, nil
 }
 
+func (c *participantServiceClient) GetUpcomingEvents(ctx context.Context, in *GetUpcomingEventsRequest, opts ...grpc.CallOption) (*EventsResponse, error) {
+	out := new(EventsResponse)
+	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GetUpcomingEvents", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *participantServiceClient) GenerateQR(ctx context.Context, in *common.UserEvent, opts ...grpc.CallOption) (*GenerateQRResponse, error) {
 	out := new(GenerateQRResponse)
 	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GenerateQR", in, out, opts...)
@@ -202,8 +203,8 @@ func (c *participantServiceClient) GenerateQR(ctx context.Context, in *common.Us
 	return out, nil
 }
 
-func (c *participantServiceClient) Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*common.Result, error) {
-	out := new(common.Result)
+func (c *participantServiceClient) Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error) {
+	out := new(wrapperspb.BoolValue)
 	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/Ping", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -215,11 +216,10 @@ func (c *participantServiceClient) Ping(ctx context.Context, in *emptypb.Empty, 
 // All implementations must embed UnimplementedParticipantServiceServer
 // for forward compatibility
 type ParticipantServiceServer interface {
-	IsEventAvailable(context.Context, *IsEventAvailableRequest) (*common.Result, error)
+	IsEventAvailable(context.Context, *IsEventAvailableRequest) (*wrapperspb.BoolValue, error)
 	JoinEvent(context.Context, *UserWithEventRequest) (*common.Event, error)
 	CancelEvent(context.Context, *UserWithEventRequest) (*common.Event, error)
 	CreateFeedback(context.Context, *CreateFeedbackRequest) (*common.EventFeedback, error)
-	HasSubmitFeedback(context.Context, *UserWithEventRequest) (*common.EventFeedback, error)
 	RemoveFeedback(context.Context, *common.EventFeedback) (*common.EventFeedback, error)
 	GetFeedbacksFromEvent(context.Context, *common.Event) (*GetFeedbacksFromEventResponse, error)
 	GetUserFeedbackFromEvent(context.Context, *UserWithEventRequest) (*common.EventFeedback, error)
@@ -231,8 +231,9 @@ type ParticipantServiceServer interface {
 	GetEventsByOrganization(context.Context, *common.Organization) (*EventsResponse, error)
 	GetEventsByFacility(context.Context, *common.Facility) (*EventsResponse, error)
 	GetEventsByDate(context.Context, *timestamppb.Timestamp) (*EventsResponse, error)
+	GetUpcomingEvents(context.Context, *GetUpcomingEventsRequest) (*EventsResponse, error)
 	GenerateQR(context.Context, *common.UserEvent) (*GenerateQRResponse, error)
-	Ping(context.Context, *emptypb.Empty) (*common.Result, error)
+	Ping(context.Context, *emptypb.Empty) (*wrapperspb.BoolValue, error)
 	mustEmbedUnimplementedParticipantServiceServer()
 }
 
@@ -240,7 +241,7 @@ type ParticipantServiceServer interface {
 type UnimplementedParticipantServiceServer struct {
 }
 
-func (UnimplementedParticipantServiceServer) IsEventAvailable(context.Context, *IsEventAvailableRequest) (*common.Result, error) {
+func (UnimplementedParticipantServiceServer) IsEventAvailable(context.Context, *IsEventAvailableRequest) (*wrapperspb.BoolValue, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method IsEventAvailable not implemented")
 }
 func (UnimplementedParticipantServiceServer) JoinEvent(context.Context, *UserWithEventRequest) (*common.Event, error) {
@@ -251,9 +252,6 @@ func (UnimplementedParticipantServiceServer) CancelEvent(context.Context, *UserW
 }
 func (UnimplementedParticipantServiceServer) CreateFeedback(context.Context, *CreateFeedbackRequest) (*common.EventFeedback, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateFeedback not implemented")
-}
-func (UnimplementedParticipantServiceServer) HasSubmitFeedback(context.Context, *UserWithEventRequest) (*common.EventFeedback, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method HasSubmitFeedback not implemented")
 }
 func (UnimplementedParticipantServiceServer) RemoveFeedback(context.Context, *common.EventFeedback) (*common.EventFeedback, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoveFeedback not implemented")
@@ -288,10 +286,13 @@ func (UnimplementedParticipantServiceServer) GetEventsByFacility(context.Context
 func (UnimplementedParticipantServiceServer) GetEventsByDate(context.Context, *timestamppb.Timestamp) (*EventsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetEventsByDate not implemented")
 }
+func (UnimplementedParticipantServiceServer) GetUpcomingEvents(context.Context, *GetUpcomingEventsRequest) (*EventsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUpcomingEvents not implemented")
+}
 func (UnimplementedParticipantServiceServer) GenerateQR(context.Context, *common.UserEvent) (*GenerateQRResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateQR not implemented")
 }
-func (UnimplementedParticipantServiceServer) Ping(context.Context, *emptypb.Empty) (*common.Result, error) {
+func (UnimplementedParticipantServiceServer) Ping(context.Context, *emptypb.Empty) (*wrapperspb.BoolValue, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Ping not implemented")
 }
 func (UnimplementedParticipantServiceServer) mustEmbedUnimplementedParticipantServiceServer() {}
@@ -375,24 +376,6 @@ func _ParticipantService_CreateFeedback_Handler(srv interface{}, ctx context.Con
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ParticipantServiceServer).CreateFeedback(ctx, req.(*CreateFeedbackRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _ParticipantService_HasSubmitFeedback_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UserWithEventRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ParticipantServiceServer).HasSubmitFeedback(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/hts.participant.ParticipantService/HasSubmitFeedback",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ParticipantServiceServer).HasSubmitFeedback(ctx, req.(*UserWithEventRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -595,6 +578,24 @@ func _ParticipantService_GetEventsByDate_Handler(srv interface{}, ctx context.Co
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ParticipantService_GetUpcomingEvents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUpcomingEventsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParticipantServiceServer).GetUpcomingEvents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.participant.ParticipantService/GetUpcomingEvents",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParticipantServiceServer).GetUpcomingEvents(ctx, req.(*GetUpcomingEventsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ParticipantService_GenerateQR_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(common.UserEvent)
 	if err := dec(in); err != nil {
@@ -655,10 +656,6 @@ var ParticipantService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ParticipantService_CreateFeedback_Handler,
 		},
 		{
-			MethodName: "HasSubmitFeedback",
-			Handler:    _ParticipantService_HasSubmitFeedback_Handler,
-		},
-		{
 			MethodName: "RemoveFeedback",
 			Handler:    _ParticipantService_RemoveFeedback_Handler,
 		},
@@ -701,6 +698,10 @@ var ParticipantService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetEventsByDate",
 			Handler:    _ParticipantService_GetEventsByDate_Handler,
+		},
+		{
+			MethodName: "GetUpcomingEvents",
+			Handler:    _ParticipantService_GetUpcomingEvents_Handler,
 		},
 		{
 			MethodName: "GenerateQR",

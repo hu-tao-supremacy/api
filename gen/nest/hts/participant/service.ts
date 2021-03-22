@@ -6,12 +6,12 @@ import {
   User,
   Event,
   EventFeedback,
-  Result,
   Tag,
   Organization,
   Facility,
 } from "../../hts/common/common";
 import { Timestamp } from "../../google/protobuf/timestamp";
+import { BoolValue } from "../../google/protobuf/wrappers";
 import { Empty } from "../../google/protobuf/empty";
 
 export const protobufPackage = "hts.participant";
@@ -55,18 +55,21 @@ export interface IsEventAvailableRequest {
   date: Timestamp | undefined;
 }
 
+export interface GetUpcomingEventsRequest {
+  start: Timestamp | undefined;
+  end: Timestamp | undefined;
+}
+
 export const HTS_PARTICIPANT_PACKAGE_NAME = "hts.participant";
 
 export interface ParticipantServiceClient {
-  isEventAvailable(request: IsEventAvailableRequest): Observable<Result>;
+  isEventAvailable(request: IsEventAvailableRequest): Observable<BoolValue>;
 
   joinEvent(request: UserWithEventRequest): Observable<Event>;
 
   cancelEvent(request: UserWithEventRequest): Observable<Event>;
 
   createFeedback(request: CreateFeedbackRequest): Observable<EventFeedback>;
-
-  hasSubmitFeedback(request: UserWithEventRequest): Observable<EventFeedback>;
 
   removeFeedback(request: EventFeedback): Observable<EventFeedback>;
 
@@ -96,15 +99,19 @@ export interface ParticipantServiceClient {
 
   getEventsByDate(request: Timestamp): Observable<EventsResponse>;
 
+  getUpcomingEvents(
+    request: GetUpcomingEventsRequest
+  ): Observable<EventsResponse>;
+
   generateQR(request: UserEvent): Observable<GenerateQRResponse>;
 
-  ping(request: Empty): Observable<Result>;
+  ping(request: Empty): Observable<BoolValue>;
 }
 
 export interface ParticipantServiceController {
   isEventAvailable(
     request: IsEventAvailableRequest
-  ): Promise<Result> | Observable<Result> | Result;
+  ): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
 
   joinEvent(
     request: UserWithEventRequest
@@ -116,10 +123,6 @@ export interface ParticipantServiceController {
 
   createFeedback(
     request: CreateFeedbackRequest
-  ): Promise<EventFeedback> | Observable<EventFeedback> | EventFeedback;
-
-  hasSubmitFeedback(
-    request: UserWithEventRequest
   ): Promise<EventFeedback> | Observable<EventFeedback> | EventFeedback;
 
   removeFeedback(
@@ -169,6 +172,10 @@ export interface ParticipantServiceController {
     request: Timestamp
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
+  getUpcomingEvents(
+    request: GetUpcomingEventsRequest
+  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
+
   generateQR(
     request: UserEvent
   ):
@@ -176,7 +183,7 @@ export interface ParticipantServiceController {
     | Observable<GenerateQRResponse>
     | GenerateQRResponse;
 
-  ping(request: Empty): Promise<Result> | Observable<Result> | Result;
+  ping(request: Empty): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
 }
 
 export function ParticipantServiceControllerMethods() {
@@ -186,7 +193,6 @@ export function ParticipantServiceControllerMethods() {
       "joinEvent",
       "cancelEvent",
       "createFeedback",
-      "hasSubmitFeedback",
       "removeFeedback",
       "getFeedbacksFromEvent",
       "getUserFeedbackFromEvent",
@@ -198,6 +204,7 @@ export function ParticipantServiceControllerMethods() {
       "getEventsByOrganization",
       "getEventsByFacility",
       "getEventsByDate",
+      "getUpcomingEvents",
       "generateQR",
       "ping",
     ];

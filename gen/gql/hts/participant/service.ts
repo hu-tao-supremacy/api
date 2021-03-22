@@ -4,7 +4,6 @@ import {
   User,
   Event,
   EventFeedback,
-  Result,
   Tag,
   Organization,
   Facility,
@@ -52,12 +51,18 @@ export interface IsEventAvailableRequest {
   date: Date | undefined;
 }
 
+export interface GetUpcomingEventsRequest {
+  start: Date | undefined;
+  end: Date | undefined;
+}
+
 export interface ParticipantService {
-  IsEventAvailable(request: IsEventAvailableRequest): Promise<Result>;
+  IsEventAvailable(
+    request: IsEventAvailableRequest
+  ): Promise<boolean | undefined>;
   JoinEvent(request: UserWithEventRequest): Promise<Event>;
   CancelEvent(request: UserWithEventRequest): Promise<Event>;
   CreateFeedback(request: CreateFeedbackRequest): Promise<EventFeedback>;
-  HasSubmitFeedback(request: UserWithEventRequest): Promise<EventFeedback>;
   RemoveFeedback(request: EventFeedback): Promise<EventFeedback>;
   GetFeedbacksFromEvent(request: Event): Promise<GetFeedbacksFromEventResponse>;
   GetUserFeedbackFromEvent(
@@ -71,6 +76,7 @@ export interface ParticipantService {
   GetEventsByOrganization(request: Organization): Promise<EventsResponse>;
   GetEventsByFacility(request: Facility): Promise<EventsResponse>;
   GetEventsByDate(request: Date): Promise<EventsResponse>;
+  GetUpcomingEvents(request: GetUpcomingEventsRequest): Promise<EventsResponse>;
   GenerateQR(request: UserEvent): Promise<GenerateQRResponse>;
-  Ping(request: Empty): Promise<Result>;
+  Ping(request: Empty): Promise<boolean | undefined>;
 }
