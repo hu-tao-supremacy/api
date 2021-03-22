@@ -20,7 +20,7 @@ ts_proto_compile_aspect = aspect(
             doc = "List of protoc plugins to apply",
             providers = [ProtoPluginInfo],
             default = [
-                Label("//bazel/rules:nest_plugin"),
+                Label("//bazel/rules:ts_plugin"),
             ],
         ),
         _prefix = attr.string(
@@ -50,7 +50,7 @@ _rule = rule(
         _plugins = attr.label_list(
             providers = [ProtoPluginInfo],
             default = [
-                Label("//bazel/rules:nest_plugin"),
+                Label("//bazel/rules:ts_plugin"),
             ],
             doc = "List of protoc plugins to apply",
         ),

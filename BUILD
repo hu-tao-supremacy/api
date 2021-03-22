@@ -86,8 +86,10 @@ js_grpc_node_compile(
 )
 
 load("//bazel/rules:ts_proto_compile.bzl", "ts_proto_compile")
+load("//bazel/rules:nest_proto_compile.bzl", "nest_proto_compile")
+load("//bazel/gql:ts_proto_compile.bzl", "gql_ts_proto_compile")
 
-ts_proto_compile(
+nest_proto_compile(
     name = "nest",
     prefix_path = "gen",
     protos = [
@@ -99,6 +101,30 @@ ts_proto_compile(
     ],
 )
 
+
+ts_proto_compile(
+    name = "ts",
+    prefix_path = "gen",
+    protos = [
+        ":common_proto",
+        ":account_proto",
+        ":facility_proto",
+        ":organizer_proto",
+        ":participant_proto"
+    ],
+)
+
+gql_ts_proto_compile(
+    name = "gql",
+    prefix_path = "gen",
+    protos = [
+        ":common_proto",
+        ":account_proto",
+        ":facility_proto",
+        ":organizer_proto",
+        ":participant_proto"
+    ],
+)
 
 load("@rules_proto_grpc//java:defs.bzl", "java_grpc_compile")
 

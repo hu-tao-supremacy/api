@@ -15,28 +15,28 @@ public final class AccountServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<app.onepass.apis.IsAuthenticatedRequest,
-      app.onepass.apis.Result> getIsAuthenticatedMethod;
+      com.google.protobuf.BoolValue> getIsAuthenticatedMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "IsAuthenticated",
       requestType = app.onepass.apis.IsAuthenticatedRequest.class,
-      responseType = app.onepass.apis.Result.class,
+      responseType = com.google.protobuf.BoolValue.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<app.onepass.apis.IsAuthenticatedRequest,
-      app.onepass.apis.Result> getIsAuthenticatedMethod() {
-    io.grpc.MethodDescriptor<app.onepass.apis.IsAuthenticatedRequest, app.onepass.apis.Result> getIsAuthenticatedMethod;
+      com.google.protobuf.BoolValue> getIsAuthenticatedMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.IsAuthenticatedRequest, com.google.protobuf.BoolValue> getIsAuthenticatedMethod;
     if ((getIsAuthenticatedMethod = AccountServiceGrpc.getIsAuthenticatedMethod) == null) {
       synchronized (AccountServiceGrpc.class) {
         if ((getIsAuthenticatedMethod = AccountServiceGrpc.getIsAuthenticatedMethod) == null) {
           AccountServiceGrpc.getIsAuthenticatedMethod = getIsAuthenticatedMethod =
-              io.grpc.MethodDescriptor.<app.onepass.apis.IsAuthenticatedRequest, app.onepass.apis.Result>newBuilder()
+              io.grpc.MethodDescriptor.<app.onepass.apis.IsAuthenticatedRequest, com.google.protobuf.BoolValue>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "IsAuthenticated"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.IsAuthenticatedRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  app.onepass.apis.Result.getDefaultInstance()))
+                  com.google.protobuf.BoolValue.getDefaultInstance()))
               .setSchemaDescriptor(new AccountServiceMethodDescriptorSupplier("IsAuthenticated"))
               .build();
         }
@@ -45,29 +45,29 @@ public final class AccountServiceGrpc {
     return getIsAuthenticatedMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.UpdateAccountInfoRequest,
-      app.onepass.apis.UpdateAccountInfoResponse> getUpdateAccountInfoMethod;
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.User,
+      app.onepass.apis.User> getUpdateAccountInfoMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "UpdateAccountInfo",
-      requestType = app.onepass.apis.UpdateAccountInfoRequest.class,
-      responseType = app.onepass.apis.UpdateAccountInfoResponse.class,
+      requestType = app.onepass.apis.User.class,
+      responseType = app.onepass.apis.User.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<app.onepass.apis.UpdateAccountInfoRequest,
-      app.onepass.apis.UpdateAccountInfoResponse> getUpdateAccountInfoMethod() {
-    io.grpc.MethodDescriptor<app.onepass.apis.UpdateAccountInfoRequest, app.onepass.apis.UpdateAccountInfoResponse> getUpdateAccountInfoMethod;
+  public static io.grpc.MethodDescriptor<app.onepass.apis.User,
+      app.onepass.apis.User> getUpdateAccountInfoMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.User, app.onepass.apis.User> getUpdateAccountInfoMethod;
     if ((getUpdateAccountInfoMethod = AccountServiceGrpc.getUpdateAccountInfoMethod) == null) {
       synchronized (AccountServiceGrpc.class) {
         if ((getUpdateAccountInfoMethod = AccountServiceGrpc.getUpdateAccountInfoMethod) == null) {
           AccountServiceGrpc.getUpdateAccountInfoMethod = getUpdateAccountInfoMethod =
-              io.grpc.MethodDescriptor.<app.onepass.apis.UpdateAccountInfoRequest, app.onepass.apis.UpdateAccountInfoResponse>newBuilder()
+              io.grpc.MethodDescriptor.<app.onepass.apis.User, app.onepass.apis.User>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateAccountInfo"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  app.onepass.apis.UpdateAccountInfoRequest.getDefaultInstance()))
+                  app.onepass.apis.User.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  app.onepass.apis.UpdateAccountInfoResponse.getDefaultInstance()))
+                  app.onepass.apis.User.getDefaultInstance()))
               .setSchemaDescriptor(new AccountServiceMethodDescriptorSupplier("UpdateAccountInfo"))
               .build();
         }
@@ -76,91 +76,60 @@ public final class AccountServiceGrpc {
     return getUpdateAccountInfoMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GenerateJWTRequest,
-      app.onepass.apis.Result> getGenerateJWTMethod;
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.User,
+      app.onepass.apis.GenerateAuthTokenResponse> getGenerateAuthTokenMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "GenerateJWT",
-      requestType = app.onepass.apis.GenerateJWTRequest.class,
-      responseType = app.onepass.apis.Result.class,
+      fullMethodName = SERVICE_NAME + '/' + "GenerateAuthToken",
+      requestType = app.onepass.apis.User.class,
+      responseType = app.onepass.apis.GenerateAuthTokenResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<app.onepass.apis.GenerateJWTRequest,
-      app.onepass.apis.Result> getGenerateJWTMethod() {
-    io.grpc.MethodDescriptor<app.onepass.apis.GenerateJWTRequest, app.onepass.apis.Result> getGenerateJWTMethod;
-    if ((getGenerateJWTMethod = AccountServiceGrpc.getGenerateJWTMethod) == null) {
+  public static io.grpc.MethodDescriptor<app.onepass.apis.User,
+      app.onepass.apis.GenerateAuthTokenResponse> getGenerateAuthTokenMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.User, app.onepass.apis.GenerateAuthTokenResponse> getGenerateAuthTokenMethod;
+    if ((getGenerateAuthTokenMethod = AccountServiceGrpc.getGenerateAuthTokenMethod) == null) {
       synchronized (AccountServiceGrpc.class) {
-        if ((getGenerateJWTMethod = AccountServiceGrpc.getGenerateJWTMethod) == null) {
-          AccountServiceGrpc.getGenerateJWTMethod = getGenerateJWTMethod =
-              io.grpc.MethodDescriptor.<app.onepass.apis.GenerateJWTRequest, app.onepass.apis.Result>newBuilder()
+        if ((getGenerateAuthTokenMethod = AccountServiceGrpc.getGenerateAuthTokenMethod) == null) {
+          AccountServiceGrpc.getGenerateAuthTokenMethod = getGenerateAuthTokenMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.User, app.onepass.apis.GenerateAuthTokenResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GenerateJWT"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GenerateAuthToken"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  app.onepass.apis.GenerateJWTRequest.getDefaultInstance()))
+                  app.onepass.apis.User.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  app.onepass.apis.Result.getDefaultInstance()))
-              .setSchemaDescriptor(new AccountServiceMethodDescriptorSupplier("GenerateJWT"))
+                  app.onepass.apis.GenerateAuthTokenResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new AccountServiceMethodDescriptorSupplier("GenerateAuthToken"))
               .build();
         }
       }
     }
-    return getGenerateJWTMethod;
-  }
-
-  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.InvalidateJWTRequest,
-      app.onepass.apis.Result> getInvalidateJWTMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "InvalidateJWT",
-      requestType = app.onepass.apis.InvalidateJWTRequest.class,
-      responseType = app.onepass.apis.Result.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<app.onepass.apis.InvalidateJWTRequest,
-      app.onepass.apis.Result> getInvalidateJWTMethod() {
-    io.grpc.MethodDescriptor<app.onepass.apis.InvalidateJWTRequest, app.onepass.apis.Result> getInvalidateJWTMethod;
-    if ((getInvalidateJWTMethod = AccountServiceGrpc.getInvalidateJWTMethod) == null) {
-      synchronized (AccountServiceGrpc.class) {
-        if ((getInvalidateJWTMethod = AccountServiceGrpc.getInvalidateJWTMethod) == null) {
-          AccountServiceGrpc.getInvalidateJWTMethod = getInvalidateJWTMethod =
-              io.grpc.MethodDescriptor.<app.onepass.apis.InvalidateJWTRequest, app.onepass.apis.Result>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "InvalidateJWT"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  app.onepass.apis.InvalidateJWTRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  app.onepass.apis.Result.getDefaultInstance()))
-              .setSchemaDescriptor(new AccountServiceMethodDescriptorSupplier("InvalidateJWT"))
-              .build();
-        }
-      }
-    }
-    return getInvalidateJWTMethod;
+    return getGenerateAuthTokenMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<app.onepass.apis.HasPermissionRequest,
-      app.onepass.apis.Result> getHasPermissionMethod;
+      com.google.protobuf.BoolValue> getHasPermissionMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "HasPermission",
       requestType = app.onepass.apis.HasPermissionRequest.class,
-      responseType = app.onepass.apis.Result.class,
+      responseType = com.google.protobuf.BoolValue.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<app.onepass.apis.HasPermissionRequest,
-      app.onepass.apis.Result> getHasPermissionMethod() {
-    io.grpc.MethodDescriptor<app.onepass.apis.HasPermissionRequest, app.onepass.apis.Result> getHasPermissionMethod;
+      com.google.protobuf.BoolValue> getHasPermissionMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.HasPermissionRequest, com.google.protobuf.BoolValue> getHasPermissionMethod;
     if ((getHasPermissionMethod = AccountServiceGrpc.getHasPermissionMethod) == null) {
       synchronized (AccountServiceGrpc.class) {
         if ((getHasPermissionMethod = AccountServiceGrpc.getHasPermissionMethod) == null) {
           AccountServiceGrpc.getHasPermissionMethod = getHasPermissionMethod =
-              io.grpc.MethodDescriptor.<app.onepass.apis.HasPermissionRequest, app.onepass.apis.Result>newBuilder()
+              io.grpc.MethodDescriptor.<app.onepass.apis.HasPermissionRequest, com.google.protobuf.BoolValue>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "HasPermission"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.HasPermissionRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  app.onepass.apis.Result.getDefaultInstance()))
+                  com.google.protobuf.BoolValue.getDefaultInstance()))
               .setSchemaDescriptor(new AccountServiceMethodDescriptorSupplier("HasPermission"))
               .build();
         }
@@ -170,28 +139,28 @@ public final class AccountServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      app.onepass.apis.Result> getPingMethod;
+      com.google.protobuf.BoolValue> getPingMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "Ping",
       requestType = com.google.protobuf.Empty.class,
-      responseType = app.onepass.apis.Result.class,
+      responseType = com.google.protobuf.BoolValue.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
-      app.onepass.apis.Result> getPingMethod() {
-    io.grpc.MethodDescriptor<com.google.protobuf.Empty, app.onepass.apis.Result> getPingMethod;
+      com.google.protobuf.BoolValue> getPingMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, com.google.protobuf.BoolValue> getPingMethod;
     if ((getPingMethod = AccountServiceGrpc.getPingMethod) == null) {
       synchronized (AccountServiceGrpc.class) {
         if ((getPingMethod = AccountServiceGrpc.getPingMethod) == null) {
           AccountServiceGrpc.getPingMethod = getPingMethod =
-              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, app.onepass.apis.Result>newBuilder()
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, com.google.protobuf.BoolValue>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "Ping"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.google.protobuf.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  app.onepass.apis.Result.getDefaultInstance()))
+                  com.google.protobuf.BoolValue.getDefaultInstance()))
               .setSchemaDescriptor(new AccountServiceMethodDescriptorSupplier("Ping"))
               .build();
         }
@@ -251,42 +220,35 @@ public final class AccountServiceGrpc {
     /**
      */
     public void isAuthenticated(app.onepass.apis.IsAuthenticatedRequest request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.Result> responseObserver) {
+        io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getIsAuthenticatedMethod(), responseObserver);
     }
 
     /**
      */
-    public void updateAccountInfo(app.onepass.apis.UpdateAccountInfoRequest request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.UpdateAccountInfoResponse> responseObserver) {
+    public void updateAccountInfo(app.onepass.apis.User request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.User> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateAccountInfoMethod(), responseObserver);
     }
 
     /**
      */
-    public void generateJWT(app.onepass.apis.GenerateJWTRequest request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.Result> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGenerateJWTMethod(), responseObserver);
-    }
-
-    /**
-     */
-    public void invalidateJWT(app.onepass.apis.InvalidateJWTRequest request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.Result> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getInvalidateJWTMethod(), responseObserver);
+    public void generateAuthToken(app.onepass.apis.User request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.GenerateAuthTokenResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGenerateAuthTokenMethod(), responseObserver);
     }
 
     /**
      */
     public void hasPermission(app.onepass.apis.HasPermissionRequest request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.Result> responseObserver) {
+        io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getHasPermissionMethod(), responseObserver);
     }
 
     /**
      */
     public void ping(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.Result> responseObserver) {
+        io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getPingMethod(), responseObserver);
     }
 
@@ -297,42 +259,35 @@ public final class AccountServiceGrpc {
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 app.onepass.apis.IsAuthenticatedRequest,
-                app.onepass.apis.Result>(
+                com.google.protobuf.BoolValue>(
                   this, METHODID_IS_AUTHENTICATED)))
           .addMethod(
             getUpdateAccountInfoMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                app.onepass.apis.UpdateAccountInfoRequest,
-                app.onepass.apis.UpdateAccountInfoResponse>(
+                app.onepass.apis.User,
+                app.onepass.apis.User>(
                   this, METHODID_UPDATE_ACCOUNT_INFO)))
           .addMethod(
-            getGenerateJWTMethod(),
+            getGenerateAuthTokenMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                app.onepass.apis.GenerateJWTRequest,
-                app.onepass.apis.Result>(
-                  this, METHODID_GENERATE_JWT)))
-          .addMethod(
-            getInvalidateJWTMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                app.onepass.apis.InvalidateJWTRequest,
-                app.onepass.apis.Result>(
-                  this, METHODID_INVALIDATE_JWT)))
+                app.onepass.apis.User,
+                app.onepass.apis.GenerateAuthTokenResponse>(
+                  this, METHODID_GENERATE_AUTH_TOKEN)))
           .addMethod(
             getHasPermissionMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 app.onepass.apis.HasPermissionRequest,
-                app.onepass.apis.Result>(
+                com.google.protobuf.BoolValue>(
                   this, METHODID_HAS_PERMISSION)))
           .addMethod(
             getPingMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 com.google.protobuf.Empty,
-                app.onepass.apis.Result>(
+                com.google.protobuf.BoolValue>(
                   this, METHODID_PING)))
           .build();
     }
@@ -355,39 +310,31 @@ public final class AccountServiceGrpc {
     /**
      */
     public void isAuthenticated(app.onepass.apis.IsAuthenticatedRequest request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.Result> responseObserver) {
+        io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getIsAuthenticatedMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void updateAccountInfo(app.onepass.apis.UpdateAccountInfoRequest request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.UpdateAccountInfoResponse> responseObserver) {
+    public void updateAccountInfo(app.onepass.apis.User request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.User> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateAccountInfoMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void generateJWT(app.onepass.apis.GenerateJWTRequest request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.Result> responseObserver) {
+    public void generateAuthToken(app.onepass.apis.User request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.GenerateAuthTokenResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getGenerateJWTMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
-    public void invalidateJWT(app.onepass.apis.InvalidateJWTRequest request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.Result> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getInvalidateJWTMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getGenerateAuthTokenMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
     public void hasPermission(app.onepass.apis.HasPermissionRequest request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.Result> responseObserver) {
+        io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getHasPermissionMethod(), getCallOptions()), request, responseObserver);
     }
@@ -395,7 +342,7 @@ public final class AccountServiceGrpc {
     /**
      */
     public void ping(com.google.protobuf.Empty request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.Result> responseObserver) {
+        io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getPingMethod(), getCallOptions()), request, responseObserver);
     }
@@ -417,42 +364,35 @@ public final class AccountServiceGrpc {
 
     /**
      */
-    public app.onepass.apis.Result isAuthenticated(app.onepass.apis.IsAuthenticatedRequest request) {
+    public com.google.protobuf.BoolValue isAuthenticated(app.onepass.apis.IsAuthenticatedRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getIsAuthenticatedMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public app.onepass.apis.UpdateAccountInfoResponse updateAccountInfo(app.onepass.apis.UpdateAccountInfoRequest request) {
+    public app.onepass.apis.User updateAccountInfo(app.onepass.apis.User request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateAccountInfoMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public app.onepass.apis.Result generateJWT(app.onepass.apis.GenerateJWTRequest request) {
+    public app.onepass.apis.GenerateAuthTokenResponse generateAuthToken(app.onepass.apis.User request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getGenerateJWTMethod(), getCallOptions(), request);
+          getChannel(), getGenerateAuthTokenMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public app.onepass.apis.Result invalidateJWT(app.onepass.apis.InvalidateJWTRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getInvalidateJWTMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
-    public app.onepass.apis.Result hasPermission(app.onepass.apis.HasPermissionRequest request) {
+    public com.google.protobuf.BoolValue hasPermission(app.onepass.apis.HasPermissionRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getHasPermissionMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public app.onepass.apis.Result ping(com.google.protobuf.Empty request) {
+    public com.google.protobuf.BoolValue ping(com.google.protobuf.Empty request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getPingMethod(), getCallOptions(), request);
     }
@@ -474,7 +414,7 @@ public final class AccountServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.Result> isAuthenticated(
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.BoolValue> isAuthenticated(
         app.onepass.apis.IsAuthenticatedRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getIsAuthenticatedMethod(), getCallOptions()), request);
@@ -482,31 +422,23 @@ public final class AccountServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.UpdateAccountInfoResponse> updateAccountInfo(
-        app.onepass.apis.UpdateAccountInfoRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.User> updateAccountInfo(
+        app.onepass.apis.User request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdateAccountInfoMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.Result> generateJWT(
-        app.onepass.apis.GenerateJWTRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.GenerateAuthTokenResponse> generateAuthToken(
+        app.onepass.apis.User request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getGenerateJWTMethod(), getCallOptions()), request);
+          getChannel().newCall(getGenerateAuthTokenMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.Result> invalidateJWT(
-        app.onepass.apis.InvalidateJWTRequest request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getInvalidateJWTMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.Result> hasPermission(
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.BoolValue> hasPermission(
         app.onepass.apis.HasPermissionRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getHasPermissionMethod(), getCallOptions()), request);
@@ -514,7 +446,7 @@ public final class AccountServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.Result> ping(
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.BoolValue> ping(
         com.google.protobuf.Empty request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getPingMethod(), getCallOptions()), request);
@@ -523,10 +455,9 @@ public final class AccountServiceGrpc {
 
   private static final int METHODID_IS_AUTHENTICATED = 0;
   private static final int METHODID_UPDATE_ACCOUNT_INFO = 1;
-  private static final int METHODID_GENERATE_JWT = 2;
-  private static final int METHODID_INVALIDATE_JWT = 3;
-  private static final int METHODID_HAS_PERMISSION = 4;
-  private static final int METHODID_PING = 5;
+  private static final int METHODID_GENERATE_AUTH_TOKEN = 2;
+  private static final int METHODID_HAS_PERMISSION = 3;
+  private static final int METHODID_PING = 4;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -547,27 +478,23 @@ public final class AccountServiceGrpc {
       switch (methodId) {
         case METHODID_IS_AUTHENTICATED:
           serviceImpl.isAuthenticated((app.onepass.apis.IsAuthenticatedRequest) request,
-              (io.grpc.stub.StreamObserver<app.onepass.apis.Result>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue>) responseObserver);
           break;
         case METHODID_UPDATE_ACCOUNT_INFO:
-          serviceImpl.updateAccountInfo((app.onepass.apis.UpdateAccountInfoRequest) request,
-              (io.grpc.stub.StreamObserver<app.onepass.apis.UpdateAccountInfoResponse>) responseObserver);
+          serviceImpl.updateAccountInfo((app.onepass.apis.User) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.User>) responseObserver);
           break;
-        case METHODID_GENERATE_JWT:
-          serviceImpl.generateJWT((app.onepass.apis.GenerateJWTRequest) request,
-              (io.grpc.stub.StreamObserver<app.onepass.apis.Result>) responseObserver);
-          break;
-        case METHODID_INVALIDATE_JWT:
-          serviceImpl.invalidateJWT((app.onepass.apis.InvalidateJWTRequest) request,
-              (io.grpc.stub.StreamObserver<app.onepass.apis.Result>) responseObserver);
+        case METHODID_GENERATE_AUTH_TOKEN:
+          serviceImpl.generateAuthToken((app.onepass.apis.User) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.GenerateAuthTokenResponse>) responseObserver);
           break;
         case METHODID_HAS_PERMISSION:
           serviceImpl.hasPermission((app.onepass.apis.HasPermissionRequest) request,
-              (io.grpc.stub.StreamObserver<app.onepass.apis.Result>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue>) responseObserver);
           break;
         case METHODID_PING:
           serviceImpl.ping((com.google.protobuf.Empty) request,
-              (io.grpc.stub.StreamObserver<app.onepass.apis.Result>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -632,8 +559,7 @@ public final class AccountServiceGrpc {
               .setSchemaDescriptor(new AccountServiceFileDescriptorSupplier())
               .addMethod(getIsAuthenticatedMethod())
               .addMethod(getUpdateAccountInfoMethod())
-              .addMethod(getGenerateJWTMethod())
-              .addMethod(getInvalidateJWTMethod())
+              .addMethod(getGenerateAuthTokenMethod())
               .addMethod(getHasPermissionMethod())
               .addMethod(getPingMethod())
               .build();

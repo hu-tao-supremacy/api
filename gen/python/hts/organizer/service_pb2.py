@@ -22,28 +22,28 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\020app.onepass.apisB\016OrganizerProtoP\001Z\"onepass.app/facility/hts/organizer',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1bhts/organizer/service.proto\x12\rhts.organizer\x1a\x17hts/common/common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bgoogle/protobuf/empty.proto\"&\n\x0bUserRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\"B\n\x0eGetByIdRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x17\n\x07read_id\x18\x02 \x01(\x03R\x06readId\"p\n\x08\x44uration\x12\x30\n\x05start\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12\x32\n\x06\x66inish\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x06\x66inish\"r\n\x19\x43reateOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12<\n\x0corganization\x18\x02 \x01(\x0b\x32\x18.hts.common.OrganizationR\x0corganization\"\x9b\x01\n\x19UpdateOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12<\n\x0corganization\x18\x03 \x01(\x0b\x32\x18.hts.common.OrganizationR\x0corganization\"]\n\x19RemoveOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\"\x83\x01\n UpdateUsersInOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x1d\n\x08user_ids\x18\x02 \x03(\x03\x42\x02\x10\x01R\x07userIds\x12\'\n\x0forganization_id\x18\x03 \x01(\x03R\x0eorganizationId\"V\n\x12\x43reateEventRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x05\x65vent\x18\x02 \x01(\x0b\x32\x11.hts.common.EventR\x05\x65vent\"Z\n\x16UpdateEventInfoRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x05\x65vent\x18\x02 \x01(\x0b\x32\x11.hts.common.EventR\x05\x65vent\"g\n\x1aUpdateEventFacilityRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x30\n\x08\x66\x61\x63ility\x18\x02 \x01(\x0b\x32\x14.hts.common.FacilityR\x08\x66\x61\x63ility\"\x85\x01\n\x1aUpdateEventDurationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12\x33\n\x08\x64uration\x18\x03 \x03(\x0b\x32\x17.hts.organizer.DurationR\x08\x64uration\"H\n\x12RemoveEventRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\"\xc5\x01\n UpdateRegistrationRequestRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12,\n\x12registered_user_id\x18\x02 \x01(\x03R\x10registeredUserId\x12.\n\x13registered_event_id\x18\x03 \x01(\x03R\x11registeredEventId\x12*\n\x06status\x18\x04 \x01(\x0e\x32\x12.hts.common.StatusR\x06status\"N\n\x10\x43reateTagRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12!\n\x03tag\x18\x02 \x01(\x0b\x32\x0f.hts.common.TagR\x03tag\"c\n\x10UpdateTagRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x1b\n\x07tag_ids\x18\x02 \x03(\x03\x42\x02\x10\x01R\x06tagIds\x12\x19\n\x08\x65vent_id\x18\x03 \x01(\x03R\x07\x65ventId\"n\n\x0fHasEventRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12\x19\n\x08\x65vent_id\x18\x03 \x01(\x03R\x07\x65ventId\"Y\n\x17GetOrganizationResponse\x12>\n\rorganizations\x18\x01 \x03(\x0b\x32\x18.hts.common.OrganizationR\rorganizations\"[\n\x1bGetOrganizationByIdResponse\x12<\n\x0corganization\x18\x01 \x01(\x0b\x32\x18.hts.common.OrganizationR\x0corganization\"=\n\x10GetEventResponse\x12)\n\x06\x65vents\x18\x01 \x03(\x0b\x32\x11.hts.common.EventR\x06\x65vents\"?\n\x14GetEventByIdResponse\x12\'\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x11.hts.common.EventR\x05\x65vent\"5\n\x0eGetTagResponse\x12#\n\x04tags\x18\x01 \x03(\x0b\x32\x0f.hts.common.TagR\x04tags\"7\n\x12GetTagByIdResponse\x12!\n\x03tag\x18\x01 \x01(\x0b\x32\x0f.hts.common.TagR\x03tag2\xdb\r\n\x10OrganizerService\x12R\n\x12\x43reateOrganization\x12(.hts.organizer.CreateOrganizationRequest\x1a\x12.hts.common.Result\x12U\n\x0fGetOrganization\x12\x1a.hts.organizer.UserRequest\x1a&.hts.organizer.GetOrganizationResponse\x12`\n\x13GetOrganizationById\x12\x1d.hts.organizer.GetByIdRequest\x1a*.hts.organizer.GetOrganizationByIdResponse\x12R\n\x12UpdateOrganization\x12(.hts.organizer.UpdateOrganizationRequest\x1a\x12.hts.common.Result\x12R\n\x12RemoveOrganization\x12(.hts.organizer.RemoveOrganizationRequest\x1a\x12.hts.common.Result\x12]\n\x16\x41\x64\x64UsersToOrganization\x12/.hts.organizer.UpdateUsersInOrganizationRequest\x1a\x12.hts.common.Result\x12\x62\n\x1bRemoveUsersFromOrganization\x12/.hts.organizer.UpdateUsersInOrganizationRequest\x1a\x12.hts.common.Result\x12\x44\n\x0b\x43reateEvent\x12!.hts.organizer.CreateEventRequest\x1a\x12.hts.common.Result\x12G\n\x08GetEvent\x12\x1a.hts.organizer.UserRequest\x1a\x1f.hts.organizer.GetEventResponse\x12R\n\x0cGetEventById\x12\x1d.hts.organizer.GetByIdRequest\x1a#.hts.organizer.GetEventByIdResponse\x12L\n\x0fUpdateEventInfo\x12%.hts.organizer.UpdateEventInfoRequest\x1a\x12.hts.common.Result\x12T\n\x13UpdateEventFacility\x12).hts.organizer.UpdateEventFacilityRequest\x1a\x12.hts.common.Result\x12T\n\x13UpdateEventDuration\x12).hts.organizer.UpdateEventDurationRequest\x1a\x12.hts.common.Result\x12\x44\n\x0bRemoveEvent\x12!.hts.organizer.RemoveEventRequest\x1a\x12.hts.common.Result\x12`\n\x19UpdateRegistrationRequest\x12/.hts.organizer.UpdateRegistrationRequestRequest\x1a\x12.hts.common.Result\x12@\n\tCreateTag\x12\x1f.hts.organizer.CreateTagRequest\x1a\x12.hts.common.Result\x12=\n\x06\x41\x64\x64Tag\x12\x1f.hts.organizer.UpdateTagRequest\x1a\x12.hts.common.Result\x12@\n\tRemoveTag\x12\x1f.hts.organizer.UpdateTagRequest\x1a\x12.hts.common.Result\x12\x43\n\x06GetTag\x12\x1a.hts.organizer.UserRequest\x1a\x1d.hts.organizer.GetTagResponse\x12N\n\nGetTagById\x12\x1d.hts.organizer.GetByIdRequest\x1a!.hts.organizer.GetTagByIdResponse\x12>\n\x08HasEvent\x12\x1e.hts.organizer.HasEventRequest\x1a\x12.hts.common.Result\x12\x32\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x12.hts.common.ResultBH\n\x10\x61pp.onepass.apisB\x0eOrganizerProtoP\x01Z\"onepass.app/facility/hts/organizerb\x06proto3'
+  serialized_pb=b'\n\x1bhts/organizer/service.proto\x12\rhts.organizer\x1a\x17hts/common/common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bgoogle/protobuf/empty.proto\" \n\x0eGetByIdRequest\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\"p\n\x08\x44uration\x12\x30\n\x05start\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12\x32\n\x06\x66inish\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x06\x66inish\"r\n\x19\x43reateOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12<\n\x0corganization\x18\x02 \x01(\x0b\x32\x18.hts.common.OrganizationR\x0corganization\"r\n\x19UpdateOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12<\n\x0corganization\x18\x02 \x01(\x0b\x32\x18.hts.common.OrganizationR\x0corganization\"]\n\x19RemoveOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\"\x83\x01\n UpdateUsersInOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x1d\n\x08user_ids\x18\x02 \x03(\x03\x42\x02\x10\x01R\x07userIds\x12\'\n\x0forganization_id\x18\x03 \x01(\x03R\x0eorganizationId\"V\n\x12\x43reateEventRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x05\x65vent\x18\x02 \x01(\x0b\x32\x11.hts.common.EventR\x05\x65vent\"V\n\x12UpdateEventRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x05\x65vent\x18\x02 \x01(\x0b\x32\x11.hts.common.EventR\x05\x65vent\"\x85\x01\n\x1aUpdateEventDurationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12\x33\n\x08\x64uration\x18\x03 \x03(\x0b\x32\x17.hts.organizer.DurationR\x08\x64uration\"H\n\x12RemoveEventRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\"\xc5\x01\n UpdateRegistrationRequestRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12,\n\x12registered_user_id\x18\x02 \x01(\x03R\x10registeredUserId\x12.\n\x13registered_event_id\x18\x03 \x01(\x03R\x11registeredEventId\x12*\n\x06status\x18\x04 \x01(\x0e\x32\x12.hts.common.StatusR\x06status\"N\n\x10\x43reateTagRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12!\n\x03tag\x18\x02 \x01(\x0b\x32\x0f.hts.common.TagR\x03tag\"c\n\x10UpdateTagRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x1b\n\x07tag_ids\x18\x02 \x03(\x03\x42\x02\x10\x01R\x06tagIds\x12\x19\n\x08\x65vent_id\x18\x03 \x01(\x03R\x07\x65ventId\"U\n\x0fHasEventRequest\x12\'\n\x0forganization_id\x18\x01 \x01(\x03R\x0eorganizationId\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\"Y\n\x17GetOrganizationResponse\x12>\n\rorganizations\x18\x01 \x03(\x0b\x32\x18.hts.common.OrganizationR\rorganizations\"[\n\x1bGetOrganizationByIdResponse\x12<\n\x0corganization\x18\x01 \x01(\x0b\x32\x18.hts.common.OrganizationR\x0corganization\"=\n\x10GetEventResponse\x12)\n\x06\x65vents\x18\x01 \x03(\x0b\x32\x11.hts.common.EventR\x06\x65vents\"?\n\x14GetEventByIdResponse\x12\'\n\x05\x65vent\x18\x01 \x01(\x0b\x32\x11.hts.common.EventR\x05\x65vent\"5\n\x0eGetTagResponse\x12#\n\x04tags\x18\x01 \x03(\x0b\x32\x0f.hts.common.TagR\x04tags\"7\n\x12GetTagByIdResponse\x12!\n\x03tag\x18\x01 \x01(\x0b\x32\x0f.hts.common.TagR\x03tag2\x8b\x0c\n\x10OrganizerService\x12V\n\x12\x43reateOrganization\x12(.hts.organizer.CreateOrganizationRequest\x1a\x16.google.protobuf.Empty\x12Q\n\x0fGetOrganization\x12\x16.google.protobuf.Empty\x1a&.hts.organizer.GetOrganizationResponse\x12`\n\x13GetOrganizationById\x12\x1d.hts.organizer.GetByIdRequest\x1a*.hts.organizer.GetOrganizationByIdResponse\x12V\n\x12UpdateOrganization\x12(.hts.organizer.UpdateOrganizationRequest\x1a\x16.google.protobuf.Empty\x12V\n\x12RemoveOrganization\x12(.hts.organizer.RemoveOrganizationRequest\x1a\x16.google.protobuf.Empty\x12\x61\n\x16\x41\x64\x64UsersToOrganization\x12/.hts.organizer.UpdateUsersInOrganizationRequest\x1a\x16.google.protobuf.Empty\x12\x66\n\x1bRemoveUsersFromOrganization\x12/.hts.organizer.UpdateUsersInOrganizationRequest\x1a\x16.google.protobuf.Empty\x12H\n\x0b\x43reateEvent\x12!.hts.organizer.CreateEventRequest\x1a\x16.google.protobuf.Empty\x12H\n\x0bUpdateEvent\x12!.hts.organizer.UpdateEventRequest\x1a\x16.google.protobuf.Empty\x12X\n\x13UpdateEventDuration\x12).hts.organizer.UpdateEventDurationRequest\x1a\x16.google.protobuf.Empty\x12H\n\x0bRemoveEvent\x12!.hts.organizer.RemoveEventRequest\x1a\x16.google.protobuf.Empty\x12\x64\n\x19UpdateRegistrationRequest\x12/.hts.organizer.UpdateRegistrationRequestRequest\x1a\x16.google.protobuf.Empty\x12\x44\n\tCreateTag\x12\x1f.hts.organizer.CreateTagRequest\x1a\x16.google.protobuf.Empty\x12\x41\n\x06\x41\x64\x64Tag\x12\x1f.hts.organizer.UpdateTagRequest\x1a\x16.google.protobuf.Empty\x12\x44\n\tRemoveTag\x12\x1f.hts.organizer.UpdateTagRequest\x1a\x16.google.protobuf.Empty\x12?\n\x06GetTag\x12\x16.google.protobuf.Empty\x1a\x1d.hts.organizer.GetTagResponse\x12N\n\nGetTagById\x12\x1d.hts.organizer.GetByIdRequest\x1a!.hts.organizer.GetTagByIdResponse\x12=\n\x08HasEvent\x12\x1e.hts.organizer.HasEventRequest\x1a\x11.hts.common.Event\x12\x32\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x12.hts.common.ResultBH\n\x10\x61pp.onepass.apisB\x0eOrganizerProtoP\x01Z\"onepass.app/facility/hts/organizerb\x06proto3'
   ,
   dependencies=[hts_dot_common_dot_common__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,])
 
 
 
 
-_USERREQUEST = _descriptor.Descriptor(
-  name='UserRequest',
-  full_name='hts.organizer.UserRequest',
+_GETBYIDREQUEST = _descriptor.Descriptor(
+  name='GetByIdRequest',
+  full_name='hts.organizer.GetByIdRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='user_id', full_name='hts.organizer.UserRequest.user_id', index=0,
+      name='id', full_name='hts.organizer.GetByIdRequest.id', index=0,
       number=1, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='userId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -57,46 +57,7 @@ _USERREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=133,
-  serialized_end=171,
-)
-
-
-_GETBYIDREQUEST = _descriptor.Descriptor(
-  name='GetByIdRequest',
-  full_name='hts.organizer.GetByIdRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='user_id', full_name='hts.organizer.GetByIdRequest.user_id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='userId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='read_id', full_name='hts.organizer.GetByIdRequest.read_id', index=1,
-      number=2, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='readId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=173,
-  serialized_end=239,
+  serialized_end=165,
 )
 
 
@@ -134,8 +95,8 @@ _DURATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=241,
-  serialized_end=353,
+  serialized_start=167,
+  serialized_end=279,
 )
 
 
@@ -173,8 +134,8 @@ _CREATEORGANIZATIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=355,
-  serialized_end=469,
+  serialized_start=281,
+  serialized_end=395,
 )
 
 
@@ -194,15 +155,8 @@ _UPDATEORGANIZATIONREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='userId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='organization_id', full_name='hts.organizer.UpdateOrganizationRequest.organization_id', index=1,
-      number=2, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='organizationId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='organization', full_name='hts.organizer.UpdateOrganizationRequest.organization', index=2,
-      number=3, type=11, cpp_type=10, label=1,
+      name='organization', full_name='hts.organizer.UpdateOrganizationRequest.organization', index=1,
+      number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -219,8 +173,8 @@ _UPDATEORGANIZATIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=472,
-  serialized_end=627,
+  serialized_start=397,
+  serialized_end=511,
 )
 
 
@@ -258,8 +212,8 @@ _REMOVEORGANIZATIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=629,
-  serialized_end=722,
+  serialized_start=513,
+  serialized_end=606,
 )
 
 
@@ -304,8 +258,8 @@ _UPDATEUSERSINORGANIZATIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=725,
-  serialized_end=856,
+  serialized_start=609,
+  serialized_end=740,
 )
 
 
@@ -343,28 +297,28 @@ _CREATEEVENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=858,
-  serialized_end=944,
+  serialized_start=742,
+  serialized_end=828,
 )
 
 
-_UPDATEEVENTINFOREQUEST = _descriptor.Descriptor(
-  name='UpdateEventInfoRequest',
-  full_name='hts.organizer.UpdateEventInfoRequest',
+_UPDATEEVENTREQUEST = _descriptor.Descriptor(
+  name='UpdateEventRequest',
+  full_name='hts.organizer.UpdateEventRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='user_id', full_name='hts.organizer.UpdateEventInfoRequest.user_id', index=0,
+      name='user_id', full_name='hts.organizer.UpdateEventRequest.user_id', index=0,
       number=1, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='userId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='event', full_name='hts.organizer.UpdateEventInfoRequest.event', index=1,
+      name='event', full_name='hts.organizer.UpdateEventRequest.event', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -382,47 +336,8 @@ _UPDATEEVENTINFOREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=946,
-  serialized_end=1036,
-)
-
-
-_UPDATEEVENTFACILITYREQUEST = _descriptor.Descriptor(
-  name='UpdateEventFacilityRequest',
-  full_name='hts.organizer.UpdateEventFacilityRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='user_id', full_name='hts.organizer.UpdateEventFacilityRequest.user_id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='userId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='facility', full_name='hts.organizer.UpdateEventFacilityRequest.facility', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='facility', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1038,
-  serialized_end=1141,
+  serialized_start=830,
+  serialized_end=916,
 )
 
 
@@ -467,8 +382,8 @@ _UPDATEEVENTDURATIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1144,
-  serialized_end=1277,
+  serialized_start=919,
+  serialized_end=1052,
 )
 
 
@@ -506,8 +421,8 @@ _REMOVEEVENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1279,
-  serialized_end=1351,
+  serialized_start=1054,
+  serialized_end=1126,
 )
 
 
@@ -559,8 +474,8 @@ _UPDATEREGISTRATIONREQUESTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1354,
-  serialized_end=1551,
+  serialized_start=1129,
+  serialized_end=1326,
 )
 
 
@@ -598,8 +513,8 @@ _CREATETAGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1553,
-  serialized_end=1631,
+  serialized_start=1328,
+  serialized_end=1406,
 )
 
 
@@ -644,8 +559,8 @@ _UPDATETAGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1633,
-  serialized_end=1732,
+  serialized_start=1408,
+  serialized_end=1507,
 )
 
 
@@ -658,22 +573,15 @@ _HASEVENTREQUEST = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='user_id', full_name='hts.organizer.HasEventRequest.user_id', index=0,
+      name='organization_id', full_name='hts.organizer.HasEventRequest.organization_id', index=0,
       number=1, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='userId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='organization_id', full_name='hts.organizer.HasEventRequest.organization_id', index=1,
-      number=2, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='organizationId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='event_id', full_name='hts.organizer.HasEventRequest.event_id', index=2,
-      number=3, type=3, cpp_type=2, label=1,
+      name='event_id', full_name='hts.organizer.HasEventRequest.event_id', index=1,
+      number=2, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -690,8 +598,8 @@ _HASEVENTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1734,
-  serialized_end=1844,
+  serialized_start=1509,
+  serialized_end=1594,
 )
 
 
@@ -722,8 +630,8 @@ _GETORGANIZATIONRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1846,
-  serialized_end=1935,
+  serialized_start=1596,
+  serialized_end=1685,
 )
 
 
@@ -754,8 +662,8 @@ _GETORGANIZATIONBYIDRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1937,
-  serialized_end=2028,
+  serialized_start=1687,
+  serialized_end=1778,
 )
 
 
@@ -786,8 +694,8 @@ _GETEVENTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2030,
-  serialized_end=2091,
+  serialized_start=1780,
+  serialized_end=1841,
 )
 
 
@@ -818,8 +726,8 @@ _GETEVENTBYIDRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2093,
-  serialized_end=2156,
+  serialized_start=1843,
+  serialized_end=1906,
 )
 
 
@@ -850,8 +758,8 @@ _GETTAGRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2158,
-  serialized_end=2211,
+  serialized_start=1908,
+  serialized_end=1961,
 )
 
 
@@ -882,8 +790,8 @@ _GETTAGBYIDRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2213,
-  serialized_end=2268,
+  serialized_start=1963,
+  serialized_end=2018,
 )
 
 _DURATION.fields_by_name['start'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -891,8 +799,7 @@ _DURATION.fields_by_name['finish'].message_type = google_dot_protobuf_dot_timest
 _CREATEORGANIZATIONREQUEST.fields_by_name['organization'].message_type = hts_dot_common_dot_common__pb2._ORGANIZATION
 _UPDATEORGANIZATIONREQUEST.fields_by_name['organization'].message_type = hts_dot_common_dot_common__pb2._ORGANIZATION
 _CREATEEVENTREQUEST.fields_by_name['event'].message_type = hts_dot_common_dot_common__pb2._EVENT
-_UPDATEEVENTINFOREQUEST.fields_by_name['event'].message_type = hts_dot_common_dot_common__pb2._EVENT
-_UPDATEEVENTFACILITYREQUEST.fields_by_name['facility'].message_type = hts_dot_common_dot_common__pb2._FACILITY
+_UPDATEEVENTREQUEST.fields_by_name['event'].message_type = hts_dot_common_dot_common__pb2._EVENT
 _UPDATEEVENTDURATIONREQUEST.fields_by_name['duration'].message_type = _DURATION
 _UPDATEREGISTRATIONREQUESTREQUEST.fields_by_name['status'].enum_type = hts_dot_common_dot_common__pb2._STATUS
 _CREATETAGREQUEST.fields_by_name['tag'].message_type = hts_dot_common_dot_common__pb2._TAG
@@ -902,7 +809,6 @@ _GETEVENTRESPONSE.fields_by_name['events'].message_type = hts_dot_common_dot_com
 _GETEVENTBYIDRESPONSE.fields_by_name['event'].message_type = hts_dot_common_dot_common__pb2._EVENT
 _GETTAGRESPONSE.fields_by_name['tags'].message_type = hts_dot_common_dot_common__pb2._TAG
 _GETTAGBYIDRESPONSE.fields_by_name['tag'].message_type = hts_dot_common_dot_common__pb2._TAG
-DESCRIPTOR.message_types_by_name['UserRequest'] = _USERREQUEST
 DESCRIPTOR.message_types_by_name['GetByIdRequest'] = _GETBYIDREQUEST
 DESCRIPTOR.message_types_by_name['Duration'] = _DURATION
 DESCRIPTOR.message_types_by_name['CreateOrganizationRequest'] = _CREATEORGANIZATIONREQUEST
@@ -910,8 +816,7 @@ DESCRIPTOR.message_types_by_name['UpdateOrganizationRequest'] = _UPDATEORGANIZAT
 DESCRIPTOR.message_types_by_name['RemoveOrganizationRequest'] = _REMOVEORGANIZATIONREQUEST
 DESCRIPTOR.message_types_by_name['UpdateUsersInOrganizationRequest'] = _UPDATEUSERSINORGANIZATIONREQUEST
 DESCRIPTOR.message_types_by_name['CreateEventRequest'] = _CREATEEVENTREQUEST
-DESCRIPTOR.message_types_by_name['UpdateEventInfoRequest'] = _UPDATEEVENTINFOREQUEST
-DESCRIPTOR.message_types_by_name['UpdateEventFacilityRequest'] = _UPDATEEVENTFACILITYREQUEST
+DESCRIPTOR.message_types_by_name['UpdateEventRequest'] = _UPDATEEVENTREQUEST
 DESCRIPTOR.message_types_by_name['UpdateEventDurationRequest'] = _UPDATEEVENTDURATIONREQUEST
 DESCRIPTOR.message_types_by_name['RemoveEventRequest'] = _REMOVEEVENTREQUEST
 DESCRIPTOR.message_types_by_name['UpdateRegistrationRequestRequest'] = _UPDATEREGISTRATIONREQUESTREQUEST
@@ -925,13 +830,6 @@ DESCRIPTOR.message_types_by_name['GetEventByIdResponse'] = _GETEVENTBYIDRESPONSE
 DESCRIPTOR.message_types_by_name['GetTagResponse'] = _GETTAGRESPONSE
 DESCRIPTOR.message_types_by_name['GetTagByIdResponse'] = _GETTAGBYIDRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
-
-UserRequest = _reflection.GeneratedProtocolMessageType('UserRequest', (_message.Message,), {
-  'DESCRIPTOR' : _USERREQUEST,
-  '__module__' : 'hts.organizer.service_pb2'
-  # @@protoc_insertion_point(class_scope:hts.organizer.UserRequest)
-  })
-_sym_db.RegisterMessage(UserRequest)
 
 GetByIdRequest = _reflection.GeneratedProtocolMessageType('GetByIdRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETBYIDREQUEST,
@@ -982,19 +880,12 @@ CreateEventRequest = _reflection.GeneratedProtocolMessageType('CreateEventReques
   })
 _sym_db.RegisterMessage(CreateEventRequest)
 
-UpdateEventInfoRequest = _reflection.GeneratedProtocolMessageType('UpdateEventInfoRequest', (_message.Message,), {
-  'DESCRIPTOR' : _UPDATEEVENTINFOREQUEST,
+UpdateEventRequest = _reflection.GeneratedProtocolMessageType('UpdateEventRequest', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATEEVENTREQUEST,
   '__module__' : 'hts.organizer.service_pb2'
-  # @@protoc_insertion_point(class_scope:hts.organizer.UpdateEventInfoRequest)
+  # @@protoc_insertion_point(class_scope:hts.organizer.UpdateEventRequest)
   })
-_sym_db.RegisterMessage(UpdateEventInfoRequest)
-
-UpdateEventFacilityRequest = _reflection.GeneratedProtocolMessageType('UpdateEventFacilityRequest', (_message.Message,), {
-  'DESCRIPTOR' : _UPDATEEVENTFACILITYREQUEST,
-  '__module__' : 'hts.organizer.service_pb2'
-  # @@protoc_insertion_point(class_scope:hts.organizer.UpdateEventFacilityRequest)
-  })
-_sym_db.RegisterMessage(UpdateEventFacilityRequest)
+_sym_db.RegisterMessage(UpdateEventRequest)
 
 UpdateEventDurationRequest = _reflection.GeneratedProtocolMessageType('UpdateEventDurationRequest', (_message.Message,), {
   'DESCRIPTOR' : _UPDATEEVENTDURATIONREQUEST,
@@ -1092,8 +983,8 @@ _ORGANIZERSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=2271,
-  serialized_end=4026,
+  serialized_start=2021,
+  serialized_end=3568,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateOrganization',
@@ -1101,7 +992,7 @@ _ORGANIZERSERVICE = _descriptor.ServiceDescriptor(
     index=0,
     containing_service=None,
     input_type=_CREATEORGANIZATIONREQUEST,
-    output_type=hts_dot_common_dot_common__pb2._RESULT,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -1110,7 +1001,7 @@ _ORGANIZERSERVICE = _descriptor.ServiceDescriptor(
     full_name='hts.organizer.OrganizerService.GetOrganization',
     index=1,
     containing_service=None,
-    input_type=_USERREQUEST,
+    input_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     output_type=_GETORGANIZATIONRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
@@ -1131,7 +1022,7 @@ _ORGANIZERSERVICE = _descriptor.ServiceDescriptor(
     index=3,
     containing_service=None,
     input_type=_UPDATEORGANIZATIONREQUEST,
-    output_type=hts_dot_common_dot_common__pb2._RESULT,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -1141,7 +1032,7 @@ _ORGANIZERSERVICE = _descriptor.ServiceDescriptor(
     index=4,
     containing_service=None,
     input_type=_REMOVEORGANIZATIONREQUEST,
-    output_type=hts_dot_common_dot_common__pb2._RESULT,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -1151,7 +1042,7 @@ _ORGANIZERSERVICE = _descriptor.ServiceDescriptor(
     index=5,
     containing_service=None,
     input_type=_UPDATEUSERSINORGANIZATIONREQUEST,
-    output_type=hts_dot_common_dot_common__pb2._RESULT,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -1161,7 +1052,7 @@ _ORGANIZERSERVICE = _descriptor.ServiceDescriptor(
     index=6,
     containing_service=None,
     input_type=_UPDATEUSERSINORGANIZATIONREQUEST,
-    output_type=hts_dot_common_dot_common__pb2._RESULT,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -1171,116 +1062,86 @@ _ORGANIZERSERVICE = _descriptor.ServiceDescriptor(
     index=7,
     containing_service=None,
     input_type=_CREATEEVENTREQUEST,
-    output_type=hts_dot_common_dot_common__pb2._RESULT,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
-    name='GetEvent',
-    full_name='hts.organizer.OrganizerService.GetEvent',
+    name='UpdateEvent',
+    full_name='hts.organizer.OrganizerService.UpdateEvent',
     index=8,
     containing_service=None,
-    input_type=_USERREQUEST,
-    output_type=_GETEVENTRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='GetEventById',
-    full_name='hts.organizer.OrganizerService.GetEventById',
-    index=9,
-    containing_service=None,
-    input_type=_GETBYIDREQUEST,
-    output_type=_GETEVENTBYIDRESPONSE,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='UpdateEventInfo',
-    full_name='hts.organizer.OrganizerService.UpdateEventInfo',
-    index=10,
-    containing_service=None,
-    input_type=_UPDATEEVENTINFOREQUEST,
-    output_type=hts_dot_common_dot_common__pb2._RESULT,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
-    name='UpdateEventFacility',
-    full_name='hts.organizer.OrganizerService.UpdateEventFacility',
-    index=11,
-    containing_service=None,
-    input_type=_UPDATEEVENTFACILITYREQUEST,
-    output_type=hts_dot_common_dot_common__pb2._RESULT,
+    input_type=_UPDATEEVENTREQUEST,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='UpdateEventDuration',
     full_name='hts.organizer.OrganizerService.UpdateEventDuration',
-    index=12,
+    index=9,
     containing_service=None,
     input_type=_UPDATEEVENTDURATIONREQUEST,
-    output_type=hts_dot_common_dot_common__pb2._RESULT,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='RemoveEvent',
     full_name='hts.organizer.OrganizerService.RemoveEvent',
-    index=13,
+    index=10,
     containing_service=None,
     input_type=_REMOVEEVENTREQUEST,
-    output_type=hts_dot_common_dot_common__pb2._RESULT,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='UpdateRegistrationRequest',
     full_name='hts.organizer.OrganizerService.UpdateRegistrationRequest',
-    index=14,
+    index=11,
     containing_service=None,
     input_type=_UPDATEREGISTRATIONREQUESTREQUEST,
-    output_type=hts_dot_common_dot_common__pb2._RESULT,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='CreateTag',
     full_name='hts.organizer.OrganizerService.CreateTag',
-    index=15,
+    index=12,
     containing_service=None,
     input_type=_CREATETAGREQUEST,
-    output_type=hts_dot_common_dot_common__pb2._RESULT,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='AddTag',
     full_name='hts.organizer.OrganizerService.AddTag',
-    index=16,
+    index=13,
     containing_service=None,
     input_type=_UPDATETAGREQUEST,
-    output_type=hts_dot_common_dot_common__pb2._RESULT,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='RemoveTag',
     full_name='hts.organizer.OrganizerService.RemoveTag',
-    index=17,
+    index=14,
     containing_service=None,
     input_type=_UPDATETAGREQUEST,
-    output_type=hts_dot_common_dot_common__pb2._RESULT,
+    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='GetTag',
     full_name='hts.organizer.OrganizerService.GetTag',
-    index=18,
+    index=15,
     containing_service=None,
-    input_type=_USERREQUEST,
+    input_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     output_type=_GETTAGRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
@@ -1288,7 +1149,7 @@ _ORGANIZERSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetTagById',
     full_name='hts.organizer.OrganizerService.GetTagById',
-    index=19,
+    index=16,
     containing_service=None,
     input_type=_GETBYIDREQUEST,
     output_type=_GETTAGBYIDRESPONSE,
@@ -1298,17 +1159,17 @@ _ORGANIZERSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='HasEvent',
     full_name='hts.organizer.OrganizerService.HasEvent',
-    index=20,
+    index=17,
     containing_service=None,
     input_type=_HASEVENTREQUEST,
-    output_type=hts_dot_common_dot_common__pb2._RESULT,
+    output_type=hts_dot_common_dot_common__pb2._EVENT,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
     name='Ping',
     full_name='hts.organizer.OrganizerService.Ping',
-    index=21,
+    index=18,
     containing_service=None,
     input_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     output_type=hts_dot_common_dot_common__pb2._RESULT,

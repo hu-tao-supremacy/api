@@ -1,7 +1,8 @@
 /* eslint-disable */
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
-import { Permission, User, Result } from "../../hts/common/common";
+import { Permission, User } from "../../hts/common/common";
 import { Observable } from "rxjs";
+import { BoolValue } from "../../google/protobuf/wrappers";
 import { Empty } from "../../google/protobuf/empty";
 
 export const protobufPackage = "hts.account";
@@ -10,19 +11,7 @@ export interface IsAuthenticatedRequest {
   accessToken: string;
 }
 
-export interface UpdateAccountInfoRequest {
-  user: User | undefined;
-}
-
-export interface UpdateAccountInfoResponse {
-  user: User | undefined;
-}
-
-export interface GenerateJWTRequest {
-  user: User | undefined;
-}
-
-export interface InvalidateJWTRequest {
+export interface GenerateAuthTokenResponse {
   accessToken: string;
 }
 
@@ -35,46 +24,36 @@ export interface HasPermissionRequest {
 export const HTS_ACCOUNT_PACKAGE_NAME = "hts.account";
 
 export interface AccountServiceClient {
-  isAuthenticated(request: IsAuthenticatedRequest): Observable<Result>;
+  isAuthenticated(request: IsAuthenticatedRequest): Observable<BoolValue>;
 
-  updateAccountInfo(
-    request: UpdateAccountInfoRequest
-  ): Observable<UpdateAccountInfoResponse>;
+  updateAccountInfo(request: User): Observable<User>;
 
-  generateJWT(request: GenerateJWTRequest): Observable<Result>;
+  generateAuthToken(request: User): Observable<GenerateAuthTokenResponse>;
 
-  invalidateJWT(request: InvalidateJWTRequest): Observable<Result>;
+  hasPermission(request: HasPermissionRequest): Observable<BoolValue>;
 
-  hasPermission(request: HasPermissionRequest): Observable<Result>;
-
-  ping(request: Empty): Observable<Result>;
+  ping(request: Empty): Observable<BoolValue>;
 }
 
 export interface AccountServiceController {
   isAuthenticated(
     request: IsAuthenticatedRequest
-  ): Promise<Result> | Observable<Result> | Result;
+  ): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
 
-  updateAccountInfo(
-    request: UpdateAccountInfoRequest
+  updateAccountInfo(request: User): Promise<User> | Observable<User> | User;
+
+  generateAuthToken(
+    request: User
   ):
-    | Promise<UpdateAccountInfoResponse>
-    | Observable<UpdateAccountInfoResponse>
-    | UpdateAccountInfoResponse;
-
-  generateJWT(
-    request: GenerateJWTRequest
-  ): Promise<Result> | Observable<Result> | Result;
-
-  invalidateJWT(
-    request: InvalidateJWTRequest
-  ): Promise<Result> | Observable<Result> | Result;
+    | Promise<GenerateAuthTokenResponse>
+    | Observable<GenerateAuthTokenResponse>
+    | GenerateAuthTokenResponse;
 
   hasPermission(
     request: HasPermissionRequest
-  ): Promise<Result> | Observable<Result> | Result;
+  ): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
 
-  ping(request: Empty): Promise<Result> | Observable<Result> | Result;
+  ping(request: Empty): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
 }
 
 export function AccountServiceControllerMethods() {
@@ -82,8 +61,7 @@ export function AccountServiceControllerMethods() {
     const grpcMethods: string[] = [
       "isAuthenticated",
       "updateAccountInfo",
-      "generateJWT",
-      "invalidateJWT",
+      "generateAuthToken",
       "hasPermission",
       "ping",
     ];

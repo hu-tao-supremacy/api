@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package hts.account;
 
-
 option java_multiple_files = true;
 option java_package = "app.onepass.apis";
 option java_outer_classname = "AccountProto";
@@ -10,24 +9,13 @@ option go_package = "onepass.app/facility/hts/account";
 
 import "hts/common/common.proto";
 import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
 
 message IsAuthenticatedRequest {
   string access_token = 1;
 }
 
-message UpdateAccountInfoRequest {
-  hts.common.User user = 1;
-}
-
-message UpdateAccountInfoResponse {
-  hts.common.User user = 1;
-}
-
-message GenerateJWTRequest {
-  hts.common.User user = 1;
-}
-
-message InvalidateJWTRequest {
+message GenerateAuthTokenResponse {
   string access_token = 1;
 }
 
@@ -38,10 +26,9 @@ message HasPermissionRequest {
 }
 
 service AccountService {
-  rpc IsAuthenticated(IsAuthenticatedRequest) returns (hts.common.Result);
-  rpc UpdateAccountInfo(UpdateAccountInfoRequest) returns (UpdateAccountInfoResponse);
-  rpc GenerateJWT(GenerateJWTRequest) returns (hts.common.Result);
-  rpc InvalidateJWT(InvalidateJWTRequest) returns (hts.common.Result);
-  rpc HasPermission(HasPermissionRequest) returns (hts.common.Result);
-  rpc Ping(google.protobuf.Empty) returns (hts.common.Result);
+  rpc IsAuthenticated(IsAuthenticatedRequest) returns (google.protobuf.BoolValue);
+  rpc UpdateAccountInfo(hts.common.User) returns (hts.common.User);
+  rpc GenerateAuthToken(hts.common.User) returns (GenerateAuthTokenResponse);
+  rpc HasPermission(HasPermissionRequest) returns (google.protobuf.BoolValue);
+  rpc Ping(google.protobuf.Empty) returns (google.protobuf.BoolValue);
 }

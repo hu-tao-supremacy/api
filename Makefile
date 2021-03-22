@@ -8,13 +8,13 @@ generate:
 	bazel build //:python
 	bazel build //:java
 	bazel build //:nest
-	bazel build //:api-gateway
+	bazel build //:gql
 
 	rm -rf gen
 	mkdir -p gen/go
 	mkdir -p gen/java
 	mkdir -p gen/nest
-	mkdir -p gen/api-gateway
+	mkdir -p gen/gql
 	mkdir -p gen/python
 
 	mv bazel-bin/go/gen/hts gen/go/.
@@ -31,5 +31,6 @@ generate:
 	rm -rf gen/java/META-INF
 
 	cp -r bazel-bin/nest/gen/hts gen/nest/.
+	cp -r bazel-bin/gql/gen/hts gen/gql/.
 	cp -r bazel-bin/nest/gen/google gen/nest/.
-	cp -r bazel-bin/api-gateway/gen/hts gen/api-gateway/.
+	cp -r bazel-bin/gql/gen/google gen/gql/.

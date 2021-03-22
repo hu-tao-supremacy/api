@@ -8,6 +8,7 @@ import {
   Result,
 } from "../../hts/common/common";
 import { Observable } from "rxjs";
+import { StringValue } from "../../google/protobuf/wrappers";
 import { Timestamp } from "../../google/protobuf/timestamp";
 import { Empty } from "../../google/protobuf/empty";
 
@@ -19,7 +20,7 @@ export interface FacilityRequestWithFacilityInfo {
   facilityId: number;
   organizationId: number;
   status: Status;
-  rejectReason: string | undefined;
+  rejectReason: StringValue | undefined;
   start: Timestamp | undefined;
   finish: Timestamp | undefined;
   facilityName: string;
@@ -89,7 +90,7 @@ export interface ApproveFacilityRequestRequest {
 export interface RejectFacilityRequestRequest {
   userId: number;
   requestId: number;
-  reason: string | undefined;
+  reason: StringValue | undefined;
 }
 
 export interface GetFacilityInfoRequest {

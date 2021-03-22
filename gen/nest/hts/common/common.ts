@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { StringValue, Int64Value } from "../../google/protobuf/wrappers";
 import { Timestamp } from "../../google/protobuf/timestamp";
 
 export const protobufPackage = "hts.common";
@@ -29,26 +30,19 @@ export enum Status {
 }
 
 export enum Permission {
-  CREATE_ORGANIZATION = 0,
-  READ_ORGANIZATION = 1,
-  UPDATE_ORGANIZATION = 2,
-  DELETE_ORGANIZATION = 3,
-  ADD_MEMBERS_TO_ORGANIZATION = 4,
-  REMOVE_MEMBERS_FROM_ORGANIZATION = 5,
-  CREATE_EVENT = 6,
-  READ_EVENT = 7,
-  UPDATE_EVENT = 8,
-  DELETE_EVENT = 9,
-  CREATE_TAG = 10,
-  READ_TAG = 11,
-  UPDATE_TAG = 12,
-  DELETE_TAG = 13,
-  ADD_TAGS_TO_EVENT = 14,
-  REMOVE_TAGS_FROM_EVENT = 15,
-  CREATE_FACILITY = 16,
-  READ_FACILITY = 17,
-  UPDATE_FACILITY = 18,
-  DELETE_FACILITY = 19,
+  ORGANIZATION_UPDATE = 0,
+  ORGANIZATION_REMOVE = 1,
+  ORGANIZATION_MEMBER_ADD = 2,
+  ORGANIZATION_MEMBER_REMOVE = 3,
+  EVENT_CREATE = 4,
+  EVENT_UPDATE = 5,
+  EVENT_REMOVE = 6,
+  TAG_CREATE = 7,
+  TAG_REMOVE = 8,
+  EVENT_TAG_UPDATE = 9,
+  FACILITY_CREATE = 10,
+  FACILITY_UPDATE = 11,
+  FACILITY_REMOVE = 12,
   UNRECOGNIZED = -1,
 }
 
@@ -68,10 +62,12 @@ export interface User {
   firstName: string;
   lastName: string;
   email: string;
-  nickname: string | undefined;
-  chulaId: string | undefined;
+  nickname: StringValue | undefined;
+  chulaId: StringValue | undefined;
   isChulaStudent: boolean;
   gender: Gender;
+  address: StringValue | undefined;
+  profilePicture: StringValue | undefined;
 }
 
 export interface Organization {
@@ -89,13 +85,13 @@ export interface UserOrganization {
 export interface Event {
   id: number;
   organizationId: number;
-  eventLocationId: number | undefined;
+  eventLocationId: Int64Value | undefined;
   description: string;
   name: string;
-  coverImage: string | undefined;
-  coverImageHash: string | undefined;
-  posterImage: string | undefined;
-  posterImageHash: string | undefined;
+  coverImage: StringValue | undefined;
+  coverImageHash: StringValue | undefined;
+  posterImage: StringValue | undefined;
+  posterImageHash: StringValue | undefined;
   contact: string;
 }
 
@@ -166,7 +162,7 @@ export interface FacilityRequest {
   eventId: number;
   facilityId: number;
   status: Status;
-  rejectReason: string | undefined;
+  rejectReason: StringValue | undefined;
   start: Timestamp | undefined;
   finish: Timestamp | undefined;
 }
