@@ -22,14 +22,13 @@ message StringInputRequest {
 }
 
 message UserWithEventRequest {
-    hts.common.User user = 1;
-    hts.common.Event event = 2;
+    int64 user_id = 1;
+    int64 event_id = 2;
 }
 
 message SubmitUserPostQuestionAnswerForEventRequest {
     hts.common.UserEvent user_event = 1;
     repeated hts.common.Answer answers = 2;
-    
 }
 
 message GenerateQRResponse {
@@ -41,7 +40,7 @@ message EventsResponse {
 }
 
 message IsEventAvailableRequest {
-    hts.common.Event event = 1;
+    int64 event_id = 1;
     google.protobuf.Timestamp date = 2;
 }
 
