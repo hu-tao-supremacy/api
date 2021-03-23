@@ -26,8 +26,8 @@ enum AnswerType {
 }
 
 enum QuestionType {
-  PRE_EVENT = 1;
-  POST_EVENT = 2;
+  PRE_EVENT = 0;
+  POST_EVENT = 1;
 }
 
 enum Gender {
