@@ -90,36 +90,38 @@ message Event {
   google.protobuf.Int64Value event_location_id = 3;
   string description = 4;
   string name = 5;
-  google.protobuf.StringValue cover_image = 6;
+  google.protobuf.StringValue cover_image_url = 6;
   google.protobuf.StringValue cover_image_hash = 7;
-  google.protobuf.StringValue poster_image = 8;
+  google.protobuf.StringValue poster_image_url = 8;
   google.protobuf.StringValue poster_image_hash = 9;
   string contact = 10;
+  google.protobuf.StringValue profile_image_url = 11;
+  google.protobuf.StringValue profile_imaage_hash = 12;
+  int64 attendee_limit = 13;
 }
 
-message UserEventFeedback {
+message Answer {
   int64 id = 1;
-  int64 user_id = 2;
-  int64 event_feedback_id = 3;
+  int64 user_event_id = 2;
+  int64 question_id = 3;
+  string value = 4;
 }
 
-message EventFeedback {
-  int64 id = 1;
-  int64 event_id = 2;
-  string feedback = 3;
-}
-
-message EventLocation {
+message Location {
   int64 id = 1;
   string name = 2;
-  double latitude = 3;
-  double longitude = 4;
+  string google_map_url = 3;
+  string description = 4;
+  google.protobuf.StringValue travel_information_image_url = 5;
+  google.protobuf.StringValue travel_information_image_hash = 6;
 }
 
 message UserEvent {
   int64 id = 1;
   int64 user_id = 2;
   int64 event_id = 3;
+  int64 rating = 4;
+  string ticket = 5;
 }
 
 message EventDuration {
