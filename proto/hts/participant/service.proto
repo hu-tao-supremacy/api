@@ -13,11 +13,7 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
 
-message GenerateQRRequest {
-    hts.common.UserEvent user_event = 1;
-}
-
-message GetEventRequest {
+message GetEventByIdRequest {
     int64 event_id = 1;
 }
 
@@ -30,17 +26,14 @@ message UserWithEventRequest {
     hts.common.Event event = 2;
 }
 
-message CreateFeedbackRequest {
-    hts.common.User user = 1;
-    hts.common.EventFeedback feedback = 2;
+message SubmitUserPostQuestionAnswerForEventRequest {
+    hts.common.UserEvent user_event = 1;
+    repeated hts.common.Answer answers = 2;
+    
 }
 
 message GenerateQRResponse {
     string data = 1;
-}
-
-message GetFeedbacksFromEventResponse {
-    repeated hts.common.EventFeedback event_feedback = 1;
 }
 
 message EventsResponse {
@@ -66,20 +59,17 @@ service ParticipantService {
     rpc CancelEvent(UserWithEventRequest) returns (hts.common.Event);
 
     // Let user create / remove feedback
-    rpc CreateFeedback(CreateFeedbackRequest) returns (hts.common.EventFeedback);
-    rpc RemoveFeedback(hts.common.EventFeedback) returns (hts.common.EventFeedback);
-
-    // Return feedback from specific event
-    rpc GetFeedbacksFromEvent(hts.common.Event) returns (GetFeedbacksFromEventResponse);
-    // Return feedback of user from specific event
-    rpc GetUserFeedbackFromEvent(UserWithEventRequest) returns (hts.common.EventFeedback);
+    rpc SubmitUserPostQuestionAnswerForEvent(SubmitUserPostQuestionAnswerForEventRequest) returns (hts.common.UserEvent);
+    rpc RemoveUserPostQuestionAnswerForEvent(hts.common.UserEvent) returns (hts.common.UserEvent);
 
     // Return event object from event_id
-    rpc GetEvent(GetEventRequest) returns (hts.common.Event);
+    rpc GetEventById(GetEventByIdRequest) returns (hts.common.Event);
     // Return all event in database
     rpc GetAllEvents(google.protobuf.Empty) returns (EventsResponse);
     // Return 10 random events --> waiting for machine learning implementation
     rpc GetSuggestedEvents(google.protobuf.Empty) returns (EventsResponse);
+    // Get events from range of date
+    rpc GetUpcomingEvents(GetUpcomingEventsRequest) returns (EventsResponse);
 
     // Get events from search string
     rpc GetEventsByStringOfName(StringInputRequest) returns (EventsResponse);
@@ -91,9 +81,6 @@ service ParticipantService {
     rpc GetEventsByFacility(hts.common.Facility) returns (EventsResponse);
     // Get event from specified date
     rpc GetEventsByDate(google.protobuf.Timestamp) returns (EventsResponse);
-
-    // Get events from range of date
-    rpc GetUpcomingEvents(GetUpcomingEventsRequest) returns (EventsResponse);
 
     // Generate QR from combination of ID, User_ID, Event_ID
     rpc GenerateQR(hts.common.UserEvent) returns (GenerateQRResponse);
