@@ -20,6 +20,11 @@ enum DayOfWeek {
   SAT = 6;
 }
 
+enum AnswerType {
+  SCALE = 0;
+  TEXT = 1;
+}
+
 enum Gender {
   MALE = 0;
   FEMALE = 1;
@@ -76,6 +81,37 @@ message Organization {
   int64 id = 1;
   string name = 2;
   bool is_verified = 3;
+  string abbreviation = 4;
+  string advisor = 5;
+  string associated_faculty = 6;
+  string description = 7;
+  string facebook_page = 8;
+  string instagram = 9;
+  string line_official_account = 10;
+  string email = 11;
+  string contact_full_name = 12;
+  string contact_email = 13;
+  string contact_phone_number = 14;
+  string contact_line_id = 15;
+  google.protobuf.StringValue profile_picture_url = 16;
+  google.protobuf.StringValue profile_picture_hash = 17;
+}
+
+message QuestionGroup {
+  int64 id =1;
+  int64 event_id = 2;
+  int64 order = 3;
+  string title = 4;
+}
+
+message Question {
+  int64 id = 1;
+  int64 question_group_id = 2;
+  AnswerType answer_type = 3;
+  bool is_optional = 4;
+  string title = 5;
+  string subtitle = 6;
+
 }
 
 message UserOrganization {
@@ -122,6 +158,7 @@ message UserEvent {
   int64 event_id = 3;
   int64 rating = 4;
   string ticket = 5;
+  Status status = 4;
 }
 
 message EventDuration {
@@ -129,13 +166,6 @@ message EventDuration {
   int64 event_id = 2;
   google.protobuf.Timestamp start = 3;
   google.protobuf.Timestamp finish = 4;
-}
-
-message EventRegistration {
-  int64 id = 1;
-  int64 event_id = 2;
-  int64 user_id = 3;
-  Status status = 4;
 }
 
 message Tag {
@@ -159,6 +189,12 @@ message UserPermission {
   int64 id = 1;
   int64 user_id = 2;
   int64 organization_permission_id = 3;
+}
+
+message UserInterest {
+  int64 id = 1;
+  int64 uerId = 2;
+  int64 tag_id = 3;
 }
 
 message FacilityRequest {
