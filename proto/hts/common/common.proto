@@ -81,24 +81,24 @@ message Organization {
   int64 id = 1;
   string name = 2;
   bool is_verified = 3;
-  string abbreviation = 4;
-  string advisor = 5;
-  string associated_faculty = 6;
-  string description = 7;
-  string facebook_page = 8;
-  string instagram = 9;
-  string line_official_account = 10;
-  string email = 11;
-  string contact_full_name = 12;
-  string contact_email = 13;
-  string contact_phone_number = 14;
-  string contact_line_id = 15;
+  google.protobuf.StringValue abbreviation = 4;
+  google.protobuf.StringValue advisor = 5;
+  google.protobuf.StringValue associated_faculty = 6;
+  google.protobuf.StringValue description = 7;
+  google.protobuf.StringValue facebook_page = 8;
+  google.protobuf.StringValue instagram = 9;
+  google.protobuf.StringValue line_official_account = 10;
+  google.protobuf.StringValue email = 11;
+  google.protobuf.StringValue contact_full_name = 12;
+  google.protobuf.StringValue contact_email = 13;
+  google.protobuf.StringValue contact_phone_number = 14;
+  google.protobuf.StringValue contact_line_id = 15;
   google.protobuf.StringValue profile_picture_url = 16;
   google.protobuf.StringValue profile_picture_hash = 17;
 }
 
 message QuestionGroup {
-  int64 id =1;
+  int64 id = 1;
   int64 event_id = 2;
   int64 order = 3;
   string title = 4;
@@ -107,6 +107,7 @@ message QuestionGroup {
 message Question {
   int64 id = 1;
   int64 question_group_id = 2;
+  int64 order = 3;
   AnswerType answer_type = 3;
   bool is_optional = 4;
   string title = 5;
