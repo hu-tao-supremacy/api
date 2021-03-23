@@ -60,6 +60,12 @@ message GetEventsByFacilityIdRequest {
     int64 facility_id = 1;
 }
 
+message GenerateQRRequest {
+    int64 user_event_id = 1;
+    int64 user_id = 2;
+    int64 event_id = 3;
+}
+
 service ParticipantService {
     // Check whether event's start date is before specified date
     rpc IsEventAvailable(IsEventAvailableRequest) returns (google.protobuf.BoolValue);
@@ -93,7 +99,7 @@ service ParticipantService {
     rpc GetEventsByDate(google.protobuf.Timestamp) returns (EventsResponse);
 
     // Generate QR from combination of ID, User_ID, Event_ID
-    rpc GenerateQR(hts.common.UserEvent) returns (GenerateQRResponse);
+    rpc GenerateQR(GenerateQRRequest) returns (GenerateQRResponse);
 
     // Ping methods to check signal
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.BoolValue);
