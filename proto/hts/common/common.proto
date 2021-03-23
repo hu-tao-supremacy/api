@@ -20,6 +20,16 @@ enum DayOfWeek {
   SAT = 6;
 }
 
+enum AnswerType {
+  SCALE = 0;
+  TEXT = 1;
+}
+
+enum QuestionType {
+  PRE_EVENT = 1;
+  POST_EVENT = 2;
+}
+
 enum Gender {
   MALE = 0;
   FEMALE = 1;
@@ -76,6 +86,39 @@ message Organization {
   int64 id = 1;
   string name = 2;
   bool is_verified = 3;
+  google.protobuf.StringValue abbreviation = 4;
+  google.protobuf.StringValue advisor = 5;
+  google.protobuf.StringValue associated_faculty = 6;
+  google.protobuf.StringValue description = 7;
+  google.protobuf.StringValue facebook_page = 8;
+  google.protobuf.StringValue instagram = 9;
+  google.protobuf.StringValue line_official_account = 10;
+  google.protobuf.StringValue email = 11;
+  google.protobuf.StringValue contact_full_name = 12;
+  google.protobuf.StringValue contact_email = 13;
+  google.protobuf.StringValue contact_phone_number = 14;
+  google.protobuf.StringValue contact_line_id = 15;
+  google.protobuf.StringValue profile_picture_url = 16;
+  google.protobuf.StringValue profile_picture_hash = 17;
+}
+
+message QuestionGroup {
+  int64 id = 1;
+  int64 event_id = 2;
+  QuestionType type = 3;
+  int64 order = 4;
+  string title = 5;
+}
+
+message Question {
+  int64 id = 1;
+  int64 question_group_id = 2;
+  int64 order = 3;
+  AnswerType answer_type = 4;
+  bool is_optional = 5;
+  string title = 6;
+  string subtitle = 7;
+
 }
 
 message UserOrganization {
@@ -90,36 +133,45 @@ message Event {
   google.protobuf.Int64Value event_location_id = 3;
   string description = 4;
   string name = 5;
-  google.protobuf.StringValue cover_image = 6;
+  google.protobuf.StringValue cover_image_url = 6;
   google.protobuf.StringValue cover_image_hash = 7;
-  google.protobuf.StringValue poster_image = 8;
+  google.protobuf.StringValue poster_image_url = 8;
   google.protobuf.StringValue poster_image_hash = 9;
   string contact = 10;
+  google.protobuf.StringValue profile_image_url = 11;
+  google.protobuf.StringValue profile_imaage_hash = 12;
+  int64 attendee_limit = 13;
 }
 
-message UserEventFeedback {
+message Answer {
   int64 id = 1;
-  int64 user_id = 2;
-  int64 event_feedback_id = 3;
-}
-
-message EventFeedback {
-  int64 id = 1;
-  int64 event_id = 2;
-  string feedback = 3;
+  int64 user_event_id = 2;
+  int64 question_id = 3;
+  string value = 4;
 }
 
 message EventLocation {
   int64 id = 1;
+  int64 event_id = 2;
+  int64 location_id = 3;
+}
+
+message Location {
+  int64 id = 1;
   string name = 2;
-  double latitude = 3;
-  double longitude = 4;
+  string google_map_url = 3;
+  google.protobuf.StringValue description = 4;
+  google.protobuf.StringValue travel_information_image_url = 5;
+  google.protobuf.StringValue travel_information_image_hash = 6;
 }
 
 message UserEvent {
   int64 id = 1;
   int64 user_id = 2;
   int64 event_id = 3;
+  google.protobuf.Int64Value rating = 4;
+  string ticket = 5;
+  Status status = 6;
 }
 
 message EventDuration {
@@ -127,13 +179,6 @@ message EventDuration {
   int64 event_id = 2;
   google.protobuf.Timestamp start = 3;
   google.protobuf.Timestamp finish = 4;
-}
-
-message EventRegistration {
-  int64 id = 1;
-  int64 event_id = 2;
-  int64 user_id = 3;
-  Status status = 4;
 }
 
 message Tag {
@@ -157,6 +202,12 @@ message UserPermission {
   int64 id = 1;
   int64 user_id = 2;
   int64 organization_permission_id = 3;
+}
+
+message UserInterest {
+  int64 id = 1;
+  int64 userId = 2;
+  int64 tag_id = 3;
 }
 
 message FacilityRequest {
