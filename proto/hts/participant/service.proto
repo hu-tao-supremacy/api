@@ -33,7 +33,7 @@ message UserWithEventRequest {
 }
 
 message SubmitAnswerForPostEventQuestionRequest {
-    repeated Answer answer = 1;
+    repeated Answer answers = 1;
 }
 
 message GenerateQRResponse {
