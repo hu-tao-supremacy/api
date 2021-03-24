@@ -13,11 +13,6 @@ import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
 
-message Answer {
-    int64 question_id = 1;
-    string value = 2;
-}
-
 message GetEventByIdRequest {
     int64 event_id = 1;
 }
@@ -32,6 +27,10 @@ message UserWithEventRequest {
 }
 
 message SubmitAnswerForPostEventQuestionRequest {
+    message Answer {
+        int64 question_id = 1;
+        string value = 2;
+    }
     repeated Answer answers = 1;
     int64 user_event_id = 2;
 }
@@ -83,7 +82,7 @@ service ParticipantService {
     rpc JoinEvent(UserWithEventRequest) returns (hts.common.Event);
     rpc CancelEvent(UserWithEventRequest) returns (hts.common.Event);
 
-    // Let user create then submit Post Question 
+    // Let user create then submit Post Question
     rpc SubmitAnswerForPostEventQuestion(SubmitAnswerForPostEventQuestionRequest) returns (SubmitAnswerForPostEventQuestionResponse);
 
     // Return event object from event_id
