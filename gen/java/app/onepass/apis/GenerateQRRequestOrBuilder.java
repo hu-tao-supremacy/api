@@ -8,17 +8,20 @@ public interface GenerateQRRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
-   * @return Whether the userEvent field is set.
+   * <code>int64 user_event_id = 1 [json_name = "userEventId"];</code>
+   * @return The userEventId.
    */
-  boolean hasUserEvent();
+  long getUserEventId();
+
   /**
-   * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
-   * @return The userEvent.
+   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * @return The userId.
    */
-  app.onepass.apis.UserEvent getUserEvent();
+  long getUserId();
+
   /**
-   * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
+   * <code>int64 event_id = 3 [json_name = "eventId"];</code>
+   * @return The eventId.
    */
-  app.onepass.apis.UserEventOrBuilder getUserEventOrBuilder();
+  long getEventId();
 }

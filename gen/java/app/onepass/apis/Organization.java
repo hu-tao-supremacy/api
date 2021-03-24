@@ -65,6 +65,188 @@ private static final long serialVersionUID = 0L;
             isVerified_ = input.readBool();
             break;
           }
+          case 34: {
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (abbreviation_ != null) {
+              subBuilder = abbreviation_.toBuilder();
+            }
+            abbreviation_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(abbreviation_);
+              abbreviation_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 42: {
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (advisor_ != null) {
+              subBuilder = advisor_.toBuilder();
+            }
+            advisor_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(advisor_);
+              advisor_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 50: {
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (associatedFaculty_ != null) {
+              subBuilder = associatedFaculty_.toBuilder();
+            }
+            associatedFaculty_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(associatedFaculty_);
+              associatedFaculty_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 58: {
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (description_ != null) {
+              subBuilder = description_.toBuilder();
+            }
+            description_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(description_);
+              description_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 66: {
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (facebookPage_ != null) {
+              subBuilder = facebookPage_.toBuilder();
+            }
+            facebookPage_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(facebookPage_);
+              facebookPage_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 74: {
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (instagram_ != null) {
+              subBuilder = instagram_.toBuilder();
+            }
+            instagram_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(instagram_);
+              instagram_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 82: {
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (lineOfficialAccount_ != null) {
+              subBuilder = lineOfficialAccount_.toBuilder();
+            }
+            lineOfficialAccount_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(lineOfficialAccount_);
+              lineOfficialAccount_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 90: {
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (email_ != null) {
+              subBuilder = email_.toBuilder();
+            }
+            email_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(email_);
+              email_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 98: {
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (contactFullName_ != null) {
+              subBuilder = contactFullName_.toBuilder();
+            }
+            contactFullName_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(contactFullName_);
+              contactFullName_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 106: {
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (contactEmail_ != null) {
+              subBuilder = contactEmail_.toBuilder();
+            }
+            contactEmail_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(contactEmail_);
+              contactEmail_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 114: {
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (contactPhoneNumber_ != null) {
+              subBuilder = contactPhoneNumber_.toBuilder();
+            }
+            contactPhoneNumber_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(contactPhoneNumber_);
+              contactPhoneNumber_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 122: {
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (contactLineId_ != null) {
+              subBuilder = contactLineId_.toBuilder();
+            }
+            contactLineId_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(contactLineId_);
+              contactLineId_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 130: {
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (profilePictureUrl_ != null) {
+              subBuilder = profilePictureUrl_.toBuilder();
+            }
+            profilePictureUrl_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(profilePictureUrl_);
+              profilePictureUrl_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 138: {
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (profilePictureHash_ != null) {
+              subBuilder = profilePictureHash_.toBuilder();
+            }
+            profilePictureHash_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(profilePictureHash_);
+              profilePictureHash_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -157,6 +339,370 @@ private static final long serialVersionUID = 0L;
     return isVerified_;
   }
 
+  public static final int ABBREVIATION_FIELD_NUMBER = 4;
+  private com.google.protobuf.StringValue abbreviation_;
+  /**
+   * <code>.google.protobuf.StringValue abbreviation = 4 [json_name = "abbreviation"];</code>
+   * @return Whether the abbreviation field is set.
+   */
+  @java.lang.Override
+  public boolean hasAbbreviation() {
+    return abbreviation_ != null;
+  }
+  /**
+   * <code>.google.protobuf.StringValue abbreviation = 4 [json_name = "abbreviation"];</code>
+   * @return The abbreviation.
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValue getAbbreviation() {
+    return abbreviation_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : abbreviation_;
+  }
+  /**
+   * <code>.google.protobuf.StringValue abbreviation = 4 [json_name = "abbreviation"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValueOrBuilder getAbbreviationOrBuilder() {
+    return getAbbreviation();
+  }
+
+  public static final int ADVISOR_FIELD_NUMBER = 5;
+  private com.google.protobuf.StringValue advisor_;
+  /**
+   * <code>.google.protobuf.StringValue advisor = 5 [json_name = "advisor"];</code>
+   * @return Whether the advisor field is set.
+   */
+  @java.lang.Override
+  public boolean hasAdvisor() {
+    return advisor_ != null;
+  }
+  /**
+   * <code>.google.protobuf.StringValue advisor = 5 [json_name = "advisor"];</code>
+   * @return The advisor.
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValue getAdvisor() {
+    return advisor_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : advisor_;
+  }
+  /**
+   * <code>.google.protobuf.StringValue advisor = 5 [json_name = "advisor"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValueOrBuilder getAdvisorOrBuilder() {
+    return getAdvisor();
+  }
+
+  public static final int ASSOCIATED_FACULTY_FIELD_NUMBER = 6;
+  private com.google.protobuf.StringValue associatedFaculty_;
+  /**
+   * <code>.google.protobuf.StringValue associated_faculty = 6 [json_name = "associatedFaculty"];</code>
+   * @return Whether the associatedFaculty field is set.
+   */
+  @java.lang.Override
+  public boolean hasAssociatedFaculty() {
+    return associatedFaculty_ != null;
+  }
+  /**
+   * <code>.google.protobuf.StringValue associated_faculty = 6 [json_name = "associatedFaculty"];</code>
+   * @return The associatedFaculty.
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValue getAssociatedFaculty() {
+    return associatedFaculty_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : associatedFaculty_;
+  }
+  /**
+   * <code>.google.protobuf.StringValue associated_faculty = 6 [json_name = "associatedFaculty"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValueOrBuilder getAssociatedFacultyOrBuilder() {
+    return getAssociatedFaculty();
+  }
+
+  public static final int DESCRIPTION_FIELD_NUMBER = 7;
+  private com.google.protobuf.StringValue description_;
+  /**
+   * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
+   * @return Whether the description field is set.
+   */
+  @java.lang.Override
+  public boolean hasDescription() {
+    return description_ != null;
+  }
+  /**
+   * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
+   * @return The description.
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValue getDescription() {
+    return description_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : description_;
+  }
+  /**
+   * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValueOrBuilder getDescriptionOrBuilder() {
+    return getDescription();
+  }
+
+  public static final int FACEBOOK_PAGE_FIELD_NUMBER = 8;
+  private com.google.protobuf.StringValue facebookPage_;
+  /**
+   * <code>.google.protobuf.StringValue facebook_page = 8 [json_name = "facebookPage"];</code>
+   * @return Whether the facebookPage field is set.
+   */
+  @java.lang.Override
+  public boolean hasFacebookPage() {
+    return facebookPage_ != null;
+  }
+  /**
+   * <code>.google.protobuf.StringValue facebook_page = 8 [json_name = "facebookPage"];</code>
+   * @return The facebookPage.
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValue getFacebookPage() {
+    return facebookPage_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : facebookPage_;
+  }
+  /**
+   * <code>.google.protobuf.StringValue facebook_page = 8 [json_name = "facebookPage"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValueOrBuilder getFacebookPageOrBuilder() {
+    return getFacebookPage();
+  }
+
+  public static final int INSTAGRAM_FIELD_NUMBER = 9;
+  private com.google.protobuf.StringValue instagram_;
+  /**
+   * <code>.google.protobuf.StringValue instagram = 9 [json_name = "instagram"];</code>
+   * @return Whether the instagram field is set.
+   */
+  @java.lang.Override
+  public boolean hasInstagram() {
+    return instagram_ != null;
+  }
+  /**
+   * <code>.google.protobuf.StringValue instagram = 9 [json_name = "instagram"];</code>
+   * @return The instagram.
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValue getInstagram() {
+    return instagram_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : instagram_;
+  }
+  /**
+   * <code>.google.protobuf.StringValue instagram = 9 [json_name = "instagram"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValueOrBuilder getInstagramOrBuilder() {
+    return getInstagram();
+  }
+
+  public static final int LINE_OFFICIAL_ACCOUNT_FIELD_NUMBER = 10;
+  private com.google.protobuf.StringValue lineOfficialAccount_;
+  /**
+   * <code>.google.protobuf.StringValue line_official_account = 10 [json_name = "lineOfficialAccount"];</code>
+   * @return Whether the lineOfficialAccount field is set.
+   */
+  @java.lang.Override
+  public boolean hasLineOfficialAccount() {
+    return lineOfficialAccount_ != null;
+  }
+  /**
+   * <code>.google.protobuf.StringValue line_official_account = 10 [json_name = "lineOfficialAccount"];</code>
+   * @return The lineOfficialAccount.
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValue getLineOfficialAccount() {
+    return lineOfficialAccount_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : lineOfficialAccount_;
+  }
+  /**
+   * <code>.google.protobuf.StringValue line_official_account = 10 [json_name = "lineOfficialAccount"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValueOrBuilder getLineOfficialAccountOrBuilder() {
+    return getLineOfficialAccount();
+  }
+
+  public static final int EMAIL_FIELD_NUMBER = 11;
+  private com.google.protobuf.StringValue email_;
+  /**
+   * <code>.google.protobuf.StringValue email = 11 [json_name = "email"];</code>
+   * @return Whether the email field is set.
+   */
+  @java.lang.Override
+  public boolean hasEmail() {
+    return email_ != null;
+  }
+  /**
+   * <code>.google.protobuf.StringValue email = 11 [json_name = "email"];</code>
+   * @return The email.
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValue getEmail() {
+    return email_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : email_;
+  }
+  /**
+   * <code>.google.protobuf.StringValue email = 11 [json_name = "email"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValueOrBuilder getEmailOrBuilder() {
+    return getEmail();
+  }
+
+  public static final int CONTACT_FULL_NAME_FIELD_NUMBER = 12;
+  private com.google.protobuf.StringValue contactFullName_;
+  /**
+   * <code>.google.protobuf.StringValue contact_full_name = 12 [json_name = "contactFullName"];</code>
+   * @return Whether the contactFullName field is set.
+   */
+  @java.lang.Override
+  public boolean hasContactFullName() {
+    return contactFullName_ != null;
+  }
+  /**
+   * <code>.google.protobuf.StringValue contact_full_name = 12 [json_name = "contactFullName"];</code>
+   * @return The contactFullName.
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValue getContactFullName() {
+    return contactFullName_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : contactFullName_;
+  }
+  /**
+   * <code>.google.protobuf.StringValue contact_full_name = 12 [json_name = "contactFullName"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValueOrBuilder getContactFullNameOrBuilder() {
+    return getContactFullName();
+  }
+
+  public static final int CONTACT_EMAIL_FIELD_NUMBER = 13;
+  private com.google.protobuf.StringValue contactEmail_;
+  /**
+   * <code>.google.protobuf.StringValue contact_email = 13 [json_name = "contactEmail"];</code>
+   * @return Whether the contactEmail field is set.
+   */
+  @java.lang.Override
+  public boolean hasContactEmail() {
+    return contactEmail_ != null;
+  }
+  /**
+   * <code>.google.protobuf.StringValue contact_email = 13 [json_name = "contactEmail"];</code>
+   * @return The contactEmail.
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValue getContactEmail() {
+    return contactEmail_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : contactEmail_;
+  }
+  /**
+   * <code>.google.protobuf.StringValue contact_email = 13 [json_name = "contactEmail"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValueOrBuilder getContactEmailOrBuilder() {
+    return getContactEmail();
+  }
+
+  public static final int CONTACT_PHONE_NUMBER_FIELD_NUMBER = 14;
+  private com.google.protobuf.StringValue contactPhoneNumber_;
+  /**
+   * <code>.google.protobuf.StringValue contact_phone_number = 14 [json_name = "contactPhoneNumber"];</code>
+   * @return Whether the contactPhoneNumber field is set.
+   */
+  @java.lang.Override
+  public boolean hasContactPhoneNumber() {
+    return contactPhoneNumber_ != null;
+  }
+  /**
+   * <code>.google.protobuf.StringValue contact_phone_number = 14 [json_name = "contactPhoneNumber"];</code>
+   * @return The contactPhoneNumber.
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValue getContactPhoneNumber() {
+    return contactPhoneNumber_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : contactPhoneNumber_;
+  }
+  /**
+   * <code>.google.protobuf.StringValue contact_phone_number = 14 [json_name = "contactPhoneNumber"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValueOrBuilder getContactPhoneNumberOrBuilder() {
+    return getContactPhoneNumber();
+  }
+
+  public static final int CONTACT_LINE_ID_FIELD_NUMBER = 15;
+  private com.google.protobuf.StringValue contactLineId_;
+  /**
+   * <code>.google.protobuf.StringValue contact_line_id = 15 [json_name = "contactLineId"];</code>
+   * @return Whether the contactLineId field is set.
+   */
+  @java.lang.Override
+  public boolean hasContactLineId() {
+    return contactLineId_ != null;
+  }
+  /**
+   * <code>.google.protobuf.StringValue contact_line_id = 15 [json_name = "contactLineId"];</code>
+   * @return The contactLineId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValue getContactLineId() {
+    return contactLineId_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : contactLineId_;
+  }
+  /**
+   * <code>.google.protobuf.StringValue contact_line_id = 15 [json_name = "contactLineId"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValueOrBuilder getContactLineIdOrBuilder() {
+    return getContactLineId();
+  }
+
+  public static final int PROFILE_PICTURE_URL_FIELD_NUMBER = 16;
+  private com.google.protobuf.StringValue profilePictureUrl_;
+  /**
+   * <code>.google.protobuf.StringValue profile_picture_url = 16 [json_name = "profilePictureUrl"];</code>
+   * @return Whether the profilePictureUrl field is set.
+   */
+  @java.lang.Override
+  public boolean hasProfilePictureUrl() {
+    return profilePictureUrl_ != null;
+  }
+  /**
+   * <code>.google.protobuf.StringValue profile_picture_url = 16 [json_name = "profilePictureUrl"];</code>
+   * @return The profilePictureUrl.
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValue getProfilePictureUrl() {
+    return profilePictureUrl_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : profilePictureUrl_;
+  }
+  /**
+   * <code>.google.protobuf.StringValue profile_picture_url = 16 [json_name = "profilePictureUrl"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValueOrBuilder getProfilePictureUrlOrBuilder() {
+    return getProfilePictureUrl();
+  }
+
+  public static final int PROFILE_PICTURE_HASH_FIELD_NUMBER = 17;
+  private com.google.protobuf.StringValue profilePictureHash_;
+  /**
+   * <code>.google.protobuf.StringValue profile_picture_hash = 17 [json_name = "profilePictureHash"];</code>
+   * @return Whether the profilePictureHash field is set.
+   */
+  @java.lang.Override
+  public boolean hasProfilePictureHash() {
+    return profilePictureHash_ != null;
+  }
+  /**
+   * <code>.google.protobuf.StringValue profile_picture_hash = 17 [json_name = "profilePictureHash"];</code>
+   * @return The profilePictureHash.
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValue getProfilePictureHash() {
+    return profilePictureHash_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : profilePictureHash_;
+  }
+  /**
+   * <code>.google.protobuf.StringValue profile_picture_hash = 17 [json_name = "profilePictureHash"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValueOrBuilder getProfilePictureHashOrBuilder() {
+    return getProfilePictureHash();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -180,6 +726,48 @@ private static final long serialVersionUID = 0L;
     if (isVerified_ != false) {
       output.writeBool(3, isVerified_);
     }
+    if (abbreviation_ != null) {
+      output.writeMessage(4, getAbbreviation());
+    }
+    if (advisor_ != null) {
+      output.writeMessage(5, getAdvisor());
+    }
+    if (associatedFaculty_ != null) {
+      output.writeMessage(6, getAssociatedFaculty());
+    }
+    if (description_ != null) {
+      output.writeMessage(7, getDescription());
+    }
+    if (facebookPage_ != null) {
+      output.writeMessage(8, getFacebookPage());
+    }
+    if (instagram_ != null) {
+      output.writeMessage(9, getInstagram());
+    }
+    if (lineOfficialAccount_ != null) {
+      output.writeMessage(10, getLineOfficialAccount());
+    }
+    if (email_ != null) {
+      output.writeMessage(11, getEmail());
+    }
+    if (contactFullName_ != null) {
+      output.writeMessage(12, getContactFullName());
+    }
+    if (contactEmail_ != null) {
+      output.writeMessage(13, getContactEmail());
+    }
+    if (contactPhoneNumber_ != null) {
+      output.writeMessage(14, getContactPhoneNumber());
+    }
+    if (contactLineId_ != null) {
+      output.writeMessage(15, getContactLineId());
+    }
+    if (profilePictureUrl_ != null) {
+      output.writeMessage(16, getProfilePictureUrl());
+    }
+    if (profilePictureHash_ != null) {
+      output.writeMessage(17, getProfilePictureHash());
+    }
     unknownFields.writeTo(output);
   }
 
@@ -199,6 +787,62 @@ private static final long serialVersionUID = 0L;
     if (isVerified_ != false) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(3, isVerified_);
+    }
+    if (abbreviation_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, getAbbreviation());
+    }
+    if (advisor_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, getAdvisor());
+    }
+    if (associatedFaculty_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, getAssociatedFaculty());
+    }
+    if (description_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(7, getDescription());
+    }
+    if (facebookPage_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(8, getFacebookPage());
+    }
+    if (instagram_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(9, getInstagram());
+    }
+    if (lineOfficialAccount_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(10, getLineOfficialAccount());
+    }
+    if (email_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(11, getEmail());
+    }
+    if (contactFullName_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(12, getContactFullName());
+    }
+    if (contactEmail_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(13, getContactEmail());
+    }
+    if (contactPhoneNumber_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(14, getContactPhoneNumber());
+    }
+    if (contactLineId_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(15, getContactLineId());
+    }
+    if (profilePictureUrl_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(16, getProfilePictureUrl());
+    }
+    if (profilePictureHash_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(17, getProfilePictureHash());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -221,6 +865,76 @@ private static final long serialVersionUID = 0L;
         .equals(other.getName())) return false;
     if (getIsVerified()
         != other.getIsVerified()) return false;
+    if (hasAbbreviation() != other.hasAbbreviation()) return false;
+    if (hasAbbreviation()) {
+      if (!getAbbreviation()
+          .equals(other.getAbbreviation())) return false;
+    }
+    if (hasAdvisor() != other.hasAdvisor()) return false;
+    if (hasAdvisor()) {
+      if (!getAdvisor()
+          .equals(other.getAdvisor())) return false;
+    }
+    if (hasAssociatedFaculty() != other.hasAssociatedFaculty()) return false;
+    if (hasAssociatedFaculty()) {
+      if (!getAssociatedFaculty()
+          .equals(other.getAssociatedFaculty())) return false;
+    }
+    if (hasDescription() != other.hasDescription()) return false;
+    if (hasDescription()) {
+      if (!getDescription()
+          .equals(other.getDescription())) return false;
+    }
+    if (hasFacebookPage() != other.hasFacebookPage()) return false;
+    if (hasFacebookPage()) {
+      if (!getFacebookPage()
+          .equals(other.getFacebookPage())) return false;
+    }
+    if (hasInstagram() != other.hasInstagram()) return false;
+    if (hasInstagram()) {
+      if (!getInstagram()
+          .equals(other.getInstagram())) return false;
+    }
+    if (hasLineOfficialAccount() != other.hasLineOfficialAccount()) return false;
+    if (hasLineOfficialAccount()) {
+      if (!getLineOfficialAccount()
+          .equals(other.getLineOfficialAccount())) return false;
+    }
+    if (hasEmail() != other.hasEmail()) return false;
+    if (hasEmail()) {
+      if (!getEmail()
+          .equals(other.getEmail())) return false;
+    }
+    if (hasContactFullName() != other.hasContactFullName()) return false;
+    if (hasContactFullName()) {
+      if (!getContactFullName()
+          .equals(other.getContactFullName())) return false;
+    }
+    if (hasContactEmail() != other.hasContactEmail()) return false;
+    if (hasContactEmail()) {
+      if (!getContactEmail()
+          .equals(other.getContactEmail())) return false;
+    }
+    if (hasContactPhoneNumber() != other.hasContactPhoneNumber()) return false;
+    if (hasContactPhoneNumber()) {
+      if (!getContactPhoneNumber()
+          .equals(other.getContactPhoneNumber())) return false;
+    }
+    if (hasContactLineId() != other.hasContactLineId()) return false;
+    if (hasContactLineId()) {
+      if (!getContactLineId()
+          .equals(other.getContactLineId())) return false;
+    }
+    if (hasProfilePictureUrl() != other.hasProfilePictureUrl()) return false;
+    if (hasProfilePictureUrl()) {
+      if (!getProfilePictureUrl()
+          .equals(other.getProfilePictureUrl())) return false;
+    }
+    if (hasProfilePictureHash() != other.hasProfilePictureHash()) return false;
+    if (hasProfilePictureHash()) {
+      if (!getProfilePictureHash()
+          .equals(other.getProfilePictureHash())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -240,6 +954,62 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + IS_VERIFIED_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getIsVerified());
+    if (hasAbbreviation()) {
+      hash = (37 * hash) + ABBREVIATION_FIELD_NUMBER;
+      hash = (53 * hash) + getAbbreviation().hashCode();
+    }
+    if (hasAdvisor()) {
+      hash = (37 * hash) + ADVISOR_FIELD_NUMBER;
+      hash = (53 * hash) + getAdvisor().hashCode();
+    }
+    if (hasAssociatedFaculty()) {
+      hash = (37 * hash) + ASSOCIATED_FACULTY_FIELD_NUMBER;
+      hash = (53 * hash) + getAssociatedFaculty().hashCode();
+    }
+    if (hasDescription()) {
+      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+      hash = (53 * hash) + getDescription().hashCode();
+    }
+    if (hasFacebookPage()) {
+      hash = (37 * hash) + FACEBOOK_PAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getFacebookPage().hashCode();
+    }
+    if (hasInstagram()) {
+      hash = (37 * hash) + INSTAGRAM_FIELD_NUMBER;
+      hash = (53 * hash) + getInstagram().hashCode();
+    }
+    if (hasLineOfficialAccount()) {
+      hash = (37 * hash) + LINE_OFFICIAL_ACCOUNT_FIELD_NUMBER;
+      hash = (53 * hash) + getLineOfficialAccount().hashCode();
+    }
+    if (hasEmail()) {
+      hash = (37 * hash) + EMAIL_FIELD_NUMBER;
+      hash = (53 * hash) + getEmail().hashCode();
+    }
+    if (hasContactFullName()) {
+      hash = (37 * hash) + CONTACT_FULL_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getContactFullName().hashCode();
+    }
+    if (hasContactEmail()) {
+      hash = (37 * hash) + CONTACT_EMAIL_FIELD_NUMBER;
+      hash = (53 * hash) + getContactEmail().hashCode();
+    }
+    if (hasContactPhoneNumber()) {
+      hash = (37 * hash) + CONTACT_PHONE_NUMBER_FIELD_NUMBER;
+      hash = (53 * hash) + getContactPhoneNumber().hashCode();
+    }
+    if (hasContactLineId()) {
+      hash = (37 * hash) + CONTACT_LINE_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getContactLineId().hashCode();
+    }
+    if (hasProfilePictureUrl()) {
+      hash = (37 * hash) + PROFILE_PICTURE_URL_FIELD_NUMBER;
+      hash = (53 * hash) + getProfilePictureUrl().hashCode();
+    }
+    if (hasProfilePictureHash()) {
+      hash = (37 * hash) + PROFILE_PICTURE_HASH_FIELD_NUMBER;
+      hash = (53 * hash) + getProfilePictureHash().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -379,6 +1149,90 @@ private static final long serialVersionUID = 0L;
 
       isVerified_ = false;
 
+      if (abbreviationBuilder_ == null) {
+        abbreviation_ = null;
+      } else {
+        abbreviation_ = null;
+        abbreviationBuilder_ = null;
+      }
+      if (advisorBuilder_ == null) {
+        advisor_ = null;
+      } else {
+        advisor_ = null;
+        advisorBuilder_ = null;
+      }
+      if (associatedFacultyBuilder_ == null) {
+        associatedFaculty_ = null;
+      } else {
+        associatedFaculty_ = null;
+        associatedFacultyBuilder_ = null;
+      }
+      if (descriptionBuilder_ == null) {
+        description_ = null;
+      } else {
+        description_ = null;
+        descriptionBuilder_ = null;
+      }
+      if (facebookPageBuilder_ == null) {
+        facebookPage_ = null;
+      } else {
+        facebookPage_ = null;
+        facebookPageBuilder_ = null;
+      }
+      if (instagramBuilder_ == null) {
+        instagram_ = null;
+      } else {
+        instagram_ = null;
+        instagramBuilder_ = null;
+      }
+      if (lineOfficialAccountBuilder_ == null) {
+        lineOfficialAccount_ = null;
+      } else {
+        lineOfficialAccount_ = null;
+        lineOfficialAccountBuilder_ = null;
+      }
+      if (emailBuilder_ == null) {
+        email_ = null;
+      } else {
+        email_ = null;
+        emailBuilder_ = null;
+      }
+      if (contactFullNameBuilder_ == null) {
+        contactFullName_ = null;
+      } else {
+        contactFullName_ = null;
+        contactFullNameBuilder_ = null;
+      }
+      if (contactEmailBuilder_ == null) {
+        contactEmail_ = null;
+      } else {
+        contactEmail_ = null;
+        contactEmailBuilder_ = null;
+      }
+      if (contactPhoneNumberBuilder_ == null) {
+        contactPhoneNumber_ = null;
+      } else {
+        contactPhoneNumber_ = null;
+        contactPhoneNumberBuilder_ = null;
+      }
+      if (contactLineIdBuilder_ == null) {
+        contactLineId_ = null;
+      } else {
+        contactLineId_ = null;
+        contactLineIdBuilder_ = null;
+      }
+      if (profilePictureUrlBuilder_ == null) {
+        profilePictureUrl_ = null;
+      } else {
+        profilePictureUrl_ = null;
+        profilePictureUrlBuilder_ = null;
+      }
+      if (profilePictureHashBuilder_ == null) {
+        profilePictureHash_ = null;
+      } else {
+        profilePictureHash_ = null;
+        profilePictureHashBuilder_ = null;
+      }
       return this;
     }
 
@@ -408,6 +1262,76 @@ private static final long serialVersionUID = 0L;
       result.id_ = id_;
       result.name_ = name_;
       result.isVerified_ = isVerified_;
+      if (abbreviationBuilder_ == null) {
+        result.abbreviation_ = abbreviation_;
+      } else {
+        result.abbreviation_ = abbreviationBuilder_.build();
+      }
+      if (advisorBuilder_ == null) {
+        result.advisor_ = advisor_;
+      } else {
+        result.advisor_ = advisorBuilder_.build();
+      }
+      if (associatedFacultyBuilder_ == null) {
+        result.associatedFaculty_ = associatedFaculty_;
+      } else {
+        result.associatedFaculty_ = associatedFacultyBuilder_.build();
+      }
+      if (descriptionBuilder_ == null) {
+        result.description_ = description_;
+      } else {
+        result.description_ = descriptionBuilder_.build();
+      }
+      if (facebookPageBuilder_ == null) {
+        result.facebookPage_ = facebookPage_;
+      } else {
+        result.facebookPage_ = facebookPageBuilder_.build();
+      }
+      if (instagramBuilder_ == null) {
+        result.instagram_ = instagram_;
+      } else {
+        result.instagram_ = instagramBuilder_.build();
+      }
+      if (lineOfficialAccountBuilder_ == null) {
+        result.lineOfficialAccount_ = lineOfficialAccount_;
+      } else {
+        result.lineOfficialAccount_ = lineOfficialAccountBuilder_.build();
+      }
+      if (emailBuilder_ == null) {
+        result.email_ = email_;
+      } else {
+        result.email_ = emailBuilder_.build();
+      }
+      if (contactFullNameBuilder_ == null) {
+        result.contactFullName_ = contactFullName_;
+      } else {
+        result.contactFullName_ = contactFullNameBuilder_.build();
+      }
+      if (contactEmailBuilder_ == null) {
+        result.contactEmail_ = contactEmail_;
+      } else {
+        result.contactEmail_ = contactEmailBuilder_.build();
+      }
+      if (contactPhoneNumberBuilder_ == null) {
+        result.contactPhoneNumber_ = contactPhoneNumber_;
+      } else {
+        result.contactPhoneNumber_ = contactPhoneNumberBuilder_.build();
+      }
+      if (contactLineIdBuilder_ == null) {
+        result.contactLineId_ = contactLineId_;
+      } else {
+        result.contactLineId_ = contactLineIdBuilder_.build();
+      }
+      if (profilePictureUrlBuilder_ == null) {
+        result.profilePictureUrl_ = profilePictureUrl_;
+      } else {
+        result.profilePictureUrl_ = profilePictureUrlBuilder_.build();
+      }
+      if (profilePictureHashBuilder_ == null) {
+        result.profilePictureHash_ = profilePictureHash_;
+      } else {
+        result.profilePictureHash_ = profilePictureHashBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -465,6 +1389,48 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getIsVerified() != false) {
         setIsVerified(other.getIsVerified());
+      }
+      if (other.hasAbbreviation()) {
+        mergeAbbreviation(other.getAbbreviation());
+      }
+      if (other.hasAdvisor()) {
+        mergeAdvisor(other.getAdvisor());
+      }
+      if (other.hasAssociatedFaculty()) {
+        mergeAssociatedFaculty(other.getAssociatedFaculty());
+      }
+      if (other.hasDescription()) {
+        mergeDescription(other.getDescription());
+      }
+      if (other.hasFacebookPage()) {
+        mergeFacebookPage(other.getFacebookPage());
+      }
+      if (other.hasInstagram()) {
+        mergeInstagram(other.getInstagram());
+      }
+      if (other.hasLineOfficialAccount()) {
+        mergeLineOfficialAccount(other.getLineOfficialAccount());
+      }
+      if (other.hasEmail()) {
+        mergeEmail(other.getEmail());
+      }
+      if (other.hasContactFullName()) {
+        mergeContactFullName(other.getContactFullName());
+      }
+      if (other.hasContactEmail()) {
+        mergeContactEmail(other.getContactEmail());
+      }
+      if (other.hasContactPhoneNumber()) {
+        mergeContactPhoneNumber(other.getContactPhoneNumber());
+      }
+      if (other.hasContactLineId()) {
+        mergeContactLineId(other.getContactLineId());
+      }
+      if (other.hasProfilePictureUrl()) {
+        mergeProfilePictureUrl(other.getProfilePictureUrl());
+      }
+      if (other.hasProfilePictureHash()) {
+        mergeProfilePictureHash(other.getProfilePictureHash());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -631,6 +1597,1672 @@ private static final long serialVersionUID = 0L;
       isVerified_ = false;
       onChanged();
       return this;
+    }
+
+    private com.google.protobuf.StringValue abbreviation_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> abbreviationBuilder_;
+    /**
+     * <code>.google.protobuf.StringValue abbreviation = 4 [json_name = "abbreviation"];</code>
+     * @return Whether the abbreviation field is set.
+     */
+    public boolean hasAbbreviation() {
+      return abbreviationBuilder_ != null || abbreviation_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue abbreviation = 4 [json_name = "abbreviation"];</code>
+     * @return The abbreviation.
+     */
+    public com.google.protobuf.StringValue getAbbreviation() {
+      if (abbreviationBuilder_ == null) {
+        return abbreviation_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : abbreviation_;
+      } else {
+        return abbreviationBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue abbreviation = 4 [json_name = "abbreviation"];</code>
+     */
+    public Builder setAbbreviation(com.google.protobuf.StringValue value) {
+      if (abbreviationBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        abbreviation_ = value;
+        onChanged();
+      } else {
+        abbreviationBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue abbreviation = 4 [json_name = "abbreviation"];</code>
+     */
+    public Builder setAbbreviation(
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (abbreviationBuilder_ == null) {
+        abbreviation_ = builderForValue.build();
+        onChanged();
+      } else {
+        abbreviationBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue abbreviation = 4 [json_name = "abbreviation"];</code>
+     */
+    public Builder mergeAbbreviation(com.google.protobuf.StringValue value) {
+      if (abbreviationBuilder_ == null) {
+        if (abbreviation_ != null) {
+          abbreviation_ =
+            com.google.protobuf.StringValue.newBuilder(abbreviation_).mergeFrom(value).buildPartial();
+        } else {
+          abbreviation_ = value;
+        }
+        onChanged();
+      } else {
+        abbreviationBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue abbreviation = 4 [json_name = "abbreviation"];</code>
+     */
+    public Builder clearAbbreviation() {
+      if (abbreviationBuilder_ == null) {
+        abbreviation_ = null;
+        onChanged();
+      } else {
+        abbreviation_ = null;
+        abbreviationBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue abbreviation = 4 [json_name = "abbreviation"];</code>
+     */
+    public com.google.protobuf.StringValue.Builder getAbbreviationBuilder() {
+      
+      onChanged();
+      return getAbbreviationFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.StringValue abbreviation = 4 [json_name = "abbreviation"];</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getAbbreviationOrBuilder() {
+      if (abbreviationBuilder_ != null) {
+        return abbreviationBuilder_.getMessageOrBuilder();
+      } else {
+        return abbreviation_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : abbreviation_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue abbreviation = 4 [json_name = "abbreviation"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getAbbreviationFieldBuilder() {
+      if (abbreviationBuilder_ == null) {
+        abbreviationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getAbbreviation(),
+                getParentForChildren(),
+                isClean());
+        abbreviation_ = null;
+      }
+      return abbreviationBuilder_;
+    }
+
+    private com.google.protobuf.StringValue advisor_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> advisorBuilder_;
+    /**
+     * <code>.google.protobuf.StringValue advisor = 5 [json_name = "advisor"];</code>
+     * @return Whether the advisor field is set.
+     */
+    public boolean hasAdvisor() {
+      return advisorBuilder_ != null || advisor_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue advisor = 5 [json_name = "advisor"];</code>
+     * @return The advisor.
+     */
+    public com.google.protobuf.StringValue getAdvisor() {
+      if (advisorBuilder_ == null) {
+        return advisor_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : advisor_;
+      } else {
+        return advisorBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue advisor = 5 [json_name = "advisor"];</code>
+     */
+    public Builder setAdvisor(com.google.protobuf.StringValue value) {
+      if (advisorBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        advisor_ = value;
+        onChanged();
+      } else {
+        advisorBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue advisor = 5 [json_name = "advisor"];</code>
+     */
+    public Builder setAdvisor(
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (advisorBuilder_ == null) {
+        advisor_ = builderForValue.build();
+        onChanged();
+      } else {
+        advisorBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue advisor = 5 [json_name = "advisor"];</code>
+     */
+    public Builder mergeAdvisor(com.google.protobuf.StringValue value) {
+      if (advisorBuilder_ == null) {
+        if (advisor_ != null) {
+          advisor_ =
+            com.google.protobuf.StringValue.newBuilder(advisor_).mergeFrom(value).buildPartial();
+        } else {
+          advisor_ = value;
+        }
+        onChanged();
+      } else {
+        advisorBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue advisor = 5 [json_name = "advisor"];</code>
+     */
+    public Builder clearAdvisor() {
+      if (advisorBuilder_ == null) {
+        advisor_ = null;
+        onChanged();
+      } else {
+        advisor_ = null;
+        advisorBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue advisor = 5 [json_name = "advisor"];</code>
+     */
+    public com.google.protobuf.StringValue.Builder getAdvisorBuilder() {
+      
+      onChanged();
+      return getAdvisorFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.StringValue advisor = 5 [json_name = "advisor"];</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getAdvisorOrBuilder() {
+      if (advisorBuilder_ != null) {
+        return advisorBuilder_.getMessageOrBuilder();
+      } else {
+        return advisor_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : advisor_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue advisor = 5 [json_name = "advisor"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getAdvisorFieldBuilder() {
+      if (advisorBuilder_ == null) {
+        advisorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getAdvisor(),
+                getParentForChildren(),
+                isClean());
+        advisor_ = null;
+      }
+      return advisorBuilder_;
+    }
+
+    private com.google.protobuf.StringValue associatedFaculty_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> associatedFacultyBuilder_;
+    /**
+     * <code>.google.protobuf.StringValue associated_faculty = 6 [json_name = "associatedFaculty"];</code>
+     * @return Whether the associatedFaculty field is set.
+     */
+    public boolean hasAssociatedFaculty() {
+      return associatedFacultyBuilder_ != null || associatedFaculty_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue associated_faculty = 6 [json_name = "associatedFaculty"];</code>
+     * @return The associatedFaculty.
+     */
+    public com.google.protobuf.StringValue getAssociatedFaculty() {
+      if (associatedFacultyBuilder_ == null) {
+        return associatedFaculty_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : associatedFaculty_;
+      } else {
+        return associatedFacultyBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue associated_faculty = 6 [json_name = "associatedFaculty"];</code>
+     */
+    public Builder setAssociatedFaculty(com.google.protobuf.StringValue value) {
+      if (associatedFacultyBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        associatedFaculty_ = value;
+        onChanged();
+      } else {
+        associatedFacultyBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue associated_faculty = 6 [json_name = "associatedFaculty"];</code>
+     */
+    public Builder setAssociatedFaculty(
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (associatedFacultyBuilder_ == null) {
+        associatedFaculty_ = builderForValue.build();
+        onChanged();
+      } else {
+        associatedFacultyBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue associated_faculty = 6 [json_name = "associatedFaculty"];</code>
+     */
+    public Builder mergeAssociatedFaculty(com.google.protobuf.StringValue value) {
+      if (associatedFacultyBuilder_ == null) {
+        if (associatedFaculty_ != null) {
+          associatedFaculty_ =
+            com.google.protobuf.StringValue.newBuilder(associatedFaculty_).mergeFrom(value).buildPartial();
+        } else {
+          associatedFaculty_ = value;
+        }
+        onChanged();
+      } else {
+        associatedFacultyBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue associated_faculty = 6 [json_name = "associatedFaculty"];</code>
+     */
+    public Builder clearAssociatedFaculty() {
+      if (associatedFacultyBuilder_ == null) {
+        associatedFaculty_ = null;
+        onChanged();
+      } else {
+        associatedFaculty_ = null;
+        associatedFacultyBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue associated_faculty = 6 [json_name = "associatedFaculty"];</code>
+     */
+    public com.google.protobuf.StringValue.Builder getAssociatedFacultyBuilder() {
+      
+      onChanged();
+      return getAssociatedFacultyFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.StringValue associated_faculty = 6 [json_name = "associatedFaculty"];</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getAssociatedFacultyOrBuilder() {
+      if (associatedFacultyBuilder_ != null) {
+        return associatedFacultyBuilder_.getMessageOrBuilder();
+      } else {
+        return associatedFaculty_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : associatedFaculty_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue associated_faculty = 6 [json_name = "associatedFaculty"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getAssociatedFacultyFieldBuilder() {
+      if (associatedFacultyBuilder_ == null) {
+        associatedFacultyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getAssociatedFaculty(),
+                getParentForChildren(),
+                isClean());
+        associatedFaculty_ = null;
+      }
+      return associatedFacultyBuilder_;
+    }
+
+    private com.google.protobuf.StringValue description_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> descriptionBuilder_;
+    /**
+     * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
+     * @return Whether the description field is set.
+     */
+    public boolean hasDescription() {
+      return descriptionBuilder_ != null || description_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
+     * @return The description.
+     */
+    public com.google.protobuf.StringValue getDescription() {
+      if (descriptionBuilder_ == null) {
+        return description_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : description_;
+      } else {
+        return descriptionBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
+     */
+    public Builder setDescription(com.google.protobuf.StringValue value) {
+      if (descriptionBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        description_ = value;
+        onChanged();
+      } else {
+        descriptionBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
+     */
+    public Builder setDescription(
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (descriptionBuilder_ == null) {
+        description_ = builderForValue.build();
+        onChanged();
+      } else {
+        descriptionBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
+     */
+    public Builder mergeDescription(com.google.protobuf.StringValue value) {
+      if (descriptionBuilder_ == null) {
+        if (description_ != null) {
+          description_ =
+            com.google.protobuf.StringValue.newBuilder(description_).mergeFrom(value).buildPartial();
+        } else {
+          description_ = value;
+        }
+        onChanged();
+      } else {
+        descriptionBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
+     */
+    public Builder clearDescription() {
+      if (descriptionBuilder_ == null) {
+        description_ = null;
+        onChanged();
+      } else {
+        description_ = null;
+        descriptionBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
+     */
+    public com.google.protobuf.StringValue.Builder getDescriptionBuilder() {
+      
+      onChanged();
+      return getDescriptionFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getDescriptionOrBuilder() {
+      if (descriptionBuilder_ != null) {
+        return descriptionBuilder_.getMessageOrBuilder();
+      } else {
+        return description_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : description_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getDescriptionFieldBuilder() {
+      if (descriptionBuilder_ == null) {
+        descriptionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getDescription(),
+                getParentForChildren(),
+                isClean());
+        description_ = null;
+      }
+      return descriptionBuilder_;
+    }
+
+    private com.google.protobuf.StringValue facebookPage_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> facebookPageBuilder_;
+    /**
+     * <code>.google.protobuf.StringValue facebook_page = 8 [json_name = "facebookPage"];</code>
+     * @return Whether the facebookPage field is set.
+     */
+    public boolean hasFacebookPage() {
+      return facebookPageBuilder_ != null || facebookPage_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue facebook_page = 8 [json_name = "facebookPage"];</code>
+     * @return The facebookPage.
+     */
+    public com.google.protobuf.StringValue getFacebookPage() {
+      if (facebookPageBuilder_ == null) {
+        return facebookPage_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : facebookPage_;
+      } else {
+        return facebookPageBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue facebook_page = 8 [json_name = "facebookPage"];</code>
+     */
+    public Builder setFacebookPage(com.google.protobuf.StringValue value) {
+      if (facebookPageBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        facebookPage_ = value;
+        onChanged();
+      } else {
+        facebookPageBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue facebook_page = 8 [json_name = "facebookPage"];</code>
+     */
+    public Builder setFacebookPage(
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (facebookPageBuilder_ == null) {
+        facebookPage_ = builderForValue.build();
+        onChanged();
+      } else {
+        facebookPageBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue facebook_page = 8 [json_name = "facebookPage"];</code>
+     */
+    public Builder mergeFacebookPage(com.google.protobuf.StringValue value) {
+      if (facebookPageBuilder_ == null) {
+        if (facebookPage_ != null) {
+          facebookPage_ =
+            com.google.protobuf.StringValue.newBuilder(facebookPage_).mergeFrom(value).buildPartial();
+        } else {
+          facebookPage_ = value;
+        }
+        onChanged();
+      } else {
+        facebookPageBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue facebook_page = 8 [json_name = "facebookPage"];</code>
+     */
+    public Builder clearFacebookPage() {
+      if (facebookPageBuilder_ == null) {
+        facebookPage_ = null;
+        onChanged();
+      } else {
+        facebookPage_ = null;
+        facebookPageBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue facebook_page = 8 [json_name = "facebookPage"];</code>
+     */
+    public com.google.protobuf.StringValue.Builder getFacebookPageBuilder() {
+      
+      onChanged();
+      return getFacebookPageFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.StringValue facebook_page = 8 [json_name = "facebookPage"];</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getFacebookPageOrBuilder() {
+      if (facebookPageBuilder_ != null) {
+        return facebookPageBuilder_.getMessageOrBuilder();
+      } else {
+        return facebookPage_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : facebookPage_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue facebook_page = 8 [json_name = "facebookPage"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getFacebookPageFieldBuilder() {
+      if (facebookPageBuilder_ == null) {
+        facebookPageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getFacebookPage(),
+                getParentForChildren(),
+                isClean());
+        facebookPage_ = null;
+      }
+      return facebookPageBuilder_;
+    }
+
+    private com.google.protobuf.StringValue instagram_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> instagramBuilder_;
+    /**
+     * <code>.google.protobuf.StringValue instagram = 9 [json_name = "instagram"];</code>
+     * @return Whether the instagram field is set.
+     */
+    public boolean hasInstagram() {
+      return instagramBuilder_ != null || instagram_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue instagram = 9 [json_name = "instagram"];</code>
+     * @return The instagram.
+     */
+    public com.google.protobuf.StringValue getInstagram() {
+      if (instagramBuilder_ == null) {
+        return instagram_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : instagram_;
+      } else {
+        return instagramBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue instagram = 9 [json_name = "instagram"];</code>
+     */
+    public Builder setInstagram(com.google.protobuf.StringValue value) {
+      if (instagramBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        instagram_ = value;
+        onChanged();
+      } else {
+        instagramBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue instagram = 9 [json_name = "instagram"];</code>
+     */
+    public Builder setInstagram(
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (instagramBuilder_ == null) {
+        instagram_ = builderForValue.build();
+        onChanged();
+      } else {
+        instagramBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue instagram = 9 [json_name = "instagram"];</code>
+     */
+    public Builder mergeInstagram(com.google.protobuf.StringValue value) {
+      if (instagramBuilder_ == null) {
+        if (instagram_ != null) {
+          instagram_ =
+            com.google.protobuf.StringValue.newBuilder(instagram_).mergeFrom(value).buildPartial();
+        } else {
+          instagram_ = value;
+        }
+        onChanged();
+      } else {
+        instagramBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue instagram = 9 [json_name = "instagram"];</code>
+     */
+    public Builder clearInstagram() {
+      if (instagramBuilder_ == null) {
+        instagram_ = null;
+        onChanged();
+      } else {
+        instagram_ = null;
+        instagramBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue instagram = 9 [json_name = "instagram"];</code>
+     */
+    public com.google.protobuf.StringValue.Builder getInstagramBuilder() {
+      
+      onChanged();
+      return getInstagramFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.StringValue instagram = 9 [json_name = "instagram"];</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getInstagramOrBuilder() {
+      if (instagramBuilder_ != null) {
+        return instagramBuilder_.getMessageOrBuilder();
+      } else {
+        return instagram_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : instagram_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue instagram = 9 [json_name = "instagram"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getInstagramFieldBuilder() {
+      if (instagramBuilder_ == null) {
+        instagramBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getInstagram(),
+                getParentForChildren(),
+                isClean());
+        instagram_ = null;
+      }
+      return instagramBuilder_;
+    }
+
+    private com.google.protobuf.StringValue lineOfficialAccount_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> lineOfficialAccountBuilder_;
+    /**
+     * <code>.google.protobuf.StringValue line_official_account = 10 [json_name = "lineOfficialAccount"];</code>
+     * @return Whether the lineOfficialAccount field is set.
+     */
+    public boolean hasLineOfficialAccount() {
+      return lineOfficialAccountBuilder_ != null || lineOfficialAccount_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue line_official_account = 10 [json_name = "lineOfficialAccount"];</code>
+     * @return The lineOfficialAccount.
+     */
+    public com.google.protobuf.StringValue getLineOfficialAccount() {
+      if (lineOfficialAccountBuilder_ == null) {
+        return lineOfficialAccount_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : lineOfficialAccount_;
+      } else {
+        return lineOfficialAccountBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue line_official_account = 10 [json_name = "lineOfficialAccount"];</code>
+     */
+    public Builder setLineOfficialAccount(com.google.protobuf.StringValue value) {
+      if (lineOfficialAccountBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        lineOfficialAccount_ = value;
+        onChanged();
+      } else {
+        lineOfficialAccountBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue line_official_account = 10 [json_name = "lineOfficialAccount"];</code>
+     */
+    public Builder setLineOfficialAccount(
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (lineOfficialAccountBuilder_ == null) {
+        lineOfficialAccount_ = builderForValue.build();
+        onChanged();
+      } else {
+        lineOfficialAccountBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue line_official_account = 10 [json_name = "lineOfficialAccount"];</code>
+     */
+    public Builder mergeLineOfficialAccount(com.google.protobuf.StringValue value) {
+      if (lineOfficialAccountBuilder_ == null) {
+        if (lineOfficialAccount_ != null) {
+          lineOfficialAccount_ =
+            com.google.protobuf.StringValue.newBuilder(lineOfficialAccount_).mergeFrom(value).buildPartial();
+        } else {
+          lineOfficialAccount_ = value;
+        }
+        onChanged();
+      } else {
+        lineOfficialAccountBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue line_official_account = 10 [json_name = "lineOfficialAccount"];</code>
+     */
+    public Builder clearLineOfficialAccount() {
+      if (lineOfficialAccountBuilder_ == null) {
+        lineOfficialAccount_ = null;
+        onChanged();
+      } else {
+        lineOfficialAccount_ = null;
+        lineOfficialAccountBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue line_official_account = 10 [json_name = "lineOfficialAccount"];</code>
+     */
+    public com.google.protobuf.StringValue.Builder getLineOfficialAccountBuilder() {
+      
+      onChanged();
+      return getLineOfficialAccountFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.StringValue line_official_account = 10 [json_name = "lineOfficialAccount"];</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getLineOfficialAccountOrBuilder() {
+      if (lineOfficialAccountBuilder_ != null) {
+        return lineOfficialAccountBuilder_.getMessageOrBuilder();
+      } else {
+        return lineOfficialAccount_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : lineOfficialAccount_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue line_official_account = 10 [json_name = "lineOfficialAccount"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getLineOfficialAccountFieldBuilder() {
+      if (lineOfficialAccountBuilder_ == null) {
+        lineOfficialAccountBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getLineOfficialAccount(),
+                getParentForChildren(),
+                isClean());
+        lineOfficialAccount_ = null;
+      }
+      return lineOfficialAccountBuilder_;
+    }
+
+    private com.google.protobuf.StringValue email_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> emailBuilder_;
+    /**
+     * <code>.google.protobuf.StringValue email = 11 [json_name = "email"];</code>
+     * @return Whether the email field is set.
+     */
+    public boolean hasEmail() {
+      return emailBuilder_ != null || email_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue email = 11 [json_name = "email"];</code>
+     * @return The email.
+     */
+    public com.google.protobuf.StringValue getEmail() {
+      if (emailBuilder_ == null) {
+        return email_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : email_;
+      } else {
+        return emailBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue email = 11 [json_name = "email"];</code>
+     */
+    public Builder setEmail(com.google.protobuf.StringValue value) {
+      if (emailBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        email_ = value;
+        onChanged();
+      } else {
+        emailBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue email = 11 [json_name = "email"];</code>
+     */
+    public Builder setEmail(
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (emailBuilder_ == null) {
+        email_ = builderForValue.build();
+        onChanged();
+      } else {
+        emailBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue email = 11 [json_name = "email"];</code>
+     */
+    public Builder mergeEmail(com.google.protobuf.StringValue value) {
+      if (emailBuilder_ == null) {
+        if (email_ != null) {
+          email_ =
+            com.google.protobuf.StringValue.newBuilder(email_).mergeFrom(value).buildPartial();
+        } else {
+          email_ = value;
+        }
+        onChanged();
+      } else {
+        emailBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue email = 11 [json_name = "email"];</code>
+     */
+    public Builder clearEmail() {
+      if (emailBuilder_ == null) {
+        email_ = null;
+        onChanged();
+      } else {
+        email_ = null;
+        emailBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue email = 11 [json_name = "email"];</code>
+     */
+    public com.google.protobuf.StringValue.Builder getEmailBuilder() {
+      
+      onChanged();
+      return getEmailFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.StringValue email = 11 [json_name = "email"];</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getEmailOrBuilder() {
+      if (emailBuilder_ != null) {
+        return emailBuilder_.getMessageOrBuilder();
+      } else {
+        return email_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : email_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue email = 11 [json_name = "email"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getEmailFieldBuilder() {
+      if (emailBuilder_ == null) {
+        emailBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getEmail(),
+                getParentForChildren(),
+                isClean());
+        email_ = null;
+      }
+      return emailBuilder_;
+    }
+
+    private com.google.protobuf.StringValue contactFullName_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> contactFullNameBuilder_;
+    /**
+     * <code>.google.protobuf.StringValue contact_full_name = 12 [json_name = "contactFullName"];</code>
+     * @return Whether the contactFullName field is set.
+     */
+    public boolean hasContactFullName() {
+      return contactFullNameBuilder_ != null || contactFullName_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_full_name = 12 [json_name = "contactFullName"];</code>
+     * @return The contactFullName.
+     */
+    public com.google.protobuf.StringValue getContactFullName() {
+      if (contactFullNameBuilder_ == null) {
+        return contactFullName_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : contactFullName_;
+      } else {
+        return contactFullNameBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_full_name = 12 [json_name = "contactFullName"];</code>
+     */
+    public Builder setContactFullName(com.google.protobuf.StringValue value) {
+      if (contactFullNameBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        contactFullName_ = value;
+        onChanged();
+      } else {
+        contactFullNameBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_full_name = 12 [json_name = "contactFullName"];</code>
+     */
+    public Builder setContactFullName(
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (contactFullNameBuilder_ == null) {
+        contactFullName_ = builderForValue.build();
+        onChanged();
+      } else {
+        contactFullNameBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_full_name = 12 [json_name = "contactFullName"];</code>
+     */
+    public Builder mergeContactFullName(com.google.protobuf.StringValue value) {
+      if (contactFullNameBuilder_ == null) {
+        if (contactFullName_ != null) {
+          contactFullName_ =
+            com.google.protobuf.StringValue.newBuilder(contactFullName_).mergeFrom(value).buildPartial();
+        } else {
+          contactFullName_ = value;
+        }
+        onChanged();
+      } else {
+        contactFullNameBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_full_name = 12 [json_name = "contactFullName"];</code>
+     */
+    public Builder clearContactFullName() {
+      if (contactFullNameBuilder_ == null) {
+        contactFullName_ = null;
+        onChanged();
+      } else {
+        contactFullName_ = null;
+        contactFullNameBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_full_name = 12 [json_name = "contactFullName"];</code>
+     */
+    public com.google.protobuf.StringValue.Builder getContactFullNameBuilder() {
+      
+      onChanged();
+      return getContactFullNameFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_full_name = 12 [json_name = "contactFullName"];</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getContactFullNameOrBuilder() {
+      if (contactFullNameBuilder_ != null) {
+        return contactFullNameBuilder_.getMessageOrBuilder();
+      } else {
+        return contactFullName_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : contactFullName_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_full_name = 12 [json_name = "contactFullName"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getContactFullNameFieldBuilder() {
+      if (contactFullNameBuilder_ == null) {
+        contactFullNameBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getContactFullName(),
+                getParentForChildren(),
+                isClean());
+        contactFullName_ = null;
+      }
+      return contactFullNameBuilder_;
+    }
+
+    private com.google.protobuf.StringValue contactEmail_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> contactEmailBuilder_;
+    /**
+     * <code>.google.protobuf.StringValue contact_email = 13 [json_name = "contactEmail"];</code>
+     * @return Whether the contactEmail field is set.
+     */
+    public boolean hasContactEmail() {
+      return contactEmailBuilder_ != null || contactEmail_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_email = 13 [json_name = "contactEmail"];</code>
+     * @return The contactEmail.
+     */
+    public com.google.protobuf.StringValue getContactEmail() {
+      if (contactEmailBuilder_ == null) {
+        return contactEmail_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : contactEmail_;
+      } else {
+        return contactEmailBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_email = 13 [json_name = "contactEmail"];</code>
+     */
+    public Builder setContactEmail(com.google.protobuf.StringValue value) {
+      if (contactEmailBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        contactEmail_ = value;
+        onChanged();
+      } else {
+        contactEmailBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_email = 13 [json_name = "contactEmail"];</code>
+     */
+    public Builder setContactEmail(
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (contactEmailBuilder_ == null) {
+        contactEmail_ = builderForValue.build();
+        onChanged();
+      } else {
+        contactEmailBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_email = 13 [json_name = "contactEmail"];</code>
+     */
+    public Builder mergeContactEmail(com.google.protobuf.StringValue value) {
+      if (contactEmailBuilder_ == null) {
+        if (contactEmail_ != null) {
+          contactEmail_ =
+            com.google.protobuf.StringValue.newBuilder(contactEmail_).mergeFrom(value).buildPartial();
+        } else {
+          contactEmail_ = value;
+        }
+        onChanged();
+      } else {
+        contactEmailBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_email = 13 [json_name = "contactEmail"];</code>
+     */
+    public Builder clearContactEmail() {
+      if (contactEmailBuilder_ == null) {
+        contactEmail_ = null;
+        onChanged();
+      } else {
+        contactEmail_ = null;
+        contactEmailBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_email = 13 [json_name = "contactEmail"];</code>
+     */
+    public com.google.protobuf.StringValue.Builder getContactEmailBuilder() {
+      
+      onChanged();
+      return getContactEmailFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_email = 13 [json_name = "contactEmail"];</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getContactEmailOrBuilder() {
+      if (contactEmailBuilder_ != null) {
+        return contactEmailBuilder_.getMessageOrBuilder();
+      } else {
+        return contactEmail_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : contactEmail_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_email = 13 [json_name = "contactEmail"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getContactEmailFieldBuilder() {
+      if (contactEmailBuilder_ == null) {
+        contactEmailBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getContactEmail(),
+                getParentForChildren(),
+                isClean());
+        contactEmail_ = null;
+      }
+      return contactEmailBuilder_;
+    }
+
+    private com.google.protobuf.StringValue contactPhoneNumber_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> contactPhoneNumberBuilder_;
+    /**
+     * <code>.google.protobuf.StringValue contact_phone_number = 14 [json_name = "contactPhoneNumber"];</code>
+     * @return Whether the contactPhoneNumber field is set.
+     */
+    public boolean hasContactPhoneNumber() {
+      return contactPhoneNumberBuilder_ != null || contactPhoneNumber_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_phone_number = 14 [json_name = "contactPhoneNumber"];</code>
+     * @return The contactPhoneNumber.
+     */
+    public com.google.protobuf.StringValue getContactPhoneNumber() {
+      if (contactPhoneNumberBuilder_ == null) {
+        return contactPhoneNumber_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : contactPhoneNumber_;
+      } else {
+        return contactPhoneNumberBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_phone_number = 14 [json_name = "contactPhoneNumber"];</code>
+     */
+    public Builder setContactPhoneNumber(com.google.protobuf.StringValue value) {
+      if (contactPhoneNumberBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        contactPhoneNumber_ = value;
+        onChanged();
+      } else {
+        contactPhoneNumberBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_phone_number = 14 [json_name = "contactPhoneNumber"];</code>
+     */
+    public Builder setContactPhoneNumber(
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (contactPhoneNumberBuilder_ == null) {
+        contactPhoneNumber_ = builderForValue.build();
+        onChanged();
+      } else {
+        contactPhoneNumberBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_phone_number = 14 [json_name = "contactPhoneNumber"];</code>
+     */
+    public Builder mergeContactPhoneNumber(com.google.protobuf.StringValue value) {
+      if (contactPhoneNumberBuilder_ == null) {
+        if (contactPhoneNumber_ != null) {
+          contactPhoneNumber_ =
+            com.google.protobuf.StringValue.newBuilder(contactPhoneNumber_).mergeFrom(value).buildPartial();
+        } else {
+          contactPhoneNumber_ = value;
+        }
+        onChanged();
+      } else {
+        contactPhoneNumberBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_phone_number = 14 [json_name = "contactPhoneNumber"];</code>
+     */
+    public Builder clearContactPhoneNumber() {
+      if (contactPhoneNumberBuilder_ == null) {
+        contactPhoneNumber_ = null;
+        onChanged();
+      } else {
+        contactPhoneNumber_ = null;
+        contactPhoneNumberBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_phone_number = 14 [json_name = "contactPhoneNumber"];</code>
+     */
+    public com.google.protobuf.StringValue.Builder getContactPhoneNumberBuilder() {
+      
+      onChanged();
+      return getContactPhoneNumberFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_phone_number = 14 [json_name = "contactPhoneNumber"];</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getContactPhoneNumberOrBuilder() {
+      if (contactPhoneNumberBuilder_ != null) {
+        return contactPhoneNumberBuilder_.getMessageOrBuilder();
+      } else {
+        return contactPhoneNumber_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : contactPhoneNumber_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_phone_number = 14 [json_name = "contactPhoneNumber"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getContactPhoneNumberFieldBuilder() {
+      if (contactPhoneNumberBuilder_ == null) {
+        contactPhoneNumberBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getContactPhoneNumber(),
+                getParentForChildren(),
+                isClean());
+        contactPhoneNumber_ = null;
+      }
+      return contactPhoneNumberBuilder_;
+    }
+
+    private com.google.protobuf.StringValue contactLineId_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> contactLineIdBuilder_;
+    /**
+     * <code>.google.protobuf.StringValue contact_line_id = 15 [json_name = "contactLineId"];</code>
+     * @return Whether the contactLineId field is set.
+     */
+    public boolean hasContactLineId() {
+      return contactLineIdBuilder_ != null || contactLineId_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_line_id = 15 [json_name = "contactLineId"];</code>
+     * @return The contactLineId.
+     */
+    public com.google.protobuf.StringValue getContactLineId() {
+      if (contactLineIdBuilder_ == null) {
+        return contactLineId_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : contactLineId_;
+      } else {
+        return contactLineIdBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_line_id = 15 [json_name = "contactLineId"];</code>
+     */
+    public Builder setContactLineId(com.google.protobuf.StringValue value) {
+      if (contactLineIdBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        contactLineId_ = value;
+        onChanged();
+      } else {
+        contactLineIdBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_line_id = 15 [json_name = "contactLineId"];</code>
+     */
+    public Builder setContactLineId(
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (contactLineIdBuilder_ == null) {
+        contactLineId_ = builderForValue.build();
+        onChanged();
+      } else {
+        contactLineIdBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_line_id = 15 [json_name = "contactLineId"];</code>
+     */
+    public Builder mergeContactLineId(com.google.protobuf.StringValue value) {
+      if (contactLineIdBuilder_ == null) {
+        if (contactLineId_ != null) {
+          contactLineId_ =
+            com.google.protobuf.StringValue.newBuilder(contactLineId_).mergeFrom(value).buildPartial();
+        } else {
+          contactLineId_ = value;
+        }
+        onChanged();
+      } else {
+        contactLineIdBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_line_id = 15 [json_name = "contactLineId"];</code>
+     */
+    public Builder clearContactLineId() {
+      if (contactLineIdBuilder_ == null) {
+        contactLineId_ = null;
+        onChanged();
+      } else {
+        contactLineId_ = null;
+        contactLineIdBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_line_id = 15 [json_name = "contactLineId"];</code>
+     */
+    public com.google.protobuf.StringValue.Builder getContactLineIdBuilder() {
+      
+      onChanged();
+      return getContactLineIdFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_line_id = 15 [json_name = "contactLineId"];</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getContactLineIdOrBuilder() {
+      if (contactLineIdBuilder_ != null) {
+        return contactLineIdBuilder_.getMessageOrBuilder();
+      } else {
+        return contactLineId_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : contactLineId_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact_line_id = 15 [json_name = "contactLineId"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getContactLineIdFieldBuilder() {
+      if (contactLineIdBuilder_ == null) {
+        contactLineIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getContactLineId(),
+                getParentForChildren(),
+                isClean());
+        contactLineId_ = null;
+      }
+      return contactLineIdBuilder_;
+    }
+
+    private com.google.protobuf.StringValue profilePictureUrl_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> profilePictureUrlBuilder_;
+    /**
+     * <code>.google.protobuf.StringValue profile_picture_url = 16 [json_name = "profilePictureUrl"];</code>
+     * @return Whether the profilePictureUrl field is set.
+     */
+    public boolean hasProfilePictureUrl() {
+      return profilePictureUrlBuilder_ != null || profilePictureUrl_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_picture_url = 16 [json_name = "profilePictureUrl"];</code>
+     * @return The profilePictureUrl.
+     */
+    public com.google.protobuf.StringValue getProfilePictureUrl() {
+      if (profilePictureUrlBuilder_ == null) {
+        return profilePictureUrl_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : profilePictureUrl_;
+      } else {
+        return profilePictureUrlBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_picture_url = 16 [json_name = "profilePictureUrl"];</code>
+     */
+    public Builder setProfilePictureUrl(com.google.protobuf.StringValue value) {
+      if (profilePictureUrlBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        profilePictureUrl_ = value;
+        onChanged();
+      } else {
+        profilePictureUrlBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_picture_url = 16 [json_name = "profilePictureUrl"];</code>
+     */
+    public Builder setProfilePictureUrl(
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (profilePictureUrlBuilder_ == null) {
+        profilePictureUrl_ = builderForValue.build();
+        onChanged();
+      } else {
+        profilePictureUrlBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_picture_url = 16 [json_name = "profilePictureUrl"];</code>
+     */
+    public Builder mergeProfilePictureUrl(com.google.protobuf.StringValue value) {
+      if (profilePictureUrlBuilder_ == null) {
+        if (profilePictureUrl_ != null) {
+          profilePictureUrl_ =
+            com.google.protobuf.StringValue.newBuilder(profilePictureUrl_).mergeFrom(value).buildPartial();
+        } else {
+          profilePictureUrl_ = value;
+        }
+        onChanged();
+      } else {
+        profilePictureUrlBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_picture_url = 16 [json_name = "profilePictureUrl"];</code>
+     */
+    public Builder clearProfilePictureUrl() {
+      if (profilePictureUrlBuilder_ == null) {
+        profilePictureUrl_ = null;
+        onChanged();
+      } else {
+        profilePictureUrl_ = null;
+        profilePictureUrlBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_picture_url = 16 [json_name = "profilePictureUrl"];</code>
+     */
+    public com.google.protobuf.StringValue.Builder getProfilePictureUrlBuilder() {
+      
+      onChanged();
+      return getProfilePictureUrlFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_picture_url = 16 [json_name = "profilePictureUrl"];</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getProfilePictureUrlOrBuilder() {
+      if (profilePictureUrlBuilder_ != null) {
+        return profilePictureUrlBuilder_.getMessageOrBuilder();
+      } else {
+        return profilePictureUrl_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : profilePictureUrl_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_picture_url = 16 [json_name = "profilePictureUrl"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getProfilePictureUrlFieldBuilder() {
+      if (profilePictureUrlBuilder_ == null) {
+        profilePictureUrlBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getProfilePictureUrl(),
+                getParentForChildren(),
+                isClean());
+        profilePictureUrl_ = null;
+      }
+      return profilePictureUrlBuilder_;
+    }
+
+    private com.google.protobuf.StringValue profilePictureHash_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> profilePictureHashBuilder_;
+    /**
+     * <code>.google.protobuf.StringValue profile_picture_hash = 17 [json_name = "profilePictureHash"];</code>
+     * @return Whether the profilePictureHash field is set.
+     */
+    public boolean hasProfilePictureHash() {
+      return profilePictureHashBuilder_ != null || profilePictureHash_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_picture_hash = 17 [json_name = "profilePictureHash"];</code>
+     * @return The profilePictureHash.
+     */
+    public com.google.protobuf.StringValue getProfilePictureHash() {
+      if (profilePictureHashBuilder_ == null) {
+        return profilePictureHash_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : profilePictureHash_;
+      } else {
+        return profilePictureHashBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_picture_hash = 17 [json_name = "profilePictureHash"];</code>
+     */
+    public Builder setProfilePictureHash(com.google.protobuf.StringValue value) {
+      if (profilePictureHashBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        profilePictureHash_ = value;
+        onChanged();
+      } else {
+        profilePictureHashBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_picture_hash = 17 [json_name = "profilePictureHash"];</code>
+     */
+    public Builder setProfilePictureHash(
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (profilePictureHashBuilder_ == null) {
+        profilePictureHash_ = builderForValue.build();
+        onChanged();
+      } else {
+        profilePictureHashBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_picture_hash = 17 [json_name = "profilePictureHash"];</code>
+     */
+    public Builder mergeProfilePictureHash(com.google.protobuf.StringValue value) {
+      if (profilePictureHashBuilder_ == null) {
+        if (profilePictureHash_ != null) {
+          profilePictureHash_ =
+            com.google.protobuf.StringValue.newBuilder(profilePictureHash_).mergeFrom(value).buildPartial();
+        } else {
+          profilePictureHash_ = value;
+        }
+        onChanged();
+      } else {
+        profilePictureHashBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_picture_hash = 17 [json_name = "profilePictureHash"];</code>
+     */
+    public Builder clearProfilePictureHash() {
+      if (profilePictureHashBuilder_ == null) {
+        profilePictureHash_ = null;
+        onChanged();
+      } else {
+        profilePictureHash_ = null;
+        profilePictureHashBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_picture_hash = 17 [json_name = "profilePictureHash"];</code>
+     */
+    public com.google.protobuf.StringValue.Builder getProfilePictureHashBuilder() {
+      
+      onChanged();
+      return getProfilePictureHashFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_picture_hash = 17 [json_name = "profilePictureHash"];</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getProfilePictureHashOrBuilder() {
+      if (profilePictureHashBuilder_ != null) {
+        return profilePictureHashBuilder_.getMessageOrBuilder();
+      } else {
+        return profilePictureHash_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : profilePictureHash_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_picture_hash = 17 [json_name = "profilePictureHash"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getProfilePictureHashFieldBuilder() {
+      if (profilePictureHashBuilder_ == null) {
+        profilePictureHashBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getProfilePictureHash(),
+                getParentForChildren(),
+                isClean());
+        profilePictureHash_ = null;
+      }
+      return profilePictureHashBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

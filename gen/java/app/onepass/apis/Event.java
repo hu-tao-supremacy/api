@@ -63,13 +63,13 @@ private static final long serialVersionUID = 0L;
           }
           case 26: {
             com.google.protobuf.Int64Value.Builder subBuilder = null;
-            if (eventLocationId_ != null) {
-              subBuilder = eventLocationId_.toBuilder();
+            if (locationId_ != null) {
+              subBuilder = locationId_.toBuilder();
             }
-            eventLocationId_ = input.readMessage(com.google.protobuf.Int64Value.parser(), extensionRegistry);
+            locationId_ = input.readMessage(com.google.protobuf.Int64Value.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom(eventLocationId_);
-              eventLocationId_ = subBuilder.buildPartial();
+              subBuilder.mergeFrom(locationId_);
+              locationId_ = subBuilder.buildPartial();
             }
 
             break;
@@ -88,13 +88,13 @@ private static final long serialVersionUID = 0L;
           }
           case 50: {
             com.google.protobuf.StringValue.Builder subBuilder = null;
-            if (coverImage_ != null) {
-              subBuilder = coverImage_.toBuilder();
+            if (coverImageUrl_ != null) {
+              subBuilder = coverImageUrl_.toBuilder();
             }
-            coverImage_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            coverImageUrl_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom(coverImage_);
-              coverImage_ = subBuilder.buildPartial();
+              subBuilder.mergeFrom(coverImageUrl_);
+              coverImageUrl_ = subBuilder.buildPartial();
             }
 
             break;
@@ -114,13 +114,13 @@ private static final long serialVersionUID = 0L;
           }
           case 66: {
             com.google.protobuf.StringValue.Builder subBuilder = null;
-            if (posterImage_ != null) {
-              subBuilder = posterImage_.toBuilder();
+            if (posterImageUrl_ != null) {
+              subBuilder = posterImageUrl_.toBuilder();
             }
-            posterImage_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            posterImageUrl_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
             if (subBuilder != null) {
-              subBuilder.mergeFrom(posterImage_);
-              posterImage_ = subBuilder.buildPartial();
+              subBuilder.mergeFrom(posterImageUrl_);
+              posterImageUrl_ = subBuilder.buildPartial();
             }
 
             break;
@@ -142,6 +142,37 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             contact_ = s;
+            break;
+          }
+          case 90: {
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (profileImageUrl_ != null) {
+              subBuilder = profileImageUrl_.toBuilder();
+            }
+            profileImageUrl_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(profileImageUrl_);
+              profileImageUrl_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 98: {
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (profileImageHash_ != null) {
+              subBuilder = profileImageHash_.toBuilder();
+            }
+            profileImageHash_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(profileImageHash_);
+              profileImageHash_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 104: {
+
+            attendeeLimit_ = input.readInt64();
             break;
           }
           default: {
@@ -198,30 +229,30 @@ private static final long serialVersionUID = 0L;
     return organizationId_;
   }
 
-  public static final int EVENT_LOCATION_ID_FIELD_NUMBER = 3;
-  private com.google.protobuf.Int64Value eventLocationId_;
+  public static final int LOCATION_ID_FIELD_NUMBER = 3;
+  private com.google.protobuf.Int64Value locationId_;
   /**
-   * <code>.google.protobuf.Int64Value event_location_id = 3 [json_name = "eventLocationId"];</code>
-   * @return Whether the eventLocationId field is set.
+   * <code>.google.protobuf.Int64Value location_id = 3 [json_name = "locationId"];</code>
+   * @return Whether the locationId field is set.
    */
   @java.lang.Override
-  public boolean hasEventLocationId() {
-    return eventLocationId_ != null;
+  public boolean hasLocationId() {
+    return locationId_ != null;
   }
   /**
-   * <code>.google.protobuf.Int64Value event_location_id = 3 [json_name = "eventLocationId"];</code>
-   * @return The eventLocationId.
+   * <code>.google.protobuf.Int64Value location_id = 3 [json_name = "locationId"];</code>
+   * @return The locationId.
    */
   @java.lang.Override
-  public com.google.protobuf.Int64Value getEventLocationId() {
-    return eventLocationId_ == null ? com.google.protobuf.Int64Value.getDefaultInstance() : eventLocationId_;
+  public com.google.protobuf.Int64Value getLocationId() {
+    return locationId_ == null ? com.google.protobuf.Int64Value.getDefaultInstance() : locationId_;
   }
   /**
-   * <code>.google.protobuf.Int64Value event_location_id = 3 [json_name = "eventLocationId"];</code>
+   * <code>.google.protobuf.Int64Value location_id = 3 [json_name = "locationId"];</code>
    */
   @java.lang.Override
-  public com.google.protobuf.Int64ValueOrBuilder getEventLocationIdOrBuilder() {
-    return getEventLocationId();
+  public com.google.protobuf.Int64ValueOrBuilder getLocationIdOrBuilder() {
+    return getLocationId();
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 4;
@@ -300,30 +331,30 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int COVER_IMAGE_FIELD_NUMBER = 6;
-  private com.google.protobuf.StringValue coverImage_;
+  public static final int COVER_IMAGE_URL_FIELD_NUMBER = 6;
+  private com.google.protobuf.StringValue coverImageUrl_;
   /**
-   * <code>.google.protobuf.StringValue cover_image = 6 [json_name = "coverImage"];</code>
-   * @return Whether the coverImage field is set.
+   * <code>.google.protobuf.StringValue cover_image_url = 6 [json_name = "coverImageUrl"];</code>
+   * @return Whether the coverImageUrl field is set.
    */
   @java.lang.Override
-  public boolean hasCoverImage() {
-    return coverImage_ != null;
+  public boolean hasCoverImageUrl() {
+    return coverImageUrl_ != null;
   }
   /**
-   * <code>.google.protobuf.StringValue cover_image = 6 [json_name = "coverImage"];</code>
-   * @return The coverImage.
+   * <code>.google.protobuf.StringValue cover_image_url = 6 [json_name = "coverImageUrl"];</code>
+   * @return The coverImageUrl.
    */
   @java.lang.Override
-  public com.google.protobuf.StringValue getCoverImage() {
-    return coverImage_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : coverImage_;
+  public com.google.protobuf.StringValue getCoverImageUrl() {
+    return coverImageUrl_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : coverImageUrl_;
   }
   /**
-   * <code>.google.protobuf.StringValue cover_image = 6 [json_name = "coverImage"];</code>
+   * <code>.google.protobuf.StringValue cover_image_url = 6 [json_name = "coverImageUrl"];</code>
    */
   @java.lang.Override
-  public com.google.protobuf.StringValueOrBuilder getCoverImageOrBuilder() {
-    return getCoverImage();
+  public com.google.protobuf.StringValueOrBuilder getCoverImageUrlOrBuilder() {
+    return getCoverImageUrl();
   }
 
   public static final int COVER_IMAGE_HASH_FIELD_NUMBER = 7;
@@ -352,30 +383,30 @@ private static final long serialVersionUID = 0L;
     return getCoverImageHash();
   }
 
-  public static final int POSTER_IMAGE_FIELD_NUMBER = 8;
-  private com.google.protobuf.StringValue posterImage_;
+  public static final int POSTER_IMAGE_URL_FIELD_NUMBER = 8;
+  private com.google.protobuf.StringValue posterImageUrl_;
   /**
-   * <code>.google.protobuf.StringValue poster_image = 8 [json_name = "posterImage"];</code>
-   * @return Whether the posterImage field is set.
+   * <code>.google.protobuf.StringValue poster_image_url = 8 [json_name = "posterImageUrl"];</code>
+   * @return Whether the posterImageUrl field is set.
    */
   @java.lang.Override
-  public boolean hasPosterImage() {
-    return posterImage_ != null;
+  public boolean hasPosterImageUrl() {
+    return posterImageUrl_ != null;
   }
   /**
-   * <code>.google.protobuf.StringValue poster_image = 8 [json_name = "posterImage"];</code>
-   * @return The posterImage.
+   * <code>.google.protobuf.StringValue poster_image_url = 8 [json_name = "posterImageUrl"];</code>
+   * @return The posterImageUrl.
    */
   @java.lang.Override
-  public com.google.protobuf.StringValue getPosterImage() {
-    return posterImage_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : posterImage_;
+  public com.google.protobuf.StringValue getPosterImageUrl() {
+    return posterImageUrl_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : posterImageUrl_;
   }
   /**
-   * <code>.google.protobuf.StringValue poster_image = 8 [json_name = "posterImage"];</code>
+   * <code>.google.protobuf.StringValue poster_image_url = 8 [json_name = "posterImageUrl"];</code>
    */
   @java.lang.Override
-  public com.google.protobuf.StringValueOrBuilder getPosterImageOrBuilder() {
-    return getPosterImage();
+  public com.google.protobuf.StringValueOrBuilder getPosterImageUrlOrBuilder() {
+    return getPosterImageUrl();
   }
 
   public static final int POSTER_IMAGE_HASH_FIELD_NUMBER = 9;
@@ -442,6 +473,69 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int PROFILE_IMAGE_URL_FIELD_NUMBER = 11;
+  private com.google.protobuf.StringValue profileImageUrl_;
+  /**
+   * <code>.google.protobuf.StringValue profile_image_url = 11 [json_name = "profileImageUrl"];</code>
+   * @return Whether the profileImageUrl field is set.
+   */
+  @java.lang.Override
+  public boolean hasProfileImageUrl() {
+    return profileImageUrl_ != null;
+  }
+  /**
+   * <code>.google.protobuf.StringValue profile_image_url = 11 [json_name = "profileImageUrl"];</code>
+   * @return The profileImageUrl.
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValue getProfileImageUrl() {
+    return profileImageUrl_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : profileImageUrl_;
+  }
+  /**
+   * <code>.google.protobuf.StringValue profile_image_url = 11 [json_name = "profileImageUrl"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValueOrBuilder getProfileImageUrlOrBuilder() {
+    return getProfileImageUrl();
+  }
+
+  public static final int PROFILE_IMAGE_HASH_FIELD_NUMBER = 12;
+  private com.google.protobuf.StringValue profileImageHash_;
+  /**
+   * <code>.google.protobuf.StringValue profile_image_hash = 12 [json_name = "profileImageHash"];</code>
+   * @return Whether the profileImageHash field is set.
+   */
+  @java.lang.Override
+  public boolean hasProfileImageHash() {
+    return profileImageHash_ != null;
+  }
+  /**
+   * <code>.google.protobuf.StringValue profile_image_hash = 12 [json_name = "profileImageHash"];</code>
+   * @return The profileImageHash.
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValue getProfileImageHash() {
+    return profileImageHash_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : profileImageHash_;
+  }
+  /**
+   * <code>.google.protobuf.StringValue profile_image_hash = 12 [json_name = "profileImageHash"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.StringValueOrBuilder getProfileImageHashOrBuilder() {
+    return getProfileImageHash();
+  }
+
+  public static final int ATTENDEE_LIMIT_FIELD_NUMBER = 13;
+  private long attendeeLimit_;
+  /**
+   * <code>int64 attendee_limit = 13 [json_name = "attendeeLimit"];</code>
+   * @return The attendeeLimit.
+   */
+  @java.lang.Override
+  public long getAttendeeLimit() {
+    return attendeeLimit_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -462,8 +556,8 @@ private static final long serialVersionUID = 0L;
     if (organizationId_ != 0L) {
       output.writeInt64(2, organizationId_);
     }
-    if (eventLocationId_ != null) {
-      output.writeMessage(3, getEventLocationId());
+    if (locationId_ != null) {
+      output.writeMessage(3, getLocationId());
     }
     if (!getDescriptionBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, description_);
@@ -471,20 +565,29 @@ private static final long serialVersionUID = 0L;
     if (!getNameBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, name_);
     }
-    if (coverImage_ != null) {
-      output.writeMessage(6, getCoverImage());
+    if (coverImageUrl_ != null) {
+      output.writeMessage(6, getCoverImageUrl());
     }
     if (coverImageHash_ != null) {
       output.writeMessage(7, getCoverImageHash());
     }
-    if (posterImage_ != null) {
-      output.writeMessage(8, getPosterImage());
+    if (posterImageUrl_ != null) {
+      output.writeMessage(8, getPosterImageUrl());
     }
     if (posterImageHash_ != null) {
       output.writeMessage(9, getPosterImageHash());
     }
     if (!getContactBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, contact_);
+    }
+    if (profileImageUrl_ != null) {
+      output.writeMessage(11, getProfileImageUrl());
+    }
+    if (profileImageHash_ != null) {
+      output.writeMessage(12, getProfileImageHash());
+    }
+    if (attendeeLimit_ != 0L) {
+      output.writeInt64(13, attendeeLimit_);
     }
     unknownFields.writeTo(output);
   }
@@ -503,9 +606,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(2, organizationId_);
     }
-    if (eventLocationId_ != null) {
+    if (locationId_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, getEventLocationId());
+        .computeMessageSize(3, getLocationId());
     }
     if (!getDescriptionBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, description_);
@@ -513,17 +616,17 @@ private static final long serialVersionUID = 0L;
     if (!getNameBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, name_);
     }
-    if (coverImage_ != null) {
+    if (coverImageUrl_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(6, getCoverImage());
+        .computeMessageSize(6, getCoverImageUrl());
     }
     if (coverImageHash_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, getCoverImageHash());
     }
-    if (posterImage_ != null) {
+    if (posterImageUrl_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(8, getPosterImage());
+        .computeMessageSize(8, getPosterImageUrl());
     }
     if (posterImageHash_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -531,6 +634,18 @@ private static final long serialVersionUID = 0L;
     }
     if (!getContactBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, contact_);
+    }
+    if (profileImageUrl_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(11, getProfileImageUrl());
+    }
+    if (profileImageHash_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(12, getProfileImageHash());
+    }
+    if (attendeeLimit_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(13, attendeeLimit_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -551,29 +666,29 @@ private static final long serialVersionUID = 0L;
         != other.getId()) return false;
     if (getOrganizationId()
         != other.getOrganizationId()) return false;
-    if (hasEventLocationId() != other.hasEventLocationId()) return false;
-    if (hasEventLocationId()) {
-      if (!getEventLocationId()
-          .equals(other.getEventLocationId())) return false;
+    if (hasLocationId() != other.hasLocationId()) return false;
+    if (hasLocationId()) {
+      if (!getLocationId()
+          .equals(other.getLocationId())) return false;
     }
     if (!getDescription()
         .equals(other.getDescription())) return false;
     if (!getName()
         .equals(other.getName())) return false;
-    if (hasCoverImage() != other.hasCoverImage()) return false;
-    if (hasCoverImage()) {
-      if (!getCoverImage()
-          .equals(other.getCoverImage())) return false;
+    if (hasCoverImageUrl() != other.hasCoverImageUrl()) return false;
+    if (hasCoverImageUrl()) {
+      if (!getCoverImageUrl()
+          .equals(other.getCoverImageUrl())) return false;
     }
     if (hasCoverImageHash() != other.hasCoverImageHash()) return false;
     if (hasCoverImageHash()) {
       if (!getCoverImageHash()
           .equals(other.getCoverImageHash())) return false;
     }
-    if (hasPosterImage() != other.hasPosterImage()) return false;
-    if (hasPosterImage()) {
-      if (!getPosterImage()
-          .equals(other.getPosterImage())) return false;
+    if (hasPosterImageUrl() != other.hasPosterImageUrl()) return false;
+    if (hasPosterImageUrl()) {
+      if (!getPosterImageUrl()
+          .equals(other.getPosterImageUrl())) return false;
     }
     if (hasPosterImageHash() != other.hasPosterImageHash()) return false;
     if (hasPosterImageHash()) {
@@ -582,6 +697,18 @@ private static final long serialVersionUID = 0L;
     }
     if (!getContact()
         .equals(other.getContact())) return false;
+    if (hasProfileImageUrl() != other.hasProfileImageUrl()) return false;
+    if (hasProfileImageUrl()) {
+      if (!getProfileImageUrl()
+          .equals(other.getProfileImageUrl())) return false;
+    }
+    if (hasProfileImageHash() != other.hasProfileImageHash()) return false;
+    if (hasProfileImageHash()) {
+      if (!getProfileImageHash()
+          .equals(other.getProfileImageHash())) return false;
+    }
+    if (getAttendeeLimit()
+        != other.getAttendeeLimit()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -599,25 +726,25 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ORGANIZATION_ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getOrganizationId());
-    if (hasEventLocationId()) {
-      hash = (37 * hash) + EVENT_LOCATION_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getEventLocationId().hashCode();
+    if (hasLocationId()) {
+      hash = (37 * hash) + LOCATION_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getLocationId().hashCode();
     }
     hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
     hash = (53 * hash) + getDescription().hashCode();
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
-    if (hasCoverImage()) {
-      hash = (37 * hash) + COVER_IMAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getCoverImage().hashCode();
+    if (hasCoverImageUrl()) {
+      hash = (37 * hash) + COVER_IMAGE_URL_FIELD_NUMBER;
+      hash = (53 * hash) + getCoverImageUrl().hashCode();
     }
     if (hasCoverImageHash()) {
       hash = (37 * hash) + COVER_IMAGE_HASH_FIELD_NUMBER;
       hash = (53 * hash) + getCoverImageHash().hashCode();
     }
-    if (hasPosterImage()) {
-      hash = (37 * hash) + POSTER_IMAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getPosterImage().hashCode();
+    if (hasPosterImageUrl()) {
+      hash = (37 * hash) + POSTER_IMAGE_URL_FIELD_NUMBER;
+      hash = (53 * hash) + getPosterImageUrl().hashCode();
     }
     if (hasPosterImageHash()) {
       hash = (37 * hash) + POSTER_IMAGE_HASH_FIELD_NUMBER;
@@ -625,6 +752,17 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + CONTACT_FIELD_NUMBER;
     hash = (53 * hash) + getContact().hashCode();
+    if (hasProfileImageUrl()) {
+      hash = (37 * hash) + PROFILE_IMAGE_URL_FIELD_NUMBER;
+      hash = (53 * hash) + getProfileImageUrl().hashCode();
+    }
+    if (hasProfileImageHash()) {
+      hash = (37 * hash) + PROFILE_IMAGE_HASH_FIELD_NUMBER;
+      hash = (53 * hash) + getProfileImageHash().hashCode();
+    }
+    hash = (37 * hash) + ATTENDEE_LIMIT_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getAttendeeLimit());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -762,21 +900,21 @@ private static final long serialVersionUID = 0L;
 
       organizationId_ = 0L;
 
-      if (eventLocationIdBuilder_ == null) {
-        eventLocationId_ = null;
+      if (locationIdBuilder_ == null) {
+        locationId_ = null;
       } else {
-        eventLocationId_ = null;
-        eventLocationIdBuilder_ = null;
+        locationId_ = null;
+        locationIdBuilder_ = null;
       }
       description_ = "";
 
       name_ = "";
 
-      if (coverImageBuilder_ == null) {
-        coverImage_ = null;
+      if (coverImageUrlBuilder_ == null) {
+        coverImageUrl_ = null;
       } else {
-        coverImage_ = null;
-        coverImageBuilder_ = null;
+        coverImageUrl_ = null;
+        coverImageUrlBuilder_ = null;
       }
       if (coverImageHashBuilder_ == null) {
         coverImageHash_ = null;
@@ -784,11 +922,11 @@ private static final long serialVersionUID = 0L;
         coverImageHash_ = null;
         coverImageHashBuilder_ = null;
       }
-      if (posterImageBuilder_ == null) {
-        posterImage_ = null;
+      if (posterImageUrlBuilder_ == null) {
+        posterImageUrl_ = null;
       } else {
-        posterImage_ = null;
-        posterImageBuilder_ = null;
+        posterImageUrl_ = null;
+        posterImageUrlBuilder_ = null;
       }
       if (posterImageHashBuilder_ == null) {
         posterImageHash_ = null;
@@ -797,6 +935,20 @@ private static final long serialVersionUID = 0L;
         posterImageHashBuilder_ = null;
       }
       contact_ = "";
+
+      if (profileImageUrlBuilder_ == null) {
+        profileImageUrl_ = null;
+      } else {
+        profileImageUrl_ = null;
+        profileImageUrlBuilder_ = null;
+      }
+      if (profileImageHashBuilder_ == null) {
+        profileImageHash_ = null;
+      } else {
+        profileImageHash_ = null;
+        profileImageHashBuilder_ = null;
+      }
+      attendeeLimit_ = 0L;
 
       return this;
     }
@@ -826,27 +978,27 @@ private static final long serialVersionUID = 0L;
       app.onepass.apis.Event result = new app.onepass.apis.Event(this);
       result.id_ = id_;
       result.organizationId_ = organizationId_;
-      if (eventLocationIdBuilder_ == null) {
-        result.eventLocationId_ = eventLocationId_;
+      if (locationIdBuilder_ == null) {
+        result.locationId_ = locationId_;
       } else {
-        result.eventLocationId_ = eventLocationIdBuilder_.build();
+        result.locationId_ = locationIdBuilder_.build();
       }
       result.description_ = description_;
       result.name_ = name_;
-      if (coverImageBuilder_ == null) {
-        result.coverImage_ = coverImage_;
+      if (coverImageUrlBuilder_ == null) {
+        result.coverImageUrl_ = coverImageUrl_;
       } else {
-        result.coverImage_ = coverImageBuilder_.build();
+        result.coverImageUrl_ = coverImageUrlBuilder_.build();
       }
       if (coverImageHashBuilder_ == null) {
         result.coverImageHash_ = coverImageHash_;
       } else {
         result.coverImageHash_ = coverImageHashBuilder_.build();
       }
-      if (posterImageBuilder_ == null) {
-        result.posterImage_ = posterImage_;
+      if (posterImageUrlBuilder_ == null) {
+        result.posterImageUrl_ = posterImageUrl_;
       } else {
-        result.posterImage_ = posterImageBuilder_.build();
+        result.posterImageUrl_ = posterImageUrlBuilder_.build();
       }
       if (posterImageHashBuilder_ == null) {
         result.posterImageHash_ = posterImageHash_;
@@ -854,6 +1006,17 @@ private static final long serialVersionUID = 0L;
         result.posterImageHash_ = posterImageHashBuilder_.build();
       }
       result.contact_ = contact_;
+      if (profileImageUrlBuilder_ == null) {
+        result.profileImageUrl_ = profileImageUrl_;
+      } else {
+        result.profileImageUrl_ = profileImageUrlBuilder_.build();
+      }
+      if (profileImageHashBuilder_ == null) {
+        result.profileImageHash_ = profileImageHash_;
+      } else {
+        result.profileImageHash_ = profileImageHashBuilder_.build();
+      }
+      result.attendeeLimit_ = attendeeLimit_;
       onBuilt();
       return result;
     }
@@ -908,8 +1071,8 @@ private static final long serialVersionUID = 0L;
       if (other.getOrganizationId() != 0L) {
         setOrganizationId(other.getOrganizationId());
       }
-      if (other.hasEventLocationId()) {
-        mergeEventLocationId(other.getEventLocationId());
+      if (other.hasLocationId()) {
+        mergeLocationId(other.getLocationId());
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
@@ -919,14 +1082,14 @@ private static final long serialVersionUID = 0L;
         name_ = other.name_;
         onChanged();
       }
-      if (other.hasCoverImage()) {
-        mergeCoverImage(other.getCoverImage());
+      if (other.hasCoverImageUrl()) {
+        mergeCoverImageUrl(other.getCoverImageUrl());
       }
       if (other.hasCoverImageHash()) {
         mergeCoverImageHash(other.getCoverImageHash());
       }
-      if (other.hasPosterImage()) {
-        mergePosterImage(other.getPosterImage());
+      if (other.hasPosterImageUrl()) {
+        mergePosterImageUrl(other.getPosterImageUrl());
       }
       if (other.hasPosterImageHash()) {
         mergePosterImageHash(other.getPosterImageHash());
@@ -934,6 +1097,15 @@ private static final long serialVersionUID = 0L;
       if (!other.getContact().isEmpty()) {
         contact_ = other.contact_;
         onChanged();
+      }
+      if (other.hasProfileImageUrl()) {
+        mergeProfileImageUrl(other.getProfileImageUrl());
+      }
+      if (other.hasProfileImageHash()) {
+        mergeProfileImageHash(other.getProfileImageHash());
+      }
+      if (other.getAttendeeLimit() != 0L) {
+        setAttendeeLimit(other.getAttendeeLimit());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1026,123 +1198,123 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Int64Value eventLocationId_;
+    private com.google.protobuf.Int64Value locationId_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder> eventLocationIdBuilder_;
+        com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder> locationIdBuilder_;
     /**
-     * <code>.google.protobuf.Int64Value event_location_id = 3 [json_name = "eventLocationId"];</code>
-     * @return Whether the eventLocationId field is set.
+     * <code>.google.protobuf.Int64Value location_id = 3 [json_name = "locationId"];</code>
+     * @return Whether the locationId field is set.
      */
-    public boolean hasEventLocationId() {
-      return eventLocationIdBuilder_ != null || eventLocationId_ != null;
+    public boolean hasLocationId() {
+      return locationIdBuilder_ != null || locationId_ != null;
     }
     /**
-     * <code>.google.protobuf.Int64Value event_location_id = 3 [json_name = "eventLocationId"];</code>
-     * @return The eventLocationId.
+     * <code>.google.protobuf.Int64Value location_id = 3 [json_name = "locationId"];</code>
+     * @return The locationId.
      */
-    public com.google.protobuf.Int64Value getEventLocationId() {
-      if (eventLocationIdBuilder_ == null) {
-        return eventLocationId_ == null ? com.google.protobuf.Int64Value.getDefaultInstance() : eventLocationId_;
+    public com.google.protobuf.Int64Value getLocationId() {
+      if (locationIdBuilder_ == null) {
+        return locationId_ == null ? com.google.protobuf.Int64Value.getDefaultInstance() : locationId_;
       } else {
-        return eventLocationIdBuilder_.getMessage();
+        return locationIdBuilder_.getMessage();
       }
     }
     /**
-     * <code>.google.protobuf.Int64Value event_location_id = 3 [json_name = "eventLocationId"];</code>
+     * <code>.google.protobuf.Int64Value location_id = 3 [json_name = "locationId"];</code>
      */
-    public Builder setEventLocationId(com.google.protobuf.Int64Value value) {
-      if (eventLocationIdBuilder_ == null) {
+    public Builder setLocationId(com.google.protobuf.Int64Value value) {
+      if (locationIdBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        eventLocationId_ = value;
+        locationId_ = value;
         onChanged();
       } else {
-        eventLocationIdBuilder_.setMessage(value);
+        locationIdBuilder_.setMessage(value);
       }
 
       return this;
     }
     /**
-     * <code>.google.protobuf.Int64Value event_location_id = 3 [json_name = "eventLocationId"];</code>
+     * <code>.google.protobuf.Int64Value location_id = 3 [json_name = "locationId"];</code>
      */
-    public Builder setEventLocationId(
+    public Builder setLocationId(
         com.google.protobuf.Int64Value.Builder builderForValue) {
-      if (eventLocationIdBuilder_ == null) {
-        eventLocationId_ = builderForValue.build();
+      if (locationIdBuilder_ == null) {
+        locationId_ = builderForValue.build();
         onChanged();
       } else {
-        eventLocationIdBuilder_.setMessage(builderForValue.build());
+        locationIdBuilder_.setMessage(builderForValue.build());
       }
 
       return this;
     }
     /**
-     * <code>.google.protobuf.Int64Value event_location_id = 3 [json_name = "eventLocationId"];</code>
+     * <code>.google.protobuf.Int64Value location_id = 3 [json_name = "locationId"];</code>
      */
-    public Builder mergeEventLocationId(com.google.protobuf.Int64Value value) {
-      if (eventLocationIdBuilder_ == null) {
-        if (eventLocationId_ != null) {
-          eventLocationId_ =
-            com.google.protobuf.Int64Value.newBuilder(eventLocationId_).mergeFrom(value).buildPartial();
+    public Builder mergeLocationId(com.google.protobuf.Int64Value value) {
+      if (locationIdBuilder_ == null) {
+        if (locationId_ != null) {
+          locationId_ =
+            com.google.protobuf.Int64Value.newBuilder(locationId_).mergeFrom(value).buildPartial();
         } else {
-          eventLocationId_ = value;
+          locationId_ = value;
         }
         onChanged();
       } else {
-        eventLocationIdBuilder_.mergeFrom(value);
+        locationIdBuilder_.mergeFrom(value);
       }
 
       return this;
     }
     /**
-     * <code>.google.protobuf.Int64Value event_location_id = 3 [json_name = "eventLocationId"];</code>
+     * <code>.google.protobuf.Int64Value location_id = 3 [json_name = "locationId"];</code>
      */
-    public Builder clearEventLocationId() {
-      if (eventLocationIdBuilder_ == null) {
-        eventLocationId_ = null;
+    public Builder clearLocationId() {
+      if (locationIdBuilder_ == null) {
+        locationId_ = null;
         onChanged();
       } else {
-        eventLocationId_ = null;
-        eventLocationIdBuilder_ = null;
+        locationId_ = null;
+        locationIdBuilder_ = null;
       }
 
       return this;
     }
     /**
-     * <code>.google.protobuf.Int64Value event_location_id = 3 [json_name = "eventLocationId"];</code>
+     * <code>.google.protobuf.Int64Value location_id = 3 [json_name = "locationId"];</code>
      */
-    public com.google.protobuf.Int64Value.Builder getEventLocationIdBuilder() {
+    public com.google.protobuf.Int64Value.Builder getLocationIdBuilder() {
       
       onChanged();
-      return getEventLocationIdFieldBuilder().getBuilder();
+      return getLocationIdFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Int64Value event_location_id = 3 [json_name = "eventLocationId"];</code>
+     * <code>.google.protobuf.Int64Value location_id = 3 [json_name = "locationId"];</code>
      */
-    public com.google.protobuf.Int64ValueOrBuilder getEventLocationIdOrBuilder() {
-      if (eventLocationIdBuilder_ != null) {
-        return eventLocationIdBuilder_.getMessageOrBuilder();
+    public com.google.protobuf.Int64ValueOrBuilder getLocationIdOrBuilder() {
+      if (locationIdBuilder_ != null) {
+        return locationIdBuilder_.getMessageOrBuilder();
       } else {
-        return eventLocationId_ == null ?
-            com.google.protobuf.Int64Value.getDefaultInstance() : eventLocationId_;
+        return locationId_ == null ?
+            com.google.protobuf.Int64Value.getDefaultInstance() : locationId_;
       }
     }
     /**
-     * <code>.google.protobuf.Int64Value event_location_id = 3 [json_name = "eventLocationId"];</code>
+     * <code>.google.protobuf.Int64Value location_id = 3 [json_name = "locationId"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder> 
-        getEventLocationIdFieldBuilder() {
-      if (eventLocationIdBuilder_ == null) {
-        eventLocationIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+        getLocationIdFieldBuilder() {
+      if (locationIdBuilder_ == null) {
+        locationIdBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
             com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder>(
-                getEventLocationId(),
+                getLocationId(),
                 getParentForChildren(),
                 isClean());
-        eventLocationId_ = null;
+        locationId_ = null;
       }
-      return eventLocationIdBuilder_;
+      return locationIdBuilder_;
     }
 
     private java.lang.Object description_ = "";
@@ -1297,123 +1469,123 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.StringValue coverImage_;
+    private com.google.protobuf.StringValue coverImageUrl_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> coverImageBuilder_;
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> coverImageUrlBuilder_;
     /**
-     * <code>.google.protobuf.StringValue cover_image = 6 [json_name = "coverImage"];</code>
-     * @return Whether the coverImage field is set.
+     * <code>.google.protobuf.StringValue cover_image_url = 6 [json_name = "coverImageUrl"];</code>
+     * @return Whether the coverImageUrl field is set.
      */
-    public boolean hasCoverImage() {
-      return coverImageBuilder_ != null || coverImage_ != null;
+    public boolean hasCoverImageUrl() {
+      return coverImageUrlBuilder_ != null || coverImageUrl_ != null;
     }
     /**
-     * <code>.google.protobuf.StringValue cover_image = 6 [json_name = "coverImage"];</code>
-     * @return The coverImage.
+     * <code>.google.protobuf.StringValue cover_image_url = 6 [json_name = "coverImageUrl"];</code>
+     * @return The coverImageUrl.
      */
-    public com.google.protobuf.StringValue getCoverImage() {
-      if (coverImageBuilder_ == null) {
-        return coverImage_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : coverImage_;
+    public com.google.protobuf.StringValue getCoverImageUrl() {
+      if (coverImageUrlBuilder_ == null) {
+        return coverImageUrl_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : coverImageUrl_;
       } else {
-        return coverImageBuilder_.getMessage();
+        return coverImageUrlBuilder_.getMessage();
       }
     }
     /**
-     * <code>.google.protobuf.StringValue cover_image = 6 [json_name = "coverImage"];</code>
+     * <code>.google.protobuf.StringValue cover_image_url = 6 [json_name = "coverImageUrl"];</code>
      */
-    public Builder setCoverImage(com.google.protobuf.StringValue value) {
-      if (coverImageBuilder_ == null) {
+    public Builder setCoverImageUrl(com.google.protobuf.StringValue value) {
+      if (coverImageUrlBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        coverImage_ = value;
+        coverImageUrl_ = value;
         onChanged();
       } else {
-        coverImageBuilder_.setMessage(value);
+        coverImageUrlBuilder_.setMessage(value);
       }
 
       return this;
     }
     /**
-     * <code>.google.protobuf.StringValue cover_image = 6 [json_name = "coverImage"];</code>
+     * <code>.google.protobuf.StringValue cover_image_url = 6 [json_name = "coverImageUrl"];</code>
      */
-    public Builder setCoverImage(
+    public Builder setCoverImageUrl(
         com.google.protobuf.StringValue.Builder builderForValue) {
-      if (coverImageBuilder_ == null) {
-        coverImage_ = builderForValue.build();
+      if (coverImageUrlBuilder_ == null) {
+        coverImageUrl_ = builderForValue.build();
         onChanged();
       } else {
-        coverImageBuilder_.setMessage(builderForValue.build());
+        coverImageUrlBuilder_.setMessage(builderForValue.build());
       }
 
       return this;
     }
     /**
-     * <code>.google.protobuf.StringValue cover_image = 6 [json_name = "coverImage"];</code>
+     * <code>.google.protobuf.StringValue cover_image_url = 6 [json_name = "coverImageUrl"];</code>
      */
-    public Builder mergeCoverImage(com.google.protobuf.StringValue value) {
-      if (coverImageBuilder_ == null) {
-        if (coverImage_ != null) {
-          coverImage_ =
-            com.google.protobuf.StringValue.newBuilder(coverImage_).mergeFrom(value).buildPartial();
+    public Builder mergeCoverImageUrl(com.google.protobuf.StringValue value) {
+      if (coverImageUrlBuilder_ == null) {
+        if (coverImageUrl_ != null) {
+          coverImageUrl_ =
+            com.google.protobuf.StringValue.newBuilder(coverImageUrl_).mergeFrom(value).buildPartial();
         } else {
-          coverImage_ = value;
+          coverImageUrl_ = value;
         }
         onChanged();
       } else {
-        coverImageBuilder_.mergeFrom(value);
+        coverImageUrlBuilder_.mergeFrom(value);
       }
 
       return this;
     }
     /**
-     * <code>.google.protobuf.StringValue cover_image = 6 [json_name = "coverImage"];</code>
+     * <code>.google.protobuf.StringValue cover_image_url = 6 [json_name = "coverImageUrl"];</code>
      */
-    public Builder clearCoverImage() {
-      if (coverImageBuilder_ == null) {
-        coverImage_ = null;
+    public Builder clearCoverImageUrl() {
+      if (coverImageUrlBuilder_ == null) {
+        coverImageUrl_ = null;
         onChanged();
       } else {
-        coverImage_ = null;
-        coverImageBuilder_ = null;
+        coverImageUrl_ = null;
+        coverImageUrlBuilder_ = null;
       }
 
       return this;
     }
     /**
-     * <code>.google.protobuf.StringValue cover_image = 6 [json_name = "coverImage"];</code>
+     * <code>.google.protobuf.StringValue cover_image_url = 6 [json_name = "coverImageUrl"];</code>
      */
-    public com.google.protobuf.StringValue.Builder getCoverImageBuilder() {
+    public com.google.protobuf.StringValue.Builder getCoverImageUrlBuilder() {
       
       onChanged();
-      return getCoverImageFieldBuilder().getBuilder();
+      return getCoverImageUrlFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.StringValue cover_image = 6 [json_name = "coverImage"];</code>
+     * <code>.google.protobuf.StringValue cover_image_url = 6 [json_name = "coverImageUrl"];</code>
      */
-    public com.google.protobuf.StringValueOrBuilder getCoverImageOrBuilder() {
-      if (coverImageBuilder_ != null) {
-        return coverImageBuilder_.getMessageOrBuilder();
+    public com.google.protobuf.StringValueOrBuilder getCoverImageUrlOrBuilder() {
+      if (coverImageUrlBuilder_ != null) {
+        return coverImageUrlBuilder_.getMessageOrBuilder();
       } else {
-        return coverImage_ == null ?
-            com.google.protobuf.StringValue.getDefaultInstance() : coverImage_;
+        return coverImageUrl_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : coverImageUrl_;
       }
     }
     /**
-     * <code>.google.protobuf.StringValue cover_image = 6 [json_name = "coverImage"];</code>
+     * <code>.google.protobuf.StringValue cover_image_url = 6 [json_name = "coverImageUrl"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
-        getCoverImageFieldBuilder() {
-      if (coverImageBuilder_ == null) {
-        coverImageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+        getCoverImageUrlFieldBuilder() {
+      if (coverImageUrlBuilder_ == null) {
+        coverImageUrlBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
             com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
-                getCoverImage(),
+                getCoverImageUrl(),
                 getParentForChildren(),
                 isClean());
-        coverImage_ = null;
+        coverImageUrl_ = null;
       }
-      return coverImageBuilder_;
+      return coverImageUrlBuilder_;
     }
 
     private com.google.protobuf.StringValue coverImageHash_;
@@ -1535,123 +1707,123 @@ private static final long serialVersionUID = 0L;
       return coverImageHashBuilder_;
     }
 
-    private com.google.protobuf.StringValue posterImage_;
+    private com.google.protobuf.StringValue posterImageUrl_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> posterImageBuilder_;
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> posterImageUrlBuilder_;
     /**
-     * <code>.google.protobuf.StringValue poster_image = 8 [json_name = "posterImage"];</code>
-     * @return Whether the posterImage field is set.
+     * <code>.google.protobuf.StringValue poster_image_url = 8 [json_name = "posterImageUrl"];</code>
+     * @return Whether the posterImageUrl field is set.
      */
-    public boolean hasPosterImage() {
-      return posterImageBuilder_ != null || posterImage_ != null;
+    public boolean hasPosterImageUrl() {
+      return posterImageUrlBuilder_ != null || posterImageUrl_ != null;
     }
     /**
-     * <code>.google.protobuf.StringValue poster_image = 8 [json_name = "posterImage"];</code>
-     * @return The posterImage.
+     * <code>.google.protobuf.StringValue poster_image_url = 8 [json_name = "posterImageUrl"];</code>
+     * @return The posterImageUrl.
      */
-    public com.google.protobuf.StringValue getPosterImage() {
-      if (posterImageBuilder_ == null) {
-        return posterImage_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : posterImage_;
+    public com.google.protobuf.StringValue getPosterImageUrl() {
+      if (posterImageUrlBuilder_ == null) {
+        return posterImageUrl_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : posterImageUrl_;
       } else {
-        return posterImageBuilder_.getMessage();
+        return posterImageUrlBuilder_.getMessage();
       }
     }
     /**
-     * <code>.google.protobuf.StringValue poster_image = 8 [json_name = "posterImage"];</code>
+     * <code>.google.protobuf.StringValue poster_image_url = 8 [json_name = "posterImageUrl"];</code>
      */
-    public Builder setPosterImage(com.google.protobuf.StringValue value) {
-      if (posterImageBuilder_ == null) {
+    public Builder setPosterImageUrl(com.google.protobuf.StringValue value) {
+      if (posterImageUrlBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        posterImage_ = value;
+        posterImageUrl_ = value;
         onChanged();
       } else {
-        posterImageBuilder_.setMessage(value);
+        posterImageUrlBuilder_.setMessage(value);
       }
 
       return this;
     }
     /**
-     * <code>.google.protobuf.StringValue poster_image = 8 [json_name = "posterImage"];</code>
+     * <code>.google.protobuf.StringValue poster_image_url = 8 [json_name = "posterImageUrl"];</code>
      */
-    public Builder setPosterImage(
+    public Builder setPosterImageUrl(
         com.google.protobuf.StringValue.Builder builderForValue) {
-      if (posterImageBuilder_ == null) {
-        posterImage_ = builderForValue.build();
+      if (posterImageUrlBuilder_ == null) {
+        posterImageUrl_ = builderForValue.build();
         onChanged();
       } else {
-        posterImageBuilder_.setMessage(builderForValue.build());
+        posterImageUrlBuilder_.setMessage(builderForValue.build());
       }
 
       return this;
     }
     /**
-     * <code>.google.protobuf.StringValue poster_image = 8 [json_name = "posterImage"];</code>
+     * <code>.google.protobuf.StringValue poster_image_url = 8 [json_name = "posterImageUrl"];</code>
      */
-    public Builder mergePosterImage(com.google.protobuf.StringValue value) {
-      if (posterImageBuilder_ == null) {
-        if (posterImage_ != null) {
-          posterImage_ =
-            com.google.protobuf.StringValue.newBuilder(posterImage_).mergeFrom(value).buildPartial();
+    public Builder mergePosterImageUrl(com.google.protobuf.StringValue value) {
+      if (posterImageUrlBuilder_ == null) {
+        if (posterImageUrl_ != null) {
+          posterImageUrl_ =
+            com.google.protobuf.StringValue.newBuilder(posterImageUrl_).mergeFrom(value).buildPartial();
         } else {
-          posterImage_ = value;
+          posterImageUrl_ = value;
         }
         onChanged();
       } else {
-        posterImageBuilder_.mergeFrom(value);
+        posterImageUrlBuilder_.mergeFrom(value);
       }
 
       return this;
     }
     /**
-     * <code>.google.protobuf.StringValue poster_image = 8 [json_name = "posterImage"];</code>
+     * <code>.google.protobuf.StringValue poster_image_url = 8 [json_name = "posterImageUrl"];</code>
      */
-    public Builder clearPosterImage() {
-      if (posterImageBuilder_ == null) {
-        posterImage_ = null;
+    public Builder clearPosterImageUrl() {
+      if (posterImageUrlBuilder_ == null) {
+        posterImageUrl_ = null;
         onChanged();
       } else {
-        posterImage_ = null;
-        posterImageBuilder_ = null;
+        posterImageUrl_ = null;
+        posterImageUrlBuilder_ = null;
       }
 
       return this;
     }
     /**
-     * <code>.google.protobuf.StringValue poster_image = 8 [json_name = "posterImage"];</code>
+     * <code>.google.protobuf.StringValue poster_image_url = 8 [json_name = "posterImageUrl"];</code>
      */
-    public com.google.protobuf.StringValue.Builder getPosterImageBuilder() {
+    public com.google.protobuf.StringValue.Builder getPosterImageUrlBuilder() {
       
       onChanged();
-      return getPosterImageFieldBuilder().getBuilder();
+      return getPosterImageUrlFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.StringValue poster_image = 8 [json_name = "posterImage"];</code>
+     * <code>.google.protobuf.StringValue poster_image_url = 8 [json_name = "posterImageUrl"];</code>
      */
-    public com.google.protobuf.StringValueOrBuilder getPosterImageOrBuilder() {
-      if (posterImageBuilder_ != null) {
-        return posterImageBuilder_.getMessageOrBuilder();
+    public com.google.protobuf.StringValueOrBuilder getPosterImageUrlOrBuilder() {
+      if (posterImageUrlBuilder_ != null) {
+        return posterImageUrlBuilder_.getMessageOrBuilder();
       } else {
-        return posterImage_ == null ?
-            com.google.protobuf.StringValue.getDefaultInstance() : posterImage_;
+        return posterImageUrl_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : posterImageUrl_;
       }
     }
     /**
-     * <code>.google.protobuf.StringValue poster_image = 8 [json_name = "posterImage"];</code>
+     * <code>.google.protobuf.StringValue poster_image_url = 8 [json_name = "posterImageUrl"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
-        getPosterImageFieldBuilder() {
-      if (posterImageBuilder_ == null) {
-        posterImageBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+        getPosterImageUrlFieldBuilder() {
+      if (posterImageUrlBuilder_ == null) {
+        posterImageUrlBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
             com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
-                getPosterImage(),
+                getPosterImageUrl(),
                 getParentForChildren(),
                 isClean());
-        posterImage_ = null;
+        posterImageUrl_ = null;
       }
-      return posterImageBuilder_;
+      return posterImageUrlBuilder_;
     }
 
     private com.google.protobuf.StringValue posterImageHash_;
@@ -1845,6 +2017,275 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       contact_ = value;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.StringValue profileImageUrl_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> profileImageUrlBuilder_;
+    /**
+     * <code>.google.protobuf.StringValue profile_image_url = 11 [json_name = "profileImageUrl"];</code>
+     * @return Whether the profileImageUrl field is set.
+     */
+    public boolean hasProfileImageUrl() {
+      return profileImageUrlBuilder_ != null || profileImageUrl_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_image_url = 11 [json_name = "profileImageUrl"];</code>
+     * @return The profileImageUrl.
+     */
+    public com.google.protobuf.StringValue getProfileImageUrl() {
+      if (profileImageUrlBuilder_ == null) {
+        return profileImageUrl_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : profileImageUrl_;
+      } else {
+        return profileImageUrlBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_image_url = 11 [json_name = "profileImageUrl"];</code>
+     */
+    public Builder setProfileImageUrl(com.google.protobuf.StringValue value) {
+      if (profileImageUrlBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        profileImageUrl_ = value;
+        onChanged();
+      } else {
+        profileImageUrlBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_image_url = 11 [json_name = "profileImageUrl"];</code>
+     */
+    public Builder setProfileImageUrl(
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (profileImageUrlBuilder_ == null) {
+        profileImageUrl_ = builderForValue.build();
+        onChanged();
+      } else {
+        profileImageUrlBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_image_url = 11 [json_name = "profileImageUrl"];</code>
+     */
+    public Builder mergeProfileImageUrl(com.google.protobuf.StringValue value) {
+      if (profileImageUrlBuilder_ == null) {
+        if (profileImageUrl_ != null) {
+          profileImageUrl_ =
+            com.google.protobuf.StringValue.newBuilder(profileImageUrl_).mergeFrom(value).buildPartial();
+        } else {
+          profileImageUrl_ = value;
+        }
+        onChanged();
+      } else {
+        profileImageUrlBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_image_url = 11 [json_name = "profileImageUrl"];</code>
+     */
+    public Builder clearProfileImageUrl() {
+      if (profileImageUrlBuilder_ == null) {
+        profileImageUrl_ = null;
+        onChanged();
+      } else {
+        profileImageUrl_ = null;
+        profileImageUrlBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_image_url = 11 [json_name = "profileImageUrl"];</code>
+     */
+    public com.google.protobuf.StringValue.Builder getProfileImageUrlBuilder() {
+      
+      onChanged();
+      return getProfileImageUrlFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_image_url = 11 [json_name = "profileImageUrl"];</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getProfileImageUrlOrBuilder() {
+      if (profileImageUrlBuilder_ != null) {
+        return profileImageUrlBuilder_.getMessageOrBuilder();
+      } else {
+        return profileImageUrl_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : profileImageUrl_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_image_url = 11 [json_name = "profileImageUrl"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getProfileImageUrlFieldBuilder() {
+      if (profileImageUrlBuilder_ == null) {
+        profileImageUrlBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getProfileImageUrl(),
+                getParentForChildren(),
+                isClean());
+        profileImageUrl_ = null;
+      }
+      return profileImageUrlBuilder_;
+    }
+
+    private com.google.protobuf.StringValue profileImageHash_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> profileImageHashBuilder_;
+    /**
+     * <code>.google.protobuf.StringValue profile_image_hash = 12 [json_name = "profileImageHash"];</code>
+     * @return Whether the profileImageHash field is set.
+     */
+    public boolean hasProfileImageHash() {
+      return profileImageHashBuilder_ != null || profileImageHash_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_image_hash = 12 [json_name = "profileImageHash"];</code>
+     * @return The profileImageHash.
+     */
+    public com.google.protobuf.StringValue getProfileImageHash() {
+      if (profileImageHashBuilder_ == null) {
+        return profileImageHash_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : profileImageHash_;
+      } else {
+        return profileImageHashBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_image_hash = 12 [json_name = "profileImageHash"];</code>
+     */
+    public Builder setProfileImageHash(com.google.protobuf.StringValue value) {
+      if (profileImageHashBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        profileImageHash_ = value;
+        onChanged();
+      } else {
+        profileImageHashBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_image_hash = 12 [json_name = "profileImageHash"];</code>
+     */
+    public Builder setProfileImageHash(
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (profileImageHashBuilder_ == null) {
+        profileImageHash_ = builderForValue.build();
+        onChanged();
+      } else {
+        profileImageHashBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_image_hash = 12 [json_name = "profileImageHash"];</code>
+     */
+    public Builder mergeProfileImageHash(com.google.protobuf.StringValue value) {
+      if (profileImageHashBuilder_ == null) {
+        if (profileImageHash_ != null) {
+          profileImageHash_ =
+            com.google.protobuf.StringValue.newBuilder(profileImageHash_).mergeFrom(value).buildPartial();
+        } else {
+          profileImageHash_ = value;
+        }
+        onChanged();
+      } else {
+        profileImageHashBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_image_hash = 12 [json_name = "profileImageHash"];</code>
+     */
+    public Builder clearProfileImageHash() {
+      if (profileImageHashBuilder_ == null) {
+        profileImageHash_ = null;
+        onChanged();
+      } else {
+        profileImageHash_ = null;
+        profileImageHashBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_image_hash = 12 [json_name = "profileImageHash"];</code>
+     */
+    public com.google.protobuf.StringValue.Builder getProfileImageHashBuilder() {
+      
+      onChanged();
+      return getProfileImageHashFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_image_hash = 12 [json_name = "profileImageHash"];</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getProfileImageHashOrBuilder() {
+      if (profileImageHashBuilder_ != null) {
+        return profileImageHashBuilder_.getMessageOrBuilder();
+      } else {
+        return profileImageHash_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : profileImageHash_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue profile_image_hash = 12 [json_name = "profileImageHash"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getProfileImageHashFieldBuilder() {
+      if (profileImageHashBuilder_ == null) {
+        profileImageHashBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getProfileImageHash(),
+                getParentForChildren(),
+                isClean());
+        profileImageHash_ = null;
+      }
+      return profileImageHashBuilder_;
+    }
+
+    private long attendeeLimit_ ;
+    /**
+     * <code>int64 attendee_limit = 13 [json_name = "attendeeLimit"];</code>
+     * @return The attendeeLimit.
+     */
+    @java.lang.Override
+    public long getAttendeeLimit() {
+      return attendeeLimit_;
+    }
+    /**
+     * <code>int64 attendee_limit = 13 [json_name = "attendeeLimit"];</code>
+     * @param value The attendeeLimit to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAttendeeLimit(long value) {
+      
+      attendeeLimit_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 attendee_limit = 13 [json_name = "attendeeLimit"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearAttendeeLimit() {
+      
+      attendeeLimit_ = 0L;
       onChanged();
       return this;
     }

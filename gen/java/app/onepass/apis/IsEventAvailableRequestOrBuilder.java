@@ -8,19 +8,10 @@ public interface IsEventAvailableRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
-   * @return Whether the event field is set.
+   * <code>int64 event_id = 1 [json_name = "eventId"];</code>
+   * @return The eventId.
    */
-  boolean hasEvent();
-  /**
-   * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
-   * @return The event.
-   */
-  app.onepass.apis.Event getEvent();
-  /**
-   * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
-   */
-  app.onepass.apis.EventOrBuilder getEventOrBuilder();
+  long getEventId();
 
   /**
    * <code>.google.protobuf.Timestamp date = 2 [json_name = "date"];</code>

@@ -48,17 +48,19 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
-            app.onepass.apis.UserEvent.Builder subBuilder = null;
-            if (userEvent_ != null) {
-              subBuilder = userEvent_.toBuilder();
-            }
-            userEvent_ = input.readMessage(app.onepass.apis.UserEvent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(userEvent_);
-              userEvent_ = subBuilder.buildPartial();
-            }
+          case 8: {
 
+            userEventId_ = input.readInt64();
+            break;
+          }
+          case 16: {
+
+            userId_ = input.readInt64();
+            break;
+          }
+          case 24: {
+
+            eventId_ = input.readInt64();
             break;
           }
           default: {
@@ -93,30 +95,37 @@ private static final long serialVersionUID = 0L;
             app.onepass.apis.GenerateQRRequest.class, app.onepass.apis.GenerateQRRequest.Builder.class);
   }
 
-  public static final int USER_EVENT_FIELD_NUMBER = 1;
-  private app.onepass.apis.UserEvent userEvent_;
+  public static final int USER_EVENT_ID_FIELD_NUMBER = 1;
+  private long userEventId_;
   /**
-   * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
-   * @return Whether the userEvent field is set.
+   * <code>int64 user_event_id = 1 [json_name = "userEventId"];</code>
+   * @return The userEventId.
    */
   @java.lang.Override
-  public boolean hasUserEvent() {
-    return userEvent_ != null;
+  public long getUserEventId() {
+    return userEventId_;
   }
+
+  public static final int USER_ID_FIELD_NUMBER = 2;
+  private long userId_;
   /**
-   * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
-   * @return The userEvent.
+   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * @return The userId.
    */
   @java.lang.Override
-  public app.onepass.apis.UserEvent getUserEvent() {
-    return userEvent_ == null ? app.onepass.apis.UserEvent.getDefaultInstance() : userEvent_;
+  public long getUserId() {
+    return userId_;
   }
+
+  public static final int EVENT_ID_FIELD_NUMBER = 3;
+  private long eventId_;
   /**
-   * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
+   * <code>int64 event_id = 3 [json_name = "eventId"];</code>
+   * @return The eventId.
    */
   @java.lang.Override
-  public app.onepass.apis.UserEventOrBuilder getUserEventOrBuilder() {
-    return getUserEvent();
+  public long getEventId() {
+    return eventId_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -133,8 +142,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (userEvent_ != null) {
-      output.writeMessage(1, getUserEvent());
+    if (userEventId_ != 0L) {
+      output.writeInt64(1, userEventId_);
+    }
+    if (userId_ != 0L) {
+      output.writeInt64(2, userId_);
+    }
+    if (eventId_ != 0L) {
+      output.writeInt64(3, eventId_);
     }
     unknownFields.writeTo(output);
   }
@@ -145,9 +160,17 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (userEvent_ != null) {
+    if (userEventId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getUserEvent());
+        .computeInt64Size(1, userEventId_);
+    }
+    if (userId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(2, userId_);
+    }
+    if (eventId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(3, eventId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -164,11 +187,12 @@ private static final long serialVersionUID = 0L;
     }
     app.onepass.apis.GenerateQRRequest other = (app.onepass.apis.GenerateQRRequest) obj;
 
-    if (hasUserEvent() != other.hasUserEvent()) return false;
-    if (hasUserEvent()) {
-      if (!getUserEvent()
-          .equals(other.getUserEvent())) return false;
-    }
+    if (getUserEventId()
+        != other.getUserEventId()) return false;
+    if (getUserId()
+        != other.getUserId()) return false;
+    if (getEventId()
+        != other.getEventId()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -180,10 +204,15 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (hasUserEvent()) {
-      hash = (37 * hash) + USER_EVENT_FIELD_NUMBER;
-      hash = (53 * hash) + getUserEvent().hashCode();
-    }
+    hash = (37 * hash) + USER_EVENT_ID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getUserEventId());
+    hash = (37 * hash) + USER_ID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getUserId());
+    hash = (37 * hash) + EVENT_ID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getEventId());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -317,12 +346,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (userEventBuilder_ == null) {
-        userEvent_ = null;
-      } else {
-        userEvent_ = null;
-        userEventBuilder_ = null;
-      }
+      userEventId_ = 0L;
+
+      userId_ = 0L;
+
+      eventId_ = 0L;
+
       return this;
     }
 
@@ -349,11 +378,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public app.onepass.apis.GenerateQRRequest buildPartial() {
       app.onepass.apis.GenerateQRRequest result = new app.onepass.apis.GenerateQRRequest(this);
-      if (userEventBuilder_ == null) {
-        result.userEvent_ = userEvent_;
-      } else {
-        result.userEvent_ = userEventBuilder_.build();
-      }
+      result.userEventId_ = userEventId_;
+      result.userId_ = userId_;
+      result.eventId_ = eventId_;
       onBuilt();
       return result;
     }
@@ -402,8 +429,14 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(app.onepass.apis.GenerateQRRequest other) {
       if (other == app.onepass.apis.GenerateQRRequest.getDefaultInstance()) return this;
-      if (other.hasUserEvent()) {
-        mergeUserEvent(other.getUserEvent());
+      if (other.getUserEventId() != 0L) {
+        setUserEventId(other.getUserEventId());
+      }
+      if (other.getUserId() != 0L) {
+        setUserId(other.getUserId());
+      }
+      if (other.getEventId() != 0L) {
+        setEventId(other.getEventId());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -434,123 +467,97 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private app.onepass.apis.UserEvent userEvent_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        app.onepass.apis.UserEvent, app.onepass.apis.UserEvent.Builder, app.onepass.apis.UserEventOrBuilder> userEventBuilder_;
+    private long userEventId_ ;
     /**
-     * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
-     * @return Whether the userEvent field is set.
+     * <code>int64 user_event_id = 1 [json_name = "userEventId"];</code>
+     * @return The userEventId.
      */
-    public boolean hasUserEvent() {
-      return userEventBuilder_ != null || userEvent_ != null;
+    @java.lang.Override
+    public long getUserEventId() {
+      return userEventId_;
     }
     /**
-     * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
-     * @return The userEvent.
+     * <code>int64 user_event_id = 1 [json_name = "userEventId"];</code>
+     * @param value The userEventId to set.
+     * @return This builder for chaining.
      */
-    public app.onepass.apis.UserEvent getUserEvent() {
-      if (userEventBuilder_ == null) {
-        return userEvent_ == null ? app.onepass.apis.UserEvent.getDefaultInstance() : userEvent_;
-      } else {
-        return userEventBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
-     */
-    public Builder setUserEvent(app.onepass.apis.UserEvent value) {
-      if (userEventBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        userEvent_ = value;
-        onChanged();
-      } else {
-        userEventBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
-     */
-    public Builder setUserEvent(
-        app.onepass.apis.UserEvent.Builder builderForValue) {
-      if (userEventBuilder_ == null) {
-        userEvent_ = builderForValue.build();
-        onChanged();
-      } else {
-        userEventBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
-     */
-    public Builder mergeUserEvent(app.onepass.apis.UserEvent value) {
-      if (userEventBuilder_ == null) {
-        if (userEvent_ != null) {
-          userEvent_ =
-            app.onepass.apis.UserEvent.newBuilder(userEvent_).mergeFrom(value).buildPartial();
-        } else {
-          userEvent_ = value;
-        }
-        onChanged();
-      } else {
-        userEventBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
-     */
-    public Builder clearUserEvent() {
-      if (userEventBuilder_ == null) {
-        userEvent_ = null;
-        onChanged();
-      } else {
-        userEvent_ = null;
-        userEventBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
-     */
-    public app.onepass.apis.UserEvent.Builder getUserEventBuilder() {
+    public Builder setUserEventId(long value) {
       
+      userEventId_ = value;
       onChanged();
-      return getUserEventFieldBuilder().getBuilder();
+      return this;
     }
     /**
-     * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
+     * <code>int64 user_event_id = 1 [json_name = "userEventId"];</code>
+     * @return This builder for chaining.
      */
-    public app.onepass.apis.UserEventOrBuilder getUserEventOrBuilder() {
-      if (userEventBuilder_ != null) {
-        return userEventBuilder_.getMessageOrBuilder();
-      } else {
-        return userEvent_ == null ?
-            app.onepass.apis.UserEvent.getDefaultInstance() : userEvent_;
-      }
+    public Builder clearUserEventId() {
+      
+      userEventId_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long userId_ ;
+    /**
+     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * @return The userId.
+     */
+    @java.lang.Override
+    public long getUserId() {
+      return userId_;
     }
     /**
-     * <code>.hts.common.UserEvent user_event = 1 [json_name = "userEvent"];</code>
+     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * @param value The userId to set.
+     * @return This builder for chaining.
      */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        app.onepass.apis.UserEvent, app.onepass.apis.UserEvent.Builder, app.onepass.apis.UserEventOrBuilder> 
-        getUserEventFieldBuilder() {
-      if (userEventBuilder_ == null) {
-        userEventBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            app.onepass.apis.UserEvent, app.onepass.apis.UserEvent.Builder, app.onepass.apis.UserEventOrBuilder>(
-                getUserEvent(),
-                getParentForChildren(),
-                isClean());
-        userEvent_ = null;
-      }
-      return userEventBuilder_;
+    public Builder setUserId(long value) {
+      
+      userId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUserId() {
+      
+      userId_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private long eventId_ ;
+    /**
+     * <code>int64 event_id = 3 [json_name = "eventId"];</code>
+     * @return The eventId.
+     */
+    @java.lang.Override
+    public long getEventId() {
+      return eventId_;
+    }
+    /**
+     * <code>int64 event_id = 3 [json_name = "eventId"];</code>
+     * @param value The eventId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEventId(long value) {
+      
+      eventId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 event_id = 3 [json_name = "eventId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearEventId() {
+      
+      eventId_ = 0L;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

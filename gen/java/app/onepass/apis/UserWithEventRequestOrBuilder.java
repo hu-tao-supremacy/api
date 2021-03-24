@@ -8,32 +8,14 @@ public interface UserWithEventRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.hts.common.User user = 1 [json_name = "user"];</code>
-   * @return Whether the user field is set.
+   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * @return The userId.
    */
-  boolean hasUser();
-  /**
-   * <code>.hts.common.User user = 1 [json_name = "user"];</code>
-   * @return The user.
-   */
-  app.onepass.apis.User getUser();
-  /**
-   * <code>.hts.common.User user = 1 [json_name = "user"];</code>
-   */
-  app.onepass.apis.UserOrBuilder getUserOrBuilder();
+  long getUserId();
 
   /**
-   * <code>.hts.common.Event event = 2 [json_name = "event"];</code>
-   * @return Whether the event field is set.
+   * <code>int64 event_id = 2 [json_name = "eventId"];</code>
+   * @return The eventId.
    */
-  boolean hasEvent();
-  /**
-   * <code>.hts.common.Event event = 2 [json_name = "event"];</code>
-   * @return The event.
-   */
-  app.onepass.apis.Event getEvent();
-  /**
-   * <code>.hts.common.Event event = 2 [json_name = "event"];</code>
-   */
-  app.onepass.apis.EventOrBuilder getEventOrBuilder();
+  long getEventId();
 }

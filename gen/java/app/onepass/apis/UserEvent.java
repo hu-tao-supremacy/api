@@ -16,6 +16,8 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private UserEvent() {
+    ticket_ = "";
+    status_ = 0;
   }
 
   @java.lang.Override
@@ -61,6 +63,31 @@ private static final long serialVersionUID = 0L;
           case 24: {
 
             eventId_ = input.readInt64();
+            break;
+          }
+          case 34: {
+            com.google.protobuf.Int64Value.Builder subBuilder = null;
+            if (rating_ != null) {
+              subBuilder = rating_.toBuilder();
+            }
+            rating_ = input.readMessage(com.google.protobuf.Int64Value.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(rating_);
+              rating_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
+          case 42: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            ticket_ = s;
+            break;
+          }
+          case 48: {
+            int rawValue = input.readEnum();
+
+            status_ = rawValue;
             break;
           }
           default: {
@@ -128,6 +155,89 @@ private static final long serialVersionUID = 0L;
     return eventId_;
   }
 
+  public static final int RATING_FIELD_NUMBER = 4;
+  private com.google.protobuf.Int64Value rating_;
+  /**
+   * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+   * @return Whether the rating field is set.
+   */
+  @java.lang.Override
+  public boolean hasRating() {
+    return rating_ != null;
+  }
+  /**
+   * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+   * @return The rating.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Int64Value getRating() {
+    return rating_ == null ? com.google.protobuf.Int64Value.getDefaultInstance() : rating_;
+  }
+  /**
+   * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.Int64ValueOrBuilder getRatingOrBuilder() {
+    return getRating();
+  }
+
+  public static final int TICKET_FIELD_NUMBER = 5;
+  private volatile java.lang.Object ticket_;
+  /**
+   * <code>string ticket = 5 [json_name = "ticket"];</code>
+   * @return The ticket.
+   */
+  @java.lang.Override
+  public java.lang.String getTicket() {
+    java.lang.Object ref = ticket_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      ticket_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string ticket = 5 [json_name = "ticket"];</code>
+   * @return The bytes for ticket.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getTicketBytes() {
+    java.lang.Object ref = ticket_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      ticket_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int STATUS_FIELD_NUMBER = 6;
+  private int status_;
+  /**
+   * <code>.hts.common.Status status = 6 [json_name = "status"];</code>
+   * @return The enum numeric value on the wire for status.
+   */
+  @java.lang.Override public int getStatusValue() {
+    return status_;
+  }
+  /**
+   * <code>.hts.common.Status status = 6 [json_name = "status"];</code>
+   * @return The status.
+   */
+  @java.lang.Override public app.onepass.apis.Status getStatus() {
+    @SuppressWarnings("deprecation")
+    app.onepass.apis.Status result = app.onepass.apis.Status.valueOf(status_);
+    return result == null ? app.onepass.apis.Status.UNRECOGNIZED : result;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -151,6 +261,15 @@ private static final long serialVersionUID = 0L;
     if (eventId_ != 0L) {
       output.writeInt64(3, eventId_);
     }
+    if (rating_ != null) {
+      output.writeMessage(4, getRating());
+    }
+    if (!getTicketBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, ticket_);
+    }
+    if (status_ != app.onepass.apis.Status.PENDING.getNumber()) {
+      output.writeEnum(6, status_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -171,6 +290,17 @@ private static final long serialVersionUID = 0L;
     if (eventId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(3, eventId_);
+    }
+    if (rating_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, getRating());
+    }
+    if (!getTicketBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, ticket_);
+    }
+    if (status_ != app.onepass.apis.Status.PENDING.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(6, status_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -193,6 +323,14 @@ private static final long serialVersionUID = 0L;
         != other.getUserId()) return false;
     if (getEventId()
         != other.getEventId()) return false;
+    if (hasRating() != other.hasRating()) return false;
+    if (hasRating()) {
+      if (!getRating()
+          .equals(other.getRating())) return false;
+    }
+    if (!getTicket()
+        .equals(other.getTicket())) return false;
+    if (status_ != other.status_) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -213,6 +351,14 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + EVENT_ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getEventId());
+    if (hasRating()) {
+      hash = (37 * hash) + RATING_FIELD_NUMBER;
+      hash = (53 * hash) + getRating().hashCode();
+    }
+    hash = (37 * hash) + TICKET_FIELD_NUMBER;
+    hash = (53 * hash) + getTicket().hashCode();
+    hash = (37 * hash) + STATUS_FIELD_NUMBER;
+    hash = (53 * hash) + status_;
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -352,6 +498,16 @@ private static final long serialVersionUID = 0L;
 
       eventId_ = 0L;
 
+      if (ratingBuilder_ == null) {
+        rating_ = null;
+      } else {
+        rating_ = null;
+        ratingBuilder_ = null;
+      }
+      ticket_ = "";
+
+      status_ = 0;
+
       return this;
     }
 
@@ -381,6 +537,13 @@ private static final long serialVersionUID = 0L;
       result.id_ = id_;
       result.userId_ = userId_;
       result.eventId_ = eventId_;
+      if (ratingBuilder_ == null) {
+        result.rating_ = rating_;
+      } else {
+        result.rating_ = ratingBuilder_.build();
+      }
+      result.ticket_ = ticket_;
+      result.status_ = status_;
       onBuilt();
       return result;
     }
@@ -437,6 +600,16 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getEventId() != 0L) {
         setEventId(other.getEventId());
+      }
+      if (other.hasRating()) {
+        mergeRating(other.getRating());
+      }
+      if (!other.getTicket().isEmpty()) {
+        ticket_ = other.ticket_;
+        onChanged();
+      }
+      if (other.status_ != 0) {
+        setStatusValue(other.getStatusValue());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -556,6 +729,255 @@ private static final long serialVersionUID = 0L;
     public Builder clearEventId() {
       
       eventId_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.Int64Value rating_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder> ratingBuilder_;
+    /**
+     * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+     * @return Whether the rating field is set.
+     */
+    public boolean hasRating() {
+      return ratingBuilder_ != null || rating_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+     * @return The rating.
+     */
+    public com.google.protobuf.Int64Value getRating() {
+      if (ratingBuilder_ == null) {
+        return rating_ == null ? com.google.protobuf.Int64Value.getDefaultInstance() : rating_;
+      } else {
+        return ratingBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+     */
+    public Builder setRating(com.google.protobuf.Int64Value value) {
+      if (ratingBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        rating_ = value;
+        onChanged();
+      } else {
+        ratingBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+     */
+    public Builder setRating(
+        com.google.protobuf.Int64Value.Builder builderForValue) {
+      if (ratingBuilder_ == null) {
+        rating_ = builderForValue.build();
+        onChanged();
+      } else {
+        ratingBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+     */
+    public Builder mergeRating(com.google.protobuf.Int64Value value) {
+      if (ratingBuilder_ == null) {
+        if (rating_ != null) {
+          rating_ =
+            com.google.protobuf.Int64Value.newBuilder(rating_).mergeFrom(value).buildPartial();
+        } else {
+          rating_ = value;
+        }
+        onChanged();
+      } else {
+        ratingBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+     */
+    public Builder clearRating() {
+      if (ratingBuilder_ == null) {
+        rating_ = null;
+        onChanged();
+      } else {
+        rating_ = null;
+        ratingBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+     */
+    public com.google.protobuf.Int64Value.Builder getRatingBuilder() {
+      
+      onChanged();
+      return getRatingFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+     */
+    public com.google.protobuf.Int64ValueOrBuilder getRatingOrBuilder() {
+      if (ratingBuilder_ != null) {
+        return ratingBuilder_.getMessageOrBuilder();
+      } else {
+        return rating_ == null ?
+            com.google.protobuf.Int64Value.getDefaultInstance() : rating_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder> 
+        getRatingFieldBuilder() {
+      if (ratingBuilder_ == null) {
+        ratingBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder>(
+                getRating(),
+                getParentForChildren(),
+                isClean());
+        rating_ = null;
+      }
+      return ratingBuilder_;
+    }
+
+    private java.lang.Object ticket_ = "";
+    /**
+     * <code>string ticket = 5 [json_name = "ticket"];</code>
+     * @return The ticket.
+     */
+    public java.lang.String getTicket() {
+      java.lang.Object ref = ticket_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        ticket_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string ticket = 5 [json_name = "ticket"];</code>
+     * @return The bytes for ticket.
+     */
+    public com.google.protobuf.ByteString
+        getTicketBytes() {
+      java.lang.Object ref = ticket_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        ticket_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string ticket = 5 [json_name = "ticket"];</code>
+     * @param value The ticket to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTicket(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      ticket_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string ticket = 5 [json_name = "ticket"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTicket() {
+      
+      ticket_ = getDefaultInstance().getTicket();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string ticket = 5 [json_name = "ticket"];</code>
+     * @param value The bytes for ticket to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTicketBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      ticket_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int status_ = 0;
+    /**
+     * <code>.hts.common.Status status = 6 [json_name = "status"];</code>
+     * @return The enum numeric value on the wire for status.
+     */
+    @java.lang.Override public int getStatusValue() {
+      return status_;
+    }
+    /**
+     * <code>.hts.common.Status status = 6 [json_name = "status"];</code>
+     * @param value The enum numeric value on the wire for status to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStatusValue(int value) {
+      
+      status_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.hts.common.Status status = 6 [json_name = "status"];</code>
+     * @return The status.
+     */
+    @java.lang.Override
+    public app.onepass.apis.Status getStatus() {
+      @SuppressWarnings("deprecation")
+      app.onepass.apis.Status result = app.onepass.apis.Status.valueOf(status_);
+      return result == null ? app.onepass.apis.Status.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.hts.common.Status status = 6 [json_name = "status"];</code>
+     * @param value The status to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStatus(app.onepass.apis.Status value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      status_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.hts.common.Status status = 6 [json_name = "status"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearStatus() {
+      
+      status_ = 0;
       onChanged();
       return this;
     }
