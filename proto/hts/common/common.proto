@@ -141,6 +141,11 @@ message Event {
   google.protobuf.StringValue profile_image_url = 11;
   google.protobuf.StringValue profile_image_hash = 12;
   int64 attendee_limit = 13;
+  string location_name = 14;
+  string google_map_url = 15;
+  google.protobuf.StringValue location_description = 16;
+  google.protobuf.StringValue travel_information_image_url = 17;
+  google.protobuf.StringValue travel_information_image_hash = 18;
 }
 
 message Answer {
@@ -148,21 +153,6 @@ message Answer {
   int64 user_event_id = 2;
   int64 question_id = 3;
   string value = 4;
-}
-
-message EventLocation {
-  int64 id = 1;
-  int64 event_id = 2;
-  int64 location_id = 3;
-}
-
-message Location {
-  int64 id = 1;
-  string name = 2;
-  string google_map_url = 3;
-  google.protobuf.StringValue description = 4;
-  google.protobuf.StringValue travel_information_image_url = 5;
-  google.protobuf.StringValue travel_information_image_hash = 6;
 }
 
 message UserEvent {
