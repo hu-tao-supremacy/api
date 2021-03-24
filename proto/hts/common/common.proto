@@ -26,8 +26,8 @@ enum AnswerType {
 }
 
 enum QuestionType {
-  PRE_EVENT = 1;
-  POST_EVENT = 2;
+  PRE_EVENT = 0;
+  POST_EVENT = 1;
 }
 
 enum Gender {
@@ -130,7 +130,7 @@ message UserOrganization {
 message Event {
   int64 id = 1;
   int64 organization_id = 2;
-  google.protobuf.Int64Value event_location_id = 3;
+  google.protobuf.Int64Value location_id = 3;
   string description = 4;
   string name = 5;
   google.protobuf.StringValue cover_image_url = 6;
@@ -139,7 +139,7 @@ message Event {
   google.protobuf.StringValue poster_image_hash = 9;
   string contact = 10;
   google.protobuf.StringValue profile_image_url = 11;
-  google.protobuf.StringValue profile_imaage_hash = 12;
+  google.protobuf.StringValue profile_image_hash = 12;
   int64 attendee_limit = 13;
 }
 
