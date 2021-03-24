@@ -85,20 +85,20 @@ message HasEventRequest {
   int64 event_id = 2;
 }
 
+message QuestionGroupsRequest {
+  repeated hts.common.QuestionGroup question_groups = 1;
+}
+
+message QuestionsRequest {
+  repeated hts.common.Question questions = 1;
+}
+
 message GetOrganizationResponse {
   repeated hts.common.Organization organizations = 1;
 }
 
 message GetOrganizationByIdResponse {
   hts.common.Organization organization = 1;
-}
-
-message GetEventResponse {
-  repeated hts.common.Event events = 1;
-}
-
-message GetEventByIdResponse {
-  hts.common.Event event = 1;
 }
 
 message GetTagResponse {
@@ -128,5 +128,9 @@ service OrganizerService {
   rpc GetTag(google.protobuf.Empty) returns (GetTagResponse);
   rpc GetTagById(GetByIdRequest) returns (GetTagByIdResponse);
   rpc HasEvent(HasEventRequest) returns (hts.common.Event);
+  rpc AddQuestionGroups(QuestionGroupsRequest) returns (google.protobuf.Empty);
+  rpc RemoveQuestionGroups(QuestionGroupsRequest) returns (google.protobuf.Empty);
+  rpc AddQuestions(QuestionsRequest) returns (google.protobuf.Empty);
+  rpc RemoveQuestions(QuestionsRequest) returns (google.protobuf.Empty);
   rpc Ping(google.protobuf.Empty) returns (hts.common.Result);
 }
