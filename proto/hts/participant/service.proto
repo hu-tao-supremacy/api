@@ -58,15 +58,9 @@ message GetUpcomingEventsRequest {
     google.protobuf.Timestamp end = 2;
 }
 
-message GetEventsByTagIdRequest {
-    int64 tag_id = 1;
-}
-message GetEventsByOrganizationIdRequest {
-    int64 organization_id = 1;
-}
 
-message GetEventsByFacilityIdRequest {
-    int64 facility_id = 1;
+message GetEventsByIdRequest {
+    int64 id = 1;
 }
 
 message GenerateQRRequest {
@@ -98,11 +92,11 @@ service ParticipantService {
     // Get events from search string
     rpc GetEventsByStringOfName(StringInputRequest) returns (EventsResponse);
     // Get events from specified Tag
-    rpc GetEventsByTagId(GetEventsByTagIdRequest) returns (EventsResponse);
+    rpc GetEventsByTagId(GetEventsByIdRequest) returns (EventsResponse);
     // Get event from specified organization
-    rpc GetEventsByOrganizationId(GetEventsByOrganizationIdRequest) returns (EventsResponse);
+    rpc GetEventsByOrganizationId(GetEventsByIdRequest) returns (EventsResponse);
     // Get event from specified facility
-    rpc GetEventsByFacilityId(GetEventsByFacilityIdRequest) returns (EventsResponse);
+    rpc GetEventsByFacilityId(GetEventsByIdRequest) returns (EventsResponse);
     // Get event from specified date
     rpc GetEventsByDate(google.protobuf.Timestamp) returns (EventsResponse);
 
