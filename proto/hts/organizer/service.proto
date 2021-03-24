@@ -71,7 +71,8 @@ message UpdateRegistrationRequestRequest {
 
 message CreateTagRequest {
   int64 user_id = 1;
-  hts.common.Tag tag = 2;
+  int64 organization_id = 2;
+  hts.common.Tag tag = 3;
 }
 
 message UpdateTagRequest {
