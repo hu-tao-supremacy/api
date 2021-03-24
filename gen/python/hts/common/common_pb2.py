@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\020app.onepass.apisB\013CommonProtoP\001Z\037onepass.app/facility/hts/common',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x17hts/common/common.proto\x12\nhts.common\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"x\n\rOperatingHour\x12\x1d\n\nstart_hour\x18\x01 \x01(\x03R\tstartHour\x12\x1f\n\x0b\x66inish_hour\x18\x02 \x01(\x03R\nfinishHour\x12\'\n\x03\x64\x61y\x18\x03 \x01(\x0e\x32\x15.hts.common.DayOfWeekR\x03\x64\x61y\"?\n\x06Result\x12\x13\n\x05is_ok\x18\x01 \x01(\x08R\x04isOk\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\"\xb0\x03\n\x04User\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x1d\n\nfirst_name\x18\x02 \x01(\tR\tfirstName\x12\x1b\n\tlast_name\x18\x03 \x01(\tR\x08lastName\x12\x14\n\x05\x65mail\x18\x04 \x01(\tR\x05\x65mail\x12\x38\n\x08nickname\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x08nickname\x12\x37\n\x08\x63hula_id\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x07\x63hulaId\x12(\n\x10is_chula_student\x18\x07 \x01(\x08R\x0eisChulaStudent\x12*\n\x06gender\x18\x08 \x01(\x0e\x32\x12.hts.common.GenderR\x06gender\x12\x36\n\x07\x61\x64\x64ress\x18\t \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x07\x61\x64\x64ress\x12\x45\n\x0fprofile_picture\x18\n \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0eprofilePicture\"\xa0\x08\n\x0cOrganization\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12\x1f\n\x0bis_verified\x18\x03 \x01(\x08R\nisVerified\x12@\n\x0c\x61\x62\x62reviation\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0c\x61\x62\x62reviation\x12\x36\n\x07\x61\x64visor\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x07\x61\x64visor\x12K\n\x12\x61ssociated_faculty\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x11\x61ssociatedFaculty\x12>\n\x0b\x64\x65scription\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0b\x64\x65scription\x12\x41\n\rfacebook_page\x18\x08 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0c\x66\x61\x63\x65\x62ookPage\x12:\n\tinstagram\x18\t \x01(\x0b\x32\x1c.google.protobuf.StringValueR\tinstagram\x12P\n\x15line_official_account\x18\n \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x13lineOfficialAccount\x12\x32\n\x05\x65mail\x18\x0b \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x05\x65mail\x12H\n\x11\x63ontact_full_name\x18\x0c \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0f\x63ontactFullName\x12\x41\n\rcontact_email\x18\r \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0c\x63ontactEmail\x12N\n\x14\x63ontact_phone_number\x18\x0e \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x12\x63ontactPhoneNumber\x12\x44\n\x0f\x63ontact_line_id\x18\x0f \x01(\x0b\x32\x1c.google.protobuf.StringValueR\rcontactLineId\x12L\n\x13profile_picture_url\x18\x10 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x11profilePictureUrl\x12N\n\x14profile_picture_hash\x18\x11 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x12profilePictureHash\"\x94\x01\n\rQuestionGroup\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12,\n\x04type\x18\x03 \x01(\x0e\x32\x18.hts.common.QuestionTypeR\x04type\x12\x14\n\x05order\x18\x04 \x01(\x03R\x05order\x12\x14\n\x05title\x18\x05 \x01(\tR\x05title\"\xe8\x01\n\x08Question\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12*\n\x11question_group_id\x18\x02 \x01(\x03R\x0fquestionGroupId\x12\x14\n\x05order\x18\x03 \x01(\x03R\x05order\x12\x37\n\x0b\x61nswer_type\x18\x04 \x01(\x0e\x32\x16.hts.common.AnswerTypeR\nanswerType\x12\x1f\n\x0bis_optional\x18\x05 \x01(\x08R\nisOptional\x12\x14\n\x05title\x18\x06 \x01(\tR\x05title\x12\x1a\n\x08subtitle\x18\x07 \x01(\tR\x08subtitle\"d\n\x10UserOrganization\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n\x07user_id\x18\x02 \x01(\x03R\x06userId\x12\'\n\x0forganization_id\x18\x03 \x01(\x03R\x0eorganizationId\"\xab\x05\n\x05\x45vent\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12<\n\x0blocation_id\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int64ValueR\nlocationId\x12 \n\x0b\x64\x65scription\x18\x04 \x01(\tR\x0b\x64\x65scription\x12\x12\n\x04name\x18\x05 \x01(\tR\x04name\x12\x44\n\x0f\x63over_image_url\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\rcoverImageUrl\x12\x46\n\x10\x63over_image_hash\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0e\x63overImageHash\x12\x46\n\x10poster_image_url\x18\x08 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0eposterImageUrl\x12H\n\x11poster_image_hash\x18\t \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0fposterImageHash\x12\x18\n\x07\x63ontact\x18\n \x01(\tR\x07\x63ontact\x12H\n\x11profile_image_url\x18\x0b \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0fprofileImageUrl\x12J\n\x12profile_image_hash\x18\x0c \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x10profileImageHash\x12%\n\x0e\x61ttendee_limit\x18\r \x01(\x03R\rattendeeLimit\"s\n\x06\x41nswer\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\"\n\ruser_event_id\x18\x02 \x01(\x03R\x0buserEventId\x12\x1f\n\x0bquestion_id\x18\x03 \x01(\x03R\nquestionId\x12\x14\n\x05value\x18\x04 \x01(\tR\x05value\"[\n\rEventLocation\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12\x1f\n\x0blocation_id\x18\x03 \x01(\x03R\nlocationId\"\xd4\x02\n\x08Location\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12$\n\x0egoogle_map_url\x18\x03 \x01(\tR\x0cgoogleMapUrl\x12>\n\x0b\x64\x65scription\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0b\x64\x65scription\x12]\n\x1ctravel_information_image_url\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x19travelInformationImageUrl\x12_\n\x1dtravel_information_image_hash\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x1atravelInformationImageHash\"\xc8\x01\n\tUserEvent\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n\x07user_id\x18\x02 \x01(\x03R\x06userId\x12\x19\n\x08\x65vent_id\x18\x03 \x01(\x03R\x07\x65ventId\x12\x33\n\x06rating\x18\x04 \x01(\x0b\x32\x1b.google.protobuf.Int64ValueR\x06rating\x12\x16\n\x06ticket\x18\x05 \x01(\tR\x06ticket\x12*\n\x06status\x18\x06 \x01(\x0e\x32\x12.hts.common.StatusR\x06status\"\xa0\x01\n\rEventDuration\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12\x30\n\x05start\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12\x32\n\x06\x66inish\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x06\x66inish\")\n\x03Tag\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\"L\n\x08\x45ventTag\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12\x15\n\x06tag_id\x18\x03 \x01(\x03R\x05tagId\"\x89\x01\n\x16OrganizationPermission\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12\x36\n\npermission\x18\x03 \x01(\x0e\x32\x16.hts.common.PermissionR\npermission\"w\n\x0eUserPermission\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n\x07user_id\x18\x02 \x01(\x03R\x06userId\x12<\n\x1aorganization_permission_id\x18\x03 \x01(\x03R\x18organizationPermissionId\"M\n\x0cUserInterest\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x16\n\x06userId\x18\x02 \x01(\x03R\x06userId\x12\x15\n\x06tag_id\x18\x03 \x01(\x03R\x05tagId\"\xb2\x02\n\x0f\x46\x61\x63ilityRequest\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12\x1f\n\x0b\x66\x61\x63ility_id\x18\x03 \x01(\x03R\nfacilityId\x12*\n\x06status\x18\x04 \x01(\x0e\x32\x12.hts.common.StatusR\x06status\x12\x41\n\rreject_reason\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0crejectReason\x12\x30\n\x05start\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12\x32\n\x06\x66inish\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x06\x66inish\"\xf7\x01\n\x08\x46\x61\x63ility\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12\x12\n\x04name\x18\x03 \x01(\tR\x04name\x12\x1a\n\x08latitude\x18\x04 \x01(\x01R\x08latitude\x12\x1c\n\tlongitude\x18\x05 \x01(\x01R\tlongitude\x12\x42\n\x0foperating_hours\x18\x06 \x03(\x0b\x32\x19.hts.common.OperatingHourR\x0eoperatingHours\x12 \n\x0b\x64\x65scription\x18\x07 \x01(\tR\x0b\x64\x65scription*J\n\tDayOfWeek\x12\x07\n\x03SUN\x10\x00\x12\x07\n\x03MON\x10\x01\x12\x07\n\x03TUE\x10\x02\x12\x07\n\x03WED\x10\x03\x12\x07\n\x03THU\x10\x04\x12\x07\n\x03\x46RI\x10\x05\x12\x07\n\x03SAT\x10\x06*!\n\nAnswerType\x12\t\n\x05SCALE\x10\x00\x12\x08\n\x04TEXT\x10\x01*-\n\x0cQuestionType\x12\r\n\tPRE_EVENT\x10\x00\x12\x0e\n\nPOST_EVENT\x10\x01*1\n\x06Gender\x12\x08\n\x04MALE\x10\x00\x12\n\n\x06\x46\x45MALE\x10\x01\x12\x11\n\rNOT_SPECIFIED\x10\x02*1\n\x06Status\x12\x0b\n\x07PENDING\x10\x00\x12\x0c\n\x08\x41PPROVED\x10\x01\x12\x0c\n\x08REJECTED\x10\x02*\xa6\x02\n\nPermission\x12\x17\n\x13ORGANIZATION_UPDATE\x10\x00\x12\x17\n\x13ORGANIZATION_REMOVE\x10\x01\x12\x1b\n\x17ORGANIZATION_MEMBER_ADD\x10\x02\x12\x1e\n\x1aORGANIZATION_MEMBER_REMOVE\x10\x03\x12\x10\n\x0c\x45VENT_CREATE\x10\x04\x12\x10\n\x0c\x45VENT_UPDATE\x10\x05\x12\x10\n\x0c\x45VENT_REMOVE\x10\x06\x12\x0e\n\nTAG_CREATE\x10\x07\x12\x0e\n\nTAG_REMOVE\x10\x08\x12\x14\n\x10\x45VENT_TAG_UPDATE\x10\t\x12\x13\n\x0f\x46\x41\x43ILITY_CREATE\x10\n\x12\x13\n\x0f\x46\x41\x43ILITY_UPDATE\x10\x0b\x12\x13\n\x0f\x46\x41\x43ILITY_REMOVE\x10\x0c\x42\x42\n\x10\x61pp.onepass.apisB\x0b\x43ommonProtoP\x01Z\x1fonepass.app/facility/hts/commonb\x06proto3'
+  serialized_pb=b'\n\x17hts/common/common.proto\x12\nhts.common\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"x\n\rOperatingHour\x12\x1d\n\nstart_hour\x18\x01 \x01(\x03R\tstartHour\x12\x1f\n\x0b\x66inish_hour\x18\x02 \x01(\x03R\nfinishHour\x12\'\n\x03\x64\x61y\x18\x03 \x01(\x0e\x32\x15.hts.common.DayOfWeekR\x03\x64\x61y\"?\n\x06Result\x12\x13\n\x05is_ok\x18\x01 \x01(\x08R\x04isOk\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\"\xb0\x03\n\x04User\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x1d\n\nfirst_name\x18\x02 \x01(\tR\tfirstName\x12\x1b\n\tlast_name\x18\x03 \x01(\tR\x08lastName\x12\x14\n\x05\x65mail\x18\x04 \x01(\tR\x05\x65mail\x12\x38\n\x08nickname\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x08nickname\x12\x37\n\x08\x63hula_id\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x07\x63hulaId\x12(\n\x10is_chula_student\x18\x07 \x01(\x08R\x0eisChulaStudent\x12*\n\x06gender\x18\x08 \x01(\x0e\x32\x12.hts.common.GenderR\x06gender\x12\x36\n\x07\x61\x64\x64ress\x18\t \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x07\x61\x64\x64ress\x12\x45\n\x0fprofile_picture\x18\n \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0eprofilePicture\"\xa0\x08\n\x0cOrganization\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12\x1f\n\x0bis_verified\x18\x03 \x01(\x08R\nisVerified\x12@\n\x0c\x61\x62\x62reviation\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0c\x61\x62\x62reviation\x12\x36\n\x07\x61\x64visor\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x07\x61\x64visor\x12K\n\x12\x61ssociated_faculty\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x11\x61ssociatedFaculty\x12>\n\x0b\x64\x65scription\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0b\x64\x65scription\x12\x41\n\rfacebook_page\x18\x08 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0c\x66\x61\x63\x65\x62ookPage\x12:\n\tinstagram\x18\t \x01(\x0b\x32\x1c.google.protobuf.StringValueR\tinstagram\x12P\n\x15line_official_account\x18\n \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x13lineOfficialAccount\x12\x32\n\x05\x65mail\x18\x0b \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x05\x65mail\x12H\n\x11\x63ontact_full_name\x18\x0c \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0f\x63ontactFullName\x12\x41\n\rcontact_email\x18\r \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0c\x63ontactEmail\x12N\n\x14\x63ontact_phone_number\x18\x0e \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x12\x63ontactPhoneNumber\x12\x44\n\x0f\x63ontact_line_id\x18\x0f \x01(\x0b\x32\x1c.google.protobuf.StringValueR\rcontactLineId\x12L\n\x13profile_picture_url\x18\x10 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x11profilePictureUrl\x12N\n\x14profile_picture_hash\x18\x11 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x12profilePictureHash\"\x94\x01\n\rQuestionGroup\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12,\n\x04type\x18\x03 \x01(\x0e\x32\x18.hts.common.QuestionTypeR\x04type\x12\x14\n\x05order\x18\x04 \x01(\x03R\x05order\x12\x14\n\x05title\x18\x05 \x01(\tR\x05title\"\xe8\x01\n\x08Question\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12*\n\x11question_group_id\x18\x02 \x01(\x03R\x0fquestionGroupId\x12\x14\n\x05order\x18\x03 \x01(\x03R\x05order\x12\x37\n\x0b\x61nswer_type\x18\x04 \x01(\x0e\x32\x16.hts.common.AnswerTypeR\nanswerType\x12\x1f\n\x0bis_optional\x18\x05 \x01(\x08R\nisOptional\x12\x14\n\x05title\x18\x06 \x01(\tR\x05title\x12\x1a\n\x08subtitle\x18\x07 \x01(\tR\x08subtitle\"d\n\x10UserOrganization\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n\x07user_id\x18\x02 \x01(\x03R\x06userId\x12\'\n\x0forganization_id\x18\x03 \x01(\x03R\x0eorganizationId\"\x87\x08\n\x05\x45vent\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12<\n\x0blocation_id\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int64ValueR\nlocationId\x12 \n\x0b\x64\x65scription\x18\x04 \x01(\tR\x0b\x64\x65scription\x12\x12\n\x04name\x18\x05 \x01(\tR\x04name\x12\x44\n\x0f\x63over_image_url\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\rcoverImageUrl\x12\x46\n\x10\x63over_image_hash\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0e\x63overImageHash\x12\x46\n\x10poster_image_url\x18\x08 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0eposterImageUrl\x12H\n\x11poster_image_hash\x18\t \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0fposterImageHash\x12\x18\n\x07\x63ontact\x18\n \x01(\tR\x07\x63ontact\x12H\n\x11profile_image_url\x18\x0b \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0fprofileImageUrl\x12J\n\x12profile_image_hash\x18\x0c \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x10profileImageHash\x12%\n\x0e\x61ttendee_limit\x18\r \x01(\x03R\rattendeeLimit\x12#\n\rlocation_name\x18\x0e \x01(\tR\x0clocationName\x12$\n\x0egoogle_map_url\x18\x0f \x01(\tR\x0cgoogleMapUrl\x12O\n\x14location_description\x18\x10 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x13locationDescription\x12]\n\x1ctravel_information_image_url\x18\x11 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x19travelInformationImageUrl\x12_\n\x1dtravel_information_image_hash\x18\x12 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x1atravelInformationImageHash\"s\n\x06\x41nswer\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\"\n\ruser_event_id\x18\x02 \x01(\x03R\x0buserEventId\x12\x1f\n\x0bquestion_id\x18\x03 \x01(\x03R\nquestionId\x12\x14\n\x05value\x18\x04 \x01(\tR\x05value\"\xc8\x01\n\tUserEvent\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n\x07user_id\x18\x02 \x01(\x03R\x06userId\x12\x19\n\x08\x65vent_id\x18\x03 \x01(\x03R\x07\x65ventId\x12\x33\n\x06rating\x18\x04 \x01(\x0b\x32\x1b.google.protobuf.Int64ValueR\x06rating\x12\x16\n\x06ticket\x18\x05 \x01(\tR\x06ticket\x12*\n\x06status\x18\x06 \x01(\x0e\x32\x12.hts.common.StatusR\x06status\"\xa0\x01\n\rEventDuration\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12\x30\n\x05start\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12\x32\n\x06\x66inish\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x06\x66inish\")\n\x03Tag\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\"L\n\x08\x45ventTag\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12\x15\n\x06tag_id\x18\x03 \x01(\x03R\x05tagId\"\x89\x01\n\x16OrganizationPermission\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12\x36\n\npermission\x18\x03 \x01(\x0e\x32\x16.hts.common.PermissionR\npermission\"w\n\x0eUserPermission\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n\x07user_id\x18\x02 \x01(\x03R\x06userId\x12<\n\x1aorganization_permission_id\x18\x03 \x01(\x03R\x18organizationPermissionId\"M\n\x0cUserInterest\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x16\n\x06userId\x18\x02 \x01(\x03R\x06userId\x12\x15\n\x06tag_id\x18\x03 \x01(\x03R\x05tagId\"\xb2\x02\n\x0f\x46\x61\x63ilityRequest\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12\x1f\n\x0b\x66\x61\x63ility_id\x18\x03 \x01(\x03R\nfacilityId\x12*\n\x06status\x18\x04 \x01(\x0e\x32\x12.hts.common.StatusR\x06status\x12\x41\n\rreject_reason\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0crejectReason\x12\x30\n\x05start\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12\x32\n\x06\x66inish\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x06\x66inish\"\xf7\x01\n\x08\x46\x61\x63ility\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12\x12\n\x04name\x18\x03 \x01(\tR\x04name\x12\x1a\n\x08latitude\x18\x04 \x01(\x01R\x08latitude\x12\x1c\n\tlongitude\x18\x05 \x01(\x01R\tlongitude\x12\x42\n\x0foperating_hours\x18\x06 \x03(\x0b\x32\x19.hts.common.OperatingHourR\x0eoperatingHours\x12 \n\x0b\x64\x65scription\x18\x07 \x01(\tR\x0b\x64\x65scription*J\n\tDayOfWeek\x12\x07\n\x03SUN\x10\x00\x12\x07\n\x03MON\x10\x01\x12\x07\n\x03TUE\x10\x02\x12\x07\n\x03WED\x10\x03\x12\x07\n\x03THU\x10\x04\x12\x07\n\x03\x46RI\x10\x05\x12\x07\n\x03SAT\x10\x06*!\n\nAnswerType\x12\t\n\x05SCALE\x10\x00\x12\x08\n\x04TEXT\x10\x01*-\n\x0cQuestionType\x12\r\n\tPRE_EVENT\x10\x00\x12\x0e\n\nPOST_EVENT\x10\x01*1\n\x06Gender\x12\x08\n\x04MALE\x10\x00\x12\n\n\x06\x46\x45MALE\x10\x01\x12\x11\n\rNOT_SPECIFIED\x10\x02*1\n\x06Status\x12\x0b\n\x07PENDING\x10\x00\x12\x0c\n\x08\x41PPROVED\x10\x01\x12\x0c\n\x08REJECTED\x10\x02*\xa6\x02\n\nPermission\x12\x17\n\x13ORGANIZATION_UPDATE\x10\x00\x12\x17\n\x13ORGANIZATION_REMOVE\x10\x01\x12\x1b\n\x17ORGANIZATION_MEMBER_ADD\x10\x02\x12\x1e\n\x1aORGANIZATION_MEMBER_REMOVE\x10\x03\x12\x10\n\x0c\x45VENT_CREATE\x10\x04\x12\x10\n\x0c\x45VENT_UPDATE\x10\x05\x12\x10\n\x0c\x45VENT_REMOVE\x10\x06\x12\x0e\n\nTAG_CREATE\x10\x07\x12\x0e\n\nTAG_REMOVE\x10\x08\x12\x14\n\x10\x45VENT_TAG_UPDATE\x10\t\x12\x13\n\x0f\x46\x41\x43ILITY_CREATE\x10\n\x12\x13\n\x0f\x46\x41\x43ILITY_UPDATE\x10\x0b\x12\x13\n\x0f\x46\x41\x43ILITY_REMOVE\x10\x0c\x42\x42\n\x10\x61pp.onepass.apisB\x0b\x43ommonProtoP\x01Z\x1fonepass.app/facility/hts/commonb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
@@ -71,8 +71,8 @@ _DAYOFWEEK = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4898,
-  serialized_end=4972,
+  serialized_start=4810,
+  serialized_end=4884,
 )
 _sym_db.RegisterEnumDescriptor(_DAYOFWEEK)
 
@@ -97,8 +97,8 @@ _ANSWERTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4974,
-  serialized_end=5007,
+  serialized_start=4886,
+  serialized_end=4919,
 )
 _sym_db.RegisterEnumDescriptor(_ANSWERTYPE)
 
@@ -123,8 +123,8 @@ _QUESTIONTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5009,
-  serialized_end=5054,
+  serialized_start=4921,
+  serialized_end=4966,
 )
 _sym_db.RegisterEnumDescriptor(_QUESTIONTYPE)
 
@@ -154,8 +154,8 @@ _GENDER = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5056,
-  serialized_end=5105,
+  serialized_start=4968,
+  serialized_end=5017,
 )
 _sym_db.RegisterEnumDescriptor(_GENDER)
 
@@ -185,8 +185,8 @@ _STATUS = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5107,
-  serialized_end=5156,
+  serialized_start=5019,
+  serialized_end=5068,
 )
 _sym_db.RegisterEnumDescriptor(_STATUS)
 
@@ -266,8 +266,8 @@ _PERMISSION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5159,
-  serialized_end=5453,
+  serialized_start=5071,
+  serialized_end=5365,
 )
 _sym_db.RegisterEnumDescriptor(_PERMISSION)
 
@@ -908,6 +908,41 @@ _EVENT = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='attendeeLimit', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='location_name', full_name='hts.common.Event.location_name', index=13,
+      number=14, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='locationName', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='google_map_url', full_name='hts.common.Event.google_map_url', index=14,
+      number=15, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='googleMapUrl', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='location_description', full_name='hts.common.Event.location_description', index=15,
+      number=16, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='locationDescription', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='travel_information_image_url', full_name='hts.common.Event.travel_information_image_url', index=16,
+      number=17, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='travelInformationImageUrl', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='travel_information_image_hash', full_name='hts.common.Event.travel_information_image_hash', index=17,
+      number=18, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='travelInformationImageHash', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -921,7 +956,7 @@ _EVENT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=2274,
-  serialized_end=2957,
+  serialized_end=3305,
 )
 
 
@@ -973,121 +1008,8 @@ _ANSWER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2959,
-  serialized_end=3074,
-)
-
-
-_EVENTLOCATION = _descriptor.Descriptor(
-  name='EventLocation',
-  full_name='hts.common.EventLocation',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='id', full_name='hts.common.EventLocation.id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='event_id', full_name='hts.common.EventLocation.event_id', index=1,
-      number=2, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='eventId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='location_id', full_name='hts.common.EventLocation.location_id', index=2,
-      number=3, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='locationId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3076,
-  serialized_end=3167,
-)
-
-
-_LOCATION = _descriptor.Descriptor(
-  name='Location',
-  full_name='hts.common.Location',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='id', full_name='hts.common.Location.id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='id', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='name', full_name='hts.common.Location.name', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='name', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='google_map_url', full_name='hts.common.Location.google_map_url', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='googleMapUrl', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='description', full_name='hts.common.Location.description', index=3,
-      number=4, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='description', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='travel_information_image_url', full_name='hts.common.Location.travel_information_image_url', index=4,
-      number=5, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='travelInformationImageUrl', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='travel_information_image_hash', full_name='hts.common.Location.travel_information_image_hash', index=5,
-      number=6, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='travelInformationImageHash', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=3170,
-  serialized_end=3510,
+  serialized_start=3307,
+  serialized_end=3422,
 )
 
 
@@ -1153,8 +1075,8 @@ _USEREVENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3513,
-  serialized_end=3713,
+  serialized_start=3425,
+  serialized_end=3625,
 )
 
 
@@ -1206,8 +1128,8 @@ _EVENTDURATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3716,
-  serialized_end=3876,
+  serialized_start=3628,
+  serialized_end=3788,
 )
 
 
@@ -1245,8 +1167,8 @@ _TAG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3878,
-  serialized_end=3919,
+  serialized_start=3790,
+  serialized_end=3831,
 )
 
 
@@ -1291,8 +1213,8 @@ _EVENTTAG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3921,
-  serialized_end=3997,
+  serialized_start=3833,
+  serialized_end=3909,
 )
 
 
@@ -1337,8 +1259,8 @@ _ORGANIZATIONPERMISSION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4000,
-  serialized_end=4137,
+  serialized_start=3912,
+  serialized_end=4049,
 )
 
 
@@ -1383,8 +1305,8 @@ _USERPERMISSION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4139,
-  serialized_end=4258,
+  serialized_start=4051,
+  serialized_end=4170,
 )
 
 
@@ -1429,8 +1351,8 @@ _USERINTEREST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4260,
-  serialized_end=4337,
+  serialized_start=4172,
+  serialized_end=4249,
 )
 
 
@@ -1503,8 +1425,8 @@ _FACILITYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4340,
-  serialized_end=4646,
+  serialized_start=4252,
+  serialized_end=4558,
 )
 
 
@@ -1577,8 +1499,8 @@ _FACILITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4649,
-  serialized_end=4896,
+  serialized_start=4561,
+  serialized_end=4808,
 )
 
 _OPERATINGHOUR.fields_by_name['day'].enum_type = _DAYOFWEEK
@@ -1610,9 +1532,9 @@ _EVENT.fields_by_name['poster_image_url'].message_type = google_dot_protobuf_dot
 _EVENT.fields_by_name['poster_image_hash'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _EVENT.fields_by_name['profile_image_url'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _EVENT.fields_by_name['profile_image_hash'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
-_LOCATION.fields_by_name['description'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
-_LOCATION.fields_by_name['travel_information_image_url'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
-_LOCATION.fields_by_name['travel_information_image_hash'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_EVENT.fields_by_name['location_description'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_EVENT.fields_by_name['travel_information_image_url'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
+_EVENT.fields_by_name['travel_information_image_hash'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _USEREVENT.fields_by_name['rating'].message_type = google_dot_protobuf_dot_wrappers__pb2._INT64VALUE
 _USEREVENT.fields_by_name['status'].enum_type = _STATUS
 _EVENTDURATION.fields_by_name['start'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -1632,8 +1554,6 @@ DESCRIPTOR.message_types_by_name['Question'] = _QUESTION
 DESCRIPTOR.message_types_by_name['UserOrganization'] = _USERORGANIZATION
 DESCRIPTOR.message_types_by_name['Event'] = _EVENT
 DESCRIPTOR.message_types_by_name['Answer'] = _ANSWER
-DESCRIPTOR.message_types_by_name['EventLocation'] = _EVENTLOCATION
-DESCRIPTOR.message_types_by_name['Location'] = _LOCATION
 DESCRIPTOR.message_types_by_name['UserEvent'] = _USEREVENT
 DESCRIPTOR.message_types_by_name['EventDuration'] = _EVENTDURATION
 DESCRIPTOR.message_types_by_name['Tag'] = _TAG
@@ -1713,20 +1633,6 @@ Answer = _reflection.GeneratedProtocolMessageType('Answer', (_message.Message,),
   # @@protoc_insertion_point(class_scope:hts.common.Answer)
   })
 _sym_db.RegisterMessage(Answer)
-
-EventLocation = _reflection.GeneratedProtocolMessageType('EventLocation', (_message.Message,), {
-  'DESCRIPTOR' : _EVENTLOCATION,
-  '__module__' : 'hts.common.common_pb2'
-  # @@protoc_insertion_point(class_scope:hts.common.EventLocation)
-  })
-_sym_db.RegisterMessage(EventLocation)
-
-Location = _reflection.GeneratedProtocolMessageType('Location', (_message.Message,), {
-  'DESCRIPTOR' : _LOCATION,
-  '__module__' : 'hts.common.common_pb2'
-  # @@protoc_insertion_point(class_scope:hts.common.Location)
-  })
-_sym_db.RegisterMessage(Location)
 
 UserEvent = _reflection.GeneratedProtocolMessageType('UserEvent', (_message.Message,), {
   'DESCRIPTOR' : _USEREVENT,

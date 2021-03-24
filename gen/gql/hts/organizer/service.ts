@@ -4,7 +4,8 @@ import {
   Organization,
   Event,
   Tag,
-  Result,
+  QuestionGroup,
+  Question,
 } from "../../hts/common/common";
 import { Empty } from "../../google/protobuf/empty";
 
@@ -70,6 +71,7 @@ export interface UpdateRegistrationRequestRequest {
 
 export interface CreateTagRequest {
   userId: number;
+  organizationId: number;
   tag: Tag | undefined;
 }
 
@@ -84,7 +86,15 @@ export interface HasEventRequest {
   eventId: number;
 }
 
-export interface GetOrganizationResponse {
+export interface QuestionGroupsRequest {
+  questionGroups: QuestionGroup[];
+}
+
+export interface QuestionsRequest {
+  questions: Question[];
+}
+
+export interface GetOrganizationsResponse {
   organizations: Organization[];
 }
 
@@ -92,15 +102,7 @@ export interface GetOrganizationByIdResponse {
   organization: Organization | undefined;
 }
 
-export interface GetEventResponse {
-  events: Event[];
-}
-
-export interface GetEventByIdResponse {
-  event: Event | undefined;
-}
-
-export interface GetTagResponse {
+export interface GetTagsResponse {
   tags: Tag[];
 }
 
@@ -108,9 +110,17 @@ export interface GetTagByIdResponse {
   tag: Tag | undefined;
 }
 
+export interface GetQuestionGroupsByEventIdResponse {
+  questionGroup: QuestionGroup | undefined;
+}
+
+export interface GetQuestionsByGroupIdResponse {
+  question: Question | undefined;
+}
+
 export interface OrganizerService {
   CreateOrganization(request: CreateOrganizationRequest): Promise<Empty>;
-  GetOrganization(request: Empty): Promise<GetOrganizationResponse>;
+  GetOrganizations(request: Empty): Promise<GetOrganizationsResponse>;
   GetOrganizationById(
     request: GetByIdRequest
   ): Promise<GetOrganizationByIdResponse>;
@@ -124,16 +134,26 @@ export interface OrganizerService {
   ): Promise<Empty>;
   CreateEvent(request: CreateEventRequest): Promise<Empty>;
   UpdateEvent(request: UpdateEventRequest): Promise<Empty>;
-  UpdateEventDuration(request: UpdateEventDurationRequest): Promise<Empty>;
+  UpdateEventDurations(request: UpdateEventDurationRequest): Promise<Empty>;
   RemoveEvent(request: RemoveEventRequest): Promise<Empty>;
   UpdateRegistrationRequest(
     request: UpdateRegistrationRequestRequest
   ): Promise<Empty>;
   CreateTag(request: CreateTagRequest): Promise<Empty>;
-  AddTag(request: UpdateTagRequest): Promise<Empty>;
-  RemoveTag(request: UpdateTagRequest): Promise<Empty>;
-  GetTag(request: Empty): Promise<GetTagResponse>;
+  AddTags(request: UpdateTagRequest): Promise<Empty>;
+  RemoveTags(request: UpdateTagRequest): Promise<Empty>;
+  GetTags(request: Empty): Promise<GetTagsResponse>;
   GetTagById(request: GetByIdRequest): Promise<GetTagByIdResponse>;
   HasEvent(request: HasEventRequest): Promise<Event>;
-  Ping(request: Empty): Promise<Result>;
+  GetQuestionGroupsByEventId(
+    request: GetByIdRequest
+  ): Promise<GetQuestionGroupsByEventIdResponse>;
+  AddQuestionGroups(request: QuestionGroupsRequest): Promise<Empty>;
+  RemoveQuestionGroups(request: QuestionGroupsRequest): Promise<Empty>;
+  GetQuestionsByGroupId(
+    request: GetByIdRequest
+  ): Promise<GetQuestionsByGroupIdResponse>;
+  AddQuestions(request: QuestionsRequest): Promise<Empty>;
+  RemoveQuestions(request: QuestionsRequest): Promise<Empty>;
+  Ping(request: Empty): Promise<boolean | undefined>;
 }

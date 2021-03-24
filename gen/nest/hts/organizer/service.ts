@@ -5,11 +5,13 @@ import {
   Organization,
   Event,
   Tag,
-  Result,
+  QuestionGroup,
+  Question,
 } from "../../hts/common/common";
 import { Observable } from "rxjs";
 import { Timestamp } from "../../google/protobuf/timestamp";
 import { Empty } from "../../google/protobuf/empty";
+import { BoolValue } from "../../google/protobuf/wrappers";
 
 export const protobufPackage = "hts.organizer";
 
@@ -73,6 +75,7 @@ export interface UpdateRegistrationRequestRequest {
 
 export interface CreateTagRequest {
   userId: number;
+  organizationId: number;
   tag: Tag | undefined;
 }
 
@@ -87,7 +90,15 @@ export interface HasEventRequest {
   eventId: number;
 }
 
-export interface GetOrganizationResponse {
+export interface QuestionGroupsRequest {
+  questionGroups: QuestionGroup[];
+}
+
+export interface QuestionsRequest {
+  questions: Question[];
+}
+
+export interface GetOrganizationsResponse {
   organizations: Organization[];
 }
 
@@ -95,15 +106,7 @@ export interface GetOrganizationByIdResponse {
   organization: Organization | undefined;
 }
 
-export interface GetEventResponse {
-  events: Event[];
-}
-
-export interface GetEventByIdResponse {
-  event: Event | undefined;
-}
-
-export interface GetTagResponse {
+export interface GetTagsResponse {
   tags: Tag[];
 }
 
@@ -111,12 +114,20 @@ export interface GetTagByIdResponse {
   tag: Tag | undefined;
 }
 
+export interface GetQuestionGroupsByEventIdResponse {
+  questionGroup: QuestionGroup | undefined;
+}
+
+export interface GetQuestionsByGroupIdResponse {
+  question: Question | undefined;
+}
+
 export const HTS_ORGANIZER_PACKAGE_NAME = "hts.organizer";
 
 export interface OrganizerServiceClient {
   createOrganization(request: CreateOrganizationRequest): Observable<Empty>;
 
-  getOrganization(request: Empty): Observable<GetOrganizationResponse>;
+  getOrganizations(request: Empty): Observable<GetOrganizationsResponse>;
 
   getOrganizationById(
     request: GetByIdRequest
@@ -138,7 +149,7 @@ export interface OrganizerServiceClient {
 
   updateEvent(request: UpdateEventRequest): Observable<Empty>;
 
-  updateEventDuration(request: UpdateEventDurationRequest): Observable<Empty>;
+  updateEventDurations(request: UpdateEventDurationRequest): Observable<Empty>;
 
   removeEvent(request: RemoveEventRequest): Observable<Empty>;
 
@@ -148,28 +159,44 @@ export interface OrganizerServiceClient {
 
   createTag(request: CreateTagRequest): Observable<Empty>;
 
-  addTag(request: UpdateTagRequest): Observable<Empty>;
+  addTags(request: UpdateTagRequest): Observable<Empty>;
 
-  removeTag(request: UpdateTagRequest): Observable<Empty>;
+  removeTags(request: UpdateTagRequest): Observable<Empty>;
 
-  getTag(request: Empty): Observable<GetTagResponse>;
+  getTags(request: Empty): Observable<GetTagsResponse>;
 
   getTagById(request: GetByIdRequest): Observable<GetTagByIdResponse>;
 
   hasEvent(request: HasEventRequest): Observable<Event>;
 
-  ping(request: Empty): Observable<Result>;
+  getQuestionGroupsByEventId(
+    request: GetByIdRequest
+  ): Observable<GetQuestionGroupsByEventIdResponse>;
+
+  addQuestionGroups(request: QuestionGroupsRequest): Observable<Empty>;
+
+  removeQuestionGroups(request: QuestionGroupsRequest): Observable<Empty>;
+
+  getQuestionsByGroupId(
+    request: GetByIdRequest
+  ): Observable<GetQuestionsByGroupIdResponse>;
+
+  addQuestions(request: QuestionsRequest): Observable<Empty>;
+
+  removeQuestions(request: QuestionsRequest): Observable<Empty>;
+
+  ping(request: Empty): Observable<BoolValue>;
 }
 
 export interface OrganizerServiceController {
   createOrganization(request: CreateOrganizationRequest): void;
 
-  getOrganization(
+  getOrganizations(
     request: Empty
   ):
-    | Promise<GetOrganizationResponse>
-    | Observable<GetOrganizationResponse>
-    | GetOrganizationResponse;
+    | Promise<GetOrganizationsResponse>
+    | Observable<GetOrganizationsResponse>
+    | GetOrganizationsResponse;
 
   getOrganizationById(
     request: GetByIdRequest
@@ -190,7 +217,7 @@ export interface OrganizerServiceController {
 
   updateEvent(request: UpdateEventRequest): void;
 
-  updateEventDuration(request: UpdateEventDurationRequest): void;
+  updateEventDurations(request: UpdateEventDurationRequest): void;
 
   removeEvent(request: RemoveEventRequest): void;
 
@@ -198,13 +225,13 @@ export interface OrganizerServiceController {
 
   createTag(request: CreateTagRequest): void;
 
-  addTag(request: UpdateTagRequest): void;
+  addTags(request: UpdateTagRequest): void;
 
-  removeTag(request: UpdateTagRequest): void;
+  removeTags(request: UpdateTagRequest): void;
 
-  getTag(
+  getTags(
     request: Empty
-  ): Promise<GetTagResponse> | Observable<GetTagResponse> | GetTagResponse;
+  ): Promise<GetTagsResponse> | Observable<GetTagsResponse> | GetTagsResponse;
 
   getTagById(
     request: GetByIdRequest
@@ -217,14 +244,36 @@ export interface OrganizerServiceController {
     request: HasEventRequest
   ): Promise<Event> | Observable<Event> | Event;
 
-  ping(request: Empty): Promise<Result> | Observable<Result> | Result;
+  getQuestionGroupsByEventId(
+    request: GetByIdRequest
+  ):
+    | Promise<GetQuestionGroupsByEventIdResponse>
+    | Observable<GetQuestionGroupsByEventIdResponse>
+    | GetQuestionGroupsByEventIdResponse;
+
+  addQuestionGroups(request: QuestionGroupsRequest): void;
+
+  removeQuestionGroups(request: QuestionGroupsRequest): void;
+
+  getQuestionsByGroupId(
+    request: GetByIdRequest
+  ):
+    | Promise<GetQuestionsByGroupIdResponse>
+    | Observable<GetQuestionsByGroupIdResponse>
+    | GetQuestionsByGroupIdResponse;
+
+  addQuestions(request: QuestionsRequest): void;
+
+  removeQuestions(request: QuestionsRequest): void;
+
+  ping(request: Empty): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
 }
 
 export function OrganizerServiceControllerMethods() {
   return function (constructor: Function) {
     const grpcMethods: string[] = [
       "createOrganization",
-      "getOrganization",
+      "getOrganizations",
       "getOrganizationById",
       "updateOrganization",
       "removeOrganization",
@@ -232,15 +281,21 @@ export function OrganizerServiceControllerMethods() {
       "removeUsersFromOrganization",
       "createEvent",
       "updateEvent",
-      "updateEventDuration",
+      "updateEventDurations",
       "removeEvent",
       "updateRegistrationRequest",
       "createTag",
-      "addTag",
-      "removeTag",
-      "getTag",
+      "addTags",
+      "removeTags",
+      "getTags",
       "getTagById",
       "hasEvent",
+      "getQuestionGroupsByEventId",
+      "addQuestionGroups",
+      "removeQuestionGroups",
+      "getQuestionsByGroupId",
+      "addQuestions",
+      "removeQuestions",
       "ping",
     ];
     for (const method of grpcMethods) {

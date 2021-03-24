@@ -53,7 +53,12 @@ private static final long serialVersionUID = 0L;
             userId_ = input.readInt64();
             break;
           }
-          case 18: {
+          case 16: {
+
+            organizationId_ = input.readInt64();
+            break;
+          }
+          case 26: {
             app.onepass.apis.Tag.Builder subBuilder = null;
             if (tag_ != null) {
               subBuilder = tag_.toBuilder();
@@ -109,10 +114,21 @@ private static final long serialVersionUID = 0L;
     return userId_;
   }
 
-  public static final int TAG_FIELD_NUMBER = 2;
+  public static final int ORGANIZATION_ID_FIELD_NUMBER = 2;
+  private long organizationId_;
+  /**
+   * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
+   * @return The organizationId.
+   */
+  @java.lang.Override
+  public long getOrganizationId() {
+    return organizationId_;
+  }
+
+  public static final int TAG_FIELD_NUMBER = 3;
   private app.onepass.apis.Tag tag_;
   /**
-   * <code>.hts.common.Tag tag = 2 [json_name = "tag"];</code>
+   * <code>.hts.common.Tag tag = 3 [json_name = "tag"];</code>
    * @return Whether the tag field is set.
    */
   @java.lang.Override
@@ -120,7 +136,7 @@ private static final long serialVersionUID = 0L;
     return tag_ != null;
   }
   /**
-   * <code>.hts.common.Tag tag = 2 [json_name = "tag"];</code>
+   * <code>.hts.common.Tag tag = 3 [json_name = "tag"];</code>
    * @return The tag.
    */
   @java.lang.Override
@@ -128,7 +144,7 @@ private static final long serialVersionUID = 0L;
     return tag_ == null ? app.onepass.apis.Tag.getDefaultInstance() : tag_;
   }
   /**
-   * <code>.hts.common.Tag tag = 2 [json_name = "tag"];</code>
+   * <code>.hts.common.Tag tag = 3 [json_name = "tag"];</code>
    */
   @java.lang.Override
   public app.onepass.apis.TagOrBuilder getTagOrBuilder() {
@@ -152,8 +168,11 @@ private static final long serialVersionUID = 0L;
     if (userId_ != 0L) {
       output.writeInt64(1, userId_);
     }
+    if (organizationId_ != 0L) {
+      output.writeInt64(2, organizationId_);
+    }
     if (tag_ != null) {
-      output.writeMessage(2, getTag());
+      output.writeMessage(3, getTag());
     }
     unknownFields.writeTo(output);
   }
@@ -168,9 +187,13 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(1, userId_);
     }
+    if (organizationId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(2, organizationId_);
+    }
     if (tag_ != null) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, getTag());
+        .computeMessageSize(3, getTag());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -189,6 +212,8 @@ private static final long serialVersionUID = 0L;
 
     if (getUserId()
         != other.getUserId()) return false;
+    if (getOrganizationId()
+        != other.getOrganizationId()) return false;
     if (hasTag() != other.hasTag()) return false;
     if (hasTag()) {
       if (!getTag()
@@ -208,6 +233,9 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getUserId());
+    hash = (37 * hash) + ORGANIZATION_ID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getOrganizationId());
     if (hasTag()) {
       hash = (37 * hash) + TAG_FIELD_NUMBER;
       hash = (53 * hash) + getTag().hashCode();
@@ -347,6 +375,8 @@ private static final long serialVersionUID = 0L;
       super.clear();
       userId_ = 0L;
 
+      organizationId_ = 0L;
+
       if (tagBuilder_ == null) {
         tag_ = null;
       } else {
@@ -380,6 +410,7 @@ private static final long serialVersionUID = 0L;
     public app.onepass.apis.CreateTagRequest buildPartial() {
       app.onepass.apis.CreateTagRequest result = new app.onepass.apis.CreateTagRequest(this);
       result.userId_ = userId_;
+      result.organizationId_ = organizationId_;
       if (tagBuilder_ == null) {
         result.tag_ = tag_;
       } else {
@@ -435,6 +466,9 @@ private static final long serialVersionUID = 0L;
       if (other == app.onepass.apis.CreateTagRequest.getDefaultInstance()) return this;
       if (other.getUserId() != 0L) {
         setUserId(other.getUserId());
+      }
+      if (other.getOrganizationId() != 0L) {
+        setOrganizationId(other.getOrganizationId());
       }
       if (other.hasTag()) {
         mergeTag(other.getTag());
@@ -499,18 +533,49 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private long organizationId_ ;
+    /**
+     * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
+     * @return The organizationId.
+     */
+    @java.lang.Override
+    public long getOrganizationId() {
+      return organizationId_;
+    }
+    /**
+     * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
+     * @param value The organizationId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrganizationId(long value) {
+      
+      organizationId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearOrganizationId() {
+      
+      organizationId_ = 0L;
+      onChanged();
+      return this;
+    }
+
     private app.onepass.apis.Tag tag_;
     private com.google.protobuf.SingleFieldBuilderV3<
         app.onepass.apis.Tag, app.onepass.apis.Tag.Builder, app.onepass.apis.TagOrBuilder> tagBuilder_;
     /**
-     * <code>.hts.common.Tag tag = 2 [json_name = "tag"];</code>
+     * <code>.hts.common.Tag tag = 3 [json_name = "tag"];</code>
      * @return Whether the tag field is set.
      */
     public boolean hasTag() {
       return tagBuilder_ != null || tag_ != null;
     }
     /**
-     * <code>.hts.common.Tag tag = 2 [json_name = "tag"];</code>
+     * <code>.hts.common.Tag tag = 3 [json_name = "tag"];</code>
      * @return The tag.
      */
     public app.onepass.apis.Tag getTag() {
@@ -521,7 +586,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.hts.common.Tag tag = 2 [json_name = "tag"];</code>
+     * <code>.hts.common.Tag tag = 3 [json_name = "tag"];</code>
      */
     public Builder setTag(app.onepass.apis.Tag value) {
       if (tagBuilder_ == null) {
@@ -537,7 +602,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.hts.common.Tag tag = 2 [json_name = "tag"];</code>
+     * <code>.hts.common.Tag tag = 3 [json_name = "tag"];</code>
      */
     public Builder setTag(
         app.onepass.apis.Tag.Builder builderForValue) {
@@ -551,7 +616,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.hts.common.Tag tag = 2 [json_name = "tag"];</code>
+     * <code>.hts.common.Tag tag = 3 [json_name = "tag"];</code>
      */
     public Builder mergeTag(app.onepass.apis.Tag value) {
       if (tagBuilder_ == null) {
@@ -569,7 +634,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.hts.common.Tag tag = 2 [json_name = "tag"];</code>
+     * <code>.hts.common.Tag tag = 3 [json_name = "tag"];</code>
      */
     public Builder clearTag() {
       if (tagBuilder_ == null) {
@@ -583,7 +648,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.hts.common.Tag tag = 2 [json_name = "tag"];</code>
+     * <code>.hts.common.Tag tag = 3 [json_name = "tag"];</code>
      */
     public app.onepass.apis.Tag.Builder getTagBuilder() {
       
@@ -591,7 +656,7 @@ private static final long serialVersionUID = 0L;
       return getTagFieldBuilder().getBuilder();
     }
     /**
-     * <code>.hts.common.Tag tag = 2 [json_name = "tag"];</code>
+     * <code>.hts.common.Tag tag = 3 [json_name = "tag"];</code>
      */
     public app.onepass.apis.TagOrBuilder getTagOrBuilder() {
       if (tagBuilder_ != null) {
@@ -602,7 +667,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.hts.common.Tag tag = 2 [json_name = "tag"];</code>
+     * <code>.hts.common.Tag tag = 3 [json_name = "tag"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         app.onepass.apis.Tag, app.onepass.apis.Tag.Builder, app.onepass.apis.TagOrBuilder> 

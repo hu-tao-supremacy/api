@@ -140,6 +140,11 @@ export interface Event {
   profileImageUrl: StringValue | undefined;
   profileImageHash: StringValue | undefined;
   attendeeLimit: number;
+  locationName: string;
+  googleMapUrl: string;
+  locationDescription: StringValue | undefined;
+  travelInformationImageUrl: StringValue | undefined;
+  travelInformationImageHash: StringValue | undefined;
 }
 
 export interface Answer {
@@ -147,21 +152,6 @@ export interface Answer {
   userEventId: number;
   questionId: number;
   value: string;
-}
-
-export interface EventLocation {
-  id: number;
-  eventId: number;
-  locationId: number;
-}
-
-export interface Location {
-  id: number;
-  name: string;
-  googleMapUrl: string;
-  description: StringValue | undefined;
-  travelInformationImageUrl: StringValue | undefined;
-  travelInformationImageHash: StringValue | undefined;
 }
 
 export interface UserEvent {
