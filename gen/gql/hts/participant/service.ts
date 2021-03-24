@@ -1,22 +1,10 @@
 /* eslint-disable */
-import {
-  UserEvent,
-  User,
-  Event,
-  EventFeedback,
-  Tag,
-  Organization,
-  Facility,
-} from "../../hts/common/common";
+import { Answer, Event } from "../../hts/common/common";
 import { Empty } from "../../google/protobuf/empty";
 
 export const protobufPackage = "hts.participant";
 
-export interface GenerateQRRequest {
-  userEvent: UserEvent | undefined;
-}
-
-export interface GetEventRequest {
+export interface GetEventByIdRequest {
   eventId: number;
 }
 
@@ -25,21 +13,26 @@ export interface StringInputRequest {
 }
 
 export interface UserWithEventRequest {
-  user: User | undefined;
-  event: Event | undefined;
+  userId: number;
+  eventId: number;
 }
 
-export interface CreateFeedbackRequest {
-  user: User | undefined;
-  feedback: EventFeedback | undefined;
+export interface SubmitAnswerForPostEventQuestionRequest {
+  answers: SubmitAnswerForPostEventQuestionRequest_Answer[];
+  userEventId: number;
+}
+
+export interface SubmitAnswerForPostEventQuestionRequest_Answer {
+  questionId: number;
+  value: string;
+}
+
+export interface SubmitAnswerForPostEventQuestionResponse {
+  answers: Answer[];
 }
 
 export interface GenerateQRResponse {
   data: string;
-}
-
-export interface GetFeedbacksFromEventResponse {
-  eventFeedback: EventFeedback[];
 }
 
 export interface EventsResponse {
@@ -47,7 +40,7 @@ export interface EventsResponse {
 }
 
 export interface IsEventAvailableRequest {
-  event: Event | undefined;
+  eventId: number;
   date: Date | undefined;
 }
 
@@ -56,27 +49,46 @@ export interface GetUpcomingEventsRequest {
   end: Date | undefined;
 }
 
+export interface GetEventsByTagIdRequest {
+  tagId: number;
+}
+
+export interface GetEventsByOrganizationIdRequest {
+  organizationId: number;
+}
+
+export interface GetEventsByFacilityIdRequest {
+  facilityId: number;
+}
+
+export interface GenerateQRRequest {
+  userEventId: number;
+  userId: number;
+  eventId: number;
+}
+
 export interface ParticipantService {
   IsEventAvailable(
     request: IsEventAvailableRequest
   ): Promise<boolean | undefined>;
   JoinEvent(request: UserWithEventRequest): Promise<Event>;
   CancelEvent(request: UserWithEventRequest): Promise<Event>;
-  CreateFeedback(request: CreateFeedbackRequest): Promise<EventFeedback>;
-  RemoveFeedback(request: EventFeedback): Promise<EventFeedback>;
-  GetFeedbacksFromEvent(request: Event): Promise<GetFeedbacksFromEventResponse>;
-  GetUserFeedbackFromEvent(
-    request: UserWithEventRequest
-  ): Promise<EventFeedback>;
-  GetEvent(request: GetEventRequest): Promise<Event>;
+  SubmitAnswerForPostEventQuestion(
+    request: SubmitAnswerForPostEventQuestionRequest
+  ): Promise<SubmitAnswerForPostEventQuestionResponse>;
+  GetEventById(request: GetEventByIdRequest): Promise<Event>;
   GetAllEvents(request: Empty): Promise<EventsResponse>;
   GetSuggestedEvents(request: Empty): Promise<EventsResponse>;
-  GetEventsByStringOfName(request: StringInputRequest): Promise<EventsResponse>;
-  GetEventsByTag(request: Tag): Promise<EventsResponse>;
-  GetEventsByOrganization(request: Organization): Promise<EventsResponse>;
-  GetEventsByFacility(request: Facility): Promise<EventsResponse>;
-  GetEventsByDate(request: Date): Promise<EventsResponse>;
   GetUpcomingEvents(request: GetUpcomingEventsRequest): Promise<EventsResponse>;
-  GenerateQR(request: UserEvent): Promise<GenerateQRResponse>;
+  GetEventsByStringOfName(request: StringInputRequest): Promise<EventsResponse>;
+  GetEventsByTagId(request: GetEventsByTagIdRequest): Promise<EventsResponse>;
+  GetEventsByOrganizationId(
+    request: GetEventsByOrganizationIdRequest
+  ): Promise<EventsResponse>;
+  GetEventsByFacilityId(
+    request: GetEventsByFacilityIdRequest
+  ): Promise<EventsResponse>;
+  GetEventsByDate(request: Date): Promise<EventsResponse>;
+  GenerateQR(request: GenerateQRRequest): Promise<GenerateQRResponse>;
   Ping(request: Empty): Promise<boolean | undefined>;
 }

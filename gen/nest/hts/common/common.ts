@@ -15,6 +15,18 @@ export enum DayOfWeek {
   UNRECOGNIZED = -1,
 }
 
+export enum AnswerType {
+  SCALE = 0,
+  TEXT = 1,
+  UNRECOGNIZED = -1,
+}
+
+export enum QuestionType {
+  PRE_EVENT = 0,
+  POST_EVENT = 1,
+  UNRECOGNIZED = -1,
+}
+
 export enum Gender {
   MALE = 0,
   FEMALE = 1,
@@ -74,6 +86,38 @@ export interface Organization {
   id: number;
   name: string;
   isVerified: boolean;
+  abbreviation: StringValue | undefined;
+  advisor: StringValue | undefined;
+  associatedFaculty: StringValue | undefined;
+  description: StringValue | undefined;
+  facebookPage: StringValue | undefined;
+  instagram: StringValue | undefined;
+  lineOfficialAccount: StringValue | undefined;
+  email: StringValue | undefined;
+  contactFullName: StringValue | undefined;
+  contactEmail: StringValue | undefined;
+  contactPhoneNumber: StringValue | undefined;
+  contactLineId: StringValue | undefined;
+  profilePictureUrl: StringValue | undefined;
+  profilePictureHash: StringValue | undefined;
+}
+
+export interface QuestionGroup {
+  id: number;
+  eventId: number;
+  type: QuestionType;
+  order: number;
+  title: string;
+}
+
+export interface Question {
+  id: number;
+  questionGroupId: number;
+  order: number;
+  answerType: AnswerType;
+  isOptional: boolean;
+  title: string;
+  subtitle: string;
 }
 
 export interface UserOrganization {
@@ -85,39 +129,48 @@ export interface UserOrganization {
 export interface Event {
   id: number;
   organizationId: number;
-  eventLocationId: Int64Value | undefined;
+  locationId: Int64Value | undefined;
   description: string;
   name: string;
-  coverImage: StringValue | undefined;
+  coverImageUrl: StringValue | undefined;
   coverImageHash: StringValue | undefined;
-  posterImage: StringValue | undefined;
+  posterImageUrl: StringValue | undefined;
   posterImageHash: StringValue | undefined;
   contact: string;
+  profileImageUrl: StringValue | undefined;
+  profileImageHash: StringValue | undefined;
+  attendeeLimit: number;
 }
 
-export interface UserEventFeedback {
+export interface Answer {
   id: number;
-  userId: number;
-  eventFeedbackId: number;
-}
-
-export interface EventFeedback {
-  id: number;
-  eventId: number;
-  feedback: string;
+  userEventId: number;
+  questionId: number;
+  value: string;
 }
 
 export interface EventLocation {
   id: number;
+  eventId: number;
+  locationId: number;
+}
+
+export interface Location {
+  id: number;
   name: string;
-  latitude: number;
-  longitude: number;
+  googleMapUrl: string;
+  description: StringValue | undefined;
+  travelInformationImageUrl: StringValue | undefined;
+  travelInformationImageHash: StringValue | undefined;
 }
 
 export interface UserEvent {
   id: number;
   userId: number;
   eventId: number;
+  rating: Int64Value | undefined;
+  ticket: string;
+  status: Status;
 }
 
 export interface EventDuration {
@@ -125,13 +178,6 @@ export interface EventDuration {
   eventId: number;
   start: Timestamp | undefined;
   finish: Timestamp | undefined;
-}
-
-export interface EventRegistration {
-  id: number;
-  eventId: number;
-  userId: number;
-  status: Status;
 }
 
 export interface Tag {
@@ -155,6 +201,12 @@ export interface UserPermission {
   id: number;
   userId: number;
   organizationPermissionId: number;
+}
+
+export interface UserInterest {
+  id: number;
+  userId: number;
+  tagId: number;
 }
 
 export interface FacilityRequest {

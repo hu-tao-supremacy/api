@@ -30,4 +30,214 @@ public interface OrganizationOrBuilder extends
    * @return The isVerified.
    */
   boolean getIsVerified();
+
+  /**
+   * <code>.google.protobuf.StringValue abbreviation = 4 [json_name = "abbreviation"];</code>
+   * @return Whether the abbreviation field is set.
+   */
+  boolean hasAbbreviation();
+  /**
+   * <code>.google.protobuf.StringValue abbreviation = 4 [json_name = "abbreviation"];</code>
+   * @return The abbreviation.
+   */
+  com.google.protobuf.StringValue getAbbreviation();
+  /**
+   * <code>.google.protobuf.StringValue abbreviation = 4 [json_name = "abbreviation"];</code>
+   */
+  com.google.protobuf.StringValueOrBuilder getAbbreviationOrBuilder();
+
+  /**
+   * <code>.google.protobuf.StringValue advisor = 5 [json_name = "advisor"];</code>
+   * @return Whether the advisor field is set.
+   */
+  boolean hasAdvisor();
+  /**
+   * <code>.google.protobuf.StringValue advisor = 5 [json_name = "advisor"];</code>
+   * @return The advisor.
+   */
+  com.google.protobuf.StringValue getAdvisor();
+  /**
+   * <code>.google.protobuf.StringValue advisor = 5 [json_name = "advisor"];</code>
+   */
+  com.google.protobuf.StringValueOrBuilder getAdvisorOrBuilder();
+
+  /**
+   * <code>.google.protobuf.StringValue associated_faculty = 6 [json_name = "associatedFaculty"];</code>
+   * @return Whether the associatedFaculty field is set.
+   */
+  boolean hasAssociatedFaculty();
+  /**
+   * <code>.google.protobuf.StringValue associated_faculty = 6 [json_name = "associatedFaculty"];</code>
+   * @return The associatedFaculty.
+   */
+  com.google.protobuf.StringValue getAssociatedFaculty();
+  /**
+   * <code>.google.protobuf.StringValue associated_faculty = 6 [json_name = "associatedFaculty"];</code>
+   */
+  com.google.protobuf.StringValueOrBuilder getAssociatedFacultyOrBuilder();
+
+  /**
+   * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
+   * @return Whether the description field is set.
+   */
+  boolean hasDescription();
+  /**
+   * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
+   * @return The description.
+   */
+  com.google.protobuf.StringValue getDescription();
+  /**
+   * <code>.google.protobuf.StringValue description = 7 [json_name = "description"];</code>
+   */
+  com.google.protobuf.StringValueOrBuilder getDescriptionOrBuilder();
+
+  /**
+   * <code>.google.protobuf.StringValue facebook_page = 8 [json_name = "facebookPage"];</code>
+   * @return Whether the facebookPage field is set.
+   */
+  boolean hasFacebookPage();
+  /**
+   * <code>.google.protobuf.StringValue facebook_page = 8 [json_name = "facebookPage"];</code>
+   * @return The facebookPage.
+   */
+  com.google.protobuf.StringValue getFacebookPage();
+  /**
+   * <code>.google.protobuf.StringValue facebook_page = 8 [json_name = "facebookPage"];</code>
+   */
+  com.google.protobuf.StringValueOrBuilder getFacebookPageOrBuilder();
+
+  /**
+   * <code>.google.protobuf.StringValue instagram = 9 [json_name = "instagram"];</code>
+   * @return Whether the instagram field is set.
+   */
+  boolean hasInstagram();
+  /**
+   * <code>.google.protobuf.StringValue instagram = 9 [json_name = "instagram"];</code>
+   * @return The instagram.
+   */
+  com.google.protobuf.StringValue getInstagram();
+  /**
+   * <code>.google.protobuf.StringValue instagram = 9 [json_name = "instagram"];</code>
+   */
+  com.google.protobuf.StringValueOrBuilder getInstagramOrBuilder();
+
+  /**
+   * <code>.google.protobuf.StringValue line_official_account = 10 [json_name = "lineOfficialAccount"];</code>
+   * @return Whether the lineOfficialAccount field is set.
+   */
+  boolean hasLineOfficialAccount();
+  /**
+   * <code>.google.protobuf.StringValue line_official_account = 10 [json_name = "lineOfficialAccount"];</code>
+   * @return The lineOfficialAccount.
+   */
+  com.google.protobuf.StringValue getLineOfficialAccount();
+  /**
+   * <code>.google.protobuf.StringValue line_official_account = 10 [json_name = "lineOfficialAccount"];</code>
+   */
+  com.google.protobuf.StringValueOrBuilder getLineOfficialAccountOrBuilder();
+
+  /**
+   * <code>.google.protobuf.StringValue email = 11 [json_name = "email"];</code>
+   * @return Whether the email field is set.
+   */
+  boolean hasEmail();
+  /**
+   * <code>.google.protobuf.StringValue email = 11 [json_name = "email"];</code>
+   * @return The email.
+   */
+  com.google.protobuf.StringValue getEmail();
+  /**
+   * <code>.google.protobuf.StringValue email = 11 [json_name = "email"];</code>
+   */
+  com.google.protobuf.StringValueOrBuilder getEmailOrBuilder();
+
+  /**
+   * <code>.google.protobuf.StringValue contact_full_name = 12 [json_name = "contactFullName"];</code>
+   * @return Whether the contactFullName field is set.
+   */
+  boolean hasContactFullName();
+  /**
+   * <code>.google.protobuf.StringValue contact_full_name = 12 [json_name = "contactFullName"];</code>
+   * @return The contactFullName.
+   */
+  com.google.protobuf.StringValue getContactFullName();
+  /**
+   * <code>.google.protobuf.StringValue contact_full_name = 12 [json_name = "contactFullName"];</code>
+   */
+  com.google.protobuf.StringValueOrBuilder getContactFullNameOrBuilder();
+
+  /**
+   * <code>.google.protobuf.StringValue contact_email = 13 [json_name = "contactEmail"];</code>
+   * @return Whether the contactEmail field is set.
+   */
+  boolean hasContactEmail();
+  /**
+   * <code>.google.protobuf.StringValue contact_email = 13 [json_name = "contactEmail"];</code>
+   * @return The contactEmail.
+   */
+  com.google.protobuf.StringValue getContactEmail();
+  /**
+   * <code>.google.protobuf.StringValue contact_email = 13 [json_name = "contactEmail"];</code>
+   */
+  com.google.protobuf.StringValueOrBuilder getContactEmailOrBuilder();
+
+  /**
+   * <code>.google.protobuf.StringValue contact_phone_number = 14 [json_name = "contactPhoneNumber"];</code>
+   * @return Whether the contactPhoneNumber field is set.
+   */
+  boolean hasContactPhoneNumber();
+  /**
+   * <code>.google.protobuf.StringValue contact_phone_number = 14 [json_name = "contactPhoneNumber"];</code>
+   * @return The contactPhoneNumber.
+   */
+  com.google.protobuf.StringValue getContactPhoneNumber();
+  /**
+   * <code>.google.protobuf.StringValue contact_phone_number = 14 [json_name = "contactPhoneNumber"];</code>
+   */
+  com.google.protobuf.StringValueOrBuilder getContactPhoneNumberOrBuilder();
+
+  /**
+   * <code>.google.protobuf.StringValue contact_line_id = 15 [json_name = "contactLineId"];</code>
+   * @return Whether the contactLineId field is set.
+   */
+  boolean hasContactLineId();
+  /**
+   * <code>.google.protobuf.StringValue contact_line_id = 15 [json_name = "contactLineId"];</code>
+   * @return The contactLineId.
+   */
+  com.google.protobuf.StringValue getContactLineId();
+  /**
+   * <code>.google.protobuf.StringValue contact_line_id = 15 [json_name = "contactLineId"];</code>
+   */
+  com.google.protobuf.StringValueOrBuilder getContactLineIdOrBuilder();
+
+  /**
+   * <code>.google.protobuf.StringValue profile_picture_url = 16 [json_name = "profilePictureUrl"];</code>
+   * @return Whether the profilePictureUrl field is set.
+   */
+  boolean hasProfilePictureUrl();
+  /**
+   * <code>.google.protobuf.StringValue profile_picture_url = 16 [json_name = "profilePictureUrl"];</code>
+   * @return The profilePictureUrl.
+   */
+  com.google.protobuf.StringValue getProfilePictureUrl();
+  /**
+   * <code>.google.protobuf.StringValue profile_picture_url = 16 [json_name = "profilePictureUrl"];</code>
+   */
+  com.google.protobuf.StringValueOrBuilder getProfilePictureUrlOrBuilder();
+
+  /**
+   * <code>.google.protobuf.StringValue profile_picture_hash = 17 [json_name = "profilePictureHash"];</code>
+   * @return Whether the profilePictureHash field is set.
+   */
+  boolean hasProfilePictureHash();
+  /**
+   * <code>.google.protobuf.StringValue profile_picture_hash = 17 [json_name = "profilePictureHash"];</code>
+   * @return The profilePictureHash.
+   */
+  com.google.protobuf.StringValue getProfilePictureHash();
+  /**
+   * <code>.google.protobuf.StringValue profile_picture_hash = 17 [json_name = "profilePictureHash"];</code>
+   */
+  com.google.protobuf.StringValueOrBuilder getProfilePictureHashOrBuilder();
 }

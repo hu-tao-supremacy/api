@@ -1,26 +1,14 @@
 /* eslint-disable */
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
 import { Observable } from "rxjs";
-import {
-  UserEvent,
-  User,
-  Event,
-  EventFeedback,
-  Tag,
-  Organization,
-  Facility,
-} from "../../hts/common/common";
+import { Answer, Event } from "../../hts/common/common";
 import { Timestamp } from "../../google/protobuf/timestamp";
 import { BoolValue } from "../../google/protobuf/wrappers";
 import { Empty } from "../../google/protobuf/empty";
 
 export const protobufPackage = "hts.participant";
 
-export interface GenerateQRRequest {
-  userEvent: UserEvent | undefined;
-}
-
-export interface GetEventRequest {
+export interface GetEventByIdRequest {
   eventId: number;
 }
 
@@ -29,21 +17,26 @@ export interface StringInputRequest {
 }
 
 export interface UserWithEventRequest {
-  user: User | undefined;
-  event: Event | undefined;
+  userId: number;
+  eventId: number;
 }
 
-export interface CreateFeedbackRequest {
-  user: User | undefined;
-  feedback: EventFeedback | undefined;
+export interface SubmitAnswerForPostEventQuestionRequest {
+  answers: SubmitAnswerForPostEventQuestionRequest_Answer[];
+  userEventId: number;
+}
+
+export interface SubmitAnswerForPostEventQuestionRequest_Answer {
+  questionId: number;
+  value: string;
+}
+
+export interface SubmitAnswerForPostEventQuestionResponse {
+  answers: Answer[];
 }
 
 export interface GenerateQRResponse {
   data: string;
-}
-
-export interface GetFeedbacksFromEventResponse {
-  eventFeedback: EventFeedback[];
 }
 
 export interface EventsResponse {
@@ -51,13 +44,31 @@ export interface EventsResponse {
 }
 
 export interface IsEventAvailableRequest {
-  event: Event | undefined;
+  eventId: number;
   date: Timestamp | undefined;
 }
 
 export interface GetUpcomingEventsRequest {
   start: Timestamp | undefined;
   end: Timestamp | undefined;
+}
+
+export interface GetEventsByTagIdRequest {
+  tagId: number;
+}
+
+export interface GetEventsByOrganizationIdRequest {
+  organizationId: number;
+}
+
+export interface GetEventsByFacilityIdRequest {
+  facilityId: number;
+}
+
+export interface GenerateQRRequest {
+  userEventId: number;
+  userId: number;
+  eventId: number;
 }
 
 export const HTS_PARTICIPANT_PACKAGE_NAME = "hts.participant";
@@ -69,41 +80,39 @@ export interface ParticipantServiceClient {
 
   cancelEvent(request: UserWithEventRequest): Observable<Event>;
 
-  createFeedback(request: CreateFeedbackRequest): Observable<EventFeedback>;
+  submitAnswerForPostEventQuestion(
+    request: SubmitAnswerForPostEventQuestionRequest
+  ): Observable<SubmitAnswerForPostEventQuestionResponse>;
 
-  removeFeedback(request: EventFeedback): Observable<EventFeedback>;
-
-  getFeedbacksFromEvent(
-    request: Event
-  ): Observable<GetFeedbacksFromEventResponse>;
-
-  getUserFeedbackFromEvent(
-    request: UserWithEventRequest
-  ): Observable<EventFeedback>;
-
-  getEvent(request: GetEventRequest): Observable<Event>;
+  getEventById(request: GetEventByIdRequest): Observable<Event>;
 
   getAllEvents(request: Empty): Observable<EventsResponse>;
 
   getSuggestedEvents(request: Empty): Observable<EventsResponse>;
 
-  getEventsByStringOfName(
-    request: StringInputRequest
-  ): Observable<EventsResponse>;
-
-  getEventsByTag(request: Tag): Observable<EventsResponse>;
-
-  getEventsByOrganization(request: Organization): Observable<EventsResponse>;
-
-  getEventsByFacility(request: Facility): Observable<EventsResponse>;
-
-  getEventsByDate(request: Timestamp): Observable<EventsResponse>;
-
   getUpcomingEvents(
     request: GetUpcomingEventsRequest
   ): Observable<EventsResponse>;
 
-  generateQR(request: UserEvent): Observable<GenerateQRResponse>;
+  getEventsByStringOfName(
+    request: StringInputRequest
+  ): Observable<EventsResponse>;
+
+  getEventsByTagId(
+    request: GetEventsByTagIdRequest
+  ): Observable<EventsResponse>;
+
+  getEventsByOrganizationId(
+    request: GetEventsByOrganizationIdRequest
+  ): Observable<EventsResponse>;
+
+  getEventsByFacilityId(
+    request: GetEventsByFacilityIdRequest
+  ): Observable<EventsResponse>;
+
+  getEventsByDate(request: Timestamp): Observable<EventsResponse>;
+
+  generateQR(request: GenerateQRRequest): Observable<GenerateQRResponse>;
 
   ping(request: Empty): Observable<BoolValue>;
 }
@@ -121,27 +130,15 @@ export interface ParticipantServiceController {
     request: UserWithEventRequest
   ): Promise<Event> | Observable<Event> | Event;
 
-  createFeedback(
-    request: CreateFeedbackRequest
-  ): Promise<EventFeedback> | Observable<EventFeedback> | EventFeedback;
-
-  removeFeedback(
-    request: EventFeedback
-  ): Promise<EventFeedback> | Observable<EventFeedback> | EventFeedback;
-
-  getFeedbacksFromEvent(
-    request: Event
+  submitAnswerForPostEventQuestion(
+    request: SubmitAnswerForPostEventQuestionRequest
   ):
-    | Promise<GetFeedbacksFromEventResponse>
-    | Observable<GetFeedbacksFromEventResponse>
-    | GetFeedbacksFromEventResponse;
+    | Promise<SubmitAnswerForPostEventQuestionResponse>
+    | Observable<SubmitAnswerForPostEventQuestionResponse>
+    | SubmitAnswerForPostEventQuestionResponse;
 
-  getUserFeedbackFromEvent(
-    request: UserWithEventRequest
-  ): Promise<EventFeedback> | Observable<EventFeedback> | EventFeedback;
-
-  getEvent(
-    request: GetEventRequest
+  getEventById(
+    request: GetEventByIdRequest
   ): Promise<Event> | Observable<Event> | Event;
 
   getAllEvents(
@@ -152,32 +149,32 @@ export interface ParticipantServiceController {
     request: Empty
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
+  getUpcomingEvents(
+    request: GetUpcomingEventsRequest
+  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
+
   getEventsByStringOfName(
     request: StringInputRequest
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
-  getEventsByTag(
-    request: Tag
+  getEventsByTagId(
+    request: GetEventsByTagIdRequest
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
-  getEventsByOrganization(
-    request: Organization
+  getEventsByOrganizationId(
+    request: GetEventsByOrganizationIdRequest
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
-  getEventsByFacility(
-    request: Facility
+  getEventsByFacilityId(
+    request: GetEventsByFacilityIdRequest
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
   getEventsByDate(
     request: Timestamp
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
-  getUpcomingEvents(
-    request: GetUpcomingEventsRequest
-  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
-
   generateQR(
-    request: UserEvent
+    request: GenerateQRRequest
   ):
     | Promise<GenerateQRResponse>
     | Observable<GenerateQRResponse>
@@ -192,19 +189,16 @@ export function ParticipantServiceControllerMethods() {
       "isEventAvailable",
       "joinEvent",
       "cancelEvent",
-      "createFeedback",
-      "removeFeedback",
-      "getFeedbacksFromEvent",
-      "getUserFeedbackFromEvent",
-      "getEvent",
+      "submitAnswerForPostEventQuestion",
+      "getEventById",
       "getAllEvents",
       "getSuggestedEvents",
-      "getEventsByStringOfName",
-      "getEventsByTag",
-      "getEventsByOrganization",
-      "getEventsByFacility",
-      "getEventsByDate",
       "getUpcomingEvents",
+      "getEventsByStringOfName",
+      "getEventsByTagId",
+      "getEventsByOrganizationId",
+      "getEventsByFacilityId",
+      "getEventsByDate",
       "generateQR",
       "ping",
     ];
