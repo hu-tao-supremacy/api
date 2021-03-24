@@ -8,6 +8,7 @@ import (
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
 	emptypb "google.golang.org/protobuf/types/known/emptypb"
+	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
 	common "onepass.app/facility/hts/common"
 )
 
@@ -21,7 +22,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type OrganizerServiceClient interface {
 	CreateOrganization(ctx context.Context, in *CreateOrganizationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	GetOrganization(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetOrganizationResponse, error)
+	GetOrganizations(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetOrganizationsResponse, error)
 	GetOrganizationById(ctx context.Context, in *GetByIdRequest, opts ...grpc.CallOption) (*GetOrganizationByIdResponse, error)
 	UpdateOrganization(ctx context.Context, in *UpdateOrganizationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	RemoveOrganization(ctx context.Context, in *RemoveOrganizationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -29,16 +30,22 @@ type OrganizerServiceClient interface {
 	RemoveUsersFromOrganization(ctx context.Context, in *UpdateUsersInOrganizationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	CreateEvent(ctx context.Context, in *CreateEventRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	UpdateEvent(ctx context.Context, in *UpdateEventRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	UpdateEventDuration(ctx context.Context, in *UpdateEventDurationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	UpdateEventDurations(ctx context.Context, in *UpdateEventDurationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	RemoveEvent(ctx context.Context, in *RemoveEventRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	UpdateRegistrationRequest(ctx context.Context, in *UpdateRegistrationRequestRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	CreateTag(ctx context.Context, in *CreateTagRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	AddTag(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	RemoveTag(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	GetTag(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetTagResponse, error)
+	AddTags(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	RemoveTags(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	GetTags(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetTagsResponse, error)
 	GetTagById(ctx context.Context, in *GetByIdRequest, opts ...grpc.CallOption) (*GetTagByIdResponse, error)
 	HasEvent(ctx context.Context, in *HasEventRequest, opts ...grpc.CallOption) (*common.Event, error)
-	Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*common.Result, error)
+	GetQuestionGroupsByEventId(ctx context.Context, in *GetByIdRequest, opts ...grpc.CallOption) (*GetQuestionGroupsByEventIdResponse, error)
+	AddQuestionGroups(ctx context.Context, in *QuestionGroupsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	RemoveQuestionGroups(ctx context.Context, in *QuestionGroupsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	GetQuestionsByGroupId(ctx context.Context, in *GetByIdRequest, opts ...grpc.CallOption) (*GetQuestionsByGroupIdResponse, error)
+	AddQuestions(ctx context.Context, in *QuestionsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	RemoveQuestions(ctx context.Context, in *QuestionsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 }
 
 type organizerServiceClient struct {
@@ -58,9 +65,9 @@ func (c *organizerServiceClient) CreateOrganization(ctx context.Context, in *Cre
 	return out, nil
 }
 
-func (c *organizerServiceClient) GetOrganization(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetOrganizationResponse, error) {
-	out := new(GetOrganizationResponse)
-	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/GetOrganization", in, out, opts...)
+func (c *organizerServiceClient) GetOrganizations(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetOrganizationsResponse, error) {
+	out := new(GetOrganizationsResponse)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/GetOrganizations", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -130,9 +137,9 @@ func (c *organizerServiceClient) UpdateEvent(ctx context.Context, in *UpdateEven
 	return out, nil
 }
 
-func (c *organizerServiceClient) UpdateEventDuration(ctx context.Context, in *UpdateEventDurationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *organizerServiceClient) UpdateEventDurations(ctx context.Context, in *UpdateEventDurationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/UpdateEventDuration", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/UpdateEventDurations", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -166,27 +173,27 @@ func (c *organizerServiceClient) CreateTag(ctx context.Context, in *CreateTagReq
 	return out, nil
 }
 
-func (c *organizerServiceClient) AddTag(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *organizerServiceClient) AddTags(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/AddTag", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/AddTags", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *organizerServiceClient) RemoveTag(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *organizerServiceClient) RemoveTags(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/RemoveTag", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/RemoveTags", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *organizerServiceClient) GetTag(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetTagResponse, error) {
-	out := new(GetTagResponse)
-	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/GetTag", in, out, opts...)
+func (c *organizerServiceClient) GetTags(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetTagsResponse, error) {
+	out := new(GetTagsResponse)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/GetTags", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -211,8 +218,62 @@ func (c *organizerServiceClient) HasEvent(ctx context.Context, in *HasEventReque
 	return out, nil
 }
 
-func (c *organizerServiceClient) Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*common.Result, error) {
-	out := new(common.Result)
+func (c *organizerServiceClient) GetQuestionGroupsByEventId(ctx context.Context, in *GetByIdRequest, opts ...grpc.CallOption) (*GetQuestionGroupsByEventIdResponse, error) {
+	out := new(GetQuestionGroupsByEventIdResponse)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/GetQuestionGroupsByEventId", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *organizerServiceClient) AddQuestionGroups(ctx context.Context, in *QuestionGroupsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/AddQuestionGroups", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *organizerServiceClient) RemoveQuestionGroups(ctx context.Context, in *QuestionGroupsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/RemoveQuestionGroups", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *organizerServiceClient) GetQuestionsByGroupId(ctx context.Context, in *GetByIdRequest, opts ...grpc.CallOption) (*GetQuestionsByGroupIdResponse, error) {
+	out := new(GetQuestionsByGroupIdResponse)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/GetQuestionsByGroupId", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *organizerServiceClient) AddQuestions(ctx context.Context, in *QuestionsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/AddQuestions", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *organizerServiceClient) RemoveQuestions(ctx context.Context, in *QuestionsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+	out := new(emptypb.Empty)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/RemoveQuestions", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *organizerServiceClient) Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error) {
+	out := new(wrapperspb.BoolValue)
 	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/Ping", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -225,7 +286,7 @@ func (c *organizerServiceClient) Ping(ctx context.Context, in *emptypb.Empty, op
 // for forward compatibility
 type OrganizerServiceServer interface {
 	CreateOrganization(context.Context, *CreateOrganizationRequest) (*emptypb.Empty, error)
-	GetOrganization(context.Context, *emptypb.Empty) (*GetOrganizationResponse, error)
+	GetOrganizations(context.Context, *emptypb.Empty) (*GetOrganizationsResponse, error)
 	GetOrganizationById(context.Context, *GetByIdRequest) (*GetOrganizationByIdResponse, error)
 	UpdateOrganization(context.Context, *UpdateOrganizationRequest) (*emptypb.Empty, error)
 	RemoveOrganization(context.Context, *RemoveOrganizationRequest) (*emptypb.Empty, error)
@@ -233,16 +294,22 @@ type OrganizerServiceServer interface {
 	RemoveUsersFromOrganization(context.Context, *UpdateUsersInOrganizationRequest) (*emptypb.Empty, error)
 	CreateEvent(context.Context, *CreateEventRequest) (*emptypb.Empty, error)
 	UpdateEvent(context.Context, *UpdateEventRequest) (*emptypb.Empty, error)
-	UpdateEventDuration(context.Context, *UpdateEventDurationRequest) (*emptypb.Empty, error)
+	UpdateEventDurations(context.Context, *UpdateEventDurationRequest) (*emptypb.Empty, error)
 	RemoveEvent(context.Context, *RemoveEventRequest) (*emptypb.Empty, error)
 	UpdateRegistrationRequest(context.Context, *UpdateRegistrationRequestRequest) (*emptypb.Empty, error)
 	CreateTag(context.Context, *CreateTagRequest) (*emptypb.Empty, error)
-	AddTag(context.Context, *UpdateTagRequest) (*emptypb.Empty, error)
-	RemoveTag(context.Context, *UpdateTagRequest) (*emptypb.Empty, error)
-	GetTag(context.Context, *emptypb.Empty) (*GetTagResponse, error)
+	AddTags(context.Context, *UpdateTagRequest) (*emptypb.Empty, error)
+	RemoveTags(context.Context, *UpdateTagRequest) (*emptypb.Empty, error)
+	GetTags(context.Context, *emptypb.Empty) (*GetTagsResponse, error)
 	GetTagById(context.Context, *GetByIdRequest) (*GetTagByIdResponse, error)
 	HasEvent(context.Context, *HasEventRequest) (*common.Event, error)
-	Ping(context.Context, *emptypb.Empty) (*common.Result, error)
+	GetQuestionGroupsByEventId(context.Context, *GetByIdRequest) (*GetQuestionGroupsByEventIdResponse, error)
+	AddQuestionGroups(context.Context, *QuestionGroupsRequest) (*emptypb.Empty, error)
+	RemoveQuestionGroups(context.Context, *QuestionGroupsRequest) (*emptypb.Empty, error)
+	GetQuestionsByGroupId(context.Context, *GetByIdRequest) (*GetQuestionsByGroupIdResponse, error)
+	AddQuestions(context.Context, *QuestionsRequest) (*emptypb.Empty, error)
+	RemoveQuestions(context.Context, *QuestionsRequest) (*emptypb.Empty, error)
+	Ping(context.Context, *emptypb.Empty) (*wrapperspb.BoolValue, error)
 	mustEmbedUnimplementedOrganizerServiceServer()
 }
 
@@ -253,8 +320,8 @@ type UnimplementedOrganizerServiceServer struct {
 func (UnimplementedOrganizerServiceServer) CreateOrganization(context.Context, *CreateOrganizationRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateOrganization not implemented")
 }
-func (UnimplementedOrganizerServiceServer) GetOrganization(context.Context, *emptypb.Empty) (*GetOrganizationResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetOrganization not implemented")
+func (UnimplementedOrganizerServiceServer) GetOrganizations(context.Context, *emptypb.Empty) (*GetOrganizationsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetOrganizations not implemented")
 }
 func (UnimplementedOrganizerServiceServer) GetOrganizationById(context.Context, *GetByIdRequest) (*GetOrganizationByIdResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOrganizationById not implemented")
@@ -277,8 +344,8 @@ func (UnimplementedOrganizerServiceServer) CreateEvent(context.Context, *CreateE
 func (UnimplementedOrganizerServiceServer) UpdateEvent(context.Context, *UpdateEventRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateEvent not implemented")
 }
-func (UnimplementedOrganizerServiceServer) UpdateEventDuration(context.Context, *UpdateEventDurationRequest) (*emptypb.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateEventDuration not implemented")
+func (UnimplementedOrganizerServiceServer) UpdateEventDurations(context.Context, *UpdateEventDurationRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateEventDurations not implemented")
 }
 func (UnimplementedOrganizerServiceServer) RemoveEvent(context.Context, *RemoveEventRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoveEvent not implemented")
@@ -289,14 +356,14 @@ func (UnimplementedOrganizerServiceServer) UpdateRegistrationRequest(context.Con
 func (UnimplementedOrganizerServiceServer) CreateTag(context.Context, *CreateTagRequest) (*emptypb.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTag not implemented")
 }
-func (UnimplementedOrganizerServiceServer) AddTag(context.Context, *UpdateTagRequest) (*emptypb.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method AddTag not implemented")
+func (UnimplementedOrganizerServiceServer) AddTags(context.Context, *UpdateTagRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddTags not implemented")
 }
-func (UnimplementedOrganizerServiceServer) RemoveTag(context.Context, *UpdateTagRequest) (*emptypb.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method RemoveTag not implemented")
+func (UnimplementedOrganizerServiceServer) RemoveTags(context.Context, *UpdateTagRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveTags not implemented")
 }
-func (UnimplementedOrganizerServiceServer) GetTag(context.Context, *emptypb.Empty) (*GetTagResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetTag not implemented")
+func (UnimplementedOrganizerServiceServer) GetTags(context.Context, *emptypb.Empty) (*GetTagsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTags not implemented")
 }
 func (UnimplementedOrganizerServiceServer) GetTagById(context.Context, *GetByIdRequest) (*GetTagByIdResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTagById not implemented")
@@ -304,7 +371,25 @@ func (UnimplementedOrganizerServiceServer) GetTagById(context.Context, *GetByIdR
 func (UnimplementedOrganizerServiceServer) HasEvent(context.Context, *HasEventRequest) (*common.Event, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method HasEvent not implemented")
 }
-func (UnimplementedOrganizerServiceServer) Ping(context.Context, *emptypb.Empty) (*common.Result, error) {
+func (UnimplementedOrganizerServiceServer) GetQuestionGroupsByEventId(context.Context, *GetByIdRequest) (*GetQuestionGroupsByEventIdResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetQuestionGroupsByEventId not implemented")
+}
+func (UnimplementedOrganizerServiceServer) AddQuestionGroups(context.Context, *QuestionGroupsRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddQuestionGroups not implemented")
+}
+func (UnimplementedOrganizerServiceServer) RemoveQuestionGroups(context.Context, *QuestionGroupsRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveQuestionGroups not implemented")
+}
+func (UnimplementedOrganizerServiceServer) GetQuestionsByGroupId(context.Context, *GetByIdRequest) (*GetQuestionsByGroupIdResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetQuestionsByGroupId not implemented")
+}
+func (UnimplementedOrganizerServiceServer) AddQuestions(context.Context, *QuestionsRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddQuestions not implemented")
+}
+func (UnimplementedOrganizerServiceServer) RemoveQuestions(context.Context, *QuestionsRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveQuestions not implemented")
+}
+func (UnimplementedOrganizerServiceServer) Ping(context.Context, *emptypb.Empty) (*wrapperspb.BoolValue, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Ping not implemented")
 }
 func (UnimplementedOrganizerServiceServer) mustEmbedUnimplementedOrganizerServiceServer() {}
@@ -338,20 +423,20 @@ func _OrganizerService_CreateOrganization_Handler(srv interface{}, ctx context.C
 	return interceptor(ctx, in, info, handler)
 }
 
-func _OrganizerService_GetOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _OrganizerService_GetOrganizations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OrganizerServiceServer).GetOrganization(ctx, in)
+		return srv.(OrganizerServiceServer).GetOrganizations(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.organizer.OrganizerService/GetOrganization",
+		FullMethod: "/hts.organizer.OrganizerService/GetOrganizations",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OrganizerServiceServer).GetOrganization(ctx, req.(*emptypb.Empty))
+		return srv.(OrganizerServiceServer).GetOrganizations(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -482,20 +567,20 @@ func _OrganizerService_UpdateEvent_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
-func _OrganizerService_UpdateEventDuration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _OrganizerService_UpdateEventDurations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateEventDurationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OrganizerServiceServer).UpdateEventDuration(ctx, in)
+		return srv.(OrganizerServiceServer).UpdateEventDurations(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.organizer.OrganizerService/UpdateEventDuration",
+		FullMethod: "/hts.organizer.OrganizerService/UpdateEventDurations",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OrganizerServiceServer).UpdateEventDuration(ctx, req.(*UpdateEventDurationRequest))
+		return srv.(OrganizerServiceServer).UpdateEventDurations(ctx, req.(*UpdateEventDurationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -554,56 +639,56 @@ func _OrganizerService_CreateTag_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
-func _OrganizerService_AddTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _OrganizerService_AddTags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateTagRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OrganizerServiceServer).AddTag(ctx, in)
+		return srv.(OrganizerServiceServer).AddTags(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.organizer.OrganizerService/AddTag",
+		FullMethod: "/hts.organizer.OrganizerService/AddTags",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OrganizerServiceServer).AddTag(ctx, req.(*UpdateTagRequest))
+		return srv.(OrganizerServiceServer).AddTags(ctx, req.(*UpdateTagRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _OrganizerService_RemoveTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _OrganizerService_RemoveTags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateTagRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OrganizerServiceServer).RemoveTag(ctx, in)
+		return srv.(OrganizerServiceServer).RemoveTags(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.organizer.OrganizerService/RemoveTag",
+		FullMethod: "/hts.organizer.OrganizerService/RemoveTags",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OrganizerServiceServer).RemoveTag(ctx, req.(*UpdateTagRequest))
+		return srv.(OrganizerServiceServer).RemoveTags(ctx, req.(*UpdateTagRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _OrganizerService_GetTag_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _OrganizerService_GetTags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(OrganizerServiceServer).GetTag(ctx, in)
+		return srv.(OrganizerServiceServer).GetTags(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.organizer.OrganizerService/GetTag",
+		FullMethod: "/hts.organizer.OrganizerService/GetTags",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OrganizerServiceServer).GetTag(ctx, req.(*emptypb.Empty))
+		return srv.(OrganizerServiceServer).GetTags(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -644,6 +729,114 @@ func _OrganizerService_HasEvent_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _OrganizerService_GetQuestionGroupsByEventId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetByIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrganizerServiceServer).GetQuestionGroupsByEventId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.organizer.OrganizerService/GetQuestionGroupsByEventId",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrganizerServiceServer).GetQuestionGroupsByEventId(ctx, req.(*GetByIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OrganizerService_AddQuestionGroups_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QuestionGroupsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrganizerServiceServer).AddQuestionGroups(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.organizer.OrganizerService/AddQuestionGroups",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrganizerServiceServer).AddQuestionGroups(ctx, req.(*QuestionGroupsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OrganizerService_RemoveQuestionGroups_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QuestionGroupsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrganizerServiceServer).RemoveQuestionGroups(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.organizer.OrganizerService/RemoveQuestionGroups",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrganizerServiceServer).RemoveQuestionGroups(ctx, req.(*QuestionGroupsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OrganizerService_GetQuestionsByGroupId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetByIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrganizerServiceServer).GetQuestionsByGroupId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.organizer.OrganizerService/GetQuestionsByGroupId",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrganizerServiceServer).GetQuestionsByGroupId(ctx, req.(*GetByIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OrganizerService_AddQuestions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QuestionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrganizerServiceServer).AddQuestions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.organizer.OrganizerService/AddQuestions",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrganizerServiceServer).AddQuestions(ctx, req.(*QuestionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OrganizerService_RemoveQuestions_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QuestionsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrganizerServiceServer).RemoveQuestions(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.organizer.OrganizerService/RemoveQuestions",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrganizerServiceServer).RemoveQuestions(ctx, req.(*QuestionsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _OrganizerService_Ping_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
@@ -674,8 +867,8 @@ var OrganizerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _OrganizerService_CreateOrganization_Handler,
 		},
 		{
-			MethodName: "GetOrganization",
-			Handler:    _OrganizerService_GetOrganization_Handler,
+			MethodName: "GetOrganizations",
+			Handler:    _OrganizerService_GetOrganizations_Handler,
 		},
 		{
 			MethodName: "GetOrganizationById",
@@ -706,8 +899,8 @@ var OrganizerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _OrganizerService_UpdateEvent_Handler,
 		},
 		{
-			MethodName: "UpdateEventDuration",
-			Handler:    _OrganizerService_UpdateEventDuration_Handler,
+			MethodName: "UpdateEventDurations",
+			Handler:    _OrganizerService_UpdateEventDurations_Handler,
 		},
 		{
 			MethodName: "RemoveEvent",
@@ -722,16 +915,16 @@ var OrganizerService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _OrganizerService_CreateTag_Handler,
 		},
 		{
-			MethodName: "AddTag",
-			Handler:    _OrganizerService_AddTag_Handler,
+			MethodName: "AddTags",
+			Handler:    _OrganizerService_AddTags_Handler,
 		},
 		{
-			MethodName: "RemoveTag",
-			Handler:    _OrganizerService_RemoveTag_Handler,
+			MethodName: "RemoveTags",
+			Handler:    _OrganizerService_RemoveTags_Handler,
 		},
 		{
-			MethodName: "GetTag",
-			Handler:    _OrganizerService_GetTag_Handler,
+			MethodName: "GetTags",
+			Handler:    _OrganizerService_GetTags_Handler,
 		},
 		{
 			MethodName: "GetTagById",
@@ -740,6 +933,30 @@ var OrganizerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "HasEvent",
 			Handler:    _OrganizerService_HasEvent_Handler,
+		},
+		{
+			MethodName: "GetQuestionGroupsByEventId",
+			Handler:    _OrganizerService_GetQuestionGroupsByEventId_Handler,
+		},
+		{
+			MethodName: "AddQuestionGroups",
+			Handler:    _OrganizerService_AddQuestionGroups_Handler,
+		},
+		{
+			MethodName: "RemoveQuestionGroups",
+			Handler:    _OrganizerService_RemoveQuestionGroups_Handler,
+		},
+		{
+			MethodName: "GetQuestionsByGroupId",
+			Handler:    _OrganizerService_GetQuestionsByGroupId_Handler,
+		},
+		{
+			MethodName: "AddQuestions",
+			Handler:    _OrganizerService_AddQuestions_Handler,
+		},
+		{
+			MethodName: "RemoveQuestions",
+			Handler:    _OrganizerService_RemoveQuestions_Handler,
 		},
 		{
 			MethodName: "Ping",

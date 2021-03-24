@@ -14,17 +14,23 @@ public interface CreateTagRequestOrBuilder extends
   long getUserId();
 
   /**
-   * <code>.hts.common.Tag tag = 2 [json_name = "tag"];</code>
+   * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
+   * @return The organizationId.
+   */
+  long getOrganizationId();
+
+  /**
+   * <code>.hts.common.Tag tag = 3 [json_name = "tag"];</code>
    * @return Whether the tag field is set.
    */
   boolean hasTag();
   /**
-   * <code>.hts.common.Tag tag = 2 [json_name = "tag"];</code>
+   * <code>.hts.common.Tag tag = 3 [json_name = "tag"];</code>
    * @return The tag.
    */
   app.onepass.apis.Tag getTag();
   /**
-   * <code>.hts.common.Tag tag = 2 [json_name = "tag"];</code>
+   * <code>.hts.common.Tag tag = 3 [json_name = "tag"];</code>
    */
   app.onepass.apis.TagOrBuilder getTagOrBuilder();
 }

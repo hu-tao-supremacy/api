@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface GetOrganizationResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.organizer.GetOrganizationResponse)
+public interface GetOrganizationsResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.organizer.GetOrganizationsResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**

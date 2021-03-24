@@ -49,16 +49,8 @@ export interface GetUpcomingEventsRequest {
   end: Date | undefined;
 }
 
-export interface GetEventsByTagIdRequest {
-  tagId: number;
-}
-
-export interface GetEventsByOrganizationIdRequest {
-  organizationId: number;
-}
-
-export interface GetEventsByFacilityIdRequest {
-  facilityId: number;
+export interface GetEventsByIdRequest {
+  id: number;
 }
 
 export interface GenerateQRRequest {
@@ -81,13 +73,11 @@ export interface ParticipantService {
   GetSuggestedEvents(request: Empty): Promise<EventsResponse>;
   GetUpcomingEvents(request: GetUpcomingEventsRequest): Promise<EventsResponse>;
   GetEventsByStringOfName(request: StringInputRequest): Promise<EventsResponse>;
-  GetEventsByTagId(request: GetEventsByTagIdRequest): Promise<EventsResponse>;
+  GetEventsByTagId(request: GetEventsByIdRequest): Promise<EventsResponse>;
   GetEventsByOrganizationId(
-    request: GetEventsByOrganizationIdRequest
+    request: GetEventsByIdRequest
   ): Promise<EventsResponse>;
-  GetEventsByFacilityId(
-    request: GetEventsByFacilityIdRequest
-  ): Promise<EventsResponse>;
+  GetEventsByFacilityId(request: GetEventsByIdRequest): Promise<EventsResponse>;
   GetEventsByDate(request: Date): Promise<EventsResponse>;
   GenerateQR(request: GenerateQRRequest): Promise<GenerateQRResponse>;
   Ping(request: Empty): Promise<boolean | undefined>;

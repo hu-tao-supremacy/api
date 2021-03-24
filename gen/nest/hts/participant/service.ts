@@ -53,16 +53,8 @@ export interface GetUpcomingEventsRequest {
   end: Timestamp | undefined;
 }
 
-export interface GetEventsByTagIdRequest {
-  tagId: number;
-}
-
-export interface GetEventsByOrganizationIdRequest {
-  organizationId: number;
-}
-
-export interface GetEventsByFacilityIdRequest {
-  facilityId: number;
+export interface GetEventsByIdRequest {
+  id: number;
 }
 
 export interface GenerateQRRequest {
@@ -98,16 +90,14 @@ export interface ParticipantServiceClient {
     request: StringInputRequest
   ): Observable<EventsResponse>;
 
-  getEventsByTagId(
-    request: GetEventsByTagIdRequest
-  ): Observable<EventsResponse>;
+  getEventsByTagId(request: GetEventsByIdRequest): Observable<EventsResponse>;
 
   getEventsByOrganizationId(
-    request: GetEventsByOrganizationIdRequest
+    request: GetEventsByIdRequest
   ): Observable<EventsResponse>;
 
   getEventsByFacilityId(
-    request: GetEventsByFacilityIdRequest
+    request: GetEventsByIdRequest
   ): Observable<EventsResponse>;
 
   getEventsByDate(request: Timestamp): Observable<EventsResponse>;
@@ -158,15 +148,15 @@ export interface ParticipantServiceController {
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
   getEventsByTagId(
-    request: GetEventsByTagIdRequest
+    request: GetEventsByIdRequest
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
   getEventsByOrganizationId(
-    request: GetEventsByOrganizationIdRequest
+    request: GetEventsByIdRequest
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
   getEventsByFacilityId(
-    request: GetEventsByFacilityIdRequest
+    request: GetEventsByIdRequest
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
   getEventsByDate(

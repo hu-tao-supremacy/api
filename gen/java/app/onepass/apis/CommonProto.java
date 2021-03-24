@@ -60,16 +60,6 @@ public final class CommonProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hts_common_Answer_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_hts_common_EventLocation_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_hts_common_EventLocation_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_hts_common_Location_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_hts_common_Location_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_hts_common_UserEvent_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -179,7 +169,7 @@ public final class CommonProto {
       "\024\n\005title\030\006 \001(\tR\005title\022\032\n\010subtitle\030\007 \001(\tR" +
       "\010subtitle\"d\n\020UserOrganization\022\016\n\002id\030\001 \001(" +
       "\003R\002id\022\027\n\007user_id\030\002 \001(\003R\006userId\022\'\n\017organi" +
-      "zation_id\030\003 \001(\003R\016organizationId\"\253\005\n\005Even" +
+      "zation_id\030\003 \001(\003R\016organizationId\"\207\010\n\005Even" +
       "t\022\016\n\002id\030\001 \001(\003R\002id\022\'\n\017organization_id\030\002 \001" +
       "(\003R\016organizationId\022<\n\013location_id\030\003 \001(\0132" +
       "\033.google.protobuf.Int64ValueR\nlocationId" +
@@ -196,72 +186,70 @@ public final class CommonProto {
       "ogle.protobuf.StringValueR\017profileImageU" +
       "rl\022J\n\022profile_image_hash\030\014 \001(\0132\034.google." +
       "protobuf.StringValueR\020profileImageHash\022%" +
-      "\n\016attendee_limit\030\r \001(\003R\rattendeeLimit\"s\n" +
-      "\006Answer\022\016\n\002id\030\001 \001(\003R\002id\022\"\n\ruser_event_id" +
-      "\030\002 \001(\003R\013userEventId\022\037\n\013question_id\030\003 \001(\003" +
-      "R\nquestionId\022\024\n\005value\030\004 \001(\tR\005value\"[\n\rEv" +
-      "entLocation\022\016\n\002id\030\001 \001(\003R\002id\022\031\n\010event_id\030" +
-      "\002 \001(\003R\007eventId\022\037\n\013location_id\030\003 \001(\003R\nloc" +
-      "ationId\"\324\002\n\010Location\022\016\n\002id\030\001 \001(\003R\002id\022\022\n\004" +
-      "name\030\002 \001(\tR\004name\022$\n\016google_map_url\030\003 \001(\t" +
-      "R\014googleMapUrl\022>\n\013description\030\004 \001(\0132\034.go" +
-      "ogle.protobuf.StringValueR\013description\022]" +
-      "\n\034travel_information_image_url\030\005 \001(\0132\034.g" +
-      "oogle.protobuf.StringValueR\031travelInform" +
-      "ationImageUrl\022_\n\035travel_information_imag" +
-      "e_hash\030\006 \001(\0132\034.google.protobuf.StringVal" +
-      "ueR\032travelInformationImageHash\"\310\001\n\tUserE" +
-      "vent\022\016\n\002id\030\001 \001(\003R\002id\022\027\n\007user_id\030\002 \001(\003R\006u" +
-      "serId\022\031\n\010event_id\030\003 \001(\003R\007eventId\0223\n\006rati" +
-      "ng\030\004 \001(\0132\033.google.protobuf.Int64ValueR\006r" +
-      "ating\022\026\n\006ticket\030\005 \001(\tR\006ticket\022*\n\006status\030" +
-      "\006 \001(\0162\022.hts.common.StatusR\006status\"\240\001\n\rEv" +
-      "entDuration\022\016\n\002id\030\001 \001(\003R\002id\022\031\n\010event_id\030" +
-      "\002 \001(\003R\007eventId\0220\n\005start\030\003 \001(\0132\032.google.p" +
-      "rotobuf.TimestampR\005start\0222\n\006finish\030\004 \001(\013" +
-      "2\032.google.protobuf.TimestampR\006finish\")\n\003" +
-      "Tag\022\016\n\002id\030\001 \001(\003R\002id\022\022\n\004name\030\002 \001(\tR\004name\"" +
-      "L\n\010EventTag\022\016\n\002id\030\001 \001(\003R\002id\022\031\n\010event_id\030" +
-      "\002 \001(\003R\007eventId\022\025\n\006tag_id\030\003 \001(\003R\005tagId\"\211\001" +
-      "\n\026OrganizationPermission\022\016\n\002id\030\001 \001(\003R\002id" +
-      "\022\'\n\017organization_id\030\002 \001(\003R\016organizationI" +
-      "d\0226\n\npermission\030\003 \001(\0162\026.hts.common.Permi" +
-      "ssionR\npermission\"w\n\016UserPermission\022\016\n\002i" +
-      "d\030\001 \001(\003R\002id\022\027\n\007user_id\030\002 \001(\003R\006userId\022<\n\032" +
-      "organization_permission_id\030\003 \001(\003R\030organi" +
-      "zationPermissionId\"M\n\014UserInterest\022\016\n\002id" +
-      "\030\001 \001(\003R\002id\022\026\n\006userId\030\002 \001(\003R\006userId\022\025\n\006ta" +
-      "g_id\030\003 \001(\003R\005tagId\"\262\002\n\017FacilityRequest\022\016\n" +
-      "\002id\030\001 \001(\003R\002id\022\031\n\010event_id\030\002 \001(\003R\007eventId" +
-      "\022\037\n\013facility_id\030\003 \001(\003R\nfacilityId\022*\n\006sta" +
-      "tus\030\004 \001(\0162\022.hts.common.StatusR\006status\022A\n" +
-      "\rreject_reason\030\005 \001(\0132\034.google.protobuf.S" +
-      "tringValueR\014rejectReason\0220\n\005start\030\006 \001(\0132" +
-      "\032.google.protobuf.TimestampR\005start\0222\n\006fi" +
-      "nish\030\007 \001(\0132\032.google.protobuf.TimestampR\006" +
-      "finish\"\367\001\n\010Facility\022\016\n\002id\030\001 \001(\003R\002id\022\'\n\017o" +
-      "rganization_id\030\002 \001(\003R\016organizationId\022\022\n\004" +
-      "name\030\003 \001(\tR\004name\022\032\n\010latitude\030\004 \001(\001R\010lati" +
-      "tude\022\034\n\tlongitude\030\005 \001(\001R\tlongitude\022B\n\017op" +
-      "erating_hours\030\006 \003(\0132\031.hts.common.Operati" +
-      "ngHourR\016operatingHours\022 \n\013description\030\007 " +
-      "\001(\tR\013description*J\n\tDayOfWeek\022\007\n\003SUN\020\000\022\007" +
-      "\n\003MON\020\001\022\007\n\003TUE\020\002\022\007\n\003WED\020\003\022\007\n\003THU\020\004\022\007\n\003FR" +
-      "I\020\005\022\007\n\003SAT\020\006*!\n\nAnswerType\022\t\n\005SCALE\020\000\022\010\n" +
-      "\004TEXT\020\001*-\n\014QuestionType\022\r\n\tPRE_EVENT\020\000\022\016" +
-      "\n\nPOST_EVENT\020\001*1\n\006Gender\022\010\n\004MALE\020\000\022\n\n\006FE" +
-      "MALE\020\001\022\021\n\rNOT_SPECIFIED\020\002*1\n\006Status\022\013\n\007P" +
-      "ENDING\020\000\022\014\n\010APPROVED\020\001\022\014\n\010REJECTED\020\002*\246\002\n" +
-      "\nPermission\022\027\n\023ORGANIZATION_UPDATE\020\000\022\027\n\023" +
-      "ORGANIZATION_REMOVE\020\001\022\033\n\027ORGANIZATION_ME" +
-      "MBER_ADD\020\002\022\036\n\032ORGANIZATION_MEMBER_REMOVE" +
-      "\020\003\022\020\n\014EVENT_CREATE\020\004\022\020\n\014EVENT_UPDATE\020\005\022\020" +
-      "\n\014EVENT_REMOVE\020\006\022\016\n\nTAG_CREATE\020\007\022\016\n\nTAG_" +
-      "REMOVE\020\010\022\024\n\020EVENT_TAG_UPDATE\020\t\022\023\n\017FACILI" +
-      "TY_CREATE\020\n\022\023\n\017FACILITY_UPDATE\020\013\022\023\n\017FACI" +
-      "LITY_REMOVE\020\014BB\n\020app.onepass.apisB\013Commo" +
-      "nProtoP\001Z\037onepass.app/facility/hts/commo" +
-      "nb\006proto3"
+      "\n\016attendee_limit\030\r \001(\003R\rattendeeLimit\022#\n" +
+      "\rlocation_name\030\016 \001(\tR\014locationName\022$\n\016go" +
+      "ogle_map_url\030\017 \001(\tR\014googleMapUrl\022O\n\024loca" +
+      "tion_description\030\020 \001(\0132\034.google.protobuf" +
+      ".StringValueR\023locationDescription\022]\n\034tra" +
+      "vel_information_image_url\030\021 \001(\0132\034.google" +
+      ".protobuf.StringValueR\031travelInformation" +
+      "ImageUrl\022_\n\035travel_information_image_has" +
+      "h\030\022 \001(\0132\034.google.protobuf.StringValueR\032t" +
+      "ravelInformationImageHash\"s\n\006Answer\022\016\n\002i" +
+      "d\030\001 \001(\003R\002id\022\"\n\ruser_event_id\030\002 \001(\003R\013user" +
+      "EventId\022\037\n\013question_id\030\003 \001(\003R\nquestionId" +
+      "\022\024\n\005value\030\004 \001(\tR\005value\"\310\001\n\tUserEvent\022\016\n\002" +
+      "id\030\001 \001(\003R\002id\022\027\n\007user_id\030\002 \001(\003R\006userId\022\031\n" +
+      "\010event_id\030\003 \001(\003R\007eventId\0223\n\006rating\030\004 \001(\013" +
+      "2\033.google.protobuf.Int64ValueR\006rating\022\026\n" +
+      "\006ticket\030\005 \001(\tR\006ticket\022*\n\006status\030\006 \001(\0162\022." +
+      "hts.common.StatusR\006status\"\240\001\n\rEventDurat" +
+      "ion\022\016\n\002id\030\001 \001(\003R\002id\022\031\n\010event_id\030\002 \001(\003R\007e" +
+      "ventId\0220\n\005start\030\003 \001(\0132\032.google.protobuf." +
+      "TimestampR\005start\0222\n\006finish\030\004 \001(\0132\032.googl" +
+      "e.protobuf.TimestampR\006finish\")\n\003Tag\022\016\n\002i" +
+      "d\030\001 \001(\003R\002id\022\022\n\004name\030\002 \001(\tR\004name\"L\n\010Event" +
+      "Tag\022\016\n\002id\030\001 \001(\003R\002id\022\031\n\010event_id\030\002 \001(\003R\007e" +
+      "ventId\022\025\n\006tag_id\030\003 \001(\003R\005tagId\"\211\001\n\026Organi" +
+      "zationPermission\022\016\n\002id\030\001 \001(\003R\002id\022\'\n\017orga" +
+      "nization_id\030\002 \001(\003R\016organizationId\0226\n\nper" +
+      "mission\030\003 \001(\0162\026.hts.common.PermissionR\np" +
+      "ermission\"w\n\016UserPermission\022\016\n\002id\030\001 \001(\003R" +
+      "\002id\022\027\n\007user_id\030\002 \001(\003R\006userId\022<\n\032organiza" +
+      "tion_permission_id\030\003 \001(\003R\030organizationPe" +
+      "rmissionId\"M\n\014UserInterest\022\016\n\002id\030\001 \001(\003R\002" +
+      "id\022\026\n\006userId\030\002 \001(\003R\006userId\022\025\n\006tag_id\030\003 \001" +
+      "(\003R\005tagId\"\262\002\n\017FacilityRequest\022\016\n\002id\030\001 \001(" +
+      "\003R\002id\022\031\n\010event_id\030\002 \001(\003R\007eventId\022\037\n\013faci" +
+      "lity_id\030\003 \001(\003R\nfacilityId\022*\n\006status\030\004 \001(" +
+      "\0162\022.hts.common.StatusR\006status\022A\n\rreject_" +
+      "reason\030\005 \001(\0132\034.google.protobuf.StringVal" +
+      "ueR\014rejectReason\0220\n\005start\030\006 \001(\0132\032.google" +
+      ".protobuf.TimestampR\005start\0222\n\006finish\030\007 \001" +
+      "(\0132\032.google.protobuf.TimestampR\006finish\"\367" +
+      "\001\n\010Facility\022\016\n\002id\030\001 \001(\003R\002id\022\'\n\017organizat" +
+      "ion_id\030\002 \001(\003R\016organizationId\022\022\n\004name\030\003 \001" +
+      "(\tR\004name\022\032\n\010latitude\030\004 \001(\001R\010latitude\022\034\n\t" +
+      "longitude\030\005 \001(\001R\tlongitude\022B\n\017operating_" +
+      "hours\030\006 \003(\0132\031.hts.common.OperatingHourR\016" +
+      "operatingHours\022 \n\013description\030\007 \001(\tR\013des" +
+      "cription*J\n\tDayOfWeek\022\007\n\003SUN\020\000\022\007\n\003MON\020\001\022" +
+      "\007\n\003TUE\020\002\022\007\n\003WED\020\003\022\007\n\003THU\020\004\022\007\n\003FRI\020\005\022\007\n\003S" +
+      "AT\020\006*!\n\nAnswerType\022\t\n\005SCALE\020\000\022\010\n\004TEXT\020\001*" +
+      "-\n\014QuestionType\022\r\n\tPRE_EVENT\020\000\022\016\n\nPOST_E" +
+      "VENT\020\001*1\n\006Gender\022\010\n\004MALE\020\000\022\n\n\006FEMALE\020\001\022\021" +
+      "\n\rNOT_SPECIFIED\020\002*1\n\006Status\022\013\n\007PENDING\020\000" +
+      "\022\014\n\010APPROVED\020\001\022\014\n\010REJECTED\020\002*\246\002\n\nPermiss" +
+      "ion\022\027\n\023ORGANIZATION_UPDATE\020\000\022\027\n\023ORGANIZA" +
+      "TION_REMOVE\020\001\022\033\n\027ORGANIZATION_MEMBER_ADD" +
+      "\020\002\022\036\n\032ORGANIZATION_MEMBER_REMOVE\020\003\022\020\n\014EV" +
+      "ENT_CREATE\020\004\022\020\n\014EVENT_UPDATE\020\005\022\020\n\014EVENT_" +
+      "REMOVE\020\006\022\016\n\nTAG_CREATE\020\007\022\016\n\nTAG_REMOVE\020\010" +
+      "\022\024\n\020EVENT_TAG_UPDATE\020\t\022\023\n\017FACILITY_CREAT" +
+      "E\020\n\022\023\n\017FACILITY_UPDATE\020\013\022\023\n\017FACILITY_REM" +
+      "OVE\020\014BB\n\020app.onepass.apisB\013CommonProtoP\001" +
+      "Z\037onepass.app/facility/hts/commonb\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -316,75 +304,63 @@ public final class CommonProto {
     internal_static_hts_common_Event_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_common_Event_descriptor,
-        new java.lang.String[] { "Id", "OrganizationId", "LocationId", "Description", "Name", "CoverImageUrl", "CoverImageHash", "PosterImageUrl", "PosterImageHash", "Contact", "ProfileImageUrl", "ProfileImageHash", "AttendeeLimit", });
+        new java.lang.String[] { "Id", "OrganizationId", "LocationId", "Description", "Name", "CoverImageUrl", "CoverImageHash", "PosterImageUrl", "PosterImageHash", "Contact", "ProfileImageUrl", "ProfileImageHash", "AttendeeLimit", "LocationName", "GoogleMapUrl", "LocationDescription", "TravelInformationImageUrl", "TravelInformationImageHash", });
     internal_static_hts_common_Answer_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_hts_common_Answer_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_common_Answer_descriptor,
         new java.lang.String[] { "Id", "UserEventId", "QuestionId", "Value", });
-    internal_static_hts_common_EventLocation_descriptor =
-      getDescriptor().getMessageTypes().get(9);
-    internal_static_hts_common_EventLocation_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_hts_common_EventLocation_descriptor,
-        new java.lang.String[] { "Id", "EventId", "LocationId", });
-    internal_static_hts_common_Location_descriptor =
-      getDescriptor().getMessageTypes().get(10);
-    internal_static_hts_common_Location_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_hts_common_Location_descriptor,
-        new java.lang.String[] { "Id", "Name", "GoogleMapUrl", "Description", "TravelInformationImageUrl", "TravelInformationImageHash", });
     internal_static_hts_common_UserEvent_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_hts_common_UserEvent_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_common_UserEvent_descriptor,
         new java.lang.String[] { "Id", "UserId", "EventId", "Rating", "Ticket", "Status", });
     internal_static_hts_common_EventDuration_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_hts_common_EventDuration_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_common_EventDuration_descriptor,
         new java.lang.String[] { "Id", "EventId", "Start", "Finish", });
     internal_static_hts_common_Tag_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_hts_common_Tag_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_common_Tag_descriptor,
         new java.lang.String[] { "Id", "Name", });
     internal_static_hts_common_EventTag_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_hts_common_EventTag_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_common_EventTag_descriptor,
         new java.lang.String[] { "Id", "EventId", "TagId", });
     internal_static_hts_common_OrganizationPermission_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_hts_common_OrganizationPermission_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_common_OrganizationPermission_descriptor,
         new java.lang.String[] { "Id", "OrganizationId", "Permission", });
     internal_static_hts_common_UserPermission_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_hts_common_UserPermission_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_common_UserPermission_descriptor,
         new java.lang.String[] { "Id", "UserId", "OrganizationPermissionId", });
     internal_static_hts_common_UserInterest_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_hts_common_UserInterest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_common_UserInterest_descriptor,
         new java.lang.String[] { "Id", "UserId", "TagId", });
     internal_static_hts_common_FacilityRequest_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_hts_common_FacilityRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_common_FacilityRequest_descriptor,
         new java.lang.String[] { "Id", "EventId", "FacilityId", "Status", "RejectReason", "Start", "Finish", });
     internal_static_hts_common_Facility_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_hts_common_Facility_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_common_Facility_descriptor,
