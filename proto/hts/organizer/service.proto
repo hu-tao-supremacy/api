@@ -93,7 +93,7 @@ message QuestionsRequest {
   repeated hts.common.Question questions = 1;
 }
 
-message GetOrganizationResponse {
+message GetOrganizationsResponse {
   repeated hts.common.Organization organizations = 1;
 }
 
@@ -101,7 +101,7 @@ message GetOrganizationByIdResponse {
   hts.common.Organization organization = 1;
 }
 
-message GetTagResponse {
+message GetTagsResponse {
   repeated hts.common.Tag tags = 1;
 }
 
@@ -109,9 +109,17 @@ message GetTagByIdResponse {
   hts.common.Tag tag = 1;
 }
 
+message GetQuestionGroupsByEventIdResponse {
+  hts.common.QuestionGroup question_group = 1;
+}
+
+message GetQuestionsByGroupIdResponse {
+  hts.common.Question question = 1;
+}
+
 service OrganizerService {
   rpc CreateOrganization(CreateOrganizationRequest) returns (google.protobuf.Empty);
-  rpc GetOrganization(google.protobuf.Empty) returns (GetOrganizationResponse);
+  rpc GetOrganizations(google.protobuf.Empty) returns (GetOrganizationsResponse);
   rpc GetOrganizationById(GetByIdRequest) returns (GetOrganizationByIdResponse);
   rpc UpdateOrganization(UpdateOrganizationRequest) returns (google.protobuf.Empty);
   rpc RemoveOrganization(RemoveOrganizationRequest) returns (google.protobuf.Empty);
@@ -119,17 +127,19 @@ service OrganizerService {
   rpc RemoveUsersFromOrganization(UpdateUsersInOrganizationRequest) returns (google.protobuf.Empty);
   rpc CreateEvent(CreateEventRequest) returns (google.protobuf.Empty);
   rpc UpdateEvent(UpdateEventRequest) returns (google.protobuf.Empty);
-  rpc UpdateEventDuration(UpdateEventDurationRequest) returns (google.protobuf.Empty);
+  rpc UpdateEventDurations(UpdateEventDurationRequest) returns (google.protobuf.Empty);
   rpc RemoveEvent(RemoveEventRequest) returns (google.protobuf.Empty);
   rpc UpdateRegistrationRequest(UpdateRegistrationRequestRequest) returns (google.protobuf.Empty);
   rpc CreateTag(CreateTagRequest) returns (google.protobuf.Empty);
-  rpc AddTag(UpdateTagRequest) returns (google.protobuf.Empty);
-  rpc RemoveTag(UpdateTagRequest) returns (google.protobuf.Empty);
-  rpc GetTag(google.protobuf.Empty) returns (GetTagResponse);
+  rpc AddTags(UpdateTagRequest) returns (google.protobuf.Empty);
+  rpc RemoveTags(UpdateTagRequest) returns (google.protobuf.Empty);
+  rpc GetTags(google.protobuf.Empty) returns (GetTagsResponse);
   rpc GetTagById(GetByIdRequest) returns (GetTagByIdResponse);
   rpc HasEvent(HasEventRequest) returns (hts.common.Event);
+  rpc GetQuestionGroupsByEventId(GetByIdRequest) returns (GetQuestionGroupsByEventIdResponse);
   rpc AddQuestionGroups(QuestionGroupsRequest) returns (google.protobuf.Empty);
   rpc RemoveQuestionGroups(QuestionGroupsRequest) returns (google.protobuf.Empty);
+  rpc GetQuestionsByGroupId(GetByIdRequest) returns (GetQuestionsByGroupIdResponse);
   rpc AddQuestions(QuestionsRequest) returns (google.protobuf.Empty);
   rpc RemoveQuestions(QuestionsRequest) returns (google.protobuf.Empty);
   rpc Ping(google.protobuf.Empty) returns (hts.common.Result);
