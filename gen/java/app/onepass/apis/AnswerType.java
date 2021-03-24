@@ -4,37 +4,29 @@
 package app.onepass.apis;
 
 /**
- * Protobuf enum {@code hts.common.Status}
+ * Protobuf enum {@code hts.common.AnswerType}
  */
-public enum Status
+public enum AnswerType
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>PENDING = 0;</code>
+   * <code>SCALE = 0;</code>
    */
-  PENDING(0),
+  SCALE(0),
   /**
-   * <code>APPROVED = 1;</code>
+   * <code>TEXT = 1;</code>
    */
-  APPROVED(1),
-  /**
-   * <code>REJECTED = 2;</code>
-   */
-  REJECTED(2),
+  TEXT(1),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>PENDING = 0;</code>
+   * <code>SCALE = 0;</code>
    */
-  public static final int PENDING_VALUE = 0;
+  public static final int SCALE_VALUE = 0;
   /**
-   * <code>APPROVED = 1;</code>
+   * <code>TEXT = 1;</code>
    */
-  public static final int APPROVED_VALUE = 1;
-  /**
-   * <code>REJECTED = 2;</code>
-   */
-  public static final int REJECTED_VALUE = 2;
+  public static final int TEXT_VALUE = 1;
 
 
   public final int getNumber() {
@@ -51,7 +43,7 @@ public enum Status
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static Status valueOf(int value) {
+  public static AnswerType valueOf(int value) {
     return forNumber(value);
   }
 
@@ -59,24 +51,23 @@ public enum Status
    * @param value The numeric wire value of the corresponding enum entry.
    * @return The enum associated with the given numeric wire value.
    */
-  public static Status forNumber(int value) {
+  public static AnswerType forNumber(int value) {
     switch (value) {
-      case 0: return PENDING;
-      case 1: return APPROVED;
-      case 2: return REJECTED;
+      case 0: return SCALE;
+      case 1: return TEXT;
       default: return null;
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<Status>
+  public static com.google.protobuf.Internal.EnumLiteMap<AnswerType>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      Status> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<Status>() {
-          public Status findValueByNumber(int number) {
-            return Status.forNumber(number);
+      AnswerType> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<AnswerType>() {
+          public AnswerType findValueByNumber(int number) {
+            return AnswerType.forNumber(number);
           }
         };
 
@@ -94,12 +85,12 @@ public enum Status
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return app.onepass.apis.CommonProto.getDescriptor().getEnumTypes().get(4);
+    return app.onepass.apis.CommonProto.getDescriptor().getEnumTypes().get(1);
   }
 
-  private static final Status[] VALUES = values();
+  private static final AnswerType[] VALUES = values();
 
-  public static Status valueOf(
+  public static AnswerType valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new java.lang.IllegalArgumentException(
@@ -113,10 +104,10 @@ public enum Status
 
   private final int value;
 
-  private Status(int value) {
+  private AnswerType(int value) {
     this.value = value;
   }
 
-  // @@protoc_insertion_point(enum_scope:hts.common.Status)
+  // @@protoc_insertion_point(enum_scope:hts.common.AnswerType)
 }
 

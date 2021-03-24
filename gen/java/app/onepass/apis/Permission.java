@@ -184,7 +184,7 @@ public enum Permission
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return app.onepass.apis.CommonProto.getDescriptor().getEnumTypes().get(3);
+    return app.onepass.apis.CommonProto.getDescriptor().getEnumTypes().get(5);
   }
 
   private static final Permission[] VALUES = values();

@@ -48,17 +48,9 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
-            app.onepass.apis.Event.Builder subBuilder = null;
-            if (event_ != null) {
-              subBuilder = event_.toBuilder();
-            }
-            event_ = input.readMessage(app.onepass.apis.Event.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(event_);
-              event_ = subBuilder.buildPartial();
-            }
+          case 8: {
 
+            eventId_ = input.readInt64();
             break;
           }
           case 18: {
@@ -106,30 +98,15 @@ private static final long serialVersionUID = 0L;
             app.onepass.apis.IsEventAvailableRequest.class, app.onepass.apis.IsEventAvailableRequest.Builder.class);
   }
 
-  public static final int EVENT_FIELD_NUMBER = 1;
-  private app.onepass.apis.Event event_;
+  public static final int EVENT_ID_FIELD_NUMBER = 1;
+  private long eventId_;
   /**
-   * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
-   * @return Whether the event field is set.
+   * <code>int64 event_id = 1 [json_name = "eventId"];</code>
+   * @return The eventId.
    */
   @java.lang.Override
-  public boolean hasEvent() {
-    return event_ != null;
-  }
-  /**
-   * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
-   * @return The event.
-   */
-  @java.lang.Override
-  public app.onepass.apis.Event getEvent() {
-    return event_ == null ? app.onepass.apis.Event.getDefaultInstance() : event_;
-  }
-  /**
-   * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
-   */
-  @java.lang.Override
-  public app.onepass.apis.EventOrBuilder getEventOrBuilder() {
-    return getEvent();
+  public long getEventId() {
+    return eventId_;
   }
 
   public static final int DATE_FIELD_NUMBER = 2;
@@ -172,8 +149,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (event_ != null) {
-      output.writeMessage(1, getEvent());
+    if (eventId_ != 0L) {
+      output.writeInt64(1, eventId_);
     }
     if (date_ != null) {
       output.writeMessage(2, getDate());
@@ -187,9 +164,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (event_ != null) {
+    if (eventId_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getEvent());
+        .computeInt64Size(1, eventId_);
     }
     if (date_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -210,11 +187,8 @@ private static final long serialVersionUID = 0L;
     }
     app.onepass.apis.IsEventAvailableRequest other = (app.onepass.apis.IsEventAvailableRequest) obj;
 
-    if (hasEvent() != other.hasEvent()) return false;
-    if (hasEvent()) {
-      if (!getEvent()
-          .equals(other.getEvent())) return false;
-    }
+    if (getEventId()
+        != other.getEventId()) return false;
     if (hasDate() != other.hasDate()) return false;
     if (hasDate()) {
       if (!getDate()
@@ -231,10 +205,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (hasEvent()) {
-      hash = (37 * hash) + EVENT_FIELD_NUMBER;
-      hash = (53 * hash) + getEvent().hashCode();
-    }
+    hash = (37 * hash) + EVENT_ID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getEventId());
     if (hasDate()) {
       hash = (37 * hash) + DATE_FIELD_NUMBER;
       hash = (53 * hash) + getDate().hashCode();
@@ -372,12 +345,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (eventBuilder_ == null) {
-        event_ = null;
-      } else {
-        event_ = null;
-        eventBuilder_ = null;
-      }
+      eventId_ = 0L;
+
       if (dateBuilder_ == null) {
         date_ = null;
       } else {
@@ -410,11 +379,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public app.onepass.apis.IsEventAvailableRequest buildPartial() {
       app.onepass.apis.IsEventAvailableRequest result = new app.onepass.apis.IsEventAvailableRequest(this);
-      if (eventBuilder_ == null) {
-        result.event_ = event_;
-      } else {
-        result.event_ = eventBuilder_.build();
-      }
+      result.eventId_ = eventId_;
       if (dateBuilder_ == null) {
         result.date_ = date_;
       } else {
@@ -468,8 +433,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(app.onepass.apis.IsEventAvailableRequest other) {
       if (other == app.onepass.apis.IsEventAvailableRequest.getDefaultInstance()) return this;
-      if (other.hasEvent()) {
-        mergeEvent(other.getEvent());
+      if (other.getEventId() != 0L) {
+        setEventId(other.getEventId());
       }
       if (other.hasDate()) {
         mergeDate(other.getDate());
@@ -503,123 +468,35 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private app.onepass.apis.Event event_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        app.onepass.apis.Event, app.onepass.apis.Event.Builder, app.onepass.apis.EventOrBuilder> eventBuilder_;
+    private long eventId_ ;
     /**
-     * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
-     * @return Whether the event field is set.
+     * <code>int64 event_id = 1 [json_name = "eventId"];</code>
+     * @return The eventId.
      */
-    public boolean hasEvent() {
-      return eventBuilder_ != null || event_ != null;
+    @java.lang.Override
+    public long getEventId() {
+      return eventId_;
     }
     /**
-     * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
-     * @return The event.
+     * <code>int64 event_id = 1 [json_name = "eventId"];</code>
+     * @param value The eventId to set.
+     * @return This builder for chaining.
      */
-    public app.onepass.apis.Event getEvent() {
-      if (eventBuilder_ == null) {
-        return event_ == null ? app.onepass.apis.Event.getDefaultInstance() : event_;
-      } else {
-        return eventBuilder_.getMessage();
-      }
-    }
-    /**
-     * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
-     */
-    public Builder setEvent(app.onepass.apis.Event value) {
-      if (eventBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        event_ = value;
-        onChanged();
-      } else {
-        eventBuilder_.setMessage(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
-     */
-    public Builder setEvent(
-        app.onepass.apis.Event.Builder builderForValue) {
-      if (eventBuilder_ == null) {
-        event_ = builderForValue.build();
-        onChanged();
-      } else {
-        eventBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
-     */
-    public Builder mergeEvent(app.onepass.apis.Event value) {
-      if (eventBuilder_ == null) {
-        if (event_ != null) {
-          event_ =
-            app.onepass.apis.Event.newBuilder(event_).mergeFrom(value).buildPartial();
-        } else {
-          event_ = value;
-        }
-        onChanged();
-      } else {
-        eventBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
-     */
-    public Builder clearEvent() {
-      if (eventBuilder_ == null) {
-        event_ = null;
-        onChanged();
-      } else {
-        event_ = null;
-        eventBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
-     */
-    public app.onepass.apis.Event.Builder getEventBuilder() {
+    public Builder setEventId(long value) {
       
+      eventId_ = value;
       onChanged();
-      return getEventFieldBuilder().getBuilder();
+      return this;
     }
     /**
-     * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
+     * <code>int64 event_id = 1 [json_name = "eventId"];</code>
+     * @return This builder for chaining.
      */
-    public app.onepass.apis.EventOrBuilder getEventOrBuilder() {
-      if (eventBuilder_ != null) {
-        return eventBuilder_.getMessageOrBuilder();
-      } else {
-        return event_ == null ?
-            app.onepass.apis.Event.getDefaultInstance() : event_;
-      }
-    }
-    /**
-     * <code>.hts.common.Event event = 1 [json_name = "event"];</code>
-     */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        app.onepass.apis.Event, app.onepass.apis.Event.Builder, app.onepass.apis.EventOrBuilder> 
-        getEventFieldBuilder() {
-      if (eventBuilder_ == null) {
-        eventBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            app.onepass.apis.Event, app.onepass.apis.Event.Builder, app.onepass.apis.EventOrBuilder>(
-                getEvent(),
-                getParentForChildren(),
-                isClean());
-        event_ = null;
-      }
-      return eventBuilder_;
+    public Builder clearEventId() {
+      
+      eventId_ = 0L;
+      onChanged();
+      return this;
     }
 
     private com.google.protobuf.Timestamp date_;

@@ -24,4 +24,42 @@ public interface UserEventOrBuilder extends
    * @return The eventId.
    */
   long getEventId();
+
+  /**
+   * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+   * @return Whether the rating field is set.
+   */
+  boolean hasRating();
+  /**
+   * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+   * @return The rating.
+   */
+  com.google.protobuf.Int64Value getRating();
+  /**
+   * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+   */
+  com.google.protobuf.Int64ValueOrBuilder getRatingOrBuilder();
+
+  /**
+   * <code>string ticket = 5 [json_name = "ticket"];</code>
+   * @return The ticket.
+   */
+  java.lang.String getTicket();
+  /**
+   * <code>string ticket = 5 [json_name = "ticket"];</code>
+   * @return The bytes for ticket.
+   */
+  com.google.protobuf.ByteString
+      getTicketBytes();
+
+  /**
+   * <code>.hts.common.Status status = 6 [json_name = "status"];</code>
+   * @return The enum numeric value on the wire for status.
+   */
+  int getStatusValue();
+  /**
+   * <code>.hts.common.Status status = 6 [json_name = "status"];</code>
+   * @return The status.
+   */
+  app.onepass.apis.Status getStatus();
 }

@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface UserEventFeedbackOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.common.UserEventFeedback)
+public interface UserInterestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.common.UserInterest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -14,14 +14,14 @@ public interface UserEventFeedbackOrBuilder extends
   long getId();
 
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <code>int64 userId = 2 [json_name = "userId"];</code>
    * @return The userId.
    */
   long getUserId();
 
   /**
-   * <code>int64 event_feedback_id = 3 [json_name = "eventFeedbackId"];</code>
-   * @return The eventFeedbackId.
+   * <code>int64 tag_id = 3 [json_name = "tagId"];</code>
+   * @return The tagId.
    */
-  long getEventFeedbackId();
+  long getTagId();
 }

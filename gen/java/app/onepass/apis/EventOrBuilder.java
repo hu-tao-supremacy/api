@@ -20,19 +20,19 @@ public interface EventOrBuilder extends
   long getOrganizationId();
 
   /**
-   * <code>.google.protobuf.Int64Value event_location_id = 3 [json_name = "eventLocationId"];</code>
-   * @return Whether the eventLocationId field is set.
+   * <code>.google.protobuf.Int64Value location_id = 3 [json_name = "locationId"];</code>
+   * @return Whether the locationId field is set.
    */
-  boolean hasEventLocationId();
+  boolean hasLocationId();
   /**
-   * <code>.google.protobuf.Int64Value event_location_id = 3 [json_name = "eventLocationId"];</code>
-   * @return The eventLocationId.
+   * <code>.google.protobuf.Int64Value location_id = 3 [json_name = "locationId"];</code>
+   * @return The locationId.
    */
-  com.google.protobuf.Int64Value getEventLocationId();
+  com.google.protobuf.Int64Value getLocationId();
   /**
-   * <code>.google.protobuf.Int64Value event_location_id = 3 [json_name = "eventLocationId"];</code>
+   * <code>.google.protobuf.Int64Value location_id = 3 [json_name = "locationId"];</code>
    */
-  com.google.protobuf.Int64ValueOrBuilder getEventLocationIdOrBuilder();
+  com.google.protobuf.Int64ValueOrBuilder getLocationIdOrBuilder();
 
   /**
    * <code>string description = 4 [json_name = "description"];</code>
@@ -59,19 +59,19 @@ public interface EventOrBuilder extends
       getNameBytes();
 
   /**
-   * <code>.google.protobuf.StringValue cover_image = 6 [json_name = "coverImage"];</code>
-   * @return Whether the coverImage field is set.
+   * <code>.google.protobuf.StringValue cover_image_url = 6 [json_name = "coverImageUrl"];</code>
+   * @return Whether the coverImageUrl field is set.
    */
-  boolean hasCoverImage();
+  boolean hasCoverImageUrl();
   /**
-   * <code>.google.protobuf.StringValue cover_image = 6 [json_name = "coverImage"];</code>
-   * @return The coverImage.
+   * <code>.google.protobuf.StringValue cover_image_url = 6 [json_name = "coverImageUrl"];</code>
+   * @return The coverImageUrl.
    */
-  com.google.protobuf.StringValue getCoverImage();
+  com.google.protobuf.StringValue getCoverImageUrl();
   /**
-   * <code>.google.protobuf.StringValue cover_image = 6 [json_name = "coverImage"];</code>
+   * <code>.google.protobuf.StringValue cover_image_url = 6 [json_name = "coverImageUrl"];</code>
    */
-  com.google.protobuf.StringValueOrBuilder getCoverImageOrBuilder();
+  com.google.protobuf.StringValueOrBuilder getCoverImageUrlOrBuilder();
 
   /**
    * <code>.google.protobuf.StringValue cover_image_hash = 7 [json_name = "coverImageHash"];</code>
@@ -89,19 +89,19 @@ public interface EventOrBuilder extends
   com.google.protobuf.StringValueOrBuilder getCoverImageHashOrBuilder();
 
   /**
-   * <code>.google.protobuf.StringValue poster_image = 8 [json_name = "posterImage"];</code>
-   * @return Whether the posterImage field is set.
+   * <code>.google.protobuf.StringValue poster_image_url = 8 [json_name = "posterImageUrl"];</code>
+   * @return Whether the posterImageUrl field is set.
    */
-  boolean hasPosterImage();
+  boolean hasPosterImageUrl();
   /**
-   * <code>.google.protobuf.StringValue poster_image = 8 [json_name = "posterImage"];</code>
-   * @return The posterImage.
+   * <code>.google.protobuf.StringValue poster_image_url = 8 [json_name = "posterImageUrl"];</code>
+   * @return The posterImageUrl.
    */
-  com.google.protobuf.StringValue getPosterImage();
+  com.google.protobuf.StringValue getPosterImageUrl();
   /**
-   * <code>.google.protobuf.StringValue poster_image = 8 [json_name = "posterImage"];</code>
+   * <code>.google.protobuf.StringValue poster_image_url = 8 [json_name = "posterImageUrl"];</code>
    */
-  com.google.protobuf.StringValueOrBuilder getPosterImageOrBuilder();
+  com.google.protobuf.StringValueOrBuilder getPosterImageUrlOrBuilder();
 
   /**
    * <code>.google.protobuf.StringValue poster_image_hash = 9 [json_name = "posterImageHash"];</code>
@@ -129,4 +129,40 @@ public interface EventOrBuilder extends
    */
   com.google.protobuf.ByteString
       getContactBytes();
+
+  /**
+   * <code>.google.protobuf.StringValue profile_image_url = 11 [json_name = "profileImageUrl"];</code>
+   * @return Whether the profileImageUrl field is set.
+   */
+  boolean hasProfileImageUrl();
+  /**
+   * <code>.google.protobuf.StringValue profile_image_url = 11 [json_name = "profileImageUrl"];</code>
+   * @return The profileImageUrl.
+   */
+  com.google.protobuf.StringValue getProfileImageUrl();
+  /**
+   * <code>.google.protobuf.StringValue profile_image_url = 11 [json_name = "profileImageUrl"];</code>
+   */
+  com.google.protobuf.StringValueOrBuilder getProfileImageUrlOrBuilder();
+
+  /**
+   * <code>.google.protobuf.StringValue profile_image_hash = 12 [json_name = "profileImageHash"];</code>
+   * @return Whether the profileImageHash field is set.
+   */
+  boolean hasProfileImageHash();
+  /**
+   * <code>.google.protobuf.StringValue profile_image_hash = 12 [json_name = "profileImageHash"];</code>
+   * @return The profileImageHash.
+   */
+  com.google.protobuf.StringValue getProfileImageHash();
+  /**
+   * <code>.google.protobuf.StringValue profile_image_hash = 12 [json_name = "profileImageHash"];</code>
+   */
+  com.google.protobuf.StringValueOrBuilder getProfileImageHashOrBuilder();
+
+  /**
+   * <code>int64 attendee_limit = 13 [json_name = "attendeeLimit"];</code>
+   * @return The attendeeLimit.
+   */
+  long getAttendeeLimit();
 }
