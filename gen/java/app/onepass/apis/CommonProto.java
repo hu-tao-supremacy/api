@@ -162,98 +162,99 @@ public final class CommonProto {
       "ture_url\030\020 \001(\0132\034.google.protobuf.StringV" +
       "alueR\021profilePictureUrl\022N\n\024profile_pictu" +
       "re_hash\030\021 \001(\0132\034.google.protobuf.StringVa" +
-      "lueR\022profilePictureHash\"\224\001\n\rQuestionGrou" +
+      "lueR\022profilePictureHash\"\245\001\n\rQuestionGrou" +
       "p\022\016\n\002id\030\001 \001(\003R\002id\022\031\n\010event_id\030\002 \001(\003R\007eve" +
-      "ntId\022,\n\004type\030\003 \001(\0162\030.hts.common.Question" +
-      "TypeR\004type\022\024\n\005order\030\004 \001(\003R\005order\022\024\n\005titl" +
-      "e\030\005 \001(\tR\005title\"\350\001\n\010Question\022\016\n\002id\030\001 \001(\003R" +
-      "\002id\022*\n\021question_group_id\030\002 \001(\003R\017question" +
-      "GroupId\022\024\n\005order\030\003 \001(\003R\005order\0227\n\013answer_" +
-      "type\030\004 \001(\0162\026.hts.common.AnswerTypeR\nansw" +
-      "erType\022\037\n\013is_optional\030\005 \001(\010R\nisOptional\022" +
-      "\024\n\005title\030\006 \001(\tR\005title\022\032\n\010subtitle\030\007 \001(\tR" +
-      "\010subtitle\"d\n\020UserOrganization\022\016\n\002id\030\001 \001(" +
-      "\003R\002id\022\027\n\007user_id\030\002 \001(\003R\006userId\022\'\n\017organi" +
-      "zation_id\030\003 \001(\003R\016organizationId\"\253\005\n\005Even" +
-      "t\022\016\n\002id\030\001 \001(\003R\002id\022\'\n\017organization_id\030\002 \001" +
-      "(\003R\016organizationId\022<\n\013location_id\030\003 \001(\0132" +
-      "\033.google.protobuf.Int64ValueR\nlocationId" +
-      "\022 \n\013description\030\004 \001(\tR\013description\022\022\n\004na" +
-      "me\030\005 \001(\tR\004name\022D\n\017cover_image_url\030\006 \001(\0132" +
-      "\034.google.protobuf.StringValueR\rcoverImag" +
-      "eUrl\022F\n\020cover_image_hash\030\007 \001(\0132\034.google." +
-      "protobuf.StringValueR\016coverImageHash\022F\n\020" +
-      "poster_image_url\030\010 \001(\0132\034.google.protobuf" +
-      ".StringValueR\016posterImageUrl\022H\n\021poster_i" +
-      "mage_hash\030\t \001(\0132\034.google.protobuf.String" +
-      "ValueR\017posterImageHash\022\030\n\007contact\030\n \001(\tR" +
-      "\007contact\022H\n\021profile_image_url\030\013 \001(\0132\034.go" +
-      "ogle.protobuf.StringValueR\017profileImageU" +
-      "rl\022J\n\022profile_image_hash\030\014 \001(\0132\034.google." +
-      "protobuf.StringValueR\020profileImageHash\022%" +
-      "\n\016attendee_limit\030\r \001(\003R\rattendeeLimit\"\324\002" +
-      "\n\010Location\022\016\n\002id\030\001 \001(\003R\002id\022\022\n\004name\030\002 \001(\t" +
-      "R\004name\022$\n\016google_map_url\030\003 \001(\tR\014googleMa" +
-      "pUrl\022>\n\013description\030\004 \001(\0132\034.google.proto" +
-      "buf.StringValueR\013description\022]\n\034travel_i" +
-      "nformation_image_url\030\005 \001(\0132\034.google.prot" +
-      "obuf.StringValueR\031travelInformationImage" +
-      "Url\022_\n\035travel_information_image_hash\030\006 \001" +
-      "(\0132\034.google.protobuf.StringValueR\032travel" +
-      "InformationImageHash\"s\n\006Answer\022\016\n\002id\030\001 \001" +
-      "(\003R\002id\022\"\n\ruser_event_id\030\002 \001(\003R\013userEvent" +
-      "Id\022\037\n\013question_id\030\003 \001(\003R\nquestionId\022\024\n\005v" +
-      "alue\030\004 \001(\tR\005value\"\310\001\n\tUserEvent\022\016\n\002id\030\001 " +
-      "\001(\003R\002id\022\027\n\007user_id\030\002 \001(\003R\006userId\022\031\n\010even" +
-      "t_id\030\003 \001(\003R\007eventId\0223\n\006rating\030\004 \001(\0132\033.go" +
-      "ogle.protobuf.Int64ValueR\006rating\022\026\n\006tick" +
-      "et\030\005 \001(\tR\006ticket\022*\n\006status\030\006 \001(\0162\022.hts.c" +
-      "ommon.StatusR\006status\"\240\001\n\rEventDuration\022\016" +
-      "\n\002id\030\001 \001(\003R\002id\022\031\n\010event_id\030\002 \001(\003R\007eventI" +
-      "d\0220\n\005start\030\003 \001(\0132\032.google.protobuf.Times" +
-      "tampR\005start\0222\n\006finish\030\004 \001(\0132\032.google.pro" +
-      "tobuf.TimestampR\006finish\")\n\003Tag\022\016\n\002id\030\001 \001" +
-      "(\003R\002id\022\022\n\004name\030\002 \001(\tR\004name\"L\n\010EventTag\022\016" +
-      "\n\002id\030\001 \001(\003R\002id\022\031\n\010event_id\030\002 \001(\003R\007eventI" +
-      "d\022\025\n\006tag_id\030\003 \001(\003R\005tagId\"\211\001\n\026Organizatio" +
-      "nPermission\022\016\n\002id\030\001 \001(\003R\002id\022\'\n\017organizat" +
-      "ion_id\030\002 \001(\003R\016organizationId\0226\n\npermissi" +
-      "on\030\003 \001(\0162\026.hts.common.PermissionR\npermis" +
-      "sion\"w\n\016UserPermission\022\016\n\002id\030\001 \001(\003R\002id\022\027" +
-      "\n\007user_id\030\002 \001(\003R\006userId\022<\n\032organization_" +
-      "permission_id\030\003 \001(\003R\030organizationPermiss" +
-      "ionId\"M\n\014UserInterest\022\016\n\002id\030\001 \001(\003R\002id\022\026\n" +
-      "\006userId\030\002 \001(\003R\006userId\022\025\n\006tag_id\030\003 \001(\003R\005t" +
-      "agId\"\262\002\n\017FacilityRequest\022\016\n\002id\030\001 \001(\003R\002id" +
-      "\022\031\n\010event_id\030\002 \001(\003R\007eventId\022\037\n\013facility_" +
-      "id\030\003 \001(\003R\nfacilityId\022*\n\006status\030\004 \001(\0162\022.h" +
-      "ts.common.StatusR\006status\022A\n\rreject_reaso" +
-      "n\030\005 \001(\0132\034.google.protobuf.StringValueR\014r" +
-      "ejectReason\0220\n\005start\030\006 \001(\0132\032.google.prot" +
-      "obuf.TimestampR\005start\0222\n\006finish\030\007 \001(\0132\032." +
-      "google.protobuf.TimestampR\006finish\"\367\001\n\010Fa" +
-      "cility\022\016\n\002id\030\001 \001(\003R\002id\022\'\n\017organization_i" +
-      "d\030\002 \001(\003R\016organizationId\022\022\n\004name\030\003 \001(\tR\004n" +
-      "ame\022\032\n\010latitude\030\004 \001(\001R\010latitude\022\034\n\tlongi" +
-      "tude\030\005 \001(\001R\tlongitude\022B\n\017operating_hours" +
-      "\030\006 \003(\0132\031.hts.common.OperatingHourR\016opera" +
-      "tingHours\022 \n\013description\030\007 \001(\tR\013descript" +
-      "ion*J\n\tDayOfWeek\022\007\n\003SUN\020\000\022\007\n\003MON\020\001\022\007\n\003TU" +
-      "E\020\002\022\007\n\003WED\020\003\022\007\n\003THU\020\004\022\007\n\003FRI\020\005\022\007\n\003SAT\020\006*" +
-      "!\n\nAnswerType\022\t\n\005SCALE\020\000\022\010\n\004TEXT\020\001*-\n\014Qu" +
-      "estionType\022\r\n\tPRE_EVENT\020\000\022\016\n\nPOST_EVENT\020" +
-      "\001*1\n\006Gender\022\010\n\004MALE\020\000\022\n\n\006FEMALE\020\001\022\021\n\rNOT" +
-      "_SPECIFIED\020\002*1\n\006Status\022\013\n\007PENDING\020\000\022\014\n\010A" +
-      "PPROVED\020\001\022\014\n\010REJECTED\020\002*\246\002\n\nPermission\022\027" +
-      "\n\023ORGANIZATION_UPDATE\020\000\022\027\n\023ORGANIZATION_" +
-      "REMOVE\020\001\022\033\n\027ORGANIZATION_MEMBER_ADD\020\002\022\036\n" +
-      "\032ORGANIZATION_MEMBER_REMOVE\020\003\022\020\n\014EVENT_C" +
-      "REATE\020\004\022\020\n\014EVENT_UPDATE\020\005\022\020\n\014EVENT_REMOV" +
-      "E\020\006\022\016\n\nTAG_CREATE\020\007\022\016\n\nTAG_REMOVE\020\010\022\024\n\020E" +
-      "VENT_TAG_UPDATE\020\t\022\023\n\017FACILITY_CREATE\020\n\022\023" +
-      "\n\017FACILITY_UPDATE\020\013\022\023\n\017FACILITY_REMOVE\020\014" +
-      "BB\n\020app.onepass.apisB\013CommonProtoP\001Z\037one" +
-      "pass.app/facility/hts/commonb\006proto3"
+      "ntId\022=\n\rquestion_type\030\003 \001(\0162\030.hts.common" +
+      ".QuestionTypeR\014questionType\022\024\n\005order\030\004 \001" +
+      "(\003R\005order\022\024\n\005title\030\005 \001(\tR\005title\"\343\001\n\010Ques" +
+      "tion\022\016\n\002id\030\001 \001(\003R\002id\022*\n\021question_group_i" +
+      "d\030\002 \001(\003R\017questionGroupId\022\024\n\005order\030\003 \001(\003R" +
+      "\005order\0227\n\013answer_type\030\004 \001(\0162\026.hts.common" +
+      ".AnswerTypeR\nanswerType\022\032\n\010optional\030\005 \001(" +
+      "\010R\010optional\022\024\n\005title\030\006 \001(\tR\005title\022\032\n\010sub" +
+      "title\030\007 \001(\tR\010subtitle\"d\n\020UserOrganizatio" +
+      "n\022\016\n\002id\030\001 \001(\003R\002id\022\027\n\007user_id\030\002 \001(\003R\006user" +
+      "Id\022\'\n\017organization_id\030\003 \001(\003R\016organizatio" +
+      "nId\"\253\005\n\005Event\022\016\n\002id\030\001 \001(\003R\002id\022\'\n\017organiz" +
+      "ation_id\030\002 \001(\003R\016organizationId\022<\n\013locati" +
+      "on_id\030\003 \001(\0132\033.google.protobuf.Int64Value" +
+      "R\nlocationId\022 \n\013description\030\004 \001(\tR\013descr" +
+      "iption\022\022\n\004name\030\005 \001(\tR\004name\022D\n\017cover_imag" +
+      "e_url\030\006 \001(\0132\034.google.protobuf.StringValu" +
+      "eR\rcoverImageUrl\022F\n\020cover_image_hash\030\007 \001" +
+      "(\0132\034.google.protobuf.StringValueR\016coverI" +
+      "mageHash\022F\n\020poster_image_url\030\010 \001(\0132\034.goo" +
+      "gle.protobuf.StringValueR\016posterImageUrl" +
+      "\022H\n\021poster_image_hash\030\t \001(\0132\034.google.pro" +
+      "tobuf.StringValueR\017posterImageHash\022\030\n\007co" +
+      "ntact\030\n \001(\tR\007contact\022H\n\021profile_image_ur" +
+      "l\030\013 \001(\0132\034.google.protobuf.StringValueR\017p" +
+      "rofileImageUrl\022J\n\022profile_image_hash\030\014 \001" +
+      "(\0132\034.google.protobuf.StringValueR\020profil" +
+      "eImageHash\022%\n\016attendee_limit\030\r \001(\003R\ratte" +
+      "ndeeLimit\"\324\002\n\010Location\022\016\n\002id\030\001 \001(\003R\002id\022\022" +
+      "\n\004name\030\002 \001(\tR\004name\022$\n\016google_map_url\030\003 \001" +
+      "(\tR\014googleMapUrl\022>\n\013description\030\004 \001(\0132\034." +
+      "google.protobuf.StringValueR\013description" +
+      "\022]\n\034travel_information_image_url\030\005 \001(\0132\034" +
+      ".google.protobuf.StringValueR\031travelInfo" +
+      "rmationImageUrl\022_\n\035travel_information_im" +
+      "age_hash\030\006 \001(\0132\034.google.protobuf.StringV" +
+      "alueR\032travelInformationImageHash\"s\n\006Answ" +
+      "er\022\016\n\002id\030\001 \001(\003R\002id\022\"\n\ruser_event_id\030\002 \001(" +
+      "\003R\013userEventId\022\037\n\013question_id\030\003 \001(\003R\nque" +
+      "stionId\022\024\n\005value\030\004 \001(\tR\005value\"\310\001\n\tUserEv" +
+      "ent\022\016\n\002id\030\001 \001(\003R\002id\022\027\n\007user_id\030\002 \001(\003R\006us" +
+      "erId\022\031\n\010event_id\030\003 \001(\003R\007eventId\0223\n\006ratin" +
+      "g\030\004 \001(\0132\033.google.protobuf.Int64ValueR\006ra" +
+      "ting\022\026\n\006ticket\030\005 \001(\tR\006ticket\022*\n\006status\030\006" +
+      " \001(\0162\022.hts.common.StatusR\006status\"\240\001\n\rEve" +
+      "ntDuration\022\016\n\002id\030\001 \001(\003R\002id\022\031\n\010event_id\030\002" +
+      " \001(\003R\007eventId\0220\n\005start\030\003 \001(\0132\032.google.pr" +
+      "otobuf.TimestampR\005start\0222\n\006finish\030\004 \001(\0132" +
+      "\032.google.protobuf.TimestampR\006finish\")\n\003T" +
+      "ag\022\016\n\002id\030\001 \001(\003R\002id\022\022\n\004name\030\002 \001(\tR\004name\"L" +
+      "\n\010EventTag\022\016\n\002id\030\001 \001(\003R\002id\022\031\n\010event_id\030\002" +
+      " \001(\003R\007eventId\022\025\n\006tag_id\030\003 \001(\003R\005tagId\"\211\001\n" +
+      "\026OrganizationPermission\022\016\n\002id\030\001 \001(\003R\002id\022" +
+      "\'\n\017organization_id\030\002 \001(\003R\016organizationId" +
+      "\0226\n\npermission\030\003 \001(\0162\026.hts.common.Permis" +
+      "sionR\npermission\"w\n\016UserPermission\022\016\n\002id" +
+      "\030\001 \001(\003R\002id\022\027\n\007user_id\030\002 \001(\003R\006userId\022<\n\032o" +
+      "rganization_permission_id\030\003 \001(\003R\030organiz" +
+      "ationPermissionId\"M\n\014UserInterest\022\016\n\002id\030" +
+      "\001 \001(\003R\002id\022\026\n\006userId\030\002 \001(\003R\006userId\022\025\n\006tag" +
+      "_id\030\003 \001(\003R\005tagId\"\262\002\n\017FacilityRequest\022\016\n\002" +
+      "id\030\001 \001(\003R\002id\022\031\n\010event_id\030\002 \001(\003R\007eventId\022" +
+      "\037\n\013facility_id\030\003 \001(\003R\nfacilityId\022*\n\006stat" +
+      "us\030\004 \001(\0162\022.hts.common.StatusR\006status\022A\n\r" +
+      "reject_reason\030\005 \001(\0132\034.google.protobuf.St" +
+      "ringValueR\014rejectReason\0220\n\005start\030\006 \001(\0132\032" +
+      ".google.protobuf.TimestampR\005start\0222\n\006fin" +
+      "ish\030\007 \001(\0132\032.google.protobuf.TimestampR\006f" +
+      "inish\"\367\001\n\010Facility\022\016\n\002id\030\001 \001(\003R\002id\022\'\n\017or" +
+      "ganization_id\030\002 \001(\003R\016organizationId\022\022\n\004n" +
+      "ame\030\003 \001(\tR\004name\022\032\n\010latitude\030\004 \001(\001R\010latit" +
+      "ude\022\034\n\tlongitude\030\005 \001(\001R\tlongitude\022B\n\017ope" +
+      "rating_hours\030\006 \003(\0132\031.hts.common.Operatin" +
+      "gHourR\016operatingHours\022 \n\013description\030\007 \001" +
+      "(\tR\013description*J\n\tDayOfWeek\022\007\n\003SUN\020\000\022\007\n" +
+      "\003MON\020\001\022\007\n\003TUE\020\002\022\007\n\003WED\020\003\022\007\n\003THU\020\004\022\007\n\003FRI" +
+      "\020\005\022\007\n\003SAT\020\006*!\n\nAnswerType\022\t\n\005SCALE\020\000\022\010\n\004" +
+      "TEXT\020\001*-\n\014QuestionType\022\r\n\tPRE_EVENT\020\000\022\016\n" +
+      "\nPOST_EVENT\020\001*1\n\006Gender\022\010\n\004MALE\020\000\022\n\n\006FEM" +
+      "ALE\020\001\022\021\n\rNOT_SPECIFIED\020\002*1\n\006Status\022\013\n\007PE" +
+      "NDING\020\000\022\014\n\010APPROVED\020\001\022\014\n\010REJECTED\020\002*\246\002\n\n" +
+      "Permission\022\027\n\023ORGANIZATION_UPDATE\020\000\022\027\n\023O" +
+      "RGANIZATION_REMOVE\020\001\022\033\n\027ORGANIZATION_MEM" +
+      "BER_ADD\020\002\022\036\n\032ORGANIZATION_MEMBER_REMOVE\020" +
+      "\003\022\020\n\014EVENT_CREATE\020\004\022\020\n\014EVENT_UPDATE\020\005\022\020\n" +
+      "\014EVENT_REMOVE\020\006\022\016\n\nTAG_CREATE\020\007\022\016\n\nTAG_R" +
+      "EMOVE\020\010\022\024\n\020EVENT_TAG_UPDATE\020\t\022\023\n\017FACILIT" +
+      "Y_CREATE\020\n\022\023\n\017FACILITY_UPDATE\020\013\022\023\n\017FACIL" +
+      "ITY_REMOVE\020\014BB\n\020app.onepass.apisB\013Common" +
+      "ProtoP\001Z\037onepass.app/facility/hts/common" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -290,13 +291,13 @@ public final class CommonProto {
     internal_static_hts_common_QuestionGroup_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_common_QuestionGroup_descriptor,
-        new java.lang.String[] { "Id", "EventId", "Type", "Order", "Title", });
+        new java.lang.String[] { "Id", "EventId", "QuestionType", "Order", "Title", });
     internal_static_hts_common_Question_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_hts_common_Question_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_common_Question_descriptor,
-        new java.lang.String[] { "Id", "QuestionGroupId", "Order", "AnswerType", "IsOptional", "Title", "Subtitle", });
+        new java.lang.String[] { "Id", "QuestionGroupId", "Order", "AnswerType", "Optional", "Title", "Subtitle", });
     internal_static_hts_common_UserOrganization_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_hts_common_UserOrganization_fieldAccessorTable = new

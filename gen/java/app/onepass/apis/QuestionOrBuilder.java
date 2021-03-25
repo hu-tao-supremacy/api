@@ -37,10 +37,10 @@ public interface QuestionOrBuilder extends
   app.onepass.apis.AnswerType getAnswerType();
 
   /**
-   * <code>bool is_optional = 5 [json_name = "isOptional"];</code>
-   * @return The isOptional.
+   * <code>bool optional = 5 [json_name = "optional"];</code>
+   * @return The optional.
    */
-  boolean getIsOptional();
+  boolean getOptional();
 
   /**
    * <code>string title = 6 [json_name = "title"];</code>

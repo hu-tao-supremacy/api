@@ -74,7 +74,7 @@ private static final long serialVersionUID = 0L;
           }
           case 40: {
 
-            isOptional_ = input.readBool();
+            optional_ = input.readBool();
             break;
           }
           case 50: {
@@ -173,15 +173,15 @@ private static final long serialVersionUID = 0L;
     return result == null ? app.onepass.apis.AnswerType.UNRECOGNIZED : result;
   }
 
-  public static final int IS_OPTIONAL_FIELD_NUMBER = 5;
-  private boolean isOptional_;
+  public static final int OPTIONAL_FIELD_NUMBER = 5;
+  private boolean optional_;
   /**
-   * <code>bool is_optional = 5 [json_name = "isOptional"];</code>
-   * @return The isOptional.
+   * <code>bool optional = 5 [json_name = "optional"];</code>
+   * @return The optional.
    */
   @java.lang.Override
-  public boolean getIsOptional() {
-    return isOptional_;
+  public boolean getOptional() {
+    return optional_;
   }
 
   public static final int TITLE_FIELD_NUMBER = 6;
@@ -286,8 +286,8 @@ private static final long serialVersionUID = 0L;
     if (answerType_ != app.onepass.apis.AnswerType.SCALE.getNumber()) {
       output.writeEnum(4, answerType_);
     }
-    if (isOptional_ != false) {
-      output.writeBool(5, isOptional_);
+    if (optional_ != false) {
+      output.writeBool(5, optional_);
     }
     if (!getTitleBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, title_);
@@ -320,9 +320,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(4, answerType_);
     }
-    if (isOptional_ != false) {
+    if (optional_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeBoolSize(5, isOptional_);
+        .computeBoolSize(5, optional_);
     }
     if (!getTitleBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, title_);
@@ -352,8 +352,8 @@ private static final long serialVersionUID = 0L;
     if (getOrder()
         != other.getOrder()) return false;
     if (answerType_ != other.answerType_) return false;
-    if (getIsOptional()
-        != other.getIsOptional()) return false;
+    if (getOptional()
+        != other.getOptional()) return false;
     if (!getTitle()
         .equals(other.getTitle())) return false;
     if (!getSubtitle()
@@ -380,9 +380,9 @@ private static final long serialVersionUID = 0L;
         getOrder());
     hash = (37 * hash) + ANSWER_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + answerType_;
-    hash = (37 * hash) + IS_OPTIONAL_FIELD_NUMBER;
+    hash = (37 * hash) + OPTIONAL_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-        getIsOptional());
+        getOptional());
     hash = (37 * hash) + TITLE_FIELD_NUMBER;
     hash = (53 * hash) + getTitle().hashCode();
     hash = (37 * hash) + SUBTITLE_FIELD_NUMBER;
@@ -528,7 +528,7 @@ private static final long serialVersionUID = 0L;
 
       answerType_ = 0;
 
-      isOptional_ = false;
+      optional_ = false;
 
       title_ = "";
 
@@ -564,7 +564,7 @@ private static final long serialVersionUID = 0L;
       result.questionGroupId_ = questionGroupId_;
       result.order_ = order_;
       result.answerType_ = answerType_;
-      result.isOptional_ = isOptional_;
+      result.optional_ = optional_;
       result.title_ = title_;
       result.subtitle_ = subtitle_;
       onBuilt();
@@ -627,8 +627,8 @@ private static final long serialVersionUID = 0L;
       if (other.answerType_ != 0) {
         setAnswerTypeValue(other.getAnswerTypeValue());
       }
-      if (other.getIsOptional() != false) {
-        setIsOptional(other.getIsOptional());
+      if (other.getOptional() != false) {
+        setOptional(other.getOptional());
       }
       if (!other.getTitle().isEmpty()) {
         title_ = other.title_;
@@ -814,33 +814,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean isOptional_ ;
+    private boolean optional_ ;
     /**
-     * <code>bool is_optional = 5 [json_name = "isOptional"];</code>
-     * @return The isOptional.
+     * <code>bool optional = 5 [json_name = "optional"];</code>
+     * @return The optional.
      */
     @java.lang.Override
-    public boolean getIsOptional() {
-      return isOptional_;
+    public boolean getOptional() {
+      return optional_;
     }
     /**
-     * <code>bool is_optional = 5 [json_name = "isOptional"];</code>
-     * @param value The isOptional to set.
+     * <code>bool optional = 5 [json_name = "optional"];</code>
+     * @param value The optional to set.
      * @return This builder for chaining.
      */
-    public Builder setIsOptional(boolean value) {
+    public Builder setOptional(boolean value) {
       
-      isOptional_ = value;
+      optional_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>bool is_optional = 5 [json_name = "isOptional"];</code>
+     * <code>bool optional = 5 [json_name = "optional"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearIsOptional() {
+    public Builder clearOptional() {
       
-      isOptional_ = false;
+      optional_ = false;
       onChanged();
       return this;
     }

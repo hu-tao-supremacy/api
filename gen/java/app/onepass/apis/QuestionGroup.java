@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private QuestionGroup() {
-    type_ = 0;
+    questionType_ = 0;
     title_ = "";
   }
 
@@ -63,7 +63,7 @@ private static final long serialVersionUID = 0L;
           case 24: {
             int rawValue = input.readEnum();
 
-            type_ = rawValue;
+            questionType_ = rawValue;
             break;
           }
           case 32: {
@@ -131,22 +131,22 @@ private static final long serialVersionUID = 0L;
     return eventId_;
   }
 
-  public static final int TYPE_FIELD_NUMBER = 3;
-  private int type_;
+  public static final int QUESTION_TYPE_FIELD_NUMBER = 3;
+  private int questionType_;
   /**
-   * <code>.hts.common.QuestionType type = 3 [json_name = "type"];</code>
-   * @return The enum numeric value on the wire for type.
+   * <code>.hts.common.QuestionType question_type = 3 [json_name = "questionType"];</code>
+   * @return The enum numeric value on the wire for questionType.
    */
-  @java.lang.Override public int getTypeValue() {
-    return type_;
+  @java.lang.Override public int getQuestionTypeValue() {
+    return questionType_;
   }
   /**
-   * <code>.hts.common.QuestionType type = 3 [json_name = "type"];</code>
-   * @return The type.
+   * <code>.hts.common.QuestionType question_type = 3 [json_name = "questionType"];</code>
+   * @return The questionType.
    */
-  @java.lang.Override public app.onepass.apis.QuestionType getType() {
+  @java.lang.Override public app.onepass.apis.QuestionType getQuestionType() {
     @SuppressWarnings("deprecation")
-    app.onepass.apis.QuestionType result = app.onepass.apis.QuestionType.valueOf(type_);
+    app.onepass.apis.QuestionType result = app.onepass.apis.QuestionType.valueOf(questionType_);
     return result == null ? app.onepass.apis.QuestionType.UNRECOGNIZED : result;
   }
 
@@ -219,8 +219,8 @@ private static final long serialVersionUID = 0L;
     if (eventId_ != 0L) {
       output.writeInt64(2, eventId_);
     }
-    if (type_ != app.onepass.apis.QuestionType.PRE_EVENT.getNumber()) {
-      output.writeEnum(3, type_);
+    if (questionType_ != app.onepass.apis.QuestionType.PRE_EVENT.getNumber()) {
+      output.writeEnum(3, questionType_);
     }
     if (order_ != 0L) {
       output.writeInt64(4, order_);
@@ -245,9 +245,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(2, eventId_);
     }
-    if (type_ != app.onepass.apis.QuestionType.PRE_EVENT.getNumber()) {
+    if (questionType_ != app.onepass.apis.QuestionType.PRE_EVENT.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(3, type_);
+        .computeEnumSize(3, questionType_);
     }
     if (order_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
@@ -275,7 +275,7 @@ private static final long serialVersionUID = 0L;
         != other.getId()) return false;
     if (getEventId()
         != other.getEventId()) return false;
-    if (type_ != other.type_) return false;
+    if (questionType_ != other.questionType_) return false;
     if (getOrder()
         != other.getOrder()) return false;
     if (!getTitle()
@@ -297,8 +297,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + EVENT_ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getEventId());
-    hash = (37 * hash) + TYPE_FIELD_NUMBER;
-    hash = (53 * hash) + type_;
+    hash = (37 * hash) + QUESTION_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + questionType_;
     hash = (37 * hash) + ORDER_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getOrder());
@@ -441,7 +441,7 @@ private static final long serialVersionUID = 0L;
 
       eventId_ = 0L;
 
-      type_ = 0;
+      questionType_ = 0;
 
       order_ = 0L;
 
@@ -475,7 +475,7 @@ private static final long serialVersionUID = 0L;
       app.onepass.apis.QuestionGroup result = new app.onepass.apis.QuestionGroup(this);
       result.id_ = id_;
       result.eventId_ = eventId_;
-      result.type_ = type_;
+      result.questionType_ = questionType_;
       result.order_ = order_;
       result.title_ = title_;
       onBuilt();
@@ -532,8 +532,8 @@ private static final long serialVersionUID = 0L;
       if (other.getEventId() != 0L) {
         setEventId(other.getEventId());
       }
-      if (other.type_ != 0) {
-        setTypeValue(other.getTypeValue());
+      if (other.questionType_ != 0) {
+        setQuestionTypeValue(other.getQuestionTypeValue());
       }
       if (other.getOrder() != 0L) {
         setOrder(other.getOrder());
@@ -633,56 +633,56 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int type_ = 0;
+    private int questionType_ = 0;
     /**
-     * <code>.hts.common.QuestionType type = 3 [json_name = "type"];</code>
-     * @return The enum numeric value on the wire for type.
+     * <code>.hts.common.QuestionType question_type = 3 [json_name = "questionType"];</code>
+     * @return The enum numeric value on the wire for questionType.
      */
-    @java.lang.Override public int getTypeValue() {
-      return type_;
+    @java.lang.Override public int getQuestionTypeValue() {
+      return questionType_;
     }
     /**
-     * <code>.hts.common.QuestionType type = 3 [json_name = "type"];</code>
-     * @param value The enum numeric value on the wire for type to set.
+     * <code>.hts.common.QuestionType question_type = 3 [json_name = "questionType"];</code>
+     * @param value The enum numeric value on the wire for questionType to set.
      * @return This builder for chaining.
      */
-    public Builder setTypeValue(int value) {
+    public Builder setQuestionTypeValue(int value) {
       
-      type_ = value;
+      questionType_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>.hts.common.QuestionType type = 3 [json_name = "type"];</code>
-     * @return The type.
+     * <code>.hts.common.QuestionType question_type = 3 [json_name = "questionType"];</code>
+     * @return The questionType.
      */
     @java.lang.Override
-    public app.onepass.apis.QuestionType getType() {
+    public app.onepass.apis.QuestionType getQuestionType() {
       @SuppressWarnings("deprecation")
-      app.onepass.apis.QuestionType result = app.onepass.apis.QuestionType.valueOf(type_);
+      app.onepass.apis.QuestionType result = app.onepass.apis.QuestionType.valueOf(questionType_);
       return result == null ? app.onepass.apis.QuestionType.UNRECOGNIZED : result;
     }
     /**
-     * <code>.hts.common.QuestionType type = 3 [json_name = "type"];</code>
-     * @param value The type to set.
+     * <code>.hts.common.QuestionType question_type = 3 [json_name = "questionType"];</code>
+     * @param value The questionType to set.
      * @return This builder for chaining.
      */
-    public Builder setType(app.onepass.apis.QuestionType value) {
+    public Builder setQuestionType(app.onepass.apis.QuestionType value) {
       if (value == null) {
         throw new NullPointerException();
       }
       
-      type_ = value.getNumber();
+      questionType_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
-     * <code>.hts.common.QuestionType type = 3 [json_name = "type"];</code>
+     * <code>.hts.common.QuestionType question_type = 3 [json_name = "questionType"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearType() {
+    public Builder clearQuestionType() {
       
-      type_ = 0;
+      questionType_ = 0;
       onChanged();
       return this;
     }
