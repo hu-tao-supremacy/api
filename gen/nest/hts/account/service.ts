@@ -11,7 +11,7 @@ export interface IsAuthenticatedRequest {
   accessToken: string;
 }
 
-export interface GenerateAuthTokenResponse {
+export interface GenerateAccessTokenResponse {
   accessToken: string;
 }
 
@@ -28,7 +28,7 @@ export interface AccountServiceClient {
 
   updateAccountInfo(request: User): Observable<User>;
 
-  generateAuthToken(request: User): Observable<GenerateAuthTokenResponse>;
+  generateAccessToken(request: User): Observable<GenerateAccessTokenResponse>;
 
   hasPermission(request: HasPermissionRequest): Observable<BoolValue>;
 
@@ -42,12 +42,12 @@ export interface AccountServiceController {
 
   updateAccountInfo(request: User): Promise<User> | Observable<User> | User;
 
-  generateAuthToken(
+  generateAccessToken(
     request: User
   ):
-    | Promise<GenerateAuthTokenResponse>
-    | Observable<GenerateAuthTokenResponse>
-    | GenerateAuthTokenResponse;
+    | Promise<GenerateAccessTokenResponse>
+    | Observable<GenerateAccessTokenResponse>
+    | GenerateAccessTokenResponse;
 
   hasPermission(
     request: HasPermissionRequest
@@ -61,7 +61,7 @@ export function AccountServiceControllerMethods() {
     const grpcMethods: string[] = [
       "isAuthenticated",
       "updateAccountInfo",
-      "generateAuthToken",
+      "generateAccessToken",
       "hasPermission",
       "ping",
     ];

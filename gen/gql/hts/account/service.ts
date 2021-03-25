@@ -8,7 +8,7 @@ export interface IsAuthenticatedRequest {
   accessToken: string;
 }
 
-export interface GenerateAuthTokenResponse {
+export interface GenerateAccessTokenResponse {
   accessToken: string;
 }
 
@@ -23,7 +23,7 @@ export interface AccountService {
     request: IsAuthenticatedRequest
   ): Promise<boolean | undefined>;
   UpdateAccountInfo(request: User): Promise<User>;
-  GenerateAuthToken(request: User): Promise<GenerateAuthTokenResponse>;
+  GenerateAccessToken(request: User): Promise<GenerateAccessTokenResponse>;
   HasPermission(request: HasPermissionRequest): Promise<boolean | undefined>;
   Ping(request: Empty): Promise<boolean | undefined>;
 }
