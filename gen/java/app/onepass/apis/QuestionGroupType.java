@@ -4,9 +4,9 @@
 package app.onepass.apis;
 
 /**
- * Protobuf enum {@code hts.common.QuestionType}
+ * Protobuf enum {@code hts.common.QuestionGroupType}
  */
-public enum QuestionType
+public enum QuestionGroupType
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
    * <code>PRE_EVENT = 0;</code>
@@ -43,7 +43,7 @@ public enum QuestionType
    * @deprecated Use {@link #forNumber(int)} instead.
    */
   @java.lang.Deprecated
-  public static QuestionType valueOf(int value) {
+  public static QuestionGroupType valueOf(int value) {
     return forNumber(value);
   }
 
@@ -51,7 +51,7 @@ public enum QuestionType
    * @param value The numeric wire value of the corresponding enum entry.
    * @return The enum associated with the given numeric wire value.
    */
-  public static QuestionType forNumber(int value) {
+  public static QuestionGroupType forNumber(int value) {
     switch (value) {
       case 0: return PRE_EVENT;
       case 1: return POST_EVENT;
@@ -59,15 +59,15 @@ public enum QuestionType
     }
   }
 
-  public static com.google.protobuf.Internal.EnumLiteMap<QuestionType>
+  public static com.google.protobuf.Internal.EnumLiteMap<QuestionGroupType>
       internalGetValueMap() {
     return internalValueMap;
   }
   private static final com.google.protobuf.Internal.EnumLiteMap<
-      QuestionType> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<QuestionType>() {
-          public QuestionType findValueByNumber(int number) {
-            return QuestionType.forNumber(number);
+      QuestionGroupType> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<QuestionGroupType>() {
+          public QuestionGroupType findValueByNumber(int number) {
+            return QuestionGroupType.forNumber(number);
           }
         };
 
@@ -88,9 +88,9 @@ public enum QuestionType
     return app.onepass.apis.CommonProto.getDescriptor().getEnumTypes().get(2);
   }
 
-  private static final QuestionType[] VALUES = values();
+  private static final QuestionGroupType[] VALUES = values();
 
-  public static QuestionType valueOf(
+  public static QuestionGroupType valueOf(
       com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
     if (desc.getType() != getDescriptor()) {
       throw new java.lang.IllegalArgumentException(
@@ -104,10 +104,10 @@ public enum QuestionType
 
   private final int value;
 
-  private QuestionType(int value) {
+  private QuestionGroupType(int value) {
     this.value = value;
   }
 
-  // @@protoc_insertion_point(enum_scope:hts.common.QuestionType)
+  // @@protoc_insertion_point(enum_scope:hts.common.QuestionGroupType)
 }
 

@@ -26,7 +26,7 @@ class ParticipantServiceStub(object):
         self.JoinEvent = channel.unary_unary(
                 '/hts.participant.ParticipantService/JoinEvent',
                 request_serializer=hts_dot_participant_dot_service__pb2.UserWithEventRequest.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Event.FromString,
+                response_deserializer=hts_dot_common_dot_common__pb2.UserEvent.FromString,
                 )
         self.CancelEvent = channel.unary_unary(
                 '/hts.participant.ParticipantService/CancelEvent',
@@ -199,7 +199,7 @@ def add_ParticipantServiceServicer_to_server(servicer, server):
             'JoinEvent': grpc.unary_unary_rpc_method_handler(
                     servicer.JoinEvent,
                     request_deserializer=hts_dot_participant_dot_service__pb2.UserWithEventRequest.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Event.SerializeToString,
+                    response_serializer=hts_dot_common_dot_common__pb2.UserEvent.SerializeToString,
             ),
             'CancelEvent': grpc.unary_unary_rpc_method_handler(
                     servicer.CancelEvent,
@@ -306,7 +306,7 @@ class ParticipantService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/JoinEvent',
             hts_dot_participant_dot_service__pb2.UserWithEventRequest.SerializeToString,
-            hts_dot_common_dot_common__pb2.Event.FromString,
+            hts_dot_common_dot_common__pb2.UserEvent.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

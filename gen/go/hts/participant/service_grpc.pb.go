@@ -23,7 +23,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ParticipantServiceClient interface {
 	IsEventAvailable(ctx context.Context, in *IsEventAvailableRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
-	JoinEvent(ctx context.Context, in *UserWithEventRequest, opts ...grpc.CallOption) (*common.Event, error)
+	JoinEvent(ctx context.Context, in *UserWithEventRequest, opts ...grpc.CallOption) (*common.UserEvent, error)
 	CancelEvent(ctx context.Context, in *UserWithEventRequest, opts ...grpc.CallOption) (*common.Event, error)
 	SubmitAnswerForPostEventQuestion(ctx context.Context, in *SubmitAnswerForPostEventQuestionRequest, opts ...grpc.CallOption) (*SubmitAnswerForPostEventQuestionResponse, error)
 	GetEventById(ctx context.Context, in *GetEventByIdRequest, opts ...grpc.CallOption) (*common.Event, error)
@@ -56,8 +56,8 @@ func (c *participantServiceClient) IsEventAvailable(ctx context.Context, in *IsE
 	return out, nil
 }
 
-func (c *participantServiceClient) JoinEvent(ctx context.Context, in *UserWithEventRequest, opts ...grpc.CallOption) (*common.Event, error) {
-	out := new(common.Event)
+func (c *participantServiceClient) JoinEvent(ctx context.Context, in *UserWithEventRequest, opts ...grpc.CallOption) (*common.UserEvent, error) {
+	out := new(common.UserEvent)
 	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/JoinEvent", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -187,7 +187,7 @@ func (c *participantServiceClient) Ping(ctx context.Context, in *emptypb.Empty, 
 // for forward compatibility
 type ParticipantServiceServer interface {
 	IsEventAvailable(context.Context, *IsEventAvailableRequest) (*wrapperspb.BoolValue, error)
-	JoinEvent(context.Context, *UserWithEventRequest) (*common.Event, error)
+	JoinEvent(context.Context, *UserWithEventRequest) (*common.UserEvent, error)
 	CancelEvent(context.Context, *UserWithEventRequest) (*common.Event, error)
 	SubmitAnswerForPostEventQuestion(context.Context, *SubmitAnswerForPostEventQuestionRequest) (*SubmitAnswerForPostEventQuestionResponse, error)
 	GetEventById(context.Context, *GetEventByIdRequest) (*common.Event, error)
@@ -211,7 +211,7 @@ type UnimplementedParticipantServiceServer struct {
 func (UnimplementedParticipantServiceServer) IsEventAvailable(context.Context, *IsEventAvailableRequest) (*wrapperspb.BoolValue, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method IsEventAvailable not implemented")
 }
-func (UnimplementedParticipantServiceServer) JoinEvent(context.Context, *UserWithEventRequest) (*common.Event, error) {
+func (UnimplementedParticipantServiceServer) JoinEvent(context.Context, *UserWithEventRequest) (*common.UserEvent, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method JoinEvent not implemented")
 }
 func (UnimplementedParticipantServiceServer) CancelEvent(context.Context, *UserWithEventRequest) (*common.Event, error) {
