@@ -46,28 +46,28 @@ public final class ParticipantServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<app.onepass.apis.UserWithEventRequest,
-      app.onepass.apis.Event> getJoinEventMethod;
+      app.onepass.apis.UserEvent> getJoinEventMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "JoinEvent",
       requestType = app.onepass.apis.UserWithEventRequest.class,
-      responseType = app.onepass.apis.Event.class,
+      responseType = app.onepass.apis.UserEvent.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<app.onepass.apis.UserWithEventRequest,
-      app.onepass.apis.Event> getJoinEventMethod() {
-    io.grpc.MethodDescriptor<app.onepass.apis.UserWithEventRequest, app.onepass.apis.Event> getJoinEventMethod;
+      app.onepass.apis.UserEvent> getJoinEventMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.UserWithEventRequest, app.onepass.apis.UserEvent> getJoinEventMethod;
     if ((getJoinEventMethod = ParticipantServiceGrpc.getJoinEventMethod) == null) {
       synchronized (ParticipantServiceGrpc.class) {
         if ((getJoinEventMethod = ParticipantServiceGrpc.getJoinEventMethod) == null) {
           ParticipantServiceGrpc.getJoinEventMethod = getJoinEventMethod =
-              io.grpc.MethodDescriptor.<app.onepass.apis.UserWithEventRequest, app.onepass.apis.Event>newBuilder()
+              io.grpc.MethodDescriptor.<app.onepass.apis.UserWithEventRequest, app.onepass.apis.UserEvent>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "JoinEvent"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.UserWithEventRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  app.onepass.apis.Event.getDefaultInstance()))
+                  app.onepass.apis.UserEvent.getDefaultInstance()))
               .setSchemaDescriptor(new ParticipantServiceMethodDescriptorSupplier("JoinEvent"))
               .build();
         }
@@ -537,7 +537,7 @@ public final class ParticipantServiceGrpc {
     /**
      */
     public void joinEvent(app.onepass.apis.UserWithEventRequest request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.Event> responseObserver) {
+        io.grpc.stub.StreamObserver<app.onepass.apis.UserEvent> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getJoinEventMethod(), responseObserver);
     }
 
@@ -646,7 +646,7 @@ public final class ParticipantServiceGrpc {
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 app.onepass.apis.UserWithEventRequest,
-                app.onepass.apis.Event>(
+                app.onepass.apis.UserEvent>(
                   this, METHODID_JOIN_EVENT)))
           .addMethod(
             getCancelEventMethod(),
@@ -768,7 +768,7 @@ public final class ParticipantServiceGrpc {
     /**
      */
     public void joinEvent(app.onepass.apis.UserWithEventRequest request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.Event> responseObserver) {
+        io.grpc.stub.StreamObserver<app.onepass.apis.UserEvent> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getJoinEventMethod(), getCallOptions()), request, responseObserver);
     }
@@ -901,7 +901,7 @@ public final class ParticipantServiceGrpc {
 
     /**
      */
-    public app.onepass.apis.Event joinEvent(app.onepass.apis.UserWithEventRequest request) {
+    public app.onepass.apis.UserEvent joinEvent(app.onepass.apis.UserWithEventRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getJoinEventMethod(), getCallOptions(), request);
     }
@@ -1022,7 +1022,7 @@ public final class ParticipantServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.Event> joinEvent(
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.UserEvent> joinEvent(
         app.onepass.apis.UserWithEventRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getJoinEventMethod(), getCallOptions()), request);
@@ -1172,7 +1172,7 @@ public final class ParticipantServiceGrpc {
           break;
         case METHODID_JOIN_EVENT:
           serviceImpl.joinEvent((app.onepass.apis.UserWithEventRequest) request,
-              (io.grpc.stub.StreamObserver<app.onepass.apis.Event>) responseObserver);
+              (io.grpc.stub.StreamObserver<app.onepass.apis.UserEvent>) responseObserver);
           break;
         case METHODID_CANCEL_EVENT:
           serviceImpl.cancelEvent((app.onepass.apis.UserWithEventRequest) request,

@@ -111,43 +111,43 @@ public final class ParticipantProto {
       "sByIdRequest\022\016\n\002id\030\001 \001(\003R\002id\"k\n\021Generate" +
       "QRRequest\022\"\n\ruser_event_id\030\001 \001(\003R\013userEv" +
       "entId\022\027\n\007user_id\030\002 \001(\003R\006userId\022\031\n\010event_" +
-      "id\030\003 \001(\003R\007eventId2\300\n\n\022ParticipantService" +
+      "id\030\003 \001(\003R\007eventId2\304\n\n\022ParticipantService" +
       "\022X\n\020IsEventAvailable\022(.hts.participant.I" +
       "sEventAvailableRequest\032\032.google.protobuf" +
-      ".BoolValue\022E\n\tJoinEvent\022%.hts.participan" +
-      "t.UserWithEventRequest\032\021.hts.common.Even" +
-      "t\022G\n\013CancelEvent\022%.hts.participant.UserW" +
-      "ithEventRequest\032\021.hts.common.Event\022\227\001\n S" +
-      "ubmitAnswerForPostEventQuestion\0228.hts.pa" +
-      "rticipant.SubmitAnswerForPostEventQuesti" +
-      "onRequest\0329.hts.participant.SubmitAnswer" +
-      "ForPostEventQuestionResponse\022G\n\014GetEvent" +
-      "ById\022$.hts.participant.GetEventByIdReque" +
-      "st\032\021.hts.common.Event\022G\n\014GetAllEvents\022\026." +
-      "google.protobuf.Empty\032\037.hts.participant." +
-      "EventsResponse\022M\n\022GetSuggestedEvents\022\026.g" +
-      "oogle.protobuf.Empty\032\037.hts.participant.E" +
-      "ventsResponse\022_\n\021GetUpcomingEvents\022).hts" +
-      ".participant.GetUpcomingEventsRequest\032\037." +
-      "hts.participant.EventsResponse\022_\n\027GetEve" +
-      "ntsByStringOfName\022#.hts.participant.Stri" +
-      "ngInputRequest\032\037.hts.participant.EventsR" +
-      "esponse\022Z\n\020GetEventsByTagId\022%.hts.partic" +
-      "ipant.GetEventsByIdRequest\032\037.hts.partici" +
-      "pant.EventsResponse\022c\n\031GetEventsByOrgani" +
-      "zationId\022%.hts.participant.GetEventsById" +
-      "Request\032\037.hts.participant.EventsResponse" +
-      "\022_\n\025GetEventsByFacilityId\022%.hts.particip" +
-      "ant.GetEventsByIdRequest\032\037.hts.participa" +
-      "nt.EventsResponse\022N\n\017GetEventsByDate\022\032.g" +
-      "oogle.protobuf.Timestamp\032\037.hts.participa" +
-      "nt.EventsResponse\022U\n\nGenerateQR\022\".hts.pa" +
-      "rticipant.GenerateQRRequest\032#.hts.partic" +
-      "ipant.GenerateQRResponse\022:\n\004Ping\022\026.googl" +
-      "e.protobuf.Empty\032\032.google.protobuf.BoolV" +
-      "alueBL\n\020app.onepass.apisB\020ParticipantPro" +
-      "toP\001Z$onepass.app/facility/hts/participa" +
-      "ntb\006proto3"
+      ".BoolValue\022I\n\tJoinEvent\022%.hts.participan" +
+      "t.UserWithEventRequest\032\025.hts.common.User" +
+      "Event\022G\n\013CancelEvent\022%.hts.participant.U" +
+      "serWithEventRequest\032\021.hts.common.Event\022\227" +
+      "\001\n SubmitAnswerForPostEventQuestion\0228.ht" +
+      "s.participant.SubmitAnswerForPostEventQu" +
+      "estionRequest\0329.hts.participant.SubmitAn" +
+      "swerForPostEventQuestionResponse\022G\n\014GetE" +
+      "ventById\022$.hts.participant.GetEventByIdR" +
+      "equest\032\021.hts.common.Event\022G\n\014GetAllEvent" +
+      "s\022\026.google.protobuf.Empty\032\037.hts.particip" +
+      "ant.EventsResponse\022M\n\022GetSuggestedEvents" +
+      "\022\026.google.protobuf.Empty\032\037.hts.participa" +
+      "nt.EventsResponse\022_\n\021GetUpcomingEvents\022)" +
+      ".hts.participant.GetUpcomingEventsReques" +
+      "t\032\037.hts.participant.EventsResponse\022_\n\027Ge" +
+      "tEventsByStringOfName\022#.hts.participant." +
+      "StringInputRequest\032\037.hts.participant.Eve" +
+      "ntsResponse\022Z\n\020GetEventsByTagId\022%.hts.pa" +
+      "rticipant.GetEventsByIdRequest\032\037.hts.par" +
+      "ticipant.EventsResponse\022c\n\031GetEventsByOr" +
+      "ganizationId\022%.hts.participant.GetEvents" +
+      "ByIdRequest\032\037.hts.participant.EventsResp" +
+      "onse\022_\n\025GetEventsByFacilityId\022%.hts.part" +
+      "icipant.GetEventsByIdRequest\032\037.hts.parti" +
+      "cipant.EventsResponse\022N\n\017GetEventsByDate" +
+      "\022\032.google.protobuf.Timestamp\032\037.hts.parti" +
+      "cipant.EventsResponse\022U\n\nGenerateQR\022\".ht" +
+      "s.participant.GenerateQRRequest\032#.hts.pa" +
+      "rticipant.GenerateQRResponse\022:\n\004Ping\022\026.g" +
+      "oogle.protobuf.Empty\032\032.google.protobuf.B" +
+      "oolValueBL\n\020app.onepass.apisB\020Participan" +
+      "tProtoP\001Z$onepass.app/facility/hts/parti" +
+      "cipantb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
