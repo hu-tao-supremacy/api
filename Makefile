@@ -20,8 +20,8 @@ generate:
 	mv bazel-bin/go/gen/hts gen/go/.
 	mv bazel-bin/python/gen/hts gen/python/.
 
-	cp -r bazel-bin/java/gen/java.srcjar gen/java/.
-	cp -r bazel-bin/java/gen/java_grpc.srcjar gen/java/.
+	cp -LR bazel-bin/java/gen/java.srcjar gen/java/.
+	cp -LR bazel-bin/java/gen/java_grpc.srcjar gen/java/.
 	mv gen/java/java.srcjar gen/java/java.zip
 	mv gen/java/java_grpc.srcjar gen/java/java_grpc.zip
 	ditto -xk gen/java/java.zip gen/java
@@ -30,10 +30,10 @@ generate:
 	rm -rf gen/java/java_grpc.zip
 	rm -rf gen/java/META-INF
 
-	cp -r bazel-bin/nest/gen/hts gen/nest/.
-	cp -r bazel-bin/gql/gen/hts gen/gql/.
-	cp -r bazel-bin/nest/gen/google gen/nest/.
-	cp -r bazel-bin/gql/gen/google gen/gql/.
+	cp -LR bazel-bin/nest/gen/hts gen/nest/.
+	cp -LR bazel-bin/gql/gen/hts gen/gql/.
+	cp -LR bazel-bin/nest/gen/google gen/nest/.
+	cp -LR bazel-bin/gql/gen/google gen/gql/.
 
 
 generate-linux:
