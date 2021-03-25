@@ -27,10 +27,10 @@ class AccountServiceStub(object):
                 request_serializer=hts_dot_common_dot_common__pb2.User.SerializeToString,
                 response_deserializer=hts_dot_common_dot_common__pb2.User.FromString,
                 )
-        self.GenerateAuthToken = channel.unary_unary(
-                '/hts.account.AccountService/GenerateAuthToken',
+        self.GenerateAccessToken = channel.unary_unary(
+                '/hts.account.AccountService/GenerateAccessToken',
                 request_serializer=hts_dot_common_dot_common__pb2.User.SerializeToString,
-                response_deserializer=hts_dot_account_dot_service__pb2.GenerateAuthTokenResponse.FromString,
+                response_deserializer=hts_dot_account_dot_service__pb2.GenerateAccessTokenResponse.FromString,
                 )
         self.HasPermission = channel.unary_unary(
                 '/hts.account.AccountService/HasPermission',
@@ -59,7 +59,7 @@ class AccountServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GenerateAuthToken(self, request, context):
+    def GenerateAccessToken(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -90,10 +90,10 @@ def add_AccountServiceServicer_to_server(servicer, server):
                     request_deserializer=hts_dot_common_dot_common__pb2.User.FromString,
                     response_serializer=hts_dot_common_dot_common__pb2.User.SerializeToString,
             ),
-            'GenerateAuthToken': grpc.unary_unary_rpc_method_handler(
-                    servicer.GenerateAuthToken,
+            'GenerateAccessToken': grpc.unary_unary_rpc_method_handler(
+                    servicer.GenerateAccessToken,
                     request_deserializer=hts_dot_common_dot_common__pb2.User.FromString,
-                    response_serializer=hts_dot_account_dot_service__pb2.GenerateAuthTokenResponse.SerializeToString,
+                    response_serializer=hts_dot_account_dot_service__pb2.GenerateAccessTokenResponse.SerializeToString,
             ),
             'HasPermission': grpc.unary_unary_rpc_method_handler(
                     servicer.HasPermission,
@@ -150,7 +150,7 @@ class AccountService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GenerateAuthToken(request,
+    def GenerateAccessToken(request,
             target,
             options=(),
             channel_credentials=None,
@@ -160,9 +160,9 @@ class AccountService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hts.account.AccountService/GenerateAuthToken',
+        return grpc.experimental.unary_unary(request, target, '/hts.account.AccountService/GenerateAccessToken',
             hts_dot_common_dot_common__pb2.User.SerializeToString,
-            hts_dot_account_dot_service__pb2.GenerateAuthTokenResponse.FromString,
+            hts_dot_account_dot_service__pb2.GenerateAccessTokenResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
