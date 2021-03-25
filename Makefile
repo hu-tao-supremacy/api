@@ -4,6 +4,10 @@ setup:
 
 generate:
 	@cd $(dirname $0)
+
+	cd bazel/gql/requirements/ && yarn install
+	cd bazel/rules/requirements/ && yarn install
+
 	bazel build //:go
 	bazel build //:python
 	bazel build //:java
