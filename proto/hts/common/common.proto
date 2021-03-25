@@ -105,7 +105,7 @@ message Organization {
 message QuestionGroup {
   int64 id = 1;
   int64 event_id = 2;
-  QuestionType type = 3;
+  QuestionType question_type = 3;
   int64 order = 4;
   string title = 5;
 }
@@ -115,7 +115,7 @@ message Question {
   int64 question_group_id = 2;
   int64 order = 3;
   AnswerType answer_type = 4;
-  bool is_optional = 5;
+  bool optional = 5;
   string title = 6;
   string subtitle = 7;
 
