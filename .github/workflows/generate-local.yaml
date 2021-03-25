@@ -5,7 +5,7 @@ on:
       - main
 jobs:
   generate:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
@@ -13,6 +13,6 @@ jobs:
       - run: |
           brew install tree
           make setup
-          make generate-local
+          make generate-linux
       - run: |
           tree gen/
