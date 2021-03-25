@@ -23,7 +23,7 @@ const _ = grpc.SupportPackageIsVersion7
 type AccountServiceClient interface {
 	IsAuthenticated(ctx context.Context, in *IsAuthenticatedRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 	UpdateAccountInfo(ctx context.Context, in *common.User, opts ...grpc.CallOption) (*common.User, error)
-	GenerateAuthToken(ctx context.Context, in *common.User, opts ...grpc.CallOption) (*GenerateAuthTokenResponse, error)
+	GenerateAccessToken(ctx context.Context, in *common.User, opts ...grpc.CallOption) (*GenerateAccessTokenResponse, error)
 	HasPermission(ctx context.Context, in *HasPermissionRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 	Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 }
@@ -54,9 +54,9 @@ func (c *accountServiceClient) UpdateAccountInfo(ctx context.Context, in *common
 	return out, nil
 }
 
-func (c *accountServiceClient) GenerateAuthToken(ctx context.Context, in *common.User, opts ...grpc.CallOption) (*GenerateAuthTokenResponse, error) {
-	out := new(GenerateAuthTokenResponse)
-	err := c.cc.Invoke(ctx, "/hts.account.AccountService/GenerateAuthToken", in, out, opts...)
+func (c *accountServiceClient) GenerateAccessToken(ctx context.Context, in *common.User, opts ...grpc.CallOption) (*GenerateAccessTokenResponse, error) {
+	out := new(GenerateAccessTokenResponse)
+	err := c.cc.Invoke(ctx, "/hts.account.AccountService/GenerateAccessToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -87,7 +87,7 @@ func (c *accountServiceClient) Ping(ctx context.Context, in *emptypb.Empty, opts
 type AccountServiceServer interface {
 	IsAuthenticated(context.Context, *IsAuthenticatedRequest) (*wrapperspb.BoolValue, error)
 	UpdateAccountInfo(context.Context, *common.User) (*common.User, error)
-	GenerateAuthToken(context.Context, *common.User) (*GenerateAuthTokenResponse, error)
+	GenerateAccessToken(context.Context, *common.User) (*GenerateAccessTokenResponse, error)
 	HasPermission(context.Context, *HasPermissionRequest) (*wrapperspb.BoolValue, error)
 	Ping(context.Context, *emptypb.Empty) (*wrapperspb.BoolValue, error)
 	mustEmbedUnimplementedAccountServiceServer()
@@ -103,8 +103,8 @@ func (UnimplementedAccountServiceServer) IsAuthenticated(context.Context, *IsAut
 func (UnimplementedAccountServiceServer) UpdateAccountInfo(context.Context, *common.User) (*common.User, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateAccountInfo not implemented")
 }
-func (UnimplementedAccountServiceServer) GenerateAuthToken(context.Context, *common.User) (*GenerateAuthTokenResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GenerateAuthToken not implemented")
+func (UnimplementedAccountServiceServer) GenerateAccessToken(context.Context, *common.User) (*GenerateAccessTokenResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GenerateAccessToken not implemented")
 }
 func (UnimplementedAccountServiceServer) HasPermission(context.Context, *HasPermissionRequest) (*wrapperspb.BoolValue, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method HasPermission not implemented")
@@ -161,20 +161,20 @@ func _AccountService_UpdateAccountInfo_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccountService_GenerateAuthToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AccountService_GenerateAccessToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(common.User)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccountServiceServer).GenerateAuthToken(ctx, in)
+		return srv.(AccountServiceServer).GenerateAccessToken(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.account.AccountService/GenerateAuthToken",
+		FullMethod: "/hts.account.AccountService/GenerateAccessToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountServiceServer).GenerateAuthToken(ctx, req.(*common.User))
+		return srv.(AccountServiceServer).GenerateAccessToken(ctx, req.(*common.User))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -231,8 +231,8 @@ var AccountService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _AccountService_UpdateAccountInfo_Handler,
 		},
 		{
-			MethodName: "GenerateAuthToken",
-			Handler:    _AccountService_GenerateAuthToken_Handler,
+			MethodName: "GenerateAccessToken",
+			Handler:    _AccountService_GenerateAccessToken_Handler,
 		},
 		{
 			MethodName: "HasPermission",
