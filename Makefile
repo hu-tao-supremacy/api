@@ -38,26 +38,30 @@ generate:
 
 generate-linux:
 	@cd $(dirname $0)
+	make build-go
+	make build-java
+	make build-python
+	make build-ts
 
-	cd bazel/rules/requirements/ && yarn install
-	cd bazel/gql/requirements/ && yarn install
-
+build-go:
+	@cd $(dirname $0)
 	bazel build //:go
-	bazel build //:python
-	bazel build //:java
-	bazel build //:nest
-	bazel build //:gql
-
-	rm -rf gen
+	rm -rf gen/go
 	mkdir -p gen/go
-	mkdir -p gen/java
-	mkdir -p gen/nest
-	mkdir -p gen/gql
-	mkdir -p gen/python
-
 	mv bazel-bin/go/gen/hts gen/go/.
+
+build-python:
+	@cd $(dirname $0)
+	bazel build //:python
+	rm -rf gen/python
+	mkdir -p gen/python
 	mv bazel-bin/python/gen/hts gen/python/.
 
+build-java:
+	@cd $(dirname $0)
+	bazel build //:java
+	rm -rf gen/java
+	mkdir -p gen/java
 	cp -r bazel-bin/java/gen/java.srcjar gen/java/.
 	cp -r bazel-bin/java/gen/java_grpc.srcjar gen/java/.
 	mv gen/java/java.srcjar gen/java/java.zip
@@ -68,6 +72,12 @@ generate-linux:
 	rm -rf gen/java/java_grpc.zip
 	rm -rf gen/java/META-INF
 
+build-ts:
+	@cd $(dirname $0)
+	bazel build //:nest
+	bazel build //:gql
+	rm -rf gen/nest && mkdir -p gen/nest
+	rm -rf gen/gql && mkdir -p gen/gql
 	cp -r bazel-bin/nest/gen/hts gen/nest/.
 	cp -r bazel-bin/gql/gen/hts gen/gql/.
 	cp -r bazel-bin/nest/gen/google gen/nest/.
