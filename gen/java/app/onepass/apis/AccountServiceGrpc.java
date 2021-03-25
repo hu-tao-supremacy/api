@@ -77,34 +77,34 @@ public final class AccountServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<app.onepass.apis.User,
-      app.onepass.apis.GenerateAuthTokenResponse> getGenerateAuthTokenMethod;
+      app.onepass.apis.GenerateAccessTokenResponse> getGenerateAccessTokenMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "GenerateAuthToken",
+      fullMethodName = SERVICE_NAME + '/' + "GenerateAccessToken",
       requestType = app.onepass.apis.User.class,
-      responseType = app.onepass.apis.GenerateAuthTokenResponse.class,
+      responseType = app.onepass.apis.GenerateAccessTokenResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<app.onepass.apis.User,
-      app.onepass.apis.GenerateAuthTokenResponse> getGenerateAuthTokenMethod() {
-    io.grpc.MethodDescriptor<app.onepass.apis.User, app.onepass.apis.GenerateAuthTokenResponse> getGenerateAuthTokenMethod;
-    if ((getGenerateAuthTokenMethod = AccountServiceGrpc.getGenerateAuthTokenMethod) == null) {
+      app.onepass.apis.GenerateAccessTokenResponse> getGenerateAccessTokenMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.User, app.onepass.apis.GenerateAccessTokenResponse> getGenerateAccessTokenMethod;
+    if ((getGenerateAccessTokenMethod = AccountServiceGrpc.getGenerateAccessTokenMethod) == null) {
       synchronized (AccountServiceGrpc.class) {
-        if ((getGenerateAuthTokenMethod = AccountServiceGrpc.getGenerateAuthTokenMethod) == null) {
-          AccountServiceGrpc.getGenerateAuthTokenMethod = getGenerateAuthTokenMethod =
-              io.grpc.MethodDescriptor.<app.onepass.apis.User, app.onepass.apis.GenerateAuthTokenResponse>newBuilder()
+        if ((getGenerateAccessTokenMethod = AccountServiceGrpc.getGenerateAccessTokenMethod) == null) {
+          AccountServiceGrpc.getGenerateAccessTokenMethod = getGenerateAccessTokenMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.User, app.onepass.apis.GenerateAccessTokenResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GenerateAuthToken"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GenerateAccessToken"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.User.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  app.onepass.apis.GenerateAuthTokenResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new AccountServiceMethodDescriptorSupplier("GenerateAuthToken"))
+                  app.onepass.apis.GenerateAccessTokenResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new AccountServiceMethodDescriptorSupplier("GenerateAccessToken"))
               .build();
         }
       }
     }
-    return getGenerateAuthTokenMethod;
+    return getGenerateAccessTokenMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<app.onepass.apis.HasPermissionRequest,
@@ -233,9 +233,9 @@ public final class AccountServiceGrpc {
 
     /**
      */
-    public void generateAuthToken(app.onepass.apis.User request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.GenerateAuthTokenResponse> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGenerateAuthTokenMethod(), responseObserver);
+    public void generateAccessToken(app.onepass.apis.User request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.GenerateAccessTokenResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGenerateAccessTokenMethod(), responseObserver);
     }
 
     /**
@@ -269,12 +269,12 @@ public final class AccountServiceGrpc {
                 app.onepass.apis.User>(
                   this, METHODID_UPDATE_ACCOUNT_INFO)))
           .addMethod(
-            getGenerateAuthTokenMethod(),
+            getGenerateAccessTokenMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 app.onepass.apis.User,
-                app.onepass.apis.GenerateAuthTokenResponse>(
-                  this, METHODID_GENERATE_AUTH_TOKEN)))
+                app.onepass.apis.GenerateAccessTokenResponse>(
+                  this, METHODID_GENERATE_ACCESS_TOKEN)))
           .addMethod(
             getHasPermissionMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -325,10 +325,10 @@ public final class AccountServiceGrpc {
 
     /**
      */
-    public void generateAuthToken(app.onepass.apis.User request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.GenerateAuthTokenResponse> responseObserver) {
+    public void generateAccessToken(app.onepass.apis.User request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.GenerateAccessTokenResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getGenerateAuthTokenMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getGenerateAccessTokenMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -378,9 +378,9 @@ public final class AccountServiceGrpc {
 
     /**
      */
-    public app.onepass.apis.GenerateAuthTokenResponse generateAuthToken(app.onepass.apis.User request) {
+    public app.onepass.apis.GenerateAccessTokenResponse generateAccessToken(app.onepass.apis.User request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getGenerateAuthTokenMethod(), getCallOptions(), request);
+          getChannel(), getGenerateAccessTokenMethod(), getCallOptions(), request);
     }
 
     /**
@@ -430,10 +430,10 @@ public final class AccountServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.GenerateAuthTokenResponse> generateAuthToken(
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.GenerateAccessTokenResponse> generateAccessToken(
         app.onepass.apis.User request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getGenerateAuthTokenMethod(), getCallOptions()), request);
+          getChannel().newCall(getGenerateAccessTokenMethod(), getCallOptions()), request);
     }
 
     /**
@@ -455,7 +455,7 @@ public final class AccountServiceGrpc {
 
   private static final int METHODID_IS_AUTHENTICATED = 0;
   private static final int METHODID_UPDATE_ACCOUNT_INFO = 1;
-  private static final int METHODID_GENERATE_AUTH_TOKEN = 2;
+  private static final int METHODID_GENERATE_ACCESS_TOKEN = 2;
   private static final int METHODID_HAS_PERMISSION = 3;
   private static final int METHODID_PING = 4;
 
@@ -484,9 +484,9 @@ public final class AccountServiceGrpc {
           serviceImpl.updateAccountInfo((app.onepass.apis.User) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.User>) responseObserver);
           break;
-        case METHODID_GENERATE_AUTH_TOKEN:
-          serviceImpl.generateAuthToken((app.onepass.apis.User) request,
-              (io.grpc.stub.StreamObserver<app.onepass.apis.GenerateAuthTokenResponse>) responseObserver);
+        case METHODID_GENERATE_ACCESS_TOKEN:
+          serviceImpl.generateAccessToken((app.onepass.apis.User) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.GenerateAccessTokenResponse>) responseObserver);
           break;
         case METHODID_HAS_PERMISSION:
           serviceImpl.hasPermission((app.onepass.apis.HasPermissionRequest) request,
@@ -559,7 +559,7 @@ public final class AccountServiceGrpc {
               .setSchemaDescriptor(new AccountServiceFileDescriptorSupplier())
               .addMethod(getIsAuthenticatedMethod())
               .addMethod(getUpdateAccountInfoMethod())
-              .addMethod(getGenerateAuthTokenMethod())
+              .addMethod(getGenerateAccessTokenMethod())
               .addMethod(getHasPermissionMethod())
               .addMethod(getPingMethod())
               .build();

@@ -4,18 +4,18 @@
 package app.onepass.apis;
 
 /**
- * Protobuf type {@code hts.account.GenerateAuthTokenResponse}
+ * Protobuf type {@code hts.account.GenerateAccessTokenResponse}
  */
-public final class GenerateAuthTokenResponse extends
+public final class GenerateAccessTokenResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:hts.account.GenerateAuthTokenResponse)
-    GenerateAuthTokenResponseOrBuilder {
+    // @@protoc_insertion_point(message_implements:hts.account.GenerateAccessTokenResponse)
+    GenerateAccessTokenResponseOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use GenerateAuthTokenResponse.newBuilder() to construct.
-  private GenerateAuthTokenResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use GenerateAccessTokenResponse.newBuilder() to construct.
+  private GenerateAccessTokenResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private GenerateAuthTokenResponse() {
+  private GenerateAccessTokenResponse() {
     accessToken_ = "";
   }
 
@@ -23,7 +23,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new GenerateAuthTokenResponse();
+    return new GenerateAccessTokenResponse();
   }
 
   @java.lang.Override
@@ -31,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GenerateAuthTokenResponse(
+  private GenerateAccessTokenResponse(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -76,15 +76,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return app.onepass.apis.AccountProto.internal_static_hts_account_GenerateAuthTokenResponse_descriptor;
+    return app.onepass.apis.AccountProto.internal_static_hts_account_GenerateAccessTokenResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return app.onepass.apis.AccountProto.internal_static_hts_account_GenerateAuthTokenResponse_fieldAccessorTable
+    return app.onepass.apis.AccountProto.internal_static_hts_account_GenerateAccessTokenResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            app.onepass.apis.GenerateAuthTokenResponse.class, app.onepass.apis.GenerateAuthTokenResponse.Builder.class);
+            app.onepass.apis.GenerateAccessTokenResponse.class, app.onepass.apis.GenerateAccessTokenResponse.Builder.class);
   }
 
   public static final int ACCESS_TOKEN_FIELD_NUMBER = 1;
@@ -164,10 +164,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof app.onepass.apis.GenerateAuthTokenResponse)) {
+    if (!(obj instanceof app.onepass.apis.GenerateAccessTokenResponse)) {
       return super.equals(obj);
     }
-    app.onepass.apis.GenerateAuthTokenResponse other = (app.onepass.apis.GenerateAuthTokenResponse) obj;
+    app.onepass.apis.GenerateAccessTokenResponse other = (app.onepass.apis.GenerateAccessTokenResponse) obj;
 
     if (!getAccessToken()
         .equals(other.getAccessToken())) return false;
@@ -189,69 +189,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static app.onepass.apis.GenerateAuthTokenResponse parseFrom(
+  public static app.onepass.apis.GenerateAccessTokenResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.GenerateAuthTokenResponse parseFrom(
+  public static app.onepass.apis.GenerateAccessTokenResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.GenerateAuthTokenResponse parseFrom(
+  public static app.onepass.apis.GenerateAccessTokenResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.GenerateAuthTokenResponse parseFrom(
+  public static app.onepass.apis.GenerateAccessTokenResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.GenerateAuthTokenResponse parseFrom(byte[] data)
+  public static app.onepass.apis.GenerateAccessTokenResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.GenerateAuthTokenResponse parseFrom(
+  public static app.onepass.apis.GenerateAccessTokenResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.GenerateAuthTokenResponse parseFrom(java.io.InputStream input)
+  public static app.onepass.apis.GenerateAccessTokenResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.GenerateAuthTokenResponse parseFrom(
+  public static app.onepass.apis.GenerateAccessTokenResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.GenerateAuthTokenResponse parseDelimitedFrom(java.io.InputStream input)
+  public static app.onepass.apis.GenerateAccessTokenResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.GenerateAuthTokenResponse parseDelimitedFrom(
+  public static app.onepass.apis.GenerateAccessTokenResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.GenerateAuthTokenResponse parseFrom(
+  public static app.onepass.apis.GenerateAccessTokenResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.GenerateAuthTokenResponse parseFrom(
+  public static app.onepass.apis.GenerateAccessTokenResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -264,7 +264,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(app.onepass.apis.GenerateAuthTokenResponse prototype) {
+  public static Builder newBuilder(app.onepass.apis.GenerateAccessTokenResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -280,26 +280,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code hts.account.GenerateAuthTokenResponse}
+   * Protobuf type {@code hts.account.GenerateAccessTokenResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:hts.account.GenerateAuthTokenResponse)
-      app.onepass.apis.GenerateAuthTokenResponseOrBuilder {
+      // @@protoc_insertion_point(builder_implements:hts.account.GenerateAccessTokenResponse)
+      app.onepass.apis.GenerateAccessTokenResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return app.onepass.apis.AccountProto.internal_static_hts_account_GenerateAuthTokenResponse_descriptor;
+      return app.onepass.apis.AccountProto.internal_static_hts_account_GenerateAccessTokenResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return app.onepass.apis.AccountProto.internal_static_hts_account_GenerateAuthTokenResponse_fieldAccessorTable
+      return app.onepass.apis.AccountProto.internal_static_hts_account_GenerateAccessTokenResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              app.onepass.apis.GenerateAuthTokenResponse.class, app.onepass.apis.GenerateAuthTokenResponse.Builder.class);
+              app.onepass.apis.GenerateAccessTokenResponse.class, app.onepass.apis.GenerateAccessTokenResponse.Builder.class);
     }
 
-    // Construct using app.onepass.apis.GenerateAuthTokenResponse.newBuilder()
+    // Construct using app.onepass.apis.GenerateAccessTokenResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -325,17 +325,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return app.onepass.apis.AccountProto.internal_static_hts_account_GenerateAuthTokenResponse_descriptor;
+      return app.onepass.apis.AccountProto.internal_static_hts_account_GenerateAccessTokenResponse_descriptor;
     }
 
     @java.lang.Override
-    public app.onepass.apis.GenerateAuthTokenResponse getDefaultInstanceForType() {
-      return app.onepass.apis.GenerateAuthTokenResponse.getDefaultInstance();
+    public app.onepass.apis.GenerateAccessTokenResponse getDefaultInstanceForType() {
+      return app.onepass.apis.GenerateAccessTokenResponse.getDefaultInstance();
     }
 
     @java.lang.Override
-    public app.onepass.apis.GenerateAuthTokenResponse build() {
-      app.onepass.apis.GenerateAuthTokenResponse result = buildPartial();
+    public app.onepass.apis.GenerateAccessTokenResponse build() {
+      app.onepass.apis.GenerateAccessTokenResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -343,8 +343,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public app.onepass.apis.GenerateAuthTokenResponse buildPartial() {
-      app.onepass.apis.GenerateAuthTokenResponse result = new app.onepass.apis.GenerateAuthTokenResponse(this);
+    public app.onepass.apis.GenerateAccessTokenResponse buildPartial() {
+      app.onepass.apis.GenerateAccessTokenResponse result = new app.onepass.apis.GenerateAccessTokenResponse(this);
       result.accessToken_ = accessToken_;
       onBuilt();
       return result;
@@ -384,16 +384,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof app.onepass.apis.GenerateAuthTokenResponse) {
-        return mergeFrom((app.onepass.apis.GenerateAuthTokenResponse)other);
+      if (other instanceof app.onepass.apis.GenerateAccessTokenResponse) {
+        return mergeFrom((app.onepass.apis.GenerateAccessTokenResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(app.onepass.apis.GenerateAuthTokenResponse other) {
-      if (other == app.onepass.apis.GenerateAuthTokenResponse.getDefaultInstance()) return this;
+    public Builder mergeFrom(app.onepass.apis.GenerateAccessTokenResponse other) {
+      if (other == app.onepass.apis.GenerateAccessTokenResponse.getDefaultInstance()) return this;
       if (!other.getAccessToken().isEmpty()) {
         accessToken_ = other.accessToken_;
         onChanged();
@@ -413,11 +413,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      app.onepass.apis.GenerateAuthTokenResponse parsedMessage = null;
+      app.onepass.apis.GenerateAccessTokenResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (app.onepass.apis.GenerateAuthTokenResponse) e.getUnfinishedMessage();
+        parsedMessage = (app.onepass.apis.GenerateAccessTokenResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -515,41 +515,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:hts.account.GenerateAuthTokenResponse)
+    // @@protoc_insertion_point(builder_scope:hts.account.GenerateAccessTokenResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:hts.account.GenerateAuthTokenResponse)
-  private static final app.onepass.apis.GenerateAuthTokenResponse DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:hts.account.GenerateAccessTokenResponse)
+  private static final app.onepass.apis.GenerateAccessTokenResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new app.onepass.apis.GenerateAuthTokenResponse();
+    DEFAULT_INSTANCE = new app.onepass.apis.GenerateAccessTokenResponse();
   }
 
-  public static app.onepass.apis.GenerateAuthTokenResponse getDefaultInstance() {
+  public static app.onepass.apis.GenerateAccessTokenResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<GenerateAuthTokenResponse>
-      PARSER = new com.google.protobuf.AbstractParser<GenerateAuthTokenResponse>() {
+  private static final com.google.protobuf.Parser<GenerateAccessTokenResponse>
+      PARSER = new com.google.protobuf.AbstractParser<GenerateAccessTokenResponse>() {
     @java.lang.Override
-    public GenerateAuthTokenResponse parsePartialFrom(
+    public GenerateAccessTokenResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GenerateAuthTokenResponse(input, extensionRegistry);
+      return new GenerateAccessTokenResponse(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<GenerateAuthTokenResponse> parser() {
+  public static com.google.protobuf.Parser<GenerateAccessTokenResponse> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<GenerateAuthTokenResponse> getParserForType() {
+  public com.google.protobuf.Parser<GenerateAccessTokenResponse> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public app.onepass.apis.GenerateAuthTokenResponse getDefaultInstanceForType() {
+  public app.onepass.apis.GenerateAccessTokenResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
