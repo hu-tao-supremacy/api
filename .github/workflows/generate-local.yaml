@@ -13,6 +13,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      - run: echo "SHA7=${GITHUB_SHA::7}" >> $GITHUB_ENV
       - uses: actions/cache@v2
         if: ${{ matrix.platform != 'ts' }}
         with:
@@ -24,3 +25,10 @@ jobs:
       - run: make build-${{ matrix.platform }}
       - run: |
           tree gen/
+      - run: |
+          git add -f gen/${{ matrix.platform }}
+          git commit -m 'compile(${{ matrix.platform }}): ${{ env.SHA7 }}'
+        env:
+          GIT_COMMITTER_NAME: dodoco-bot
+          GIT_AUTHOR_NAME: dodoco-bot
+          EMAIL: 77519537+dodoco-bot@users.noreply.github.com
