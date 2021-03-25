@@ -58,8 +58,8 @@ generate-linux:
 	cp -r bazel-bin/java/gen/java_grpc.srcjar gen/java/.
 	mv gen/java/java.srcjar gen/java/java.zip
 	mv gen/java/java_grpc.srcjar gen/java/java_grpc.zip
-	unzip gen/java/java.zip -d gen/java
-	unzip gen/java/java_grpc.zip -d gen/java
+	unzip -n gen/java/java.zip -d gen/java
+	unzip -n gen/java/java_grpc.zip -d gen/java
 	rm -rf gen/java/java.zip
 	rm -rf gen/java/java_grpc.zip
 	rm -rf gen/java/META-INF
