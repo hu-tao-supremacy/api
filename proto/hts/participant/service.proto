@@ -73,7 +73,7 @@ service ParticipantService {
     rpc IsEventAvailable(IsEventAvailableRequest) returns (google.protobuf.BoolValue);
 
     // Let user join / cancel events
-    rpc JoinEvent(UserWithEventRequest) returns (hts.common.Event);
+    rpc JoinEvent(UserWithEventRequest) returns (hts.common.UserEvent);
     rpc CancelEvent(UserWithEventRequest) returns (hts.common.Event);
 
     // Let user create then submit Post Question
