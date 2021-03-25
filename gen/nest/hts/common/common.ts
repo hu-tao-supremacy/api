@@ -105,7 +105,7 @@ export interface Organization {
 export interface QuestionGroup {
   id: number;
   eventId: number;
-  type: QuestionType;
+  questionType: QuestionType;
   order: number;
   title: string;
 }
@@ -115,7 +115,7 @@ export interface Question {
   questionGroupId: number;
   order: number;
   answerType: AnswerType;
-  isOptional: boolean;
+  optional: boolean;
   title: string;
   subtitle: string;
 }
