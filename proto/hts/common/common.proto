@@ -25,7 +25,7 @@ enum AnswerType {
   TEXT = 1;
 }
 
-enum QuestionGroupType {
+enum QuestionType {
   PRE_EVENT = 0;
   POST_EVENT = 1;
 }
@@ -105,7 +105,7 @@ message Organization {
 message QuestionGroup {
   int64 id = 1;
   int64 event_id = 2;
-  QuestionGroupType type = 3;
+  QuestionType type = 3;
   int64 order = 4;
   string title = 5;
 }
@@ -118,6 +118,7 @@ message Question {
   bool is_optional = 5;
   string title = 6;
   string subtitle = 7;
+
 }
 
 message UserOrganization {
