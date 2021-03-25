@@ -38,6 +38,7 @@ generate:
 
 generate-linux:
 	@cd $(dirname $0)
+	bazel clean
 	bazel build //:go
 	bazel build //:python
 	bazel build //:java
