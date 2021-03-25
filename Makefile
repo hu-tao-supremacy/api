@@ -38,6 +38,10 @@ generate:
 
 generate-linux:
 	@cd $(dirname $0)
+
+	cd bazel/rules/requirements/ && yarn install
+	cd bazel/gql/requirements/ && yarn install
+
 	bazel build //:go
 	bazel build //:python
 	bazel build //:java
