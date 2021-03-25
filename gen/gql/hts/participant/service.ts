@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { Answer, Event } from "../../hts/common/common";
+import { Answer, Event, UserEvent } from "../../hts/common/common";
 import { Empty } from "../../google/protobuf/empty";
 
 export const protobufPackage = "hts.participant";
@@ -63,7 +63,7 @@ export interface ParticipantService {
   IsEventAvailable(
     request: IsEventAvailableRequest
   ): Promise<boolean | undefined>;
-  JoinEvent(request: UserWithEventRequest): Promise<Event>;
+  JoinEvent(request: UserWithEventRequest): Promise<UserEvent>;
   CancelEvent(request: UserWithEventRequest): Promise<Event>;
   SubmitAnswerForPostEventQuestion(
     request: SubmitAnswerForPostEventQuestionRequest

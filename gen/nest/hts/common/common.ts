@@ -21,7 +21,7 @@ export enum AnswerType {
   UNRECOGNIZED = -1,
 }
 
-export enum QuestionType {
+export enum QuestionGroupType {
   PRE_EVENT = 0,
   POST_EVENT = 1,
   UNRECOGNIZED = -1,
@@ -105,7 +105,7 @@ export interface Organization {
 export interface QuestionGroup {
   id: number;
   eventId: number;
-  type: QuestionType;
+  type: QuestionGroupType;
   order: number;
   title: string;
 }

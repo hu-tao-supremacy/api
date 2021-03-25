@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
 import { Observable } from "rxjs";
-import { Answer, Event } from "../../hts/common/common";
+import { Answer, Event, UserEvent } from "../../hts/common/common";
 import { Timestamp } from "../../google/protobuf/timestamp";
 import { BoolValue } from "../../google/protobuf/wrappers";
 import { Empty } from "../../google/protobuf/empty";
@@ -68,7 +68,7 @@ export const HTS_PARTICIPANT_PACKAGE_NAME = "hts.participant";
 export interface ParticipantServiceClient {
   isEventAvailable(request: IsEventAvailableRequest): Observable<BoolValue>;
 
-  joinEvent(request: UserWithEventRequest): Observable<Event>;
+  joinEvent(request: UserWithEventRequest): Observable<UserEvent>;
 
   cancelEvent(request: UserWithEventRequest): Observable<Event>;
 
@@ -114,7 +114,7 @@ export interface ParticipantServiceController {
 
   joinEvent(
     request: UserWithEventRequest
-  ): Promise<Event> | Observable<Event> | Event;
+  ): Promise<UserEvent> | Observable<UserEvent> | UserEvent;
 
   cancelEvent(
     request: UserWithEventRequest

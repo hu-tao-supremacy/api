@@ -20,15 +20,15 @@ public interface QuestionGroupOrBuilder extends
   long getEventId();
 
   /**
-   * <code>.hts.common.QuestionType type = 3 [json_name = "type"];</code>
+   * <code>.hts.common.QuestionGroupType type = 3 [json_name = "type"];</code>
    * @return The enum numeric value on the wire for type.
    */
   int getTypeValue();
   /**
-   * <code>.hts.common.QuestionType type = 3 [json_name = "type"];</code>
+   * <code>.hts.common.QuestionGroupType type = 3 [json_name = "type"];</code>
    * @return The type.
    */
-  app.onepass.apis.QuestionType getType();
+  app.onepass.apis.QuestionGroupType getType();
 
   /**
    * <code>int64 order = 4 [json_name = "order"];</code>
