@@ -62,8 +62,8 @@ build-java:
 	bazel build //:java
 	rm -rf gen/java
 	mkdir -p gen/java
-	cp -r bazel-bin/java/gen/java.srcjar gen/java/.
-	cp -r bazel-bin/java/gen/java_grpc.srcjar gen/java/.
+	cp -LR bazel-bin/java/gen/java.srcjar gen/java/.
+	cp -LR bazel-bin/java/gen/java_grpc.srcjar gen/java/.
 	mv gen/java/java.srcjar gen/java/java.zip
 	mv gen/java/java_grpc.srcjar gen/java/java_grpc.zip
 	unzip -n gen/java/java.zip -d gen/java
@@ -78,7 +78,7 @@ build-ts:
 	bazel build //:gql
 	rm -rf gen/nest && mkdir -p gen/nest
 	rm -rf gen/gql && mkdir -p gen/gql
-	cp -r bazel-bin/nest/gen/hts gen/nest/.
-	cp -r bazel-bin/gql/gen/hts gen/gql/.
-	cp -r bazel-bin/nest/gen/google gen/nest/.
-	cp -r bazel-bin/gql/gen/google gen/gql/.
+	cp -LR bazel-bin/nest/gen/hts gen/nest/.
+	cp -LR bazel-bin/gql/gen/hts gen/gql/.
+	cp -LR bazel-bin/nest/gen/google gen/nest/.
+	cp -LR bazel-bin/gql/gen/google gen/gql/.
