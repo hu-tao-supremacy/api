@@ -567,4 +567,4 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/macos,windows,go,python,node,java,intellij,intellij+all,intellij+iml
 gen/
 /bazel-*
-hts
+/hts
