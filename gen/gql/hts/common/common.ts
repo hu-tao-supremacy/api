@@ -137,9 +137,13 @@ export interface Event {
   profileImageUrl: string | undefined;
   profileImageHash: string | undefined;
   attendeeLimit: number;
-  locationName: string;
+}
+
+export interface Location {
+  id: number;
+  name: string;
   googleMapUrl: string;
-  locationDescription: string | undefined;
+  description: string | undefined;
   travelInformationImageUrl: string | undefined;
   travelInformationImageHash: string | undefined;
 }

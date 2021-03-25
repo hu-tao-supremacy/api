@@ -140,9 +140,13 @@ export interface Event {
   profileImageUrl: StringValue | undefined;
   profileImageHash: StringValue | undefined;
   attendeeLimit: number;
-  locationName: string;
+}
+
+export interface Location {
+  id: number;
+  name: string;
   googleMapUrl: string;
-  locationDescription: StringValue | undefined;
+  description: StringValue | undefined;
   travelInformationImageUrl: StringValue | undefined;
   travelInformationImageHash: StringValue | undefined;
 }
