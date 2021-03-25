@@ -10,9 +10,13 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - run: |
-          brew install tree
-          make setup
-          make generate-linux
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache/bazel
+          key: ${{ runner.os }}-${{ hashFiles('BUILD') }}
+      - run: brew install tree
+      - run: make setup
+      - run: make generate-linux
       - run: |
           tree gen/
