@@ -3,12 +3,12 @@ on:
   push:
     branches:
       - main
-strategy:
-  matrix:
-    platform: [go, python, java, ts]
 jobs:
   generate:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform: [go, python, java, ts]
     steps:
       - uses: actions/checkout@v2
         with:
