@@ -42,9 +42,6 @@ jobs:
     needs: generate
     runs-on: ubuntu-latest
     continue-on-error: true
-    strategy:
-      matrix:
-        platform: [go, python, java, ts]
     steps:
       - uses: actions/checkout@v2
         with:
@@ -53,7 +50,10 @@ jobs:
           token: ${{ secrets.DODOCO_BOT_PAT }}
       - run: echo "SHA7=${GITHUB_SHA::7}" >> $GITHUB_ENV
       - run: |
-          git merge compile/${{ env.SHA7 }}/${{ matrix.platform }}
+          git merge compile/${{ env.SHA7 }}/go
+          git merge compile/${{ env.SHA7 }}/python
+          git merge compile/${{ env.SHA7 }}/java
+          git merge compile/${{ env.SHA7 }}/ts
         env:
           GIT_COMMITTER_NAME: dodoco-bot
           GIT_AUTHOR_NAME: dodoco-bot
