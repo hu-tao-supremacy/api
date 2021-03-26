@@ -40,6 +40,8 @@ jobs:
       - run: git push "https://x-access-token:${{ secrets.DODOCO_BOT_PAT }}@github.com/$GITHUB_REPOSITORY.git" "main"
   merge-all:
     needs: generate
+    runs-on: ubuntu-latest
+    continue-on-error: true
     strategy:
       matrix:
         platform: [go, python, java, ts]
