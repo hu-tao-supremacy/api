@@ -111,11 +111,11 @@ export interface GetTagByIdResponse {
 }
 
 export interface GetQuestionGroupsByEventIdResponse {
-  questionGroup: QuestionGroup | undefined;
+  questionGroup: QuestionGroup[];
 }
 
 export interface GetQuestionsByGroupIdResponse {
-  question: Question | undefined;
+  question: Question[];
 }
 
 export interface OrganizerService {
