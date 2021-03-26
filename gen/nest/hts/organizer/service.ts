@@ -115,11 +115,11 @@ export interface GetTagByIdResponse {
 }
 
 export interface GetQuestionGroupsByEventIdResponse {
-  questionGroup: QuestionGroup | undefined;
+  questionGroup: QuestionGroup[];
 }
 
 export interface GetQuestionsByGroupIdResponse {
-  question: Question | undefined;
+  question: Question[];
 }
 
 export const HTS_ORGANIZER_PACKAGE_NAME = "hts.organizer";
