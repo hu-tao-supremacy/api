@@ -63,7 +63,7 @@ private static final long serialVersionUID = 0L;
           }
           case 24: {
 
-            order_ = input.readInt64();
+            seq_ = input.readInt64();
             break;
           }
           case 32: {
@@ -143,15 +143,15 @@ private static final long serialVersionUID = 0L;
     return questionGroupId_;
   }
 
-  public static final int ORDER_FIELD_NUMBER = 3;
-  private long order_;
+  public static final int SEQ_FIELD_NUMBER = 3;
+  private long seq_;
   /**
-   * <code>int64 order = 3 [json_name = "order"];</code>
-   * @return The order.
+   * <code>int64 seq = 3 [json_name = "seq"];</code>
+   * @return The seq.
    */
   @java.lang.Override
-  public long getOrder() {
-    return order_;
+  public long getSeq() {
+    return seq_;
   }
 
   public static final int ANSWER_TYPE_FIELD_NUMBER = 4;
@@ -280,8 +280,8 @@ private static final long serialVersionUID = 0L;
     if (questionGroupId_ != 0L) {
       output.writeInt64(2, questionGroupId_);
     }
-    if (order_ != 0L) {
-      output.writeInt64(3, order_);
+    if (seq_ != 0L) {
+      output.writeInt64(3, seq_);
     }
     if (answerType_ != app.onepass.apis.AnswerType.SCALE.getNumber()) {
       output.writeEnum(4, answerType_);
@@ -312,9 +312,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(2, questionGroupId_);
     }
-    if (order_ != 0L) {
+    if (seq_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(3, order_);
+        .computeInt64Size(3, seq_);
     }
     if (answerType_ != app.onepass.apis.AnswerType.SCALE.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
@@ -349,8 +349,8 @@ private static final long serialVersionUID = 0L;
         != other.getId()) return false;
     if (getQuestionGroupId()
         != other.getQuestionGroupId()) return false;
-    if (getOrder()
-        != other.getOrder()) return false;
+    if (getSeq()
+        != other.getSeq()) return false;
     if (answerType_ != other.answerType_) return false;
     if (getIsOptional()
         != other.getIsOptional()) return false;
@@ -375,9 +375,9 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + QUESTION_GROUP_ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getQuestionGroupId());
-    hash = (37 * hash) + ORDER_FIELD_NUMBER;
+    hash = (37 * hash) + SEQ_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getOrder());
+        getSeq());
     hash = (37 * hash) + ANSWER_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + answerType_;
     hash = (37 * hash) + IS_OPTIONAL_FIELD_NUMBER;
@@ -524,7 +524,7 @@ private static final long serialVersionUID = 0L;
 
       questionGroupId_ = 0L;
 
-      order_ = 0L;
+      seq_ = 0L;
 
       answerType_ = 0;
 
@@ -562,7 +562,7 @@ private static final long serialVersionUID = 0L;
       app.onepass.apis.Question result = new app.onepass.apis.Question(this);
       result.id_ = id_;
       result.questionGroupId_ = questionGroupId_;
-      result.order_ = order_;
+      result.seq_ = seq_;
       result.answerType_ = answerType_;
       result.isOptional_ = isOptional_;
       result.title_ = title_;
@@ -621,8 +621,8 @@ private static final long serialVersionUID = 0L;
       if (other.getQuestionGroupId() != 0L) {
         setQuestionGroupId(other.getQuestionGroupId());
       }
-      if (other.getOrder() != 0L) {
-        setOrder(other.getOrder());
+      if (other.getSeq() != 0L) {
+        setSeq(other.getSeq());
       }
       if (other.answerType_ != 0) {
         setAnswerTypeValue(other.getAnswerTypeValue());
@@ -729,33 +729,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long order_ ;
+    private long seq_ ;
     /**
-     * <code>int64 order = 3 [json_name = "order"];</code>
-     * @return The order.
+     * <code>int64 seq = 3 [json_name = "seq"];</code>
+     * @return The seq.
      */
     @java.lang.Override
-    public long getOrder() {
-      return order_;
+    public long getSeq() {
+      return seq_;
     }
     /**
-     * <code>int64 order = 3 [json_name = "order"];</code>
-     * @param value The order to set.
+     * <code>int64 seq = 3 [json_name = "seq"];</code>
+     * @param value The seq to set.
      * @return This builder for chaining.
      */
-    public Builder setOrder(long value) {
+    public Builder setSeq(long value) {
       
-      order_ = value;
+      seq_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 order = 3 [json_name = "order"];</code>
+     * <code>int64 seq = 3 [json_name = "seq"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearOrder() {
+    public Builder clearSeq() {
       
-      order_ = 0L;
+      seq_ = 0L;
       onChanged();
       return this;
     }

@@ -20,10 +20,10 @@ public interface QuestionOrBuilder extends
   long getQuestionGroupId();
 
   /**
-   * <code>int64 order = 3 [json_name = "order"];</code>
-   * @return The order.
+   * <code>int64 seq = 3 [json_name = "seq"];</code>
+   * @return The seq.
    */
-  long getOrder();
+  long getSeq();
 
   /**
    * <code>.hts.common.AnswerType answer_type = 4 [json_name = "answerType"];</code>

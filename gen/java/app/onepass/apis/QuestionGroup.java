@@ -68,7 +68,7 @@ private static final long serialVersionUID = 0L;
           }
           case 32: {
 
-            order_ = input.readInt64();
+            seq_ = input.readInt64();
             break;
           }
           case 42: {
@@ -150,15 +150,15 @@ private static final long serialVersionUID = 0L;
     return result == null ? app.onepass.apis.QuestionGroupType.UNRECOGNIZED : result;
   }
 
-  public static final int ORDER_FIELD_NUMBER = 4;
-  private long order_;
+  public static final int SEQ_FIELD_NUMBER = 4;
+  private long seq_;
   /**
-   * <code>int64 order = 4 [json_name = "order"];</code>
-   * @return The order.
+   * <code>int64 seq = 4 [json_name = "seq"];</code>
+   * @return The seq.
    */
   @java.lang.Override
-  public long getOrder() {
-    return order_;
+  public long getSeq() {
+    return seq_;
   }
 
   public static final int TITLE_FIELD_NUMBER = 5;
@@ -222,8 +222,8 @@ private static final long serialVersionUID = 0L;
     if (type_ != app.onepass.apis.QuestionGroupType.PRE_EVENT.getNumber()) {
       output.writeEnum(3, type_);
     }
-    if (order_ != 0L) {
-      output.writeInt64(4, order_);
+    if (seq_ != 0L) {
+      output.writeInt64(4, seq_);
     }
     if (!getTitleBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, title_);
@@ -249,9 +249,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, type_);
     }
-    if (order_ != 0L) {
+    if (seq_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(4, order_);
+        .computeInt64Size(4, seq_);
     }
     if (!getTitleBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, title_);
@@ -276,8 +276,8 @@ private static final long serialVersionUID = 0L;
     if (getEventId()
         != other.getEventId()) return false;
     if (type_ != other.type_) return false;
-    if (getOrder()
-        != other.getOrder()) return false;
+    if (getSeq()
+        != other.getSeq()) return false;
     if (!getTitle()
         .equals(other.getTitle())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -299,9 +299,9 @@ private static final long serialVersionUID = 0L;
         getEventId());
     hash = (37 * hash) + TYPE_FIELD_NUMBER;
     hash = (53 * hash) + type_;
-    hash = (37 * hash) + ORDER_FIELD_NUMBER;
+    hash = (37 * hash) + SEQ_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getOrder());
+        getSeq());
     hash = (37 * hash) + TITLE_FIELD_NUMBER;
     hash = (53 * hash) + getTitle().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -443,7 +443,7 @@ private static final long serialVersionUID = 0L;
 
       type_ = 0;
 
-      order_ = 0L;
+      seq_ = 0L;
 
       title_ = "";
 
@@ -476,7 +476,7 @@ private static final long serialVersionUID = 0L;
       result.id_ = id_;
       result.eventId_ = eventId_;
       result.type_ = type_;
-      result.order_ = order_;
+      result.seq_ = seq_;
       result.title_ = title_;
       onBuilt();
       return result;
@@ -535,8 +535,8 @@ private static final long serialVersionUID = 0L;
       if (other.type_ != 0) {
         setTypeValue(other.getTypeValue());
       }
-      if (other.getOrder() != 0L) {
-        setOrder(other.getOrder());
+      if (other.getSeq() != 0L) {
+        setSeq(other.getSeq());
       }
       if (!other.getTitle().isEmpty()) {
         title_ = other.title_;
@@ -687,33 +687,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long order_ ;
+    private long seq_ ;
     /**
-     * <code>int64 order = 4 [json_name = "order"];</code>
-     * @return The order.
+     * <code>int64 seq = 4 [json_name = "seq"];</code>
+     * @return The seq.
      */
     @java.lang.Override
-    public long getOrder() {
-      return order_;
+    public long getSeq() {
+      return seq_;
     }
     /**
-     * <code>int64 order = 4 [json_name = "order"];</code>
-     * @param value The order to set.
+     * <code>int64 seq = 4 [json_name = "seq"];</code>
+     * @param value The seq to set.
      * @return This builder for chaining.
      */
-    public Builder setOrder(long value) {
+    public Builder setSeq(long value) {
       
-      order_ = value;
+      seq_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 order = 4 [json_name = "order"];</code>
+     * <code>int64 seq = 4 [json_name = "seq"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearOrder() {
+    public Builder clearSeq() {
       
-      order_ = 0L;
+      seq_ = 0L;
       onChanged();
       return this;
     }
