@@ -8,17 +8,26 @@ public interface GetQuestionsByGroupIdResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.hts.common.Question question = 1 [json_name = "question"];</code>
-   * @return Whether the question field is set.
+   * <code>repeated .hts.common.Question question = 1 [json_name = "question"];</code>
    */
-  boolean hasQuestion();
+  java.util.List<app.onepass.apis.Question> 
+      getQuestionList();
   /**
-   * <code>.hts.common.Question question = 1 [json_name = "question"];</code>
-   * @return The question.
+   * <code>repeated .hts.common.Question question = 1 [json_name = "question"];</code>
    */
-  app.onepass.apis.Question getQuestion();
+  app.onepass.apis.Question getQuestion(int index);
   /**
-   * <code>.hts.common.Question question = 1 [json_name = "question"];</code>
+   * <code>repeated .hts.common.Question question = 1 [json_name = "question"];</code>
    */
-  app.onepass.apis.QuestionOrBuilder getQuestionOrBuilder();
+  int getQuestionCount();
+  /**
+   * <code>repeated .hts.common.Question question = 1 [json_name = "question"];</code>
+   */
+  java.util.List<? extends app.onepass.apis.QuestionOrBuilder> 
+      getQuestionOrBuilderList();
+  /**
+   * <code>repeated .hts.common.Question question = 1 [json_name = "question"];</code>
+   */
+  app.onepass.apis.QuestionOrBuilder getQuestionOrBuilder(
+      int index);
 }

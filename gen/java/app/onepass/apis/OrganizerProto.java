@@ -187,10 +187,10 @@ public final class OrganizerProto {
       "tags\030\001 \003(\0132\017.hts.common.TagR\004tags\"7\n\022Get" +
       "TagByIdResponse\022!\n\003tag\030\001 \001(\0132\017.hts.commo" +
       "n.TagR\003tag\"f\n\"GetQuestionGroupsByEventId" +
-      "Response\022@\n\016question_group\030\001 \001(\0132\031.hts.c" +
+      "Response\022@\n\016question_group\030\001 \003(\0132\031.hts.c" +
       "ommon.QuestionGroupR\rquestionGroup\"Q\n\035Ge" +
       "tQuestionsByGroupIdResponse\0220\n\010question\030" +
-      "\001 \001(\0132\024.hts.common.QuestionR\010question2\256\020" +
+      "\001 \003(\0132\024.hts.common.QuestionR\010question2\256\020" +
       "\n\020OrganizerService\022V\n\022CreateOrganization" +
       "\022(.hts.organizer.CreateOrganizationReque" +
       "st\032\026.google.protobuf.Empty\022S\n\020GetOrganiz" +

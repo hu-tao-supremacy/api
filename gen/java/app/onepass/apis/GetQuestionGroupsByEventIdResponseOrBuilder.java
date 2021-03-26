@@ -8,17 +8,26 @@ public interface GetQuestionGroupsByEventIdResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
-   * @return Whether the questionGroup field is set.
+   * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
    */
-  boolean hasQuestionGroup();
+  java.util.List<app.onepass.apis.QuestionGroup> 
+      getQuestionGroupList();
   /**
-   * <code>.hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
-   * @return The questionGroup.
+   * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
    */
-  app.onepass.apis.QuestionGroup getQuestionGroup();
+  app.onepass.apis.QuestionGroup getQuestionGroup(int index);
   /**
-   * <code>.hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
+   * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
    */
-  app.onepass.apis.QuestionGroupOrBuilder getQuestionGroupOrBuilder();
+  int getQuestionGroupCount();
+  /**
+   * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
+   */
+  java.util.List<? extends app.onepass.apis.QuestionGroupOrBuilder> 
+      getQuestionGroupOrBuilderList();
+  /**
+   * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
+   */
+  app.onepass.apis.QuestionGroupOrBuilder getQuestionGroupOrBuilder(
+      int index);
 }
