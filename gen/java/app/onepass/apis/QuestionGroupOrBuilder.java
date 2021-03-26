@@ -31,10 +31,10 @@ public interface QuestionGroupOrBuilder extends
   app.onepass.apis.QuestionGroupType getType();
 
   /**
-   * <code>int64 order = 4 [json_name = "order"];</code>
-   * @return The order.
+   * <code>int64 seq = 4 [json_name = "seq"];</code>
+   * @return The seq.
    */
-  long getOrder();
+  long getSeq();
 
   /**
    * <code>string title = 5 [json_name = "title"];</code>
