@@ -112,11 +112,11 @@ message GetTagByIdResponse {
 }
 
 message GetQuestionGroupsByEventIdResponse {
-  hts.common.QuestionGroup question_group = 1;
+  repeated hts.common.QuestionGroup question_group = 1;
 }
 
 message GetQuestionsByGroupIdResponse {
-  hts.common.Question question = 1;
+  repeated hts.common.Question question = 1;
 }
 
 service OrganizerService {
