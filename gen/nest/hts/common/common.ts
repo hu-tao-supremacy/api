@@ -106,14 +106,14 @@ export interface QuestionGroup {
   id: number;
   eventId: number;
   type: QuestionGroupType;
-  order: number;
+  seq: number;
   title: string;
 }
 
 export interface Question {
   id: number;
   questionGroupId: number;
-  order: number;
+  seq: number;
   answerType: AnswerType;
   isOptional: boolean;
   title: string;
