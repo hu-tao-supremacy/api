@@ -4,6 +4,11 @@ import { Empty } from "../../google/protobuf/empty";
 
 export const protobufPackage = "hts.account";
 
+export interface AccessTokenPayload {
+  userId: number;
+  email: string;
+}
+
 export interface IsAuthenticatedRequest {
   accessToken: string;
 }
