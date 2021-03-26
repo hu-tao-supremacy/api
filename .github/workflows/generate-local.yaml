@@ -29,9 +29,29 @@ jobs:
       - run: brew install tree
       - run: make setup
       - run: |
+          git checkout -b compile/${{ env.SHA7 }}/${{ matrix.platform }}
           make build-${{ matrix.platform }}
           tree gen/
           git commit -m 'compile(${{ matrix.platform }}): ${{ env.SHA7 }}'
+        env:
+          GIT_COMMITTER_NAME: dodoco-bot
+          GIT_AUTHOR_NAME: dodoco-bot
+          EMAIL: 77519537+dodoco-bot@users.noreply.github.com
+      - run: git push "https://x-access-token:${{ secrets.DODOCO_BOT_PAT }}@github.com/$GITHUB_REPOSITORY.git" "main"
+  merge-all:
+    needs: generate
+    strategy:
+      matrix:
+        platform: [go, python, java, ts]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.DODOCO_BOT_PAT }}
+      - run: echo "SHA7=${GITHUB_SHA::7}" >> $GITHUB_ENV
+      - run: |
+          git checkout main
+          git merge compile/${{ env.SHA7 }}/${{ matrix.platform }}
         env:
           GIT_COMMITTER_NAME: dodoco-bot
           GIT_AUTHOR_NAME: dodoco-bot
