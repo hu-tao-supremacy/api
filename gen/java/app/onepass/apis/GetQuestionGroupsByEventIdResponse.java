@@ -16,6 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private GetQuestionGroupsByEventIdResponse() {
+    questionGroup_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -38,6 +39,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -49,16 +51,12 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            app.onepass.apis.QuestionGroup.Builder subBuilder = null;
-            if (questionGroup_ != null) {
-              subBuilder = questionGroup_.toBuilder();
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              questionGroup_ = new java.util.ArrayList<app.onepass.apis.QuestionGroup>();
+              mutable_bitField0_ |= 0x00000001;
             }
-            questionGroup_ = input.readMessage(app.onepass.apis.QuestionGroup.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(questionGroup_);
-              questionGroup_ = subBuilder.buildPartial();
-            }
-
+            questionGroup_.add(
+                input.readMessage(app.onepass.apis.QuestionGroup.parser(), extensionRegistry));
             break;
           }
           default: {
@@ -76,6 +74,9 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        questionGroup_ = java.util.Collections.unmodifiableList(questionGroup_);
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -94,29 +95,43 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int QUESTION_GROUP_FIELD_NUMBER = 1;
-  private app.onepass.apis.QuestionGroup questionGroup_;
+  private java.util.List<app.onepass.apis.QuestionGroup> questionGroup_;
   /**
-   * <code>.hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
-   * @return Whether the questionGroup field is set.
+   * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
    */
   @java.lang.Override
-  public boolean hasQuestionGroup() {
-    return questionGroup_ != null;
+  public java.util.List<app.onepass.apis.QuestionGroup> getQuestionGroupList() {
+    return questionGroup_;
   }
   /**
-   * <code>.hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
-   * @return The questionGroup.
+   * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
    */
   @java.lang.Override
-  public app.onepass.apis.QuestionGroup getQuestionGroup() {
-    return questionGroup_ == null ? app.onepass.apis.QuestionGroup.getDefaultInstance() : questionGroup_;
+  public java.util.List<? extends app.onepass.apis.QuestionGroupOrBuilder> 
+      getQuestionGroupOrBuilderList() {
+    return questionGroup_;
   }
   /**
-   * <code>.hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
+   * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
    */
   @java.lang.Override
-  public app.onepass.apis.QuestionGroupOrBuilder getQuestionGroupOrBuilder() {
-    return getQuestionGroup();
+  public int getQuestionGroupCount() {
+    return questionGroup_.size();
+  }
+  /**
+   * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
+   */
+  @java.lang.Override
+  public app.onepass.apis.QuestionGroup getQuestionGroup(int index) {
+    return questionGroup_.get(index);
+  }
+  /**
+   * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
+   */
+  @java.lang.Override
+  public app.onepass.apis.QuestionGroupOrBuilder getQuestionGroupOrBuilder(
+      int index) {
+    return questionGroup_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -133,8 +148,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (questionGroup_ != null) {
-      output.writeMessage(1, getQuestionGroup());
+    for (int i = 0; i < questionGroup_.size(); i++) {
+      output.writeMessage(1, questionGroup_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -145,9 +160,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (questionGroup_ != null) {
+    for (int i = 0; i < questionGroup_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getQuestionGroup());
+        .computeMessageSize(1, questionGroup_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -164,11 +179,8 @@ private static final long serialVersionUID = 0L;
     }
     app.onepass.apis.GetQuestionGroupsByEventIdResponse other = (app.onepass.apis.GetQuestionGroupsByEventIdResponse) obj;
 
-    if (hasQuestionGroup() != other.hasQuestionGroup()) return false;
-    if (hasQuestionGroup()) {
-      if (!getQuestionGroup()
-          .equals(other.getQuestionGroup())) return false;
-    }
+    if (!getQuestionGroupList()
+        .equals(other.getQuestionGroupList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -180,9 +192,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (hasQuestionGroup()) {
+    if (getQuestionGroupCount() > 0) {
       hash = (37 * hash) + QUESTION_GROUP_FIELD_NUMBER;
-      hash = (53 * hash) + getQuestionGroup().hashCode();
+      hash = (53 * hash) + getQuestionGroupList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -312,16 +324,17 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getQuestionGroupFieldBuilder();
       }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
       if (questionGroupBuilder_ == null) {
-        questionGroup_ = null;
+        questionGroup_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
-        questionGroup_ = null;
-        questionGroupBuilder_ = null;
+        questionGroupBuilder_.clear();
       }
       return this;
     }
@@ -349,7 +362,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public app.onepass.apis.GetQuestionGroupsByEventIdResponse buildPartial() {
       app.onepass.apis.GetQuestionGroupsByEventIdResponse result = new app.onepass.apis.GetQuestionGroupsByEventIdResponse(this);
+      int from_bitField0_ = bitField0_;
       if (questionGroupBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0)) {
+          questionGroup_ = java.util.Collections.unmodifiableList(questionGroup_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
         result.questionGroup_ = questionGroup_;
       } else {
         result.questionGroup_ = questionGroupBuilder_.build();
@@ -402,8 +420,31 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(app.onepass.apis.GetQuestionGroupsByEventIdResponse other) {
       if (other == app.onepass.apis.GetQuestionGroupsByEventIdResponse.getDefaultInstance()) return this;
-      if (other.hasQuestionGroup()) {
-        mergeQuestionGroup(other.getQuestionGroup());
+      if (questionGroupBuilder_ == null) {
+        if (!other.questionGroup_.isEmpty()) {
+          if (questionGroup_.isEmpty()) {
+            questionGroup_ = other.questionGroup_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureQuestionGroupIsMutable();
+            questionGroup_.addAll(other.questionGroup_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.questionGroup_.isEmpty()) {
+          if (questionGroupBuilder_.isEmpty()) {
+            questionGroupBuilder_.dispose();
+            questionGroupBuilder_ = null;
+            questionGroup_ = other.questionGroup_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+            questionGroupBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getQuestionGroupFieldBuilder() : null;
+          } else {
+            questionGroupBuilder_.addAllMessages(other.questionGroup_);
+          }
+        }
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -433,119 +474,241 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
-    private app.onepass.apis.QuestionGroup questionGroup_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        app.onepass.apis.QuestionGroup, app.onepass.apis.QuestionGroup.Builder, app.onepass.apis.QuestionGroupOrBuilder> questionGroupBuilder_;
-    /**
-     * <code>.hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
-     * @return Whether the questionGroup field is set.
-     */
-    public boolean hasQuestionGroup() {
-      return questionGroupBuilder_ != null || questionGroup_ != null;
+    private java.util.List<app.onepass.apis.QuestionGroup> questionGroup_ =
+      java.util.Collections.emptyList();
+    private void ensureQuestionGroupIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        questionGroup_ = new java.util.ArrayList<app.onepass.apis.QuestionGroup>(questionGroup_);
+        bitField0_ |= 0x00000001;
+       }
     }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        app.onepass.apis.QuestionGroup, app.onepass.apis.QuestionGroup.Builder, app.onepass.apis.QuestionGroupOrBuilder> questionGroupBuilder_;
+
     /**
-     * <code>.hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
-     * @return The questionGroup.
+     * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
      */
-    public app.onepass.apis.QuestionGroup getQuestionGroup() {
+    public java.util.List<app.onepass.apis.QuestionGroup> getQuestionGroupList() {
       if (questionGroupBuilder_ == null) {
-        return questionGroup_ == null ? app.onepass.apis.QuestionGroup.getDefaultInstance() : questionGroup_;
+        return java.util.Collections.unmodifiableList(questionGroup_);
       } else {
-        return questionGroupBuilder_.getMessage();
+        return questionGroupBuilder_.getMessageList();
       }
     }
     /**
-     * <code>.hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
+     * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
      */
-    public Builder setQuestionGroup(app.onepass.apis.QuestionGroup value) {
+    public int getQuestionGroupCount() {
+      if (questionGroupBuilder_ == null) {
+        return questionGroup_.size();
+      } else {
+        return questionGroupBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
+     */
+    public app.onepass.apis.QuestionGroup getQuestionGroup(int index) {
+      if (questionGroupBuilder_ == null) {
+        return questionGroup_.get(index);
+      } else {
+        return questionGroupBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
+     */
+    public Builder setQuestionGroup(
+        int index, app.onepass.apis.QuestionGroup value) {
       if (questionGroupBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        questionGroup_ = value;
+        ensureQuestionGroupIsMutable();
+        questionGroup_.set(index, value);
         onChanged();
       } else {
-        questionGroupBuilder_.setMessage(value);
+        questionGroupBuilder_.setMessage(index, value);
       }
-
       return this;
     }
     /**
-     * <code>.hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
+     * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
      */
     public Builder setQuestionGroup(
+        int index, app.onepass.apis.QuestionGroup.Builder builderForValue) {
+      if (questionGroupBuilder_ == null) {
+        ensureQuestionGroupIsMutable();
+        questionGroup_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        questionGroupBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
+     */
+    public Builder addQuestionGroup(app.onepass.apis.QuestionGroup value) {
+      if (questionGroupBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureQuestionGroupIsMutable();
+        questionGroup_.add(value);
+        onChanged();
+      } else {
+        questionGroupBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
+     */
+    public Builder addQuestionGroup(
+        int index, app.onepass.apis.QuestionGroup value) {
+      if (questionGroupBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureQuestionGroupIsMutable();
+        questionGroup_.add(index, value);
+        onChanged();
+      } else {
+        questionGroupBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
+     */
+    public Builder addQuestionGroup(
         app.onepass.apis.QuestionGroup.Builder builderForValue) {
       if (questionGroupBuilder_ == null) {
-        questionGroup_ = builderForValue.build();
+        ensureQuestionGroupIsMutable();
+        questionGroup_.add(builderForValue.build());
         onChanged();
       } else {
-        questionGroupBuilder_.setMessage(builderForValue.build());
+        questionGroupBuilder_.addMessage(builderForValue.build());
       }
-
       return this;
     }
     /**
-     * <code>.hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
+     * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
      */
-    public Builder mergeQuestionGroup(app.onepass.apis.QuestionGroup value) {
+    public Builder addQuestionGroup(
+        int index, app.onepass.apis.QuestionGroup.Builder builderForValue) {
       if (questionGroupBuilder_ == null) {
-        if (questionGroup_ != null) {
-          questionGroup_ =
-            app.onepass.apis.QuestionGroup.newBuilder(questionGroup_).mergeFrom(value).buildPartial();
-        } else {
-          questionGroup_ = value;
-        }
+        ensureQuestionGroupIsMutable();
+        questionGroup_.add(index, builderForValue.build());
         onChanged();
       } else {
-        questionGroupBuilder_.mergeFrom(value);
+        questionGroupBuilder_.addMessage(index, builderForValue.build());
       }
-
       return this;
     }
     /**
-     * <code>.hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
+     * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
+     */
+    public Builder addAllQuestionGroup(
+        java.lang.Iterable<? extends app.onepass.apis.QuestionGroup> values) {
+      if (questionGroupBuilder_ == null) {
+        ensureQuestionGroupIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, questionGroup_);
+        onChanged();
+      } else {
+        questionGroupBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
      */
     public Builder clearQuestionGroup() {
       if (questionGroupBuilder_ == null) {
-        questionGroup_ = null;
+        questionGroup_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
       } else {
-        questionGroup_ = null;
-        questionGroupBuilder_ = null;
+        questionGroupBuilder_.clear();
       }
-
       return this;
     }
     /**
-     * <code>.hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
+     * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
      */
-    public app.onepass.apis.QuestionGroup.Builder getQuestionGroupBuilder() {
-      
-      onChanged();
-      return getQuestionGroupFieldBuilder().getBuilder();
+    public Builder removeQuestionGroup(int index) {
+      if (questionGroupBuilder_ == null) {
+        ensureQuestionGroupIsMutable();
+        questionGroup_.remove(index);
+        onChanged();
+      } else {
+        questionGroupBuilder_.remove(index);
+      }
+      return this;
     }
     /**
-     * <code>.hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
+     * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
      */
-    public app.onepass.apis.QuestionGroupOrBuilder getQuestionGroupOrBuilder() {
-      if (questionGroupBuilder_ != null) {
-        return questionGroupBuilder_.getMessageOrBuilder();
-      } else {
-        return questionGroup_ == null ?
-            app.onepass.apis.QuestionGroup.getDefaultInstance() : questionGroup_;
+    public app.onepass.apis.QuestionGroup.Builder getQuestionGroupBuilder(
+        int index) {
+      return getQuestionGroupFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
+     */
+    public app.onepass.apis.QuestionGroupOrBuilder getQuestionGroupOrBuilder(
+        int index) {
+      if (questionGroupBuilder_ == null) {
+        return questionGroup_.get(index);  } else {
+        return questionGroupBuilder_.getMessageOrBuilder(index);
       }
     }
     /**
-     * <code>.hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
+     * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
      */
-    private com.google.protobuf.SingleFieldBuilderV3<
+    public java.util.List<? extends app.onepass.apis.QuestionGroupOrBuilder> 
+         getQuestionGroupOrBuilderList() {
+      if (questionGroupBuilder_ != null) {
+        return questionGroupBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(questionGroup_);
+      }
+    }
+    /**
+     * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
+     */
+    public app.onepass.apis.QuestionGroup.Builder addQuestionGroupBuilder() {
+      return getQuestionGroupFieldBuilder().addBuilder(
+          app.onepass.apis.QuestionGroup.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
+     */
+    public app.onepass.apis.QuestionGroup.Builder addQuestionGroupBuilder(
+        int index) {
+      return getQuestionGroupFieldBuilder().addBuilder(
+          index, app.onepass.apis.QuestionGroup.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .hts.common.QuestionGroup question_group = 1 [json_name = "questionGroup"];</code>
+     */
+    public java.util.List<app.onepass.apis.QuestionGroup.Builder> 
+         getQuestionGroupBuilderList() {
+      return getQuestionGroupFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
         app.onepass.apis.QuestionGroup, app.onepass.apis.QuestionGroup.Builder, app.onepass.apis.QuestionGroupOrBuilder> 
         getQuestionGroupFieldBuilder() {
       if (questionGroupBuilder_ == null) {
-        questionGroupBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+        questionGroupBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             app.onepass.apis.QuestionGroup, app.onepass.apis.QuestionGroup.Builder, app.onepass.apis.QuestionGroupOrBuilder>(
-                getQuestionGroup(),
+                questionGroup_,
+                ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),
                 isClean());
         questionGroup_ = null;
