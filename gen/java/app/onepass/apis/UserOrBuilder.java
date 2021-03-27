@@ -112,17 +112,17 @@ public interface UserOrBuilder extends
   com.google.protobuf.StringValueOrBuilder getAddressOrBuilder();
 
   /**
-   * <code>.google.protobuf.StringValue profile_picture = 10 [json_name = "profilePicture"];</code>
-   * @return Whether the profilePicture field is set.
+   * <code>.google.protobuf.StringValue profile_picture_url = 10 [json_name = "profilePictureUrl"];</code>
+   * @return Whether the profilePictureUrl field is set.
    */
-  boolean hasProfilePicture();
+  boolean hasProfilePictureUrl();
   /**
-   * <code>.google.protobuf.StringValue profile_picture = 10 [json_name = "profilePicture"];</code>
-   * @return The profilePicture.
+   * <code>.google.protobuf.StringValue profile_picture_url = 10 [json_name = "profilePictureUrl"];</code>
+   * @return The profilePictureUrl.
    */
-  com.google.protobuf.StringValue getProfilePicture();
+  com.google.protobuf.StringValue getProfilePictureUrl();
   /**
-   * <code>.google.protobuf.StringValue profile_picture = 10 [json_name = "profilePicture"];</code>
+   * <code>.google.protobuf.StringValue profile_picture_url = 10 [json_name = "profilePictureUrl"];</code>
    */
-  com.google.protobuf.StringValueOrBuilder getProfilePictureOrBuilder();
+  com.google.protobuf.StringValueOrBuilder getProfilePictureUrlOrBuilder();
 }
