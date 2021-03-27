@@ -100,7 +100,7 @@ service ParticipantService {
     rpc GetEventsByDate(google.protobuf.Timestamp) returns (EventsResponse);
 
     // Get location by location_id
-    rpc GetLocationById(GetObjectByIdRequest) returns (hts.common.location);
+    rpc GetLocationById(GetObjectByIdRequest) returns (hts.common.Location);
 
     // Generate QR from combination of ID, User_ID, Event_ID
     rpc GenerateQR(GenerateQRRequest) returns (GenerateQRResponse);
