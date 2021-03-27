@@ -1,7 +1,14 @@
 /* eslint-disable */
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
 import { Observable } from "rxjs";
-import { Answer, Event, UserEvent, Location } from "../../hts/common/common";
+import {
+  Answer,
+  Event,
+  Tag,
+  User,
+  UserEvent,
+  Location,
+} from "../../hts/common/common";
 import { Timestamp } from "../../google/protobuf/timestamp";
 import { BoolValue } from "../../google/protobuf/wrappers";
 import { Empty } from "../../google/protobuf/empty";
@@ -63,6 +70,18 @@ export interface GenerateQRRequest {
   eventId: number;
 }
 
+export interface GetTagsFromEventIdResonse {
+  tags: Tag[];
+}
+
+export interface GetApprovedUserFromEventIdResponse {
+  users: User[];
+}
+
+export interface GetRatingFromEventIdResponse {
+  result: number[];
+}
+
 export const HTS_PARTICIPANT_PACKAGE_NAME = "hts.participant";
 
 export interface ParticipantServiceClient {
@@ -103,6 +122,18 @@ export interface ParticipantServiceClient {
   getEventsByDate(request: Timestamp): Observable<EventsResponse>;
 
   getLocationById(request: GetObjectByIdRequest): Observable<Location>;
+
+  getTagsFromEventId(
+    request: GetObjectByIdRequest
+  ): Observable<GetTagsFromEventIdResonse>;
+
+  getRatingFromEventId(
+    request: GetObjectByIdRequest
+  ): Observable<GetRatingFromEventIdResponse>;
+
+  getApprovedUserFromEventId(
+    request: GetObjectByIdRequest
+  ): Observable<GetApprovedUserFromEventIdResponse>;
 
   generateQR(request: GenerateQRRequest): Observable<GenerateQRResponse>;
 
@@ -169,6 +200,27 @@ export interface ParticipantServiceController {
     request: GetObjectByIdRequest
   ): Promise<Location> | Observable<Location> | Location;
 
+  getTagsFromEventId(
+    request: GetObjectByIdRequest
+  ):
+    | Promise<GetTagsFromEventIdResonse>
+    | Observable<GetTagsFromEventIdResonse>
+    | GetTagsFromEventIdResonse;
+
+  getRatingFromEventId(
+    request: GetObjectByIdRequest
+  ):
+    | Promise<GetRatingFromEventIdResponse>
+    | Observable<GetRatingFromEventIdResponse>
+    | GetRatingFromEventIdResponse;
+
+  getApprovedUserFromEventId(
+    request: GetObjectByIdRequest
+  ):
+    | Promise<GetApprovedUserFromEventIdResponse>
+    | Observable<GetApprovedUserFromEventIdResponse>
+    | GetApprovedUserFromEventIdResponse;
+
   generateQR(
     request: GenerateQRRequest
   ):
@@ -196,6 +248,9 @@ export function ParticipantServiceControllerMethods() {
       "getEventsByFacilityId",
       "getEventsByDate",
       "getLocationById",
+      "getTagsFromEventId",
+      "getRatingFromEventId",
+      "getApprovedUserFromEventId",
       "generateQR",
       "ping",
     ];
