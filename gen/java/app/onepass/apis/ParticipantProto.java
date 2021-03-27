@@ -65,10 +65,10 @@ public final class ParticipantProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hts_participant_GetUpcomingEventsRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_hts_participant_GetEventsByIdRequest_descriptor;
+    internal_static_hts_participant_GetObjectByIdRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_hts_participant_GetEventsByIdRequest_fieldAccessorTable;
+      internal_static_hts_participant_GetObjectByIdRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_hts_participant_GenerateQRRequest_descriptor;
   static final 
@@ -107,11 +107,11 @@ public final class ParticipantProto {
       "protobuf.TimestampR\004date\"z\n\030GetUpcomingE" +
       "ventsRequest\0220\n\005start\030\001 \001(\0132\032.google.pro" +
       "tobuf.TimestampR\005start\022,\n\003end\030\002 \001(\0132\032.go" +
-      "ogle.protobuf.TimestampR\003end\"&\n\024GetEvent" +
-      "sByIdRequest\022\016\n\002id\030\001 \001(\003R\002id\"k\n\021Generate" +
+      "ogle.protobuf.TimestampR\003end\"&\n\024GetObjec" +
+      "tByIdRequest\022\016\n\002id\030\001 \001(\003R\002id\"k\n\021Generate" +
       "QRRequest\022\"\n\ruser_event_id\030\001 \001(\003R\013userEv" +
       "entId\022\027\n\007user_id\030\002 \001(\003R\006userId\022\031\n\010event_" +
-      "id\030\003 \001(\003R\007eventId2\304\n\n\022ParticipantService" +
+      "id\030\003 \001(\003R\007eventId2\224\013\n\022ParticipantService" +
       "\022X\n\020IsEventAvailable\022(.hts.participant.I" +
       "sEventAvailableRequest\032\032.google.protobuf" +
       ".BoolValue\022I\n\tJoinEvent\022%.hts.participan" +
@@ -133,15 +133,17 @@ public final class ParticipantProto {
       "tEventsByStringOfName\022#.hts.participant." +
       "StringInputRequest\032\037.hts.participant.Eve" +
       "ntsResponse\022Z\n\020GetEventsByTagId\022%.hts.pa" +
-      "rticipant.GetEventsByIdRequest\032\037.hts.par" +
+      "rticipant.GetObjectByIdRequest\032\037.hts.par" +
       "ticipant.EventsResponse\022c\n\031GetEventsByOr" +
-      "ganizationId\022%.hts.participant.GetEvents" +
+      "ganizationId\022%.hts.participant.GetObject" +
       "ByIdRequest\032\037.hts.participant.EventsResp" +
       "onse\022_\n\025GetEventsByFacilityId\022%.hts.part" +
-      "icipant.GetEventsByIdRequest\032\037.hts.parti" +
+      "icipant.GetObjectByIdRequest\032\037.hts.parti" +
       "cipant.EventsResponse\022N\n\017GetEventsByDate" +
       "\022\032.google.protobuf.Timestamp\032\037.hts.parti" +
-      "cipant.EventsResponse\022U\n\nGenerateQR\022\".ht" +
+      "cipant.EventsResponse\022N\n\017GetLocationById" +
+      "\022%.hts.participant.GetObjectByIdRequest\032" +
+      "\024.hts.common.Location\022U\n\nGenerateQR\022\".ht" +
       "s.participant.GenerateQRRequest\032#.hts.pa" +
       "rticipant.GenerateQRResponse\022:\n\004Ping\022\026.g" +
       "oogle.protobuf.Empty\032\032.google.protobuf.B" +
@@ -217,11 +219,11 @@ public final class ParticipantProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_participant_GetUpcomingEventsRequest_descriptor,
         new java.lang.String[] { "Start", "End", });
-    internal_static_hts_participant_GetEventsByIdRequest_descriptor =
+    internal_static_hts_participant_GetObjectByIdRequest_descriptor =
       getDescriptor().getMessageTypes().get(9);
-    internal_static_hts_participant_GetEventsByIdRequest_fieldAccessorTable = new
+    internal_static_hts_participant_GetObjectByIdRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_hts_participant_GetEventsByIdRequest_descriptor,
+        internal_static_hts_participant_GetObjectByIdRequest_descriptor,
         new java.lang.String[] { "Id", });
     internal_static_hts_participant_GenerateQRRequest_descriptor =
       getDescriptor().getMessageTypes().get(10);

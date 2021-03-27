@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface GetEventsByIdRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.participant.GetEventsByIdRequest)
+public interface GetObjectByIdRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.participant.GetObjectByIdRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
