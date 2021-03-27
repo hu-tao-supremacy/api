@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
 import { Observable } from "rxjs";
-import { Answer, Event, UserEvent } from "../../hts/common/common";
+import { Answer, Event, UserEvent, Location } from "../../hts/common/common";
 import { Timestamp } from "../../google/protobuf/timestamp";
 import { BoolValue } from "../../google/protobuf/wrappers";
 import { Empty } from "../../google/protobuf/empty";
@@ -53,7 +53,7 @@ export interface GetUpcomingEventsRequest {
   end: Timestamp | undefined;
 }
 
-export interface GetEventsByIdRequest {
+export interface GetObjectByIdRequest {
   id: number;
 }
 
@@ -90,17 +90,19 @@ export interface ParticipantServiceClient {
     request: StringInputRequest
   ): Observable<EventsResponse>;
 
-  getEventsByTagId(request: GetEventsByIdRequest): Observable<EventsResponse>;
+  getEventsByTagId(request: GetObjectByIdRequest): Observable<EventsResponse>;
 
   getEventsByOrganizationId(
-    request: GetEventsByIdRequest
+    request: GetObjectByIdRequest
   ): Observable<EventsResponse>;
 
   getEventsByFacilityId(
-    request: GetEventsByIdRequest
+    request: GetObjectByIdRequest
   ): Observable<EventsResponse>;
 
   getEventsByDate(request: Timestamp): Observable<EventsResponse>;
+
+  getLocationById(request: GetObjectByIdRequest): Observable<Location>;
 
   generateQR(request: GenerateQRRequest): Observable<GenerateQRResponse>;
 
@@ -148,20 +150,24 @@ export interface ParticipantServiceController {
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
   getEventsByTagId(
-    request: GetEventsByIdRequest
+    request: GetObjectByIdRequest
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
   getEventsByOrganizationId(
-    request: GetEventsByIdRequest
+    request: GetObjectByIdRequest
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
   getEventsByFacilityId(
-    request: GetEventsByIdRequest
+    request: GetObjectByIdRequest
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
   getEventsByDate(
     request: Timestamp
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
+
+  getLocationById(
+    request: GetObjectByIdRequest
+  ): Promise<Location> | Observable<Location> | Location;
 
   generateQR(
     request: GenerateQRRequest
@@ -189,6 +195,7 @@ export function ParticipantServiceControllerMethods() {
       "getEventsByOrganizationId",
       "getEventsByFacilityId",
       "getEventsByDate",
+      "getLocationById",
       "generateQR",
       "ping",
     ];

@@ -8,7 +8,7 @@ import {
   Result,
 } from "../../hts/common/common";
 import { Observable } from "rxjs";
-import { StringValue } from "../../google/protobuf/wrappers";
+import { StringValue, BoolValue } from "../../google/protobuf/wrappers";
 import { Timestamp } from "../../google/protobuf/timestamp";
 import { Empty } from "../../google/protobuf/empty";
 
@@ -152,7 +152,7 @@ export interface FacilityServiceClient {
 
   getFacilityInfo(request: GetFacilityInfoRequest): Observable<Facility>;
 
-  ping(request: Empty): Observable<Result>;
+  ping(request: Empty): Observable<BoolValue>;
 }
 
 export interface FacilityServiceController {
@@ -218,7 +218,7 @@ export interface FacilityServiceController {
     request: GetFacilityInfoRequest
   ): Promise<Facility> | Observable<Facility> | Facility;
 
-  ping(request: Empty): Promise<Result> | Observable<Result> | Result;
+  ping(request: Empty): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
 }
 
 export function FacilityServiceControllerMethods() {

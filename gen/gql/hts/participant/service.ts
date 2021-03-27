@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { Answer, Event, UserEvent } from "../../hts/common/common";
+import { Answer, Event, UserEvent, Location } from "../../hts/common/common";
 import { Empty } from "../../google/protobuf/empty";
 
 export const protobufPackage = "hts.participant";
@@ -49,7 +49,7 @@ export interface GetUpcomingEventsRequest {
   end: Date | undefined;
 }
 
-export interface GetEventsByIdRequest {
+export interface GetObjectByIdRequest {
   id: number;
 }
 
@@ -73,12 +73,13 @@ export interface ParticipantService {
   GetSuggestedEvents(request: Empty): Promise<EventsResponse>;
   GetUpcomingEvents(request: GetUpcomingEventsRequest): Promise<EventsResponse>;
   GetEventsByStringOfName(request: StringInputRequest): Promise<EventsResponse>;
-  GetEventsByTagId(request: GetEventsByIdRequest): Promise<EventsResponse>;
+  GetEventsByTagId(request: GetObjectByIdRequest): Promise<EventsResponse>;
   GetEventsByOrganizationId(
-    request: GetEventsByIdRequest
+    request: GetObjectByIdRequest
   ): Promise<EventsResponse>;
-  GetEventsByFacilityId(request: GetEventsByIdRequest): Promise<EventsResponse>;
+  GetEventsByFacilityId(request: GetObjectByIdRequest): Promise<EventsResponse>;
   GetEventsByDate(request: Date): Promise<EventsResponse>;
+  GetLocationById(request: GetObjectByIdRequest): Promise<Location>;
   GenerateQR(request: GenerateQRRequest): Promise<GenerateQRResponse>;
   Ping(request: Empty): Promise<boolean | undefined>;
 }
