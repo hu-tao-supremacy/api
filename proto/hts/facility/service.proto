@@ -118,5 +118,5 @@ service FacilityService {
     rpc ApproveFacilityRequest(ApproveFacilityRequestRequest) returns (hts.common.Result);
     rpc RejectFacilityRequest(RejectFacilityRequestRequest) returns (hts.common.Result);
     rpc GetFacilityInfo(GetFacilityInfoRequest) returns (hts.common.Facility);
-    rpc Ping(google.protobuf.Empty) returns (hts.common.Result);
+    rpc Ping(google.protobuf.Empty) returns (google.protobuf.BoolValue);
 }
