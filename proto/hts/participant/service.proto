@@ -58,7 +58,7 @@ message GetUpcomingEventsRequest {
 }
 
 
-message GetEventsByIdRequest {
+message GetObjectByIdRequest {
     int64 id = 1;
 }
 
@@ -91,13 +91,16 @@ service ParticipantService {
     // Get events from search string
     rpc GetEventsByStringOfName(StringInputRequest) returns (EventsResponse);
     // Get events from specified Tag
-    rpc GetEventsByTagId(GetEventsByIdRequest) returns (EventsResponse);
+    rpc GetEventsByTagId(GetObjectByIdRequest) returns (EventsResponse);
     // Get event from specified organization
-    rpc GetEventsByOrganizationId(GetEventsByIdRequest) returns (EventsResponse);
+    rpc GetEventsByOrganizationId(GetObjectByIdRequest) returns (EventsResponse);
     // Get event from specified facility
-    rpc GetEventsByFacilityId(GetEventsByIdRequest) returns (EventsResponse);
+    rpc GetEventsByFacilityId(GetObjectByIdRequest) returns (EventsResponse);
     // Get event from specified date
     rpc GetEventsByDate(google.protobuf.Timestamp) returns (EventsResponse);
+
+    // Get location by location_id
+    rpc GetLocationById(GetObjectByIdRequest) returns (hts.common.Location);
 
     // Generate QR from combination of ID, User_ID, Event_ID
     rpc GenerateQR(GenerateQRRequest) returns (GenerateQRResponse);
