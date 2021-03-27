@@ -293,27 +293,27 @@ public final class ParticipantServiceGrpc {
     return getGetEventsByStringOfNameMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GetEventsByIdRequest,
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest,
       app.onepass.apis.EventsResponse> getGetEventsByTagIdMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "GetEventsByTagId",
-      requestType = app.onepass.apis.GetEventsByIdRequest.class,
+      requestType = app.onepass.apis.GetObjectByIdRequest.class,
       responseType = app.onepass.apis.EventsResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<app.onepass.apis.GetEventsByIdRequest,
+  public static io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest,
       app.onepass.apis.EventsResponse> getGetEventsByTagIdMethod() {
-    io.grpc.MethodDescriptor<app.onepass.apis.GetEventsByIdRequest, app.onepass.apis.EventsResponse> getGetEventsByTagIdMethod;
+    io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest, app.onepass.apis.EventsResponse> getGetEventsByTagIdMethod;
     if ((getGetEventsByTagIdMethod = ParticipantServiceGrpc.getGetEventsByTagIdMethod) == null) {
       synchronized (ParticipantServiceGrpc.class) {
         if ((getGetEventsByTagIdMethod = ParticipantServiceGrpc.getGetEventsByTagIdMethod) == null) {
           ParticipantServiceGrpc.getGetEventsByTagIdMethod = getGetEventsByTagIdMethod =
-              io.grpc.MethodDescriptor.<app.onepass.apis.GetEventsByIdRequest, app.onepass.apis.EventsResponse>newBuilder()
+              io.grpc.MethodDescriptor.<app.onepass.apis.GetObjectByIdRequest, app.onepass.apis.EventsResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetEventsByTagId"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  app.onepass.apis.GetEventsByIdRequest.getDefaultInstance()))
+                  app.onepass.apis.GetObjectByIdRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.EventsResponse.getDefaultInstance()))
               .setSchemaDescriptor(new ParticipantServiceMethodDescriptorSupplier("GetEventsByTagId"))
@@ -324,27 +324,27 @@ public final class ParticipantServiceGrpc {
     return getGetEventsByTagIdMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GetEventsByIdRequest,
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest,
       app.onepass.apis.EventsResponse> getGetEventsByOrganizationIdMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "GetEventsByOrganizationId",
-      requestType = app.onepass.apis.GetEventsByIdRequest.class,
+      requestType = app.onepass.apis.GetObjectByIdRequest.class,
       responseType = app.onepass.apis.EventsResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<app.onepass.apis.GetEventsByIdRequest,
+  public static io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest,
       app.onepass.apis.EventsResponse> getGetEventsByOrganizationIdMethod() {
-    io.grpc.MethodDescriptor<app.onepass.apis.GetEventsByIdRequest, app.onepass.apis.EventsResponse> getGetEventsByOrganizationIdMethod;
+    io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest, app.onepass.apis.EventsResponse> getGetEventsByOrganizationIdMethod;
     if ((getGetEventsByOrganizationIdMethod = ParticipantServiceGrpc.getGetEventsByOrganizationIdMethod) == null) {
       synchronized (ParticipantServiceGrpc.class) {
         if ((getGetEventsByOrganizationIdMethod = ParticipantServiceGrpc.getGetEventsByOrganizationIdMethod) == null) {
           ParticipantServiceGrpc.getGetEventsByOrganizationIdMethod = getGetEventsByOrganizationIdMethod =
-              io.grpc.MethodDescriptor.<app.onepass.apis.GetEventsByIdRequest, app.onepass.apis.EventsResponse>newBuilder()
+              io.grpc.MethodDescriptor.<app.onepass.apis.GetObjectByIdRequest, app.onepass.apis.EventsResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetEventsByOrganizationId"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  app.onepass.apis.GetEventsByIdRequest.getDefaultInstance()))
+                  app.onepass.apis.GetObjectByIdRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.EventsResponse.getDefaultInstance()))
               .setSchemaDescriptor(new ParticipantServiceMethodDescriptorSupplier("GetEventsByOrganizationId"))
@@ -355,27 +355,27 @@ public final class ParticipantServiceGrpc {
     return getGetEventsByOrganizationIdMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GetEventsByIdRequest,
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest,
       app.onepass.apis.EventsResponse> getGetEventsByFacilityIdMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "GetEventsByFacilityId",
-      requestType = app.onepass.apis.GetEventsByIdRequest.class,
+      requestType = app.onepass.apis.GetObjectByIdRequest.class,
       responseType = app.onepass.apis.EventsResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<app.onepass.apis.GetEventsByIdRequest,
+  public static io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest,
       app.onepass.apis.EventsResponse> getGetEventsByFacilityIdMethod() {
-    io.grpc.MethodDescriptor<app.onepass.apis.GetEventsByIdRequest, app.onepass.apis.EventsResponse> getGetEventsByFacilityIdMethod;
+    io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest, app.onepass.apis.EventsResponse> getGetEventsByFacilityIdMethod;
     if ((getGetEventsByFacilityIdMethod = ParticipantServiceGrpc.getGetEventsByFacilityIdMethod) == null) {
       synchronized (ParticipantServiceGrpc.class) {
         if ((getGetEventsByFacilityIdMethod = ParticipantServiceGrpc.getGetEventsByFacilityIdMethod) == null) {
           ParticipantServiceGrpc.getGetEventsByFacilityIdMethod = getGetEventsByFacilityIdMethod =
-              io.grpc.MethodDescriptor.<app.onepass.apis.GetEventsByIdRequest, app.onepass.apis.EventsResponse>newBuilder()
+              io.grpc.MethodDescriptor.<app.onepass.apis.GetObjectByIdRequest, app.onepass.apis.EventsResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetEventsByFacilityId"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  app.onepass.apis.GetEventsByIdRequest.getDefaultInstance()))
+                  app.onepass.apis.GetObjectByIdRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.EventsResponse.getDefaultInstance()))
               .setSchemaDescriptor(new ParticipantServiceMethodDescriptorSupplier("GetEventsByFacilityId"))
@@ -415,6 +415,37 @@ public final class ParticipantServiceGrpc {
       }
     }
     return getGetEventsByDateMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest,
+      app.onepass.apis.Location> getGetLocationByIdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetLocationById",
+      requestType = app.onepass.apis.GetObjectByIdRequest.class,
+      responseType = app.onepass.apis.Location.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest,
+      app.onepass.apis.Location> getGetLocationByIdMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest, app.onepass.apis.Location> getGetLocationByIdMethod;
+    if ((getGetLocationByIdMethod = ParticipantServiceGrpc.getGetLocationByIdMethod) == null) {
+      synchronized (ParticipantServiceGrpc.class) {
+        if ((getGetLocationByIdMethod = ParticipantServiceGrpc.getGetLocationByIdMethod) == null) {
+          ParticipantServiceGrpc.getGetLocationByIdMethod = getGetLocationByIdMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.GetObjectByIdRequest, app.onepass.apis.Location>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetLocationById"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.GetObjectByIdRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.Location.getDefaultInstance()))
+              .setSchemaDescriptor(new ParticipantServiceMethodDescriptorSupplier("GetLocationById"))
+              .build();
+        }
+      }
+    }
+    return getGetLocationByIdMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GenerateQRRequest,
@@ -592,21 +623,21 @@ public final class ParticipantServiceGrpc {
 
     /**
      */
-    public void getEventsByTagId(app.onepass.apis.GetEventsByIdRequest request,
+    public void getEventsByTagId(app.onepass.apis.GetObjectByIdRequest request,
         io.grpc.stub.StreamObserver<app.onepass.apis.EventsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetEventsByTagIdMethod(), responseObserver);
     }
 
     /**
      */
-    public void getEventsByOrganizationId(app.onepass.apis.GetEventsByIdRequest request,
+    public void getEventsByOrganizationId(app.onepass.apis.GetObjectByIdRequest request,
         io.grpc.stub.StreamObserver<app.onepass.apis.EventsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetEventsByOrganizationIdMethod(), responseObserver);
     }
 
     /**
      */
-    public void getEventsByFacilityId(app.onepass.apis.GetEventsByIdRequest request,
+    public void getEventsByFacilityId(app.onepass.apis.GetObjectByIdRequest request,
         io.grpc.stub.StreamObserver<app.onepass.apis.EventsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetEventsByFacilityIdMethod(), responseObserver);
     }
@@ -616,6 +647,13 @@ public final class ParticipantServiceGrpc {
     public void getEventsByDate(com.google.protobuf.Timestamp request,
         io.grpc.stub.StreamObserver<app.onepass.apis.EventsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetEventsByDateMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getLocationById(app.onepass.apis.GetObjectByIdRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.Location> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetLocationByIdMethod(), responseObserver);
     }
 
     /**
@@ -701,21 +739,21 @@ public final class ParticipantServiceGrpc {
             getGetEventsByTagIdMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                app.onepass.apis.GetEventsByIdRequest,
+                app.onepass.apis.GetObjectByIdRequest,
                 app.onepass.apis.EventsResponse>(
                   this, METHODID_GET_EVENTS_BY_TAG_ID)))
           .addMethod(
             getGetEventsByOrganizationIdMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                app.onepass.apis.GetEventsByIdRequest,
+                app.onepass.apis.GetObjectByIdRequest,
                 app.onepass.apis.EventsResponse>(
                   this, METHODID_GET_EVENTS_BY_ORGANIZATION_ID)))
           .addMethod(
             getGetEventsByFacilityIdMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                app.onepass.apis.GetEventsByIdRequest,
+                app.onepass.apis.GetObjectByIdRequest,
                 app.onepass.apis.EventsResponse>(
                   this, METHODID_GET_EVENTS_BY_FACILITY_ID)))
           .addMethod(
@@ -725,6 +763,13 @@ public final class ParticipantServiceGrpc {
                 com.google.protobuf.Timestamp,
                 app.onepass.apis.EventsResponse>(
                   this, METHODID_GET_EVENTS_BY_DATE)))
+          .addMethod(
+            getGetLocationByIdMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                app.onepass.apis.GetObjectByIdRequest,
+                app.onepass.apis.Location>(
+                  this, METHODID_GET_LOCATION_BY_ID)))
           .addMethod(
             getGenerateQRMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -831,7 +876,7 @@ public final class ParticipantServiceGrpc {
 
     /**
      */
-    public void getEventsByTagId(app.onepass.apis.GetEventsByIdRequest request,
+    public void getEventsByTagId(app.onepass.apis.GetObjectByIdRequest request,
         io.grpc.stub.StreamObserver<app.onepass.apis.EventsResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetEventsByTagIdMethod(), getCallOptions()), request, responseObserver);
@@ -839,7 +884,7 @@ public final class ParticipantServiceGrpc {
 
     /**
      */
-    public void getEventsByOrganizationId(app.onepass.apis.GetEventsByIdRequest request,
+    public void getEventsByOrganizationId(app.onepass.apis.GetObjectByIdRequest request,
         io.grpc.stub.StreamObserver<app.onepass.apis.EventsResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetEventsByOrganizationIdMethod(), getCallOptions()), request, responseObserver);
@@ -847,7 +892,7 @@ public final class ParticipantServiceGrpc {
 
     /**
      */
-    public void getEventsByFacilityId(app.onepass.apis.GetEventsByIdRequest request,
+    public void getEventsByFacilityId(app.onepass.apis.GetObjectByIdRequest request,
         io.grpc.stub.StreamObserver<app.onepass.apis.EventsResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetEventsByFacilityIdMethod(), getCallOptions()), request, responseObserver);
@@ -859,6 +904,14 @@ public final class ParticipantServiceGrpc {
         io.grpc.stub.StreamObserver<app.onepass.apis.EventsResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetEventsByDateMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getLocationById(app.onepass.apis.GetObjectByIdRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.Location> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetLocationByIdMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -957,21 +1010,21 @@ public final class ParticipantServiceGrpc {
 
     /**
      */
-    public app.onepass.apis.EventsResponse getEventsByTagId(app.onepass.apis.GetEventsByIdRequest request) {
+    public app.onepass.apis.EventsResponse getEventsByTagId(app.onepass.apis.GetObjectByIdRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetEventsByTagIdMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public app.onepass.apis.EventsResponse getEventsByOrganizationId(app.onepass.apis.GetEventsByIdRequest request) {
+    public app.onepass.apis.EventsResponse getEventsByOrganizationId(app.onepass.apis.GetObjectByIdRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetEventsByOrganizationIdMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public app.onepass.apis.EventsResponse getEventsByFacilityId(app.onepass.apis.GetEventsByIdRequest request) {
+    public app.onepass.apis.EventsResponse getEventsByFacilityId(app.onepass.apis.GetObjectByIdRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetEventsByFacilityIdMethod(), getCallOptions(), request);
     }
@@ -981,6 +1034,13 @@ public final class ParticipantServiceGrpc {
     public app.onepass.apis.EventsResponse getEventsByDate(com.google.protobuf.Timestamp request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetEventsByDateMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public app.onepass.apis.Location getLocationById(app.onepass.apis.GetObjectByIdRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetLocationByIdMethod(), getCallOptions(), request);
     }
 
     /**
@@ -1087,7 +1147,7 @@ public final class ParticipantServiceGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.EventsResponse> getEventsByTagId(
-        app.onepass.apis.GetEventsByIdRequest request) {
+        app.onepass.apis.GetObjectByIdRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetEventsByTagIdMethod(), getCallOptions()), request);
     }
@@ -1095,7 +1155,7 @@ public final class ParticipantServiceGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.EventsResponse> getEventsByOrganizationId(
-        app.onepass.apis.GetEventsByIdRequest request) {
+        app.onepass.apis.GetObjectByIdRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetEventsByOrganizationIdMethod(), getCallOptions()), request);
     }
@@ -1103,7 +1163,7 @@ public final class ParticipantServiceGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.EventsResponse> getEventsByFacilityId(
-        app.onepass.apis.GetEventsByIdRequest request) {
+        app.onepass.apis.GetObjectByIdRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetEventsByFacilityIdMethod(), getCallOptions()), request);
     }
@@ -1114,6 +1174,14 @@ public final class ParticipantServiceGrpc {
         com.google.protobuf.Timestamp request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGetEventsByDateMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.Location> getLocationById(
+        app.onepass.apis.GetObjectByIdRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetLocationByIdMethod(), getCallOptions()), request);
     }
 
     /**
@@ -1146,8 +1214,9 @@ public final class ParticipantServiceGrpc {
   private static final int METHODID_GET_EVENTS_BY_ORGANIZATION_ID = 10;
   private static final int METHODID_GET_EVENTS_BY_FACILITY_ID = 11;
   private static final int METHODID_GET_EVENTS_BY_DATE = 12;
-  private static final int METHODID_GENERATE_QR = 13;
-  private static final int METHODID_PING = 14;
+  private static final int METHODID_GET_LOCATION_BY_ID = 13;
+  private static final int METHODID_GENERATE_QR = 14;
+  private static final int METHODID_PING = 15;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1203,20 +1272,24 @@ public final class ParticipantServiceGrpc {
               (io.grpc.stub.StreamObserver<app.onepass.apis.EventsResponse>) responseObserver);
           break;
         case METHODID_GET_EVENTS_BY_TAG_ID:
-          serviceImpl.getEventsByTagId((app.onepass.apis.GetEventsByIdRequest) request,
+          serviceImpl.getEventsByTagId((app.onepass.apis.GetObjectByIdRequest) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.EventsResponse>) responseObserver);
           break;
         case METHODID_GET_EVENTS_BY_ORGANIZATION_ID:
-          serviceImpl.getEventsByOrganizationId((app.onepass.apis.GetEventsByIdRequest) request,
+          serviceImpl.getEventsByOrganizationId((app.onepass.apis.GetObjectByIdRequest) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.EventsResponse>) responseObserver);
           break;
         case METHODID_GET_EVENTS_BY_FACILITY_ID:
-          serviceImpl.getEventsByFacilityId((app.onepass.apis.GetEventsByIdRequest) request,
+          serviceImpl.getEventsByFacilityId((app.onepass.apis.GetObjectByIdRequest) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.EventsResponse>) responseObserver);
           break;
         case METHODID_GET_EVENTS_BY_DATE:
           serviceImpl.getEventsByDate((com.google.protobuf.Timestamp) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.EventsResponse>) responseObserver);
+          break;
+        case METHODID_GET_LOCATION_BY_ID:
+          serviceImpl.getLocationById((app.onepass.apis.GetObjectByIdRequest) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.Location>) responseObserver);
           break;
         case METHODID_GENERATE_QR:
           serviceImpl.generateQR((app.onepass.apis.GenerateQRRequest) request,
@@ -1300,6 +1373,7 @@ public final class ParticipantServiceGrpc {
               .addMethod(getGetEventsByOrganizationIdMethod())
               .addMethod(getGetEventsByFacilityIdMethod())
               .addMethod(getGetEventsByDateMethod())
+              .addMethod(getGetLocationByIdMethod())
               .addMethod(getGenerateQRMethod())
               .addMethod(getPingMethod())
               .build();
