@@ -1,5 +1,12 @@
 /* eslint-disable */
-import { Answer, Event, UserEvent, Location } from "../../hts/common/common";
+import {
+  Answer,
+  Event,
+  Tag,
+  User,
+  UserEvent,
+  Location,
+} from "../../hts/common/common";
 import { Empty } from "../../google/protobuf/empty";
 
 export const protobufPackage = "hts.participant";
@@ -59,6 +66,18 @@ export interface GenerateQRRequest {
   eventId: number;
 }
 
+export interface GetTagsFromEventIdResonse {
+  tags: Tag[];
+}
+
+export interface GetApprovedUserFromEventIdResponse {
+  users: User[];
+}
+
+export interface GetRatingFromEventIdResponse {
+  result: number[];
+}
+
 export interface ParticipantService {
   IsEventAvailable(
     request: IsEventAvailableRequest
@@ -80,6 +99,15 @@ export interface ParticipantService {
   GetEventsByFacilityId(request: GetObjectByIdRequest): Promise<EventsResponse>;
   GetEventsByDate(request: Date): Promise<EventsResponse>;
   GetLocationById(request: GetObjectByIdRequest): Promise<Location>;
+  GetTagsFromEventId(
+    request: GetObjectByIdRequest
+  ): Promise<GetTagsFromEventIdResonse>;
+  GetRatingFromEventId(
+    request: GetObjectByIdRequest
+  ): Promise<GetRatingFromEventIdResponse>;
+  GetApprovedUserFromEventId(
+    request: GetObjectByIdRequest
+  ): Promise<GetApprovedUserFromEventIdResponse>;
   GenerateQR(request: GenerateQRRequest): Promise<GenerateQRResponse>;
   Ping(request: Empty): Promise<boolean | undefined>;
 }

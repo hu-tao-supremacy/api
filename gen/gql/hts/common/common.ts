@@ -25,9 +25,9 @@ export enum QuestionGroupType {
 }
 
 export enum Gender {
-  MALE = 0,
-  FEMALE = 1,
-  NOT_SPECIFIED = 2,
+  M = 0,
+  F = 1,
+  NS = 2,
   UNRECOGNIZED = -1,
 }
 
@@ -76,7 +76,7 @@ export interface User {
   isChulaStudent: boolean;
   gender: Gender;
   address: string | undefined;
-  profilePicture: string | undefined;
+  profilePictureUrl: string | undefined;
 }
 
 export interface Organization {
