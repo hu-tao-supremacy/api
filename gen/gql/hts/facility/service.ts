@@ -133,5 +133,5 @@ export interface FacilityService {
   ): Promise<Result>;
   RejectFacilityRequest(request: RejectFacilityRequestRequest): Promise<Result>;
   GetFacilityInfo(request: GetFacilityInfoRequest): Promise<Facility>;
-  Ping(request: Empty): Promise<Result>;
+  Ping(request: Empty): Promise<boolean | undefined>;
 }
