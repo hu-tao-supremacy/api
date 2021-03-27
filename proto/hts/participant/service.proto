@@ -77,7 +77,7 @@ message GetApprovedUserFromEventIdResponse {
 }
 
 message GetRatingFromEventIdResponse {
-    int64 result = 1;
+    repeated int64 result = 1;
 }
 
 service ParticipantService {
