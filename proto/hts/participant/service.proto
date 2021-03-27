@@ -68,6 +68,18 @@ message GenerateQRRequest {
     int64 event_id = 3;
 }
 
+message GetTagsFromEventIdResonse {
+    repeated hts.common.Tag tags = 1;
+}
+
+message GetApprovedUserFromEventIdResponse {
+    repeated hts.common.User users= 1;
+}
+
+message GetRatingFromEventIdResponse {
+    int64 result = 1;
+}
+
 service ParticipantService {
     // Check whether event's start date is before specified date
     rpc IsEventAvailable(IsEventAvailableRequest) returns (google.protobuf.BoolValue);
@@ -101,6 +113,10 @@ service ParticipantService {
 
     // Get location by location_id
     rpc GetLocationById(GetObjectByIdRequest) returns (hts.common.Location);
+
+    rpc GetTagsFromEventId(GetObjectByIdRequest) returns (GetTagsFromEventIdResonse);
+    rpc GetRatingFromEventId(GetObjectByIdRequest) returns (GetRatingFromEventIdResponse);
+    rpc GetApprovedUserFromEventId(GetObjectByIdRequest) returns (GetApprovedUserFromEventIdResponse);
 
     // Generate QR from combination of ID, User_ID, Event_ID
     rpc GenerateQR(GenerateQRRequest) returns (GenerateQRResponse);
