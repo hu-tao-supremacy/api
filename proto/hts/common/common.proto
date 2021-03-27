@@ -31,9 +31,9 @@ enum QuestionGroupType {
 }
 
 enum Gender {
-  MALE = 0;
-  FEMALE = 1;
-  NOT_SPECIFIED = 2;
+  M = 0;
+  F = 1;
+  NS = 2;
 }
 
 enum Status {
@@ -79,7 +79,7 @@ message User {
   bool is_chula_student = 7;
   Gender gender = 8;
   google.protobuf.StringValue address = 9;
-  google.protobuf.StringValue profile_picture = 10;
+  google.protobuf.StringValue profile_picture_url = 10;
 }
 
 message Organization {
