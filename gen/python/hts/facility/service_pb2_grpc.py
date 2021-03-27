@@ -3,6 +3,7 @@
 import grpc
 
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
+from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 from hts.common import common_pb2 as hts_dot_common_dot_common__pb2
 from hts.facility import service_pb2 as hts_dot_facility_dot_service__pb2
 
@@ -74,7 +75,7 @@ class FacilityServiceStub(object):
         self.Ping = channel.unary_unary(
                 '/hts.facility.FacilityService/Ping',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
+                response_deserializer=google_dot_protobuf_dot_wrappers__pb2.BoolValue.FromString,
                 )
 
 
@@ -214,7 +215,7 @@ def add_FacilityServiceServicer_to_server(servicer, server):
             'Ping': grpc.unary_unary_rpc_method_handler(
                     servicer.Ping,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
+                    response_serializer=google_dot_protobuf_dot_wrappers__pb2.BoolValue.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -426,6 +427,6 @@ class FacilityService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.facility.FacilityService/Ping',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            hts_dot_common_dot_common__pb2.Result.FromString,
+            google_dot_protobuf_dot_wrappers__pb2.BoolValue.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
