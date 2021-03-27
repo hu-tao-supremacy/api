@@ -74,6 +74,21 @@ public final class ParticipantProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hts_participant_GenerateQRRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_participant_GetTagsFromEventIdResonse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_participant_GetTagsFromEventIdResonse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_participant_GetApprovedUserFromEventIdResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_participant_GetApprovedUserFromEventIdResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_participant_GetRatingFromEventIdResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_participant_GetRatingFromEventIdResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -111,7 +126,12 @@ public final class ParticipantProto {
       "tByIdRequest\022\016\n\002id\030\001 \001(\003R\002id\"k\n\021Generate" +
       "QRRequest\022\"\n\ruser_event_id\030\001 \001(\003R\013userEv" +
       "entId\022\027\n\007user_id\030\002 \001(\003R\006userId\022\031\n\010event_" +
-      "id\030\003 \001(\003R\007eventId2\224\013\n\022ParticipantService" +
+      "id\030\003 \001(\003R\007eventId\"@\n\031GetTagsFromEventIdR" +
+      "esonse\022#\n\004tags\030\001 \003(\0132\017.hts.common.TagR\004t" +
+      "ags\"L\n\"GetApprovedUserFromEventIdRespons" +
+      "e\022&\n\005users\030\001 \003(\0132\020.hts.common.UserR\005user" +
+      "s\"6\n\034GetRatingFromEventIdResponse\022\026\n\006res" +
+      "ult\030\001 \003(\003R\006result2\345\r\n\022ParticipantService" +
       "\022X\n\020IsEventAvailable\022(.hts.participant.I" +
       "sEventAvailableRequest\032\032.google.protobuf" +
       ".BoolValue\022I\n\tJoinEvent\022%.hts.participan" +
@@ -143,13 +163,21 @@ public final class ParticipantProto {
       "\022\032.google.protobuf.Timestamp\032\037.hts.parti" +
       "cipant.EventsResponse\022N\n\017GetLocationById" +
       "\022%.hts.participant.GetObjectByIdRequest\032" +
-      "\024.hts.common.Location\022U\n\nGenerateQR\022\".ht" +
-      "s.participant.GenerateQRRequest\032#.hts.pa" +
-      "rticipant.GenerateQRResponse\022:\n\004Ping\022\026.g" +
-      "oogle.protobuf.Empty\032\032.google.protobuf.B" +
-      "oolValueBL\n\020app.onepass.apisB\020Participan" +
-      "tProtoP\001Z$onepass.app/facility/hts/parti" +
-      "cipantb\006proto3"
+      "\024.hts.common.Location\022g\n\022GetTagsFromEven" +
+      "tId\022%.hts.participant.GetObjectByIdReque" +
+      "st\032*.hts.participant.GetTagsFromEventIdR" +
+      "esonse\022l\n\024GetRatingFromEventId\022%.hts.par" +
+      "ticipant.GetObjectByIdRequest\032-.hts.part" +
+      "icipant.GetRatingFromEventIdResponse\022x\n\032" +
+      "GetApprovedUserFromEventId\022%.hts.partici" +
+      "pant.GetObjectByIdRequest\0323.hts.particip" +
+      "ant.GetApprovedUserFromEventIdResponse\022U" +
+      "\n\nGenerateQR\022\".hts.participant.GenerateQ" +
+      "RRequest\032#.hts.participant.GenerateQRRes" +
+      "ponse\022:\n\004Ping\022\026.google.protobuf.Empty\032\032." +
+      "google.protobuf.BoolValueBL\n\020app.onepass" +
+      ".apisB\020ParticipantProtoP\001Z$onepass.app/f" +
+      "acility/hts/participantb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -231,6 +259,24 @@ public final class ParticipantProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_participant_GenerateQRRequest_descriptor,
         new java.lang.String[] { "UserEventId", "UserId", "EventId", });
+    internal_static_hts_participant_GetTagsFromEventIdResonse_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_hts_participant_GetTagsFromEventIdResonse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_participant_GetTagsFromEventIdResonse_descriptor,
+        new java.lang.String[] { "Tags", });
+    internal_static_hts_participant_GetApprovedUserFromEventIdResponse_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_hts_participant_GetApprovedUserFromEventIdResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_participant_GetApprovedUserFromEventIdResponse_descriptor,
+        new java.lang.String[] { "Users", });
+    internal_static_hts_participant_GetRatingFromEventIdResponse_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_hts_participant_GetRatingFromEventIdResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_participant_GetRatingFromEventIdResponse_descriptor,
+        new java.lang.String[] { "Result", });
     app.onepass.apis.CommonProto.getDescriptor();
     com.google.protobuf.EmptyProto.getDescriptor();
     com.google.protobuf.WrappersProto.getDescriptor();
