@@ -5,14 +5,17 @@ on:
       - "proto/**"
 jobs:
   generate:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform: [go, python, java, ts]
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - run: |
-          brew install tree
-          make setup
-          make generate
-      - run: |
-          tree gen/
+      - uses: actions/cache@v2
+        with:
+          path: ~/.cache/bazel
+          key: ${{ runner.os }}-${{ hashFiles('WORKSPACE') }}-${{ hashFiles('BUILD') }}
+      - run: make setup
+      - run: make build-${{ matrix.platform }}
