@@ -87,10 +87,12 @@ export interface HasEventRequest {
 }
 
 export interface QuestionGroupsRequest {
+  userId: number;
   questionGroups: QuestionGroup[];
 }
 
 export interface QuestionsRequest {
+  userId: number;
   questions: Question[];
 }
 
