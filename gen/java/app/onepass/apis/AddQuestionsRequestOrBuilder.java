@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface QuestionsRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.organizer.QuestionsRequest)
+public interface AddQuestionsRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.organizer.AddQuestionsRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
