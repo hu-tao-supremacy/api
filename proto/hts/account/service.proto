@@ -13,7 +13,6 @@ import "google/protobuf/wrappers.proto";
 
 message AccessTokenPayload {
   int64 user_id = 1;
-  string email = 2;
 }
 
 message IsAuthenticatedRequest {
