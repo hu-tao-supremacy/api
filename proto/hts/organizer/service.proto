@@ -94,7 +94,7 @@ message AddQuestionGroupsRequest {
 
 message RemoveQuestionGroupsRequest {
   int64 user_id = 1;
-  repeated question_group_ids = 2;
+  repeated int64 question_group_ids = 2;
 }
 
 message AddQuestionsRequest {
@@ -104,7 +104,7 @@ message AddQuestionsRequest {
 
 message RemoveQuestionsRequest {
   int64 user_id = 1;
-  repeated question_ids = 2;
+  repeated int64 question_ids = 2;
 }
 
 message GetOrganizationsResponse {
