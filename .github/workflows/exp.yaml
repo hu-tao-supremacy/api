@@ -29,8 +29,6 @@ jobs:
           path: |
             ~/.cache/bazel
           key: ${{ runner.os }}-${{ hashFiles('WORKSPACE') }}-${{ hashFiles('BUILD') }}
-      - run: brew install tree
       - run: make setup
       - run: |
           make build-${{ matrix.platform }}
-          tree gen/
