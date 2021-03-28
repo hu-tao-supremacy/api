@@ -77,7 +77,6 @@ build-java:
 
 build-ts:
 	@cd $(dirname $0)
-	bazel clean
 	bazel build //:nest
 	bazel build //:gql
 	rm -rf gen/nest && mkdir -p gen/nest

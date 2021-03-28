@@ -21,17 +21,14 @@ jobs:
           token: ${{ secrets.DODOCO_BOT_PAT }}
       - run: echo "SHA7=${GITHUB_SHA::7}" >> $GITHUB_ENV
       - uses: actions/cache@v2
-        if: ${{ matrix.platform != 'ts' }}
         with:
           path: |
             ~/.cache/bazel
-          key: ${{ runner.os }}-${{ hashFiles('BUILD') }}
-      - run: brew install tree
+          key: ${{ runner.os }}-${{ hashFiles('WORKSPACE') }}-${{ hashFiles('BUILD') }}
       - run: make setup
       - run: |
           git checkout -b compile/${{ env.SHA7 }}/${{ matrix.platform }}
           make build-${{ matrix.platform }}
-          tree gen/
           git commit -m 'compile(${{ matrix.platform }}): ${{ env.SHA7 }}'
         env:
           GIT_COMMITTER_NAME: dodoco-bot
