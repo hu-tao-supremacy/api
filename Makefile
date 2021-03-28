@@ -49,7 +49,6 @@ build-go:
 	rm -rf gen/go
 	mkdir -p gen/go
 	mv bazel-bin/go/gen/hts gen/go/.
-	git add -f gen/go
 
 build-python:
 	@cd $(dirname $0)
@@ -57,7 +56,6 @@ build-python:
 	rm -rf gen/python
 	mkdir -p gen/python
 	mv bazel-bin/python/gen/hts gen/python/.
-	git add -f gen/python
 
 build-java:
 	@cd $(dirname $0)
@@ -73,7 +71,6 @@ build-java:
 	rm -rf gen/java/java.zip
 	rm -rf gen/java/java_grpc.zip
 	rm -rf gen/java/META-INF
-	git add -f gen/java
 
 build-ts:
 	@cd $(dirname $0)
@@ -86,5 +83,3 @@ build-ts:
 	cp -LR bazel-bin/gql/gen/hts gen/gql/.
 	cp -LR bazel-bin/nest/gen/google gen/nest/.
 	cp -LR bazel-bin/gql/gen/google gen/gql/.
-	git add -f gen/nest
-	git add -f gen/gql

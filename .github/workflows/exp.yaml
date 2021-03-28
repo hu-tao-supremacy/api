@@ -34,7 +34,6 @@ jobs:
           git checkout -b compile/${{ env.SHA7 }}/${{ matrix.platform }}
           make build-${{ matrix.platform }}
           tree gen/
-          git commit -m 'compile(${{ matrix.platform }}): ${{ env.SHA7 }}'
         env:
           GIT_COMMITTER_NAME: dodoco-bot
           GIT_AUTHOR_NAME: dodoco-bot
