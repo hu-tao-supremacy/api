@@ -109,6 +109,11 @@ public final class CommonProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hts_common_Facility_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_common_GetObjectByIdRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_common_GetObjectByIdRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -238,7 +243,8 @@ public final class CommonProto {
       "ongitude\030\005 \001(\001R\tlongitude\022B\n\017operating_h" +
       "ours\030\006 \003(\0132\031.hts.common.OperatingHourR\016o" +
       "peratingHours\022 \n\013description\030\007 \001(\tR\013desc" +
-      "ription*J\n\tDayOfWeek\022\007\n\003SUN\020\000\022\007\n\003MON\020\001\022\007" +
+      "ription\"&\n\024GetObjectByIdRequest\022\016\n\002id\030\001 " +
+      "\001(\003R\002id*J\n\tDayOfWeek\022\007\n\003SUN\020\000\022\007\n\003MON\020\001\022\007" +
       "\n\003TUE\020\002\022\007\n\003WED\020\003\022\007\n\003THU\020\004\022\007\n\003FRI\020\005\022\007\n\003SA" +
       "T\020\006*!\n\nAnswerType\022\t\n\005SCALE\020\000\022\010\n\004TEXT\020\001*2" +
       "\n\021QuestionGroupType\022\r\n\tPRE_EVENT\020\000\022\016\n\nPO" +
@@ -375,6 +381,12 @@ public final class CommonProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_common_Facility_descriptor,
         new java.lang.String[] { "Id", "OrganizationId", "Name", "Latitude", "Longitude", "OperatingHours", "Description", });
+    internal_static_hts_common_GetObjectByIdRequest_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_hts_common_GetObjectByIdRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_common_GetObjectByIdRequest_descriptor,
+        new java.lang.String[] { "Id", });
     com.google.protobuf.TimestampProto.getDescriptor();
     com.google.protobuf.WrappersProto.getDescriptor();
   }
