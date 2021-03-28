@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\020app.onepass.apisB\014AccountProtoP\001Z onepass.app/facility/hts/account',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x19hts/account/service.proto\x12\x0bhts.account\x1a\x17hts/common/common.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1egoogle/protobuf/wrappers.proto\"C\n\x12\x41\x63\x63\x65ssTokenPayload\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x14\n\x05\x65mail\x18\x02 \x01(\tR\x05\x65mail\";\n\x16IsAuthenticatedRequest\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x01 \x01(\tR\x0b\x61\x63\x63\x65ssToken\"@\n\x1bGenerateAccessTokenResponse\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x01 \x01(\tR\x0b\x61\x63\x63\x65ssToken\"\x99\x01\n\x14HasPermissionRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12?\n\x0fpermission_name\x18\x03 \x01(\x0e\x32\x16.hts.common.PermissionR\x0epermissionName2\xc4\x03\n\x0e\x41\x63\x63ountService\x12\x46\n\x10GetUserByChulaId\x12 .hts.common.GetObjectByIdRequest\x1a\x10.hts.common.User\x12R\n\x0fIsAuthenticated\x12#.hts.account.IsAuthenticatedRequest\x1a\x1a.google.protobuf.BoolValue\x12\x37\n\x11UpdateAccountInfo\x12\x10.hts.common.User\x1a\x10.hts.common.User\x12Q\n\x13GenerateAccessToken\x12\x10.hts.common.User\x1a(.hts.account.GenerateAccessTokenResponse\x12N\n\rHasPermission\x12!.hts.account.HasPermissionRequest\x1a\x1a.google.protobuf.BoolValue\x12:\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x1a.google.protobuf.BoolValueBD\n\x10\x61pp.onepass.apisB\x0c\x41\x63\x63ountProtoP\x01Z onepass.app/facility/hts/accountb\x06proto3'
+  serialized_pb=b'\n\x19hts/account/service.proto\x12\x0bhts.account\x1a\x17hts/common/common.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1egoogle/protobuf/wrappers.proto\"C\n\x12\x41\x63\x63\x65ssTokenPayload\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x14\n\x05\x65mail\x18\x02 \x01(\tR\x05\x65mail\";\n\x16IsAuthenticatedRequest\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x01 \x01(\tR\x0b\x61\x63\x63\x65ssToken\"5\n\x1aGenerateAccessTokenRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\"@\n\x1bGenerateAccessTokenResponse\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x01 \x01(\tR\x0b\x61\x63\x63\x65ssToken\"\x99\x01\n\x14HasPermissionRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12?\n\x0fpermission_name\x18\x03 \x01(\x0e\x32\x16.hts.common.PermissionR\x0epermissionName2\xdb\x03\n\x0e\x41\x63\x63ountService\x12\x46\n\x10GetUserByChulaId\x12 .hts.common.GetObjectByIdRequest\x1a\x10.hts.common.User\x12R\n\x0fIsAuthenticated\x12#.hts.account.IsAuthenticatedRequest\x1a\x1a.google.protobuf.BoolValue\x12\x37\n\x11UpdateAccountInfo\x12\x10.hts.common.User\x1a\x10.hts.common.User\x12h\n\x13GenerateAccessToken\x12\'.hts.account.GenerateAccessTokenRequest\x1a(.hts.account.GenerateAccessTokenResponse\x12N\n\rHasPermission\x12!.hts.account.HasPermissionRequest\x1a\x1a.google.protobuf.BoolValue\x12:\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x1a.google.protobuf.BoolValueBD\n\x10\x61pp.onepass.apisB\x0c\x41\x63\x63ountProtoP\x01Z onepass.app/facility/hts/accountb\x06proto3'
   ,
   dependencies=[hts_dot_common_dot_common__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
@@ -100,6 +100,38 @@ _ISAUTHENTICATEDREQUEST = _descriptor.Descriptor(
 )
 
 
+_GENERATEACCESSTOKENREQUEST = _descriptor.Descriptor(
+  name='GenerateAccessTokenRequest',
+  full_name='hts.account.GenerateAccessTokenRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='user_id', full_name='hts.account.GenerateAccessTokenRequest.user_id', index=0,
+      number=1, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='userId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=258,
+  serialized_end=311,
+)
+
+
 _GENERATEACCESSTOKENRESPONSE = _descriptor.Descriptor(
   name='GenerateAccessTokenResponse',
   full_name='hts.account.GenerateAccessTokenResponse',
@@ -127,8 +159,8 @@ _GENERATEACCESSTOKENRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=258,
-  serialized_end=322,
+  serialized_start=313,
+  serialized_end=377,
 )
 
 
@@ -173,13 +205,14 @@ _HASPERMISSIONREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=325,
-  serialized_end=478,
+  serialized_start=380,
+  serialized_end=533,
 )
 
 _HASPERMISSIONREQUEST.fields_by_name['permission_name'].enum_type = hts_dot_common_dot_common__pb2._PERMISSION
 DESCRIPTOR.message_types_by_name['AccessTokenPayload'] = _ACCESSTOKENPAYLOAD
 DESCRIPTOR.message_types_by_name['IsAuthenticatedRequest'] = _ISAUTHENTICATEDREQUEST
+DESCRIPTOR.message_types_by_name['GenerateAccessTokenRequest'] = _GENERATEACCESSTOKENREQUEST
 DESCRIPTOR.message_types_by_name['GenerateAccessTokenResponse'] = _GENERATEACCESSTOKENRESPONSE
 DESCRIPTOR.message_types_by_name['HasPermissionRequest'] = _HASPERMISSIONREQUEST
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -197,6 +230,13 @@ IsAuthenticatedRequest = _reflection.GeneratedProtocolMessageType('IsAuthenticat
   # @@protoc_insertion_point(class_scope:hts.account.IsAuthenticatedRequest)
   })
 _sym_db.RegisterMessage(IsAuthenticatedRequest)
+
+GenerateAccessTokenRequest = _reflection.GeneratedProtocolMessageType('GenerateAccessTokenRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GENERATEACCESSTOKENREQUEST,
+  '__module__' : 'hts.account.service_pb2'
+  # @@protoc_insertion_point(class_scope:hts.account.GenerateAccessTokenRequest)
+  })
+_sym_db.RegisterMessage(GenerateAccessTokenRequest)
 
 GenerateAccessTokenResponse = _reflection.GeneratedProtocolMessageType('GenerateAccessTokenResponse', (_message.Message,), {
   'DESCRIPTOR' : _GENERATEACCESSTOKENRESPONSE,
@@ -222,8 +262,8 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=481,
-  serialized_end=933,
+  serialized_start=536,
+  serialized_end=1011,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetUserByChulaId',
@@ -260,7 +300,7 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
     full_name='hts.account.AccountService.GenerateAccessToken',
     index=3,
     containing_service=None,
-    input_type=hts_dot_common_dot_common__pb2._USER,
+    input_type=_GENERATEACCESSTOKENREQUEST,
     output_type=_GENERATEACCESSTOKENRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,

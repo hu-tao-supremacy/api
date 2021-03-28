@@ -34,7 +34,7 @@ class AccountServiceStub(object):
                 )
         self.GenerateAccessToken = channel.unary_unary(
                 '/hts.account.AccountService/GenerateAccessToken',
-                request_serializer=hts_dot_common_dot_common__pb2.User.SerializeToString,
+                request_serializer=hts_dot_account_dot_service__pb2.GenerateAccessTokenRequest.SerializeToString,
                 response_deserializer=hts_dot_account_dot_service__pb2.GenerateAccessTokenResponse.FromString,
                 )
         self.HasPermission = channel.unary_unary(
@@ -108,7 +108,7 @@ def add_AccountServiceServicer_to_server(servicer, server):
             ),
             'GenerateAccessToken': grpc.unary_unary_rpc_method_handler(
                     servicer.GenerateAccessToken,
-                    request_deserializer=hts_dot_common_dot_common__pb2.User.FromString,
+                    request_deserializer=hts_dot_account_dot_service__pb2.GenerateAccessTokenRequest.FromString,
                     response_serializer=hts_dot_account_dot_service__pb2.GenerateAccessTokenResponse.SerializeToString,
             ),
             'HasPermission': grpc.unary_unary_rpc_method_handler(
@@ -194,7 +194,7 @@ class AccountService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.account.AccountService/GenerateAccessToken',
-            hts_dot_common_dot_common__pb2.User.SerializeToString,
+            hts_dot_account_dot_service__pb2.GenerateAccessTokenRequest.SerializeToString,
             hts_dot_account_dot_service__pb2.GenerateAccessTokenResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
