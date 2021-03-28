@@ -88,11 +88,13 @@ message HasEventRequest {
 }
 
 message QuestionGroupsRequest {
-  repeated hts.common.QuestionGroup question_groups = 1;
+  int64 user_id = 1;
+  repeated hts.common.QuestionGroup question_groups = 2;
 }
 
 message QuestionsRequest {
-  repeated hts.common.Question questions = 1;
+  int64 user_id = 1;
+  repeated hts.common.Question questions = 2;
 }
 
 message GetOrganizationsResponse {
