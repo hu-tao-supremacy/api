@@ -1,5 +1,9 @@
 /* eslint-disable */
-import { Permission, User } from "../../hts/common/common";
+import {
+  Permission,
+  User,
+  GetObjectByIdRequest,
+} from "../../hts/common/common";
 import { Empty } from "../../google/protobuf/empty";
 
 export const protobufPackage = "hts.account";
@@ -23,12 +27,8 @@ export interface HasPermissionRequest {
   permissionName: Permission;
 }
 
-export interface GetUserByChulaIdRequest {
-  id: number;
-}
-
 export interface AccountService {
-  GetUserByChulaId(request: GetUserByChulaIdRequest): Promise<User>;
+  GetUserByChulaId(request: GetObjectByIdRequest): Promise<User>;
   IsAuthenticated(
     request: IsAuthenticatedRequest
   ): Promise<boolean | undefined>;

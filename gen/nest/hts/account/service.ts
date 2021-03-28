@@ -1,6 +1,10 @@
 /* eslint-disable */
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
-import { Permission, User } from "../../hts/common/common";
+import {
+  Permission,
+  User,
+  GetObjectByIdRequest,
+} from "../../hts/common/common";
 import { Observable } from "rxjs";
 import { BoolValue } from "../../google/protobuf/wrappers";
 import { Empty } from "../../google/protobuf/empty";
@@ -26,14 +30,10 @@ export interface HasPermissionRequest {
   permissionName: Permission;
 }
 
-export interface GetUserByChulaIdRequest {
-  id: number;
-}
-
 export const HTS_ACCOUNT_PACKAGE_NAME = "hts.account";
 
 export interface AccountServiceClient {
-  getUserByChulaId(request: GetUserByChulaIdRequest): Observable<User>;
+  getUserByChulaId(request: GetObjectByIdRequest): Observable<User>;
 
   isAuthenticated(request: IsAuthenticatedRequest): Observable<BoolValue>;
 
@@ -48,7 +48,7 @@ export interface AccountServiceClient {
 
 export interface AccountServiceController {
   getUserByChulaId(
-    request: GetUserByChulaIdRequest
+    request: GetObjectByIdRequest
   ): Promise<User> | Observable<User> | User;
 
   isAuthenticated(

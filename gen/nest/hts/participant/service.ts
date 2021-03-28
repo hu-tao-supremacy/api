@@ -8,6 +8,7 @@ import {
   User,
   UserEvent,
   Location,
+  GetObjectByIdRequest,
 } from "../../hts/common/common";
 import { Timestamp } from "../../google/protobuf/timestamp";
 import { BoolValue } from "../../google/protobuf/wrappers";
@@ -58,10 +59,6 @@ export interface IsEventAvailableRequest {
 export interface GetUpcomingEventsRequest {
   start: Timestamp | undefined;
   end: Timestamp | undefined;
-}
-
-export interface GetObjectByIdRequest {
-  id: number;
 }
 
 export interface GenerateQRRequest {
