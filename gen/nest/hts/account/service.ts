@@ -20,6 +20,10 @@ export interface IsAuthenticatedRequest {
   accessToken: string;
 }
 
+export interface GenerateAccessTokenRequest {
+  userId: number;
+}
+
 export interface GenerateAccessTokenResponse {
   accessToken: string;
 }
@@ -39,7 +43,9 @@ export interface AccountServiceClient {
 
   updateAccountInfo(request: User): Observable<User>;
 
-  generateAccessToken(request: User): Observable<GenerateAccessTokenResponse>;
+  generateAccessToken(
+    request: GenerateAccessTokenRequest
+  ): Observable<GenerateAccessTokenResponse>;
 
   hasPermission(request: HasPermissionRequest): Observable<BoolValue>;
 
@@ -58,7 +64,7 @@ export interface AccountServiceController {
   updateAccountInfo(request: User): Promise<User> | Observable<User> | User;
 
   generateAccessToken(
-    request: User
+    request: GenerateAccessTokenRequest
   ):
     | Promise<GenerateAccessTokenResponse>
     | Observable<GenerateAccessTokenResponse>
