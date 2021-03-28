@@ -10,7 +10,6 @@ export const protobufPackage = "hts.account";
 
 export interface AccessTokenPayload {
   userId: number;
-  email: string;
 }
 
 export interface IsAuthenticatedRequest {
