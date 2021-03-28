@@ -24,7 +24,7 @@ jobs:
         with:
           path: |
             ~/.cache/bazel
-          key: ${{ runner.os }}-${{ matrix.platform }}-${{ hashFiles('WORKSPACE') }}-${{ hashFiles('BUILD') }}
+          key: ${{ runner.os }}-${{ hashFiles('WORKSPACE') }}-${{ hashFiles('BUILD') }}
       - run: make setup
       - run: |
           git checkout -b compile/${{ env.SHA7 }}/${{ matrix.platform }}
