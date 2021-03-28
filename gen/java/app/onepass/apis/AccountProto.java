@@ -51,31 +51,30 @@ public final class AccountProto {
       "\n\031hts/account/service.proto\022\013hts.account" +
       "\032\027hts/common/common.proto\032\033google/protob" +
       "uf/empty.proto\032\036google/protobuf/wrappers" +
-      ".proto\"C\n\022AccessTokenPayload\022\027\n\007user_id\030" +
-      "\001 \001(\003R\006userId\022\024\n\005email\030\002 \001(\tR\005email\";\n\026I" +
-      "sAuthenticatedRequest\022!\n\014access_token\030\001 " +
-      "\001(\tR\013accessToken\"5\n\032GenerateAccessTokenR" +
-      "equest\022\027\n\007user_id\030\001 \001(\003R\006userId\"@\n\033Gener" +
-      "ateAccessTokenResponse\022!\n\014access_token\030\001" +
-      " \001(\tR\013accessToken\"\231\001\n\024HasPermissionReque" +
-      "st\022\027\n\007user_id\030\001 \001(\003R\006userId\022\'\n\017organizat" +
-      "ion_id\030\002 \001(\003R\016organizationId\022?\n\017permissi" +
-      "on_name\030\003 \001(\0162\026.hts.common.PermissionR\016p" +
-      "ermissionName2\333\003\n\016AccountService\022F\n\020GetU" +
-      "serByChulaId\022 .hts.common.GetObjectByIdR" +
-      "equest\032\020.hts.common.User\022R\n\017IsAuthentica" +
-      "ted\022#.hts.account.IsAuthenticatedRequest" +
-      "\032\032.google.protobuf.BoolValue\0227\n\021UpdateAc" +
-      "countInfo\022\020.hts.common.User\032\020.hts.common" +
-      ".User\022h\n\023GenerateAccessToken\022\'.hts.accou" +
-      "nt.GenerateAccessTokenRequest\032(.hts.acco" +
-      "unt.GenerateAccessTokenResponse\022N\n\rHasPe" +
-      "rmission\022!.hts.account.HasPermissionRequ" +
-      "est\032\032.google.protobuf.BoolValue\022:\n\004Ping\022" +
-      "\026.google.protobuf.Empty\032\032.google.protobu" +
-      "f.BoolValueBD\n\020app.onepass.apisB\014Account" +
-      "ProtoP\001Z onepass.app/facility/hts/accoun" +
-      "tb\006proto3"
+      ".proto\"-\n\022AccessTokenPayload\022\027\n\007user_id\030" +
+      "\001 \001(\003R\006userId\";\n\026IsAuthenticatedRequest\022" +
+      "!\n\014access_token\030\001 \001(\tR\013accessToken\"5\n\032Ge" +
+      "nerateAccessTokenRequest\022\027\n\007user_id\030\001 \001(" +
+      "\003R\006userId\"@\n\033GenerateAccessTokenResponse" +
+      "\022!\n\014access_token\030\001 \001(\tR\013accessToken\"\231\001\n\024" +
+      "HasPermissionRequest\022\027\n\007user_id\030\001 \001(\003R\006u" +
+      "serId\022\'\n\017organization_id\030\002 \001(\003R\016organiza" +
+      "tionId\022?\n\017permission_name\030\003 \001(\0162\026.hts.co" +
+      "mmon.PermissionR\016permissionName2\333\003\n\016Acco" +
+      "untService\022F\n\020GetUserByChulaId\022 .hts.com" +
+      "mon.GetObjectByIdRequest\032\020.hts.common.Us" +
+      "er\022R\n\017IsAuthenticated\022#.hts.account.IsAu" +
+      "thenticatedRequest\032\032.google.protobuf.Boo" +
+      "lValue\0227\n\021UpdateAccountInfo\022\020.hts.common" +
+      ".User\032\020.hts.common.User\022h\n\023GenerateAcces" +
+      "sToken\022\'.hts.account.GenerateAccessToken" +
+      "Request\032(.hts.account.GenerateAccessToke" +
+      "nResponse\022N\n\rHasPermission\022!.hts.account" +
+      ".HasPermissionRequest\032\032.google.protobuf." +
+      "BoolValue\022:\n\004Ping\022\026.google.protobuf.Empt" +
+      "y\032\032.google.protobuf.BoolValueBD\n\020app.one" +
+      "pass.apisB\014AccountProtoP\001Z onepass.app/f" +
+      "acility/hts/accountb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -89,7 +88,7 @@ public final class AccountProto {
     internal_static_hts_account_AccessTokenPayload_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_account_AccessTokenPayload_descriptor,
-        new java.lang.String[] { "UserId", "Email", });
+        new java.lang.String[] { "UserId", });
     internal_static_hts_account_IsAuthenticatedRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_hts_account_IsAuthenticatedRequest_fieldAccessorTable = new

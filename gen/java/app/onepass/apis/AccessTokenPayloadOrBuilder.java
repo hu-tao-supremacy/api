@@ -12,16 +12,4 @@ public interface AccessTokenPayloadOrBuilder extends
    * @return The userId.
    */
   long getUserId();
-
-  /**
-   * <code>string email = 2 [json_name = "email"];</code>
-   * @return The email.
-   */
-  java.lang.String getEmail();
-  /**
-   * <code>string email = 2 [json_name = "email"];</code>
-   * @return The bytes for email.
-   */
-  com.google.protobuf.ByteString
-      getEmailBytes();
 }
