@@ -20,6 +20,10 @@ message IsAuthenticatedRequest {
   string access_token = 1;
 }
 
+message GenerateAccessTokenRequest {
+  int64 user_id = 1;
+}
+
 message GenerateAccessTokenResponse {
   string access_token = 1;
 }
@@ -34,7 +38,7 @@ service AccountService {
   rpc GetUserByChulaId(hts.common.GetObjectByIdRequest) returns (hts.common.User);
   rpc IsAuthenticated(IsAuthenticatedRequest) returns (google.protobuf.BoolValue);
   rpc UpdateAccountInfo(hts.common.User) returns (hts.common.User);
-  rpc GenerateAccessToken(hts.common.User) returns (GenerateAccessTokenResponse);
+  rpc GenerateAccessToken(GenerateAccessTokenRequest) returns (GenerateAccessTokenResponse);
   rpc HasPermission(HasPermissionRequest) returns (google.protobuf.BoolValue);
   rpc Ping(google.protobuf.Empty) returns (google.protobuf.BoolValue);
 }
