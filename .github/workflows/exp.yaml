@@ -1,0 +1,38 @@
+name: Generate (Experimental)
+on:
+  push:
+    branches:
+      - experimental
+    paths:
+      - "!gen/**"
+      - "proto/**"
+      - ".github/**"
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    strategy:
+      matrix:
+        platform: [go, python, java, ts]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.DODOCO_BOT_PAT }}
+      - run: echo "SHA7=${GITHUB_SHA::7}" >> $GITHUB_ENV
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache/bazel
+          key: ${{ runner.os }}-${{ hashFiles('WORKSPACE') }}-${{ hashFiles('BUILD') }}
+      - run: brew install tree
+      - run: make setup
+      - run: |
+          git checkout -b compile/${{ env.SHA7 }}/${{ matrix.platform }}
+          make build-${{ matrix.platform }}
+          tree gen/
+          git commit -m 'compile(${{ matrix.platform }}): ${{ env.SHA7 }}'
+        env:
+          GIT_COMMITTER_NAME: dodoco-bot
+          GIT_AUTHOR_NAME: dodoco-bot
+          EMAIL: 77519537+dodoco-bot@users.noreply.github.com
