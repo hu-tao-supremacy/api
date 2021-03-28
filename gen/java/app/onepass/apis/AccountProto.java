@@ -34,11 +34,6 @@ public final class AccountProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hts_account_HasPermissionRequest_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_hts_account_GetUserByChulaIdRequest_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_hts_account_GetUserByChulaIdRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -59,22 +54,21 @@ public final class AccountProto {
       "en\"\231\001\n\024HasPermissionRequest\022\027\n\007user_id\030\001" +
       " \001(\003R\006userId\022\'\n\017organization_id\030\002 \001(\003R\016o" +
       "rganizationId\022?\n\017permission_name\030\003 \001(\0162\026" +
-      ".hts.common.PermissionR\016permissionName\")" +
-      "\n\027GetUserByChulaIdRequest\022\016\n\002id\030\001 \001(\003R\002i" +
-      "d2\310\003\n\016AccountService\022J\n\020GetUserByChulaId" +
-      "\022$.hts.account.GetUserByChulaIdRequest\032\020" +
-      ".hts.common.User\022R\n\017IsAuthenticated\022#.ht" +
-      "s.account.IsAuthenticatedRequest\032\032.googl" +
-      "e.protobuf.BoolValue\0227\n\021UpdateAccountInf" +
-      "o\022\020.hts.common.User\032\020.hts.common.User\022Q\n" +
-      "\023GenerateAccessToken\022\020.hts.common.User\032(" +
-      ".hts.account.GenerateAccessTokenResponse" +
-      "\022N\n\rHasPermission\022!.hts.account.HasPermi" +
-      "ssionRequest\032\032.google.protobuf.BoolValue" +
-      "\022:\n\004Ping\022\026.google.protobuf.Empty\032\032.googl" +
-      "e.protobuf.BoolValueBD\n\020app.onepass.apis" +
-      "B\014AccountProtoP\001Z onepass.app/facility/h" +
-      "ts/accountb\006proto3"
+      ".hts.common.PermissionR\016permissionName2\304" +
+      "\003\n\016AccountService\022F\n\020GetUserByChulaId\022 ." +
+      "hts.common.GetObjectByIdRequest\032\020.hts.co" +
+      "mmon.User\022R\n\017IsAuthenticated\022#.hts.accou" +
+      "nt.IsAuthenticatedRequest\032\032.google.proto" +
+      "buf.BoolValue\0227\n\021UpdateAccountInfo\022\020.hts" +
+      ".common.User\032\020.hts.common.User\022Q\n\023Genera" +
+      "teAccessToken\022\020.hts.common.User\032(.hts.ac" +
+      "count.GenerateAccessTokenResponse\022N\n\rHas" +
+      "Permission\022!.hts.account.HasPermissionRe" +
+      "quest\032\032.google.protobuf.BoolValue\022:\n\004Pin" +
+      "g\022\026.google.protobuf.Empty\032\032.google.proto" +
+      "buf.BoolValueBD\n\020app.onepass.apisB\014Accou" +
+      "ntProtoP\001Z onepass.app/facility/hts/acco" +
+      "untb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -107,12 +101,6 @@ public final class AccountProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_account_HasPermissionRequest_descriptor,
         new java.lang.String[] { "UserId", "OrganizationId", "PermissionName", });
-    internal_static_hts_account_GetUserByChulaIdRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
-    internal_static_hts_account_GetUserByChulaIdRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_hts_account_GetUserByChulaIdRequest_descriptor,
-        new java.lang.String[] { "Id", });
     app.onepass.apis.CommonProto.getDescriptor();
     com.google.protobuf.EmptyProto.getDescriptor();
     com.google.protobuf.WrappersProto.getDescriptor();
