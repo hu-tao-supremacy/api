@@ -7,6 +7,9 @@ on:
       - "!gen/**"
       - "proto/**"
       - ".github/**"
+      - ".bazelignore"
+      - "WORKSPACE"
+      - "BUILD"
 jobs:
   generate:
     runs-on: ubuntu-latest
