@@ -26,9 +26,15 @@ export interface HasPermissionRequest {
   permissionName: Permission;
 }
 
+export interface GetUserByChulaIdRequest {
+  id: number;
+}
+
 export const HTS_ACCOUNT_PACKAGE_NAME = "hts.account";
 
 export interface AccountServiceClient {
+  getUserByChulaId(request: GetUserByChulaIdRequest): Observable<User>;
+
   isAuthenticated(request: IsAuthenticatedRequest): Observable<BoolValue>;
 
   updateAccountInfo(request: User): Observable<User>;
@@ -41,6 +47,10 @@ export interface AccountServiceClient {
 }
 
 export interface AccountServiceController {
+  getUserByChulaId(
+    request: GetUserByChulaIdRequest
+  ): Promise<User> | Observable<User> | User;
+
   isAuthenticated(
     request: IsAuthenticatedRequest
   ): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
@@ -64,6 +74,7 @@ export interface AccountServiceController {
 export function AccountServiceControllerMethods() {
   return function (constructor: Function) {
     const grpcMethods: string[] = [
+      "getUserByChulaId",
       "isAuthenticated",
       "updateAccountInfo",
       "generateAccessToken",
