@@ -65,17 +65,17 @@ class ParticipantServiceStub(object):
                 )
         self.GetEventsByTagId = channel.unary_unary(
                 '/hts.participant.ParticipantService/GetEventsByTagId',
-                request_serializer=hts_dot_participant_dot_service__pb2.GetObjectByIdRequest.SerializeToString,
+                request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
                 response_deserializer=hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
                 )
         self.GetEventsByOrganizationId = channel.unary_unary(
                 '/hts.participant.ParticipantService/GetEventsByOrganizationId',
-                request_serializer=hts_dot_participant_dot_service__pb2.GetObjectByIdRequest.SerializeToString,
+                request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
                 response_deserializer=hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
                 )
         self.GetEventsByFacilityId = channel.unary_unary(
                 '/hts.participant.ParticipantService/GetEventsByFacilityId',
-                request_serializer=hts_dot_participant_dot_service__pb2.GetObjectByIdRequest.SerializeToString,
+                request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
                 response_deserializer=hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
                 )
         self.GetEventsByDate = channel.unary_unary(
@@ -85,22 +85,22 @@ class ParticipantServiceStub(object):
                 )
         self.GetLocationById = channel.unary_unary(
                 '/hts.participant.ParticipantService/GetLocationById',
-                request_serializer=hts_dot_participant_dot_service__pb2.GetObjectByIdRequest.SerializeToString,
+                request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
                 response_deserializer=hts_dot_common_dot_common__pb2.Location.FromString,
                 )
         self.GetTagsFromEventId = channel.unary_unary(
                 '/hts.participant.ParticipantService/GetTagsFromEventId',
-                request_serializer=hts_dot_participant_dot_service__pb2.GetObjectByIdRequest.SerializeToString,
+                request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
                 response_deserializer=hts_dot_participant_dot_service__pb2.GetTagsFromEventIdResonse.FromString,
                 )
         self.GetRatingFromEventId = channel.unary_unary(
                 '/hts.participant.ParticipantService/GetRatingFromEventId',
-                request_serializer=hts_dot_participant_dot_service__pb2.GetObjectByIdRequest.SerializeToString,
+                request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
                 response_deserializer=hts_dot_participant_dot_service__pb2.GetRatingFromEventIdResponse.FromString,
                 )
         self.GetApprovedUserFromEventId = channel.unary_unary(
                 '/hts.participant.ParticipantService/GetApprovedUserFromEventId',
-                request_serializer=hts_dot_participant_dot_service__pb2.GetObjectByIdRequest.SerializeToString,
+                request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
                 response_deserializer=hts_dot_participant_dot_service__pb2.GetApprovedUserFromEventIdResponse.FromString,
                 )
         self.GenerateQR = channel.unary_unary(
@@ -282,17 +282,17 @@ def add_ParticipantServiceServicer_to_server(servicer, server):
             ),
             'GetEventsByTagId': grpc.unary_unary_rpc_method_handler(
                     servicer.GetEventsByTagId,
-                    request_deserializer=hts_dot_participant_dot_service__pb2.GetObjectByIdRequest.FromString,
+                    request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
                     response_serializer=hts_dot_participant_dot_service__pb2.EventsResponse.SerializeToString,
             ),
             'GetEventsByOrganizationId': grpc.unary_unary_rpc_method_handler(
                     servicer.GetEventsByOrganizationId,
-                    request_deserializer=hts_dot_participant_dot_service__pb2.GetObjectByIdRequest.FromString,
+                    request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
                     response_serializer=hts_dot_participant_dot_service__pb2.EventsResponse.SerializeToString,
             ),
             'GetEventsByFacilityId': grpc.unary_unary_rpc_method_handler(
                     servicer.GetEventsByFacilityId,
-                    request_deserializer=hts_dot_participant_dot_service__pb2.GetObjectByIdRequest.FromString,
+                    request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
                     response_serializer=hts_dot_participant_dot_service__pb2.EventsResponse.SerializeToString,
             ),
             'GetEventsByDate': grpc.unary_unary_rpc_method_handler(
@@ -302,22 +302,22 @@ def add_ParticipantServiceServicer_to_server(servicer, server):
             ),
             'GetLocationById': grpc.unary_unary_rpc_method_handler(
                     servicer.GetLocationById,
-                    request_deserializer=hts_dot_participant_dot_service__pb2.GetObjectByIdRequest.FromString,
+                    request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
                     response_serializer=hts_dot_common_dot_common__pb2.Location.SerializeToString,
             ),
             'GetTagsFromEventId': grpc.unary_unary_rpc_method_handler(
                     servicer.GetTagsFromEventId,
-                    request_deserializer=hts_dot_participant_dot_service__pb2.GetObjectByIdRequest.FromString,
+                    request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
                     response_serializer=hts_dot_participant_dot_service__pb2.GetTagsFromEventIdResonse.SerializeToString,
             ),
             'GetRatingFromEventId': grpc.unary_unary_rpc_method_handler(
                     servicer.GetRatingFromEventId,
-                    request_deserializer=hts_dot_participant_dot_service__pb2.GetObjectByIdRequest.FromString,
+                    request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
                     response_serializer=hts_dot_participant_dot_service__pb2.GetRatingFromEventIdResponse.SerializeToString,
             ),
             'GetApprovedUserFromEventId': grpc.unary_unary_rpc_method_handler(
                     servicer.GetApprovedUserFromEventId,
-                    request_deserializer=hts_dot_participant_dot_service__pb2.GetObjectByIdRequest.FromString,
+                    request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
                     response_serializer=hts_dot_participant_dot_service__pb2.GetApprovedUserFromEventIdResponse.SerializeToString,
             ),
             'GenerateQR': grpc.unary_unary_rpc_method_handler(
@@ -505,7 +505,7 @@ class ParticipantService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetEventsByTagId',
-            hts_dot_participant_dot_service__pb2.GetObjectByIdRequest.SerializeToString,
+            hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
             hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -522,7 +522,7 @@ class ParticipantService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetEventsByOrganizationId',
-            hts_dot_participant_dot_service__pb2.GetObjectByIdRequest.SerializeToString,
+            hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
             hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -539,7 +539,7 @@ class ParticipantService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetEventsByFacilityId',
-            hts_dot_participant_dot_service__pb2.GetObjectByIdRequest.SerializeToString,
+            hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
             hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -573,7 +573,7 @@ class ParticipantService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetLocationById',
-            hts_dot_participant_dot_service__pb2.GetObjectByIdRequest.SerializeToString,
+            hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
             hts_dot_common_dot_common__pb2.Location.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -590,7 +590,7 @@ class ParticipantService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetTagsFromEventId',
-            hts_dot_participant_dot_service__pb2.GetObjectByIdRequest.SerializeToString,
+            hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
             hts_dot_participant_dot_service__pb2.GetTagsFromEventIdResonse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -607,7 +607,7 @@ class ParticipantService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetRatingFromEventId',
-            hts_dot_participant_dot_service__pb2.GetObjectByIdRequest.SerializeToString,
+            hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
             hts_dot_participant_dot_service__pb2.GetRatingFromEventIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -624,7 +624,7 @@ class ParticipantService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetApprovedUserFromEventId',
-            hts_dot_participant_dot_service__pb2.GetObjectByIdRequest.SerializeToString,
+            hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
             hts_dot_participant_dot_service__pb2.GetApprovedUserFromEventIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
