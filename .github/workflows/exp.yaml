@@ -9,7 +9,6 @@ on:
       - ".github/**"
       - ".bazelignore"
       - "WORKSPACE"
-      - "Makefile"
       - "BUILD"
 jobs:
   generate:
