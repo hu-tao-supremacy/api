@@ -1,0 +1,2 @@
+bazel/rules/requirements/node_modules
+bazel/gql/requirements/node_modules
