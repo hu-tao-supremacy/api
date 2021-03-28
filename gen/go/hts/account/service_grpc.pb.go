@@ -21,6 +21,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AccountServiceClient interface {
+	GetUserByChulaId(ctx context.Context, in *GetUserByChulaIdRequest, opts ...grpc.CallOption) (*common.User, error)
 	IsAuthenticated(ctx context.Context, in *IsAuthenticatedRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 	UpdateAccountInfo(ctx context.Context, in *common.User, opts ...grpc.CallOption) (*common.User, error)
 	GenerateAccessToken(ctx context.Context, in *common.User, opts ...grpc.CallOption) (*GenerateAccessTokenResponse, error)
@@ -34,6 +35,15 @@ type accountServiceClient struct {
 
 func NewAccountServiceClient(cc grpc.ClientConnInterface) AccountServiceClient {
 	return &accountServiceClient{cc}
+}
+
+func (c *accountServiceClient) GetUserByChulaId(ctx context.Context, in *GetUserByChulaIdRequest, opts ...grpc.CallOption) (*common.User, error) {
+	out := new(common.User)
+	err := c.cc.Invoke(ctx, "/hts.account.AccountService/GetUserByChulaId", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *accountServiceClient) IsAuthenticated(ctx context.Context, in *IsAuthenticatedRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error) {
@@ -85,6 +95,7 @@ func (c *accountServiceClient) Ping(ctx context.Context, in *emptypb.Empty, opts
 // All implementations must embed UnimplementedAccountServiceServer
 // for forward compatibility
 type AccountServiceServer interface {
+	GetUserByChulaId(context.Context, *GetUserByChulaIdRequest) (*common.User, error)
 	IsAuthenticated(context.Context, *IsAuthenticatedRequest) (*wrapperspb.BoolValue, error)
 	UpdateAccountInfo(context.Context, *common.User) (*common.User, error)
 	GenerateAccessToken(context.Context, *common.User) (*GenerateAccessTokenResponse, error)
@@ -97,6 +108,9 @@ type AccountServiceServer interface {
 type UnimplementedAccountServiceServer struct {
 }
 
+func (UnimplementedAccountServiceServer) GetUserByChulaId(context.Context, *GetUserByChulaIdRequest) (*common.User, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserByChulaId not implemented")
+}
 func (UnimplementedAccountServiceServer) IsAuthenticated(context.Context, *IsAuthenticatedRequest) (*wrapperspb.BoolValue, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method IsAuthenticated not implemented")
 }
@@ -123,6 +137,24 @@ type UnsafeAccountServiceServer interface {
 
 func RegisterAccountServiceServer(s grpc.ServiceRegistrar, srv AccountServiceServer) {
 	s.RegisterService(&AccountService_ServiceDesc, srv)
+}
+
+func _AccountService_GetUserByChulaId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserByChulaIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountServiceServer).GetUserByChulaId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.account.AccountService/GetUserByChulaId",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountServiceServer).GetUserByChulaId(ctx, req.(*GetUserByChulaIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _AccountService_IsAuthenticated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -222,6 +254,10 @@ var AccountService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "hts.account.AccountService",
 	HandlerType: (*AccountServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetUserByChulaId",
+			Handler:    _AccountService_GetUserByChulaId_Handler,
+		},
 		{
 			MethodName: "IsAuthenticated",
 			Handler:    _AccountService_IsAuthenticated_Handler,
