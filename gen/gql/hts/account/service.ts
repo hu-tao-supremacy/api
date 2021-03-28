@@ -23,7 +23,12 @@ export interface HasPermissionRequest {
   permissionName: Permission;
 }
 
+export interface GetUserByChulaIdRequest {
+  id: number;
+}
+
 export interface AccountService {
+  GetUserByChulaId(request: GetUserByChulaIdRequest): Promise<User>;
   IsAuthenticated(
     request: IsAuthenticatedRequest
   ): Promise<boolean | undefined>;
