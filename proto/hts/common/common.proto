@@ -222,3 +222,7 @@ message Facility {
   repeated OperatingHour operating_hours = 6;
   string description = 7;
 }
+
+message GetObjectByIdRequest {
+  int64 id = 1;
+}
