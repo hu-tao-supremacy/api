@@ -219,3 +219,7 @@ export interface Facility {
   operatingHours: OperatingHour[];
   description: string;
 }
+
+export interface GetObjectByIdRequest {
+  id: number;
+}

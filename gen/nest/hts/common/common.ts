@@ -223,4 +223,8 @@ export interface Facility {
   description: string;
 }
 
+export interface GetObjectByIdRequest {
+  id: number;
+}
+
 export const HTS_COMMON_PACKAGE_NAME = "hts.common";

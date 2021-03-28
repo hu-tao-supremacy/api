@@ -6,6 +6,7 @@ import {
   User,
   UserEvent,
   Location,
+  GetObjectByIdRequest,
 } from "../../hts/common/common";
 import { Empty } from "../../google/protobuf/empty";
 
@@ -54,10 +55,6 @@ export interface IsEventAvailableRequest {
 export interface GetUpcomingEventsRequest {
   start: Date | undefined;
   end: Date | undefined;
-}
-
-export interface GetObjectByIdRequest {
-  id: number;
 }
 
 export interface GenerateQRRequest {
