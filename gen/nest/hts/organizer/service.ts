@@ -90,14 +90,24 @@ export interface HasEventRequest {
   eventId: number;
 }
 
-export interface QuestionGroupsRequest {
+export interface AddQuestionGroupsRequest {
   userId: number;
   questionGroups: QuestionGroup[];
 }
 
-export interface QuestionsRequest {
+export interface RemoveQuestionGroupsRequest {
+  userId: number;
+  questionGroupIds: number[];
+}
+
+export interface AddQuestionsRequest {
   userId: number;
   questions: Question[];
+}
+
+export interface RemoveQuestionsRequest {
+  userId: number;
+  questionIds: number[];
 }
 
 export interface GetOrganizationsResponse {
@@ -175,17 +185,17 @@ export interface OrganizerServiceClient {
     request: GetByIdRequest
   ): Observable<GetQuestionGroupsByEventIdResponse>;
 
-  addQuestionGroups(request: QuestionGroupsRequest): Observable<Empty>;
+  addQuestionGroups(request: AddQuestionGroupsRequest): Observable<Empty>;
 
-  removeQuestionGroups(request: QuestionGroupsRequest): Observable<Empty>;
+  removeQuestionGroups(request: RemoveQuestionGroupsRequest): Observable<Empty>;
 
   getQuestionsByGroupId(
     request: GetByIdRequest
   ): Observable<GetQuestionsByGroupIdResponse>;
 
-  addQuestions(request: QuestionsRequest): Observable<Empty>;
+  addQuestions(request: AddQuestionsRequest): Observable<Empty>;
 
-  removeQuestions(request: QuestionsRequest): Observable<Empty>;
+  removeQuestions(request: RemoveQuestionsRequest): Observable<Empty>;
 
   ping(request: Empty): Observable<BoolValue>;
 }
@@ -253,9 +263,9 @@ export interface OrganizerServiceController {
     | Observable<GetQuestionGroupsByEventIdResponse>
     | GetQuestionGroupsByEventIdResponse;
 
-  addQuestionGroups(request: QuestionGroupsRequest): void;
+  addQuestionGroups(request: AddQuestionGroupsRequest): void;
 
-  removeQuestionGroups(request: QuestionGroupsRequest): void;
+  removeQuestionGroups(request: RemoveQuestionGroupsRequest): void;
 
   getQuestionsByGroupId(
     request: GetByIdRequest
@@ -264,9 +274,9 @@ export interface OrganizerServiceController {
     | Observable<GetQuestionsByGroupIdResponse>
     | GetQuestionsByGroupIdResponse;
 
-  addQuestions(request: QuestionsRequest): void;
+  addQuestions(request: AddQuestionsRequest): void;
 
-  removeQuestions(request: QuestionsRequest): void;
+  removeQuestions(request: RemoveQuestionsRequest): void;
 
   ping(request: Empty): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
 }

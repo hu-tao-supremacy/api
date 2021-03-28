@@ -86,14 +86,24 @@ export interface HasEventRequest {
   eventId: number;
 }
 
-export interface QuestionGroupsRequest {
+export interface AddQuestionGroupsRequest {
   userId: number;
   questionGroups: QuestionGroup[];
 }
 
-export interface QuestionsRequest {
+export interface RemoveQuestionGroupsRequest {
+  userId: number;
+  questionGroupIds: number[];
+}
+
+export interface AddQuestionsRequest {
   userId: number;
   questions: Question[];
+}
+
+export interface RemoveQuestionsRequest {
+  userId: number;
+  questionIds: number[];
 }
 
 export interface GetOrganizationsResponse {
@@ -150,12 +160,12 @@ export interface OrganizerService {
   GetQuestionGroupsByEventId(
     request: GetByIdRequest
   ): Promise<GetQuestionGroupsByEventIdResponse>;
-  AddQuestionGroups(request: QuestionGroupsRequest): Promise<Empty>;
-  RemoveQuestionGroups(request: QuestionGroupsRequest): Promise<Empty>;
+  AddQuestionGroups(request: AddQuestionGroupsRequest): Promise<Empty>;
+  RemoveQuestionGroups(request: RemoveQuestionGroupsRequest): Promise<Empty>;
   GetQuestionsByGroupId(
     request: GetByIdRequest
   ): Promise<GetQuestionsByGroupIdResponse>;
-  AddQuestions(request: QuestionsRequest): Promise<Empty>;
-  RemoveQuestions(request: QuestionsRequest): Promise<Empty>;
+  AddQuestions(request: AddQuestionsRequest): Promise<Empty>;
+  RemoveQuestions(request: RemoveQuestionsRequest): Promise<Empty>;
   Ping(request: Empty): Promise<boolean | undefined>;
 }
