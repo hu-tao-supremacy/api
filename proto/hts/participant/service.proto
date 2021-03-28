@@ -57,11 +57,6 @@ message GetUpcomingEventsRequest {
     google.protobuf.Timestamp end = 2;
 }
 
-
-message GetObjectByIdRequest {
-    int64 id = 1;
-}
-
 message GenerateQRRequest {
     int64 user_event_id = 1;
     int64 user_id = 2;
@@ -103,20 +98,20 @@ service ParticipantService {
     // Get events from search string
     rpc GetEventsByStringOfName(StringInputRequest) returns (EventsResponse);
     // Get events from specified Tag
-    rpc GetEventsByTagId(GetObjectByIdRequest) returns (EventsResponse);
+    rpc GetEventsByTagId(hts.common.GetObjectByIdRequest) returns (EventsResponse);
     // Get event from specified organization
-    rpc GetEventsByOrganizationId(GetObjectByIdRequest) returns (EventsResponse);
+    rpc GetEventsByOrganizationId(hts.common.GetObjectByIdRequest) returns (EventsResponse);
     // Get event from specified facility
-    rpc GetEventsByFacilityId(GetObjectByIdRequest) returns (EventsResponse);
+    rpc GetEventsByFacilityId(hts.common.GetObjectByIdRequest) returns (EventsResponse);
     // Get event from specified date
     rpc GetEventsByDate(google.protobuf.Timestamp) returns (EventsResponse);
 
     // Get location by location_id
-    rpc GetLocationById(GetObjectByIdRequest) returns (hts.common.Location);
+    rpc GetLocationById(hts.common.GetObjectByIdRequest) returns (hts.common.Location);
 
-    rpc GetTagsFromEventId(GetObjectByIdRequest) returns (GetTagsFromEventIdResonse);
-    rpc GetRatingFromEventId(GetObjectByIdRequest) returns (GetRatingFromEventIdResponse);
-    rpc GetApprovedUserFromEventId(GetObjectByIdRequest) returns (GetApprovedUserFromEventIdResponse);
+    rpc GetTagsFromEventId(hts.common.GetObjectByIdRequest) returns (GetTagsFromEventIdResonse);
+    rpc GetRatingFromEventId(hts.common.GetObjectByIdRequest) returns (GetRatingFromEventIdResponse);
+    rpc GetApprovedUserFromEventId(hts.common.GetObjectByIdRequest) returns (GetApprovedUserFromEventIdResponse);
 
     // Generate QR from combination of ID, User_ID, Event_ID
     rpc GenerateQR(GenerateQRRequest) returns (GenerateQRResponse);
