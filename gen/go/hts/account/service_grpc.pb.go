@@ -24,7 +24,7 @@ type AccountServiceClient interface {
 	GetUserByChulaId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*common.User, error)
 	IsAuthenticated(ctx context.Context, in *IsAuthenticatedRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 	UpdateAccountInfo(ctx context.Context, in *common.User, opts ...grpc.CallOption) (*common.User, error)
-	GenerateAccessToken(ctx context.Context, in *common.User, opts ...grpc.CallOption) (*GenerateAccessTokenResponse, error)
+	GenerateAccessToken(ctx context.Context, in *GenerateAccessTokenRequest, opts ...grpc.CallOption) (*GenerateAccessTokenResponse, error)
 	HasPermission(ctx context.Context, in *HasPermissionRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 	Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 }
@@ -64,7 +64,7 @@ func (c *accountServiceClient) UpdateAccountInfo(ctx context.Context, in *common
 	return out, nil
 }
 
-func (c *accountServiceClient) GenerateAccessToken(ctx context.Context, in *common.User, opts ...grpc.CallOption) (*GenerateAccessTokenResponse, error) {
+func (c *accountServiceClient) GenerateAccessToken(ctx context.Context, in *GenerateAccessTokenRequest, opts ...grpc.CallOption) (*GenerateAccessTokenResponse, error) {
 	out := new(GenerateAccessTokenResponse)
 	err := c.cc.Invoke(ctx, "/hts.account.AccountService/GenerateAccessToken", in, out, opts...)
 	if err != nil {
@@ -98,7 +98,7 @@ type AccountServiceServer interface {
 	GetUserByChulaId(context.Context, *common.GetObjectByIdRequest) (*common.User, error)
 	IsAuthenticated(context.Context, *IsAuthenticatedRequest) (*wrapperspb.BoolValue, error)
 	UpdateAccountInfo(context.Context, *common.User) (*common.User, error)
-	GenerateAccessToken(context.Context, *common.User) (*GenerateAccessTokenResponse, error)
+	GenerateAccessToken(context.Context, *GenerateAccessTokenRequest) (*GenerateAccessTokenResponse, error)
 	HasPermission(context.Context, *HasPermissionRequest) (*wrapperspb.BoolValue, error)
 	Ping(context.Context, *emptypb.Empty) (*wrapperspb.BoolValue, error)
 	mustEmbedUnimplementedAccountServiceServer()
@@ -117,7 +117,7 @@ func (UnimplementedAccountServiceServer) IsAuthenticated(context.Context, *IsAut
 func (UnimplementedAccountServiceServer) UpdateAccountInfo(context.Context, *common.User) (*common.User, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateAccountInfo not implemented")
 }
-func (UnimplementedAccountServiceServer) GenerateAccessToken(context.Context, *common.User) (*GenerateAccessTokenResponse, error) {
+func (UnimplementedAccountServiceServer) GenerateAccessToken(context.Context, *GenerateAccessTokenRequest) (*GenerateAccessTokenResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateAccessToken not implemented")
 }
 func (UnimplementedAccountServiceServer) HasPermission(context.Context, *HasPermissionRequest) (*wrapperspb.BoolValue, error) {
@@ -194,7 +194,7 @@ func _AccountService_UpdateAccountInfo_Handler(srv interface{}, ctx context.Cont
 }
 
 func _AccountService_GenerateAccessToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(common.User)
+	in := new(GenerateAccessTokenRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -206,7 +206,7 @@ func _AccountService_GenerateAccessToken_Handler(srv interface{}, ctx context.Co
 		FullMethod: "/hts.account.AccountService/GenerateAccessToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountServiceServer).GenerateAccessToken(ctx, req.(*common.User))
+		return srv.(AccountServiceServer).GenerateAccessToken(ctx, req.(*GenerateAccessTokenRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
