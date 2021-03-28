@@ -25,6 +25,11 @@ public final class AccountProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hts_account_IsAuthenticatedRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_account_GenerateAccessTokenRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_account_GenerateAccessTokenRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_hts_account_GenerateAccessTokenResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -49,26 +54,28 @@ public final class AccountProto {
       ".proto\"C\n\022AccessTokenPayload\022\027\n\007user_id\030" +
       "\001 \001(\003R\006userId\022\024\n\005email\030\002 \001(\tR\005email\";\n\026I" +
       "sAuthenticatedRequest\022!\n\014access_token\030\001 " +
-      "\001(\tR\013accessToken\"@\n\033GenerateAccessTokenR" +
-      "esponse\022!\n\014access_token\030\001 \001(\tR\013accessTok" +
-      "en\"\231\001\n\024HasPermissionRequest\022\027\n\007user_id\030\001" +
-      " \001(\003R\006userId\022\'\n\017organization_id\030\002 \001(\003R\016o" +
-      "rganizationId\022?\n\017permission_name\030\003 \001(\0162\026" +
-      ".hts.common.PermissionR\016permissionName2\304" +
-      "\003\n\016AccountService\022F\n\020GetUserByChulaId\022 ." +
-      "hts.common.GetObjectByIdRequest\032\020.hts.co" +
-      "mmon.User\022R\n\017IsAuthenticated\022#.hts.accou" +
-      "nt.IsAuthenticatedRequest\032\032.google.proto" +
-      "buf.BoolValue\0227\n\021UpdateAccountInfo\022\020.hts" +
-      ".common.User\032\020.hts.common.User\022Q\n\023Genera" +
-      "teAccessToken\022\020.hts.common.User\032(.hts.ac" +
-      "count.GenerateAccessTokenResponse\022N\n\rHas" +
-      "Permission\022!.hts.account.HasPermissionRe" +
-      "quest\032\032.google.protobuf.BoolValue\022:\n\004Pin" +
-      "g\022\026.google.protobuf.Empty\032\032.google.proto" +
-      "buf.BoolValueBD\n\020app.onepass.apisB\014Accou" +
-      "ntProtoP\001Z onepass.app/facility/hts/acco" +
-      "untb\006proto3"
+      "\001(\tR\013accessToken\"5\n\032GenerateAccessTokenR" +
+      "equest\022\027\n\007user_id\030\001 \001(\003R\006userId\"@\n\033Gener" +
+      "ateAccessTokenResponse\022!\n\014access_token\030\001" +
+      " \001(\tR\013accessToken\"\231\001\n\024HasPermissionReque" +
+      "st\022\027\n\007user_id\030\001 \001(\003R\006userId\022\'\n\017organizat" +
+      "ion_id\030\002 \001(\003R\016organizationId\022?\n\017permissi" +
+      "on_name\030\003 \001(\0162\026.hts.common.PermissionR\016p" +
+      "ermissionName2\333\003\n\016AccountService\022F\n\020GetU" +
+      "serByChulaId\022 .hts.common.GetObjectByIdR" +
+      "equest\032\020.hts.common.User\022R\n\017IsAuthentica" +
+      "ted\022#.hts.account.IsAuthenticatedRequest" +
+      "\032\032.google.protobuf.BoolValue\0227\n\021UpdateAc" +
+      "countInfo\022\020.hts.common.User\032\020.hts.common" +
+      ".User\022h\n\023GenerateAccessToken\022\'.hts.accou" +
+      "nt.GenerateAccessTokenRequest\032(.hts.acco" +
+      "unt.GenerateAccessTokenResponse\022N\n\rHasPe" +
+      "rmission\022!.hts.account.HasPermissionRequ" +
+      "est\032\032.google.protobuf.BoolValue\022:\n\004Ping\022" +
+      "\026.google.protobuf.Empty\032\032.google.protobu" +
+      "f.BoolValueBD\n\020app.onepass.apisB\014Account" +
+      "ProtoP\001Z onepass.app/facility/hts/accoun" +
+      "tb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -89,14 +96,20 @@ public final class AccountProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_account_IsAuthenticatedRequest_descriptor,
         new java.lang.String[] { "AccessToken", });
-    internal_static_hts_account_GenerateAccessTokenResponse_descriptor =
+    internal_static_hts_account_GenerateAccessTokenRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_hts_account_GenerateAccessTokenRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_account_GenerateAccessTokenRequest_descriptor,
+        new java.lang.String[] { "UserId", });
+    internal_static_hts_account_GenerateAccessTokenResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_hts_account_GenerateAccessTokenResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_account_GenerateAccessTokenResponse_descriptor,
         new java.lang.String[] { "AccessToken", });
     internal_static_hts_account_HasPermissionRequest_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_hts_account_HasPermissionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_account_HasPermissionRequest_descriptor,

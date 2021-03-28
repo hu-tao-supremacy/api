@@ -107,27 +107,27 @@ public final class AccountServiceGrpc {
     return getUpdateAccountInfoMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.User,
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GenerateAccessTokenRequest,
       app.onepass.apis.GenerateAccessTokenResponse> getGenerateAccessTokenMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "GenerateAccessToken",
-      requestType = app.onepass.apis.User.class,
+      requestType = app.onepass.apis.GenerateAccessTokenRequest.class,
       responseType = app.onepass.apis.GenerateAccessTokenResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<app.onepass.apis.User,
+  public static io.grpc.MethodDescriptor<app.onepass.apis.GenerateAccessTokenRequest,
       app.onepass.apis.GenerateAccessTokenResponse> getGenerateAccessTokenMethod() {
-    io.grpc.MethodDescriptor<app.onepass.apis.User, app.onepass.apis.GenerateAccessTokenResponse> getGenerateAccessTokenMethod;
+    io.grpc.MethodDescriptor<app.onepass.apis.GenerateAccessTokenRequest, app.onepass.apis.GenerateAccessTokenResponse> getGenerateAccessTokenMethod;
     if ((getGenerateAccessTokenMethod = AccountServiceGrpc.getGenerateAccessTokenMethod) == null) {
       synchronized (AccountServiceGrpc.class) {
         if ((getGenerateAccessTokenMethod = AccountServiceGrpc.getGenerateAccessTokenMethod) == null) {
           AccountServiceGrpc.getGenerateAccessTokenMethod = getGenerateAccessTokenMethod =
-              io.grpc.MethodDescriptor.<app.onepass.apis.User, app.onepass.apis.GenerateAccessTokenResponse>newBuilder()
+              io.grpc.MethodDescriptor.<app.onepass.apis.GenerateAccessTokenRequest, app.onepass.apis.GenerateAccessTokenResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GenerateAccessToken"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  app.onepass.apis.User.getDefaultInstance()))
+                  app.onepass.apis.GenerateAccessTokenRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.GenerateAccessTokenResponse.getDefaultInstance()))
               .setSchemaDescriptor(new AccountServiceMethodDescriptorSupplier("GenerateAccessToken"))
@@ -271,7 +271,7 @@ public final class AccountServiceGrpc {
 
     /**
      */
-    public void generateAccessToken(app.onepass.apis.User request,
+    public void generateAccessToken(app.onepass.apis.GenerateAccessTokenRequest request,
         io.grpc.stub.StreamObserver<app.onepass.apis.GenerateAccessTokenResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGenerateAccessTokenMethod(), responseObserver);
     }
@@ -317,7 +317,7 @@ public final class AccountServiceGrpc {
             getGenerateAccessTokenMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                app.onepass.apis.User,
+                app.onepass.apis.GenerateAccessTokenRequest,
                 app.onepass.apis.GenerateAccessTokenResponse>(
                   this, METHODID_GENERATE_ACCESS_TOKEN)))
           .addMethod(
@@ -378,7 +378,7 @@ public final class AccountServiceGrpc {
 
     /**
      */
-    public void generateAccessToken(app.onepass.apis.User request,
+    public void generateAccessToken(app.onepass.apis.GenerateAccessTokenRequest request,
         io.grpc.stub.StreamObserver<app.onepass.apis.GenerateAccessTokenResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGenerateAccessTokenMethod(), getCallOptions()), request, responseObserver);
@@ -438,7 +438,7 @@ public final class AccountServiceGrpc {
 
     /**
      */
-    public app.onepass.apis.GenerateAccessTokenResponse generateAccessToken(app.onepass.apis.User request) {
+    public app.onepass.apis.GenerateAccessTokenResponse generateAccessToken(app.onepass.apis.GenerateAccessTokenRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGenerateAccessTokenMethod(), getCallOptions(), request);
     }
@@ -499,7 +499,7 @@ public final class AccountServiceGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.GenerateAccessTokenResponse> generateAccessToken(
-        app.onepass.apis.User request) {
+        app.onepass.apis.GenerateAccessTokenRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getGenerateAccessTokenMethod(), getCallOptions()), request);
     }
@@ -558,7 +558,7 @@ public final class AccountServiceGrpc {
               (io.grpc.stub.StreamObserver<app.onepass.apis.User>) responseObserver);
           break;
         case METHODID_GENERATE_ACCESS_TOKEN:
-          serviceImpl.generateAccessToken((app.onepass.apis.User) request,
+          serviceImpl.generateAccessToken((app.onepass.apis.GenerateAccessTokenRequest) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.GenerateAccessTokenResponse>) responseObserver);
           break;
         case METHODID_HAS_PERMISSION:
