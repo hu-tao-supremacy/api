@@ -17,6 +17,10 @@ export interface IsAuthenticatedRequest {
   accessToken: string;
 }
 
+export interface GenerateAccessTokenRequest {
+  userId: number;
+}
+
 export interface GenerateAccessTokenResponse {
   accessToken: string;
 }
@@ -33,7 +37,9 @@ export interface AccountService {
     request: IsAuthenticatedRequest
   ): Promise<boolean | undefined>;
   UpdateAccountInfo(request: User): Promise<User>;
-  GenerateAccessToken(request: User): Promise<GenerateAccessTokenResponse>;
+  GenerateAccessToken(
+    request: GenerateAccessTokenRequest
+  ): Promise<GenerateAccessTokenResponse>;
   HasPermission(request: HasPermissionRequest): Promise<boolean | undefined>;
   Ping(request: Empty): Promise<boolean | undefined>;
 }
