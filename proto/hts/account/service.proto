@@ -30,12 +30,12 @@ message HasPermissionRequest {
   hts.common.Permission permission_name = 3;
 }
 
-message GetObjectByIdRequest {
+message GetUserByChulaIdRequest {
   int64 id = 1;
 }
 
 service AccountService {
-  rpc GetUserByChulaId(GetObjectByIdRequest) returns (hts.common.User);
+  rpc GetUserByChulaId(GetUserByChulaIdRequest) returns (hts.common.User);
   rpc IsAuthenticated(IsAuthenticatedRequest) returns (google.protobuf.BoolValue);
   rpc UpdateAccountInfo(hts.common.User) returns (hts.common.User);
   rpc GenerateAccessToken(hts.common.User) returns (GenerateAccessTokenResponse);
