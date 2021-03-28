@@ -8,25 +8,31 @@ public interface QuestionGroupsRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * @return The userId.
+   */
+  long getUserId();
+
+  /**
+   * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
    */
   java.util.List<app.onepass.apis.QuestionGroup> 
       getQuestionGroupsList();
   /**
-   * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+   * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
    */
   app.onepass.apis.QuestionGroup getQuestionGroups(int index);
   /**
-   * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+   * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
    */
   int getQuestionGroupsCount();
   /**
-   * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+   * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
    */
   java.util.List<? extends app.onepass.apis.QuestionGroupOrBuilder> 
       getQuestionGroupsOrBuilderList();
   /**
-   * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+   * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
    */
   app.onepass.apis.QuestionGroupOrBuilder getQuestionGroupsOrBuilder(
       int index);

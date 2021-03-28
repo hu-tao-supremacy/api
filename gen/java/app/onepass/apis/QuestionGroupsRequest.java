@@ -50,7 +50,12 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
+          case 8: {
+
+            userId_ = input.readInt64();
+            break;
+          }
+          case 18: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
               questionGroups_ = new java.util.ArrayList<app.onepass.apis.QuestionGroup>();
               mutable_bitField0_ |= 0x00000001;
@@ -94,17 +99,28 @@ private static final long serialVersionUID = 0L;
             app.onepass.apis.QuestionGroupsRequest.class, app.onepass.apis.QuestionGroupsRequest.Builder.class);
   }
 
-  public static final int QUESTION_GROUPS_FIELD_NUMBER = 1;
+  public static final int USER_ID_FIELD_NUMBER = 1;
+  private long userId_;
+  /**
+   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * @return The userId.
+   */
+  @java.lang.Override
+  public long getUserId() {
+    return userId_;
+  }
+
+  public static final int QUESTION_GROUPS_FIELD_NUMBER = 2;
   private java.util.List<app.onepass.apis.QuestionGroup> questionGroups_;
   /**
-   * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+   * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
    */
   @java.lang.Override
   public java.util.List<app.onepass.apis.QuestionGroup> getQuestionGroupsList() {
     return questionGroups_;
   }
   /**
-   * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+   * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
    */
   @java.lang.Override
   public java.util.List<? extends app.onepass.apis.QuestionGroupOrBuilder> 
@@ -112,21 +128,21 @@ private static final long serialVersionUID = 0L;
     return questionGroups_;
   }
   /**
-   * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+   * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
    */
   @java.lang.Override
   public int getQuestionGroupsCount() {
     return questionGroups_.size();
   }
   /**
-   * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+   * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
    */
   @java.lang.Override
   public app.onepass.apis.QuestionGroup getQuestionGroups(int index) {
     return questionGroups_.get(index);
   }
   /**
-   * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+   * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
    */
   @java.lang.Override
   public app.onepass.apis.QuestionGroupOrBuilder getQuestionGroupsOrBuilder(
@@ -148,8 +164,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (userId_ != 0L) {
+      output.writeInt64(1, userId_);
+    }
     for (int i = 0; i < questionGroups_.size(); i++) {
-      output.writeMessage(1, questionGroups_.get(i));
+      output.writeMessage(2, questionGroups_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -160,9 +179,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (userId_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(1, userId_);
+    }
     for (int i = 0; i < questionGroups_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, questionGroups_.get(i));
+        .computeMessageSize(2, questionGroups_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -179,6 +202,8 @@ private static final long serialVersionUID = 0L;
     }
     app.onepass.apis.QuestionGroupsRequest other = (app.onepass.apis.QuestionGroupsRequest) obj;
 
+    if (getUserId()
+        != other.getUserId()) return false;
     if (!getQuestionGroupsList()
         .equals(other.getQuestionGroupsList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -192,6 +217,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + USER_ID_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getUserId());
     if (getQuestionGroupsCount() > 0) {
       hash = (37 * hash) + QUESTION_GROUPS_FIELD_NUMBER;
       hash = (53 * hash) + getQuestionGroupsList().hashCode();
@@ -330,6 +358,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      userId_ = 0L;
+
       if (questionGroupsBuilder_ == null) {
         questionGroups_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -363,6 +393,7 @@ private static final long serialVersionUID = 0L;
     public app.onepass.apis.QuestionGroupsRequest buildPartial() {
       app.onepass.apis.QuestionGroupsRequest result = new app.onepass.apis.QuestionGroupsRequest(this);
       int from_bitField0_ = bitField0_;
+      result.userId_ = userId_;
       if (questionGroupsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           questionGroups_ = java.util.Collections.unmodifiableList(questionGroups_);
@@ -420,6 +451,9 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(app.onepass.apis.QuestionGroupsRequest other) {
       if (other == app.onepass.apis.QuestionGroupsRequest.getDefaultInstance()) return this;
+      if (other.getUserId() != 0L) {
+        setUserId(other.getUserId());
+      }
       if (questionGroupsBuilder_ == null) {
         if (!other.questionGroups_.isEmpty()) {
           if (questionGroups_.isEmpty()) {
@@ -476,6 +510,37 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
+    private long userId_ ;
+    /**
+     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * @return The userId.
+     */
+    @java.lang.Override
+    public long getUserId() {
+      return userId_;
+    }
+    /**
+     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * @param value The userId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUserId(long value) {
+      
+      userId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUserId() {
+      
+      userId_ = 0L;
+      onChanged();
+      return this;
+    }
+
     private java.util.List<app.onepass.apis.QuestionGroup> questionGroups_ =
       java.util.Collections.emptyList();
     private void ensureQuestionGroupsIsMutable() {
@@ -489,7 +554,7 @@ private static final long serialVersionUID = 0L;
         app.onepass.apis.QuestionGroup, app.onepass.apis.QuestionGroup.Builder, app.onepass.apis.QuestionGroupOrBuilder> questionGroupsBuilder_;
 
     /**
-     * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+     * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
      */
     public java.util.List<app.onepass.apis.QuestionGroup> getQuestionGroupsList() {
       if (questionGroupsBuilder_ == null) {
@@ -499,7 +564,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+     * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
      */
     public int getQuestionGroupsCount() {
       if (questionGroupsBuilder_ == null) {
@@ -509,7 +574,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+     * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
      */
     public app.onepass.apis.QuestionGroup getQuestionGroups(int index) {
       if (questionGroupsBuilder_ == null) {
@@ -519,7 +584,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+     * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
      */
     public Builder setQuestionGroups(
         int index, app.onepass.apis.QuestionGroup value) {
@@ -536,7 +601,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+     * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
      */
     public Builder setQuestionGroups(
         int index, app.onepass.apis.QuestionGroup.Builder builderForValue) {
@@ -550,7 +615,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+     * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
      */
     public Builder addQuestionGroups(app.onepass.apis.QuestionGroup value) {
       if (questionGroupsBuilder_ == null) {
@@ -566,7 +631,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+     * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
      */
     public Builder addQuestionGroups(
         int index, app.onepass.apis.QuestionGroup value) {
@@ -583,7 +648,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+     * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
      */
     public Builder addQuestionGroups(
         app.onepass.apis.QuestionGroup.Builder builderForValue) {
@@ -597,7 +662,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+     * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
      */
     public Builder addQuestionGroups(
         int index, app.onepass.apis.QuestionGroup.Builder builderForValue) {
@@ -611,7 +676,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+     * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
      */
     public Builder addAllQuestionGroups(
         java.lang.Iterable<? extends app.onepass.apis.QuestionGroup> values) {
@@ -626,7 +691,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+     * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
      */
     public Builder clearQuestionGroups() {
       if (questionGroupsBuilder_ == null) {
@@ -639,7 +704,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+     * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
      */
     public Builder removeQuestionGroups(int index) {
       if (questionGroupsBuilder_ == null) {
@@ -652,14 +717,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+     * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
      */
     public app.onepass.apis.QuestionGroup.Builder getQuestionGroupsBuilder(
         int index) {
       return getQuestionGroupsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+     * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
      */
     public app.onepass.apis.QuestionGroupOrBuilder getQuestionGroupsOrBuilder(
         int index) {
@@ -669,7 +734,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+     * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
      */
     public java.util.List<? extends app.onepass.apis.QuestionGroupOrBuilder> 
          getQuestionGroupsOrBuilderList() {
@@ -680,14 +745,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+     * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
      */
     public app.onepass.apis.QuestionGroup.Builder addQuestionGroupsBuilder() {
       return getQuestionGroupsFieldBuilder().addBuilder(
           app.onepass.apis.QuestionGroup.getDefaultInstance());
     }
     /**
-     * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+     * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
      */
     public app.onepass.apis.QuestionGroup.Builder addQuestionGroupsBuilder(
         int index) {
@@ -695,7 +760,7 @@ private static final long serialVersionUID = 0L;
           index, app.onepass.apis.QuestionGroup.getDefaultInstance());
     }
     /**
-     * <code>repeated .hts.common.QuestionGroup question_groups = 1 [json_name = "questionGroups"];</code>
+     * <code>repeated .hts.common.QuestionGroup question_groups = 2 [json_name = "questionGroups"];</code>
      */
     public java.util.List<app.onepass.apis.QuestionGroup.Builder> 
          getQuestionGroupsBuilderList() {
