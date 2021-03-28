@@ -8,25 +8,31 @@ public interface QuestionsRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .hts.common.Question questions = 1 [json_name = "questions"];</code>
+   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * @return The userId.
+   */
+  long getUserId();
+
+  /**
+   * <code>repeated .hts.common.Question questions = 2 [json_name = "questions"];</code>
    */
   java.util.List<app.onepass.apis.Question> 
       getQuestionsList();
   /**
-   * <code>repeated .hts.common.Question questions = 1 [json_name = "questions"];</code>
+   * <code>repeated .hts.common.Question questions = 2 [json_name = "questions"];</code>
    */
   app.onepass.apis.Question getQuestions(int index);
   /**
-   * <code>repeated .hts.common.Question questions = 1 [json_name = "questions"];</code>
+   * <code>repeated .hts.common.Question questions = 2 [json_name = "questions"];</code>
    */
   int getQuestionsCount();
   /**
-   * <code>repeated .hts.common.Question questions = 1 [json_name = "questions"];</code>
+   * <code>repeated .hts.common.Question questions = 2 [json_name = "questions"];</code>
    */
   java.util.List<? extends app.onepass.apis.QuestionOrBuilder> 
       getQuestionsOrBuilderList();
   /**
-   * <code>repeated .hts.common.Question questions = 1 [json_name = "questions"];</code>
+   * <code>repeated .hts.common.Question questions = 2 [json_name = "questions"];</code>
    */
   app.onepass.apis.QuestionOrBuilder getQuestionsOrBuilder(
       int index);
