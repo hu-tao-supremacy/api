@@ -224,42 +224,42 @@ public final class CommonProto {
       "ationPermission\022\016\n\002id\030\001 \001(\003R\002id\022\'\n\017organ" +
       "ization_id\030\002 \001(\003R\016organizationId\0226\n\nperm" +
       "ission\030\003 \001(\0162\026.hts.common.PermissionR\npe" +
-      "rmission\"w\n\016UserPermission\022\016\n\002id\030\001 \001(\003R\002" +
-      "id\022\027\n\007user_id\030\002 \001(\003R\006userId\022<\n\032organizat" +
-      "ion_permission_id\030\003 \001(\003R\030organizationPer" +
-      "missionId\"M\n\014UserInterest\022\016\n\002id\030\001 \001(\003R\002i" +
-      "d\022\026\n\006userId\030\002 \001(\003R\006userId\022\025\n\006tag_id\030\003 \001(" +
-      "\003R\005tagId\"\262\002\n\017FacilityRequest\022\016\n\002id\030\001 \001(\003" +
-      "R\002id\022\031\n\010event_id\030\002 \001(\003R\007eventId\022\037\n\013facil" +
-      "ity_id\030\003 \001(\003R\nfacilityId\022*\n\006status\030\004 \001(\016" +
-      "2\022.hts.common.StatusR\006status\022A\n\rreject_r" +
-      "eason\030\005 \001(\0132\034.google.protobuf.StringValu" +
-      "eR\014rejectReason\0220\n\005start\030\006 \001(\0132\032.google." +
-      "protobuf.TimestampR\005start\0222\n\006finish\030\007 \001(" +
-      "\0132\032.google.protobuf.TimestampR\006finish\"\367\001" +
-      "\n\010Facility\022\016\n\002id\030\001 \001(\003R\002id\022\'\n\017organizati" +
-      "on_id\030\002 \001(\003R\016organizationId\022\022\n\004name\030\003 \001(" +
-      "\tR\004name\022\032\n\010latitude\030\004 \001(\001R\010latitude\022\034\n\tl" +
-      "ongitude\030\005 \001(\001R\tlongitude\022B\n\017operating_h" +
-      "ours\030\006 \003(\0132\031.hts.common.OperatingHourR\016o" +
-      "peratingHours\022 \n\013description\030\007 \001(\tR\013desc" +
-      "ription\"&\n\024GetObjectByIdRequest\022\016\n\002id\030\001 " +
-      "\001(\003R\002id*J\n\tDayOfWeek\022\007\n\003SUN\020\000\022\007\n\003MON\020\001\022\007" +
-      "\n\003TUE\020\002\022\007\n\003WED\020\003\022\007\n\003THU\020\004\022\007\n\003FRI\020\005\022\007\n\003SA" +
-      "T\020\006*!\n\nAnswerType\022\t\n\005SCALE\020\000\022\010\n\004TEXT\020\001*2" +
-      "\n\021QuestionGroupType\022\r\n\tPRE_EVENT\020\000\022\016\n\nPO" +
-      "ST_EVENT\020\001*\036\n\006Gender\022\005\n\001M\020\000\022\005\n\001F\020\001\022\006\n\002NS" +
-      "\020\002*1\n\006Status\022\013\n\007PENDING\020\000\022\014\n\010APPROVED\020\001\022" +
-      "\014\n\010REJECTED\020\002*\246\002\n\nPermission\022\027\n\023ORGANIZA" +
-      "TION_UPDATE\020\000\022\027\n\023ORGANIZATION_REMOVE\020\001\022\033" +
-      "\n\027ORGANIZATION_MEMBER_ADD\020\002\022\036\n\032ORGANIZAT" +
-      "ION_MEMBER_REMOVE\020\003\022\020\n\014EVENT_CREATE\020\004\022\020\n" +
-      "\014EVENT_UPDATE\020\005\022\020\n\014EVENT_REMOVE\020\006\022\016\n\nTAG" +
-      "_CREATE\020\007\022\016\n\nTAG_REMOVE\020\010\022\024\n\020EVENT_TAG_U" +
-      "PDATE\020\t\022\023\n\017FACILITY_CREATE\020\n\022\023\n\017FACILITY" +
-      "_UPDATE\020\013\022\023\n\017FACILITY_REMOVE\020\014BB\n\020app.on" +
-      "epass.apisB\013CommonProtoP\001Z\037onepass.app/f" +
-      "acility/hts/commonb\006proto3"
+      "rmission\"z\n\016UserPermission\022\016\n\002id\030\001 \001(\003R\002" +
+      "id\022\027\n\007user_id\030\002 \001(\003R\006userId\022?\n\017permissio" +
+      "n_name\030\003 \001(\0162\026.hts.common.PermissionR\016pe" +
+      "rmissionName\"M\n\014UserInterest\022\016\n\002id\030\001 \001(\003" +
+      "R\002id\022\026\n\006userId\030\002 \001(\003R\006userId\022\025\n\006tag_id\030\003" +
+      " \001(\003R\005tagId\"\262\002\n\017FacilityRequest\022\016\n\002id\030\001 " +
+      "\001(\003R\002id\022\031\n\010event_id\030\002 \001(\003R\007eventId\022\037\n\013fa" +
+      "cility_id\030\003 \001(\003R\nfacilityId\022*\n\006status\030\004 " +
+      "\001(\0162\022.hts.common.StatusR\006status\022A\n\rrejec" +
+      "t_reason\030\005 \001(\0132\034.google.protobuf.StringV" +
+      "alueR\014rejectReason\0220\n\005start\030\006 \001(\0132\032.goog" +
+      "le.protobuf.TimestampR\005start\0222\n\006finish\030\007" +
+      " \001(\0132\032.google.protobuf.TimestampR\006finish" +
+      "\"\367\001\n\010Facility\022\016\n\002id\030\001 \001(\003R\002id\022\'\n\017organiz" +
+      "ation_id\030\002 \001(\003R\016organizationId\022\022\n\004name\030\003" +
+      " \001(\tR\004name\022\032\n\010latitude\030\004 \001(\001R\010latitude\022\034" +
+      "\n\tlongitude\030\005 \001(\001R\tlongitude\022B\n\017operatin" +
+      "g_hours\030\006 \003(\0132\031.hts.common.OperatingHour" +
+      "R\016operatingHours\022 \n\013description\030\007 \001(\tR\013d" +
+      "escription\"&\n\024GetObjectByIdRequest\022\016\n\002id" +
+      "\030\001 \001(\003R\002id*J\n\tDayOfWeek\022\007\n\003SUN\020\000\022\007\n\003MON\020" +
+      "\001\022\007\n\003TUE\020\002\022\007\n\003WED\020\003\022\007\n\003THU\020\004\022\007\n\003FRI\020\005\022\007\n" +
+      "\003SAT\020\006*!\n\nAnswerType\022\t\n\005SCALE\020\000\022\010\n\004TEXT\020" +
+      "\001*2\n\021QuestionGroupType\022\r\n\tPRE_EVENT\020\000\022\016\n" +
+      "\nPOST_EVENT\020\001*\036\n\006Gender\022\005\n\001M\020\000\022\005\n\001F\020\001\022\006\n" +
+      "\002NS\020\002*1\n\006Status\022\013\n\007PENDING\020\000\022\014\n\010APPROVED" +
+      "\020\001\022\014\n\010REJECTED\020\002*\246\002\n\nPermission\022\027\n\023ORGAN" +
+      "IZATION_UPDATE\020\000\022\027\n\023ORGANIZATION_REMOVE\020" +
+      "\001\022\033\n\027ORGANIZATION_MEMBER_ADD\020\002\022\036\n\032ORGANI" +
+      "ZATION_MEMBER_REMOVE\020\003\022\020\n\014EVENT_CREATE\020\004" +
+      "\022\020\n\014EVENT_UPDATE\020\005\022\020\n\014EVENT_REMOVE\020\006\022\016\n\n" +
+      "TAG_CREATE\020\007\022\016\n\nTAG_REMOVE\020\010\022\024\n\020EVENT_TA" +
+      "G_UPDATE\020\t\022\023\n\017FACILITY_CREATE\020\n\022\023\n\017FACIL" +
+      "ITY_UPDATE\020\013\022\023\n\017FACILITY_REMOVE\020\014BB\n\020app" +
+      ".onepass.apisB\013CommonProtoP\001Z\037onepass.ap" +
+      "p/facility/hts/commonb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -362,7 +362,7 @@ public final class CommonProto {
     internal_static_hts_common_UserPermission_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_common_UserPermission_descriptor,
-        new java.lang.String[] { "Id", "UserId", "OrganizationPermissionId", });
+        new java.lang.String[] { "Id", "UserId", "PermissionName", });
     internal_static_hts_common_UserInterest_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_hts_common_UserInterest_fieldAccessorTable = new
