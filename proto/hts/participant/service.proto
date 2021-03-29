@@ -76,7 +76,7 @@ message GetRatingByEventIdResponse {
 }
 
 message GetEventDurationByEventIdResponse {
-    repeated hts.common.EventDuration event_duration = 1;
+    repeated hts.common.EventDuration event_durations = 1;
 }
 
 service ParticipantService {
