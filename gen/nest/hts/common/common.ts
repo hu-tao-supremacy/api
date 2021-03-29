@@ -194,7 +194,7 @@ export interface OrganizationPermission {
 export interface UserPermission {
   id: number;
   userId: number;
-  organizationPermissionId: number;
+  permissionName: Permission;
 }
 
 export interface UserInterest {
