@@ -6,6 +6,7 @@ import {
   Event,
   Tag,
   User,
+  EventDuration,
   UserEvent,
   Location,
   GetObjectByIdRequest,
@@ -67,16 +68,20 @@ export interface GenerateQRRequest {
   eventId: number;
 }
 
-export interface GetTagsFromEventIdResonse {
+export interface GetTagsByEventIdResponse {
   tags: Tag[];
 }
 
-export interface GetApprovedUserFromEventIdResponse {
+export interface GetApprovedUserByEventIdResponse {
   users: User[];
 }
 
-export interface GetRatingFromEventIdResponse {
+export interface GetRatingByEventIdResponse {
   result: number[];
+}
+
+export interface GetEventDurationByEventIdResponse {
+  eventDurations: EventDuration[];
 }
 
 export const HTS_PARTICIPANT_PACKAGE_NAME = "hts.participant";
@@ -120,17 +125,21 @@ export interface ParticipantServiceClient {
 
   getLocationById(request: GetObjectByIdRequest): Observable<Location>;
 
-  getTagsFromEventId(
+  getTagsByEventId(
     request: GetObjectByIdRequest
-  ): Observable<GetTagsFromEventIdResonse>;
+  ): Observable<GetTagsByEventIdResponse>;
 
-  getRatingFromEventId(
+  getRatingByEventId(
     request: GetObjectByIdRequest
-  ): Observable<GetRatingFromEventIdResponse>;
+  ): Observable<GetRatingByEventIdResponse>;
 
-  getApprovedUserFromEventId(
+  getApprovedUserByEventId(
     request: GetObjectByIdRequest
-  ): Observable<GetApprovedUserFromEventIdResponse>;
+  ): Observable<GetApprovedUserByEventIdResponse>;
+
+  getEventDurationByEventId(
+    request: GetObjectByIdRequest
+  ): Observable<GetEventDurationByEventIdResponse>;
 
   generateQR(request: GenerateQRRequest): Observable<GenerateQRResponse>;
 
@@ -197,26 +206,33 @@ export interface ParticipantServiceController {
     request: GetObjectByIdRequest
   ): Promise<Location> | Observable<Location> | Location;
 
-  getTagsFromEventId(
+  getTagsByEventId(
     request: GetObjectByIdRequest
   ):
-    | Promise<GetTagsFromEventIdResonse>
-    | Observable<GetTagsFromEventIdResonse>
-    | GetTagsFromEventIdResonse;
+    | Promise<GetTagsByEventIdResponse>
+    | Observable<GetTagsByEventIdResponse>
+    | GetTagsByEventIdResponse;
 
-  getRatingFromEventId(
+  getRatingByEventId(
     request: GetObjectByIdRequest
   ):
-    | Promise<GetRatingFromEventIdResponse>
-    | Observable<GetRatingFromEventIdResponse>
-    | GetRatingFromEventIdResponse;
+    | Promise<GetRatingByEventIdResponse>
+    | Observable<GetRatingByEventIdResponse>
+    | GetRatingByEventIdResponse;
 
-  getApprovedUserFromEventId(
+  getApprovedUserByEventId(
     request: GetObjectByIdRequest
   ):
-    | Promise<GetApprovedUserFromEventIdResponse>
-    | Observable<GetApprovedUserFromEventIdResponse>
-    | GetApprovedUserFromEventIdResponse;
+    | Promise<GetApprovedUserByEventIdResponse>
+    | Observable<GetApprovedUserByEventIdResponse>
+    | GetApprovedUserByEventIdResponse;
+
+  getEventDurationByEventId(
+    request: GetObjectByIdRequest
+  ):
+    | Promise<GetEventDurationByEventIdResponse>
+    | Observable<GetEventDurationByEventIdResponse>
+    | GetEventDurationByEventIdResponse;
 
   generateQR(
     request: GenerateQRRequest
@@ -245,9 +261,10 @@ export function ParticipantServiceControllerMethods() {
       "getEventsByFacilityId",
       "getEventsByDate",
       "getLocationById",
-      "getTagsFromEventId",
-      "getRatingFromEventId",
-      "getApprovedUserFromEventId",
+      "getTagsByEventId",
+      "getRatingByEventId",
+      "getApprovedUserByEventId",
+      "getEventDurationByEventId",
       "generateQR",
       "ping",
     ];
