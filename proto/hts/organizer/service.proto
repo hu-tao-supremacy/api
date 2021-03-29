@@ -12,10 +12,6 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
 
-message GetByIdRequest {
-  int64 id = 1;
-}
-
 message Duration {
   google.protobuf.Timestamp start = 1;
   google.protobuf.Timestamp finish = 2;
@@ -134,7 +130,7 @@ message GetQuestionsByGroupIdResponse {
 service OrganizerService {
   rpc CreateOrganization(CreateOrganizationRequest) returns (google.protobuf.Empty);
   rpc GetOrganizations(google.protobuf.Empty) returns (GetOrganizationsResponse);
-  rpc GetOrganizationById(GetByIdRequest) returns (GetOrganizationByIdResponse);
+  rpc GetOrganizationById(hts.common.GetByObjectByIdRequest) returns (GetOrganizationByIdResponse);
   rpc UpdateOrganization(UpdateOrganizationRequest) returns (google.protobuf.Empty);
   rpc RemoveOrganization(RemoveOrganizationRequest) returns (google.protobuf.Empty);
   rpc AddUsersToOrganization(UpdateUsersInOrganizationRequest) returns (google.protobuf.Empty);
@@ -148,12 +144,12 @@ service OrganizerService {
   rpc AddTags(UpdateTagRequest) returns (google.protobuf.Empty);
   rpc RemoveTags(UpdateTagRequest) returns (google.protobuf.Empty);
   rpc GetTags(google.protobuf.Empty) returns (GetTagsResponse);
-  rpc GetTagById(GetByIdRequest) returns (GetTagByIdResponse);
+  rpc GetTagById(hts.common.GetByObjectByIdRequest) returns (GetTagByIdResponse);
   rpc HasEvent(HasEventRequest) returns (hts.common.Event);
-  rpc GetQuestionGroupsByEventId(GetByIdRequest) returns (GetQuestionGroupsByEventIdResponse);
+  rpc GetQuestionGroupsByEventId(hts.common.GetByObjectByIdRequest) returns (GetQuestionGroupsByEventIdResponse);
   rpc AddQuestionGroups(AddQuestionGroupsRequest) returns (google.protobuf.Empty);
   rpc RemoveQuestionGroups(RemoveQuestionGroupsRequest) returns (google.protobuf.Empty);
-  rpc GetQuestionsByGroupId(GetByIdRequest) returns (GetQuestionsByGroupIdResponse);
+  rpc GetQuestionsByGroupId(hts.common.GetByObjectByIdRequest) returns (GetQuestionsByGroupIdResponse);
   rpc AddQuestions(AddQuestionsRequest) returns (google.protobuf.Empty);
   rpc RemoveQuestions(RemoveQuestionsRequest) returns (google.protobuf.Empty);
   rpc Ping(google.protobuf.Empty) returns (google.protobuf.BoolValue);
