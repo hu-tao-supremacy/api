@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface GetApprovedUserFromEventIdResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.participant.GetApprovedUserFromEventIdResponse)
+public interface GetApprovedUserByEventIdResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.participant.GetApprovedUserByEventIdResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**
