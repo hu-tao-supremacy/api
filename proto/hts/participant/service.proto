@@ -63,7 +63,7 @@ message GenerateQRRequest {
     int64 event_id = 3;
 }
 
-message GetTagsByEventIdResonse {
+message GetTagsByEventIdResponse {
     repeated hts.common.Tag tags = 1;
 }
 
@@ -114,7 +114,7 @@ service ParticipantService {
     rpc GetLocationById(hts.common.GetObjectByIdRequest) returns (hts.common.Location);
 
     // Get Tags, Rating, Approved User, Durations from event_id
-    rpc GetTagsByEventId(hts.common.GetObjectByIdRequest) returns (GetTagsByEventIdResonse);
+    rpc GetTagsByEventId(hts.common.GetObjectByIdRequest) returns (GetTagsByEventIdResponse);
     rpc GetRatingByEventId(hts.common.GetObjectByIdRequest) returns (GetRatingByEventIdResponse);
     rpc GetApprovedUserByEventId(hts.common.GetObjectByIdRequest) returns (GetApprovedUserByEventIdResponse);
     rpc GetEventDurationByEventId(hts.common.GetObjectByIdRequest) returns (GetEventDurationByEventIdResponse);
