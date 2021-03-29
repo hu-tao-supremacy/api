@@ -194,7 +194,7 @@ message OrganizationPermission {
 message UserPermission {
   int64 id = 1;
   int64 user_id = 2;
-  int64 organization_permission_id = 3;
+  Permission permission_name = 3;
 }
 
 message UserInterest {

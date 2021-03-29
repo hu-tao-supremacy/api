@@ -20,8 +20,13 @@ public interface UserPermissionOrBuilder extends
   long getUserId();
 
   /**
-   * <code>int64 organization_permission_id = 3 [json_name = "organizationPermissionId"];</code>
-   * @return The organizationPermissionId.
+   * <code>.hts.common.Permission permission_name = 3 [json_name = "permissionName"];</code>
+   * @return The enum numeric value on the wire for permissionName.
    */
-  long getOrganizationPermissionId();
+  int getPermissionNameValue();
+  /**
+   * <code>.hts.common.Permission permission_name = 3 [json_name = "permissionName"];</code>
+   * @return The permissionName.
+   */
+  app.onepass.apis.Permission getPermissionName();
 }

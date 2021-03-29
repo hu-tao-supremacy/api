@@ -16,6 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private UserPermission() {
+    permissionName_ = 0;
   }
 
   @java.lang.Override
@@ -59,8 +60,9 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 24: {
+            int rawValue = input.readEnum();
 
-            organizationPermissionId_ = input.readInt64();
+            permissionName_ = rawValue;
             break;
           }
           default: {
@@ -117,15 +119,23 @@ private static final long serialVersionUID = 0L;
     return userId_;
   }
 
-  public static final int ORGANIZATION_PERMISSION_ID_FIELD_NUMBER = 3;
-  private long organizationPermissionId_;
+  public static final int PERMISSION_NAME_FIELD_NUMBER = 3;
+  private int permissionName_;
   /**
-   * <code>int64 organization_permission_id = 3 [json_name = "organizationPermissionId"];</code>
-   * @return The organizationPermissionId.
+   * <code>.hts.common.Permission permission_name = 3 [json_name = "permissionName"];</code>
+   * @return The enum numeric value on the wire for permissionName.
    */
-  @java.lang.Override
-  public long getOrganizationPermissionId() {
-    return organizationPermissionId_;
+  @java.lang.Override public int getPermissionNameValue() {
+    return permissionName_;
+  }
+  /**
+   * <code>.hts.common.Permission permission_name = 3 [json_name = "permissionName"];</code>
+   * @return The permissionName.
+   */
+  @java.lang.Override public app.onepass.apis.Permission getPermissionName() {
+    @SuppressWarnings("deprecation")
+    app.onepass.apis.Permission result = app.onepass.apis.Permission.valueOf(permissionName_);
+    return result == null ? app.onepass.apis.Permission.UNRECOGNIZED : result;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -148,8 +158,8 @@ private static final long serialVersionUID = 0L;
     if (userId_ != 0L) {
       output.writeInt64(2, userId_);
     }
-    if (organizationPermissionId_ != 0L) {
-      output.writeInt64(3, organizationPermissionId_);
+    if (permissionName_ != app.onepass.apis.Permission.ORGANIZATION_UPDATE.getNumber()) {
+      output.writeEnum(3, permissionName_);
     }
     unknownFields.writeTo(output);
   }
@@ -168,9 +178,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(2, userId_);
     }
-    if (organizationPermissionId_ != 0L) {
+    if (permissionName_ != app.onepass.apis.Permission.ORGANIZATION_UPDATE.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(3, organizationPermissionId_);
+        .computeEnumSize(3, permissionName_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -191,8 +201,7 @@ private static final long serialVersionUID = 0L;
         != other.getId()) return false;
     if (getUserId()
         != other.getUserId()) return false;
-    if (getOrganizationPermissionId()
-        != other.getOrganizationPermissionId()) return false;
+    if (permissionName_ != other.permissionName_) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -210,9 +219,8 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getUserId());
-    hash = (37 * hash) + ORGANIZATION_PERMISSION_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getOrganizationPermissionId());
+    hash = (37 * hash) + PERMISSION_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + permissionName_;
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -350,7 +358,7 @@ private static final long serialVersionUID = 0L;
 
       userId_ = 0L;
 
-      organizationPermissionId_ = 0L;
+      permissionName_ = 0;
 
       return this;
     }
@@ -380,7 +388,7 @@ private static final long serialVersionUID = 0L;
       app.onepass.apis.UserPermission result = new app.onepass.apis.UserPermission(this);
       result.id_ = id_;
       result.userId_ = userId_;
-      result.organizationPermissionId_ = organizationPermissionId_;
+      result.permissionName_ = permissionName_;
       onBuilt();
       return result;
     }
@@ -435,8 +443,8 @@ private static final long serialVersionUID = 0L;
       if (other.getUserId() != 0L) {
         setUserId(other.getUserId());
       }
-      if (other.getOrganizationPermissionId() != 0L) {
-        setOrganizationPermissionId(other.getOrganizationPermissionId());
+      if (other.permissionName_ != 0) {
+        setPermissionNameValue(other.getPermissionNameValue());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -529,33 +537,56 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long organizationPermissionId_ ;
+    private int permissionName_ = 0;
     /**
-     * <code>int64 organization_permission_id = 3 [json_name = "organizationPermissionId"];</code>
-     * @return The organizationPermissionId.
+     * <code>.hts.common.Permission permission_name = 3 [json_name = "permissionName"];</code>
+     * @return The enum numeric value on the wire for permissionName.
      */
-    @java.lang.Override
-    public long getOrganizationPermissionId() {
-      return organizationPermissionId_;
+    @java.lang.Override public int getPermissionNameValue() {
+      return permissionName_;
     }
     /**
-     * <code>int64 organization_permission_id = 3 [json_name = "organizationPermissionId"];</code>
-     * @param value The organizationPermissionId to set.
+     * <code>.hts.common.Permission permission_name = 3 [json_name = "permissionName"];</code>
+     * @param value The enum numeric value on the wire for permissionName to set.
      * @return This builder for chaining.
      */
-    public Builder setOrganizationPermissionId(long value) {
+    public Builder setPermissionNameValue(int value) {
       
-      organizationPermissionId_ = value;
+      permissionName_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 organization_permission_id = 3 [json_name = "organizationPermissionId"];</code>
+     * <code>.hts.common.Permission permission_name = 3 [json_name = "permissionName"];</code>
+     * @return The permissionName.
+     */
+    @java.lang.Override
+    public app.onepass.apis.Permission getPermissionName() {
+      @SuppressWarnings("deprecation")
+      app.onepass.apis.Permission result = app.onepass.apis.Permission.valueOf(permissionName_);
+      return result == null ? app.onepass.apis.Permission.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.hts.common.Permission permission_name = 3 [json_name = "permissionName"];</code>
+     * @param value The permissionName to set.
      * @return This builder for chaining.
      */
-    public Builder clearOrganizationPermissionId() {
+    public Builder setPermissionName(app.onepass.apis.Permission value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
       
-      organizationPermissionId_ = 0L;
+      permissionName_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.hts.common.Permission permission_name = 3 [json_name = "permissionName"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPermissionName() {
+      
+      permissionName_ = 0;
       onChanged();
       return this;
     }
