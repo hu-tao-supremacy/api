@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface GetRatingFromEventIdResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.participant.GetRatingFromEventIdResponse)
+public interface GetRatingByEventIdResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.participant.GetRatingByEventIdResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**
