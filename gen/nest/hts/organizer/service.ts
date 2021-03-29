@@ -7,6 +7,7 @@ import {
   Tag,
   QuestionGroup,
   Question,
+  GetObjectByIdRequest,
 } from "../../hts/common/common";
 import { Observable } from "rxjs";
 import { Timestamp } from "../../google/protobuf/timestamp";
@@ -14,10 +15,6 @@ import { Empty } from "../../google/protobuf/empty";
 import { BoolValue } from "../../google/protobuf/wrappers";
 
 export const protobufPackage = "hts.organizer";
-
-export interface GetByIdRequest {
-  id: number;
-}
 
 export interface Duration {
   start: Timestamp | undefined;
@@ -142,7 +139,7 @@ export interface OrganizerServiceClient {
   getOrganizations(request: Empty): Observable<GetOrganizationsResponse>;
 
   getOrganizationById(
-    request: GetByIdRequest
+    request: GetObjectByIdRequest
   ): Observable<GetOrganizationByIdResponse>;
 
   updateOrganization(request: UpdateOrganizationRequest): Observable<Empty>;
@@ -177,12 +174,12 @@ export interface OrganizerServiceClient {
 
   getTags(request: Empty): Observable<GetTagsResponse>;
 
-  getTagById(request: GetByIdRequest): Observable<GetTagByIdResponse>;
+  getTagById(request: GetObjectByIdRequest): Observable<GetTagByIdResponse>;
 
   hasEvent(request: HasEventRequest): Observable<Event>;
 
   getQuestionGroupsByEventId(
-    request: GetByIdRequest
+    request: GetObjectByIdRequest
   ): Observable<GetQuestionGroupsByEventIdResponse>;
 
   addQuestionGroups(request: AddQuestionGroupsRequest): Observable<Empty>;
@@ -190,7 +187,7 @@ export interface OrganizerServiceClient {
   removeQuestionGroups(request: RemoveQuestionGroupsRequest): Observable<Empty>;
 
   getQuestionsByGroupId(
-    request: GetByIdRequest
+    request: GetObjectByIdRequest
   ): Observable<GetQuestionsByGroupIdResponse>;
 
   addQuestions(request: AddQuestionsRequest): Observable<Empty>;
@@ -211,7 +208,7 @@ export interface OrganizerServiceController {
     | GetOrganizationsResponse;
 
   getOrganizationById(
-    request: GetByIdRequest
+    request: GetObjectByIdRequest
   ):
     | Promise<GetOrganizationByIdResponse>
     | Observable<GetOrganizationByIdResponse>
@@ -246,7 +243,7 @@ export interface OrganizerServiceController {
   ): Promise<GetTagsResponse> | Observable<GetTagsResponse> | GetTagsResponse;
 
   getTagById(
-    request: GetByIdRequest
+    request: GetObjectByIdRequest
   ):
     | Promise<GetTagByIdResponse>
     | Observable<GetTagByIdResponse>
@@ -257,7 +254,7 @@ export interface OrganizerServiceController {
   ): Promise<Event> | Observable<Event> | Event;
 
   getQuestionGroupsByEventId(
-    request: GetByIdRequest
+    request: GetObjectByIdRequest
   ):
     | Promise<GetQuestionGroupsByEventIdResponse>
     | Observable<GetQuestionGroupsByEventIdResponse>
@@ -268,7 +265,7 @@ export interface OrganizerServiceController {
   removeQuestionGroups(request: RemoveQuestionGroupsRequest): void;
 
   getQuestionsByGroupId(
-    request: GetByIdRequest
+    request: GetObjectByIdRequest
   ):
     | Promise<GetQuestionsByGroupIdResponse>
     | Observable<GetQuestionsByGroupIdResponse>

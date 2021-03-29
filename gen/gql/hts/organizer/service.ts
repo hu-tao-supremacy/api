@@ -6,14 +6,11 @@ import {
   Tag,
   QuestionGroup,
   Question,
+  GetObjectByIdRequest,
 } from "../../hts/common/common";
 import { Empty } from "../../google/protobuf/empty";
 
 export const protobufPackage = "hts.organizer";
-
-export interface GetByIdRequest {
-  id: number;
-}
 
 export interface Duration {
   start: Date | undefined;
@@ -134,7 +131,7 @@ export interface OrganizerService {
   CreateOrganization(request: CreateOrganizationRequest): Promise<Empty>;
   GetOrganizations(request: Empty): Promise<GetOrganizationsResponse>;
   GetOrganizationById(
-    request: GetByIdRequest
+    request: GetObjectByIdRequest
   ): Promise<GetOrganizationByIdResponse>;
   UpdateOrganization(request: UpdateOrganizationRequest): Promise<Empty>;
   RemoveOrganization(request: RemoveOrganizationRequest): Promise<Empty>;
@@ -155,15 +152,15 @@ export interface OrganizerService {
   AddTags(request: UpdateTagRequest): Promise<Empty>;
   RemoveTags(request: UpdateTagRequest): Promise<Empty>;
   GetTags(request: Empty): Promise<GetTagsResponse>;
-  GetTagById(request: GetByIdRequest): Promise<GetTagByIdResponse>;
+  GetTagById(request: GetObjectByIdRequest): Promise<GetTagByIdResponse>;
   HasEvent(request: HasEventRequest): Promise<Event>;
   GetQuestionGroupsByEventId(
-    request: GetByIdRequest
+    request: GetObjectByIdRequest
   ): Promise<GetQuestionGroupsByEventIdResponse>;
   AddQuestionGroups(request: AddQuestionGroupsRequest): Promise<Empty>;
   RemoveQuestionGroups(request: RemoveQuestionGroupsRequest): Promise<Empty>;
   GetQuestionsByGroupId(
-    request: GetByIdRequest
+    request: GetObjectByIdRequest
   ): Promise<GetQuestionsByGroupIdResponse>;
   AddQuestions(request: AddQuestionsRequest): Promise<Empty>;
   RemoveQuestions(request: RemoveQuestionsRequest): Promise<Empty>;
