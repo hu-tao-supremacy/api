@@ -75,7 +75,7 @@ message GetRatingByEventIdResponse {
     repeated int64 result = 1;
 }
 
-message GetEventDurationByEventIdResponse {
+message GetEventDurationsByEventIdResponse {
     repeated hts.common.EventDuration event_durations = 1;
 }
 
@@ -134,13 +134,12 @@ service ParticipantService {
     rpc GetTagsByEventId(hts.common.GetObjectByIdRequest) returns (GetTagsByEventIdResponse);
     rpc GetRatingByEventId(hts.common.GetObjectByIdRequest) returns (GetRatingByEventIdResponse);
     rpc GetApprovedUserByEventId(hts.common.GetObjectByIdRequest) returns (GetApprovedUserByEventIdResponse);
-    rpc GetEventDurationByEventId(hts.common.GetObjectByIdRequest) returns (GetEventDurationByEventIdResponse);
+    rpc GetEventDurationsByEventId(hts.common.GetObjectByIdRequest) returns (GetEventDurationsByEventIdResponse);
 
     // Get Questions
     rpc GetQuestionGroupsByEventId(hts.common.GetObjectByIdRequest) returns (GetQuestionGroupsByEventIdResponse);
     rpc GetQuestionsByQuestionGroupId(hts.common.GetObjectByIdRequest) returns (GetQuestionsByQuestionGroupIdResponse);
     rpc GetAnswersByQuestionId(hts.common.GetObjectByIdRequest) returns (GetAnswersByQuestionIdResponse);
-    rpc GetUserAnswersByQuestionId(GetUserAnswersByQuestionIdRequest) returns (GetAnswersByQuestionIdResponse);
 
     // Generate QR from combination of ID, User_ID, Event_ID
     rpc GenerateQR(GenerateQRRequest) returns (GenerateQRResponse);
