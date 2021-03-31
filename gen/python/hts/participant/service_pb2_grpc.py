@@ -103,10 +103,25 @@ class ParticipantServiceStub(object):
                 request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
                 response_deserializer=hts_dot_participant_dot_service__pb2.GetApprovedUserByEventIdResponse.FromString,
                 )
-        self.GetEventDurationByEventId = channel.unary_unary(
-                '/hts.participant.ParticipantService/GetEventDurationByEventId',
+        self.GetEventDurationsByEventId = channel.unary_unary(
+                '/hts.participant.ParticipantService/GetEventDurationsByEventId',
                 request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
-                response_deserializer=hts_dot_participant_dot_service__pb2.GetEventDurationByEventIdResponse.FromString,
+                response_deserializer=hts_dot_participant_dot_service__pb2.GetEventDurationsByEventIdResponse.FromString,
+                )
+        self.GetQuestionGroupsByEventId = channel.unary_unary(
+                '/hts.participant.ParticipantService/GetQuestionGroupsByEventId',
+                request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
+                response_deserializer=hts_dot_participant_dot_service__pb2.GetQuestionGroupsByEventIdResponse.FromString,
+                )
+        self.GetQuestionsByQuestionGroupId = channel.unary_unary(
+                '/hts.participant.ParticipantService/GetQuestionsByQuestionGroupId',
+                request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
+                response_deserializer=hts_dot_participant_dot_service__pb2.GetQuestionsByQuestionGroupIdResponse.FromString,
+                )
+        self.GetAnswersByQuestionId = channel.unary_unary(
+                '/hts.participant.ParticipantService/GetAnswersByQuestionId',
+                request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
+                response_deserializer=hts_dot_participant_dot_service__pb2.GetAnswersByQuestionIdResponse.FromString,
                 )
         self.GenerateQR = channel.unary_unary(
                 '/hts.participant.ParticipantService/GenerateQR',
@@ -225,7 +240,25 @@ class ParticipantServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetEventDurationByEventId(self, request, context):
+    def GetEventDurationsByEventId(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetQuestionGroupsByEventId(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetQuestionsByQuestionGroupId(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAnswersByQuestionId(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -331,10 +364,25 @@ def add_ParticipantServiceServicer_to_server(servicer, server):
                     request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
                     response_serializer=hts_dot_participant_dot_service__pb2.GetApprovedUserByEventIdResponse.SerializeToString,
             ),
-            'GetEventDurationByEventId': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetEventDurationByEventId,
+            'GetEventDurationsByEventId': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetEventDurationsByEventId,
                     request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
-                    response_serializer=hts_dot_participant_dot_service__pb2.GetEventDurationByEventIdResponse.SerializeToString,
+                    response_serializer=hts_dot_participant_dot_service__pb2.GetEventDurationsByEventIdResponse.SerializeToString,
+            ),
+            'GetQuestionGroupsByEventId': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetQuestionGroupsByEventId,
+                    request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
+                    response_serializer=hts_dot_participant_dot_service__pb2.GetQuestionGroupsByEventIdResponse.SerializeToString,
+            ),
+            'GetQuestionsByQuestionGroupId': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetQuestionsByQuestionGroupId,
+                    request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
+                    response_serializer=hts_dot_participant_dot_service__pb2.GetQuestionsByQuestionGroupIdResponse.SerializeToString,
+            ),
+            'GetAnswersByQuestionId': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAnswersByQuestionId,
+                    request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
+                    response_serializer=hts_dot_participant_dot_service__pb2.GetAnswersByQuestionIdResponse.SerializeToString,
             ),
             'GenerateQR': grpc.unary_unary_rpc_method_handler(
                     servicer.GenerateQR,
@@ -646,7 +694,7 @@ class ParticipantService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetEventDurationByEventId(request,
+    def GetEventDurationsByEventId(request,
             target,
             options=(),
             channel_credentials=None,
@@ -656,9 +704,60 @@ class ParticipantService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetEventDurationByEventId',
+        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetEventDurationsByEventId',
             hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
-            hts_dot_participant_dot_service__pb2.GetEventDurationByEventIdResponse.FromString,
+            hts_dot_participant_dot_service__pb2.GetEventDurationsByEventIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetQuestionGroupsByEventId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetQuestionGroupsByEventId',
+            hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
+            hts_dot_participant_dot_service__pb2.GetQuestionGroupsByEventIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetQuestionsByQuestionGroupId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetQuestionsByQuestionGroupId',
+            hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
+            hts_dot_participant_dot_service__pb2.GetQuestionsByQuestionGroupIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAnswersByQuestionId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetAnswersByQuestionId',
+            hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
+            hts_dot_participant_dot_service__pb2.GetAnswersByQuestionIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

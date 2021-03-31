@@ -92,25 +92,10 @@ class OrganizerServiceStub(object):
                 request_serializer=hts_dot_organizer_dot_service__pb2.UpdateTagRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
-        self.GetTags = channel.unary_unary(
-                '/hts.organizer.OrganizerService/GetTags',
-                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-                response_deserializer=hts_dot_organizer_dot_service__pb2.GetTagsResponse.FromString,
-                )
-        self.GetTagById = channel.unary_unary(
-                '/hts.organizer.OrganizerService/GetTagById',
-                request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
-                response_deserializer=hts_dot_organizer_dot_service__pb2.GetTagByIdResponse.FromString,
-                )
         self.HasEvent = channel.unary_unary(
                 '/hts.organizer.OrganizerService/HasEvent',
                 request_serializer=hts_dot_organizer_dot_service__pb2.HasEventRequest.SerializeToString,
                 response_deserializer=hts_dot_common_dot_common__pb2.Event.FromString,
-                )
-        self.GetQuestionGroupsByEventId = channel.unary_unary(
-                '/hts.organizer.OrganizerService/GetQuestionGroupsByEventId',
-                request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
-                response_deserializer=hts_dot_organizer_dot_service__pb2.GetQuestionGroupsByEventIdResponse.FromString,
                 )
         self.AddQuestionGroups = channel.unary_unary(
                 '/hts.organizer.OrganizerService/AddQuestionGroups',
@@ -121,11 +106,6 @@ class OrganizerServiceStub(object):
                 '/hts.organizer.OrganizerService/RemoveQuestionGroups',
                 request_serializer=hts_dot_organizer_dot_service__pb2.RemoveQuestionGroupsRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                )
-        self.GetQuestionsByGroupId = channel.unary_unary(
-                '/hts.organizer.OrganizerService/GetQuestionsByGroupId',
-                request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
-                response_deserializer=hts_dot_organizer_dot_service__pb2.GetQuestionsByGroupIdResponse.FromString,
                 )
         self.AddQuestions = channel.unary_unary(
                 '/hts.organizer.OrganizerService/AddQuestions',
@@ -237,25 +217,7 @@ class OrganizerServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetTags(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetTagById(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def HasEvent(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetQuestionGroupsByEventId(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -268,12 +230,6 @@ class OrganizerServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def RemoveQuestionGroups(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetQuestionsByGroupId(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -375,25 +331,10 @@ def add_OrganizerServiceServicer_to_server(servicer, server):
                     request_deserializer=hts_dot_organizer_dot_service__pb2.UpdateTagRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
-            'GetTags': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetTags,
-                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                    response_serializer=hts_dot_organizer_dot_service__pb2.GetTagsResponse.SerializeToString,
-            ),
-            'GetTagById': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetTagById,
-                    request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
-                    response_serializer=hts_dot_organizer_dot_service__pb2.GetTagByIdResponse.SerializeToString,
-            ),
             'HasEvent': grpc.unary_unary_rpc_method_handler(
                     servicer.HasEvent,
                     request_deserializer=hts_dot_organizer_dot_service__pb2.HasEventRequest.FromString,
                     response_serializer=hts_dot_common_dot_common__pb2.Event.SerializeToString,
-            ),
-            'GetQuestionGroupsByEventId': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetQuestionGroupsByEventId,
-                    request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
-                    response_serializer=hts_dot_organizer_dot_service__pb2.GetQuestionGroupsByEventIdResponse.SerializeToString,
             ),
             'AddQuestionGroups': grpc.unary_unary_rpc_method_handler(
                     servicer.AddQuestionGroups,
@@ -404,11 +345,6 @@ def add_OrganizerServiceServicer_to_server(servicer, server):
                     servicer.RemoveQuestionGroups,
                     request_deserializer=hts_dot_organizer_dot_service__pb2.RemoveQuestionGroupsRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            ),
-            'GetQuestionsByGroupId': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetQuestionsByGroupId,
-                    request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
-                    response_serializer=hts_dot_organizer_dot_service__pb2.GetQuestionsByGroupIdResponse.SerializeToString,
             ),
             'AddQuestions': grpc.unary_unary_rpc_method_handler(
                     servicer.AddQuestions,
@@ -691,40 +627,6 @@ class OrganizerService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetTags(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/GetTags',
-            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            hts_dot_organizer_dot_service__pb2.GetTagsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetTagById(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/GetTagById',
-            hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
-            hts_dot_organizer_dot_service__pb2.GetTagByIdResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
     def HasEvent(request,
             target,
             options=(),
@@ -738,23 +640,6 @@ class OrganizerService(object):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/HasEvent',
             hts_dot_organizer_dot_service__pb2.HasEventRequest.SerializeToString,
             hts_dot_common_dot_common__pb2.Event.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetQuestionGroupsByEventId(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/GetQuestionGroupsByEventId',
-            hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
-            hts_dot_organizer_dot_service__pb2.GetQuestionGroupsByEventIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -789,23 +674,6 @@ class OrganizerService(object):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/RemoveQuestionGroups',
             hts_dot_organizer_dot_service__pb2.RemoveQuestionGroupsRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetQuestionsByGroupId(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/GetQuestionsByGroupId',
-            hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
-            hts_dot_organizer_dot_service__pb2.GetQuestionsByGroupIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
