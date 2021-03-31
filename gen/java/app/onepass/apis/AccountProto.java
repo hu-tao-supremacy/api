@@ -60,21 +60,23 @@ public final class AccountProto {
       "HasPermissionRequest\022\027\n\007user_id\030\001 \001(\003R\006u" +
       "serId\022\'\n\017organization_id\030\002 \001(\003R\016organiza" +
       "tionId\022?\n\017permission_name\030\003 \001(\0162\026.hts.co" +
-      "mmon.PermissionR\016permissionName2\333\003\n\016Acco" +
+      "mmon.PermissionR\016permissionName2\236\004\n\016Acco" +
       "untService\022F\n\020GetUserByChulaId\022 .hts.com" +
       "mon.GetObjectByIdRequest\032\020.hts.common.Us" +
       "er\022R\n\017IsAuthenticated\022#.hts.account.IsAu" +
       "thenticatedRequest\032\032.google.protobuf.Boo" +
       "lValue\0227\n\021UpdateAccountInfo\022\020.hts.common" +
-      ".User\032\020.hts.common.User\022h\n\023GenerateAcces" +
-      "sToken\022\'.hts.account.GenerateAccessToken" +
-      "Request\032(.hts.account.GenerateAccessToke" +
-      "nResponse\022N\n\rHasPermission\022!.hts.account" +
-      ".HasPermissionRequest\032\032.google.protobuf." +
-      "BoolValue\022:\n\004Ping\022\026.google.protobuf.Empt" +
-      "y\032\032.google.protobuf.BoolValueBD\n\020app.one" +
-      "pass.apisB\014AccountProtoP\001Z onepass.app/f" +
-      "acility/hts/accountb\006proto3"
+      ".User\032\020.hts.common.User\022A\n\013GetUserById\022 " +
+      ".hts.common.GetObjectByIdRequest\032\020.hts.c" +
+      "ommon.User\022h\n\023GenerateAccessToken\022\'.hts." +
+      "account.GenerateAccessTokenRequest\032(.hts" +
+      ".account.GenerateAccessTokenResponse\022N\n\r" +
+      "HasPermission\022!.hts.account.HasPermissio" +
+      "nRequest\032\032.google.protobuf.BoolValue\022:\n\004" +
+      "Ping\022\026.google.protobuf.Empty\032\032.google.pr" +
+      "otobuf.BoolValueBD\n\020app.onepass.apisB\014Ac" +
+      "countProtoP\001Z onepass.app/facility/hts/a" +
+      "ccountb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
