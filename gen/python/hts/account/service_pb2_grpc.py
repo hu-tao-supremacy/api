@@ -32,6 +32,11 @@ class AccountServiceStub(object):
                 request_serializer=hts_dot_common_dot_common__pb2.User.SerializeToString,
                 response_deserializer=hts_dot_common_dot_common__pb2.User.FromString,
                 )
+        self.GetUserById = channel.unary_unary(
+                '/hts.account.AccountService/GetUserById',
+                request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
+                response_deserializer=hts_dot_common_dot_common__pb2.User.FromString,
+                )
         self.GenerateAccessToken = channel.unary_unary(
                 '/hts.account.AccountService/GenerateAccessToken',
                 request_serializer=hts_dot_account_dot_service__pb2.GenerateAccessTokenRequest.SerializeToString,
@@ -65,6 +70,12 @@ class AccountServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def UpdateAccountInfo(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetUserById(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -104,6 +115,11 @@ def add_AccountServiceServicer_to_server(servicer, server):
             'UpdateAccountInfo': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateAccountInfo,
                     request_deserializer=hts_dot_common_dot_common__pb2.User.FromString,
+                    response_serializer=hts_dot_common_dot_common__pb2.User.SerializeToString,
+            ),
+            'GetUserById': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetUserById,
+                    request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
                     response_serializer=hts_dot_common_dot_common__pb2.User.SerializeToString,
             ),
             'GenerateAccessToken': grpc.unary_unary_rpc_method_handler(
@@ -178,6 +194,23 @@ class AccountService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.account.AccountService/UpdateAccountInfo',
             hts_dot_common_dot_common__pb2.User.SerializeToString,
+            hts_dot_common_dot_common__pb2.User.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetUserById(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.account.AccountService/GetUserById',
+            hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
             hts_dot_common_dot_common__pb2.User.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
