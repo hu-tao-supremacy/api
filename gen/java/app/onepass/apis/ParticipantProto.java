@@ -85,10 +85,30 @@ public final class ParticipantProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hts_participant_GetRatingByEventIdResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_hts_participant_GetEventDurationByEventIdResponse_descriptor;
+    internal_static_hts_participant_GetEventDurationsByEventIdResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_hts_participant_GetEventDurationByEventIdResponse_fieldAccessorTable;
+      internal_static_hts_participant_GetEventDurationsByEventIdResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_participant_GetUserAnswersByQuestionIdRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_participant_GetUserAnswersByQuestionIdRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_participant_GetQuestionGroupsByEventIdResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_participant_GetQuestionGroupsByEventIdResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_participant_GetQuestionsByQuestionGroupIdResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_participant_GetQuestionsByQuestionGroupIdResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_participant_GetAnswersByQuestionIdResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_participant_GetAnswersByQuestionIdResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -130,57 +150,76 @@ public final class ParticipantProto {
       "gs\"J\n GetApprovedUserByEventIdResponse\022&" +
       "\n\005users\030\001 \003(\0132\020.hts.common.UserR\005users\"4" +
       "\n\032GetRatingByEventIdResponse\022\026\n\006result\030\001" +
-      " \003(\003R\006result\"g\n!GetEventDurationByEventI" +
-      "dResponse\022B\n\017event_durations\030\001 \003(\0132\031.hts" +
-      ".common.EventDurationR\016eventDurations2\252\016" +
-      "\n\022ParticipantService\022X\n\020IsEventAvailable" +
-      "\022(.hts.participant.IsEventAvailableReque" +
-      "st\032\032.google.protobuf.BoolValue\022I\n\tJoinEv" +
-      "ent\022%.hts.participant.UserWithEventReque" +
-      "st\032\025.hts.common.UserEvent\022G\n\013CancelEvent" +
-      "\022%.hts.participant.UserWithEventRequest\032" +
-      "\021.hts.common.Event\022\227\001\n SubmitAnswerForPo" +
-      "stEventQuestion\0228.hts.participant.Submit" +
-      "AnswerForPostEventQuestionRequest\0329.hts." +
-      "participant.SubmitAnswerForPostEventQues" +
-      "tionResponse\022G\n\014GetEventById\022$.hts.parti" +
-      "cipant.GetEventByIdRequest\032\021.hts.common." +
-      "Event\022G\n\014GetAllEvents\022\026.google.protobuf." +
-      "Empty\032\037.hts.participant.EventsResponse\022M" +
-      "\n\022GetSuggestedEvents\022\026.google.protobuf.E" +
-      "mpty\032\037.hts.participant.EventsResponse\022_\n" +
-      "\021GetUpcomingEvents\022).hts.participant.Get" +
-      "UpcomingEventsRequest\032\037.hts.participant." +
-      "EventsResponse\022_\n\027GetEventsByStringOfNam" +
-      "e\022#.hts.participant.StringInputRequest\032\037" +
-      ".hts.participant.EventsResponse\022U\n\020GetEv" +
-      "entsByTagId\022 .hts.common.GetObjectByIdRe" +
-      "quest\032\037.hts.participant.EventsResponse\022^" +
-      "\n\031GetEventsByOrganizationId\022 .hts.common" +
-      ".GetObjectByIdRequest\032\037.hts.participant." +
-      "EventsResponse\022Z\n\025GetEventsByFacilityId\022" +
-      " .hts.common.GetObjectByIdRequest\032\037.hts." +
-      "participant.EventsResponse\022N\n\017GetEventsB" +
-      "yDate\022\032.google.protobuf.Timestamp\032\037.hts." +
-      "participant.EventsResponse\022I\n\017GetLocatio" +
-      "nById\022 .hts.common.GetObjectByIdRequest\032" +
-      "\024.hts.common.Location\022_\n\020GetTagsByEventI" +
-      "d\022 .hts.common.GetObjectByIdRequest\032).ht" +
-      "s.participant.GetTagsByEventIdResponse\022c" +
-      "\n\022GetRatingByEventId\022 .hts.common.GetObj" +
-      "ectByIdRequest\032+.hts.participant.GetRati" +
-      "ngByEventIdResponse\022o\n\030GetApprovedUserBy" +
-      "EventId\022 .hts.common.GetObjectByIdReques" +
-      "t\0321.hts.participant.GetApprovedUserByEve" +
-      "ntIdResponse\022q\n\031GetEventDurationByEventI" +
-      "d\022 .hts.common.GetObjectByIdRequest\0322.ht" +
-      "s.participant.GetEventDurationByEventIdR" +
-      "esponse\022U\n\nGenerateQR\022\".hts.participant." +
-      "GenerateQRRequest\032#.hts.participant.Gene" +
-      "rateQRResponse\022:\n\004Ping\022\026.google.protobuf" +
-      ".Empty\032\032.google.protobuf.BoolValueBL\n\020ap" +
-      "p.onepass.apisB\020ParticipantProtoP\001Z$onep" +
-      "ass.app/facility/hts/participantb\006proto3"
+      " \003(\003R\006result\"h\n\"GetEventDurationsByEvent" +
+      "IdResponse\022B\n\017event_durations\030\001 \003(\0132\031.ht" +
+      "s.common.EventDurationR\016eventDurations\"]" +
+      "\n!GetUserAnswersByQuestionIdRequest\022\037\n\013q" +
+      "uestion_id\030\001 \001(\003R\nquestionId\022\027\n\007user_id\030" +
+      "\002 \001(\003R\006userId\"h\n\"GetQuestionGroupsByEven" +
+      "tIdResponse\022B\n\017question_groups\030\001 \003(\0132\031.h" +
+      "ts.common.QuestionGroupR\016questionGroups\"" +
+      "[\n%GetQuestionsByQuestionGroupIdResponse" +
+      "\0222\n\tquestions\030\001 \003(\0132\024.hts.common.Questio" +
+      "nR\tquestions\"N\n\036GetAnswersByQuestionIdRe" +
+      "sponse\022,\n\007answers\030\001 \003(\0132\022.hts.common.Ans" +
+      "werR\007answers2\211\021\n\022ParticipantService\022X\n\020I" +
+      "sEventAvailable\022(.hts.participant.IsEven" +
+      "tAvailableRequest\032\032.google.protobuf.Bool" +
+      "Value\022I\n\tJoinEvent\022%.hts.participant.Use" +
+      "rWithEventRequest\032\025.hts.common.UserEvent" +
+      "\022G\n\013CancelEvent\022%.hts.participant.UserWi" +
+      "thEventRequest\032\021.hts.common.Event\022\227\001\n Su" +
+      "bmitAnswerForPostEventQuestion\0228.hts.par" +
+      "ticipant.SubmitAnswerForPostEventQuestio" +
+      "nRequest\0329.hts.participant.SubmitAnswerF" +
+      "orPostEventQuestionResponse\022G\n\014GetEventB" +
+      "yId\022$.hts.participant.GetEventByIdReques" +
+      "t\032\021.hts.common.Event\022G\n\014GetAllEvents\022\026.g" +
+      "oogle.protobuf.Empty\032\037.hts.participant.E" +
+      "ventsResponse\022M\n\022GetSuggestedEvents\022\026.go" +
+      "ogle.protobuf.Empty\032\037.hts.participant.Ev" +
+      "entsResponse\022_\n\021GetUpcomingEvents\022).hts." +
+      "participant.GetUpcomingEventsRequest\032\037.h" +
+      "ts.participant.EventsResponse\022_\n\027GetEven" +
+      "tsByStringOfName\022#.hts.participant.Strin" +
+      "gInputRequest\032\037.hts.participant.EventsRe" +
+      "sponse\022U\n\020GetEventsByTagId\022 .hts.common." +
+      "GetObjectByIdRequest\032\037.hts.participant.E" +
+      "ventsResponse\022^\n\031GetEventsByOrganization" +
+      "Id\022 .hts.common.GetObjectByIdRequest\032\037.h" +
+      "ts.participant.EventsResponse\022Z\n\025GetEven" +
+      "tsByFacilityId\022 .hts.common.GetObjectByI" +
+      "dRequest\032\037.hts.participant.EventsRespons" +
+      "e\022N\n\017GetEventsByDate\022\032.google.protobuf.T" +
+      "imestamp\032\037.hts.participant.EventsRespons" +
+      "e\022I\n\017GetLocationById\022 .hts.common.GetObj" +
+      "ectByIdRequest\032\024.hts.common.Location\022_\n\020" +
+      "GetTagsByEventId\022 .hts.common.GetObjectB" +
+      "yIdRequest\032).hts.participant.GetTagsByEv" +
+      "entIdResponse\022c\n\022GetRatingByEventId\022 .ht" +
+      "s.common.GetObjectByIdRequest\032+.hts.part" +
+      "icipant.GetRatingByEventIdResponse\022o\n\030Ge" +
+      "tApprovedUserByEventId\022 .hts.common.GetO" +
+      "bjectByIdRequest\0321.hts.participant.GetAp" +
+      "provedUserByEventIdResponse\022s\n\032GetEventD" +
+      "urationsByEventId\022 .hts.common.GetObject" +
+      "ByIdRequest\0323.hts.participant.GetEventDu" +
+      "rationsByEventIdResponse\022s\n\032GetQuestionG" +
+      "roupsByEventId\022 .hts.common.GetObjectByI" +
+      "dRequest\0323.hts.participant.GetQuestionGr" +
+      "oupsByEventIdResponse\022y\n\035GetQuestionsByQ" +
+      "uestionGroupId\022 .hts.common.GetObjectByI" +
+      "dRequest\0326.hts.participant.GetQuestionsB" +
+      "yQuestionGroupIdResponse\022k\n\026GetAnswersBy" +
+      "QuestionId\022 .hts.common.GetObjectByIdReq" +
+      "uest\032/.hts.participant.GetAnswersByQuest" +
+      "ionIdResponse\022U\n\nGenerateQR\022\".hts.partic" +
+      "ipant.GenerateQRRequest\032#.hts.participan" +
+      "t.GenerateQRResponse\022:\n\004Ping\022\026.google.pr" +
+      "otobuf.Empty\032\032.google.protobuf.BoolValue" +
+      "BL\n\020app.onepass.apisB\020ParticipantProtoP\001" +
+      "Z$onepass.app/facility/hts/participantb\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -274,12 +313,36 @@ public final class ParticipantProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_participant_GetRatingByEventIdResponse_descriptor,
         new java.lang.String[] { "Result", });
-    internal_static_hts_participant_GetEventDurationByEventIdResponse_descriptor =
+    internal_static_hts_participant_GetEventDurationsByEventIdResponse_descriptor =
       getDescriptor().getMessageTypes().get(13);
-    internal_static_hts_participant_GetEventDurationByEventIdResponse_fieldAccessorTable = new
+    internal_static_hts_participant_GetEventDurationsByEventIdResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_hts_participant_GetEventDurationByEventIdResponse_descriptor,
+        internal_static_hts_participant_GetEventDurationsByEventIdResponse_descriptor,
         new java.lang.String[] { "EventDurations", });
+    internal_static_hts_participant_GetUserAnswersByQuestionIdRequest_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_hts_participant_GetUserAnswersByQuestionIdRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_participant_GetUserAnswersByQuestionIdRequest_descriptor,
+        new java.lang.String[] { "QuestionId", "UserId", });
+    internal_static_hts_participant_GetQuestionGroupsByEventIdResponse_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_hts_participant_GetQuestionGroupsByEventIdResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_participant_GetQuestionGroupsByEventIdResponse_descriptor,
+        new java.lang.String[] { "QuestionGroups", });
+    internal_static_hts_participant_GetQuestionsByQuestionGroupIdResponse_descriptor =
+      getDescriptor().getMessageTypes().get(16);
+    internal_static_hts_participant_GetQuestionsByQuestionGroupIdResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_participant_GetQuestionsByQuestionGroupIdResponse_descriptor,
+        new java.lang.String[] { "Questions", });
+    internal_static_hts_participant_GetAnswersByQuestionIdResponse_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_hts_participant_GetAnswersByQuestionIdResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_participant_GetAnswersByQuestionIdResponse_descriptor,
+        new java.lang.String[] { "Answers", });
     app.onepass.apis.CommonProto.getDescriptor();
     com.google.protobuf.EmptyProto.getDescriptor();
     com.google.protobuf.WrappersProto.getDescriptor();
