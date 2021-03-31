@@ -42,6 +42,8 @@ export interface AccountServiceClient {
 
   updateAccountInfo(request: User): Observable<User>;
 
+  getUserById(request: GetObjectByIdRequest): Observable<User>;
+
   generateAccessToken(
     request: GenerateAccessTokenRequest
   ): Observable<GenerateAccessTokenResponse>;
@@ -61,6 +63,10 @@ export interface AccountServiceController {
   ): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
 
   updateAccountInfo(request: User): Promise<User> | Observable<User> | User;
+
+  getUserById(
+    request: GetObjectByIdRequest
+  ): Promise<User> | Observable<User> | User;
 
   generateAccessToken(
     request: GenerateAccessTokenRequest
@@ -82,6 +88,7 @@ export function AccountServiceControllerMethods() {
       "getUserByChulaId",
       "isAuthenticated",
       "updateAccountInfo",
+      "getUserById",
       "generateAccessToken",
       "hasPermission",
       "ping",

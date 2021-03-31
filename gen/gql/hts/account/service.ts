@@ -36,6 +36,7 @@ export interface AccountService {
     request: IsAuthenticatedRequest
   ): Promise<boolean | undefined>;
   UpdateAccountInfo(request: User): Promise<User>;
+  GetUserById(request: GetObjectByIdRequest): Promise<User>;
   GenerateAccessToken(
     request: GenerateAccessTokenRequest
   ): Promise<GenerateAccessTokenResponse>;
