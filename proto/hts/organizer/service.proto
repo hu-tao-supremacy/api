@@ -119,14 +119,6 @@ message GetTagByIdResponse {
   hts.common.Tag tag = 1;
 }
 
-message GetQuestionGroupsByEventIdResponse {
-  repeated hts.common.QuestionGroup question_group = 1;
-}
-
-message GetQuestionsByGroupIdResponse {
-  repeated hts.common.Question question = 1;
-}
-
 service OrganizerService {
   rpc CreateOrganization(CreateOrganizationRequest) returns (google.protobuf.Empty);
   rpc GetOrganizations(google.protobuf.Empty) returns (GetOrganizationsResponse);
@@ -146,10 +138,8 @@ service OrganizerService {
   rpc GetTags(google.protobuf.Empty) returns (GetTagsResponse);
   rpc GetTagById(hts.common.GetObjectByIdRequest) returns (GetTagByIdResponse);
   rpc HasEvent(HasEventRequest) returns (hts.common.Event);
-  rpc GetQuestionGroupsByEventId(hts.common.GetObjectByIdRequest) returns (GetQuestionGroupsByEventIdResponse);
   rpc AddQuestionGroups(AddQuestionGroupsRequest) returns (google.protobuf.Empty);
   rpc RemoveQuestionGroups(RemoveQuestionGroupsRequest) returns (google.protobuf.Empty);
-  rpc GetQuestionsByGroupId(hts.common.GetObjectByIdRequest) returns (GetQuestionsByGroupIdResponse);
   rpc AddQuestions(AddQuestionsRequest) returns (google.protobuf.Empty);
   rpc RemoveQuestions(RemoveQuestionsRequest) returns (google.protobuf.Empty);
   rpc Ping(google.protobuf.Empty) returns (google.protobuf.BoolValue);
