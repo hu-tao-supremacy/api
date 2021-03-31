@@ -111,22 +111,6 @@ export interface GetOrganizationByIdResponse {
   organization: Organization | undefined;
 }
 
-export interface GetTagsResponse {
-  tags: Tag[];
-}
-
-export interface GetTagByIdResponse {
-  tag: Tag | undefined;
-}
-
-export interface GetQuestionGroupsByEventIdResponse {
-  questionGroup: QuestionGroup[];
-}
-
-export interface GetQuestionsByGroupIdResponse {
-  question: Question[];
-}
-
 export interface OrganizerService {
   CreateOrganization(request: CreateOrganizationRequest): Promise<Empty>;
   GetOrganizations(request: Empty): Promise<GetOrganizationsResponse>;
@@ -151,17 +135,9 @@ export interface OrganizerService {
   CreateTag(request: CreateTagRequest): Promise<Empty>;
   AddTags(request: UpdateTagRequest): Promise<Empty>;
   RemoveTags(request: UpdateTagRequest): Promise<Empty>;
-  GetTags(request: Empty): Promise<GetTagsResponse>;
-  GetTagById(request: GetObjectByIdRequest): Promise<GetTagByIdResponse>;
   HasEvent(request: HasEventRequest): Promise<Event>;
-  GetQuestionGroupsByEventId(
-    request: GetObjectByIdRequest
-  ): Promise<GetQuestionGroupsByEventIdResponse>;
   AddQuestionGroups(request: AddQuestionGroupsRequest): Promise<Empty>;
   RemoveQuestionGroups(request: RemoveQuestionGroupsRequest): Promise<Empty>;
-  GetQuestionsByGroupId(
-    request: GetObjectByIdRequest
-  ): Promise<GetQuestionsByGroupIdResponse>;
   AddQuestions(request: AddQuestionsRequest): Promise<Empty>;
   RemoveQuestions(request: RemoveQuestionsRequest): Promise<Empty>;
   Ping(request: Empty): Promise<boolean | undefined>;
