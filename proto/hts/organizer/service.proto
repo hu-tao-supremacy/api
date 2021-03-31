@@ -111,13 +111,6 @@ message GetOrganizationByIdResponse {
   hts.common.Organization organization = 1;
 }
 
-message GetTagsResponse {
-  repeated hts.common.Tag tags = 1;
-}
-
-message GetTagByIdResponse {
-  hts.common.Tag tag = 1;
-}
 
 service OrganizerService {
   rpc CreateOrganization(CreateOrganizationRequest) returns (google.protobuf.Empty);
@@ -135,8 +128,6 @@ service OrganizerService {
   rpc CreateTag(CreateTagRequest) returns (google.protobuf.Empty);
   rpc AddTags(UpdateTagRequest) returns (google.protobuf.Empty);
   rpc RemoveTags(UpdateTagRequest) returns (google.protobuf.Empty);
-  rpc GetTags(google.protobuf.Empty) returns (GetTagsResponse);
-  rpc GetTagById(hts.common.GetObjectByIdRequest) returns (GetTagByIdResponse);
   rpc HasEvent(HasEventRequest) returns (hts.common.Event);
   rpc AddQuestionGroups(AddQuestionGroupsRequest) returns (google.protobuf.Empty);
   rpc RemoveQuestionGroups(RemoveQuestionGroupsRequest) returns (google.protobuf.Empty);
