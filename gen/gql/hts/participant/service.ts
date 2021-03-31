@@ -5,6 +5,8 @@ import {
   Tag,
   User,
   EventDuration,
+  QuestionGroup,
+  Question,
   UserEvent,
   Location,
   GetObjectByIdRequest,
@@ -76,8 +78,25 @@ export interface GetRatingByEventIdResponse {
   result: number[];
 }
 
-export interface GetEventDurationByEventIdResponse {
+export interface GetEventDurationsByEventIdResponse {
   eventDurations: EventDuration[];
+}
+
+export interface GetUserAnswersByQuestionIdRequest {
+  questionId: number;
+  userId: number;
+}
+
+export interface GetQuestionGroupsByEventIdResponse {
+  questionGroups: QuestionGroup[];
+}
+
+export interface GetQuestionsByQuestionGroupIdResponse {
+  questions: Question[];
+}
+
+export interface GetAnswersByQuestionIdResponse {
+  answers: Answer[];
 }
 
 export interface ParticipantService {
@@ -110,9 +129,18 @@ export interface ParticipantService {
   GetApprovedUserByEventId(
     request: GetObjectByIdRequest
   ): Promise<GetApprovedUserByEventIdResponse>;
-  GetEventDurationByEventId(
+  GetEventDurationsByEventId(
     request: GetObjectByIdRequest
-  ): Promise<GetEventDurationByEventIdResponse>;
+  ): Promise<GetEventDurationsByEventIdResponse>;
+  GetQuestionGroupsByEventId(
+    request: GetObjectByIdRequest
+  ): Promise<GetQuestionGroupsByEventIdResponse>;
+  GetQuestionsByQuestionGroupId(
+    request: GetObjectByIdRequest
+  ): Promise<GetQuestionsByQuestionGroupIdResponse>;
+  GetAnswersByQuestionId(
+    request: GetObjectByIdRequest
+  ): Promise<GetAnswersByQuestionIdResponse>;
   GenerateQR(request: GenerateQRRequest): Promise<GenerateQRResponse>;
   Ping(request: Empty): Promise<boolean | undefined>;
 }

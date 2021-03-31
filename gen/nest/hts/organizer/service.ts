@@ -115,22 +115,6 @@ export interface GetOrganizationByIdResponse {
   organization: Organization | undefined;
 }
 
-export interface GetTagsResponse {
-  tags: Tag[];
-}
-
-export interface GetTagByIdResponse {
-  tag: Tag | undefined;
-}
-
-export interface GetQuestionGroupsByEventIdResponse {
-  questionGroup: QuestionGroup[];
-}
-
-export interface GetQuestionsByGroupIdResponse {
-  question: Question[];
-}
-
 export const HTS_ORGANIZER_PACKAGE_NAME = "hts.organizer";
 
 export interface OrganizerServiceClient {
@@ -172,23 +156,11 @@ export interface OrganizerServiceClient {
 
   removeTags(request: UpdateTagRequest): Observable<Empty>;
 
-  getTags(request: Empty): Observable<GetTagsResponse>;
-
-  getTagById(request: GetObjectByIdRequest): Observable<GetTagByIdResponse>;
-
   hasEvent(request: HasEventRequest): Observable<Event>;
-
-  getQuestionGroupsByEventId(
-    request: GetObjectByIdRequest
-  ): Observable<GetQuestionGroupsByEventIdResponse>;
 
   addQuestionGroups(request: AddQuestionGroupsRequest): Observable<Empty>;
 
   removeQuestionGroups(request: RemoveQuestionGroupsRequest): Observable<Empty>;
-
-  getQuestionsByGroupId(
-    request: GetObjectByIdRequest
-  ): Observable<GetQuestionsByGroupIdResponse>;
 
   addQuestions(request: AddQuestionsRequest): Observable<Empty>;
 
@@ -238,38 +210,13 @@ export interface OrganizerServiceController {
 
   removeTags(request: UpdateTagRequest): void;
 
-  getTags(
-    request: Empty
-  ): Promise<GetTagsResponse> | Observable<GetTagsResponse> | GetTagsResponse;
-
-  getTagById(
-    request: GetObjectByIdRequest
-  ):
-    | Promise<GetTagByIdResponse>
-    | Observable<GetTagByIdResponse>
-    | GetTagByIdResponse;
-
   hasEvent(
     request: HasEventRequest
   ): Promise<Event> | Observable<Event> | Event;
 
-  getQuestionGroupsByEventId(
-    request: GetObjectByIdRequest
-  ):
-    | Promise<GetQuestionGroupsByEventIdResponse>
-    | Observable<GetQuestionGroupsByEventIdResponse>
-    | GetQuestionGroupsByEventIdResponse;
-
   addQuestionGroups(request: AddQuestionGroupsRequest): void;
 
   removeQuestionGroups(request: RemoveQuestionGroupsRequest): void;
-
-  getQuestionsByGroupId(
-    request: GetObjectByIdRequest
-  ):
-    | Promise<GetQuestionsByGroupIdResponse>
-    | Observable<GetQuestionsByGroupIdResponse>
-    | GetQuestionsByGroupIdResponse;
 
   addQuestions(request: AddQuestionsRequest): void;
 
@@ -296,13 +243,9 @@ export function OrganizerServiceControllerMethods() {
       "createTag",
       "addTags",
       "removeTags",
-      "getTags",
-      "getTagById",
       "hasEvent",
-      "getQuestionGroupsByEventId",
       "addQuestionGroups",
       "removeQuestionGroups",
-      "getQuestionsByGroupId",
       "addQuestions",
       "removeQuestions",
       "ping",

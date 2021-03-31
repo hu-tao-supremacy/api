@@ -7,6 +7,8 @@ import {
   Tag,
   User,
   EventDuration,
+  QuestionGroup,
+  Question,
   UserEvent,
   Location,
   GetObjectByIdRequest,
@@ -80,8 +82,25 @@ export interface GetRatingByEventIdResponse {
   result: number[];
 }
 
-export interface GetEventDurationByEventIdResponse {
+export interface GetEventDurationsByEventIdResponse {
   eventDurations: EventDuration[];
+}
+
+export interface GetUserAnswersByQuestionIdRequest {
+  questionId: number;
+  userId: number;
+}
+
+export interface GetQuestionGroupsByEventIdResponse {
+  questionGroups: QuestionGroup[];
+}
+
+export interface GetQuestionsByQuestionGroupIdResponse {
+  questions: Question[];
+}
+
+export interface GetAnswersByQuestionIdResponse {
+  answers: Answer[];
 }
 
 export const HTS_PARTICIPANT_PACKAGE_NAME = "hts.participant";
@@ -137,9 +156,21 @@ export interface ParticipantServiceClient {
     request: GetObjectByIdRequest
   ): Observable<GetApprovedUserByEventIdResponse>;
 
-  getEventDurationByEventId(
+  getEventDurationsByEventId(
     request: GetObjectByIdRequest
-  ): Observable<GetEventDurationByEventIdResponse>;
+  ): Observable<GetEventDurationsByEventIdResponse>;
+
+  getQuestionGroupsByEventId(
+    request: GetObjectByIdRequest
+  ): Observable<GetQuestionGroupsByEventIdResponse>;
+
+  getQuestionsByQuestionGroupId(
+    request: GetObjectByIdRequest
+  ): Observable<GetQuestionsByQuestionGroupIdResponse>;
+
+  getAnswersByQuestionId(
+    request: GetObjectByIdRequest
+  ): Observable<GetAnswersByQuestionIdResponse>;
 
   generateQR(request: GenerateQRRequest): Observable<GenerateQRResponse>;
 
@@ -227,12 +258,33 @@ export interface ParticipantServiceController {
     | Observable<GetApprovedUserByEventIdResponse>
     | GetApprovedUserByEventIdResponse;
 
-  getEventDurationByEventId(
+  getEventDurationsByEventId(
     request: GetObjectByIdRequest
   ):
-    | Promise<GetEventDurationByEventIdResponse>
-    | Observable<GetEventDurationByEventIdResponse>
-    | GetEventDurationByEventIdResponse;
+    | Promise<GetEventDurationsByEventIdResponse>
+    | Observable<GetEventDurationsByEventIdResponse>
+    | GetEventDurationsByEventIdResponse;
+
+  getQuestionGroupsByEventId(
+    request: GetObjectByIdRequest
+  ):
+    | Promise<GetQuestionGroupsByEventIdResponse>
+    | Observable<GetQuestionGroupsByEventIdResponse>
+    | GetQuestionGroupsByEventIdResponse;
+
+  getQuestionsByQuestionGroupId(
+    request: GetObjectByIdRequest
+  ):
+    | Promise<GetQuestionsByQuestionGroupIdResponse>
+    | Observable<GetQuestionsByQuestionGroupIdResponse>
+    | GetQuestionsByQuestionGroupIdResponse;
+
+  getAnswersByQuestionId(
+    request: GetObjectByIdRequest
+  ):
+    | Promise<GetAnswersByQuestionIdResponse>
+    | Observable<GetAnswersByQuestionIdResponse>
+    | GetAnswersByQuestionIdResponse;
 
   generateQR(
     request: GenerateQRRequest
@@ -264,7 +316,10 @@ export function ParticipantServiceControllerMethods() {
       "getTagsByEventId",
       "getRatingByEventId",
       "getApprovedUserByEventId",
-      "getEventDurationByEventId",
+      "getEventDurationsByEventId",
+      "getQuestionGroupsByEventId",
+      "getQuestionsByQuestionGroupId",
+      "getAnswersByQuestionId",
       "generateQR",
       "ping",
     ];
