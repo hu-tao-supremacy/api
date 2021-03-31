@@ -109,26 +109,6 @@ public final class OrganizerProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hts_organizer_GetOrganizationByIdResponse_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_hts_organizer_GetTagsResponse_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_hts_organizer_GetTagsResponse_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_hts_organizer_GetTagByIdResponse_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_hts_organizer_GetTagByIdResponse_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_hts_organizer_GetQuestionGroupsByEventIdResponse_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_hts_organizer_GetQuestionGroupsByEventIdResponse_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_hts_organizer_GetQuestionsByGroupIdResponse_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_hts_organizer_GetQuestionsByGroupIdResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -193,70 +173,53 @@ public final class OrganizerProto {
       "zations\030\001 \003(\0132\030.hts.common.OrganizationR" +
       "\rorganizations\"[\n\033GetOrganizationByIdRes" +
       "ponse\022<\n\014organization\030\001 \001(\0132\030.hts.common" +
-      ".OrganizationR\014organization\"6\n\017GetTagsRe" +
-      "sponse\022#\n\004tags\030\001 \003(\0132\017.hts.common.TagR\004t" +
-      "ags\"7\n\022GetTagByIdResponse\022!\n\003tag\030\001 \001(\0132\017" +
-      ".hts.common.TagR\003tag\"f\n\"GetQuestionGroup" +
-      "sByEventIdResponse\022@\n\016question_group\030\001 \003" +
-      "(\0132\031.hts.common.QuestionGroupR\rquestionG" +
-      "roup\"Q\n\035GetQuestionsByGroupIdResponse\0220\n" +
-      "\010question\030\001 \003(\0132\024.hts.common.QuestionR\010q" +
-      "uestion2\314\020\n\020OrganizerService\022V\n\022CreateOr" +
-      "ganization\022(.hts.organizer.CreateOrganiz" +
-      "ationRequest\032\026.google.protobuf.Empty\022S\n\020" +
-      "GetOrganizations\022\026.google.protobuf.Empty" +
-      "\032\'.hts.organizer.GetOrganizationsRespons" +
-      "e\022c\n\023GetOrganizationById\022 .hts.common.Ge" +
-      "tObjectByIdRequest\032*.hts.organizer.GetOr" +
-      "ganizationByIdResponse\022V\n\022UpdateOrganiza" +
-      "tion\022(.hts.organizer.UpdateOrganizationR" +
-      "equest\032\026.google.protobuf.Empty\022V\n\022Remove" +
-      "Organization\022(.hts.organizer.RemoveOrgan" +
-      "izationRequest\032\026.google.protobuf.Empty\022a" +
-      "\n\026AddUsersToOrganization\022/.hts.organizer" +
-      ".UpdateUsersInOrganizationRequest\032\026.goog" +
-      "le.protobuf.Empty\022f\n\033RemoveUsersFromOrga" +
-      "nization\022/.hts.organizer.UpdateUsersInOr" +
-      "ganizationRequest\032\026.google.protobuf.Empt" +
-      "y\022H\n\013CreateEvent\022!.hts.organizer.CreateE" +
-      "ventRequest\032\026.google.protobuf.Empty\022H\n\013U" +
-      "pdateEvent\022!.hts.organizer.UpdateEventRe" +
-      "quest\032\026.google.protobuf.Empty\022Y\n\024UpdateE" +
-      "ventDurations\022).hts.organizer.UpdateEven" +
-      "tDurationRequest\032\026.google.protobuf.Empty" +
-      "\022H\n\013RemoveEvent\022!.hts.organizer.RemoveEv" +
-      "entRequest\032\026.google.protobuf.Empty\022d\n\031Up" +
-      "dateRegistrationRequest\022/.hts.organizer." +
-      "UpdateRegistrationRequestRequest\032\026.googl" +
-      "e.protobuf.Empty\022D\n\tCreateTag\022\037.hts.orga" +
-      "nizer.CreateTagRequest\032\026.google.protobuf" +
-      ".Empty\022B\n\007AddTags\022\037.hts.organizer.Update" +
-      "TagRequest\032\026.google.protobuf.Empty\022E\n\nRe" +
-      "moveTags\022\037.hts.organizer.UpdateTagReques" +
-      "t\032\026.google.protobuf.Empty\022A\n\007GetTags\022\026.g" +
-      "oogle.protobuf.Empty\032\036.hts.organizer.Get" +
-      "TagsResponse\022Q\n\nGetTagById\022 .hts.common." +
-      "GetObjectByIdRequest\032!.hts.organizer.Get" +
-      "TagByIdResponse\022=\n\010HasEvent\022\036.hts.organi" +
-      "zer.HasEventRequest\032\021.hts.common.Event\022q" +
-      "\n\032GetQuestionGroupsByEventId\022 .hts.commo" +
-      "n.GetObjectByIdRequest\0321.hts.organizer.G" +
-      "etQuestionGroupsByEventIdResponse\022T\n\021Add" +
-      "QuestionGroups\022\'.hts.organizer.AddQuesti" +
-      "onGroupsRequest\032\026.google.protobuf.Empty\022" +
-      "Z\n\024RemoveQuestionGroups\022*.hts.organizer." +
-      "RemoveQuestionGroupsRequest\032\026.google.pro" +
-      "tobuf.Empty\022g\n\025GetQuestionsByGroupId\022 .h" +
-      "ts.common.GetObjectByIdRequest\032,.hts.org" +
-      "anizer.GetQuestionsByGroupIdResponse\022J\n\014" +
-      "AddQuestions\022\".hts.organizer.AddQuestion" +
-      "sRequest\032\026.google.protobuf.Empty\022P\n\017Remo" +
-      "veQuestions\022%.hts.organizer.RemoveQuesti" +
-      "onsRequest\032\026.google.protobuf.Empty\022:\n\004Pi" +
-      "ng\022\026.google.protobuf.Empty\032\032.google.prot" +
-      "obuf.BoolValueBH\n\020app.onepass.apisB\016Orga" +
-      "nizerProtoP\001Z\"onepass.app/facility/hts/o" +
-      "rganizerb\006proto3"
+      ".OrganizationR\014organization2\332\r\n\020Organize" +
+      "rService\022V\n\022CreateOrganization\022(.hts.org" +
+      "anizer.CreateOrganizationRequest\032\026.googl" +
+      "e.protobuf.Empty\022S\n\020GetOrganizations\022\026.g" +
+      "oogle.protobuf.Empty\032\'.hts.organizer.Get" +
+      "OrganizationsResponse\022c\n\023GetOrganization" +
+      "ById\022 .hts.common.GetObjectByIdRequest\032*" +
+      ".hts.organizer.GetOrganizationByIdRespon" +
+      "se\022V\n\022UpdateOrganization\022(.hts.organizer" +
+      ".UpdateOrganizationRequest\032\026.google.prot" +
+      "obuf.Empty\022V\n\022RemoveOrganization\022(.hts.o" +
+      "rganizer.RemoveOrganizationRequest\032\026.goo" +
+      "gle.protobuf.Empty\022a\n\026AddUsersToOrganiza" +
+      "tion\022/.hts.organizer.UpdateUsersInOrgani" +
+      "zationRequest\032\026.google.protobuf.Empty\022f\n" +
+      "\033RemoveUsersFromOrganization\022/.hts.organ" +
+      "izer.UpdateUsersInOrganizationRequest\032\026." +
+      "google.protobuf.Empty\022H\n\013CreateEvent\022!.h" +
+      "ts.organizer.CreateEventRequest\032\026.google" +
+      ".protobuf.Empty\022H\n\013UpdateEvent\022!.hts.org" +
+      "anizer.UpdateEventRequest\032\026.google.proto" +
+      "buf.Empty\022Y\n\024UpdateEventDurations\022).hts." +
+      "organizer.UpdateEventDurationRequest\032\026.g" +
+      "oogle.protobuf.Empty\022H\n\013RemoveEvent\022!.ht" +
+      "s.organizer.RemoveEventRequest\032\026.google." +
+      "protobuf.Empty\022d\n\031UpdateRegistrationRequ" +
+      "est\022/.hts.organizer.UpdateRegistrationRe" +
+      "questRequest\032\026.google.protobuf.Empty\022D\n\t" +
+      "CreateTag\022\037.hts.organizer.CreateTagReque" +
+      "st\032\026.google.protobuf.Empty\022B\n\007AddTags\022\037." +
+      "hts.organizer.UpdateTagRequest\032\026.google." +
+      "protobuf.Empty\022E\n\nRemoveTags\022\037.hts.organ" +
+      "izer.UpdateTagRequest\032\026.google.protobuf." +
+      "Empty\022=\n\010HasEvent\022\036.hts.organizer.HasEve" +
+      "ntRequest\032\021.hts.common.Event\022T\n\021AddQuest" +
+      "ionGroups\022\'.hts.organizer.AddQuestionGro" +
+      "upsRequest\032\026.google.protobuf.Empty\022Z\n\024Re" +
+      "moveQuestionGroups\022*.hts.organizer.Remov" +
+      "eQuestionGroupsRequest\032\026.google.protobuf" +
+      ".Empty\022J\n\014AddQuestions\022\".hts.organizer.A" +
+      "ddQuestionsRequest\032\026.google.protobuf.Emp" +
+      "ty\022P\n\017RemoveQuestions\022%.hts.organizer.Re" +
+      "moveQuestionsRequest\032\026.google.protobuf.E" +
+      "mpty\022:\n\004Ping\022\026.google.protobuf.Empty\032\032.g" +
+      "oogle.protobuf.BoolValueBH\n\020app.onepass." +
+      "apisB\016OrganizerProtoP\001Z\"onepass.app/faci" +
+      "lity/hts/organizerb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -380,30 +343,6 @@ public final class OrganizerProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_organizer_GetOrganizationByIdResponse_descriptor,
         new java.lang.String[] { "Organization", });
-    internal_static_hts_organizer_GetTagsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(19);
-    internal_static_hts_organizer_GetTagsResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_hts_organizer_GetTagsResponse_descriptor,
-        new java.lang.String[] { "Tags", });
-    internal_static_hts_organizer_GetTagByIdResponse_descriptor =
-      getDescriptor().getMessageTypes().get(20);
-    internal_static_hts_organizer_GetTagByIdResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_hts_organizer_GetTagByIdResponse_descriptor,
-        new java.lang.String[] { "Tag", });
-    internal_static_hts_organizer_GetQuestionGroupsByEventIdResponse_descriptor =
-      getDescriptor().getMessageTypes().get(21);
-    internal_static_hts_organizer_GetQuestionGroupsByEventIdResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_hts_organizer_GetQuestionGroupsByEventIdResponse_descriptor,
-        new java.lang.String[] { "QuestionGroup", });
-    internal_static_hts_organizer_GetQuestionsByGroupIdResponse_descriptor =
-      getDescriptor().getMessageTypes().get(22);
-    internal_static_hts_organizer_GetQuestionsByGroupIdResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_hts_organizer_GetQuestionsByGroupIdResponse_descriptor,
-        new java.lang.String[] { "Question", });
     app.onepass.apis.CommonProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
     com.google.protobuf.EmptyProto.getDescriptor();

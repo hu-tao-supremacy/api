@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface GetEventDurationByEventIdResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.participant.GetEventDurationByEventIdResponse)
+public interface GetEventDurationsByEventIdResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.participant.GetEventDurationsByEventIdResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**
