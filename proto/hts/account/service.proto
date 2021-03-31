@@ -37,6 +37,7 @@ service AccountService {
   rpc GetUserByChulaId(hts.common.GetObjectByIdRequest) returns (hts.common.User);
   rpc IsAuthenticated(IsAuthenticatedRequest) returns (google.protobuf.BoolValue);
   rpc UpdateAccountInfo(hts.common.User) returns (hts.common.User);
+  rpc GetUserById(hts.common.GetObjectByIdRequest) returns (hts.common.User);
   rpc GenerateAccessToken(GenerateAccessTokenRequest) returns (GenerateAccessTokenResponse);
   rpc HasPermission(HasPermissionRequest) returns (google.protobuf.BoolValue);
   rpc Ping(google.protobuf.Empty) returns (google.protobuf.BoolValue);
