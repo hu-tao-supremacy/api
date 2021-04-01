@@ -48,10 +48,21 @@ jobs:
           token: ${{ secrets.DODOCO_BOT_PAT }}
       - run: echo "SHA7=${GITHUB_SHA::7}" >> $GITHUB_ENV
       - run: |
-          ![[ git diff --quiet --name-only main origin/compile/${{ env.SHA7 }}/go ]] && git merge -q origin/compile/${{ env.SHA7 }}/go
-          ![[ git diff --quiet --name-only main origin/compile/${{ env.SHA7 }}/python ]] && git merge -q origin/compile/${{ env.SHA7 }}/python
-          ![[ git diff --quiet --name-only main origin/compile/${{ env.SHA7 }}/java ]] && git merge -q origin/compile/${{ env.SHA7 }}/java
-          ![[ git diff --quiet --name-only main origin/compile/${{ env.SHA7 }}/ts ]] && git merge -q origin/compile/${{ env.SHA7 }}/ts
+          if ![[ $(git diff --quiet --name-only main origin/compile/${{ env.SHA7 }}/go) ]]; then
+            git merge -q origin/compile/${{ env.SHA7 }}/go
+          fi
+
+          if ![[ $(git diff --quiet --name-only main origin/compile/${{ env.SHA7 }}/python) ]]; then
+            git merge -q origin/compile/${{ env.SHA7 }}/python
+          fi
+
+          if ![[ $(git diff --quiet --name-only main origin/compile/${{ env.SHA7 }}/java) ]]; then
+            git merge -q origin/compile/${{ env.SHA7 }}/java
+          fi
+
+          if ![[ $(git diff --quiet --name-only main origin/compile/${{ env.SHA7 }}/ts) ]]; then
+            git merge -q origin/compile/${{ env.SHA7 }}/ts
+          fi
         env:
           GIT_COMMITTER_NAME: dodoco-bot
           GIT_AUTHOR_NAME: dodoco-bot
