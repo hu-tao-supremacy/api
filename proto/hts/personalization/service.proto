@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package hts.personalization;
+
+import "hts/common/common.proto";
+
+message FibonacciRequest {
+  int32 index = 1;
+}
+
+message FibonacciResponse {
+  int32 result = 1;
+}
+
+service PersonalizationService {
+  rpc Fibonacci(FibonacciRequest) returns (FibonacciResponse);
+}
