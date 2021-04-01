@@ -52,7 +52,7 @@ jobs:
             git merge -q origin/compile/${{ env.SHA7 }}/go
           fi
 
-          !$(git diff --quiet --name-only main origin/compile/${{ env.SHA7 }}/python) && \
+          !(git diff --quiet --name-only main origin/compile/${{ env.SHA7 }}/python) && \
           git merge -q origin/compile/${{ env.SHA7 }}/python
 
           if ![ $(git diff --quiet --name-only main origin/compile/${{ env.SHA7 }}/java) ]; then
