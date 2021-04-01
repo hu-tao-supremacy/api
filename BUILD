@@ -57,6 +57,18 @@ proto_library(
     ],
 )
 
+proto_library(
+    name = "personalization_proto",
+    srcs = ["hts/personalization/service.proto"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "@com_google_protobuf//:timestamp_proto",
+        "@com_google_protobuf//:empty_proto",
+        "@com_google_protobuf//:wrappers_proto",
+        ":common_proto"
+    ],
+)
+
 load("@rules_proto_grpc//go:defs.bzl", "go_grpc_compile")
 
 go_grpc_compile(
@@ -150,6 +162,7 @@ python_grpc_compile(
         ":account_proto",
         ":facility_proto",
         ":organizer_proto",
-        ":participant_proto"
+        ":participant_proto",
+        ":personalization_proto"
     ],
 )
