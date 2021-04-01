@@ -48,10 +48,10 @@ jobs:
           token: ${{ secrets.DODOCO_BOT_PAT }}
       - run: echo "SHA7=${GITHUB_SHA::7}" >> $GITHUB_ENV
       - run: |
-          git diff --name-only main origin/compile/${{ env.SHA7 }}/go && git merge -q origin/compile/${{ env.SHA7 }}/go
-          git diff --name-only main origin/compile/${{ env.SHA7 }}/python && git merge -q origin/compile/${{ env.SHA7 }}/python
-          git diff --name-only main origin/compile/${{ env.SHA7 }}/java && git merge -q origin/compile/${{ env.SHA7 }}/java
-          git diff --name-only main origin/compile/${{ env.SHA7 }}/ts && git merge -q origin/compile/${{ env.SHA7 }}/ts
+          git diff --quiet --name-only main origin/compile/${{ env.SHA7 }}/go && git merge -q origin/compile/${{ env.SHA7 }}/go
+          git diff --quiet --name-only main origin/compile/${{ env.SHA7 }}/python && git merge -q origin/compile/${{ env.SHA7 }}/python
+          git diff --quiet --name-only main origin/compile/${{ env.SHA7 }}/java && git merge -q origin/compile/${{ env.SHA7 }}/java
+          git diff --quiet --name-only main origin/compile/${{ env.SHA7 }}/ts && git merge -q origin/compile/${{ env.SHA7 }}/ts
         env:
           GIT_COMMITTER_NAME: dodoco-bot
           GIT_AUTHOR_NAME: dodoco-bot
