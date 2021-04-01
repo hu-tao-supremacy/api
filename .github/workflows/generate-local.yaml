@@ -30,7 +30,7 @@ jobs:
       - run: |
           git checkout -b compile/${{ env.SHA7 }}/${{ matrix.platform }}
           make build-${{ matrix.platform }}
-          git commit -m 'compile(${{ matrix.platform }}): ${{ env.SHA7 }}'
+          git commit -m --allow-empty 'compile(${{ matrix.platform }}): ${{ env.SHA7 }}'
         env:
           GIT_COMMITTER_NAME: dodoco-bot
           GIT_AUTHOR_NAME: dodoco-bot
