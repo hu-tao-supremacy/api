@@ -114,7 +114,6 @@ nest_proto_compile(
         ":facility_proto",
         ":organizer_proto",
         ":participant_proto",
-        ":personalization_proto"
     ],
 )
 
