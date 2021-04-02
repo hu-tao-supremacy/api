@@ -10,7 +10,7 @@ proto_plugin(
 proto_plugin(
     name = "nest_plugin",
     output_directory = True,
-    options = ["nestJs=true", "constEnums=true"],
+    options = ["nestJs=true"],
     tool = "@npm_nest//ts-proto/bin:protoc-gen-ts_proto",
     visibility = ["//visibility:public"],
 )
