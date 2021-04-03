@@ -18,89 +18,89 @@ message Duration {
 }
 
 message CreateOrganizationRequest {
-  int64 user_id = 1;
+  int32 user_id = 1;
   hts.common.Organization organization = 2;
 }
 
 message UpdateOrganizationRequest {
-  int64 user_id = 1;
+  int32 user_id = 1;
   hts.common.Organization organization = 2;
 }
 
 message RemoveOrganizationRequest {
-  int64 user_id = 1;
-  int64 organization_id = 2;
+  int32 user_id = 1;
+  int32 organization_id = 2;
 }
 
 message UpdateUsersInOrganizationRequest {
-  int64 user_id = 1;
-  repeated int64 user_ids = 2 [packed=true];
-  int64 organization_id = 3;
+  int32 user_id = 1;
+  repeated int32 user_ids = 2 [packed=true];
+  int32 organization_id = 3;
 }
 
 message CreateEventRequest {
-  int64 user_id = 1;
+  int32 user_id = 1;
   hts.common.Event event = 2;
 }
 
 message UpdateEventRequest {
-  int64 user_id = 1;
+  int32 user_id = 1;
   hts.common.Event event = 2;
 }
 
 message UpdateEventDurationRequest {
-  int64 user_id = 1;
-  int64 event_id = 2;
+  int32 user_id = 1;
+  int32 event_id = 2;
   repeated Duration duration = 3;
 }
 
 message RemoveEventRequest {
-  int64 user_id = 1;
-  int64 event_id = 2;
+  int32 user_id = 1;
+  int32 event_id = 2;
 }
 
 message UpdateRegistrationRequestRequest {
-  int64 user_id = 1;
-  int64 registered_user_id = 2;
-  int64 registered_event_id = 3;
+  int32 user_id = 1;
+  int32 registered_user_id = 2;
+  int32 registered_event_id = 3;
   hts.common.UserEvent.Status status = 4;
 }
 
 message CreateTagRequest {
-  int64 user_id = 1;
-  int64 organization_id = 2;
+  int32 user_id = 1;
+  int32 organization_id = 2;
   hts.common.Tag tag = 3;
 }
 
 message UpdateTagRequest {
-  int64 user_id = 1;
-  repeated int64 tag_ids = 2 [packed=true];
-  int64 event_id = 3;
+  int32 user_id = 1;
+  repeated int32 tag_ids = 2 [packed=true];
+  int32 event_id = 3;
 }
 
 message HasEventRequest {
-  int64 organization_id = 1;
-  int64 event_id = 2;
+  int32 organization_id = 1;
+  int32 event_id = 2;
 }
 
 message AddQuestionGroupsRequest {
-  int64 user_id = 1;
+  int32 user_id = 1;
   repeated hts.common.QuestionGroup question_groups = 2;
 }
 
 message RemoveQuestionGroupsRequest {
-  int64 user_id = 1;
-  repeated int64 question_group_ids = 2;
+  int32 user_id = 1;
+  repeated int32 question_group_ids = 2;
 }
 
 message AddQuestionsRequest {
-  int64 user_id = 1;
+  int32 user_id = 1;
   repeated hts.common.Question questions = 2;
 }
 
 message RemoveQuestionsRequest {
-  int64 user_id = 1;
-  repeated int64 question_ids = 2;
+  int32 user_id = 1;
+  repeated int32 question_ids = 2;
 }
 
 message GetOrganizationsResponse {
