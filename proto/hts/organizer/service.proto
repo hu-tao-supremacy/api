@@ -63,7 +63,7 @@ message UpdateRegistrationRequestRequest {
   int64 user_id = 1;
   int64 registered_user_id = 2;
   int64 registered_event_id = 3;
-  hts.common.UserEvent.UserEventStatus status = 4;
+  hts.common.UserEvent.Status status = 4;
 }
 
 message CreateTagRequest {
