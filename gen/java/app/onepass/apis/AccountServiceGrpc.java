@@ -14,6 +14,37 @@ public final class AccountServiceGrpc {
   public static final String SERVICE_NAME = "hts.account.AccountService";
 
   // Static method descriptors that strictly reflect the proto.
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.CreateUserRequest,
+      app.onepass.apis.User> getCreateUserMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "CreateUser",
+      requestType = app.onepass.apis.CreateUserRequest.class,
+      responseType = app.onepass.apis.User.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<app.onepass.apis.CreateUserRequest,
+      app.onepass.apis.User> getCreateUserMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.CreateUserRequest, app.onepass.apis.User> getCreateUserMethod;
+    if ((getCreateUserMethod = AccountServiceGrpc.getCreateUserMethod) == null) {
+      synchronized (AccountServiceGrpc.class) {
+        if ((getCreateUserMethod = AccountServiceGrpc.getCreateUserMethod) == null) {
+          AccountServiceGrpc.getCreateUserMethod = getCreateUserMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.CreateUserRequest, app.onepass.apis.User>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateUser"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.CreateUserRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.User.getDefaultInstance()))
+              .setSchemaDescriptor(new AccountServiceMethodDescriptorSupplier("CreateUser"))
+              .build();
+        }
+      }
+    }
+    return getCreateUserMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest,
       app.onepass.apis.User> getGetUserByChulaIdMethod;
 
@@ -281,6 +312,13 @@ public final class AccountServiceGrpc {
 
     /**
      */
+    public void createUser(app.onepass.apis.CreateUserRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.User> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateUserMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void getUserByChulaId(app.onepass.apis.GetObjectByIdRequest request,
         io.grpc.stub.StreamObserver<app.onepass.apis.User> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetUserByChulaIdMethod(), responseObserver);
@@ -330,6 +368,13 @@ public final class AccountServiceGrpc {
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
+          .addMethod(
+            getCreateUserMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                app.onepass.apis.CreateUserRequest,
+                app.onepass.apis.User>(
+                  this, METHODID_CREATE_USER)))
           .addMethod(
             getGetUserByChulaIdMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -395,6 +440,14 @@ public final class AccountServiceGrpc {
     protected AccountServiceStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       return new AccountServiceStub(channel, callOptions);
+    }
+
+    /**
+     */
+    public void createUser(app.onepass.apis.CreateUserRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.User> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getCreateUserMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -470,6 +523,13 @@ public final class AccountServiceGrpc {
 
     /**
      */
+    public app.onepass.apis.User createUser(app.onepass.apis.CreateUserRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getCreateUserMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public app.onepass.apis.User getUserByChulaId(app.onepass.apis.GetObjectByIdRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetUserByChulaIdMethod(), getCallOptions(), request);
@@ -534,6 +594,14 @@ public final class AccountServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.User> createUser(
+        app.onepass.apis.CreateUserRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getCreateUserMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.User> getUserByChulaId(
         app.onepass.apis.GetObjectByIdRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -589,13 +657,14 @@ public final class AccountServiceGrpc {
     }
   }
 
-  private static final int METHODID_GET_USER_BY_CHULA_ID = 0;
-  private static final int METHODID_IS_AUTHENTICATED = 1;
-  private static final int METHODID_UPDATE_ACCOUNT_INFO = 2;
-  private static final int METHODID_GET_USER_BY_ID = 3;
-  private static final int METHODID_GENERATE_ACCESS_TOKEN = 4;
-  private static final int METHODID_HAS_PERMISSION = 5;
-  private static final int METHODID_PING = 6;
+  private static final int METHODID_CREATE_USER = 0;
+  private static final int METHODID_GET_USER_BY_CHULA_ID = 1;
+  private static final int METHODID_IS_AUTHENTICATED = 2;
+  private static final int METHODID_UPDATE_ACCOUNT_INFO = 3;
+  private static final int METHODID_GET_USER_BY_ID = 4;
+  private static final int METHODID_GENERATE_ACCESS_TOKEN = 5;
+  private static final int METHODID_HAS_PERMISSION = 6;
+  private static final int METHODID_PING = 7;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -614,6 +683,10 @@ public final class AccountServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_CREATE_USER:
+          serviceImpl.createUser((app.onepass.apis.CreateUserRequest) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.User>) responseObserver);
+          break;
         case METHODID_GET_USER_BY_CHULA_ID:
           serviceImpl.getUserByChulaId((app.onepass.apis.GetObjectByIdRequest) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.User>) responseObserver);
@@ -703,6 +776,7 @@ public final class AccountServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new AccountServiceFileDescriptorSupplier())
+              .addMethod(getCreateUserMethod())
               .addMethod(getGetUserByChulaIdMethod())
               .addMethod(getIsAuthenticatedMethod())
               .addMethod(getUpdateAccountInfoMethod())
