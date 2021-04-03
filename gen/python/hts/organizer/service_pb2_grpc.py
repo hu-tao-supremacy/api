@@ -20,7 +20,7 @@ class OrganizerServiceStub(object):
         self.CreateOrganization = channel.unary_unary(
                 '/hts.organizer.OrganizerService/CreateOrganization',
                 request_serializer=hts_dot_organizer_dot_service__pb2.CreateOrganizationRequest.SerializeToString,
-                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                response_deserializer=hts_dot_common_dot_common__pb2.Organization.FromString,
                 )
         self.GetOrganizations = channel.unary_unary(
                 '/hts.organizer.OrganizerService/GetOrganizations',
@@ -259,7 +259,7 @@ def add_OrganizerServiceServicer_to_server(servicer, server):
             'CreateOrganization': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateOrganization,
                     request_deserializer=hts_dot_organizer_dot_service__pb2.CreateOrganizationRequest.FromString,
-                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                    response_serializer=hts_dot_common_dot_common__pb2.Organization.SerializeToString,
             ),
             'GetOrganizations': grpc.unary_unary_rpc_method_handler(
                     servicer.GetOrganizations,
@@ -384,7 +384,7 @@ class OrganizerService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/CreateOrganization',
             hts_dot_organizer_dot_service__pb2.CreateOrganizationRequest.SerializeToString,
-            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            hts_dot_common_dot_common__pb2.Organization.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
