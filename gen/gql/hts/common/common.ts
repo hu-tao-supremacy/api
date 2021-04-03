@@ -153,7 +153,7 @@ export interface UserEvent {
   userId: number;
   eventId: number;
   rating: number | undefined;
-  ticket: string;
+  ticket: string | undefined;
   status: UserEvent_Status;
 }
 
