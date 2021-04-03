@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\020app.onepass.apisB\013CommonProtoP\001Z\037onepass.app/facility/hts/common',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x17hts/common/common.proto\x12\nhts.common\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"x\n\rOperatingHour\x12\x1d\n\nstart_hour\x18\x01 \x01(\x03R\tstartHour\x12\x1f\n\x0b\x66inish_hour\x18\x02 \x01(\x03R\nfinishHour\x12\'\n\x03\x64\x61y\x18\x03 \x01(\x0e\x32\x15.hts.common.DayOfWeekR\x03\x64\x61y\"?\n\x06Result\x12\x13\n\x05is_ok\x18\x01 \x01(\x08R\x04isOk\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\"\xb7\x03\n\x04User\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x1d\n\nfirst_name\x18\x02 \x01(\tR\tfirstName\x12\x1b\n\tlast_name\x18\x03 \x01(\tR\x08lastName\x12\x14\n\x05\x65mail\x18\x04 \x01(\tR\x05\x65mail\x12\x38\n\x08nickname\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x08nickname\x12\x37\n\x08\x63hula_id\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x07\x63hulaId\x12(\n\x10is_chula_student\x18\x07 \x01(\x08R\x0eisChulaStudent\x12*\n\x06gender\x18\x08 \x01(\x0e\x32\x12.hts.common.GenderR\x06gender\x12\x36\n\x07\x61\x64\x64ress\x18\t \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x07\x61\x64\x64ress\x12L\n\x13profile_picture_url\x18\n \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x11profilePictureUrl\"\xa0\x08\n\x0cOrganization\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12\x1f\n\x0bis_verified\x18\x03 \x01(\x08R\nisVerified\x12@\n\x0c\x61\x62\x62reviation\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0c\x61\x62\x62reviation\x12\x36\n\x07\x61\x64visor\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x07\x61\x64visor\x12K\n\x12\x61ssociated_faculty\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x11\x61ssociatedFaculty\x12>\n\x0b\x64\x65scription\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0b\x64\x65scription\x12\x41\n\rfacebook_page\x18\x08 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0c\x66\x61\x63\x65\x62ookPage\x12:\n\tinstagram\x18\t \x01(\x0b\x32\x1c.google.protobuf.StringValueR\tinstagram\x12P\n\x15line_official_account\x18\n \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x13lineOfficialAccount\x12\x32\n\x05\x65mail\x18\x0b \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x05\x65mail\x12H\n\x11\x63ontact_full_name\x18\x0c \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0f\x63ontactFullName\x12\x41\n\rcontact_email\x18\r \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0c\x63ontactEmail\x12N\n\x14\x63ontact_phone_number\x18\x0e \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x12\x63ontactPhoneNumber\x12\x44\n\x0f\x63ontact_line_id\x18\x0f \x01(\x0b\x32\x1c.google.protobuf.StringValueR\rcontactLineId\x12L\n\x13profile_picture_url\x18\x10 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x11profilePictureUrl\x12N\n\x14profile_picture_hash\x18\x11 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x12profilePictureHash\"\x95\x01\n\rQuestionGroup\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12\x31\n\x04type\x18\x03 \x01(\x0e\x32\x1d.hts.common.QuestionGroupTypeR\x04type\x12\x10\n\x03seq\x18\x04 \x01(\x03R\x03seq\x12\x14\n\x05title\x18\x05 \x01(\tR\x05title\"\xe4\x01\n\x08Question\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12*\n\x11question_group_id\x18\x02 \x01(\x03R\x0fquestionGroupId\x12\x10\n\x03seq\x18\x03 \x01(\x03R\x03seq\x12\x37\n\x0b\x61nswer_type\x18\x04 \x01(\x0e\x32\x16.hts.common.AnswerTypeR\nanswerType\x12\x1f\n\x0bis_optional\x18\x05 \x01(\x08R\nisOptional\x12\x14\n\x05title\x18\x06 \x01(\tR\x05title\x12\x1a\n\x08subtitle\x18\x07 \x01(\tR\x08subtitle\"d\n\x10UserOrganization\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n\x07user_id\x18\x02 \x01(\x03R\x06userId\x12\'\n\x0forganization_id\x18\x03 \x01(\x03R\x0eorganizationId\"\xab\x05\n\x05\x45vent\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12<\n\x0blocation_id\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int64ValueR\nlocationId\x12 \n\x0b\x64\x65scription\x18\x04 \x01(\tR\x0b\x64\x65scription\x12\x12\n\x04name\x18\x05 \x01(\tR\x04name\x12\x44\n\x0f\x63over_image_url\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\rcoverImageUrl\x12\x46\n\x10\x63over_image_hash\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0e\x63overImageHash\x12\x46\n\x10poster_image_url\x18\x08 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0eposterImageUrl\x12H\n\x11poster_image_hash\x18\t \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0fposterImageHash\x12\x18\n\x07\x63ontact\x18\n \x01(\tR\x07\x63ontact\x12H\n\x11profile_image_url\x18\x0b \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0fprofileImageUrl\x12J\n\x12profile_image_hash\x18\x0c \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x10profileImageHash\x12%\n\x0e\x61ttendee_limit\x18\r \x01(\x03R\rattendeeLimit\"\xd4\x02\n\x08Location\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12$\n\x0egoogle_map_url\x18\x03 \x01(\tR\x0cgoogleMapUrl\x12>\n\x0b\x64\x65scription\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0b\x64\x65scription\x12]\n\x1ctravel_information_image_url\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x19travelInformationImageUrl\x12_\n\x1dtravel_information_image_hash\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x1atravelInformationImageHash\"s\n\x06\x41nswer\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\"\n\ruser_event_id\x18\x02 \x01(\x03R\x0buserEventId\x12\x1f\n\x0bquestion_id\x18\x03 \x01(\x03R\nquestionId\x12\x14\n\x05value\x18\x04 \x01(\tR\x05value\"\xc8\x01\n\tUserEvent\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n\x07user_id\x18\x02 \x01(\x03R\x06userId\x12\x19\n\x08\x65vent_id\x18\x03 \x01(\x03R\x07\x65ventId\x12\x33\n\x06rating\x18\x04 \x01(\x0b\x32\x1b.google.protobuf.Int64ValueR\x06rating\x12\x16\n\x06ticket\x18\x05 \x01(\tR\x06ticket\x12*\n\x06status\x18\x06 \x01(\x0e\x32\x12.hts.common.StatusR\x06status\"\xa0\x01\n\rEventDuration\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12\x30\n\x05start\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12\x32\n\x06\x66inish\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x06\x66inish\")\n\x03Tag\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\"L\n\x08\x45ventTag\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12\x15\n\x06tag_id\x18\x03 \x01(\x03R\x05tagId\"\x89\x01\n\x16OrganizationPermission\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12\x36\n\npermission\x18\x03 \x01(\x0e\x32\x16.hts.common.PermissionR\npermission\"z\n\x0eUserPermission\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n\x07user_id\x18\x02 \x01(\x03R\x06userId\x12?\n\x0fpermission_name\x18\x03 \x01(\x0e\x32\x16.hts.common.PermissionR\x0epermissionName\"M\n\x0cUserInterest\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x16\n\x06userId\x18\x02 \x01(\x03R\x06userId\x12\x15\n\x06tag_id\x18\x03 \x01(\x03R\x05tagId\"\xb2\x02\n\x0f\x46\x61\x63ilityRequest\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12\x1f\n\x0b\x66\x61\x63ility_id\x18\x03 \x01(\x03R\nfacilityId\x12*\n\x06status\x18\x04 \x01(\x0e\x32\x12.hts.common.StatusR\x06status\x12\x41\n\rreject_reason\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0crejectReason\x12\x30\n\x05start\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12\x32\n\x06\x66inish\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x06\x66inish\"\xf7\x01\n\x08\x46\x61\x63ility\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12\x12\n\x04name\x18\x03 \x01(\tR\x04name\x12\x1a\n\x08latitude\x18\x04 \x01(\x01R\x08latitude\x12\x1c\n\tlongitude\x18\x05 \x01(\x01R\tlongitude\x12\x42\n\x0foperating_hours\x18\x06 \x03(\x0b\x32\x19.hts.common.OperatingHourR\x0eoperatingHours\x12 \n\x0b\x64\x65scription\x18\x07 \x01(\tR\x0b\x64\x65scription\"&\n\x14GetObjectByIdRequest\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id*J\n\tDayOfWeek\x12\x07\n\x03SUN\x10\x00\x12\x07\n\x03MON\x10\x01\x12\x07\n\x03TUE\x10\x02\x12\x07\n\x03WED\x10\x03\x12\x07\n\x03THU\x10\x04\x12\x07\n\x03\x46RI\x10\x05\x12\x07\n\x03SAT\x10\x06*!\n\nAnswerType\x12\t\n\x05SCALE\x10\x00\x12\x08\n\x04TEXT\x10\x01*2\n\x11QuestionGroupType\x12\r\n\tPRE_EVENT\x10\x00\x12\x0e\n\nPOST_EVENT\x10\x01*\x1e\n\x06Gender\x12\x05\n\x01M\x10\x00\x12\x05\n\x01\x46\x10\x01\x12\x06\n\x02NS\x10\x02*1\n\x06Status\x12\x0b\n\x07PENDING\x10\x00\x12\x0c\n\x08\x41PPROVED\x10\x01\x12\x0c\n\x08REJECTED\x10\x02*\xba\x02\n\nPermission\x12\x12\n\x0e\x41\x44MINISTRATION\x10\x00\x12\x17\n\x13ORGANIZATION_UPDATE\x10\x01\x12\x17\n\x13ORGANIZATION_REMOVE\x10\x02\x12\x1b\n\x17ORGANIZATION_MEMBER_ADD\x10\x03\x12\x1e\n\x1aORGANIZATION_MEMBER_REMOVE\x10\x04\x12\x10\n\x0c\x45VENT_CREATE\x10\x05\x12\x10\n\x0c\x45VENT_UPDATE\x10\x06\x12\x10\n\x0c\x45VENT_REMOVE\x10\x07\x12\x0e\n\nTAG_CREATE\x10\x08\x12\x0e\n\nTAG_REMOVE\x10\t\x12\x14\n\x10\x45VENT_TAG_UPDATE\x10\n\x12\x13\n\x0f\x46\x41\x43ILITY_CREATE\x10\x0b\x12\x13\n\x0f\x46\x41\x43ILITY_UPDATE\x10\x0c\x12\x13\n\x0f\x46\x41\x43ILITY_REMOVE\x10\rBB\n\x10\x61pp.onepass.apisB\x0b\x43ommonProtoP\x01Z\x1fonepass.app/facility/hts/commonb\x06proto3'
+  serialized_pb=b'\n\x17hts/common/common.proto\x12\nhts.common\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"x\n\rOperatingHour\x12\x1d\n\nstart_hour\x18\x01 \x01(\x03R\tstartHour\x12\x1f\n\x0b\x66inish_hour\x18\x02 \x01(\x03R\nfinishHour\x12\'\n\x03\x64\x61y\x18\x03 \x01(\x0e\x32\x15.hts.common.DayOfWeekR\x03\x64\x61y\"\xb7\x03\n\x04User\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x1d\n\nfirst_name\x18\x02 \x01(\tR\tfirstName\x12\x1b\n\tlast_name\x18\x03 \x01(\tR\x08lastName\x12\x14\n\x05\x65mail\x18\x04 \x01(\tR\x05\x65mail\x12\x38\n\x08nickname\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x08nickname\x12\x37\n\x08\x63hula_id\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x07\x63hulaId\x12(\n\x10is_chula_student\x18\x07 \x01(\x08R\x0eisChulaStudent\x12*\n\x06gender\x18\x08 \x01(\x0e\x32\x12.hts.common.GenderR\x06gender\x12\x36\n\x07\x61\x64\x64ress\x18\t \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x07\x61\x64\x64ress\x12L\n\x13profile_picture_url\x18\n \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x11profilePictureUrl\"\xa0\x08\n\x0cOrganization\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12\x1f\n\x0bis_verified\x18\x03 \x01(\x08R\nisVerified\x12@\n\x0c\x61\x62\x62reviation\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0c\x61\x62\x62reviation\x12\x36\n\x07\x61\x64visor\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x07\x61\x64visor\x12K\n\x12\x61ssociated_faculty\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x11\x61ssociatedFaculty\x12>\n\x0b\x64\x65scription\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0b\x64\x65scription\x12\x41\n\rfacebook_page\x18\x08 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0c\x66\x61\x63\x65\x62ookPage\x12:\n\tinstagram\x18\t \x01(\x0b\x32\x1c.google.protobuf.StringValueR\tinstagram\x12P\n\x15line_official_account\x18\n \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x13lineOfficialAccount\x12\x32\n\x05\x65mail\x18\x0b \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x05\x65mail\x12H\n\x11\x63ontact_full_name\x18\x0c \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0f\x63ontactFullName\x12\x41\n\rcontact_email\x18\r \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0c\x63ontactEmail\x12N\n\x14\x63ontact_phone_number\x18\x0e \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x12\x63ontactPhoneNumber\x12\x44\n\x0f\x63ontact_line_id\x18\x0f \x01(\x0b\x32\x1c.google.protobuf.StringValueR\rcontactLineId\x12L\n\x13profile_picture_url\x18\x10 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x11profilePictureUrl\x12N\n\x14profile_picture_hash\x18\x11 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x12profilePictureHash\"\x95\x01\n\rQuestionGroup\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12\x31\n\x04type\x18\x03 \x01(\x0e\x32\x1d.hts.common.QuestionGroupTypeR\x04type\x12\x10\n\x03seq\x18\x04 \x01(\x03R\x03seq\x12\x14\n\x05title\x18\x05 \x01(\tR\x05title\"\xe4\x01\n\x08Question\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12*\n\x11question_group_id\x18\x02 \x01(\x03R\x0fquestionGroupId\x12\x10\n\x03seq\x18\x03 \x01(\x03R\x03seq\x12\x37\n\x0b\x61nswer_type\x18\x04 \x01(\x0e\x32\x16.hts.common.AnswerTypeR\nanswerType\x12\x1f\n\x0bis_optional\x18\x05 \x01(\x08R\nisOptional\x12\x14\n\x05title\x18\x06 \x01(\tR\x05title\x12\x1a\n\x08subtitle\x18\x07 \x01(\tR\x08subtitle\"d\n\x10UserOrganization\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n\x07user_id\x18\x02 \x01(\x03R\x06userId\x12\'\n\x0forganization_id\x18\x03 \x01(\x03R\x0eorganizationId\"\xab\x05\n\x05\x45vent\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12<\n\x0blocation_id\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int64ValueR\nlocationId\x12 \n\x0b\x64\x65scription\x18\x04 \x01(\tR\x0b\x64\x65scription\x12\x12\n\x04name\x18\x05 \x01(\tR\x04name\x12\x44\n\x0f\x63over_image_url\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\rcoverImageUrl\x12\x46\n\x10\x63over_image_hash\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0e\x63overImageHash\x12\x46\n\x10poster_image_url\x18\x08 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0eposterImageUrl\x12H\n\x11poster_image_hash\x18\t \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0fposterImageHash\x12\x18\n\x07\x63ontact\x18\n \x01(\tR\x07\x63ontact\x12H\n\x11profile_image_url\x18\x0b \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0fprofileImageUrl\x12J\n\x12profile_image_hash\x18\x0c \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x10profileImageHash\x12%\n\x0e\x61ttendee_limit\x18\r \x01(\x03R\rattendeeLimit\"\xd4\x02\n\x08Location\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12$\n\x0egoogle_map_url\x18\x03 \x01(\tR\x0cgoogleMapUrl\x12>\n\x0b\x64\x65scription\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0b\x64\x65scription\x12]\n\x1ctravel_information_image_url\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x19travelInformationImageUrl\x12_\n\x1dtravel_information_image_hash\x18\x06 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x1atravelInformationImageHash\"s\n\x06\x41nswer\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\"\n\ruser_event_id\x18\x02 \x01(\x03R\x0buserEventId\x12\x1f\n\x0bquestion_id\x18\x03 \x01(\x03R\nquestionId\x12\x14\n\x05value\x18\x04 \x01(\tR\x05value\"\x9d\x02\n\tUserEvent\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n\x07user_id\x18\x02 \x01(\x03R\x06userId\x12\x19\n\x08\x65vent_id\x18\x03 \x01(\x03R\x07\x65ventId\x12\x33\n\x06rating\x18\x04 \x01(\x0b\x32\x1b.google.protobuf.Int64ValueR\x06rating\x12\x16\n\x06ticket\x18\x05 \x01(\tR\x06ticket\x12\x34\n\x06status\x18\x06 \x01(\x0e\x32\x1c.hts.common.UserEvent.StatusR\x06status\"I\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x0b\n\x07PENDING\x10\x01\x12\x0c\n\x08\x41PPROVED\x10\x02\x12\x0c\n\x08REJECTED\x10\x03\"\xa0\x01\n\rEventDuration\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12\x30\n\x05start\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12\x32\n\x06\x66inish\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x06\x66inish\")\n\x03Tag\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\"L\n\x08\x45ventTag\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12\x15\n\x06tag_id\x18\x03 \x01(\x03R\x05tagId\"\x89\x01\n\x16OrganizationPermission\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12\x36\n\npermission\x18\x03 \x01(\x0e\x32\x16.hts.common.PermissionR\npermission\"z\n\x0eUserPermission\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x17\n\x07user_id\x18\x02 \x01(\x03R\x06userId\x12?\n\x0fpermission_name\x18\x03 \x01(\x0e\x32\x16.hts.common.PermissionR\x0epermissionName\"M\n\x0cUserInterest\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x16\n\x06userId\x18\x02 \x01(\x03R\x06userId\x12\x15\n\x06tag_id\x18\x03 \x01(\x03R\x05tagId\"\x8d\x03\n\x0f\x46\x61\x63ilityRequest\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12\x1f\n\x0b\x66\x61\x63ility_id\x18\x03 \x01(\x03R\nfacilityId\x12:\n\x06status\x18\x04 \x01(\x0e\x32\".hts.common.FacilityRequest.StatusR\x06status\x12\x41\n\rreject_reason\x18\x05 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0crejectReason\x12\x30\n\x05start\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12\x32\n\x06\x66inish\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x06\x66inish\"I\n\x06Status\x12\x16\n\x12STATUS_UNSPECIFIED\x10\x00\x12\x0b\n\x07PENDING\x10\x01\x12\x0c\n\x08\x41PPROVED\x10\x02\x12\x0c\n\x08REJECTED\x10\x03\"\xf7\x01\n\x08\x46\x61\x63ility\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12\x12\n\x04name\x18\x03 \x01(\tR\x04name\x12\x1a\n\x08latitude\x18\x04 \x01(\x01R\x08latitude\x12\x1c\n\tlongitude\x18\x05 \x01(\x01R\tlongitude\x12\x42\n\x0foperating_hours\x18\x06 \x03(\x0b\x32\x19.hts.common.OperatingHourR\x0eoperatingHours\x12 \n\x0b\x64\x65scription\x18\x07 \x01(\tR\x0b\x64\x65scription\"&\n\x14GetObjectByIdRequest\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id*g\n\tDayOfWeek\x12\x1b\n\x17\x44\x41Y_OF_WEEK_UNSPECIFIED\x10\x00\x12\x07\n\x03SUN\x10\x01\x12\x07\n\x03MON\x10\x02\x12\x07\n\x03TUE\x10\x03\x12\x07\n\x03WED\x10\x04\x12\x07\n\x03THU\x10\x05\x12\x07\n\x03\x46RI\x10\x06\x12\x07\n\x03SAT\x10\x07*>\n\nAnswerType\x12\x1b\n\x17\x41NSWER_TYPE_UNSPECIFIED\x10\x00\x12\t\n\x05SCALE\x10\x01\x12\x08\n\x04TEXT\x10\x02*W\n\x11QuestionGroupType\x12#\n\x1fQUESTION_GROUP_TYPE_UNSPECIFIED\x10\x00\x12\r\n\tPRE_EVENT\x10\x01\x12\x0e\n\nPOST_EVENT\x10\x02*6\n\x06Gender\x12\x16\n\x12GENDER_UNSPECIFIED\x10\x00\x12\x05\n\x01M\x10\x01\x12\x05\n\x01\x46\x10\x02\x12\x06\n\x02NS\x10\x03*\xc2\x02\n\nPermission\x12\x1a\n\x16PERMISSION_UNSPECIFIED\x10\x00\x12\x17\n\x13ORGANIZATION_UPDATE\x10\x01\x12\x17\n\x13ORGANIZATION_REMOVE\x10\x02\x12\x1b\n\x17ORGANIZATION_MEMBER_ADD\x10\x03\x12\x1e\n\x1aORGANIZATION_MEMBER_REMOVE\x10\x04\x12\x10\n\x0c\x45VENT_CREATE\x10\x05\x12\x10\n\x0c\x45VENT_UPDATE\x10\x06\x12\x10\n\x0c\x45VENT_REMOVE\x10\x07\x12\x0e\n\nTAG_CREATE\x10\x08\x12\x0e\n\nTAG_REMOVE\x10\t\x12\x14\n\x10\x45VENT_TAG_UPDATE\x10\n\x12\x13\n\x0f\x46\x41\x43ILITY_CREATE\x10\x0b\x12\x13\n\x0f\x46\x41\x43ILITY_UPDATE\x10\x0c\x12\x13\n\x0f\x46\x41\x43ILITY_REMOVE\x10\rBB\n\x10\x61pp.onepass.apisB\x0b\x43ommonProtoP\x01Z\x1fonepass.app/facility/hts/commonb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
@@ -34,45 +34,50 @@ _DAYOFWEEK = _descriptor.EnumDescriptor(
   create_key=_descriptor._internal_create_key,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='SUN', index=0, number=0,
+      name='DAY_OF_WEEK_UNSPECIFIED', index=0, number=0,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='MON', index=1, number=1,
+      name='SUN', index=1, number=1,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='TUE', index=2, number=2,
+      name='MON', index=2, number=2,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='WED', index=3, number=3,
+      name='TUE', index=3, number=3,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='THU', index=4, number=4,
+      name='WED', index=4, number=4,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='FRI', index=5, number=5,
+      name='THU', index=5, number=5,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='SAT', index=6, number=6,
+      name='FRI', index=6, number=6,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='SAT', index=7, number=7,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4852,
-  serialized_end=4926,
+  serialized_start=4963,
+  serialized_end=5066,
 )
 _sym_db.RegisterEnumDescriptor(_DAYOFWEEK)
 
@@ -85,20 +90,25 @@ _ANSWERTYPE = _descriptor.EnumDescriptor(
   create_key=_descriptor._internal_create_key,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='SCALE', index=0, number=0,
+      name='ANSWER_TYPE_UNSPECIFIED', index=0, number=0,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='TEXT', index=1, number=1,
+      name='SCALE', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='TEXT', index=2, number=2,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4928,
-  serialized_end=4961,
+  serialized_start=5068,
+  serialized_end=5130,
 )
 _sym_db.RegisterEnumDescriptor(_ANSWERTYPE)
 
@@ -111,20 +121,25 @@ _QUESTIONGROUPTYPE = _descriptor.EnumDescriptor(
   create_key=_descriptor._internal_create_key,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='PRE_EVENT', index=0, number=0,
+      name='QUESTION_GROUP_TYPE_UNSPECIFIED', index=0, number=0,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='POST_EVENT', index=1, number=1,
+      name='PRE_EVENT', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='POST_EVENT', index=2, number=2,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4963,
-  serialized_end=5013,
+  serialized_start=5132,
+  serialized_end=5219,
 )
 _sym_db.RegisterEnumDescriptor(_QUESTIONGROUPTYPE)
 
@@ -137,60 +152,34 @@ _GENDER = _descriptor.EnumDescriptor(
   create_key=_descriptor._internal_create_key,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='M', index=0, number=0,
+      name='GENDER_UNSPECIFIED', index=0, number=0,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='F', index=1, number=1,
+      name='M', index=1, number=1,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
     _descriptor.EnumValueDescriptor(
-      name='NS', index=2, number=2,
+      name='F', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='NS', index=3, number=3,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5015,
-  serialized_end=5045,
+  serialized_start=5221,
+  serialized_end=5275,
 )
 _sym_db.RegisterEnumDescriptor(_GENDER)
 
 Gender = enum_type_wrapper.EnumTypeWrapper(_GENDER)
-_STATUS = _descriptor.EnumDescriptor(
-  name='Status',
-  full_name='hts.common.Status',
-  filename=None,
-  file=DESCRIPTOR,
-  create_key=_descriptor._internal_create_key,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='PENDING', index=0, number=0,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='APPROVED', index=1, number=1,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-    _descriptor.EnumValueDescriptor(
-      name='REJECTED', index=2, number=2,
-      serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=5047,
-  serialized_end=5096,
-)
-_sym_db.RegisterEnumDescriptor(_STATUS)
-
-Status = enum_type_wrapper.EnumTypeWrapper(_STATUS)
 _PERMISSION = _descriptor.EnumDescriptor(
   name='Permission',
   full_name='hts.common.Permission',
@@ -199,7 +188,7 @@ _PERMISSION = _descriptor.EnumDescriptor(
   create_key=_descriptor._internal_create_key,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='ADMINISTRATION', index=0, number=0,
+      name='PERMISSION_UNSPECIFIED', index=0, number=0,
       serialized_options=None,
       type=None,
       create_key=_descriptor._internal_create_key),
@@ -271,30 +260,31 @@ _PERMISSION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=5099,
-  serialized_end=5413,
+  serialized_start=5278,
+  serialized_end=5600,
 )
 _sym_db.RegisterEnumDescriptor(_PERMISSION)
 
 Permission = enum_type_wrapper.EnumTypeWrapper(_PERMISSION)
-SUN = 0
-MON = 1
-TUE = 2
-WED = 3
-THU = 4
-FRI = 5
-SAT = 6
-SCALE = 0
-TEXT = 1
-PRE_EVENT = 0
-POST_EVENT = 1
-M = 0
-F = 1
-NS = 2
-PENDING = 0
-APPROVED = 1
-REJECTED = 2
-ADMINISTRATION = 0
+DAY_OF_WEEK_UNSPECIFIED = 0
+SUN = 1
+MON = 2
+TUE = 3
+WED = 4
+THU = 5
+FRI = 6
+SAT = 7
+ANSWER_TYPE_UNSPECIFIED = 0
+SCALE = 1
+TEXT = 2
+QUESTION_GROUP_TYPE_UNSPECIFIED = 0
+PRE_EVENT = 1
+POST_EVENT = 2
+GENDER_UNSPECIFIED = 0
+M = 1
+F = 2
+NS = 3
+PERMISSION_UNSPECIFIED = 0
 ORGANIZATION_UPDATE = 1
 ORGANIZATION_REMOVE = 2
 ORGANIZATION_MEMBER_ADD = 3
@@ -309,6 +299,76 @@ FACILITY_CREATE = 11
 FACILITY_UPDATE = 12
 FACILITY_REMOVE = 13
 
+
+_USEREVENT_STATUS = _descriptor.EnumDescriptor(
+  name='Status',
+  full_name='hts.common.UserEvent.Status',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='STATUS_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='PENDING', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='APPROVED', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='REJECTED', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=3571,
+  serialized_end=3644,
+)
+_sym_db.RegisterEnumDescriptor(_USEREVENT_STATUS)
+
+_FACILITYREQUEST_STATUS = _descriptor.EnumDescriptor(
+  name='Status',
+  full_name='hts.common.FacilityRequest.Status',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='STATUS_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='PENDING', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='APPROVED', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='REJECTED', index=3, number=3,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=3571,
+  serialized_end=3644,
+)
+_sym_db.RegisterEnumDescriptor(_FACILITYREQUEST_STATUS)
 
 
 _OPERATINGHOUR = _descriptor.Descriptor(
@@ -354,45 +414,6 @@ _OPERATINGHOUR = _descriptor.Descriptor(
   ],
   serialized_start=104,
   serialized_end=224,
-)
-
-
-_RESULT = _descriptor.Descriptor(
-  name='Result',
-  full_name='hts.common.Result',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='is_ok', full_name='hts.common.Result.is_ok', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='isOk', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='description', full_name='hts.common.Result.description', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='description', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=226,
-  serialized_end=289,
 )
 
 
@@ -486,8 +507,8 @@ _USER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=292,
-  serialized_end=731,
+  serialized_start=227,
+  serialized_end=666,
 )
 
 
@@ -630,8 +651,8 @@ _ORGANIZATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=734,
-  serialized_end=1790,
+  serialized_start=669,
+  serialized_end=1725,
 )
 
 
@@ -690,8 +711,8 @@ _QUESTIONGROUP = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1793,
-  serialized_end=1942,
+  serialized_start=1728,
+  serialized_end=1877,
 )
 
 
@@ -764,8 +785,8 @@ _QUESTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1945,
-  serialized_end=2173,
+  serialized_start=1880,
+  serialized_end=2108,
 )
 
 
@@ -810,8 +831,8 @@ _USERORGANIZATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2175,
-  serialized_end=2275,
+  serialized_start=2110,
+  serialized_end=2210,
 )
 
 
@@ -926,8 +947,8 @@ _EVENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2278,
-  serialized_end=2961,
+  serialized_start=2213,
+  serialized_end=2896,
 )
 
 
@@ -993,8 +1014,8 @@ _LOCATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2964,
-  serialized_end=3304,
+  serialized_start=2899,
+  serialized_end=3239,
 )
 
 
@@ -1046,8 +1067,8 @@ _ANSWER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3306,
-  serialized_end=3421,
+  serialized_start=3241,
+  serialized_end=3356,
 )
 
 
@@ -1106,6 +1127,7 @@ _USEREVENT = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
+    _USEREVENT_STATUS,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -1113,8 +1135,8 @@ _USEREVENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3424,
-  serialized_end=3624,
+  serialized_start=3359,
+  serialized_end=3644,
 )
 
 
@@ -1166,8 +1188,8 @@ _EVENTDURATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3627,
-  serialized_end=3787,
+  serialized_start=3647,
+  serialized_end=3807,
 )
 
 
@@ -1205,8 +1227,8 @@ _TAG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3789,
-  serialized_end=3830,
+  serialized_start=3809,
+  serialized_end=3850,
 )
 
 
@@ -1251,8 +1273,8 @@ _EVENTTAG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3832,
-  serialized_end=3908,
+  serialized_start=3852,
+  serialized_end=3928,
 )
 
 
@@ -1297,8 +1319,8 @@ _ORGANIZATIONPERMISSION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3911,
-  serialized_end=4048,
+  serialized_start=3931,
+  serialized_end=4068,
 )
 
 
@@ -1343,8 +1365,8 @@ _USERPERMISSION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4050,
-  serialized_end=4172,
+  serialized_start=4070,
+  serialized_end=4192,
 )
 
 
@@ -1389,8 +1411,8 @@ _USERINTEREST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4174,
-  serialized_end=4251,
+  serialized_start=4194,
+  serialized_end=4271,
 )
 
 
@@ -1456,6 +1478,7 @@ _FACILITYREQUEST = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
+    _FACILITYREQUEST_STATUS,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -1463,8 +1486,8 @@ _FACILITYREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4254,
-  serialized_end=4560,
+  serialized_start=4274,
+  serialized_end=4671,
 )
 
 
@@ -1537,8 +1560,8 @@ _FACILITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4563,
-  serialized_end=4810,
+  serialized_start=4674,
+  serialized_end=4921,
 )
 
 
@@ -1569,8 +1592,8 @@ _GETOBJECTBYIDREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=4812,
-  serialized_end=4850,
+  serialized_start=4923,
+  serialized_end=4961,
 )
 
 _OPERATINGHOUR.fields_by_name['day'].enum_type = _DAYOFWEEK
@@ -1606,18 +1629,19 @@ _LOCATION.fields_by_name['description'].message_type = google_dot_protobuf_dot_w
 _LOCATION.fields_by_name['travel_information_image_url'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _LOCATION.fields_by_name['travel_information_image_hash'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _USEREVENT.fields_by_name['rating'].message_type = google_dot_protobuf_dot_wrappers__pb2._INT64VALUE
-_USEREVENT.fields_by_name['status'].enum_type = _STATUS
+_USEREVENT.fields_by_name['status'].enum_type = _USEREVENT_STATUS
+_USEREVENT_STATUS.containing_type = _USEREVENT
 _EVENTDURATION.fields_by_name['start'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _EVENTDURATION.fields_by_name['finish'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _ORGANIZATIONPERMISSION.fields_by_name['permission'].enum_type = _PERMISSION
 _USERPERMISSION.fields_by_name['permission_name'].enum_type = _PERMISSION
-_FACILITYREQUEST.fields_by_name['status'].enum_type = _STATUS
+_FACILITYREQUEST.fields_by_name['status'].enum_type = _FACILITYREQUEST_STATUS
 _FACILITYREQUEST.fields_by_name['reject_reason'].message_type = google_dot_protobuf_dot_wrappers__pb2._STRINGVALUE
 _FACILITYREQUEST.fields_by_name['start'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _FACILITYREQUEST.fields_by_name['finish'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_FACILITYREQUEST_STATUS.containing_type = _FACILITYREQUEST
 _FACILITY.fields_by_name['operating_hours'].message_type = _OPERATINGHOUR
 DESCRIPTOR.message_types_by_name['OperatingHour'] = _OPERATINGHOUR
-DESCRIPTOR.message_types_by_name['Result'] = _RESULT
 DESCRIPTOR.message_types_by_name['User'] = _USER
 DESCRIPTOR.message_types_by_name['Organization'] = _ORGANIZATION
 DESCRIPTOR.message_types_by_name['QuestionGroup'] = _QUESTIONGROUP
@@ -1640,7 +1664,6 @@ DESCRIPTOR.enum_types_by_name['DayOfWeek'] = _DAYOFWEEK
 DESCRIPTOR.enum_types_by_name['AnswerType'] = _ANSWERTYPE
 DESCRIPTOR.enum_types_by_name['QuestionGroupType'] = _QUESTIONGROUPTYPE
 DESCRIPTOR.enum_types_by_name['Gender'] = _GENDER
-DESCRIPTOR.enum_types_by_name['Status'] = _STATUS
 DESCRIPTOR.enum_types_by_name['Permission'] = _PERMISSION
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -1650,13 +1673,6 @@ OperatingHour = _reflection.GeneratedProtocolMessageType('OperatingHour', (_mess
   # @@protoc_insertion_point(class_scope:hts.common.OperatingHour)
   })
 _sym_db.RegisterMessage(OperatingHour)
-
-Result = _reflection.GeneratedProtocolMessageType('Result', (_message.Message,), {
-  'DESCRIPTOR' : _RESULT,
-  '__module__' : 'hts.common.common_pb2'
-  # @@protoc_insertion_point(class_scope:hts.common.Result)
-  })
-_sym_db.RegisterMessage(Result)
 
 User = _reflection.GeneratedProtocolMessageType('User', (_message.Message,), {
   'DESCRIPTOR' : _USER,
