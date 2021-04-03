@@ -118,7 +118,9 @@ export interface GetOrganizationByIdResponse {
 export const HTS_ORGANIZER_PACKAGE_NAME = "hts.organizer";
 
 export interface OrganizerServiceClient {
-  createOrganization(request: CreateOrganizationRequest): Observable<Empty>;
+  createOrganization(
+    request: CreateOrganizationRequest
+  ): Observable<Organization>;
 
   getOrganizations(request: Empty): Observable<GetOrganizationsResponse>;
 
@@ -170,7 +172,9 @@ export interface OrganizerServiceClient {
 }
 
 export interface OrganizerServiceController {
-  createOrganization(request: CreateOrganizationRequest): void;
+  createOrganization(
+    request: CreateOrganizationRequest
+  ): Promise<Organization> | Observable<Organization> | Organization;
 
   getOrganizations(
     request: Empty
