@@ -17,6 +17,11 @@ class AccountServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
+        self.CreateUser = channel.unary_unary(
+                '/hts.account.AccountService/CreateUser',
+                request_serializer=hts_dot_account_dot_service__pb2.CreateUserRequest.SerializeToString,
+                response_deserializer=hts_dot_common_dot_common__pb2.User.FromString,
+                )
         self.GetUserByChulaId = channel.unary_unary(
                 '/hts.account.AccountService/GetUserByChulaId',
                 request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
@@ -56,6 +61,12 @@ class AccountServiceStub(object):
 
 class AccountServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
+
+    def CreateUser(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def GetUserByChulaId(self, request, context):
         """Missing associated documentation comment in .proto file."""
@@ -102,6 +113,11 @@ class AccountServiceServicer(object):
 
 def add_AccountServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
+            'CreateUser': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateUser,
+                    request_deserializer=hts_dot_account_dot_service__pb2.CreateUserRequest.FromString,
+                    response_serializer=hts_dot_common_dot_common__pb2.User.SerializeToString,
+            ),
             'GetUserByChulaId': grpc.unary_unary_rpc_method_handler(
                     servicer.GetUserByChulaId,
                     request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
@@ -146,6 +162,23 @@ def add_AccountServiceServicer_to_server(servicer, server):
  # This class is part of an EXPERIMENTAL API.
 class AccountService(object):
     """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def CreateUser(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.account.AccountService/CreateUser',
+            hts_dot_account_dot_service__pb2.CreateUserRequest.SerializeToString,
+            hts_dot_common_dot_common__pb2.User.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def GetUserByChulaId(request,
