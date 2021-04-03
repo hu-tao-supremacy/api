@@ -8,10 +8,10 @@ public interface UpdateOrganizationRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <code>int32 user_id = 1 [json_name = "userId"];</code>
    * @return The userId.
    */
-  long getUserId();
+  int getUserId();
 
   /**
    * <code>.hts.common.Organization organization = 2 [json_name = "organization"];</code>

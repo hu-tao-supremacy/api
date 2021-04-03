@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private GetRatingByEventIdResponse() {
-    result_ = emptyLongList();
+    result_ = emptyIntList();
   }
 
   @java.lang.Override
@@ -52,21 +52,21 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              result_ = newLongList();
+              result_ = newIntList();
               mutable_bitField0_ |= 0x00000001;
             }
-            result_.addLong(input.readInt64());
+            result_.addInt(input.readInt32());
             break;
           }
           case 10: {
             int length = input.readRawVarint32();
             int limit = input.pushLimit(length);
             if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-              result_ = newLongList();
+              result_ = newIntList();
               mutable_bitField0_ |= 0x00000001;
             }
             while (input.getBytesUntilLimit() > 0) {
-              result_.addLong(input.readInt64());
+              result_.addInt(input.readInt32());
             }
             input.popLimit(limit);
             break;
@@ -107,30 +107,30 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESULT_FIELD_NUMBER = 1;
-  private com.google.protobuf.Internal.LongList result_;
+  private com.google.protobuf.Internal.IntList result_;
   /**
-   * <code>repeated int64 result = 1 [json_name = "result"];</code>
+   * <code>repeated int32 result = 1 [json_name = "result"];</code>
    * @return A list containing the result.
    */
   @java.lang.Override
-  public java.util.List<java.lang.Long>
+  public java.util.List<java.lang.Integer>
       getResultList() {
     return result_;
   }
   /**
-   * <code>repeated int64 result = 1 [json_name = "result"];</code>
+   * <code>repeated int32 result = 1 [json_name = "result"];</code>
    * @return The count of result.
    */
   public int getResultCount() {
     return result_.size();
   }
   /**
-   * <code>repeated int64 result = 1 [json_name = "result"];</code>
+   * <code>repeated int32 result = 1 [json_name = "result"];</code>
    * @param index The index of the element to return.
    * @return The result at the given index.
    */
-  public long getResult(int index) {
-    return result_.getLong(index);
+  public int getResult(int index) {
+    return result_.getInt(index);
   }
   private int resultMemoizedSerializedSize = -1;
 
@@ -154,7 +154,7 @@ private static final long serialVersionUID = 0L;
       output.writeUInt32NoTag(resultMemoizedSerializedSize);
     }
     for (int i = 0; i < result_.size(); i++) {
-      output.writeInt64NoTag(result_.getLong(i));
+      output.writeInt32NoTag(result_.getInt(i));
     }
     unknownFields.writeTo(output);
   }
@@ -169,7 +169,7 @@ private static final long serialVersionUID = 0L;
       int dataSize = 0;
       for (int i = 0; i < result_.size(); i++) {
         dataSize += com.google.protobuf.CodedOutputStream
-          .computeInt64SizeNoTag(result_.getLong(i));
+          .computeInt32SizeNoTag(result_.getInt(i));
       }
       size += dataSize;
       if (!getResultList().isEmpty()) {
@@ -344,7 +344,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      result_ = emptyLongList();
+      result_ = emptyIntList();
       bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
@@ -466,7 +466,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.Internal.LongList result_ = emptyLongList();
+    private com.google.protobuf.Internal.IntList result_ = emptyIntList();
     private void ensureResultIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
         result_ = mutableCopy(result_);
@@ -474,60 +474,60 @@ private static final long serialVersionUID = 0L;
        }
     }
     /**
-     * <code>repeated int64 result = 1 [json_name = "result"];</code>
+     * <code>repeated int32 result = 1 [json_name = "result"];</code>
      * @return A list containing the result.
      */
-    public java.util.List<java.lang.Long>
+    public java.util.List<java.lang.Integer>
         getResultList() {
       return ((bitField0_ & 0x00000001) != 0) ?
                java.util.Collections.unmodifiableList(result_) : result_;
     }
     /**
-     * <code>repeated int64 result = 1 [json_name = "result"];</code>
+     * <code>repeated int32 result = 1 [json_name = "result"];</code>
      * @return The count of result.
      */
     public int getResultCount() {
       return result_.size();
     }
     /**
-     * <code>repeated int64 result = 1 [json_name = "result"];</code>
+     * <code>repeated int32 result = 1 [json_name = "result"];</code>
      * @param index The index of the element to return.
      * @return The result at the given index.
      */
-    public long getResult(int index) {
-      return result_.getLong(index);
+    public int getResult(int index) {
+      return result_.getInt(index);
     }
     /**
-     * <code>repeated int64 result = 1 [json_name = "result"];</code>
+     * <code>repeated int32 result = 1 [json_name = "result"];</code>
      * @param index The index to set the value at.
      * @param value The result to set.
      * @return This builder for chaining.
      */
     public Builder setResult(
-        int index, long value) {
+        int index, int value) {
       ensureResultIsMutable();
-      result_.setLong(index, value);
+      result_.setInt(index, value);
       onChanged();
       return this;
     }
     /**
-     * <code>repeated int64 result = 1 [json_name = "result"];</code>
+     * <code>repeated int32 result = 1 [json_name = "result"];</code>
      * @param value The result to add.
      * @return This builder for chaining.
      */
-    public Builder addResult(long value) {
+    public Builder addResult(int value) {
       ensureResultIsMutable();
-      result_.addLong(value);
+      result_.addInt(value);
       onChanged();
       return this;
     }
     /**
-     * <code>repeated int64 result = 1 [json_name = "result"];</code>
+     * <code>repeated int32 result = 1 [json_name = "result"];</code>
      * @param values The result to add.
      * @return This builder for chaining.
      */
     public Builder addAllResult(
-        java.lang.Iterable<? extends java.lang.Long> values) {
+        java.lang.Iterable<? extends java.lang.Integer> values) {
       ensureResultIsMutable();
       com.google.protobuf.AbstractMessageLite.Builder.addAll(
           values, result_);
@@ -535,11 +535,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated int64 result = 1 [json_name = "result"];</code>
+     * <code>repeated int32 result = 1 [json_name = "result"];</code>
      * @return This builder for chaining.
      */
     public Builder clearResult() {
-      result_ = emptyLongList();
+      result_ = emptyIntList();
       bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;

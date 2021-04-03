@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private RemoveQuestionGroupsRequest() {
-    questionGroupIds_ = emptyLongList();
+    questionGroupIds_ = emptyIntList();
   }
 
   @java.lang.Override
@@ -52,26 +52,26 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            userId_ = input.readInt64();
+            userId_ = input.readInt32();
             break;
           }
           case 16: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              questionGroupIds_ = newLongList();
+              questionGroupIds_ = newIntList();
               mutable_bitField0_ |= 0x00000001;
             }
-            questionGroupIds_.addLong(input.readInt64());
+            questionGroupIds_.addInt(input.readInt32());
             break;
           }
           case 18: {
             int length = input.readRawVarint32();
             int limit = input.pushLimit(length);
             if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-              questionGroupIds_ = newLongList();
+              questionGroupIds_ = newIntList();
               mutable_bitField0_ |= 0x00000001;
             }
             while (input.getBytesUntilLimit() > 0) {
-              questionGroupIds_.addLong(input.readInt64());
+              questionGroupIds_.addInt(input.readInt32());
             }
             input.popLimit(limit);
             break;
@@ -112,41 +112,41 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USER_ID_FIELD_NUMBER = 1;
-  private long userId_;
+  private int userId_;
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <code>int32 user_id = 1 [json_name = "userId"];</code>
    * @return The userId.
    */
   @java.lang.Override
-  public long getUserId() {
+  public int getUserId() {
     return userId_;
   }
 
   public static final int QUESTION_GROUP_IDS_FIELD_NUMBER = 2;
-  private com.google.protobuf.Internal.LongList questionGroupIds_;
+  private com.google.protobuf.Internal.IntList questionGroupIds_;
   /**
-   * <code>repeated int64 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
+   * <code>repeated int32 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
    * @return A list containing the questionGroupIds.
    */
   @java.lang.Override
-  public java.util.List<java.lang.Long>
+  public java.util.List<java.lang.Integer>
       getQuestionGroupIdsList() {
     return questionGroupIds_;
   }
   /**
-   * <code>repeated int64 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
+   * <code>repeated int32 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
    * @return The count of questionGroupIds.
    */
   public int getQuestionGroupIdsCount() {
     return questionGroupIds_.size();
   }
   /**
-   * <code>repeated int64 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
+   * <code>repeated int32 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
    * @param index The index of the element to return.
    * @return The questionGroupIds at the given index.
    */
-  public long getQuestionGroupIds(int index) {
-    return questionGroupIds_.getLong(index);
+  public int getQuestionGroupIds(int index) {
+    return questionGroupIds_.getInt(index);
   }
   private int questionGroupIdsMemoizedSerializedSize = -1;
 
@@ -165,15 +165,15 @@ private static final long serialVersionUID = 0L;
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     getSerializedSize();
-    if (userId_ != 0L) {
-      output.writeInt64(1, userId_);
+    if (userId_ != 0) {
+      output.writeInt32(1, userId_);
     }
     if (getQuestionGroupIdsList().size() > 0) {
       output.writeUInt32NoTag(18);
       output.writeUInt32NoTag(questionGroupIdsMemoizedSerializedSize);
     }
     for (int i = 0; i < questionGroupIds_.size(); i++) {
-      output.writeInt64NoTag(questionGroupIds_.getLong(i));
+      output.writeInt32NoTag(questionGroupIds_.getInt(i));
     }
     unknownFields.writeTo(output);
   }
@@ -184,15 +184,15 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (userId_ != 0L) {
+    if (userId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, userId_);
+        .computeInt32Size(1, userId_);
     }
     {
       int dataSize = 0;
       for (int i = 0; i < questionGroupIds_.size(); i++) {
         dataSize += com.google.protobuf.CodedOutputStream
-          .computeInt64SizeNoTag(questionGroupIds_.getLong(i));
+          .computeInt32SizeNoTag(questionGroupIds_.getInt(i));
       }
       size += dataSize;
       if (!getQuestionGroupIdsList().isEmpty()) {
@@ -233,8 +233,7 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getUserId());
+    hash = (53 * hash) + getUserId();
     if (getQuestionGroupIdsCount() > 0) {
       hash = (37 * hash) + QUESTION_GROUP_IDS_FIELD_NUMBER;
       hash = (53 * hash) + getQuestionGroupIdsList().hashCode();
@@ -372,9 +371,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      userId_ = 0L;
+      userId_ = 0;
 
-      questionGroupIds_ = emptyLongList();
+      questionGroupIds_ = emptyIntList();
       bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
@@ -457,7 +456,7 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(app.onepass.apis.RemoveQuestionGroupsRequest other) {
       if (other == app.onepass.apis.RemoveQuestionGroupsRequest.getDefaultInstance()) return this;
-      if (other.getUserId() != 0L) {
+      if (other.getUserId() != 0) {
         setUserId(other.getUserId());
       }
       if (!other.questionGroupIds_.isEmpty()) {
@@ -500,38 +499,38 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private long userId_ ;
+    private int userId_ ;
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @return The userId.
      */
     @java.lang.Override
-    public long getUserId() {
+    public int getUserId() {
       return userId_;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
-    public Builder setUserId(long value) {
+    public Builder setUserId(int value) {
       
       userId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
       
-      userId_ = 0L;
+      userId_ = 0;
       onChanged();
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList questionGroupIds_ = emptyLongList();
+    private com.google.protobuf.Internal.IntList questionGroupIds_ = emptyIntList();
     private void ensureQuestionGroupIdsIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
         questionGroupIds_ = mutableCopy(questionGroupIds_);
@@ -539,60 +538,60 @@ private static final long serialVersionUID = 0L;
        }
     }
     /**
-     * <code>repeated int64 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
+     * <code>repeated int32 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
      * @return A list containing the questionGroupIds.
      */
-    public java.util.List<java.lang.Long>
+    public java.util.List<java.lang.Integer>
         getQuestionGroupIdsList() {
       return ((bitField0_ & 0x00000001) != 0) ?
                java.util.Collections.unmodifiableList(questionGroupIds_) : questionGroupIds_;
     }
     /**
-     * <code>repeated int64 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
+     * <code>repeated int32 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
      * @return The count of questionGroupIds.
      */
     public int getQuestionGroupIdsCount() {
       return questionGroupIds_.size();
     }
     /**
-     * <code>repeated int64 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
+     * <code>repeated int32 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
      * @param index The index of the element to return.
      * @return The questionGroupIds at the given index.
      */
-    public long getQuestionGroupIds(int index) {
-      return questionGroupIds_.getLong(index);
+    public int getQuestionGroupIds(int index) {
+      return questionGroupIds_.getInt(index);
     }
     /**
-     * <code>repeated int64 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
+     * <code>repeated int32 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
      * @param index The index to set the value at.
      * @param value The questionGroupIds to set.
      * @return This builder for chaining.
      */
     public Builder setQuestionGroupIds(
-        int index, long value) {
+        int index, int value) {
       ensureQuestionGroupIdsIsMutable();
-      questionGroupIds_.setLong(index, value);
+      questionGroupIds_.setInt(index, value);
       onChanged();
       return this;
     }
     /**
-     * <code>repeated int64 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
+     * <code>repeated int32 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
      * @param value The questionGroupIds to add.
      * @return This builder for chaining.
      */
-    public Builder addQuestionGroupIds(long value) {
+    public Builder addQuestionGroupIds(int value) {
       ensureQuestionGroupIdsIsMutable();
-      questionGroupIds_.addLong(value);
+      questionGroupIds_.addInt(value);
       onChanged();
       return this;
     }
     /**
-     * <code>repeated int64 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
+     * <code>repeated int32 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
      * @param values The questionGroupIds to add.
      * @return This builder for chaining.
      */
     public Builder addAllQuestionGroupIds(
-        java.lang.Iterable<? extends java.lang.Long> values) {
+        java.lang.Iterable<? extends java.lang.Integer> values) {
       ensureQuestionGroupIdsIsMutable();
       com.google.protobuf.AbstractMessageLite.Builder.addAll(
           values, questionGroupIds_);
@@ -600,11 +599,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated int64 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
+     * <code>repeated int32 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
      * @return This builder for chaining.
      */
     public Builder clearQuestionGroupIds() {
-      questionGroupIds_ = emptyLongList();
+      questionGroupIds_ = emptyIntList();
       bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;

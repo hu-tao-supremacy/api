@@ -8,14 +8,14 @@ public interface UserWithEventRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <code>int32 user_id = 1 [json_name = "userId"];</code>
    * @return The userId.
    */
-  long getUserId();
+  int getUserId();
 
   /**
-   * <code>int64 event_id = 2 [json_name = "eventId"];</code>
+   * <code>int32 event_id = 2 [json_name = "eventId"];</code>
    * @return The eventId.
    */
-  long getEventId();
+  int getEventId();
 }

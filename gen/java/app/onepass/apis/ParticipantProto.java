@@ -123,39 +123,39 @@ public final class ParticipantProto {
       "e/protobuf/empty.proto\032\036google/protobuf/" +
       "wrappers.proto\032\037google/protobuf/timestam" +
       "p.proto\"0\n\023GetEventByIdRequest\022\031\n\010event_" +
-      "id\030\001 \001(\003R\007eventId\"(\n\022StringInputRequest\022" +
+      "id\030\001 \001(\005R\007eventId\"(\n\022StringInputRequest\022" +
       "\022\n\004text\030\001 \001(\tR\004text\"J\n\024UserWithEventRequ" +
-      "est\022\027\n\007user_id\030\001 \001(\003R\006userId\022\031\n\010event_id" +
-      "\030\002 \001(\003R\007eventId\"\351\001\n\'SubmitAnswerForPostE" +
+      "est\022\027\n\007user_id\030\001 \001(\005R\006userId\022\031\n\010event_id" +
+      "\030\002 \001(\005R\007eventId\"\351\001\n\'SubmitAnswerForPostE" +
       "ventQuestionRequest\022Y\n\007answers\030\001 \003(\0132?.h" +
       "ts.participant.SubmitAnswerForPostEventQ" +
       "uestionRequest.AnswerR\007answers\022\"\n\ruser_e" +
-      "vent_id\030\002 \001(\003R\013userEventId\032?\n\006Answer\022\037\n\013" +
-      "question_id\030\001 \001(\003R\nquestionId\022\024\n\005value\030\002" +
+      "vent_id\030\002 \001(\005R\013userEventId\032?\n\006Answer\022\037\n\013" +
+      "question_id\030\001 \001(\005R\nquestionId\022\024\n\005value\030\002" +
       " \001(\tR\005value\"X\n(SubmitAnswerForPostEventQ" +
       "uestionResponse\022,\n\007answers\030\001 \003(\0132\022.hts.c" +
       "ommon.AnswerR\007answers\"(\n\022GenerateQRRespo" +
       "nse\022\022\n\004data\030\001 \001(\tR\004data\"9\n\016EventsRespons" +
       "e\022\'\n\005event\030\001 \003(\0132\021.hts.common.EventR\005eve" +
       "nt\"d\n\027IsEventAvailableRequest\022\031\n\010event_i" +
-      "d\030\001 \001(\003R\007eventId\022.\n\004date\030\002 \001(\0132\032.google." +
+      "d\030\001 \001(\005R\007eventId\022.\n\004date\030\002 \001(\0132\032.google." +
       "protobuf.TimestampR\004date\"z\n\030GetUpcomingE" +
       "ventsRequest\0220\n\005start\030\001 \001(\0132\032.google.pro" +
       "tobuf.TimestampR\005start\022,\n\003end\030\002 \001(\0132\032.go" +
       "ogle.protobuf.TimestampR\003end\"k\n\021Generate" +
-      "QRRequest\022\"\n\ruser_event_id\030\001 \001(\003R\013userEv" +
-      "entId\022\027\n\007user_id\030\002 \001(\003R\006userId\022\031\n\010event_" +
-      "id\030\003 \001(\003R\007eventId\"?\n\030GetTagsByEventIdRes" +
+      "QRRequest\022\"\n\ruser_event_id\030\001 \001(\005R\013userEv" +
+      "entId\022\027\n\007user_id\030\002 \001(\005R\006userId\022\031\n\010event_" +
+      "id\030\003 \001(\005R\007eventId\"?\n\030GetTagsByEventIdRes" +
       "ponse\022#\n\004tags\030\001 \003(\0132\017.hts.common.TagR\004ta" +
       "gs\"J\n GetApprovedUserByEventIdResponse\022&" +
       "\n\005users\030\001 \003(\0132\020.hts.common.UserR\005users\"4" +
       "\n\032GetRatingByEventIdResponse\022\026\n\006result\030\001" +
-      " \003(\003R\006result\"h\n\"GetEventDurationsByEvent" +
+      " \003(\005R\006result\"h\n\"GetEventDurationsByEvent" +
       "IdResponse\022B\n\017event_durations\030\001 \003(\0132\031.ht" +
       "s.common.EventDurationR\016eventDurations\"]" +
       "\n!GetUserAnswersByQuestionIdRequest\022\037\n\013q" +
-      "uestion_id\030\001 \001(\003R\nquestionId\022\027\n\007user_id\030" +
-      "\002 \001(\003R\006userId\"h\n\"GetQuestionGroupsByEven" +
+      "uestion_id\030\001 \001(\005R\nquestionId\022\027\n\007user_id\030" +
+      "\002 \001(\005R\006userId\"h\n\"GetQuestionGroupsByEven" +
       "tIdResponse\022B\n\017question_groups\030\001 \003(\0132\031.h" +
       "ts.common.QuestionGroupR\016questionGroups\"" +
       "[\n%GetQuestionsByQuestionGroupIdResponse" +

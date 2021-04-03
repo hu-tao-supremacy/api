@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private UpdateUsersInOrganizationRequest() {
-    userIds_ = emptyLongList();
+    userIds_ = emptyIntList();
   }
 
   @java.lang.Override
@@ -52,33 +52,33 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            userId_ = input.readInt64();
+            userId_ = input.readInt32();
             break;
           }
           case 16: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              userIds_ = newLongList();
+              userIds_ = newIntList();
               mutable_bitField0_ |= 0x00000001;
             }
-            userIds_.addLong(input.readInt64());
+            userIds_.addInt(input.readInt32());
             break;
           }
           case 18: {
             int length = input.readRawVarint32();
             int limit = input.pushLimit(length);
             if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-              userIds_ = newLongList();
+              userIds_ = newIntList();
               mutable_bitField0_ |= 0x00000001;
             }
             while (input.getBytesUntilLimit() > 0) {
-              userIds_.addLong(input.readInt64());
+              userIds_.addInt(input.readInt32());
             }
             input.popLimit(limit);
             break;
           }
           case 24: {
 
-            organizationId_ = input.readInt64();
+            organizationId_ = input.readInt32();
             break;
           }
           default: {
@@ -117,52 +117,52 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USER_ID_FIELD_NUMBER = 1;
-  private long userId_;
+  private int userId_;
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <code>int32 user_id = 1 [json_name = "userId"];</code>
    * @return The userId.
    */
   @java.lang.Override
-  public long getUserId() {
+  public int getUserId() {
     return userId_;
   }
 
   public static final int USER_IDS_FIELD_NUMBER = 2;
-  private com.google.protobuf.Internal.LongList userIds_;
+  private com.google.protobuf.Internal.IntList userIds_;
   /**
-   * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
+   * <code>repeated int32 user_ids = 2 [json_name = "userIds", packed = true];</code>
    * @return A list containing the userIds.
    */
   @java.lang.Override
-  public java.util.List<java.lang.Long>
+  public java.util.List<java.lang.Integer>
       getUserIdsList() {
     return userIds_;
   }
   /**
-   * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
+   * <code>repeated int32 user_ids = 2 [json_name = "userIds", packed = true];</code>
    * @return The count of userIds.
    */
   public int getUserIdsCount() {
     return userIds_.size();
   }
   /**
-   * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
+   * <code>repeated int32 user_ids = 2 [json_name = "userIds", packed = true];</code>
    * @param index The index of the element to return.
    * @return The userIds at the given index.
    */
-  public long getUserIds(int index) {
-    return userIds_.getLong(index);
+  public int getUserIds(int index) {
+    return userIds_.getInt(index);
   }
   private int userIdsMemoizedSerializedSize = -1;
 
   public static final int ORGANIZATION_ID_FIELD_NUMBER = 3;
-  private long organizationId_;
+  private int organizationId_;
   /**
-   * <code>int64 organization_id = 3 [json_name = "organizationId"];</code>
+   * <code>int32 organization_id = 3 [json_name = "organizationId"];</code>
    * @return The organizationId.
    */
   @java.lang.Override
-  public long getOrganizationId() {
+  public int getOrganizationId() {
     return organizationId_;
   }
 
@@ -181,18 +181,18 @@ private static final long serialVersionUID = 0L;
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     getSerializedSize();
-    if (userId_ != 0L) {
-      output.writeInt64(1, userId_);
+    if (userId_ != 0) {
+      output.writeInt32(1, userId_);
     }
     if (getUserIdsList().size() > 0) {
       output.writeUInt32NoTag(18);
       output.writeUInt32NoTag(userIdsMemoizedSerializedSize);
     }
     for (int i = 0; i < userIds_.size(); i++) {
-      output.writeInt64NoTag(userIds_.getLong(i));
+      output.writeInt32NoTag(userIds_.getInt(i));
     }
-    if (organizationId_ != 0L) {
-      output.writeInt64(3, organizationId_);
+    if (organizationId_ != 0) {
+      output.writeInt32(3, organizationId_);
     }
     unknownFields.writeTo(output);
   }
@@ -203,15 +203,15 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (userId_ != 0L) {
+    if (userId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, userId_);
+        .computeInt32Size(1, userId_);
     }
     {
       int dataSize = 0;
       for (int i = 0; i < userIds_.size(); i++) {
         dataSize += com.google.protobuf.CodedOutputStream
-          .computeInt64SizeNoTag(userIds_.getLong(i));
+          .computeInt32SizeNoTag(userIds_.getInt(i));
       }
       size += dataSize;
       if (!getUserIdsList().isEmpty()) {
@@ -221,9 +221,9 @@ private static final long serialVersionUID = 0L;
       }
       userIdsMemoizedSerializedSize = dataSize;
     }
-    if (organizationId_ != 0L) {
+    if (organizationId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(3, organizationId_);
+        .computeInt32Size(3, organizationId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -258,15 +258,13 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getUserId());
+    hash = (53 * hash) + getUserId();
     if (getUserIdsCount() > 0) {
       hash = (37 * hash) + USER_IDS_FIELD_NUMBER;
       hash = (53 * hash) + getUserIdsList().hashCode();
     }
     hash = (37 * hash) + ORGANIZATION_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getOrganizationId());
+    hash = (53 * hash) + getOrganizationId();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -400,11 +398,11 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      userId_ = 0L;
+      userId_ = 0;
 
-      userIds_ = emptyLongList();
+      userIds_ = emptyIntList();
       bitField0_ = (bitField0_ & ~0x00000001);
-      organizationId_ = 0L;
+      organizationId_ = 0;
 
       return this;
     }
@@ -488,7 +486,7 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(app.onepass.apis.UpdateUsersInOrganizationRequest other) {
       if (other == app.onepass.apis.UpdateUsersInOrganizationRequest.getDefaultInstance()) return this;
-      if (other.getUserId() != 0L) {
+      if (other.getUserId() != 0) {
         setUserId(other.getUserId());
       }
       if (!other.userIds_.isEmpty()) {
@@ -501,7 +499,7 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
-      if (other.getOrganizationId() != 0L) {
+      if (other.getOrganizationId() != 0) {
         setOrganizationId(other.getOrganizationId());
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -534,38 +532,38 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private long userId_ ;
+    private int userId_ ;
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @return The userId.
      */
     @java.lang.Override
-    public long getUserId() {
+    public int getUserId() {
       return userId_;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
-    public Builder setUserId(long value) {
+    public Builder setUserId(int value) {
       
       userId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
       
-      userId_ = 0L;
+      userId_ = 0;
       onChanged();
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList userIds_ = emptyLongList();
+    private com.google.protobuf.Internal.IntList userIds_ = emptyIntList();
     private void ensureUserIdsIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
         userIds_ = mutableCopy(userIds_);
@@ -573,60 +571,60 @@ private static final long serialVersionUID = 0L;
        }
     }
     /**
-     * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
+     * <code>repeated int32 user_ids = 2 [json_name = "userIds", packed = true];</code>
      * @return A list containing the userIds.
      */
-    public java.util.List<java.lang.Long>
+    public java.util.List<java.lang.Integer>
         getUserIdsList() {
       return ((bitField0_ & 0x00000001) != 0) ?
                java.util.Collections.unmodifiableList(userIds_) : userIds_;
     }
     /**
-     * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
+     * <code>repeated int32 user_ids = 2 [json_name = "userIds", packed = true];</code>
      * @return The count of userIds.
      */
     public int getUserIdsCount() {
       return userIds_.size();
     }
     /**
-     * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
+     * <code>repeated int32 user_ids = 2 [json_name = "userIds", packed = true];</code>
      * @param index The index of the element to return.
      * @return The userIds at the given index.
      */
-    public long getUserIds(int index) {
-      return userIds_.getLong(index);
+    public int getUserIds(int index) {
+      return userIds_.getInt(index);
     }
     /**
-     * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
+     * <code>repeated int32 user_ids = 2 [json_name = "userIds", packed = true];</code>
      * @param index The index to set the value at.
      * @param value The userIds to set.
      * @return This builder for chaining.
      */
     public Builder setUserIds(
-        int index, long value) {
+        int index, int value) {
       ensureUserIdsIsMutable();
-      userIds_.setLong(index, value);
+      userIds_.setInt(index, value);
       onChanged();
       return this;
     }
     /**
-     * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
+     * <code>repeated int32 user_ids = 2 [json_name = "userIds", packed = true];</code>
      * @param value The userIds to add.
      * @return This builder for chaining.
      */
-    public Builder addUserIds(long value) {
+    public Builder addUserIds(int value) {
       ensureUserIdsIsMutable();
-      userIds_.addLong(value);
+      userIds_.addInt(value);
       onChanged();
       return this;
     }
     /**
-     * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
+     * <code>repeated int32 user_ids = 2 [json_name = "userIds", packed = true];</code>
      * @param values The userIds to add.
      * @return This builder for chaining.
      */
     public Builder addAllUserIds(
-        java.lang.Iterable<? extends java.lang.Long> values) {
+        java.lang.Iterable<? extends java.lang.Integer> values) {
       ensureUserIdsIsMutable();
       com.google.protobuf.AbstractMessageLite.Builder.addAll(
           values, userIds_);
@@ -634,43 +632,43 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
+     * <code>repeated int32 user_ids = 2 [json_name = "userIds", packed = true];</code>
      * @return This builder for chaining.
      */
     public Builder clearUserIds() {
-      userIds_ = emptyLongList();
+      userIds_ = emptyIntList();
       bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
 
-    private long organizationId_ ;
+    private int organizationId_ ;
     /**
-     * <code>int64 organization_id = 3 [json_name = "organizationId"];</code>
+     * <code>int32 organization_id = 3 [json_name = "organizationId"];</code>
      * @return The organizationId.
      */
     @java.lang.Override
-    public long getOrganizationId() {
+    public int getOrganizationId() {
       return organizationId_;
     }
     /**
-     * <code>int64 organization_id = 3 [json_name = "organizationId"];</code>
+     * <code>int32 organization_id = 3 [json_name = "organizationId"];</code>
      * @param value The organizationId to set.
      * @return This builder for chaining.
      */
-    public Builder setOrganizationId(long value) {
+    public Builder setOrganizationId(int value) {
       
       organizationId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 organization_id = 3 [json_name = "organizationId"];</code>
+     * <code>int32 organization_id = 3 [json_name = "organizationId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearOrganizationId() {
       
-      organizationId_ = 0L;
+      organizationId_ = 0;
       onChanged();
       return this;
     }

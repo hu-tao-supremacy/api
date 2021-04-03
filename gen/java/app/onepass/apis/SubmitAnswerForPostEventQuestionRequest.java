@@ -61,7 +61,7 @@ private static final long serialVersionUID = 0L;
           }
           case 16: {
 
-            userEventId_ = input.readInt64();
+            userEventId_ = input.readInt32();
             break;
           }
           default: {
@@ -104,10 +104,10 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int64 question_id = 1 [json_name = "questionId"];</code>
+     * <code>int32 question_id = 1 [json_name = "questionId"];</code>
      * @return The questionId.
      */
-    long getQuestionId();
+    int getQuestionId();
 
     /**
      * <code>string value = 2 [json_name = "value"];</code>
@@ -169,7 +169,7 @@ private static final long serialVersionUID = 0L;
               break;
             case 8: {
 
-              questionId_ = input.readInt64();
+              questionId_ = input.readInt32();
               break;
             }
             case 18: {
@@ -211,13 +211,13 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int QUESTION_ID_FIELD_NUMBER = 1;
-    private long questionId_;
+    private int questionId_;
     /**
-     * <code>int64 question_id = 1 [json_name = "questionId"];</code>
+     * <code>int32 question_id = 1 [json_name = "questionId"];</code>
      * @return The questionId.
      */
     @java.lang.Override
-    public long getQuestionId() {
+    public int getQuestionId() {
       return questionId_;
     }
 
@@ -273,8 +273,8 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (questionId_ != 0L) {
-        output.writeInt64(1, questionId_);
+      if (questionId_ != 0) {
+        output.writeInt32(1, questionId_);
       }
       if (!getValueBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, value_);
@@ -288,9 +288,9 @@ private static final long serialVersionUID = 0L;
       if (size != -1) return size;
 
       size = 0;
-      if (questionId_ != 0L) {
+      if (questionId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, questionId_);
+          .computeInt32Size(1, questionId_);
       }
       if (!getValueBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, value_);
@@ -326,8 +326,7 @@ private static final long serialVersionUID = 0L;
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + QUESTION_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getQuestionId());
+      hash = (53 * hash) + getQuestionId();
       hash = (37 * hash) + VALUE_FIELD_NUMBER;
       hash = (53 * hash) + getValue().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -463,7 +462,7 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        questionId_ = 0L;
+        questionId_ = 0;
 
         value_ = "";
 
@@ -543,7 +542,7 @@ private static final long serialVersionUID = 0L;
 
       public Builder mergeFrom(app.onepass.apis.SubmitAnswerForPostEventQuestionRequest.Answer other) {
         if (other == app.onepass.apis.SubmitAnswerForPostEventQuestionRequest.Answer.getDefaultInstance()) return this;
-        if (other.getQuestionId() != 0L) {
+        if (other.getQuestionId() != 0) {
           setQuestionId(other.getQuestionId());
         }
         if (!other.getValue().isEmpty()) {
@@ -579,33 +578,33 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
-      private long questionId_ ;
+      private int questionId_ ;
       /**
-       * <code>int64 question_id = 1 [json_name = "questionId"];</code>
+       * <code>int32 question_id = 1 [json_name = "questionId"];</code>
        * @return The questionId.
        */
       @java.lang.Override
-      public long getQuestionId() {
+      public int getQuestionId() {
         return questionId_;
       }
       /**
-       * <code>int64 question_id = 1 [json_name = "questionId"];</code>
+       * <code>int32 question_id = 1 [json_name = "questionId"];</code>
        * @param value The questionId to set.
        * @return This builder for chaining.
        */
-      public Builder setQuestionId(long value) {
+      public Builder setQuestionId(int value) {
         
         questionId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 question_id = 1 [json_name = "questionId"];</code>
+       * <code>int32 question_id = 1 [json_name = "questionId"];</code>
        * @return This builder for chaining.
        */
       public Builder clearQuestionId() {
         
-        questionId_ = 0L;
+        questionId_ = 0;
         onChanged();
         return this;
       }
@@ -779,13 +778,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USER_EVENT_ID_FIELD_NUMBER = 2;
-  private long userEventId_;
+  private int userEventId_;
   /**
-   * <code>int64 user_event_id = 2 [json_name = "userEventId"];</code>
+   * <code>int32 user_event_id = 2 [json_name = "userEventId"];</code>
    * @return The userEventId.
    */
   @java.lang.Override
-  public long getUserEventId() {
+  public int getUserEventId() {
     return userEventId_;
   }
 
@@ -806,8 +805,8 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < answers_.size(); i++) {
       output.writeMessage(1, answers_.get(i));
     }
-    if (userEventId_ != 0L) {
-      output.writeInt64(2, userEventId_);
+    if (userEventId_ != 0) {
+      output.writeInt32(2, userEventId_);
     }
     unknownFields.writeTo(output);
   }
@@ -822,9 +821,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, answers_.get(i));
     }
-    if (userEventId_ != 0L) {
+    if (userEventId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(2, userEventId_);
+        .computeInt32Size(2, userEventId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -861,8 +860,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getAnswersList().hashCode();
     }
     hash = (37 * hash) + USER_EVENT_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getUserEventId());
+    hash = (53 * hash) + getUserEventId();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -1003,7 +1001,7 @@ private static final long serialVersionUID = 0L;
       } else {
         answersBuilder_.clear();
       }
-      userEventId_ = 0L;
+      userEventId_ = 0;
 
       return this;
     }
@@ -1116,7 +1114,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      if (other.getUserEventId() != 0L) {
+      if (other.getUserEventId() != 0) {
         setUserEventId(other.getUserEventId());
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -1389,33 +1387,33 @@ private static final long serialVersionUID = 0L;
       return answersBuilder_;
     }
 
-    private long userEventId_ ;
+    private int userEventId_ ;
     /**
-     * <code>int64 user_event_id = 2 [json_name = "userEventId"];</code>
+     * <code>int32 user_event_id = 2 [json_name = "userEventId"];</code>
      * @return The userEventId.
      */
     @java.lang.Override
-    public long getUserEventId() {
+    public int getUserEventId() {
       return userEventId_;
     }
     /**
-     * <code>int64 user_event_id = 2 [json_name = "userEventId"];</code>
+     * <code>int32 user_event_id = 2 [json_name = "userEventId"];</code>
      * @param value The userEventId to set.
      * @return This builder for chaining.
      */
-    public Builder setUserEventId(long value) {
+    public Builder setUserEventId(int value) {
       
       userEventId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 user_event_id = 2 [json_name = "userEventId"];</code>
+     * <code>int32 user_event_id = 2 [json_name = "userEventId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearUserEventId() {
       
-      userEventId_ = 0L;
+      userEventId_ = 0;
       onChanged();
       return this;
     }

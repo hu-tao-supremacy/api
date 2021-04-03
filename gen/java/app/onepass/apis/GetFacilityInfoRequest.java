@@ -50,7 +50,7 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            facilityId_ = input.readInt64();
+            facilityId_ = input.readInt32();
             break;
           }
           default: {
@@ -86,13 +86,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FACILITY_ID_FIELD_NUMBER = 1;
-  private long facilityId_;
+  private int facilityId_;
   /**
-   * <code>int64 facility_id = 1 [json_name = "facilityId"];</code>
+   * <code>int32 facility_id = 1 [json_name = "facilityId"];</code>
    * @return The facilityId.
    */
   @java.lang.Override
-  public long getFacilityId() {
+  public int getFacilityId() {
     return facilityId_;
   }
 
@@ -110,8 +110,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (facilityId_ != 0L) {
-      output.writeInt64(1, facilityId_);
+    if (facilityId_ != 0) {
+      output.writeInt32(1, facilityId_);
     }
     unknownFields.writeTo(output);
   }
@@ -122,9 +122,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (facilityId_ != 0L) {
+    if (facilityId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, facilityId_);
+        .computeInt32Size(1, facilityId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -155,8 +155,7 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + FACILITY_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getFacilityId());
+    hash = (53 * hash) + getFacilityId();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -290,7 +289,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      facilityId_ = 0L;
+      facilityId_ = 0;
 
       return this;
     }
@@ -367,7 +366,7 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(app.onepass.apis.GetFacilityInfoRequest other) {
       if (other == app.onepass.apis.GetFacilityInfoRequest.getDefaultInstance()) return this;
-      if (other.getFacilityId() != 0L) {
+      if (other.getFacilityId() != 0) {
         setFacilityId(other.getFacilityId());
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -399,33 +398,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long facilityId_ ;
+    private int facilityId_ ;
     /**
-     * <code>int64 facility_id = 1 [json_name = "facilityId"];</code>
+     * <code>int32 facility_id = 1 [json_name = "facilityId"];</code>
      * @return The facilityId.
      */
     @java.lang.Override
-    public long getFacilityId() {
+    public int getFacilityId() {
       return facilityId_;
     }
     /**
-     * <code>int64 facility_id = 1 [json_name = "facilityId"];</code>
+     * <code>int32 facility_id = 1 [json_name = "facilityId"];</code>
      * @param value The facilityId to set.
      * @return This builder for chaining.
      */
-    public Builder setFacilityId(long value) {
+    public Builder setFacilityId(int value) {
       
       facilityId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 facility_id = 1 [json_name = "facilityId"];</code>
+     * <code>int32 facility_id = 1 [json_name = "facilityId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearFacilityId() {
       
-      facilityId_ = 0L;
+      facilityId_ = 0;
       onChanged();
       return this;
     }

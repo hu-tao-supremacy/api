@@ -8,14 +8,14 @@ public interface HasEventRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 organization_id = 1 [json_name = "organizationId"];</code>
+   * <code>int32 organization_id = 1 [json_name = "organizationId"];</code>
    * @return The organizationId.
    */
-  long getOrganizationId();
+  int getOrganizationId();
 
   /**
-   * <code>int64 event_id = 2 [json_name = "eventId"];</code>
+   * <code>int32 event_id = 2 [json_name = "eventId"];</code>
    * @return The eventId.
    */
-  long getEventId();
+  int getEventId();
 }

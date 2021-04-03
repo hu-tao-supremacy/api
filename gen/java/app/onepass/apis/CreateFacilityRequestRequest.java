@@ -50,17 +50,17 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            userId_ = input.readInt64();
+            userId_ = input.readInt32();
             break;
           }
           case 16: {
 
-            eventId_ = input.readInt64();
+            eventId_ = input.readInt32();
             break;
           }
           case 24: {
 
-            facilityId_ = input.readInt64();
+            facilityId_ = input.readInt32();
             break;
           }
           case 34: {
@@ -122,35 +122,35 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USER_ID_FIELD_NUMBER = 1;
-  private long userId_;
+  private int userId_;
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <code>int32 user_id = 1 [json_name = "userId"];</code>
    * @return The userId.
    */
   @java.lang.Override
-  public long getUserId() {
+  public int getUserId() {
     return userId_;
   }
 
   public static final int EVENT_ID_FIELD_NUMBER = 2;
-  private long eventId_;
+  private int eventId_;
   /**
-   * <code>int64 event_id = 2 [json_name = "eventId"];</code>
+   * <code>int32 event_id = 2 [json_name = "eventId"];</code>
    * @return The eventId.
    */
   @java.lang.Override
-  public long getEventId() {
+  public int getEventId() {
     return eventId_;
   }
 
   public static final int FACILITY_ID_FIELD_NUMBER = 3;
-  private long facilityId_;
+  private int facilityId_;
   /**
-   * <code>int64 facility_id = 3 [json_name = "facilityId"];</code>
+   * <code>int32 facility_id = 3 [json_name = "facilityId"];</code>
    * @return The facilityId.
    */
   @java.lang.Override
-  public long getFacilityId() {
+  public int getFacilityId() {
     return facilityId_;
   }
 
@@ -220,14 +220,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (userId_ != 0L) {
-      output.writeInt64(1, userId_);
+    if (userId_ != 0) {
+      output.writeInt32(1, userId_);
     }
-    if (eventId_ != 0L) {
-      output.writeInt64(2, eventId_);
+    if (eventId_ != 0) {
+      output.writeInt32(2, eventId_);
     }
-    if (facilityId_ != 0L) {
-      output.writeInt64(3, facilityId_);
+    if (facilityId_ != 0) {
+      output.writeInt32(3, facilityId_);
     }
     if (start_ != null) {
       output.writeMessage(4, getStart());
@@ -244,17 +244,17 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (userId_ != 0L) {
+    if (userId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, userId_);
+        .computeInt32Size(1, userId_);
     }
-    if (eventId_ != 0L) {
+    if (eventId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(2, eventId_);
+        .computeInt32Size(2, eventId_);
     }
-    if (facilityId_ != 0L) {
+    if (facilityId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(3, facilityId_);
+        .computeInt32Size(3, facilityId_);
     }
     if (start_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -307,14 +307,11 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getUserId());
+    hash = (53 * hash) + getUserId();
     hash = (37 * hash) + EVENT_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getEventId());
+    hash = (53 * hash) + getEventId();
     hash = (37 * hash) + FACILITY_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getFacilityId());
+    hash = (53 * hash) + getFacilityId();
     if (hasStart()) {
       hash = (37 * hash) + START_FIELD_NUMBER;
       hash = (53 * hash) + getStart().hashCode();
@@ -456,11 +453,11 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      userId_ = 0L;
+      userId_ = 0;
 
-      eventId_ = 0L;
+      eventId_ = 0;
 
-      facilityId_ = 0L;
+      facilityId_ = 0;
 
       if (startBuilder_ == null) {
         start_ = null;
@@ -561,13 +558,13 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(app.onepass.apis.CreateFacilityRequestRequest other) {
       if (other == app.onepass.apis.CreateFacilityRequestRequest.getDefaultInstance()) return this;
-      if (other.getUserId() != 0L) {
+      if (other.getUserId() != 0) {
         setUserId(other.getUserId());
       }
-      if (other.getEventId() != 0L) {
+      if (other.getEventId() != 0) {
         setEventId(other.getEventId());
       }
-      if (other.getFacilityId() != 0L) {
+      if (other.getFacilityId() != 0) {
         setFacilityId(other.getFacilityId());
       }
       if (other.hasStart()) {
@@ -605,95 +602,95 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long userId_ ;
+    private int userId_ ;
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @return The userId.
      */
     @java.lang.Override
-    public long getUserId() {
+    public int getUserId() {
       return userId_;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
-    public Builder setUserId(long value) {
+    public Builder setUserId(int value) {
       
       userId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
       
-      userId_ = 0L;
+      userId_ = 0;
       onChanged();
       return this;
     }
 
-    private long eventId_ ;
+    private int eventId_ ;
     /**
-     * <code>int64 event_id = 2 [json_name = "eventId"];</code>
+     * <code>int32 event_id = 2 [json_name = "eventId"];</code>
      * @return The eventId.
      */
     @java.lang.Override
-    public long getEventId() {
+    public int getEventId() {
       return eventId_;
     }
     /**
-     * <code>int64 event_id = 2 [json_name = "eventId"];</code>
+     * <code>int32 event_id = 2 [json_name = "eventId"];</code>
      * @param value The eventId to set.
      * @return This builder for chaining.
      */
-    public Builder setEventId(long value) {
+    public Builder setEventId(int value) {
       
       eventId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 event_id = 2 [json_name = "eventId"];</code>
+     * <code>int32 event_id = 2 [json_name = "eventId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearEventId() {
       
-      eventId_ = 0L;
+      eventId_ = 0;
       onChanged();
       return this;
     }
 
-    private long facilityId_ ;
+    private int facilityId_ ;
     /**
-     * <code>int64 facility_id = 3 [json_name = "facilityId"];</code>
+     * <code>int32 facility_id = 3 [json_name = "facilityId"];</code>
      * @return The facilityId.
      */
     @java.lang.Override
-    public long getFacilityId() {
+    public int getFacilityId() {
       return facilityId_;
     }
     /**
-     * <code>int64 facility_id = 3 [json_name = "facilityId"];</code>
+     * <code>int32 facility_id = 3 [json_name = "facilityId"];</code>
      * @param value The facilityId to set.
      * @return This builder for chaining.
      */
-    public Builder setFacilityId(long value) {
+    public Builder setFacilityId(int value) {
       
       facilityId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 facility_id = 3 [json_name = "facilityId"];</code>
+     * <code>int32 facility_id = 3 [json_name = "facilityId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearFacilityId() {
       
-      facilityId_ = 0L;
+      facilityId_ = 0;
       onChanged();
       return this;
     }

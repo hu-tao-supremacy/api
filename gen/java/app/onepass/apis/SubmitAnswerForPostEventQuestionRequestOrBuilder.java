@@ -32,8 +32,8 @@ public interface SubmitAnswerForPostEventQuestionRequestOrBuilder extends
       int index);
 
   /**
-   * <code>int64 user_event_id = 2 [json_name = "userEventId"];</code>
+   * <code>int32 user_event_id = 2 [json_name = "userEventId"];</code>
    * @return The userEventId.
    */
-  long getUserEventId();
+  int getUserEventId();
 }

@@ -8,22 +8,22 @@ public interface UpdateRegistrationRequestRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <code>int32 user_id = 1 [json_name = "userId"];</code>
    * @return The userId.
    */
-  long getUserId();
+  int getUserId();
 
   /**
-   * <code>int64 registered_user_id = 2 [json_name = "registeredUserId"];</code>
+   * <code>int32 registered_user_id = 2 [json_name = "registeredUserId"];</code>
    * @return The registeredUserId.
    */
-  long getRegisteredUserId();
+  int getRegisteredUserId();
 
   /**
-   * <code>int64 registered_event_id = 3 [json_name = "registeredEventId"];</code>
+   * <code>int32 registered_event_id = 3 [json_name = "registeredEventId"];</code>
    * @return The registeredEventId.
    */
-  long getRegisteredEventId();
+  int getRegisteredEventId();
 
   /**
    * <code>.hts.common.UserEvent.Status status = 4 [json_name = "status"];</code>

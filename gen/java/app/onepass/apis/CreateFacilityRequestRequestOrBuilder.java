@@ -8,22 +8,22 @@ public interface CreateFacilityRequestRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <code>int32 user_id = 1 [json_name = "userId"];</code>
    * @return The userId.
    */
-  long getUserId();
+  int getUserId();
 
   /**
-   * <code>int64 event_id = 2 [json_name = "eventId"];</code>
+   * <code>int32 event_id = 2 [json_name = "eventId"];</code>
    * @return The eventId.
    */
-  long getEventId();
+  int getEventId();
 
   /**
-   * <code>int64 facility_id = 3 [json_name = "facilityId"];</code>
+   * <code>int32 facility_id = 3 [json_name = "facilityId"];</code>
    * @return The facilityId.
    */
-  long getFacilityId();
+  int getFacilityId();
 
   /**
    * <code>.google.protobuf.Timestamp start = 4 [json_name = "start"];</code>

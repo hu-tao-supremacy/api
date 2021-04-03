@@ -8,25 +8,25 @@ public interface RemoveQuestionGroupsRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <code>int32 user_id = 1 [json_name = "userId"];</code>
    * @return The userId.
    */
-  long getUserId();
+  int getUserId();
 
   /**
-   * <code>repeated int64 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
+   * <code>repeated int32 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
    * @return A list containing the questionGroupIds.
    */
-  java.util.List<java.lang.Long> getQuestionGroupIdsList();
+  java.util.List<java.lang.Integer> getQuestionGroupIdsList();
   /**
-   * <code>repeated int64 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
+   * <code>repeated int32 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
    * @return The count of questionGroupIds.
    */
   int getQuestionGroupIdsCount();
   /**
-   * <code>repeated int64 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
+   * <code>repeated int32 question_group_ids = 2 [json_name = "questionGroupIds"];</code>
    * @param index The index of the element to return.
    * @return The questionGroupIds at the given index.
    */
-  long getQuestionGroupIds(int index);
+  int getQuestionGroupIds(int index);
 }

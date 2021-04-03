@@ -8,14 +8,14 @@ public interface ApproveFacilityRequestRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <code>int32 user_id = 1 [json_name = "userId"];</code>
    * @return The userId.
    */
-  long getUserId();
+  int getUserId();
 
   /**
-   * <code>int64 request_id = 2 [json_name = "requestId"];</code>
+   * <code>int32 request_id = 2 [json_name = "requestId"];</code>
    * @return The requestId.
    */
-  long getRequestId();
+  int getRequestId();
 }
