@@ -59,13 +59,13 @@ enum Permission {
 }
 
 message OperatingHour {
-  int64 start_hour = 1;
-  int64 finish_hour = 2;
+  int32 start_hour = 1;
+  int32 finish_hour = 2;
   DayOfWeek day = 3;
 }
 
 message User {
-  int64 id = 1;
+  int32 id = 1;
   string first_name = 2;
   string last_name = 3;
   string email = 4;
@@ -78,7 +78,7 @@ message User {
 }
 
 message Organization {
-  int64 id = 1;
+  int32 id = 1;
   string name = 2;
   bool is_verified = 3;
   google.protobuf.StringValue abbreviation = 4;
@@ -98,17 +98,17 @@ message Organization {
 }
 
 message QuestionGroup {
-  int64 id = 1;
-  int64 event_id = 2;
+  int32 id = 1;
+  int32 event_id = 2;
   QuestionGroupType type = 3;
-  int64 seq = 4;
+  int32 seq = 4;
   string title = 5;
 }
 
 message Question {
-  int64 id = 1;
-  int64 question_group_id = 2;
-  int64 seq = 3;
+  int32 id = 1;
+  int32 question_group_id = 2;
+  int32 seq = 3;
   AnswerType answer_type = 4;
   bool is_optional = 5;
   string title = 6;
@@ -116,15 +116,15 @@ message Question {
 }
 
 message UserOrganization {
-  int64 id = 1;
-  int64 user_id = 2;
-  int64 organization_id = 3;
+  int32 id = 1;
+  int32 user_id = 2;
+  int32 organization_id = 3;
 }
 
 message Event {
-  int64 id = 1;
-  int64 organization_id = 2;
-  google.protobuf.Int64Value location_id = 3;
+  int32 id = 1;
+  int32 organization_id = 2;
+  google.protobuf.Int32Value location_id = 3;
   string description = 4;
   string name = 5;
   google.protobuf.StringValue cover_image_url = 6;
@@ -134,11 +134,11 @@ message Event {
   string contact = 10;
   google.protobuf.StringValue profile_image_url = 11;
   google.protobuf.StringValue profile_image_hash = 12;
-  int64 attendee_limit = 13;
+  int32 attendee_limit = 13;
 }
 
 message Location {
-  int64 id = 1;
+  int32 id = 1;
   string name = 2;
   string google_map_url = 3;
   google.protobuf.StringValue description = 4;
@@ -147,9 +147,9 @@ message Location {
 }
 
 message Answer {
-  int64 id = 1;
-  int64 user_event_id = 2;
-  int64 question_id = 3;
+  int32 id = 1;
+  int32 user_event_id = 2;
+  int32 question_id = 3;
   string value = 4;
 }
 
@@ -161,48 +161,48 @@ message UserEvent {
     REJECTED = 3;
   }
 
-  int64 id = 1;
-  int64 user_id = 2;
-  int64 event_id = 3;
-  google.protobuf.Int64Value rating = 4;
+  int32 id = 1;
+  int32 user_id = 2;
+  int32 event_id = 3;
+  google.protobuf.Int32Value rating = 4;
   google.protobuf.StringValue ticket = 5;
   Status status = 6;
 }
 
 message EventDuration {
-  int64 id = 1;
-  int64 event_id = 2;
+  int32 id = 1;
+  int32 event_id = 2;
   google.protobuf.Timestamp start = 3;
   google.protobuf.Timestamp finish = 4;
 }
 
 message Tag {
-  int64 id = 1;
+  int32 id = 1;
   string name = 2;
 }
 
 message EventTag {
-  int64 id = 1;
-  int64 event_id = 2;
-  int64 tag_id = 3;
+  int32 id = 1;
+  int32 event_id = 2;
+  int32 tag_id = 3;
 }
 
 message OrganizationPermission {
-  int64 id = 1;
-  int64 organization_id = 2;
+  int32 id = 1;
+  int32 organization_id = 2;
   Permission permission = 3;
 }
 
 message UserPermission {
-  int64 id = 1;
-  int64 user_id = 2;
+  int32 id = 1;
+  int32 user_id = 2;
   Permission permission_name = 3;
 }
 
 message UserInterest {
-  int64 id = 1;
-  int64 userId = 2;
-  int64 tag_id = 3;
+  int32 id = 1;
+  int32 userId = 2;
+  int32 tag_id = 3;
 }
 
 message FacilityRequest {
@@ -213,9 +213,9 @@ message FacilityRequest {
     REJECTED = 3;
   }
 
-  int64 id = 1;
-  int64 event_id = 2;
-  int64 facility_id = 3;
+  int32 id = 1;
+  int32 event_id = 2;
+  int32 facility_id = 3;
   Status status = 4;
   google.protobuf.StringValue reject_reason = 5;
   google.protobuf.Timestamp start = 6;
@@ -223,8 +223,8 @@ message FacilityRequest {
 }
 
 message Facility {
-  int64 id = 1;
-  int64 organization_id = 2;
+  int32 id = 1;
+  int32 organization_id = 2;
   string name = 3;
   double latitude = 4;
   double longitude = 5;
@@ -233,5 +233,5 @@ message Facility {
 }
 
 message GetObjectByIdRequest {
-  int64 id = 1;
+  int32 id = 1;
 }
