@@ -11,7 +11,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
 enum DayOfWeek {
-  DAY_OF_WEEK_UNSPECIFIED = 0
+  DAY_OF_WEEK_UNSPECIFIED = 0;
   SUN = 1;
   MON = 2;
   TUE = 3;
@@ -155,7 +155,7 @@ message Answer {
 
 message UserEvent {
   enum UserEventStatus {
-    STATUS_UNSPECIFIED = 0;
+    USER_EVENT_STATUS_UNSPECIFIED = 0;
     PENDING = 1;
     APPROVED = 2;
     REJECTED = 3;
@@ -207,7 +207,7 @@ message UserInterest {
 
 message FacilityRequest {
   enum FacilityRequestStatus {
-    STATUS_UNSPECIFIED = 0;
+    FACILITY_REQUEST_STATUS_UNSPECIFIED = 0;
     PENDING = 1;
     APPROVED = 2;
     REJECTED = 3;
