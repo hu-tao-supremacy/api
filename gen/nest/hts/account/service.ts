@@ -33,9 +33,17 @@ export interface HasPermissionRequest {
   permissionName: Permission;
 }
 
+export interface CreateUserRequest {
+  firstName: string;
+  lastName: string;
+  chulaId: string;
+}
+
 export const HTS_ACCOUNT_PACKAGE_NAME = "hts.account";
 
 export interface AccountServiceClient {
+  createUser(request: CreateUserRequest): Observable<User>;
+
   getUserByChulaId(request: GetObjectByIdRequest): Observable<User>;
 
   isAuthenticated(request: IsAuthenticatedRequest): Observable<BoolValue>;
@@ -54,6 +62,10 @@ export interface AccountServiceClient {
 }
 
 export interface AccountServiceController {
+  createUser(
+    request: CreateUserRequest
+  ): Promise<User> | Observable<User> | User;
+
   getUserByChulaId(
     request: GetObjectByIdRequest
   ): Promise<User> | Observable<User> | User;
@@ -85,6 +97,7 @@ export interface AccountServiceController {
 export function AccountServiceControllerMethods() {
   return function (constructor: Function) {
     const grpcMethods: string[] = [
+      "createUser",
       "getUserByChulaId",
       "isAuthenticated",
       "updateAccountInfo",
