@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\020app.onepass.apisB\016OrganizerProtoP\001Z\"onepass.app/facility/hts/organizer',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1bhts/organizer/service.proto\x12\rhts.organizer\x1a\x17hts/common/common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1egoogle/protobuf/wrappers.proto\"p\n\x08\x44uration\x12\x30\n\x05start\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12\x32\n\x06\x66inish\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x06\x66inish\"r\n\x19\x43reateOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12<\n\x0corganization\x18\x02 \x01(\x0b\x32\x18.hts.common.OrganizationR\x0corganization\"r\n\x19UpdateOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12<\n\x0corganization\x18\x02 \x01(\x0b\x32\x18.hts.common.OrganizationR\x0corganization\"]\n\x19RemoveOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\"\x83\x01\n UpdateUsersInOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x1d\n\x08user_ids\x18\x02 \x03(\x03\x42\x02\x10\x01R\x07userIds\x12\'\n\x0forganization_id\x18\x03 \x01(\x03R\x0eorganizationId\"V\n\x12\x43reateEventRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x05\x65vent\x18\x02 \x01(\x0b\x32\x11.hts.common.EventR\x05\x65vent\"V\n\x12UpdateEventRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x05\x65vent\x18\x02 \x01(\x0b\x32\x11.hts.common.EventR\x05\x65vent\"\x85\x01\n\x1aUpdateEventDurationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\x12\x33\n\x08\x64uration\x18\x03 \x03(\x0b\x32\x17.hts.organizer.DurationR\x08\x64uration\"H\n\x12RemoveEventRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\"\xcf\x01\n UpdateRegistrationRequestRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12,\n\x12registered_user_id\x18\x02 \x01(\x03R\x10registeredUserId\x12.\n\x13registered_event_id\x18\x03 \x01(\x03R\x11registeredEventId\x12\x34\n\x06status\x18\x04 \x01(\x0e\x32\x1c.hts.common.UserEvent.StatusR\x06status\"w\n\x10\x43reateTagRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x03R\x0eorganizationId\x12!\n\x03tag\x18\x03 \x01(\x0b\x32\x0f.hts.common.TagR\x03tag\"c\n\x10UpdateTagRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x1b\n\x07tag_ids\x18\x02 \x03(\x03\x42\x02\x10\x01R\x06tagIds\x12\x19\n\x08\x65vent_id\x18\x03 \x01(\x03R\x07\x65ventId\"U\n\x0fHasEventRequest\x12\'\n\x0forganization_id\x18\x01 \x01(\x03R\x0eorganizationId\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x03R\x07\x65ventId\"w\n\x18\x41\x64\x64QuestionGroupsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x42\n\x0fquestion_groups\x18\x02 \x03(\x0b\x32\x19.hts.common.QuestionGroupR\x0equestionGroups\"d\n\x1bRemoveQuestionGroupsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12,\n\x12question_group_ids\x18\x02 \x03(\x03R\x10questionGroupIds\"b\n\x13\x41\x64\x64QuestionsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12\x32\n\tquestions\x18\x02 \x03(\x0b\x32\x14.hts.common.QuestionR\tquestions\"T\n\x16RemoveQuestionsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x03R\x06userId\x12!\n\x0cquestion_ids\x18\x02 \x03(\x03R\x0bquestionIds\"Z\n\x18GetOrganizationsResponse\x12>\n\rorganizations\x18\x01 \x03(\x0b\x32\x18.hts.common.OrganizationR\rorganizations\"[\n\x1bGetOrganizationByIdResponse\x12<\n\x0corganization\x18\x01 \x01(\x0b\x32\x18.hts.common.OrganizationR\x0corganization2\xda\r\n\x10OrganizerService\x12V\n\x12\x43reateOrganization\x12(.hts.organizer.CreateOrganizationRequest\x1a\x16.google.protobuf.Empty\x12S\n\x10GetOrganizations\x12\x16.google.protobuf.Empty\x1a\'.hts.organizer.GetOrganizationsResponse\x12\x63\n\x13GetOrganizationById\x12 .hts.common.GetObjectByIdRequest\x1a*.hts.organizer.GetOrganizationByIdResponse\x12V\n\x12UpdateOrganization\x12(.hts.organizer.UpdateOrganizationRequest\x1a\x16.google.protobuf.Empty\x12V\n\x12RemoveOrganization\x12(.hts.organizer.RemoveOrganizationRequest\x1a\x16.google.protobuf.Empty\x12\x61\n\x16\x41\x64\x64UsersToOrganization\x12/.hts.organizer.UpdateUsersInOrganizationRequest\x1a\x16.google.protobuf.Empty\x12\x66\n\x1bRemoveUsersFromOrganization\x12/.hts.organizer.UpdateUsersInOrganizationRequest\x1a\x16.google.protobuf.Empty\x12H\n\x0b\x43reateEvent\x12!.hts.organizer.CreateEventRequest\x1a\x16.google.protobuf.Empty\x12H\n\x0bUpdateEvent\x12!.hts.organizer.UpdateEventRequest\x1a\x16.google.protobuf.Empty\x12Y\n\x14UpdateEventDurations\x12).hts.organizer.UpdateEventDurationRequest\x1a\x16.google.protobuf.Empty\x12H\n\x0bRemoveEvent\x12!.hts.organizer.RemoveEventRequest\x1a\x16.google.protobuf.Empty\x12\x64\n\x19UpdateRegistrationRequest\x12/.hts.organizer.UpdateRegistrationRequestRequest\x1a\x16.google.protobuf.Empty\x12\x44\n\tCreateTag\x12\x1f.hts.organizer.CreateTagRequest\x1a\x16.google.protobuf.Empty\x12\x42\n\x07\x41\x64\x64Tags\x12\x1f.hts.organizer.UpdateTagRequest\x1a\x16.google.protobuf.Empty\x12\x45\n\nRemoveTags\x12\x1f.hts.organizer.UpdateTagRequest\x1a\x16.google.protobuf.Empty\x12=\n\x08HasEvent\x12\x1e.hts.organizer.HasEventRequest\x1a\x11.hts.common.Event\x12T\n\x11\x41\x64\x64QuestionGroups\x12\'.hts.organizer.AddQuestionGroupsRequest\x1a\x16.google.protobuf.Empty\x12Z\n\x14RemoveQuestionGroups\x12*.hts.organizer.RemoveQuestionGroupsRequest\x1a\x16.google.protobuf.Empty\x12J\n\x0c\x41\x64\x64Questions\x12\".hts.organizer.AddQuestionsRequest\x1a\x16.google.protobuf.Empty\x12P\n\x0fRemoveQuestions\x12%.hts.organizer.RemoveQuestionsRequest\x1a\x16.google.protobuf.Empty\x12:\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x1a.google.protobuf.BoolValueBH\n\x10\x61pp.onepass.apisB\x0eOrganizerProtoP\x01Z\"onepass.app/facility/hts/organizerb\x06proto3'
+  serialized_pb=b'\n\x1bhts/organizer/service.proto\x12\rhts.organizer\x1a\x17hts/common/common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1egoogle/protobuf/wrappers.proto\"p\n\x08\x44uration\x12\x30\n\x05start\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12\x32\n\x06\x66inish\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x06\x66inish\"r\n\x19\x43reateOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12<\n\x0corganization\x18\x02 \x01(\x0b\x32\x18.hts.common.OrganizationR\x0corganization\"r\n\x19UpdateOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12<\n\x0corganization\x18\x02 \x01(\x0b\x32\x18.hts.common.OrganizationR\x0corganization\"]\n\x19RemoveOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x05R\x0eorganizationId\"\x83\x01\n UpdateUsersInOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\x1d\n\x08user_ids\x18\x02 \x03(\x05\x42\x02\x10\x01R\x07userIds\x12\'\n\x0forganization_id\x18\x03 \x01(\x05R\x0eorganizationId\"V\n\x12\x43reateEventRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\'\n\x05\x65vent\x18\x02 \x01(\x0b\x32\x11.hts.common.EventR\x05\x65vent\"V\n\x12UpdateEventRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\'\n\x05\x65vent\x18\x02 \x01(\x0b\x32\x11.hts.common.EventR\x05\x65vent\"\x85\x01\n\x1aUpdateEventDurationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x05R\x07\x65ventId\x12\x33\n\x08\x64uration\x18\x03 \x03(\x0b\x32\x17.hts.organizer.DurationR\x08\x64uration\"H\n\x12RemoveEventRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x05R\x07\x65ventId\"\xcf\x01\n UpdateRegistrationRequestRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12,\n\x12registered_user_id\x18\x02 \x01(\x05R\x10registeredUserId\x12.\n\x13registered_event_id\x18\x03 \x01(\x05R\x11registeredEventId\x12\x34\n\x06status\x18\x04 \x01(\x0e\x32\x1c.hts.common.UserEvent.StatusR\x06status\"w\n\x10\x43reateTagRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x05R\x0eorganizationId\x12!\n\x03tag\x18\x03 \x01(\x0b\x32\x0f.hts.common.TagR\x03tag\"c\n\x10UpdateTagRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\x1b\n\x07tag_ids\x18\x02 \x03(\x05\x42\x02\x10\x01R\x06tagIds\x12\x19\n\x08\x65vent_id\x18\x03 \x01(\x05R\x07\x65ventId\"U\n\x0fHasEventRequest\x12\'\n\x0forganization_id\x18\x01 \x01(\x05R\x0eorganizationId\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x05R\x07\x65ventId\"w\n\x18\x41\x64\x64QuestionGroupsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\x42\n\x0fquestion_groups\x18\x02 \x03(\x0b\x32\x19.hts.common.QuestionGroupR\x0equestionGroups\"d\n\x1bRemoveQuestionGroupsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12,\n\x12question_group_ids\x18\x02 \x03(\x05R\x10questionGroupIds\"b\n\x13\x41\x64\x64QuestionsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\x32\n\tquestions\x18\x02 \x03(\x0b\x32\x14.hts.common.QuestionR\tquestions\"T\n\x16RemoveQuestionsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12!\n\x0cquestion_ids\x18\x02 \x03(\x05R\x0bquestionIds\"Z\n\x18GetOrganizationsResponse\x12>\n\rorganizations\x18\x01 \x03(\x0b\x32\x18.hts.common.OrganizationR\rorganizations\"[\n\x1bGetOrganizationByIdResponse\x12<\n\x0corganization\x18\x01 \x01(\x0b\x32\x18.hts.common.OrganizationR\x0corganization2\xda\r\n\x10OrganizerService\x12V\n\x12\x43reateOrganization\x12(.hts.organizer.CreateOrganizationRequest\x1a\x16.google.protobuf.Empty\x12S\n\x10GetOrganizations\x12\x16.google.protobuf.Empty\x1a\'.hts.organizer.GetOrganizationsResponse\x12\x63\n\x13GetOrganizationById\x12 .hts.common.GetObjectByIdRequest\x1a*.hts.organizer.GetOrganizationByIdResponse\x12V\n\x12UpdateOrganization\x12(.hts.organizer.UpdateOrganizationRequest\x1a\x16.google.protobuf.Empty\x12V\n\x12RemoveOrganization\x12(.hts.organizer.RemoveOrganizationRequest\x1a\x16.google.protobuf.Empty\x12\x61\n\x16\x41\x64\x64UsersToOrganization\x12/.hts.organizer.UpdateUsersInOrganizationRequest\x1a\x16.google.protobuf.Empty\x12\x66\n\x1bRemoveUsersFromOrganization\x12/.hts.organizer.UpdateUsersInOrganizationRequest\x1a\x16.google.protobuf.Empty\x12H\n\x0b\x43reateEvent\x12!.hts.organizer.CreateEventRequest\x1a\x16.google.protobuf.Empty\x12H\n\x0bUpdateEvent\x12!.hts.organizer.UpdateEventRequest\x1a\x16.google.protobuf.Empty\x12Y\n\x14UpdateEventDurations\x12).hts.organizer.UpdateEventDurationRequest\x1a\x16.google.protobuf.Empty\x12H\n\x0bRemoveEvent\x12!.hts.organizer.RemoveEventRequest\x1a\x16.google.protobuf.Empty\x12\x64\n\x19UpdateRegistrationRequest\x12/.hts.organizer.UpdateRegistrationRequestRequest\x1a\x16.google.protobuf.Empty\x12\x44\n\tCreateTag\x12\x1f.hts.organizer.CreateTagRequest\x1a\x16.google.protobuf.Empty\x12\x42\n\x07\x41\x64\x64Tags\x12\x1f.hts.organizer.UpdateTagRequest\x1a\x16.google.protobuf.Empty\x12\x45\n\nRemoveTags\x12\x1f.hts.organizer.UpdateTagRequest\x1a\x16.google.protobuf.Empty\x12=\n\x08HasEvent\x12\x1e.hts.organizer.HasEventRequest\x1a\x11.hts.common.Event\x12T\n\x11\x41\x64\x64QuestionGroups\x12\'.hts.organizer.AddQuestionGroupsRequest\x1a\x16.google.protobuf.Empty\x12Z\n\x14RemoveQuestionGroups\x12*.hts.organizer.RemoveQuestionGroupsRequest\x1a\x16.google.protobuf.Empty\x12J\n\x0c\x41\x64\x64Questions\x12\".hts.organizer.AddQuestionsRequest\x1a\x16.google.protobuf.Empty\x12P\n\x0fRemoveQuestions\x12%.hts.organizer.RemoveQuestionsRequest\x1a\x16.google.protobuf.Empty\x12:\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x1a.google.protobuf.BoolValueBH\n\x10\x61pp.onepass.apisB\x0eOrganizerProtoP\x01Z\"onepass.app/facility/hts/organizerb\x06proto3'
   ,
   dependencies=[hts_dot_common_dot_common__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
@@ -79,7 +79,7 @@ _CREATEORGANIZATIONREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='user_id', full_name='hts.organizer.CreateOrganizationRequest.user_id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
+      number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -118,7 +118,7 @@ _UPDATEORGANIZATIONREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='user_id', full_name='hts.organizer.UpdateOrganizationRequest.user_id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
+      number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -157,14 +157,14 @@ _REMOVEORGANIZATIONREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='user_id', full_name='hts.organizer.RemoveOrganizationRequest.user_id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
+      number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='userId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='organization_id', full_name='hts.organizer.RemoveOrganizationRequest.organization_id', index=1,
-      number=2, type=3, cpp_type=2, label=1,
+      number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -196,21 +196,21 @@ _UPDATEUSERSINORGANIZATIONREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='user_id', full_name='hts.organizer.UpdateUsersInOrganizationRequest.user_id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
+      number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='userId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='user_ids', full_name='hts.organizer.UpdateUsersInOrganizationRequest.user_ids', index=1,
-      number=2, type=3, cpp_type=2, label=3,
+      number=2, type=5, cpp_type=1, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\020\001', json_name='userIds', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='organization_id', full_name='hts.organizer.UpdateUsersInOrganizationRequest.organization_id', index=2,
-      number=3, type=3, cpp_type=2, label=1,
+      number=3, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -242,7 +242,7 @@ _CREATEEVENTREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='user_id', full_name='hts.organizer.CreateEventRequest.user_id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
+      number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -281,7 +281,7 @@ _UPDATEEVENTREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='user_id', full_name='hts.organizer.UpdateEventRequest.user_id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
+      number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -320,14 +320,14 @@ _UPDATEEVENTDURATIONREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='user_id', full_name='hts.organizer.UpdateEventDurationRequest.user_id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
+      number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='userId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='event_id', full_name='hts.organizer.UpdateEventDurationRequest.event_id', index=1,
-      number=2, type=3, cpp_type=2, label=1,
+      number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -366,14 +366,14 @@ _REMOVEEVENTREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='user_id', full_name='hts.organizer.RemoveEventRequest.user_id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
+      number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='userId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='event_id', full_name='hts.organizer.RemoveEventRequest.event_id', index=1,
-      number=2, type=3, cpp_type=2, label=1,
+      number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -405,21 +405,21 @@ _UPDATEREGISTRATIONREQUESTREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='user_id', full_name='hts.organizer.UpdateRegistrationRequestRequest.user_id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
+      number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='userId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='registered_user_id', full_name='hts.organizer.UpdateRegistrationRequestRequest.registered_user_id', index=1,
-      number=2, type=3, cpp_type=2, label=1,
+      number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='registeredUserId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='registered_event_id', full_name='hts.organizer.UpdateRegistrationRequestRequest.registered_event_id', index=2,
-      number=3, type=3, cpp_type=2, label=1,
+      number=3, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -458,14 +458,14 @@ _CREATETAGREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='user_id', full_name='hts.organizer.CreateTagRequest.user_id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
+      number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='userId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='organization_id', full_name='hts.organizer.CreateTagRequest.organization_id', index=1,
-      number=2, type=3, cpp_type=2, label=1,
+      number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -504,21 +504,21 @@ _UPDATETAGREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='user_id', full_name='hts.organizer.UpdateTagRequest.user_id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
+      number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='userId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='tag_ids', full_name='hts.organizer.UpdateTagRequest.tag_ids', index=1,
-      number=2, type=3, cpp_type=2, label=3,
+      number=2, type=5, cpp_type=1, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=b'\020\001', json_name='tagIds', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='event_id', full_name='hts.organizer.UpdateTagRequest.event_id', index=2,
-      number=3, type=3, cpp_type=2, label=1,
+      number=3, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -550,14 +550,14 @@ _HASEVENTREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='organization_id', full_name='hts.organizer.HasEventRequest.organization_id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
+      number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='organizationId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='event_id', full_name='hts.organizer.HasEventRequest.event_id', index=1,
-      number=2, type=3, cpp_type=2, label=1,
+      number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -589,7 +589,7 @@ _ADDQUESTIONGROUPSREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='user_id', full_name='hts.organizer.AddQuestionGroupsRequest.user_id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
+      number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -628,14 +628,14 @@ _REMOVEQUESTIONGROUPSREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='user_id', full_name='hts.organizer.RemoveQuestionGroupsRequest.user_id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
+      number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='userId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='question_group_ids', full_name='hts.organizer.RemoveQuestionGroupsRequest.question_group_ids', index=1,
-      number=2, type=3, cpp_type=2, label=3,
+      number=2, type=5, cpp_type=1, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -667,7 +667,7 @@ _ADDQUESTIONSREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='user_id', full_name='hts.organizer.AddQuestionsRequest.user_id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
+      number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -706,14 +706,14 @@ _REMOVEQUESTIONSREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='user_id', full_name='hts.organizer.RemoveQuestionsRequest.user_id', index=0,
-      number=1, type=3, cpp_type=2, label=1,
+      number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='userId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='question_ids', full_name='hts.organizer.RemoveQuestionsRequest.question_ids', index=1,
-      number=2, type=3, cpp_type=2, label=3,
+      number=2, type=5, cpp_type=1, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
