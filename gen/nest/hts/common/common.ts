@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { StringValue, Int64Value } from "../../google/protobuf/wrappers";
+import { StringValue, Int32Value } from "../../google/protobuf/wrappers";
 import { Timestamp } from "../../google/protobuf/timestamp";
 
 export const protobufPackage = "hts.common";
@@ -122,7 +122,7 @@ export interface UserOrganization {
 export interface Event {
   id: number;
   organizationId: number;
-  locationId: Int64Value | undefined;
+  locationId: Int32Value | undefined;
   description: string;
   name: string;
   coverImageUrl: StringValue | undefined;
@@ -155,8 +155,8 @@ export interface UserEvent {
   id: number;
   userId: number;
   eventId: number;
-  rating: Int64Value | undefined;
-  ticket: string;
+  rating: Int32Value | undefined;
+  ticket: StringValue | undefined;
   status: UserEvent_Status;
 }
 
