@@ -14,7 +14,7 @@ import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
 
 message GetEventByIdRequest {
-    int64 event_id = 1;
+    int32 event_id = 1;
 }
 
 message StringInputRequest {
@@ -22,17 +22,17 @@ message StringInputRequest {
 }
 
 message UserWithEventRequest {
-    int64 user_id = 1;
-    int64 event_id = 2;
+    int32 user_id = 1;
+    int32 event_id = 2;
 }
 
 message SubmitAnswerForPostEventQuestionRequest {
     message Answer {
-        int64 question_id = 1;
+        int32 question_id = 1;
         string value = 2;
     }
     repeated Answer answers = 1;
-    int64 user_event_id = 2;
+    int32 user_event_id = 2;
 }
 
 message SubmitAnswerForPostEventQuestionResponse {
@@ -48,7 +48,7 @@ message EventsResponse {
 }
 
 message IsEventAvailableRequest {
-    int64 event_id = 1;
+    int32 event_id = 1;
     google.protobuf.Timestamp date = 2;
 }
 
@@ -58,9 +58,9 @@ message GetUpcomingEventsRequest {
 }
 
 message GenerateQRRequest {
-    int64 user_event_id = 1;
-    int64 user_id = 2;
-    int64 event_id = 3;
+    int32 user_event_id = 1;
+    int32 user_id = 2;
+    int32 event_id = 3;
 }
 
 message GetTagsByEventIdResponse {
@@ -72,7 +72,7 @@ message GetApprovedUserByEventIdResponse {
 }
 
 message GetRatingByEventIdResponse {
-    repeated int64 result = 1;
+    repeated int32 result = 1;
 }
 
 message GetEventDurationsByEventIdResponse {
@@ -80,8 +80,8 @@ message GetEventDurationsByEventIdResponse {
 }
 
 message GetUserAnswersByQuestionIdRequest {
-    int64 question_id = 1;
-    int64 user_id = 2;
+    int32 question_id = 1;
+    int32 user_id = 2;
 }
 
 message GetQuestionGroupsByEventIdResponse {
