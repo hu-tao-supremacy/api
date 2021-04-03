@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
 import {
-  Status,
+  UserEvent_Status,
   Organization,
   Event,
   Tag,
@@ -67,7 +67,7 @@ export interface UpdateRegistrationRequestRequest {
   userId: number;
   registeredUserId: number;
   registeredEventId: number;
-  status: Status;
+  status: UserEvent_Status;
 }
 
 export interface CreateTagRequest {

@@ -5,44 +5,41 @@ import { Timestamp } from "../../google/protobuf/timestamp";
 export const protobufPackage = "hts.common";
 
 export enum DayOfWeek {
-  SUN = 0,
-  MON = 1,
-  TUE = 2,
-  WED = 3,
-  THU = 4,
-  FRI = 5,
-  SAT = 6,
+  DAY_OF_WEEK_UNSPECIFIED = 0,
+  SUN = 1,
+  MON = 2,
+  TUE = 3,
+  WED = 4,
+  THU = 5,
+  FRI = 6,
+  SAT = 7,
   UNRECOGNIZED = -1,
 }
 
 export enum AnswerType {
-  SCALE = 0,
-  TEXT = 1,
+  ANSWER_TYPE_UNSPECIFIED = 0,
+  SCALE = 1,
+  TEXT = 2,
   UNRECOGNIZED = -1,
 }
 
 export enum QuestionGroupType {
-  PRE_EVENT = 0,
-  POST_EVENT = 1,
+  QUESTION_GROUP_TYPE_UNSPECIFIED = 0,
+  PRE_EVENT = 1,
+  POST_EVENT = 2,
   UNRECOGNIZED = -1,
 }
 
 export enum Gender {
-  M = 0,
-  F = 1,
-  NS = 2,
-  UNRECOGNIZED = -1,
-}
-
-export enum Status {
-  PENDING = 0,
-  APPROVED = 1,
-  REJECTED = 2,
+  GENDER_UNSPECIFIED = 0,
+  M = 1,
+  F = 2,
+  NS = 3,
   UNRECOGNIZED = -1,
 }
 
 export enum Permission {
-  ADMINISTRATION = 0,
+  PERMISSION_UNSPECIFIED = 0,
   ORGANIZATION_UPDATE = 1,
   ORGANIZATION_REMOVE = 2,
   ORGANIZATION_MEMBER_ADD = 3,
@@ -63,11 +60,6 @@ export interface OperatingHour {
   startHour: number;
   finishHour: number;
   day: DayOfWeek;
-}
-
-export interface Result {
-  isOk: boolean;
-  description: string;
 }
 
 export interface User {
@@ -165,7 +157,15 @@ export interface UserEvent {
   eventId: number;
   rating: Int64Value | undefined;
   ticket: string;
-  status: Status;
+  status: UserEvent_Status;
+}
+
+export enum UserEvent_Status {
+  STATUS_UNSPECIFIED = 0,
+  PENDING = 1,
+  APPROVED = 2,
+  REJECTED = 3,
+  UNRECOGNIZED = -1,
 }
 
 export interface EventDuration {
@@ -208,10 +208,18 @@ export interface FacilityRequest {
   id: number;
   eventId: number;
   facilityId: number;
-  status: Status;
+  status: FacilityRequest_Status;
   rejectReason: StringValue | undefined;
   start: Timestamp | undefined;
   finish: Timestamp | undefined;
+}
+
+export enum FacilityRequest_Status {
+  STATUS_UNSPECIFIED = 0,
+  PENDING = 1,
+  APPROVED = 2,
+  REJECTED = 3,
+  UNRECOGNIZED = -1,
 }
 
 export interface Facility {

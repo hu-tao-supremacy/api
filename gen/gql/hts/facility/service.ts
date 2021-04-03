@@ -1,10 +1,9 @@
 /* eslint-disable */
 import {
-  Status,
+  FacilityRequest_Status,
   OperatingHour,
   Facility,
   FacilityRequest,
-  Result,
 } from "../../hts/common/common";
 import { Empty } from "../../google/protobuf/empty";
 
@@ -15,7 +14,7 @@ export interface FacilityRequestWithFacilityInfo {
   eventId: number;
   facilityId: number;
   organizationId: number;
-  status: Status;
+  status: FacilityRequest_Status;
   rejectReason: string | undefined;
   start: Date | undefined;
   finish: Date | undefined;
@@ -130,8 +129,10 @@ export interface FacilityService {
   ): Promise<FacilityRequest>;
   ApproveFacilityRequest(
     request: ApproveFacilityRequestRequest
-  ): Promise<Result>;
-  RejectFacilityRequest(request: RejectFacilityRequestRequest): Promise<Result>;
+  ): Promise<boolean | undefined>;
+  RejectFacilityRequest(
+    request: RejectFacilityRequestRequest
+  ): Promise<boolean | undefined>;
   GetFacilityInfo(request: GetFacilityInfoRequest): Promise<Facility>;
   Ping(request: Empty): Promise<boolean | undefined>;
 }
