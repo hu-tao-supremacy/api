@@ -21,7 +21,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type OrganizerServiceClient interface {
-	CreateOrganization(ctx context.Context, in *CreateOrganizationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	CreateOrganization(ctx context.Context, in *CreateOrganizationRequest, opts ...grpc.CallOption) (*common.Organization, error)
 	GetOrganizations(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetOrganizationsResponse, error)
 	GetOrganizationById(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetOrganizationByIdResponse, error)
 	UpdateOrganization(ctx context.Context, in *UpdateOrganizationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -52,8 +52,8 @@ func NewOrganizerServiceClient(cc grpc.ClientConnInterface) OrganizerServiceClie
 	return &organizerServiceClient{cc}
 }
 
-func (c *organizerServiceClient) CreateOrganization(ctx context.Context, in *CreateOrganizationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *organizerServiceClient) CreateOrganization(ctx context.Context, in *CreateOrganizationRequest, opts ...grpc.CallOption) (*common.Organization, error) {
+	out := new(common.Organization)
 	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/CreateOrganization", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -245,7 +245,7 @@ func (c *organizerServiceClient) Ping(ctx context.Context, in *emptypb.Empty, op
 // All implementations must embed UnimplementedOrganizerServiceServer
 // for forward compatibility
 type OrganizerServiceServer interface {
-	CreateOrganization(context.Context, *CreateOrganizationRequest) (*emptypb.Empty, error)
+	CreateOrganization(context.Context, *CreateOrganizationRequest) (*common.Organization, error)
 	GetOrganizations(context.Context, *emptypb.Empty) (*GetOrganizationsResponse, error)
 	GetOrganizationById(context.Context, *common.GetObjectByIdRequest) (*GetOrganizationByIdResponse, error)
 	UpdateOrganization(context.Context, *UpdateOrganizationRequest) (*emptypb.Empty, error)
@@ -273,7 +273,7 @@ type OrganizerServiceServer interface {
 type UnimplementedOrganizerServiceServer struct {
 }
 
-func (UnimplementedOrganizerServiceServer) CreateOrganization(context.Context, *CreateOrganizationRequest) (*emptypb.Empty, error) {
+func (UnimplementedOrganizerServiceServer) CreateOrganization(context.Context, *CreateOrganizationRequest) (*common.Organization, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateOrganization not implemented")
 }
 func (UnimplementedOrganizerServiceServer) GetOrganizations(context.Context, *emptypb.Empty) (*GetOrganizationsResponse, error) {
