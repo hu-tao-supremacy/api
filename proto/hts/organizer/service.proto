@@ -113,7 +113,7 @@ message GetOrganizationByIdResponse {
 
 
 service OrganizerService {
-  rpc CreateOrganization(CreateOrganizationRequest) returns (google.protobuf.Empty);
+  rpc CreateOrganization(CreateOrganizationRequest) returns (hts.common.Organization);
   rpc GetOrganizations(google.protobuf.Empty) returns (GetOrganizationsResponse);
   rpc GetOrganizationById(hts.common.GetObjectByIdRequest) returns (GetOrganizationByIdResponse);
   rpc UpdateOrganization(UpdateOrganizationRequest) returns (google.protobuf.Empty);
