@@ -51,17 +51,17 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            userId_ = input.readInt64();
+            userId_ = input.readInt32();
             break;
           }
           case 16: {
 
-            registeredUserId_ = input.readInt64();
+            registeredUserId_ = input.readInt32();
             break;
           }
           case 24: {
 
-            registeredEventId_ = input.readInt64();
+            registeredEventId_ = input.readInt32();
             break;
           }
           case 32: {
@@ -103,35 +103,35 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USER_ID_FIELD_NUMBER = 1;
-  private long userId_;
+  private int userId_;
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <code>int32 user_id = 1 [json_name = "userId"];</code>
    * @return The userId.
    */
   @java.lang.Override
-  public long getUserId() {
+  public int getUserId() {
     return userId_;
   }
 
   public static final int REGISTERED_USER_ID_FIELD_NUMBER = 2;
-  private long registeredUserId_;
+  private int registeredUserId_;
   /**
-   * <code>int64 registered_user_id = 2 [json_name = "registeredUserId"];</code>
+   * <code>int32 registered_user_id = 2 [json_name = "registeredUserId"];</code>
    * @return The registeredUserId.
    */
   @java.lang.Override
-  public long getRegisteredUserId() {
+  public int getRegisteredUserId() {
     return registeredUserId_;
   }
 
   public static final int REGISTERED_EVENT_ID_FIELD_NUMBER = 3;
-  private long registeredEventId_;
+  private int registeredEventId_;
   /**
-   * <code>int64 registered_event_id = 3 [json_name = "registeredEventId"];</code>
+   * <code>int32 registered_event_id = 3 [json_name = "registeredEventId"];</code>
    * @return The registeredEventId.
    */
   @java.lang.Override
-  public long getRegisteredEventId() {
+  public int getRegisteredEventId() {
     return registeredEventId_;
   }
 
@@ -168,14 +168,14 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (userId_ != 0L) {
-      output.writeInt64(1, userId_);
+    if (userId_ != 0) {
+      output.writeInt32(1, userId_);
     }
-    if (registeredUserId_ != 0L) {
-      output.writeInt64(2, registeredUserId_);
+    if (registeredUserId_ != 0) {
+      output.writeInt32(2, registeredUserId_);
     }
-    if (registeredEventId_ != 0L) {
-      output.writeInt64(3, registeredEventId_);
+    if (registeredEventId_ != 0) {
+      output.writeInt32(3, registeredEventId_);
     }
     if (status_ != app.onepass.apis.UserEvent.Status.STATUS_UNSPECIFIED.getNumber()) {
       output.writeEnum(4, status_);
@@ -189,17 +189,17 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (userId_ != 0L) {
+    if (userId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, userId_);
+        .computeInt32Size(1, userId_);
     }
-    if (registeredUserId_ != 0L) {
+    if (registeredUserId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(2, registeredUserId_);
+        .computeInt32Size(2, registeredUserId_);
     }
-    if (registeredEventId_ != 0L) {
+    if (registeredEventId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(3, registeredEventId_);
+        .computeInt32Size(3, registeredEventId_);
     }
     if (status_ != app.onepass.apis.UserEvent.Status.STATUS_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
@@ -239,14 +239,11 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getUserId());
+    hash = (53 * hash) + getUserId();
     hash = (37 * hash) + REGISTERED_USER_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getRegisteredUserId());
+    hash = (53 * hash) + getRegisteredUserId();
     hash = (37 * hash) + REGISTERED_EVENT_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getRegisteredEventId());
+    hash = (53 * hash) + getRegisteredEventId();
     hash = (37 * hash) + STATUS_FIELD_NUMBER;
     hash = (53 * hash) + status_;
     hash = (29 * hash) + unknownFields.hashCode();
@@ -382,11 +379,11 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      userId_ = 0L;
+      userId_ = 0;
 
-      registeredUserId_ = 0L;
+      registeredUserId_ = 0;
 
-      registeredEventId_ = 0L;
+      registeredEventId_ = 0;
 
       status_ = 0;
 
@@ -468,13 +465,13 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(app.onepass.apis.UpdateRegistrationRequestRequest other) {
       if (other == app.onepass.apis.UpdateRegistrationRequestRequest.getDefaultInstance()) return this;
-      if (other.getUserId() != 0L) {
+      if (other.getUserId() != 0) {
         setUserId(other.getUserId());
       }
-      if (other.getRegisteredUserId() != 0L) {
+      if (other.getRegisteredUserId() != 0) {
         setRegisteredUserId(other.getRegisteredUserId());
       }
-      if (other.getRegisteredEventId() != 0L) {
+      if (other.getRegisteredEventId() != 0) {
         setRegisteredEventId(other.getRegisteredEventId());
       }
       if (other.status_ != 0) {
@@ -509,95 +506,95 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long userId_ ;
+    private int userId_ ;
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @return The userId.
      */
     @java.lang.Override
-    public long getUserId() {
+    public int getUserId() {
       return userId_;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
-    public Builder setUserId(long value) {
+    public Builder setUserId(int value) {
       
       userId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
       
-      userId_ = 0L;
+      userId_ = 0;
       onChanged();
       return this;
     }
 
-    private long registeredUserId_ ;
+    private int registeredUserId_ ;
     /**
-     * <code>int64 registered_user_id = 2 [json_name = "registeredUserId"];</code>
+     * <code>int32 registered_user_id = 2 [json_name = "registeredUserId"];</code>
      * @return The registeredUserId.
      */
     @java.lang.Override
-    public long getRegisteredUserId() {
+    public int getRegisteredUserId() {
       return registeredUserId_;
     }
     /**
-     * <code>int64 registered_user_id = 2 [json_name = "registeredUserId"];</code>
+     * <code>int32 registered_user_id = 2 [json_name = "registeredUserId"];</code>
      * @param value The registeredUserId to set.
      * @return This builder for chaining.
      */
-    public Builder setRegisteredUserId(long value) {
+    public Builder setRegisteredUserId(int value) {
       
       registeredUserId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 registered_user_id = 2 [json_name = "registeredUserId"];</code>
+     * <code>int32 registered_user_id = 2 [json_name = "registeredUserId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearRegisteredUserId() {
       
-      registeredUserId_ = 0L;
+      registeredUserId_ = 0;
       onChanged();
       return this;
     }
 
-    private long registeredEventId_ ;
+    private int registeredEventId_ ;
     /**
-     * <code>int64 registered_event_id = 3 [json_name = "registeredEventId"];</code>
+     * <code>int32 registered_event_id = 3 [json_name = "registeredEventId"];</code>
      * @return The registeredEventId.
      */
     @java.lang.Override
-    public long getRegisteredEventId() {
+    public int getRegisteredEventId() {
       return registeredEventId_;
     }
     /**
-     * <code>int64 registered_event_id = 3 [json_name = "registeredEventId"];</code>
+     * <code>int32 registered_event_id = 3 [json_name = "registeredEventId"];</code>
      * @param value The registeredEventId to set.
      * @return This builder for chaining.
      */
-    public Builder setRegisteredEventId(long value) {
+    public Builder setRegisteredEventId(int value) {
       
       registeredEventId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 registered_event_id = 3 [json_name = "registeredEventId"];</code>
+     * <code>int32 registered_event_id = 3 [json_name = "registeredEventId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearRegisteredEventId() {
       
-      registeredEventId_ = 0L;
+      registeredEventId_ = 0;
       onChanged();
       return this;
     }

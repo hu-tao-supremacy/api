@@ -8,8 +8,8 @@ public interface GetFacilityInfoRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 facility_id = 1 [json_name = "facilityId"];</code>
+   * <code>int32 facility_id = 1 [json_name = "facilityId"];</code>
    * @return The facilityId.
    */
-  long getFacilityId();
+  int getFacilityId();
 }

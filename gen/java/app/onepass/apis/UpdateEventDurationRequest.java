@@ -52,12 +52,12 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            userId_ = input.readInt64();
+            userId_ = input.readInt32();
             break;
           }
           case 16: {
 
-            eventId_ = input.readInt64();
+            eventId_ = input.readInt32();
             break;
           }
           case 26: {
@@ -105,24 +105,24 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USER_ID_FIELD_NUMBER = 1;
-  private long userId_;
+  private int userId_;
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <code>int32 user_id = 1 [json_name = "userId"];</code>
    * @return The userId.
    */
   @java.lang.Override
-  public long getUserId() {
+  public int getUserId() {
     return userId_;
   }
 
   public static final int EVENT_ID_FIELD_NUMBER = 2;
-  private long eventId_;
+  private int eventId_;
   /**
-   * <code>int64 event_id = 2 [json_name = "eventId"];</code>
+   * <code>int32 event_id = 2 [json_name = "eventId"];</code>
    * @return The eventId.
    */
   @java.lang.Override
-  public long getEventId() {
+  public int getEventId() {
     return eventId_;
   }
 
@@ -180,11 +180,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (userId_ != 0L) {
-      output.writeInt64(1, userId_);
+    if (userId_ != 0) {
+      output.writeInt32(1, userId_);
     }
-    if (eventId_ != 0L) {
-      output.writeInt64(2, eventId_);
+    if (eventId_ != 0) {
+      output.writeInt32(2, eventId_);
     }
     for (int i = 0; i < duration_.size(); i++) {
       output.writeMessage(3, duration_.get(i));
@@ -198,13 +198,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (userId_ != 0L) {
+    if (userId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, userId_);
+        .computeInt32Size(1, userId_);
     }
-    if (eventId_ != 0L) {
+    if (eventId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(2, eventId_);
+        .computeInt32Size(2, eventId_);
     }
     for (int i = 0; i < duration_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
@@ -243,11 +243,9 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getUserId());
+    hash = (53 * hash) + getUserId();
     hash = (37 * hash) + EVENT_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getEventId());
+    hash = (53 * hash) + getEventId();
     if (getDurationCount() > 0) {
       hash = (37 * hash) + DURATION_FIELD_NUMBER;
       hash = (53 * hash) + getDurationList().hashCode();
@@ -386,9 +384,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      userId_ = 0L;
+      userId_ = 0;
 
-      eventId_ = 0L;
+      eventId_ = 0;
 
       if (durationBuilder_ == null) {
         duration_ = java.util.Collections.emptyList();
@@ -482,10 +480,10 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(app.onepass.apis.UpdateEventDurationRequest other) {
       if (other == app.onepass.apis.UpdateEventDurationRequest.getDefaultInstance()) return this;
-      if (other.getUserId() != 0L) {
+      if (other.getUserId() != 0) {
         setUserId(other.getUserId());
       }
-      if (other.getEventId() != 0L) {
+      if (other.getEventId() != 0) {
         setEventId(other.getEventId());
       }
       if (durationBuilder_ == null) {
@@ -544,64 +542,64 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private long userId_ ;
+    private int userId_ ;
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @return The userId.
      */
     @java.lang.Override
-    public long getUserId() {
+    public int getUserId() {
       return userId_;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
-    public Builder setUserId(long value) {
+    public Builder setUserId(int value) {
       
       userId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
       
-      userId_ = 0L;
+      userId_ = 0;
       onChanged();
       return this;
     }
 
-    private long eventId_ ;
+    private int eventId_ ;
     /**
-     * <code>int64 event_id = 2 [json_name = "eventId"];</code>
+     * <code>int32 event_id = 2 [json_name = "eventId"];</code>
      * @return The eventId.
      */
     @java.lang.Override
-    public long getEventId() {
+    public int getEventId() {
       return eventId_;
     }
     /**
-     * <code>int64 event_id = 2 [json_name = "eventId"];</code>
+     * <code>int32 event_id = 2 [json_name = "eventId"];</code>
      * @param value The eventId to set.
      * @return This builder for chaining.
      */
-    public Builder setEventId(long value) {
+    public Builder setEventId(int value) {
       
       eventId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 event_id = 2 [json_name = "eventId"];</code>
+     * <code>int32 event_id = 2 [json_name = "eventId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearEventId() {
       
-      eventId_ = 0L;
+      eventId_ = 0;
       onChanged();
       return this;
     }

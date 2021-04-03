@@ -126,49 +126,49 @@ public final class OrganizerProto {
       "protobuf.TimestampR\005start\0222\n\006finish\030\002 \001(" +
       "\0132\032.google.protobuf.TimestampR\006finish\"r\n" +
       "\031CreateOrganizationRequest\022\027\n\007user_id\030\001 " +
-      "\001(\003R\006userId\022<\n\014organization\030\002 \001(\0132\030.hts." +
+      "\001(\005R\006userId\022<\n\014organization\030\002 \001(\0132\030.hts." +
       "common.OrganizationR\014organization\"r\n\031Upd" +
-      "ateOrganizationRequest\022\027\n\007user_id\030\001 \001(\003R" +
+      "ateOrganizationRequest\022\027\n\007user_id\030\001 \001(\005R" +
       "\006userId\022<\n\014organization\030\002 \001(\0132\030.hts.comm" +
       "on.OrganizationR\014organization\"]\n\031RemoveO" +
-      "rganizationRequest\022\027\n\007user_id\030\001 \001(\003R\006use" +
-      "rId\022\'\n\017organization_id\030\002 \001(\003R\016organizati" +
+      "rganizationRequest\022\027\n\007user_id\030\001 \001(\005R\006use" +
+      "rId\022\'\n\017organization_id\030\002 \001(\005R\016organizati" +
       "onId\"\203\001\n UpdateUsersInOrganizationReques" +
-      "t\022\027\n\007user_id\030\001 \001(\003R\006userId\022\035\n\010user_ids\030\002" +
-      " \003(\003B\002\020\001R\007userIds\022\'\n\017organization_id\030\003 \001" +
-      "(\003R\016organizationId\"V\n\022CreateEventRequest" +
-      "\022\027\n\007user_id\030\001 \001(\003R\006userId\022\'\n\005event\030\002 \001(\013" +
+      "t\022\027\n\007user_id\030\001 \001(\005R\006userId\022\035\n\010user_ids\030\002" +
+      " \003(\005B\002\020\001R\007userIds\022\'\n\017organization_id\030\003 \001" +
+      "(\005R\016organizationId\"V\n\022CreateEventRequest" +
+      "\022\027\n\007user_id\030\001 \001(\005R\006userId\022\'\n\005event\030\002 \001(\013" +
       "2\021.hts.common.EventR\005event\"V\n\022UpdateEven" +
-      "tRequest\022\027\n\007user_id\030\001 \001(\003R\006userId\022\'\n\005eve" +
+      "tRequest\022\027\n\007user_id\030\001 \001(\005R\006userId\022\'\n\005eve" +
       "nt\030\002 \001(\0132\021.hts.common.EventR\005event\"\205\001\n\032U" +
       "pdateEventDurationRequest\022\027\n\007user_id\030\001 \001" +
-      "(\003R\006userId\022\031\n\010event_id\030\002 \001(\003R\007eventId\0223\n" +
+      "(\005R\006userId\022\031\n\010event_id\030\002 \001(\005R\007eventId\0223\n" +
       "\010duration\030\003 \003(\0132\027.hts.organizer.Duration" +
       "R\010duration\"H\n\022RemoveEventRequest\022\027\n\007user" +
-      "_id\030\001 \001(\003R\006userId\022\031\n\010event_id\030\002 \001(\003R\007eve" +
+      "_id\030\001 \001(\005R\006userId\022\031\n\010event_id\030\002 \001(\005R\007eve" +
       "ntId\"\317\001\n UpdateRegistrationRequestReques" +
-      "t\022\027\n\007user_id\030\001 \001(\003R\006userId\022,\n\022registered" +
-      "_user_id\030\002 \001(\003R\020registeredUserId\022.\n\023regi" +
-      "stered_event_id\030\003 \001(\003R\021registeredEventId" +
+      "t\022\027\n\007user_id\030\001 \001(\005R\006userId\022,\n\022registered" +
+      "_user_id\030\002 \001(\005R\020registeredUserId\022.\n\023regi" +
+      "stered_event_id\030\003 \001(\005R\021registeredEventId" +
       "\0224\n\006status\030\004 \001(\0162\034.hts.common.UserEvent." +
       "StatusR\006status\"w\n\020CreateTagRequest\022\027\n\007us" +
-      "er_id\030\001 \001(\003R\006userId\022\'\n\017organization_id\030\002" +
-      " \001(\003R\016organizationId\022!\n\003tag\030\003 \001(\0132\017.hts." +
+      "er_id\030\001 \001(\005R\006userId\022\'\n\017organization_id\030\002" +
+      " \001(\005R\016organizationId\022!\n\003tag\030\003 \001(\0132\017.hts." +
       "common.TagR\003tag\"c\n\020UpdateTagRequest\022\027\n\007u" +
-      "ser_id\030\001 \001(\003R\006userId\022\033\n\007tag_ids\030\002 \003(\003B\002\020" +
-      "\001R\006tagIds\022\031\n\010event_id\030\003 \001(\003R\007eventId\"U\n\017" +
-      "HasEventRequest\022\'\n\017organization_id\030\001 \001(\003" +
-      "R\016organizationId\022\031\n\010event_id\030\002 \001(\003R\007even" +
+      "ser_id\030\001 \001(\005R\006userId\022\033\n\007tag_ids\030\002 \003(\005B\002\020" +
+      "\001R\006tagIds\022\031\n\010event_id\030\003 \001(\005R\007eventId\"U\n\017" +
+      "HasEventRequest\022\'\n\017organization_id\030\001 \001(\005" +
+      "R\016organizationId\022\031\n\010event_id\030\002 \001(\005R\007even" +
       "tId\"w\n\030AddQuestionGroupsRequest\022\027\n\007user_" +
-      "id\030\001 \001(\003R\006userId\022B\n\017question_groups\030\002 \003(" +
+      "id\030\001 \001(\005R\006userId\022B\n\017question_groups\030\002 \003(" +
       "\0132\031.hts.common.QuestionGroupR\016questionGr" +
       "oups\"d\n\033RemoveQuestionGroupsRequest\022\027\n\007u" +
-      "ser_id\030\001 \001(\003R\006userId\022,\n\022question_group_i" +
-      "ds\030\002 \003(\003R\020questionGroupIds\"b\n\023AddQuestio" +
-      "nsRequest\022\027\n\007user_id\030\001 \001(\003R\006userId\0222\n\tqu" +
+      "ser_id\030\001 \001(\005R\006userId\022,\n\022question_group_i" +
+      "ds\030\002 \003(\005R\020questionGroupIds\"b\n\023AddQuestio" +
+      "nsRequest\022\027\n\007user_id\030\001 \001(\005R\006userId\0222\n\tqu" +
       "estions\030\002 \003(\0132\024.hts.common.QuestionR\tque" +
       "stions\"T\n\026RemoveQuestionsRequest\022\027\n\007user" +
-      "_id\030\001 \001(\003R\006userId\022!\n\014question_ids\030\002 \003(\003R" +
+      "_id\030\001 \001(\005R\006userId\022!\n\014question_ids\030\002 \003(\005R" +
       "\013questionIds\"Z\n\030GetOrganizationsResponse" +
       "\022>\n\rorganizations\030\001 \003(\0132\030.hts.common.Org" +
       "anizationR\rorganizations\"[\n\033GetOrganizat" +

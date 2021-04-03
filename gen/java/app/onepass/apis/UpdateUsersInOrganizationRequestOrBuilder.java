@@ -8,31 +8,31 @@ public interface UpdateUsersInOrganizationRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <code>int32 user_id = 1 [json_name = "userId"];</code>
    * @return The userId.
    */
-  long getUserId();
+  int getUserId();
 
   /**
-   * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
+   * <code>repeated int32 user_ids = 2 [json_name = "userIds", packed = true];</code>
    * @return A list containing the userIds.
    */
-  java.util.List<java.lang.Long> getUserIdsList();
+  java.util.List<java.lang.Integer> getUserIdsList();
   /**
-   * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
+   * <code>repeated int32 user_ids = 2 [json_name = "userIds", packed = true];</code>
    * @return The count of userIds.
    */
   int getUserIdsCount();
   /**
-   * <code>repeated int64 user_ids = 2 [json_name = "userIds", packed = true];</code>
+   * <code>repeated int32 user_ids = 2 [json_name = "userIds", packed = true];</code>
    * @param index The index of the element to return.
    * @return The userIds at the given index.
    */
-  long getUserIds(int index);
+  int getUserIds(int index);
 
   /**
-   * <code>int64 organization_id = 3 [json_name = "organizationId"];</code>
+   * <code>int32 organization_id = 3 [json_name = "organizationId"];</code>
    * @return The organizationId.
    */
-  long getOrganizationId();
+  int getOrganizationId();
 }

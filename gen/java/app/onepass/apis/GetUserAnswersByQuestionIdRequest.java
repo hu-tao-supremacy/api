@@ -50,12 +50,12 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            questionId_ = input.readInt64();
+            questionId_ = input.readInt32();
             break;
           }
           case 16: {
 
-            userId_ = input.readInt64();
+            userId_ = input.readInt32();
             break;
           }
           default: {
@@ -91,24 +91,24 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int QUESTION_ID_FIELD_NUMBER = 1;
-  private long questionId_;
+  private int questionId_;
   /**
-   * <code>int64 question_id = 1 [json_name = "questionId"];</code>
+   * <code>int32 question_id = 1 [json_name = "questionId"];</code>
    * @return The questionId.
    */
   @java.lang.Override
-  public long getQuestionId() {
+  public int getQuestionId() {
     return questionId_;
   }
 
   public static final int USER_ID_FIELD_NUMBER = 2;
-  private long userId_;
+  private int userId_;
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <code>int32 user_id = 2 [json_name = "userId"];</code>
    * @return The userId.
    */
   @java.lang.Override
-  public long getUserId() {
+  public int getUserId() {
     return userId_;
   }
 
@@ -126,11 +126,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (questionId_ != 0L) {
-      output.writeInt64(1, questionId_);
+    if (questionId_ != 0) {
+      output.writeInt32(1, questionId_);
     }
-    if (userId_ != 0L) {
-      output.writeInt64(2, userId_);
+    if (userId_ != 0) {
+      output.writeInt32(2, userId_);
     }
     unknownFields.writeTo(output);
   }
@@ -141,13 +141,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (questionId_ != 0L) {
+    if (questionId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, questionId_);
+        .computeInt32Size(1, questionId_);
     }
-    if (userId_ != 0L) {
+    if (userId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(2, userId_);
+        .computeInt32Size(2, userId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -180,11 +180,9 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + QUESTION_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getQuestionId());
+    hash = (53 * hash) + getQuestionId();
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getUserId());
+    hash = (53 * hash) + getUserId();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -318,9 +316,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      questionId_ = 0L;
+      questionId_ = 0;
 
-      userId_ = 0L;
+      userId_ = 0;
 
       return this;
     }
@@ -398,10 +396,10 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(app.onepass.apis.GetUserAnswersByQuestionIdRequest other) {
       if (other == app.onepass.apis.GetUserAnswersByQuestionIdRequest.getDefaultInstance()) return this;
-      if (other.getQuestionId() != 0L) {
+      if (other.getQuestionId() != 0) {
         setQuestionId(other.getQuestionId());
       }
-      if (other.getUserId() != 0L) {
+      if (other.getUserId() != 0) {
         setUserId(other.getUserId());
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -433,64 +431,64 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long questionId_ ;
+    private int questionId_ ;
     /**
-     * <code>int64 question_id = 1 [json_name = "questionId"];</code>
+     * <code>int32 question_id = 1 [json_name = "questionId"];</code>
      * @return The questionId.
      */
     @java.lang.Override
-    public long getQuestionId() {
+    public int getQuestionId() {
       return questionId_;
     }
     /**
-     * <code>int64 question_id = 1 [json_name = "questionId"];</code>
+     * <code>int32 question_id = 1 [json_name = "questionId"];</code>
      * @param value The questionId to set.
      * @return This builder for chaining.
      */
-    public Builder setQuestionId(long value) {
+    public Builder setQuestionId(int value) {
       
       questionId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 question_id = 1 [json_name = "questionId"];</code>
+     * <code>int32 question_id = 1 [json_name = "questionId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearQuestionId() {
       
-      questionId_ = 0L;
+      questionId_ = 0;
       onChanged();
       return this;
     }
 
-    private long userId_ ;
+    private int userId_ ;
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <code>int32 user_id = 2 [json_name = "userId"];</code>
      * @return The userId.
      */
     @java.lang.Override
-    public long getUserId() {
+    public int getUserId() {
       return userId_;
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <code>int32 user_id = 2 [json_name = "userId"];</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
-    public Builder setUserId(long value) {
+    public Builder setUserId(int value) {
       
       userId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <code>int32 user_id = 2 [json_name = "userId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
       
-      userId_ = 0L;
+      userId_ = 0;
       onChanged();
       return this;
     }

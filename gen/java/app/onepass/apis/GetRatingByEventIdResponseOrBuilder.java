@@ -8,19 +8,19 @@ public interface GetRatingByEventIdResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated int64 result = 1 [json_name = "result"];</code>
+   * <code>repeated int32 result = 1 [json_name = "result"];</code>
    * @return A list containing the result.
    */
-  java.util.List<java.lang.Long> getResultList();
+  java.util.List<java.lang.Integer> getResultList();
   /**
-   * <code>repeated int64 result = 1 [json_name = "result"];</code>
+   * <code>repeated int32 result = 1 [json_name = "result"];</code>
    * @return The count of result.
    */
   int getResultCount();
   /**
-   * <code>repeated int64 result = 1 [json_name = "result"];</code>
+   * <code>repeated int32 result = 1 [json_name = "result"];</code>
    * @param index The index of the element to return.
    * @return The result at the given index.
    */
-  long getResult(int index);
+  int getResult(int index);
 }

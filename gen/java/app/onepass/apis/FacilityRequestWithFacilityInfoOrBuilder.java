@@ -8,28 +8,28 @@ public interface FacilityRequestWithFacilityInfoOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 id = 1 [json_name = "id"];</code>
+   * <code>int32 id = 1 [json_name = "id"];</code>
    * @return The id.
    */
-  long getId();
+  int getId();
 
   /**
-   * <code>int64 event_id = 2 [json_name = "eventId"];</code>
+   * <code>int32 event_id = 2 [json_name = "eventId"];</code>
    * @return The eventId.
    */
-  long getEventId();
+  int getEventId();
 
   /**
-   * <code>int64 facility_id = 3 [json_name = "facilityId"];</code>
+   * <code>int32 facility_id = 3 [json_name = "facilityId"];</code>
    * @return The facilityId.
    */
-  long getFacilityId();
+  int getFacilityId();
 
   /**
-   * <code>int64 organization_id = 4 [json_name = "organizationId"];</code>
+   * <code>int32 organization_id = 4 [json_name = "organizationId"];</code>
    * @return The organizationId.
    */
-  long getOrganizationId();
+  int getOrganizationId();
 
   /**
    * <code>.hts.common.FacilityRequest.Status status = 5 [json_name = "status"];</code>

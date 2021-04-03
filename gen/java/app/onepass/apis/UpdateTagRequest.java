@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private UpdateTagRequest() {
-    tagIds_ = emptyLongList();
+    tagIds_ = emptyIntList();
   }
 
   @java.lang.Override
@@ -52,33 +52,33 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            userId_ = input.readInt64();
+            userId_ = input.readInt32();
             break;
           }
           case 16: {
             if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              tagIds_ = newLongList();
+              tagIds_ = newIntList();
               mutable_bitField0_ |= 0x00000001;
             }
-            tagIds_.addLong(input.readInt64());
+            tagIds_.addInt(input.readInt32());
             break;
           }
           case 18: {
             int length = input.readRawVarint32();
             int limit = input.pushLimit(length);
             if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-              tagIds_ = newLongList();
+              tagIds_ = newIntList();
               mutable_bitField0_ |= 0x00000001;
             }
             while (input.getBytesUntilLimit() > 0) {
-              tagIds_.addLong(input.readInt64());
+              tagIds_.addInt(input.readInt32());
             }
             input.popLimit(limit);
             break;
           }
           case 24: {
 
-            eventId_ = input.readInt64();
+            eventId_ = input.readInt32();
             break;
           }
           default: {
@@ -117,52 +117,52 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USER_ID_FIELD_NUMBER = 1;
-  private long userId_;
+  private int userId_;
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <code>int32 user_id = 1 [json_name = "userId"];</code>
    * @return The userId.
    */
   @java.lang.Override
-  public long getUserId() {
+  public int getUserId() {
     return userId_;
   }
 
   public static final int TAG_IDS_FIELD_NUMBER = 2;
-  private com.google.protobuf.Internal.LongList tagIds_;
+  private com.google.protobuf.Internal.IntList tagIds_;
   /**
-   * <code>repeated int64 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
+   * <code>repeated int32 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
    * @return A list containing the tagIds.
    */
   @java.lang.Override
-  public java.util.List<java.lang.Long>
+  public java.util.List<java.lang.Integer>
       getTagIdsList() {
     return tagIds_;
   }
   /**
-   * <code>repeated int64 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
+   * <code>repeated int32 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
    * @return The count of tagIds.
    */
   public int getTagIdsCount() {
     return tagIds_.size();
   }
   /**
-   * <code>repeated int64 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
+   * <code>repeated int32 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
    * @param index The index of the element to return.
    * @return The tagIds at the given index.
    */
-  public long getTagIds(int index) {
-    return tagIds_.getLong(index);
+  public int getTagIds(int index) {
+    return tagIds_.getInt(index);
   }
   private int tagIdsMemoizedSerializedSize = -1;
 
   public static final int EVENT_ID_FIELD_NUMBER = 3;
-  private long eventId_;
+  private int eventId_;
   /**
-   * <code>int64 event_id = 3 [json_name = "eventId"];</code>
+   * <code>int32 event_id = 3 [json_name = "eventId"];</code>
    * @return The eventId.
    */
   @java.lang.Override
-  public long getEventId() {
+  public int getEventId() {
     return eventId_;
   }
 
@@ -181,18 +181,18 @@ private static final long serialVersionUID = 0L;
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
     getSerializedSize();
-    if (userId_ != 0L) {
-      output.writeInt64(1, userId_);
+    if (userId_ != 0) {
+      output.writeInt32(1, userId_);
     }
     if (getTagIdsList().size() > 0) {
       output.writeUInt32NoTag(18);
       output.writeUInt32NoTag(tagIdsMemoizedSerializedSize);
     }
     for (int i = 0; i < tagIds_.size(); i++) {
-      output.writeInt64NoTag(tagIds_.getLong(i));
+      output.writeInt32NoTag(tagIds_.getInt(i));
     }
-    if (eventId_ != 0L) {
-      output.writeInt64(3, eventId_);
+    if (eventId_ != 0) {
+      output.writeInt32(3, eventId_);
     }
     unknownFields.writeTo(output);
   }
@@ -203,15 +203,15 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (userId_ != 0L) {
+    if (userId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, userId_);
+        .computeInt32Size(1, userId_);
     }
     {
       int dataSize = 0;
       for (int i = 0; i < tagIds_.size(); i++) {
         dataSize += com.google.protobuf.CodedOutputStream
-          .computeInt64SizeNoTag(tagIds_.getLong(i));
+          .computeInt32SizeNoTag(tagIds_.getInt(i));
       }
       size += dataSize;
       if (!getTagIdsList().isEmpty()) {
@@ -221,9 +221,9 @@ private static final long serialVersionUID = 0L;
       }
       tagIdsMemoizedSerializedSize = dataSize;
     }
-    if (eventId_ != 0L) {
+    if (eventId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(3, eventId_);
+        .computeInt32Size(3, eventId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -258,15 +258,13 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getUserId());
+    hash = (53 * hash) + getUserId();
     if (getTagIdsCount() > 0) {
       hash = (37 * hash) + TAG_IDS_FIELD_NUMBER;
       hash = (53 * hash) + getTagIdsList().hashCode();
     }
     hash = (37 * hash) + EVENT_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getEventId());
+    hash = (53 * hash) + getEventId();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -400,11 +398,11 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      userId_ = 0L;
+      userId_ = 0;
 
-      tagIds_ = emptyLongList();
+      tagIds_ = emptyIntList();
       bitField0_ = (bitField0_ & ~0x00000001);
-      eventId_ = 0L;
+      eventId_ = 0;
 
       return this;
     }
@@ -488,7 +486,7 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(app.onepass.apis.UpdateTagRequest other) {
       if (other == app.onepass.apis.UpdateTagRequest.getDefaultInstance()) return this;
-      if (other.getUserId() != 0L) {
+      if (other.getUserId() != 0) {
         setUserId(other.getUserId());
       }
       if (!other.tagIds_.isEmpty()) {
@@ -501,7 +499,7 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
-      if (other.getEventId() != 0L) {
+      if (other.getEventId() != 0) {
         setEventId(other.getEventId());
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -534,38 +532,38 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private long userId_ ;
+    private int userId_ ;
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @return The userId.
      */
     @java.lang.Override
-    public long getUserId() {
+    public int getUserId() {
       return userId_;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
-    public Builder setUserId(long value) {
+    public Builder setUserId(int value) {
       
       userId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
       
-      userId_ = 0L;
+      userId_ = 0;
       onChanged();
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList tagIds_ = emptyLongList();
+    private com.google.protobuf.Internal.IntList tagIds_ = emptyIntList();
     private void ensureTagIdsIsMutable() {
       if (!((bitField0_ & 0x00000001) != 0)) {
         tagIds_ = mutableCopy(tagIds_);
@@ -573,60 +571,60 @@ private static final long serialVersionUID = 0L;
        }
     }
     /**
-     * <code>repeated int64 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
+     * <code>repeated int32 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
      * @return A list containing the tagIds.
      */
-    public java.util.List<java.lang.Long>
+    public java.util.List<java.lang.Integer>
         getTagIdsList() {
       return ((bitField0_ & 0x00000001) != 0) ?
                java.util.Collections.unmodifiableList(tagIds_) : tagIds_;
     }
     /**
-     * <code>repeated int64 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
+     * <code>repeated int32 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
      * @return The count of tagIds.
      */
     public int getTagIdsCount() {
       return tagIds_.size();
     }
     /**
-     * <code>repeated int64 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
+     * <code>repeated int32 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
      * @param index The index of the element to return.
      * @return The tagIds at the given index.
      */
-    public long getTagIds(int index) {
-      return tagIds_.getLong(index);
+    public int getTagIds(int index) {
+      return tagIds_.getInt(index);
     }
     /**
-     * <code>repeated int64 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
+     * <code>repeated int32 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
      * @param index The index to set the value at.
      * @param value The tagIds to set.
      * @return This builder for chaining.
      */
     public Builder setTagIds(
-        int index, long value) {
+        int index, int value) {
       ensureTagIdsIsMutable();
-      tagIds_.setLong(index, value);
+      tagIds_.setInt(index, value);
       onChanged();
       return this;
     }
     /**
-     * <code>repeated int64 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
+     * <code>repeated int32 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
      * @param value The tagIds to add.
      * @return This builder for chaining.
      */
-    public Builder addTagIds(long value) {
+    public Builder addTagIds(int value) {
       ensureTagIdsIsMutable();
-      tagIds_.addLong(value);
+      tagIds_.addInt(value);
       onChanged();
       return this;
     }
     /**
-     * <code>repeated int64 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
+     * <code>repeated int32 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
      * @param values The tagIds to add.
      * @return This builder for chaining.
      */
     public Builder addAllTagIds(
-        java.lang.Iterable<? extends java.lang.Long> values) {
+        java.lang.Iterable<? extends java.lang.Integer> values) {
       ensureTagIdsIsMutable();
       com.google.protobuf.AbstractMessageLite.Builder.addAll(
           values, tagIds_);
@@ -634,43 +632,43 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated int64 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
+     * <code>repeated int32 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
      * @return This builder for chaining.
      */
     public Builder clearTagIds() {
-      tagIds_ = emptyLongList();
+      tagIds_ = emptyIntList();
       bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
 
-    private long eventId_ ;
+    private int eventId_ ;
     /**
-     * <code>int64 event_id = 3 [json_name = "eventId"];</code>
+     * <code>int32 event_id = 3 [json_name = "eventId"];</code>
      * @return The eventId.
      */
     @java.lang.Override
-    public long getEventId() {
+    public int getEventId() {
       return eventId_;
     }
     /**
-     * <code>int64 event_id = 3 [json_name = "eventId"];</code>
+     * <code>int32 event_id = 3 [json_name = "eventId"];</code>
      * @param value The eventId to set.
      * @return This builder for chaining.
      */
-    public Builder setEventId(long value) {
+    public Builder setEventId(int value) {
       
       eventId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 event_id = 3 [json_name = "eventId"];</code>
+     * <code>int32 event_id = 3 [json_name = "eventId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearEventId() {
       
-      eventId_ = 0L;
+      eventId_ = 0;
       onChanged();
       return this;
     }

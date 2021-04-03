@@ -50,12 +50,12 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            userId_ = input.readInt64();
+            userId_ = input.readInt32();
             break;
           }
           case 16: {
 
-            requestId_ = input.readInt64();
+            requestId_ = input.readInt32();
             break;
           }
           default: {
@@ -91,24 +91,24 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USER_ID_FIELD_NUMBER = 1;
-  private long userId_;
+  private int userId_;
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <code>int32 user_id = 1 [json_name = "userId"];</code>
    * @return The userId.
    */
   @java.lang.Override
-  public long getUserId() {
+  public int getUserId() {
     return userId_;
   }
 
   public static final int REQUEST_ID_FIELD_NUMBER = 2;
-  private long requestId_;
+  private int requestId_;
   /**
-   * <code>int64 request_id = 2 [json_name = "requestId"];</code>
+   * <code>int32 request_id = 2 [json_name = "requestId"];</code>
    * @return The requestId.
    */
   @java.lang.Override
-  public long getRequestId() {
+  public int getRequestId() {
     return requestId_;
   }
 
@@ -126,11 +126,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (userId_ != 0L) {
-      output.writeInt64(1, userId_);
+    if (userId_ != 0) {
+      output.writeInt32(1, userId_);
     }
-    if (requestId_ != 0L) {
-      output.writeInt64(2, requestId_);
+    if (requestId_ != 0) {
+      output.writeInt32(2, requestId_);
     }
     unknownFields.writeTo(output);
   }
@@ -141,13 +141,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (userId_ != 0L) {
+    if (userId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, userId_);
+        .computeInt32Size(1, userId_);
     }
-    if (requestId_ != 0L) {
+    if (requestId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(2, requestId_);
+        .computeInt32Size(2, requestId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -180,11 +180,9 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getUserId());
+    hash = (53 * hash) + getUserId();
     hash = (37 * hash) + REQUEST_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getRequestId());
+    hash = (53 * hash) + getRequestId();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -318,9 +316,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      userId_ = 0L;
+      userId_ = 0;
 
-      requestId_ = 0L;
+      requestId_ = 0;
 
       return this;
     }
@@ -398,10 +396,10 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(app.onepass.apis.ApproveFacilityRequestRequest other) {
       if (other == app.onepass.apis.ApproveFacilityRequestRequest.getDefaultInstance()) return this;
-      if (other.getUserId() != 0L) {
+      if (other.getUserId() != 0) {
         setUserId(other.getUserId());
       }
-      if (other.getRequestId() != 0L) {
+      if (other.getRequestId() != 0) {
         setRequestId(other.getRequestId());
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -433,64 +431,64 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long userId_ ;
+    private int userId_ ;
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @return The userId.
      */
     @java.lang.Override
-    public long getUserId() {
+    public int getUserId() {
       return userId_;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
-    public Builder setUserId(long value) {
+    public Builder setUserId(int value) {
       
       userId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 user_id = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
       
-      userId_ = 0L;
+      userId_ = 0;
       onChanged();
       return this;
     }
 
-    private long requestId_ ;
+    private int requestId_ ;
     /**
-     * <code>int64 request_id = 2 [json_name = "requestId"];</code>
+     * <code>int32 request_id = 2 [json_name = "requestId"];</code>
      * @return The requestId.
      */
     @java.lang.Override
-    public long getRequestId() {
+    public int getRequestId() {
       return requestId_;
     }
     /**
-     * <code>int64 request_id = 2 [json_name = "requestId"];</code>
+     * <code>int32 request_id = 2 [json_name = "requestId"];</code>
      * @param value The requestId to set.
      * @return This builder for chaining.
      */
-    public Builder setRequestId(long value) {
+    public Builder setRequestId(int value) {
       
       requestId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 request_id = 2 [json_name = "requestId"];</code>
+     * <code>int32 request_id = 2 [json_name = "requestId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearRequestId() {
       
-      requestId_ = 0L;
+      requestId_ = 0;
       onChanged();
       return this;
     }

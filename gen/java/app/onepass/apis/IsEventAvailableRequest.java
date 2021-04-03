@@ -50,7 +50,7 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            eventId_ = input.readInt64();
+            eventId_ = input.readInt32();
             break;
           }
           case 18: {
@@ -99,13 +99,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EVENT_ID_FIELD_NUMBER = 1;
-  private long eventId_;
+  private int eventId_;
   /**
-   * <code>int64 event_id = 1 [json_name = "eventId"];</code>
+   * <code>int32 event_id = 1 [json_name = "eventId"];</code>
    * @return The eventId.
    */
   @java.lang.Override
-  public long getEventId() {
+  public int getEventId() {
     return eventId_;
   }
 
@@ -149,8 +149,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (eventId_ != 0L) {
-      output.writeInt64(1, eventId_);
+    if (eventId_ != 0) {
+      output.writeInt32(1, eventId_);
     }
     if (date_ != null) {
       output.writeMessage(2, getDate());
@@ -164,9 +164,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (eventId_ != 0L) {
+    if (eventId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, eventId_);
+        .computeInt32Size(1, eventId_);
     }
     if (date_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -206,8 +206,7 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + EVENT_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getEventId());
+    hash = (53 * hash) + getEventId();
     if (hasDate()) {
       hash = (37 * hash) + DATE_FIELD_NUMBER;
       hash = (53 * hash) + getDate().hashCode();
@@ -345,7 +344,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      eventId_ = 0L;
+      eventId_ = 0;
 
       if (dateBuilder_ == null) {
         date_ = null;
@@ -433,7 +432,7 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(app.onepass.apis.IsEventAvailableRequest other) {
       if (other == app.onepass.apis.IsEventAvailableRequest.getDefaultInstance()) return this;
-      if (other.getEventId() != 0L) {
+      if (other.getEventId() != 0) {
         setEventId(other.getEventId());
       }
       if (other.hasDate()) {
@@ -468,33 +467,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long eventId_ ;
+    private int eventId_ ;
     /**
-     * <code>int64 event_id = 1 [json_name = "eventId"];</code>
+     * <code>int32 event_id = 1 [json_name = "eventId"];</code>
      * @return The eventId.
      */
     @java.lang.Override
-    public long getEventId() {
+    public int getEventId() {
       return eventId_;
     }
     /**
-     * <code>int64 event_id = 1 [json_name = "eventId"];</code>
+     * <code>int32 event_id = 1 [json_name = "eventId"];</code>
      * @param value The eventId to set.
      * @return This builder for chaining.
      */
-    public Builder setEventId(long value) {
+    public Builder setEventId(int value) {
       
       eventId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 event_id = 1 [json_name = "eventId"];</code>
+     * <code>int32 event_id = 1 [json_name = "eventId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearEventId() {
       
-      eventId_ = 0L;
+      eventId_ = 0;
       onChanged();
       return this;
     }

@@ -8,14 +8,14 @@ public interface GetUserAnswersByQuestionIdRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 question_id = 1 [json_name = "questionId"];</code>
+   * <code>int32 question_id = 1 [json_name = "questionId"];</code>
    * @return The questionId.
    */
-  long getQuestionId();
+  int getQuestionId();
 
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <code>int32 user_id = 2 [json_name = "userId"];</code>
    * @return The userId.
    */
-  long getUserId();
+  int getUserId();
 }

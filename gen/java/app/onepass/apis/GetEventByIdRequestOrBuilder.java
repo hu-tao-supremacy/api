@@ -8,8 +8,8 @@ public interface GetEventByIdRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 event_id = 1 [json_name = "eventId"];</code>
+   * <code>int32 event_id = 1 [json_name = "eventId"];</code>
    * @return The eventId.
    */
-  long getEventId();
+  int getEventId();
 }

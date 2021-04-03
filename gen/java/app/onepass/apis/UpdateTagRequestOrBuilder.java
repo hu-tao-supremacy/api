@@ -8,31 +8,31 @@ public interface UpdateTagRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 user_id = 1 [json_name = "userId"];</code>
+   * <code>int32 user_id = 1 [json_name = "userId"];</code>
    * @return The userId.
    */
-  long getUserId();
+  int getUserId();
 
   /**
-   * <code>repeated int64 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
+   * <code>repeated int32 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
    * @return A list containing the tagIds.
    */
-  java.util.List<java.lang.Long> getTagIdsList();
+  java.util.List<java.lang.Integer> getTagIdsList();
   /**
-   * <code>repeated int64 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
+   * <code>repeated int32 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
    * @return The count of tagIds.
    */
   int getTagIdsCount();
   /**
-   * <code>repeated int64 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
+   * <code>repeated int32 tag_ids = 2 [json_name = "tagIds", packed = true];</code>
    * @param index The index of the element to return.
    * @return The tagIds at the given index.
    */
-  long getTagIds(int index);
+  int getTagIds(int index);
 
   /**
-   * <code>int64 event_id = 3 [json_name = "eventId"];</code>
+   * <code>int32 event_id = 3 [json_name = "eventId"];</code>
    * @return The eventId.
    */
-  long getEventId();
+  int getEventId();
 }
