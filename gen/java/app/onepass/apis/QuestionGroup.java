@@ -219,7 +219,7 @@ private static final long serialVersionUID = 0L;
     if (eventId_ != 0L) {
       output.writeInt64(2, eventId_);
     }
-    if (type_ != app.onepass.apis.QuestionGroupType.PRE_EVENT.getNumber()) {
+    if (type_ != app.onepass.apis.QuestionGroupType.QUESTION_GROUP_TYPE_UNSPECIFIED.getNumber()) {
       output.writeEnum(3, type_);
     }
     if (seq_ != 0L) {
@@ -245,7 +245,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(2, eventId_);
     }
-    if (type_ != app.onepass.apis.QuestionGroupType.PRE_EVENT.getNumber()) {
+    if (type_ != app.onepass.apis.QuestionGroupType.QUESTION_GROUP_TYPE_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, type_);
     }

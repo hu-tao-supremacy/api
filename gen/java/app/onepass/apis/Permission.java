@@ -9,9 +9,9 @@ package app.onepass.apis;
 public enum Permission
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>ADMINISTRATION = 0;</code>
+   * <code>PERMISSION_UNSPECIFIED = 0;</code>
    */
-  ADMINISTRATION(0),
+  PERMISSION_UNSPECIFIED(0),
   /**
    * <code>ORGANIZATION_UPDATE = 1;</code>
    */
@@ -68,9 +68,9 @@ public enum Permission
   ;
 
   /**
-   * <code>ADMINISTRATION = 0;</code>
+   * <code>PERMISSION_UNSPECIFIED = 0;</code>
    */
-  public static final int ADMINISTRATION_VALUE = 0;
+  public static final int PERMISSION_UNSPECIFIED_VALUE = 0;
   /**
    * <code>ORGANIZATION_UPDATE = 1;</code>
    */
@@ -149,7 +149,7 @@ public enum Permission
    */
   public static Permission forNumber(int value) {
     switch (value) {
-      case 0: return ADMINISTRATION;
+      case 0: return PERMISSION_UNSPECIFIED;
       case 1: return ORGANIZATION_UPDATE;
       case 2: return ORGANIZATION_REMOVE;
       case 3: return ORGANIZATION_MEMBER_ADD;
@@ -193,7 +193,7 @@ public enum Permission
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return app.onepass.apis.CommonProto.getDescriptor().getEnumTypes().get(5);
+    return app.onepass.apis.CommonProto.getDescriptor().getEnumTypes().get(4);
   }
 
   private static final Permission[] VALUES = values();

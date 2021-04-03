@@ -26,13 +26,13 @@ public interface UpdateRegistrationRequestRequestOrBuilder extends
   long getRegisteredEventId();
 
   /**
-   * <code>.hts.common.Status status = 4 [json_name = "status"];</code>
+   * <code>.hts.common.UserEvent.Status status = 4 [json_name = "status"];</code>
    * @return The enum numeric value on the wire for status.
    */
   int getStatusValue();
   /**
-   * <code>.hts.common.Status status = 4 [json_name = "status"];</code>
+   * <code>.hts.common.UserEvent.Status status = 4 [json_name = "status"];</code>
    * @return The status.
    */
-  app.onepass.apis.Status getStatus();
+  app.onepass.apis.UserEvent.Status getStatus();
 }

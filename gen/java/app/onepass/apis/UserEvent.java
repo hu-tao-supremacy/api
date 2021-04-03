@@ -122,6 +122,132 @@ private static final long serialVersionUID = 0L;
             app.onepass.apis.UserEvent.class, app.onepass.apis.UserEvent.Builder.class);
   }
 
+  /**
+   * Protobuf enum {@code hts.common.UserEvent.Status}
+   */
+  public enum Status
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>STATUS_UNSPECIFIED = 0;</code>
+     */
+    STATUS_UNSPECIFIED(0),
+    /**
+     * <code>PENDING = 1;</code>
+     */
+    PENDING(1),
+    /**
+     * <code>APPROVED = 2;</code>
+     */
+    APPROVED(2),
+    /**
+     * <code>REJECTED = 3;</code>
+     */
+    REJECTED(3),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>STATUS_UNSPECIFIED = 0;</code>
+     */
+    public static final int STATUS_UNSPECIFIED_VALUE = 0;
+    /**
+     * <code>PENDING = 1;</code>
+     */
+    public static final int PENDING_VALUE = 1;
+    /**
+     * <code>APPROVED = 2;</code>
+     */
+    public static final int APPROVED_VALUE = 2;
+    /**
+     * <code>REJECTED = 3;</code>
+     */
+    public static final int REJECTED_VALUE = 3;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static Status valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static Status forNumber(int value) {
+      switch (value) {
+        case 0: return STATUS_UNSPECIFIED;
+        case 1: return PENDING;
+        case 2: return APPROVED;
+        case 3: return REJECTED;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<Status>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        Status> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<Status>() {
+            public Status findValueByNumber(int number) {
+              return Status.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return app.onepass.apis.UserEvent.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final Status[] VALUES = values();
+
+    public static Status valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private Status(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:hts.common.UserEvent.Status)
+  }
+
   public static final int ID_FIELD_NUMBER = 1;
   private long id_;
   /**
@@ -222,20 +348,20 @@ private static final long serialVersionUID = 0L;
   public static final int STATUS_FIELD_NUMBER = 6;
   private int status_;
   /**
-   * <code>.hts.common.Status status = 6 [json_name = "status"];</code>
+   * <code>.hts.common.UserEvent.Status status = 6 [json_name = "status"];</code>
    * @return The enum numeric value on the wire for status.
    */
   @java.lang.Override public int getStatusValue() {
     return status_;
   }
   /**
-   * <code>.hts.common.Status status = 6 [json_name = "status"];</code>
+   * <code>.hts.common.UserEvent.Status status = 6 [json_name = "status"];</code>
    * @return The status.
    */
-  @java.lang.Override public app.onepass.apis.Status getStatus() {
+  @java.lang.Override public app.onepass.apis.UserEvent.Status getStatus() {
     @SuppressWarnings("deprecation")
-    app.onepass.apis.Status result = app.onepass.apis.Status.valueOf(status_);
-    return result == null ? app.onepass.apis.Status.UNRECOGNIZED : result;
+    app.onepass.apis.UserEvent.Status result = app.onepass.apis.UserEvent.Status.valueOf(status_);
+    return result == null ? app.onepass.apis.UserEvent.Status.UNRECOGNIZED : result;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -267,7 +393,7 @@ private static final long serialVersionUID = 0L;
     if (!getTicketBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, ticket_);
     }
-    if (status_ != app.onepass.apis.Status.PENDING.getNumber()) {
+    if (status_ != app.onepass.apis.UserEvent.Status.STATUS_UNSPECIFIED.getNumber()) {
       output.writeEnum(6, status_);
     }
     unknownFields.writeTo(output);
@@ -298,7 +424,7 @@ private static final long serialVersionUID = 0L;
     if (!getTicketBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, ticket_);
     }
-    if (status_ != app.onepass.apis.Status.PENDING.getNumber()) {
+    if (status_ != app.onepass.apis.UserEvent.Status.STATUS_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(6, status_);
     }
@@ -930,14 +1056,14 @@ private static final long serialVersionUID = 0L;
 
     private int status_ = 0;
     /**
-     * <code>.hts.common.Status status = 6 [json_name = "status"];</code>
+     * <code>.hts.common.UserEvent.Status status = 6 [json_name = "status"];</code>
      * @return The enum numeric value on the wire for status.
      */
     @java.lang.Override public int getStatusValue() {
       return status_;
     }
     /**
-     * <code>.hts.common.Status status = 6 [json_name = "status"];</code>
+     * <code>.hts.common.UserEvent.Status status = 6 [json_name = "status"];</code>
      * @param value The enum numeric value on the wire for status to set.
      * @return This builder for chaining.
      */
@@ -948,21 +1074,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.hts.common.Status status = 6 [json_name = "status"];</code>
+     * <code>.hts.common.UserEvent.Status status = 6 [json_name = "status"];</code>
      * @return The status.
      */
     @java.lang.Override
-    public app.onepass.apis.Status getStatus() {
+    public app.onepass.apis.UserEvent.Status getStatus() {
       @SuppressWarnings("deprecation")
-      app.onepass.apis.Status result = app.onepass.apis.Status.valueOf(status_);
-      return result == null ? app.onepass.apis.Status.UNRECOGNIZED : result;
+      app.onepass.apis.UserEvent.Status result = app.onepass.apis.UserEvent.Status.valueOf(status_);
+      return result == null ? app.onepass.apis.UserEvent.Status.UNRECOGNIZED : result;
     }
     /**
-     * <code>.hts.common.Status status = 6 [json_name = "status"];</code>
+     * <code>.hts.common.UserEvent.Status status = 6 [json_name = "status"];</code>
      * @param value The status to set.
      * @return This builder for chaining.
      */
-    public Builder setStatus(app.onepass.apis.Status value) {
+    public Builder setStatus(app.onepass.apis.UserEvent.Status value) {
       if (value == null) {
         throw new NullPointerException();
       }
@@ -972,7 +1098,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.hts.common.Status status = 6 [json_name = "status"];</code>
+     * <code>.hts.common.UserEvent.Status status = 6 [json_name = "status"];</code>
      * @return This builder for chaining.
      */
     public Builder clearStatus() {

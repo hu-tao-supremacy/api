@@ -263,28 +263,28 @@ public final class FacilityServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<app.onepass.apis.ApproveFacilityRequestRequest,
-      app.onepass.apis.Result> getApproveFacilityRequestMethod;
+      com.google.protobuf.BoolValue> getApproveFacilityRequestMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "ApproveFacilityRequest",
       requestType = app.onepass.apis.ApproveFacilityRequestRequest.class,
-      responseType = app.onepass.apis.Result.class,
+      responseType = com.google.protobuf.BoolValue.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<app.onepass.apis.ApproveFacilityRequestRequest,
-      app.onepass.apis.Result> getApproveFacilityRequestMethod() {
-    io.grpc.MethodDescriptor<app.onepass.apis.ApproveFacilityRequestRequest, app.onepass.apis.Result> getApproveFacilityRequestMethod;
+      com.google.protobuf.BoolValue> getApproveFacilityRequestMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.ApproveFacilityRequestRequest, com.google.protobuf.BoolValue> getApproveFacilityRequestMethod;
     if ((getApproveFacilityRequestMethod = FacilityServiceGrpc.getApproveFacilityRequestMethod) == null) {
       synchronized (FacilityServiceGrpc.class) {
         if ((getApproveFacilityRequestMethod = FacilityServiceGrpc.getApproveFacilityRequestMethod) == null) {
           FacilityServiceGrpc.getApproveFacilityRequestMethod = getApproveFacilityRequestMethod =
-              io.grpc.MethodDescriptor.<app.onepass.apis.ApproveFacilityRequestRequest, app.onepass.apis.Result>newBuilder()
+              io.grpc.MethodDescriptor.<app.onepass.apis.ApproveFacilityRequestRequest, com.google.protobuf.BoolValue>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ApproveFacilityRequest"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.ApproveFacilityRequestRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  app.onepass.apis.Result.getDefaultInstance()))
+                  com.google.protobuf.BoolValue.getDefaultInstance()))
               .setSchemaDescriptor(new FacilityServiceMethodDescriptorSupplier("ApproveFacilityRequest"))
               .build();
         }
@@ -294,28 +294,28 @@ public final class FacilityServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<app.onepass.apis.RejectFacilityRequestRequest,
-      app.onepass.apis.Result> getRejectFacilityRequestMethod;
+      com.google.protobuf.BoolValue> getRejectFacilityRequestMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "RejectFacilityRequest",
       requestType = app.onepass.apis.RejectFacilityRequestRequest.class,
-      responseType = app.onepass.apis.Result.class,
+      responseType = com.google.protobuf.BoolValue.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<app.onepass.apis.RejectFacilityRequestRequest,
-      app.onepass.apis.Result> getRejectFacilityRequestMethod() {
-    io.grpc.MethodDescriptor<app.onepass.apis.RejectFacilityRequestRequest, app.onepass.apis.Result> getRejectFacilityRequestMethod;
+      com.google.protobuf.BoolValue> getRejectFacilityRequestMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.RejectFacilityRequestRequest, com.google.protobuf.BoolValue> getRejectFacilityRequestMethod;
     if ((getRejectFacilityRequestMethod = FacilityServiceGrpc.getRejectFacilityRequestMethod) == null) {
       synchronized (FacilityServiceGrpc.class) {
         if ((getRejectFacilityRequestMethod = FacilityServiceGrpc.getRejectFacilityRequestMethod) == null) {
           FacilityServiceGrpc.getRejectFacilityRequestMethod = getRejectFacilityRequestMethod =
-              io.grpc.MethodDescriptor.<app.onepass.apis.RejectFacilityRequestRequest, app.onepass.apis.Result>newBuilder()
+              io.grpc.MethodDescriptor.<app.onepass.apis.RejectFacilityRequestRequest, com.google.protobuf.BoolValue>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "RejectFacilityRequest"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.RejectFacilityRequestRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  app.onepass.apis.Result.getDefaultInstance()))
+                  com.google.protobuf.BoolValue.getDefaultInstance()))
               .setSchemaDescriptor(new FacilityServiceMethodDescriptorSupplier("RejectFacilityRequest"))
               .build();
         }
@@ -493,14 +493,14 @@ public final class FacilityServiceGrpc {
     /**
      */
     public void approveFacilityRequest(app.onepass.apis.ApproveFacilityRequestRequest request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.Result> responseObserver) {
+        io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getApproveFacilityRequestMethod(), responseObserver);
     }
 
     /**
      */
     public void rejectFacilityRequest(app.onepass.apis.RejectFacilityRequestRequest request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.Result> responseObserver) {
+        io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getRejectFacilityRequestMethod(), responseObserver);
     }
 
@@ -581,14 +581,14 @@ public final class FacilityServiceGrpc {
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 app.onepass.apis.ApproveFacilityRequestRequest,
-                app.onepass.apis.Result>(
+                com.google.protobuf.BoolValue>(
                   this, METHODID_APPROVE_FACILITY_REQUEST)))
           .addMethod(
             getRejectFacilityRequestMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 app.onepass.apis.RejectFacilityRequestRequest,
-                app.onepass.apis.Result>(
+                com.google.protobuf.BoolValue>(
                   this, METHODID_REJECT_FACILITY_REQUEST)))
           .addMethod(
             getGetFacilityInfoMethod(),
@@ -689,7 +689,7 @@ public final class FacilityServiceGrpc {
     /**
      */
     public void approveFacilityRequest(app.onepass.apis.ApproveFacilityRequestRequest request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.Result> responseObserver) {
+        io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getApproveFacilityRequestMethod(), getCallOptions()), request, responseObserver);
     }
@@ -697,7 +697,7 @@ public final class FacilityServiceGrpc {
     /**
      */
     public void rejectFacilityRequest(app.onepass.apis.RejectFacilityRequestRequest request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.Result> responseObserver) {
+        io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getRejectFacilityRequestMethod(), getCallOptions()), request, responseObserver);
     }
@@ -791,14 +791,14 @@ public final class FacilityServiceGrpc {
 
     /**
      */
-    public app.onepass.apis.Result approveFacilityRequest(app.onepass.apis.ApproveFacilityRequestRequest request) {
+    public com.google.protobuf.BoolValue approveFacilityRequest(app.onepass.apis.ApproveFacilityRequestRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getApproveFacilityRequestMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public app.onepass.apis.Result rejectFacilityRequest(app.onepass.apis.RejectFacilityRequestRequest request) {
+    public com.google.protobuf.BoolValue rejectFacilityRequest(app.onepass.apis.RejectFacilityRequestRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getRejectFacilityRequestMethod(), getCallOptions(), request);
     }
@@ -898,7 +898,7 @@ public final class FacilityServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.Result> approveFacilityRequest(
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.BoolValue> approveFacilityRequest(
         app.onepass.apis.ApproveFacilityRequestRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getApproveFacilityRequestMethod(), getCallOptions()), request);
@@ -906,7 +906,7 @@ public final class FacilityServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.Result> rejectFacilityRequest(
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.BoolValue> rejectFacilityRequest(
         app.onepass.apis.RejectFacilityRequestRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getRejectFacilityRequestMethod(), getCallOptions()), request);
@@ -993,11 +993,11 @@ public final class FacilityServiceGrpc {
           break;
         case METHODID_APPROVE_FACILITY_REQUEST:
           serviceImpl.approveFacilityRequest((app.onepass.apis.ApproveFacilityRequestRequest) request,
-              (io.grpc.stub.StreamObserver<app.onepass.apis.Result>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue>) responseObserver);
           break;
         case METHODID_REJECT_FACILITY_REQUEST:
           serviceImpl.rejectFacilityRequest((app.onepass.apis.RejectFacilityRequestRequest) request,
-              (io.grpc.stub.StreamObserver<app.onepass.apis.Result>) responseObserver);
+              (io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue>) responseObserver);
           break;
         case METHODID_GET_FACILITY_INFO:
           serviceImpl.getFacilityInfo((app.onepass.apis.GetFacilityInfoRequest) request,
