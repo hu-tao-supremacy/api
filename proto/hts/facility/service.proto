@@ -115,8 +115,8 @@ service FacilityService {
     rpc GetAvailableFacilityList(google.protobuf.Empty) returns (GetAvailableFacilityListResponse);
     rpc GetAvailableTimeOfFacility(GetAvailableTimeOfFacilityRequest) returns (GetAvailableTimeOfFacilityResponse);
     rpc CreateFacilityRequest(CreateFacilityRequestRequest) returns (hts.common.FacilityRequest);
-    rpc ApproveFacilityRequest(ApproveFacilityRequestRequest) returns (hts.common.Result);
-    rpc RejectFacilityRequest(RejectFacilityRequestRequest) returns (hts.common.Result);
+    rpc ApproveFacilityRequest(ApproveFacilityRequestRequest) returns (google.protobuf.BoolValue);
+    rpc RejectFacilityRequest(RejectFacilityRequestRequest) returns (google.protobuf.BoolValue);
     rpc GetFacilityInfo(GetFacilityInfoRequest) returns (hts.common.Facility);
     rpc Ping(google.protobuf.Empty) returns (google.protobuf.BoolValue);
 }
