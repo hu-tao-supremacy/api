@@ -15,28 +15,28 @@ public final class OrganizerServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<app.onepass.apis.CreateOrganizationRequest,
-      com.google.protobuf.Empty> getCreateOrganizationMethod;
+      app.onepass.apis.Organization> getCreateOrganizationMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "CreateOrganization",
       requestType = app.onepass.apis.CreateOrganizationRequest.class,
-      responseType = com.google.protobuf.Empty.class,
+      responseType = app.onepass.apis.Organization.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<app.onepass.apis.CreateOrganizationRequest,
-      com.google.protobuf.Empty> getCreateOrganizationMethod() {
-    io.grpc.MethodDescriptor<app.onepass.apis.CreateOrganizationRequest, com.google.protobuf.Empty> getCreateOrganizationMethod;
+      app.onepass.apis.Organization> getCreateOrganizationMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.CreateOrganizationRequest, app.onepass.apis.Organization> getCreateOrganizationMethod;
     if ((getCreateOrganizationMethod = OrganizerServiceGrpc.getCreateOrganizationMethod) == null) {
       synchronized (OrganizerServiceGrpc.class) {
         if ((getCreateOrganizationMethod = OrganizerServiceGrpc.getCreateOrganizationMethod) == null) {
           OrganizerServiceGrpc.getCreateOrganizationMethod = getCreateOrganizationMethod =
-              io.grpc.MethodDescriptor.<app.onepass.apis.CreateOrganizationRequest, com.google.protobuf.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<app.onepass.apis.CreateOrganizationRequest, app.onepass.apis.Organization>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateOrganization"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.CreateOrganizationRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.google.protobuf.Empty.getDefaultInstance()))
+                  app.onepass.apis.Organization.getDefaultInstance()))
               .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("CreateOrganization"))
               .build();
         }
@@ -716,7 +716,7 @@ public final class OrganizerServiceGrpc {
     /**
      */
     public void createOrganization(app.onepass.apis.CreateOrganizationRequest request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<app.onepass.apis.Organization> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateOrganizationMethod(), responseObserver);
     }
 
@@ -867,7 +867,7 @@ public final class OrganizerServiceGrpc {
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 app.onepass.apis.CreateOrganizationRequest,
-                com.google.protobuf.Empty>(
+                app.onepass.apis.Organization>(
                   this, METHODID_CREATE_ORGANIZATION)))
           .addMethod(
             getGetOrganizationsMethod(),
@@ -1030,7 +1030,7 @@ public final class OrganizerServiceGrpc {
     /**
      */
     public void createOrganization(app.onepass.apis.CreateOrganizationRequest request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<app.onepass.apis.Organization> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreateOrganizationMethod(), getCallOptions()), request, responseObserver);
     }
@@ -1212,7 +1212,7 @@ public final class OrganizerServiceGrpc {
 
     /**
      */
-    public com.google.protobuf.Empty createOrganization(app.onepass.apis.CreateOrganizationRequest request) {
+    public app.onepass.apis.Organization createOrganization(app.onepass.apis.CreateOrganizationRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getCreateOrganizationMethod(), getCallOptions(), request);
     }
@@ -1374,7 +1374,7 @@ public final class OrganizerServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> createOrganization(
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.Organization> createOrganization(
         app.onepass.apis.CreateOrganizationRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getCreateOrganizationMethod(), getCallOptions()), request);
@@ -1582,7 +1582,7 @@ public final class OrganizerServiceGrpc {
       switch (methodId) {
         case METHODID_CREATE_ORGANIZATION:
           serviceImpl.createOrganization((app.onepass.apis.CreateOrganizationRequest) request,
-              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<app.onepass.apis.Organization>) responseObserver);
           break;
         case METHODID_GET_ORGANIZATIONS:
           serviceImpl.getOrganizations((com.google.protobuf.Empty) request,
