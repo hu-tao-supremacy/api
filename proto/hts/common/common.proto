@@ -154,8 +154,8 @@ message Answer {
 }
 
 message UserEvent {
-  enum UserEventStatus {
-    USER_EVENT_STATUS_UNSPECIFIED = 0;
+  enum Status {
+    STATUS_UNSPECIFIED = 0;
     PENDING = 1;
     APPROVED = 2;
     REJECTED = 3;
@@ -166,7 +166,7 @@ message UserEvent {
   int64 event_id = 3;
   google.protobuf.Int64Value rating = 4;
   string ticket = 5;
-  UserEventStatus status = 6;
+  Status status = 6;
 }
 
 message EventDuration {
@@ -206,8 +206,8 @@ message UserInterest {
 }
 
 message FacilityRequest {
-  enum FacilityRequestStatus {
-    FACILITY_REQUEST_STATUS_UNSPECIFIED = 0;
+  enum Status {
+    STATUS_UNSPECIFIED = 0;
     PENDING = 1;
     APPROVED = 2;
     REJECTED = 3;
@@ -216,7 +216,7 @@ message FacilityRequest {
   int64 id = 1;
   int64 event_id = 2;
   int64 facility_id = 3;
-  FacilityRequestStatus status = 4;
+  Status status = 4;
   google.protobuf.StringValue reject_reason = 5;
   google.protobuf.Timestamp start = 6;
   google.protobuf.Timestamp finish = 7;
