@@ -39,6 +39,11 @@ public final class AccountProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hts_account_HasPermissionRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_account_CreateUserRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_account_CreateUserRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -60,23 +65,27 @@ public final class AccountProto {
       "HasPermissionRequest\022\027\n\007user_id\030\001 \001(\005R\006u" +
       "serId\022\'\n\017organization_id\030\002 \001(\005R\016organiza" +
       "tionId\022?\n\017permission_name\030\003 \001(\0162\026.hts.co" +
-      "mmon.PermissionR\016permissionName2\236\004\n\016Acco" +
-      "untService\022F\n\020GetUserByChulaId\022 .hts.com" +
-      "mon.GetObjectByIdRequest\032\020.hts.common.Us" +
-      "er\022R\n\017IsAuthenticated\022#.hts.account.IsAu" +
-      "thenticatedRequest\032\032.google.protobuf.Boo" +
-      "lValue\0227\n\021UpdateAccountInfo\022\020.hts.common" +
-      ".User\032\020.hts.common.User\022A\n\013GetUserById\022 " +
-      ".hts.common.GetObjectByIdRequest\032\020.hts.c" +
-      "ommon.User\022h\n\023GenerateAccessToken\022\'.hts." +
-      "account.GenerateAccessTokenRequest\032(.hts" +
-      ".account.GenerateAccessTokenResponse\022N\n\r" +
-      "HasPermission\022!.hts.account.HasPermissio" +
-      "nRequest\032\032.google.protobuf.BoolValue\022:\n\004" +
-      "Ping\022\026.google.protobuf.Empty\032\032.google.pr" +
-      "otobuf.BoolValueBD\n\020app.onepass.apisB\014Ac" +
-      "countProtoP\001Z onepass.app/facility/hts/a" +
-      "ccountb\006proto3"
+      "mmon.PermissionR\016permissionName\"j\n\021Creat" +
+      "eUserRequest\022\035\n\nfirst_name\030\001 \001(\tR\tfirstN" +
+      "ame\022\033\n\tlast_name\030\002 \001(\tR\010lastName\022\031\n\010chul" +
+      "a_id\030\003 \001(\tR\007chulaId2\336\004\n\016AccountService\022>" +
+      "\n\nCreateUser\022\036.hts.account.CreateUserReq" +
+      "uest\032\020.hts.common.User\022F\n\020GetUserByChula" +
+      "Id\022 .hts.common.GetObjectByIdRequest\032\020.h" +
+      "ts.common.User\022R\n\017IsAuthenticated\022#.hts." +
+      "account.IsAuthenticatedRequest\032\032.google." +
+      "protobuf.BoolValue\0227\n\021UpdateAccountInfo\022" +
+      "\020.hts.common.User\032\020.hts.common.User\022A\n\013G" +
+      "etUserById\022 .hts.common.GetObjectByIdReq" +
+      "uest\032\020.hts.common.User\022h\n\023GenerateAccess" +
+      "Token\022\'.hts.account.GenerateAccessTokenR" +
+      "equest\032(.hts.account.GenerateAccessToken" +
+      "Response\022N\n\rHasPermission\022!.hts.account." +
+      "HasPermissionRequest\032\032.google.protobuf.B" +
+      "oolValue\022:\n\004Ping\022\026.google.protobuf.Empty" +
+      "\032\032.google.protobuf.BoolValueBD\n\020app.onep" +
+      "ass.apisB\014AccountProtoP\001Z onepass.app/fa" +
+      "cility/hts/accountb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -115,6 +124,12 @@ public final class AccountProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_account_HasPermissionRequest_descriptor,
         new java.lang.String[] { "UserId", "OrganizationId", "PermissionName", });
+    internal_static_hts_account_CreateUserRequest_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_hts_account_CreateUserRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_account_CreateUserRequest_descriptor,
+        new java.lang.String[] { "FirstName", "LastName", "ChulaId", });
     app.onepass.apis.CommonProto.getDescriptor();
     com.google.protobuf.EmptyProto.getDescriptor();
     com.google.protobuf.WrappersProto.getDescriptor();
