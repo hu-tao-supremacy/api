@@ -9,112 +9,120 @@ package app.onepass.apis;
 public enum Permission
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>ORGANIZATION_UPDATE = 0;</code>
+   * <code>ADMINISTRATION = 0;</code>
    */
-  ORGANIZATION_UPDATE(0),
+  ADMINISTRATION(0),
   /**
-   * <code>ORGANIZATION_REMOVE = 1;</code>
+   * <code>ORGANIZATION_UPDATE = 1;</code>
    */
-  ORGANIZATION_REMOVE(1),
+  ORGANIZATION_UPDATE(1),
   /**
-   * <code>ORGANIZATION_MEMBER_ADD = 2;</code>
+   * <code>ORGANIZATION_REMOVE = 2;</code>
    */
-  ORGANIZATION_MEMBER_ADD(2),
+  ORGANIZATION_REMOVE(2),
   /**
-   * <code>ORGANIZATION_MEMBER_REMOVE = 3;</code>
+   * <code>ORGANIZATION_MEMBER_ADD = 3;</code>
    */
-  ORGANIZATION_MEMBER_REMOVE(3),
+  ORGANIZATION_MEMBER_ADD(3),
   /**
-   * <code>EVENT_CREATE = 4;</code>
+   * <code>ORGANIZATION_MEMBER_REMOVE = 4;</code>
    */
-  EVENT_CREATE(4),
+  ORGANIZATION_MEMBER_REMOVE(4),
   /**
-   * <code>EVENT_UPDATE = 5;</code>
+   * <code>EVENT_CREATE = 5;</code>
    */
-  EVENT_UPDATE(5),
+  EVENT_CREATE(5),
   /**
-   * <code>EVENT_REMOVE = 6;</code>
+   * <code>EVENT_UPDATE = 6;</code>
    */
-  EVENT_REMOVE(6),
+  EVENT_UPDATE(6),
   /**
-   * <code>TAG_CREATE = 7;</code>
+   * <code>EVENT_REMOVE = 7;</code>
    */
-  TAG_CREATE(7),
+  EVENT_REMOVE(7),
   /**
-   * <code>TAG_REMOVE = 8;</code>
+   * <code>TAG_CREATE = 8;</code>
    */
-  TAG_REMOVE(8),
+  TAG_CREATE(8),
   /**
-   * <code>EVENT_TAG_UPDATE = 9;</code>
+   * <code>TAG_REMOVE = 9;</code>
    */
-  EVENT_TAG_UPDATE(9),
+  TAG_REMOVE(9),
   /**
-   * <code>FACILITY_CREATE = 10;</code>
+   * <code>EVENT_TAG_UPDATE = 10;</code>
    */
-  FACILITY_CREATE(10),
+  EVENT_TAG_UPDATE(10),
   /**
-   * <code>FACILITY_UPDATE = 11;</code>
+   * <code>FACILITY_CREATE = 11;</code>
    */
-  FACILITY_UPDATE(11),
+  FACILITY_CREATE(11),
   /**
-   * <code>FACILITY_REMOVE = 12;</code>
+   * <code>FACILITY_UPDATE = 12;</code>
    */
-  FACILITY_REMOVE(12),
+  FACILITY_UPDATE(12),
+  /**
+   * <code>FACILITY_REMOVE = 13;</code>
+   */
+  FACILITY_REMOVE(13),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>ORGANIZATION_UPDATE = 0;</code>
+   * <code>ADMINISTRATION = 0;</code>
    */
-  public static final int ORGANIZATION_UPDATE_VALUE = 0;
+  public static final int ADMINISTRATION_VALUE = 0;
   /**
-   * <code>ORGANIZATION_REMOVE = 1;</code>
+   * <code>ORGANIZATION_UPDATE = 1;</code>
    */
-  public static final int ORGANIZATION_REMOVE_VALUE = 1;
+  public static final int ORGANIZATION_UPDATE_VALUE = 1;
   /**
-   * <code>ORGANIZATION_MEMBER_ADD = 2;</code>
+   * <code>ORGANIZATION_REMOVE = 2;</code>
    */
-  public static final int ORGANIZATION_MEMBER_ADD_VALUE = 2;
+  public static final int ORGANIZATION_REMOVE_VALUE = 2;
   /**
-   * <code>ORGANIZATION_MEMBER_REMOVE = 3;</code>
+   * <code>ORGANIZATION_MEMBER_ADD = 3;</code>
    */
-  public static final int ORGANIZATION_MEMBER_REMOVE_VALUE = 3;
+  public static final int ORGANIZATION_MEMBER_ADD_VALUE = 3;
   /**
-   * <code>EVENT_CREATE = 4;</code>
+   * <code>ORGANIZATION_MEMBER_REMOVE = 4;</code>
    */
-  public static final int EVENT_CREATE_VALUE = 4;
+  public static final int ORGANIZATION_MEMBER_REMOVE_VALUE = 4;
   /**
-   * <code>EVENT_UPDATE = 5;</code>
+   * <code>EVENT_CREATE = 5;</code>
    */
-  public static final int EVENT_UPDATE_VALUE = 5;
+  public static final int EVENT_CREATE_VALUE = 5;
   /**
-   * <code>EVENT_REMOVE = 6;</code>
+   * <code>EVENT_UPDATE = 6;</code>
    */
-  public static final int EVENT_REMOVE_VALUE = 6;
+  public static final int EVENT_UPDATE_VALUE = 6;
   /**
-   * <code>TAG_CREATE = 7;</code>
+   * <code>EVENT_REMOVE = 7;</code>
    */
-  public static final int TAG_CREATE_VALUE = 7;
+  public static final int EVENT_REMOVE_VALUE = 7;
   /**
-   * <code>TAG_REMOVE = 8;</code>
+   * <code>TAG_CREATE = 8;</code>
    */
-  public static final int TAG_REMOVE_VALUE = 8;
+  public static final int TAG_CREATE_VALUE = 8;
   /**
-   * <code>EVENT_TAG_UPDATE = 9;</code>
+   * <code>TAG_REMOVE = 9;</code>
    */
-  public static final int EVENT_TAG_UPDATE_VALUE = 9;
+  public static final int TAG_REMOVE_VALUE = 9;
   /**
-   * <code>FACILITY_CREATE = 10;</code>
+   * <code>EVENT_TAG_UPDATE = 10;</code>
    */
-  public static final int FACILITY_CREATE_VALUE = 10;
+  public static final int EVENT_TAG_UPDATE_VALUE = 10;
   /**
-   * <code>FACILITY_UPDATE = 11;</code>
+   * <code>FACILITY_CREATE = 11;</code>
    */
-  public static final int FACILITY_UPDATE_VALUE = 11;
+  public static final int FACILITY_CREATE_VALUE = 11;
   /**
-   * <code>FACILITY_REMOVE = 12;</code>
+   * <code>FACILITY_UPDATE = 12;</code>
    */
-  public static final int FACILITY_REMOVE_VALUE = 12;
+  public static final int FACILITY_UPDATE_VALUE = 12;
+  /**
+   * <code>FACILITY_REMOVE = 13;</code>
+   */
+  public static final int FACILITY_REMOVE_VALUE = 13;
 
 
   public final int getNumber() {
@@ -141,19 +149,20 @@ public enum Permission
    */
   public static Permission forNumber(int value) {
     switch (value) {
-      case 0: return ORGANIZATION_UPDATE;
-      case 1: return ORGANIZATION_REMOVE;
-      case 2: return ORGANIZATION_MEMBER_ADD;
-      case 3: return ORGANIZATION_MEMBER_REMOVE;
-      case 4: return EVENT_CREATE;
-      case 5: return EVENT_UPDATE;
-      case 6: return EVENT_REMOVE;
-      case 7: return TAG_CREATE;
-      case 8: return TAG_REMOVE;
-      case 9: return EVENT_TAG_UPDATE;
-      case 10: return FACILITY_CREATE;
-      case 11: return FACILITY_UPDATE;
-      case 12: return FACILITY_REMOVE;
+      case 0: return ADMINISTRATION;
+      case 1: return ORGANIZATION_UPDATE;
+      case 2: return ORGANIZATION_REMOVE;
+      case 3: return ORGANIZATION_MEMBER_ADD;
+      case 4: return ORGANIZATION_MEMBER_REMOVE;
+      case 5: return EVENT_CREATE;
+      case 6: return EVENT_UPDATE;
+      case 7: return EVENT_REMOVE;
+      case 8: return TAG_CREATE;
+      case 9: return TAG_REMOVE;
+      case 10: return EVENT_TAG_UPDATE;
+      case 11: return FACILITY_CREATE;
+      case 12: return FACILITY_UPDATE;
+      case 13: return FACILITY_REMOVE;
       default: return null;
     }
   }
