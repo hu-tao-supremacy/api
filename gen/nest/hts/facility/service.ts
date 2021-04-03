@@ -1,11 +1,10 @@
 /* eslint-disable */
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
 import {
-  Status,
+  FacilityRequest_Status,
   OperatingHour,
   Facility,
   FacilityRequest,
-  Result,
 } from "../../hts/common/common";
 import { Observable } from "rxjs";
 import { StringValue, BoolValue } from "../../google/protobuf/wrappers";
@@ -19,7 +18,7 @@ export interface FacilityRequestWithFacilityInfo {
   eventId: number;
   facilityId: number;
   organizationId: number;
-  status: Status;
+  status: FacilityRequest_Status;
   rejectReason: StringValue | undefined;
   start: Timestamp | undefined;
   finish: Timestamp | undefined;
@@ -144,11 +143,11 @@ export interface FacilityServiceClient {
 
   approveFacilityRequest(
     request: ApproveFacilityRequestRequest
-  ): Observable<Result>;
+  ): Observable<BoolValue>;
 
   rejectFacilityRequest(
     request: RejectFacilityRequestRequest
-  ): Observable<Result>;
+  ): Observable<BoolValue>;
 
   getFacilityInfo(request: GetFacilityInfoRequest): Observable<Facility>;
 
@@ -208,11 +207,11 @@ export interface FacilityServiceController {
 
   approveFacilityRequest(
     request: ApproveFacilityRequestRequest
-  ): Promise<Result> | Observable<Result> | Result;
+  ): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
 
   rejectFacilityRequest(
     request: RejectFacilityRequestRequest
-  ): Promise<Result> | Observable<Result> | Result;
+  ): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
 
   getFacilityInfo(
     request: GetFacilityInfoRequest
