@@ -52,13 +52,13 @@ public final class AccountProto {
       "\032\027hts/common/common.proto\032\033google/protob" +
       "uf/empty.proto\032\036google/protobuf/wrappers" +
       ".proto\"-\n\022AccessTokenPayload\022\027\n\007user_id\030" +
-      "\001 \001(\003R\006userId\";\n\026IsAuthenticatedRequest\022" +
+      "\001 \001(\005R\006userId\";\n\026IsAuthenticatedRequest\022" +
       "!\n\014access_token\030\001 \001(\tR\013accessToken\"5\n\032Ge" +
       "nerateAccessTokenRequest\022\027\n\007user_id\030\001 \001(" +
-      "\003R\006userId\"@\n\033GenerateAccessTokenResponse" +
+      "\005R\006userId\"@\n\033GenerateAccessTokenResponse" +
       "\022!\n\014access_token\030\001 \001(\tR\013accessToken\"\231\001\n\024" +
-      "HasPermissionRequest\022\027\n\007user_id\030\001 \001(\003R\006u" +
-      "serId\022\'\n\017organization_id\030\002 \001(\003R\016organiza" +
+      "HasPermissionRequest\022\027\n\007user_id\030\001 \001(\005R\006u" +
+      "serId\022\'\n\017organization_id\030\002 \001(\005R\016organiza" +
       "tionId\022?\n\017permission_name\030\003 \001(\0162\026.hts.co" +
       "mmon.PermissionR\016permissionName2\236\004\n\016Acco" +
       "untService\022F\n\020GetUserByChulaId\022 .hts.com" +

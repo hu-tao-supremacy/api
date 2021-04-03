@@ -8,31 +8,31 @@ public interface EventOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 id = 1 [json_name = "id"];</code>
+   * <code>int32 id = 1 [json_name = "id"];</code>
    * @return The id.
    */
-  long getId();
+  int getId();
 
   /**
-   * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
+   * <code>int32 organization_id = 2 [json_name = "organizationId"];</code>
    * @return The organizationId.
    */
-  long getOrganizationId();
+  int getOrganizationId();
 
   /**
-   * <code>.google.protobuf.Int64Value location_id = 3 [json_name = "locationId"];</code>
+   * <code>.google.protobuf.Int32Value location_id = 3 [json_name = "locationId"];</code>
    * @return Whether the locationId field is set.
    */
   boolean hasLocationId();
   /**
-   * <code>.google.protobuf.Int64Value location_id = 3 [json_name = "locationId"];</code>
+   * <code>.google.protobuf.Int32Value location_id = 3 [json_name = "locationId"];</code>
    * @return The locationId.
    */
-  com.google.protobuf.Int64Value getLocationId();
+  com.google.protobuf.Int32Value getLocationId();
   /**
-   * <code>.google.protobuf.Int64Value location_id = 3 [json_name = "locationId"];</code>
+   * <code>.google.protobuf.Int32Value location_id = 3 [json_name = "locationId"];</code>
    */
-  com.google.protobuf.Int64ValueOrBuilder getLocationIdOrBuilder();
+  com.google.protobuf.Int32ValueOrBuilder getLocationIdOrBuilder();
 
   /**
    * <code>string description = 4 [json_name = "description"];</code>
@@ -161,8 +161,8 @@ public interface EventOrBuilder extends
   com.google.protobuf.StringValueOrBuilder getProfileImageHashOrBuilder();
 
   /**
-   * <code>int64 attendee_limit = 13 [json_name = "attendeeLimit"];</code>
+   * <code>int32 attendee_limit = 13 [json_name = "attendeeLimit"];</code>
    * @return The attendeeLimit.
    */
-  long getAttendeeLimit();
+  int getAttendeeLimit();
 }

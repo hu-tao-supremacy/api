@@ -8,16 +8,16 @@ public interface QuestionGroupOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 id = 1 [json_name = "id"];</code>
+   * <code>int32 id = 1 [json_name = "id"];</code>
    * @return The id.
    */
-  long getId();
+  int getId();
 
   /**
-   * <code>int64 event_id = 2 [json_name = "eventId"];</code>
+   * <code>int32 event_id = 2 [json_name = "eventId"];</code>
    * @return The eventId.
    */
-  long getEventId();
+  int getEventId();
 
   /**
    * <code>.hts.common.QuestionGroupType type = 3 [json_name = "type"];</code>
@@ -31,10 +31,10 @@ public interface QuestionGroupOrBuilder extends
   app.onepass.apis.QuestionGroupType getType();
 
   /**
-   * <code>int64 seq = 4 [json_name = "seq"];</code>
+   * <code>int32 seq = 4 [json_name = "seq"];</code>
    * @return The seq.
    */
-  long getSeq();
+  int getSeq();
 
   /**
    * <code>string title = 5 [json_name = "title"];</code>

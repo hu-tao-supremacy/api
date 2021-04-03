@@ -16,7 +16,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private UserEvent() {
-    ticket_ = "";
     status_ = 0;
   }
 
@@ -52,25 +51,25 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            id_ = input.readInt64();
+            id_ = input.readInt32();
             break;
           }
           case 16: {
 
-            userId_ = input.readInt64();
+            userId_ = input.readInt32();
             break;
           }
           case 24: {
 
-            eventId_ = input.readInt64();
+            eventId_ = input.readInt32();
             break;
           }
           case 34: {
-            com.google.protobuf.Int64Value.Builder subBuilder = null;
+            com.google.protobuf.Int32Value.Builder subBuilder = null;
             if (rating_ != null) {
               subBuilder = rating_.toBuilder();
             }
-            rating_ = input.readMessage(com.google.protobuf.Int64Value.parser(), extensionRegistry);
+            rating_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
             if (subBuilder != null) {
               subBuilder.mergeFrom(rating_);
               rating_ = subBuilder.buildPartial();
@@ -79,9 +78,16 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (ticket_ != null) {
+              subBuilder = ticket_.toBuilder();
+            }
+            ticket_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(ticket_);
+              ticket_ = subBuilder.buildPartial();
+            }
 
-            ticket_ = s;
             break;
           }
           case 48: {
@@ -249,42 +255,42 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 1;
-  private long id_;
+  private int id_;
   /**
-   * <code>int64 id = 1 [json_name = "id"];</code>
+   * <code>int32 id = 1 [json_name = "id"];</code>
    * @return The id.
    */
   @java.lang.Override
-  public long getId() {
+  public int getId() {
     return id_;
   }
 
   public static final int USER_ID_FIELD_NUMBER = 2;
-  private long userId_;
+  private int userId_;
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <code>int32 user_id = 2 [json_name = "userId"];</code>
    * @return The userId.
    */
   @java.lang.Override
-  public long getUserId() {
+  public int getUserId() {
     return userId_;
   }
 
   public static final int EVENT_ID_FIELD_NUMBER = 3;
-  private long eventId_;
+  private int eventId_;
   /**
-   * <code>int64 event_id = 3 [json_name = "eventId"];</code>
+   * <code>int32 event_id = 3 [json_name = "eventId"];</code>
    * @return The eventId.
    */
   @java.lang.Override
-  public long getEventId() {
+  public int getEventId() {
     return eventId_;
   }
 
   public static final int RATING_FIELD_NUMBER = 4;
-  private com.google.protobuf.Int64Value rating_;
+  private com.google.protobuf.Int32Value rating_;
   /**
-   * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+   * <code>.google.protobuf.Int32Value rating = 4 [json_name = "rating"];</code>
    * @return Whether the rating field is set.
    */
   @java.lang.Override
@@ -292,57 +298,45 @@ private static final long serialVersionUID = 0L;
     return rating_ != null;
   }
   /**
-   * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+   * <code>.google.protobuf.Int32Value rating = 4 [json_name = "rating"];</code>
    * @return The rating.
    */
   @java.lang.Override
-  public com.google.protobuf.Int64Value getRating() {
-    return rating_ == null ? com.google.protobuf.Int64Value.getDefaultInstance() : rating_;
+  public com.google.protobuf.Int32Value getRating() {
+    return rating_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : rating_;
   }
   /**
-   * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+   * <code>.google.protobuf.Int32Value rating = 4 [json_name = "rating"];</code>
    */
   @java.lang.Override
-  public com.google.protobuf.Int64ValueOrBuilder getRatingOrBuilder() {
+  public com.google.protobuf.Int32ValueOrBuilder getRatingOrBuilder() {
     return getRating();
   }
 
   public static final int TICKET_FIELD_NUMBER = 5;
-  private volatile java.lang.Object ticket_;
+  private com.google.protobuf.StringValue ticket_;
   /**
-   * <code>string ticket = 5 [json_name = "ticket"];</code>
+   * <code>.google.protobuf.StringValue ticket = 5 [json_name = "ticket"];</code>
+   * @return Whether the ticket field is set.
+   */
+  @java.lang.Override
+  public boolean hasTicket() {
+    return ticket_ != null;
+  }
+  /**
+   * <code>.google.protobuf.StringValue ticket = 5 [json_name = "ticket"];</code>
    * @return The ticket.
    */
   @java.lang.Override
-  public java.lang.String getTicket() {
-    java.lang.Object ref = ticket_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      ticket_ = s;
-      return s;
-    }
+  public com.google.protobuf.StringValue getTicket() {
+    return ticket_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : ticket_;
   }
   /**
-   * <code>string ticket = 5 [json_name = "ticket"];</code>
-   * @return The bytes for ticket.
+   * <code>.google.protobuf.StringValue ticket = 5 [json_name = "ticket"];</code>
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getTicketBytes() {
-    java.lang.Object ref = ticket_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      ticket_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public com.google.protobuf.StringValueOrBuilder getTicketOrBuilder() {
+    return getTicket();
   }
 
   public static final int STATUS_FIELD_NUMBER = 6;
@@ -378,20 +372,20 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (id_ != 0L) {
-      output.writeInt64(1, id_);
+    if (id_ != 0) {
+      output.writeInt32(1, id_);
     }
-    if (userId_ != 0L) {
-      output.writeInt64(2, userId_);
+    if (userId_ != 0) {
+      output.writeInt32(2, userId_);
     }
-    if (eventId_ != 0L) {
-      output.writeInt64(3, eventId_);
+    if (eventId_ != 0) {
+      output.writeInt32(3, eventId_);
     }
     if (rating_ != null) {
       output.writeMessage(4, getRating());
     }
-    if (!getTicketBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, ticket_);
+    if (ticket_ != null) {
+      output.writeMessage(5, getTicket());
     }
     if (status_ != app.onepass.apis.UserEvent.Status.STATUS_UNSPECIFIED.getNumber()) {
       output.writeEnum(6, status_);
@@ -405,24 +399,25 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (id_ != 0L) {
+    if (id_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, id_);
+        .computeInt32Size(1, id_);
     }
-    if (userId_ != 0L) {
+    if (userId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(2, userId_);
+        .computeInt32Size(2, userId_);
     }
-    if (eventId_ != 0L) {
+    if (eventId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(3, eventId_);
+        .computeInt32Size(3, eventId_);
     }
     if (rating_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getRating());
     }
-    if (!getTicketBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, ticket_);
+    if (ticket_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, getTicket());
     }
     if (status_ != app.onepass.apis.UserEvent.Status.STATUS_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
@@ -454,8 +449,11 @@ private static final long serialVersionUID = 0L;
       if (!getRating()
           .equals(other.getRating())) return false;
     }
-    if (!getTicket()
-        .equals(other.getTicket())) return false;
+    if (hasTicket() != other.hasTicket()) return false;
+    if (hasTicket()) {
+      if (!getTicket()
+          .equals(other.getTicket())) return false;
+    }
     if (status_ != other.status_) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
@@ -469,20 +467,19 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getId());
+    hash = (53 * hash) + getId();
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getUserId());
+    hash = (53 * hash) + getUserId();
     hash = (37 * hash) + EVENT_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getEventId());
+    hash = (53 * hash) + getEventId();
     if (hasRating()) {
       hash = (37 * hash) + RATING_FIELD_NUMBER;
       hash = (53 * hash) + getRating().hashCode();
     }
-    hash = (37 * hash) + TICKET_FIELD_NUMBER;
-    hash = (53 * hash) + getTicket().hashCode();
+    if (hasTicket()) {
+      hash = (37 * hash) + TICKET_FIELD_NUMBER;
+      hash = (53 * hash) + getTicket().hashCode();
+    }
     hash = (37 * hash) + STATUS_FIELD_NUMBER;
     hash = (53 * hash) + status_;
     hash = (29 * hash) + unknownFields.hashCode();
@@ -618,11 +615,11 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      id_ = 0L;
+      id_ = 0;
 
-      userId_ = 0L;
+      userId_ = 0;
 
-      eventId_ = 0L;
+      eventId_ = 0;
 
       if (ratingBuilder_ == null) {
         rating_ = null;
@@ -630,8 +627,12 @@ private static final long serialVersionUID = 0L;
         rating_ = null;
         ratingBuilder_ = null;
       }
-      ticket_ = "";
-
+      if (ticketBuilder_ == null) {
+        ticket_ = null;
+      } else {
+        ticket_ = null;
+        ticketBuilder_ = null;
+      }
       status_ = 0;
 
       return this;
@@ -668,7 +669,11 @@ private static final long serialVersionUID = 0L;
       } else {
         result.rating_ = ratingBuilder_.build();
       }
-      result.ticket_ = ticket_;
+      if (ticketBuilder_ == null) {
+        result.ticket_ = ticket_;
+      } else {
+        result.ticket_ = ticketBuilder_.build();
+      }
       result.status_ = status_;
       onBuilt();
       return result;
@@ -718,21 +723,20 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(app.onepass.apis.UserEvent other) {
       if (other == app.onepass.apis.UserEvent.getDefaultInstance()) return this;
-      if (other.getId() != 0L) {
+      if (other.getId() != 0) {
         setId(other.getId());
       }
-      if (other.getUserId() != 0L) {
+      if (other.getUserId() != 0) {
         setUserId(other.getUserId());
       }
-      if (other.getEventId() != 0L) {
+      if (other.getEventId() != 0) {
         setEventId(other.getEventId());
       }
       if (other.hasRating()) {
         mergeRating(other.getRating());
       }
-      if (!other.getTicket().isEmpty()) {
-        ticket_ = other.ticket_;
-        onChanged();
+      if (other.hasTicket()) {
+        mergeTicket(other.getTicket());
       }
       if (other.status_ != 0) {
         setStatusValue(other.getStatusValue());
@@ -766,124 +770,124 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long id_ ;
+    private int id_ ;
     /**
-     * <code>int64 id = 1 [json_name = "id"];</code>
+     * <code>int32 id = 1 [json_name = "id"];</code>
      * @return The id.
      */
     @java.lang.Override
-    public long getId() {
+    public int getId() {
       return id_;
     }
     /**
-     * <code>int64 id = 1 [json_name = "id"];</code>
+     * <code>int32 id = 1 [json_name = "id"];</code>
      * @param value The id to set.
      * @return This builder for chaining.
      */
-    public Builder setId(long value) {
+    public Builder setId(int value) {
       
       id_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 id = 1 [json_name = "id"];</code>
+     * <code>int32 id = 1 [json_name = "id"];</code>
      * @return This builder for chaining.
      */
     public Builder clearId() {
       
-      id_ = 0L;
+      id_ = 0;
       onChanged();
       return this;
     }
 
-    private long userId_ ;
+    private int userId_ ;
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <code>int32 user_id = 2 [json_name = "userId"];</code>
      * @return The userId.
      */
     @java.lang.Override
-    public long getUserId() {
+    public int getUserId() {
       return userId_;
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <code>int32 user_id = 2 [json_name = "userId"];</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
-    public Builder setUserId(long value) {
+    public Builder setUserId(int value) {
       
       userId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <code>int32 user_id = 2 [json_name = "userId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
       
-      userId_ = 0L;
+      userId_ = 0;
       onChanged();
       return this;
     }
 
-    private long eventId_ ;
+    private int eventId_ ;
     /**
-     * <code>int64 event_id = 3 [json_name = "eventId"];</code>
+     * <code>int32 event_id = 3 [json_name = "eventId"];</code>
      * @return The eventId.
      */
     @java.lang.Override
-    public long getEventId() {
+    public int getEventId() {
       return eventId_;
     }
     /**
-     * <code>int64 event_id = 3 [json_name = "eventId"];</code>
+     * <code>int32 event_id = 3 [json_name = "eventId"];</code>
      * @param value The eventId to set.
      * @return This builder for chaining.
      */
-    public Builder setEventId(long value) {
+    public Builder setEventId(int value) {
       
       eventId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 event_id = 3 [json_name = "eventId"];</code>
+     * <code>int32 event_id = 3 [json_name = "eventId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearEventId() {
       
-      eventId_ = 0L;
+      eventId_ = 0;
       onChanged();
       return this;
     }
 
-    private com.google.protobuf.Int64Value rating_;
+    private com.google.protobuf.Int32Value rating_;
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder> ratingBuilder_;
+        com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> ratingBuilder_;
     /**
-     * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+     * <code>.google.protobuf.Int32Value rating = 4 [json_name = "rating"];</code>
      * @return Whether the rating field is set.
      */
     public boolean hasRating() {
       return ratingBuilder_ != null || rating_ != null;
     }
     /**
-     * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+     * <code>.google.protobuf.Int32Value rating = 4 [json_name = "rating"];</code>
      * @return The rating.
      */
-    public com.google.protobuf.Int64Value getRating() {
+    public com.google.protobuf.Int32Value getRating() {
       if (ratingBuilder_ == null) {
-        return rating_ == null ? com.google.protobuf.Int64Value.getDefaultInstance() : rating_;
+        return rating_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : rating_;
       } else {
         return ratingBuilder_.getMessage();
       }
     }
     /**
-     * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+     * <code>.google.protobuf.Int32Value rating = 4 [json_name = "rating"];</code>
      */
-    public Builder setRating(com.google.protobuf.Int64Value value) {
+    public Builder setRating(com.google.protobuf.Int32Value value) {
       if (ratingBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
@@ -897,10 +901,10 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+     * <code>.google.protobuf.Int32Value rating = 4 [json_name = "rating"];</code>
      */
     public Builder setRating(
-        com.google.protobuf.Int64Value.Builder builderForValue) {
+        com.google.protobuf.Int32Value.Builder builderForValue) {
       if (ratingBuilder_ == null) {
         rating_ = builderForValue.build();
         onChanged();
@@ -911,13 +915,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+     * <code>.google.protobuf.Int32Value rating = 4 [json_name = "rating"];</code>
      */
-    public Builder mergeRating(com.google.protobuf.Int64Value value) {
+    public Builder mergeRating(com.google.protobuf.Int32Value value) {
       if (ratingBuilder_ == null) {
         if (rating_ != null) {
           rating_ =
-            com.google.protobuf.Int64Value.newBuilder(rating_).mergeFrom(value).buildPartial();
+            com.google.protobuf.Int32Value.newBuilder(rating_).mergeFrom(value).buildPartial();
         } else {
           rating_ = value;
         }
@@ -929,7 +933,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+     * <code>.google.protobuf.Int32Value rating = 4 [json_name = "rating"];</code>
      */
     public Builder clearRating() {
       if (ratingBuilder_ == null) {
@@ -943,33 +947,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+     * <code>.google.protobuf.Int32Value rating = 4 [json_name = "rating"];</code>
      */
-    public com.google.protobuf.Int64Value.Builder getRatingBuilder() {
+    public com.google.protobuf.Int32Value.Builder getRatingBuilder() {
       
       onChanged();
       return getRatingFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+     * <code>.google.protobuf.Int32Value rating = 4 [json_name = "rating"];</code>
      */
-    public com.google.protobuf.Int64ValueOrBuilder getRatingOrBuilder() {
+    public com.google.protobuf.Int32ValueOrBuilder getRatingOrBuilder() {
       if (ratingBuilder_ != null) {
         return ratingBuilder_.getMessageOrBuilder();
       } else {
         return rating_ == null ?
-            com.google.protobuf.Int64Value.getDefaultInstance() : rating_;
+            com.google.protobuf.Int32Value.getDefaultInstance() : rating_;
       }
     }
     /**
-     * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+     * <code>.google.protobuf.Int32Value rating = 4 [json_name = "rating"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
-        com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder> 
+        com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> 
         getRatingFieldBuilder() {
       if (ratingBuilder_ == null) {
         ratingBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder>(
+            com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder>(
                 getRating(),
                 getParentForChildren(),
                 isClean());
@@ -978,80 +982,123 @@ private static final long serialVersionUID = 0L;
       return ratingBuilder_;
     }
 
-    private java.lang.Object ticket_ = "";
+    private com.google.protobuf.StringValue ticket_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> ticketBuilder_;
     /**
-     * <code>string ticket = 5 [json_name = "ticket"];</code>
+     * <code>.google.protobuf.StringValue ticket = 5 [json_name = "ticket"];</code>
+     * @return Whether the ticket field is set.
+     */
+    public boolean hasTicket() {
+      return ticketBuilder_ != null || ticket_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue ticket = 5 [json_name = "ticket"];</code>
      * @return The ticket.
      */
-    public java.lang.String getTicket() {
-      java.lang.Object ref = ticket_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        ticket_ = s;
-        return s;
+    public com.google.protobuf.StringValue getTicket() {
+      if (ticketBuilder_ == null) {
+        return ticket_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : ticket_;
       } else {
-        return (java.lang.String) ref;
+        return ticketBuilder_.getMessage();
       }
     }
     /**
-     * <code>string ticket = 5 [json_name = "ticket"];</code>
-     * @return The bytes for ticket.
+     * <code>.google.protobuf.StringValue ticket = 5 [json_name = "ticket"];</code>
      */
-    public com.google.protobuf.ByteString
-        getTicketBytes() {
-      java.lang.Object ref = ticket_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        ticket_ = b;
-        return b;
+    public Builder setTicket(com.google.protobuf.StringValue value) {
+      if (ticketBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ticket_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        ticketBuilder_.setMessage(value);
       }
+
+      return this;
     }
     /**
-     * <code>string ticket = 5 [json_name = "ticket"];</code>
-     * @param value The ticket to set.
-     * @return This builder for chaining.
+     * <code>.google.protobuf.StringValue ticket = 5 [json_name = "ticket"];</code>
      */
     public Builder setTicket(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      ticket_ = value;
-      onChanged();
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (ticketBuilder_ == null) {
+        ticket_ = builderForValue.build();
+        onChanged();
+      } else {
+        ticketBuilder_.setMessage(builderForValue.build());
+      }
+
       return this;
     }
     /**
-     * <code>string ticket = 5 [json_name = "ticket"];</code>
-     * @return This builder for chaining.
+     * <code>.google.protobuf.StringValue ticket = 5 [json_name = "ticket"];</code>
+     */
+    public Builder mergeTicket(com.google.protobuf.StringValue value) {
+      if (ticketBuilder_ == null) {
+        if (ticket_ != null) {
+          ticket_ =
+            com.google.protobuf.StringValue.newBuilder(ticket_).mergeFrom(value).buildPartial();
+        } else {
+          ticket_ = value;
+        }
+        onChanged();
+      } else {
+        ticketBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue ticket = 5 [json_name = "ticket"];</code>
      */
     public Builder clearTicket() {
-      
-      ticket_ = getDefaultInstance().getTicket();
-      onChanged();
+      if (ticketBuilder_ == null) {
+        ticket_ = null;
+        onChanged();
+      } else {
+        ticket_ = null;
+        ticketBuilder_ = null;
+      }
+
       return this;
     }
     /**
-     * <code>string ticket = 5 [json_name = "ticket"];</code>
-     * @param value The bytes for ticket to set.
-     * @return This builder for chaining.
+     * <code>.google.protobuf.StringValue ticket = 5 [json_name = "ticket"];</code>
      */
-    public Builder setTicketBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+    public com.google.protobuf.StringValue.Builder getTicketBuilder() {
       
-      ticket_ = value;
       onChanged();
-      return this;
+      return getTicketFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.StringValue ticket = 5 [json_name = "ticket"];</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getTicketOrBuilder() {
+      if (ticketBuilder_ != null) {
+        return ticketBuilder_.getMessageOrBuilder();
+      } else {
+        return ticket_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : ticket_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue ticket = 5 [json_name = "ticket"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getTicketFieldBuilder() {
+      if (ticketBuilder_ == null) {
+        ticketBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getTicket(),
+                getParentForChildren(),
+                isClean());
+        ticket_ = null;
+      }
+      return ticketBuilder_;
     }
 
     private int status_ = 0;

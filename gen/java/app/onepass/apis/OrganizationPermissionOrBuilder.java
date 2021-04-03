@@ -8,16 +8,16 @@ public interface OrganizationPermissionOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 id = 1 [json_name = "id"];</code>
+   * <code>int32 id = 1 [json_name = "id"];</code>
    * @return The id.
    */
-  long getId();
+  int getId();
 
   /**
-   * <code>int64 organization_id = 2 [json_name = "organizationId"];</code>
+   * <code>int32 organization_id = 2 [json_name = "organizationId"];</code>
    * @return The organizationId.
    */
-  long getOrganizationId();
+  int getOrganizationId();
 
   /**
    * <code>.hts.common.Permission permission = 3 [json_name = "permission"];</code>

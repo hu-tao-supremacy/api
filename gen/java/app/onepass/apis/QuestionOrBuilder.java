@@ -8,22 +8,22 @@ public interface QuestionOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 id = 1 [json_name = "id"];</code>
+   * <code>int32 id = 1 [json_name = "id"];</code>
    * @return The id.
    */
-  long getId();
+  int getId();
 
   /**
-   * <code>int64 question_group_id = 2 [json_name = "questionGroupId"];</code>
+   * <code>int32 question_group_id = 2 [json_name = "questionGroupId"];</code>
    * @return The questionGroupId.
    */
-  long getQuestionGroupId();
+  int getQuestionGroupId();
 
   /**
-   * <code>int64 seq = 3 [json_name = "seq"];</code>
+   * <code>int32 seq = 3 [json_name = "seq"];</code>
    * @return The seq.
    */
-  long getSeq();
+  int getSeq();
 
   /**
    * <code>.hts.common.AnswerType answer_type = 4 [json_name = "answerType"];</code>

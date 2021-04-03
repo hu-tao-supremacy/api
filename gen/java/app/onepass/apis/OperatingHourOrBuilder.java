@@ -8,16 +8,16 @@ public interface OperatingHourOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 start_hour = 1 [json_name = "startHour"];</code>
+   * <code>int32 start_hour = 1 [json_name = "startHour"];</code>
    * @return The startHour.
    */
-  long getStartHour();
+  int getStartHour();
 
   /**
-   * <code>int64 finish_hour = 2 [json_name = "finishHour"];</code>
+   * <code>int32 finish_hour = 2 [json_name = "finishHour"];</code>
    * @return The finishHour.
    */
-  long getFinishHour();
+  int getFinishHour();
 
   /**
    * <code>.hts.common.DayOfWeek day = 3 [json_name = "day"];</code>
