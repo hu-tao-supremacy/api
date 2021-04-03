@@ -60,12 +60,12 @@ class FacilityServiceStub(object):
         self.ApproveFacilityRequest = channel.unary_unary(
                 '/hts.facility.FacilityService/ApproveFacilityRequest',
                 request_serializer=hts_dot_facility_dot_service__pb2.ApproveFacilityRequestRequest.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
+                response_deserializer=google_dot_protobuf_dot_wrappers__pb2.BoolValue.FromString,
                 )
         self.RejectFacilityRequest = channel.unary_unary(
                 '/hts.facility.FacilityService/RejectFacilityRequest',
                 request_serializer=hts_dot_facility_dot_service__pb2.RejectFacilityRequestRequest.SerializeToString,
-                response_deserializer=hts_dot_common_dot_common__pb2.Result.FromString,
+                response_deserializer=google_dot_protobuf_dot_wrappers__pb2.BoolValue.FromString,
                 )
         self.GetFacilityInfo = channel.unary_unary(
                 '/hts.facility.FacilityService/GetFacilityInfo',
@@ -200,12 +200,12 @@ def add_FacilityServiceServicer_to_server(servicer, server):
             'ApproveFacilityRequest': grpc.unary_unary_rpc_method_handler(
                     servicer.ApproveFacilityRequest,
                     request_deserializer=hts_dot_facility_dot_service__pb2.ApproveFacilityRequestRequest.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
+                    response_serializer=google_dot_protobuf_dot_wrappers__pb2.BoolValue.SerializeToString,
             ),
             'RejectFacilityRequest': grpc.unary_unary_rpc_method_handler(
                     servicer.RejectFacilityRequest,
                     request_deserializer=hts_dot_facility_dot_service__pb2.RejectFacilityRequestRequest.FromString,
-                    response_serializer=hts_dot_common_dot_common__pb2.Result.SerializeToString,
+                    response_serializer=google_dot_protobuf_dot_wrappers__pb2.BoolValue.SerializeToString,
             ),
             'GetFacilityInfo': grpc.unary_unary_rpc_method_handler(
                     servicer.GetFacilityInfo,
@@ -376,7 +376,7 @@ class FacilityService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.facility.FacilityService/ApproveFacilityRequest',
             hts_dot_facility_dot_service__pb2.ApproveFacilityRequestRequest.SerializeToString,
-            hts_dot_common_dot_common__pb2.Result.FromString,
+            google_dot_protobuf_dot_wrappers__pb2.BoolValue.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -393,7 +393,7 @@ class FacilityService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.facility.FacilityService/RejectFacilityRequest',
             hts_dot_facility_dot_service__pb2.RejectFacilityRequestRequest.SerializeToString,
-            hts_dot_common_dot_common__pb2.Result.FromString,
+            google_dot_protobuf_dot_wrappers__pb2.BoolValue.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
