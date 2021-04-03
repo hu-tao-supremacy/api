@@ -51,12 +51,12 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            startHour_ = input.readInt64();
+            startHour_ = input.readInt32();
             break;
           }
           case 16: {
 
-            finishHour_ = input.readInt64();
+            finishHour_ = input.readInt32();
             break;
           }
           case 24: {
@@ -98,24 +98,24 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int START_HOUR_FIELD_NUMBER = 1;
-  private long startHour_;
+  private int startHour_;
   /**
-   * <code>int64 start_hour = 1 [json_name = "startHour"];</code>
+   * <code>int32 start_hour = 1 [json_name = "startHour"];</code>
    * @return The startHour.
    */
   @java.lang.Override
-  public long getStartHour() {
+  public int getStartHour() {
     return startHour_;
   }
 
   public static final int FINISH_HOUR_FIELD_NUMBER = 2;
-  private long finishHour_;
+  private int finishHour_;
   /**
-   * <code>int64 finish_hour = 2 [json_name = "finishHour"];</code>
+   * <code>int32 finish_hour = 2 [json_name = "finishHour"];</code>
    * @return The finishHour.
    */
   @java.lang.Override
-  public long getFinishHour() {
+  public int getFinishHour() {
     return finishHour_;
   }
 
@@ -152,11 +152,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (startHour_ != 0L) {
-      output.writeInt64(1, startHour_);
+    if (startHour_ != 0) {
+      output.writeInt32(1, startHour_);
     }
-    if (finishHour_ != 0L) {
-      output.writeInt64(2, finishHour_);
+    if (finishHour_ != 0) {
+      output.writeInt32(2, finishHour_);
     }
     if (day_ != app.onepass.apis.DayOfWeek.DAY_OF_WEEK_UNSPECIFIED.getNumber()) {
       output.writeEnum(3, day_);
@@ -170,13 +170,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (startHour_ != 0L) {
+    if (startHour_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, startHour_);
+        .computeInt32Size(1, startHour_);
     }
-    if (finishHour_ != 0L) {
+    if (finishHour_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(2, finishHour_);
+        .computeInt32Size(2, finishHour_);
     }
     if (day_ != app.onepass.apis.DayOfWeek.DAY_OF_WEEK_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
@@ -214,11 +214,9 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + START_HOUR_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getStartHour());
+    hash = (53 * hash) + getStartHour();
     hash = (37 * hash) + FINISH_HOUR_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getFinishHour());
+    hash = (53 * hash) + getFinishHour();
     hash = (37 * hash) + DAY_FIELD_NUMBER;
     hash = (53 * hash) + day_;
     hash = (29 * hash) + unknownFields.hashCode();
@@ -354,9 +352,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      startHour_ = 0L;
+      startHour_ = 0;
 
-      finishHour_ = 0L;
+      finishHour_ = 0;
 
       day_ = 0;
 
@@ -437,10 +435,10 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(app.onepass.apis.OperatingHour other) {
       if (other == app.onepass.apis.OperatingHour.getDefaultInstance()) return this;
-      if (other.getStartHour() != 0L) {
+      if (other.getStartHour() != 0) {
         setStartHour(other.getStartHour());
       }
-      if (other.getFinishHour() != 0L) {
+      if (other.getFinishHour() != 0) {
         setFinishHour(other.getFinishHour());
       }
       if (other.day_ != 0) {
@@ -475,64 +473,64 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long startHour_ ;
+    private int startHour_ ;
     /**
-     * <code>int64 start_hour = 1 [json_name = "startHour"];</code>
+     * <code>int32 start_hour = 1 [json_name = "startHour"];</code>
      * @return The startHour.
      */
     @java.lang.Override
-    public long getStartHour() {
+    public int getStartHour() {
       return startHour_;
     }
     /**
-     * <code>int64 start_hour = 1 [json_name = "startHour"];</code>
+     * <code>int32 start_hour = 1 [json_name = "startHour"];</code>
      * @param value The startHour to set.
      * @return This builder for chaining.
      */
-    public Builder setStartHour(long value) {
+    public Builder setStartHour(int value) {
       
       startHour_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 start_hour = 1 [json_name = "startHour"];</code>
+     * <code>int32 start_hour = 1 [json_name = "startHour"];</code>
      * @return This builder for chaining.
      */
     public Builder clearStartHour() {
       
-      startHour_ = 0L;
+      startHour_ = 0;
       onChanged();
       return this;
     }
 
-    private long finishHour_ ;
+    private int finishHour_ ;
     /**
-     * <code>int64 finish_hour = 2 [json_name = "finishHour"];</code>
+     * <code>int32 finish_hour = 2 [json_name = "finishHour"];</code>
      * @return The finishHour.
      */
     @java.lang.Override
-    public long getFinishHour() {
+    public int getFinishHour() {
       return finishHour_;
     }
     /**
-     * <code>int64 finish_hour = 2 [json_name = "finishHour"];</code>
+     * <code>int32 finish_hour = 2 [json_name = "finishHour"];</code>
      * @param value The finishHour to set.
      * @return This builder for chaining.
      */
-    public Builder setFinishHour(long value) {
+    public Builder setFinishHour(int value) {
       
       finishHour_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 finish_hour = 2 [json_name = "finishHour"];</code>
+     * <code>int32 finish_hour = 2 [json_name = "finishHour"];</code>
      * @return This builder for chaining.
      */
     public Builder clearFinishHour() {
       
-      finishHour_ = 0L;
+      finishHour_ = 0;
       onChanged();
       return this;
     }

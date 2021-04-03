@@ -8,20 +8,20 @@ public interface UserInterestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 id = 1 [json_name = "id"];</code>
+   * <code>int32 id = 1 [json_name = "id"];</code>
    * @return The id.
    */
-  long getId();
+  int getId();
 
   /**
-   * <code>int64 userId = 2 [json_name = "userId"];</code>
+   * <code>int32 userId = 2 [json_name = "userId"];</code>
    * @return The userId.
    */
-  long getUserId();
+  int getUserId();
 
   /**
-   * <code>int64 tag_id = 3 [json_name = "tagId"];</code>
+   * <code>int32 tag_id = 3 [json_name = "tagId"];</code>
    * @return The tagId.
    */
-  long getTagId();
+  int getTagId();
 }

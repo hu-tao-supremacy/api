@@ -8,20 +8,20 @@ public interface EventTagOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 id = 1 [json_name = "id"];</code>
+   * <code>int32 id = 1 [json_name = "id"];</code>
    * @return The id.
    */
-  long getId();
+  int getId();
 
   /**
-   * <code>int64 event_id = 2 [json_name = "eventId"];</code>
+   * <code>int32 event_id = 2 [json_name = "eventId"];</code>
    * @return The eventId.
    */
-  long getEventId();
+  int getEventId();
 
   /**
-   * <code>int64 tag_id = 3 [json_name = "tagId"];</code>
+   * <code>int32 tag_id = 3 [json_name = "tagId"];</code>
    * @return The tagId.
    */
-  long getTagId();
+  int getTagId();
 }

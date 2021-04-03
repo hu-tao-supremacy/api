@@ -8,16 +8,16 @@ public interface UserPermissionOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 id = 1 [json_name = "id"];</code>
+   * <code>int32 id = 1 [json_name = "id"];</code>
    * @return The id.
    */
-  long getId();
+  int getId();
 
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <code>int32 user_id = 2 [json_name = "userId"];</code>
    * @return The userId.
    */
-  long getUserId();
+  int getUserId();
 
   /**
    * <code>.hts.common.Permission permission_name = 3 [json_name = "permissionName"];</code>

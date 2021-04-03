@@ -51,12 +51,12 @@ private static final long serialVersionUID = 0L;
             break;
           case 8: {
 
-            id_ = input.readInt64();
+            id_ = input.readInt32();
             break;
           }
           case 16: {
 
-            userId_ = input.readInt64();
+            userId_ = input.readInt32();
             break;
           }
           case 24: {
@@ -98,24 +98,24 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 1;
-  private long id_;
+  private int id_;
   /**
-   * <code>int64 id = 1 [json_name = "id"];</code>
+   * <code>int32 id = 1 [json_name = "id"];</code>
    * @return The id.
    */
   @java.lang.Override
-  public long getId() {
+  public int getId() {
     return id_;
   }
 
   public static final int USER_ID_FIELD_NUMBER = 2;
-  private long userId_;
+  private int userId_;
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <code>int32 user_id = 2 [json_name = "userId"];</code>
    * @return The userId.
    */
   @java.lang.Override
-  public long getUserId() {
+  public int getUserId() {
     return userId_;
   }
 
@@ -152,11 +152,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (id_ != 0L) {
-      output.writeInt64(1, id_);
+    if (id_ != 0) {
+      output.writeInt32(1, id_);
     }
-    if (userId_ != 0L) {
-      output.writeInt64(2, userId_);
+    if (userId_ != 0) {
+      output.writeInt32(2, userId_);
     }
     if (permissionName_ != app.onepass.apis.Permission.PERMISSION_UNSPECIFIED.getNumber()) {
       output.writeEnum(3, permissionName_);
@@ -170,13 +170,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (id_ != 0L) {
+    if (id_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(1, id_);
+        .computeInt32Size(1, id_);
     }
-    if (userId_ != 0L) {
+    if (userId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(2, userId_);
+        .computeInt32Size(2, userId_);
     }
     if (permissionName_ != app.onepass.apis.Permission.PERMISSION_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
@@ -214,11 +214,9 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getId());
+    hash = (53 * hash) + getId();
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getUserId());
+    hash = (53 * hash) + getUserId();
     hash = (37 * hash) + PERMISSION_NAME_FIELD_NUMBER;
     hash = (53 * hash) + permissionName_;
     hash = (29 * hash) + unknownFields.hashCode();
@@ -354,9 +352,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      id_ = 0L;
+      id_ = 0;
 
-      userId_ = 0L;
+      userId_ = 0;
 
       permissionName_ = 0;
 
@@ -437,10 +435,10 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(app.onepass.apis.UserPermission other) {
       if (other == app.onepass.apis.UserPermission.getDefaultInstance()) return this;
-      if (other.getId() != 0L) {
+      if (other.getId() != 0) {
         setId(other.getId());
       }
-      if (other.getUserId() != 0L) {
+      if (other.getUserId() != 0) {
         setUserId(other.getUserId());
       }
       if (other.permissionName_ != 0) {
@@ -475,64 +473,64 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long id_ ;
+    private int id_ ;
     /**
-     * <code>int64 id = 1 [json_name = "id"];</code>
+     * <code>int32 id = 1 [json_name = "id"];</code>
      * @return The id.
      */
     @java.lang.Override
-    public long getId() {
+    public int getId() {
       return id_;
     }
     /**
-     * <code>int64 id = 1 [json_name = "id"];</code>
+     * <code>int32 id = 1 [json_name = "id"];</code>
      * @param value The id to set.
      * @return This builder for chaining.
      */
-    public Builder setId(long value) {
+    public Builder setId(int value) {
       
       id_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 id = 1 [json_name = "id"];</code>
+     * <code>int32 id = 1 [json_name = "id"];</code>
      * @return This builder for chaining.
      */
     public Builder clearId() {
       
-      id_ = 0L;
+      id_ = 0;
       onChanged();
       return this;
     }
 
-    private long userId_ ;
+    private int userId_ ;
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <code>int32 user_id = 2 [json_name = "userId"];</code>
      * @return The userId.
      */
     @java.lang.Override
-    public long getUserId() {
+    public int getUserId() {
       return userId_;
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <code>int32 user_id = 2 [json_name = "userId"];</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
-    public Builder setUserId(long value) {
+    public Builder setUserId(int value) {
       
       userId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 user_id = 2 [json_name = "userId"];</code>
+     * <code>int32 user_id = 2 [json_name = "userId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
       
-      userId_ = 0L;
+      userId_ = 0;
       onChanged();
       return this;
     }
