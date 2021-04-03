@@ -30,7 +30,14 @@ export interface HasPermissionRequest {
   permissionName: Permission;
 }
 
+export interface CreateUserRequest {
+  firstName: string;
+  lastName: string;
+  chulaId: string;
+}
+
 export interface AccountService {
+  CreateUser(request: CreateUserRequest): Promise<User>;
   GetUserByChulaId(request: GetObjectByIdRequest): Promise<User>;
   IsAuthenticated(
     request: IsAuthenticatedRequest
