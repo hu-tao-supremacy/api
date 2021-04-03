@@ -112,7 +112,7 @@ export interface GetOrganizationByIdResponse {
 }
 
 export interface OrganizerService {
-  CreateOrganization(request: CreateOrganizationRequest): Promise<Empty>;
+  CreateOrganization(request: CreateOrganizationRequest): Promise<Organization>;
   GetOrganizations(request: Empty): Promise<GetOrganizationsResponse>;
   GetOrganizationById(
     request: GetObjectByIdRequest
