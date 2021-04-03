@@ -11,39 +11,38 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/wrappers.proto";
 
 enum DayOfWeek {
-  SUN = 0;
-  MON = 1;
-  TUE = 2;
-  WED = 3;
-  THU = 4;
-  FRI = 5;
-  SAT = 6;
+  DAY_OF_WEEK_UNSPECIFIED = 0
+  SUN = 1;
+  MON = 2;
+  TUE = 3;
+  WED = 4;
+  THU = 5;
+  FRI = 6;
+  SAT = 7;
 }
 
 enum AnswerType {
-  SCALE = 0;
-  TEXT = 1;
+  ANSWER_TYPE_UNSPECIFIED = 0;
+  SCALE = 1;
+  TEXT = 2;
 }
 
 enum QuestionGroupType {
-  PRE_EVENT = 0;
-  POST_EVENT = 1;
+  QUESTION_GROUP_TYPE_UNSPECIFIED = 0;
+  PRE_EVENT = 1;
+  POST_EVENT = 2;
 }
 
 enum Gender {
-  M = 0;
-  F = 1;
-  NS = 2;
+  GENDER_UNSPECIFIED = 0;
+  M = 1;
+  F = 2;
+  NS = 3;
 }
 
-enum Status {
-  PENDING = 0;
-  APPROVED = 1;
-  REJECTED = 2;
-}
 
 enum Permission {
-  ADMINISTRATION = 0;
+  PERMISSION_UNSPECIFIED = 0;
   ORGANIZATION_UPDATE = 1;
   ORGANIZATION_REMOVE = 2;
   ORGANIZATION_MEMBER_ADD = 3;
@@ -63,11 +62,6 @@ message OperatingHour {
   int64 start_hour = 1;
   int64 finish_hour = 2;
   DayOfWeek day = 3;
-}
-
-message Result {
-  bool is_ok = 1;
-  string description = 2;
 }
 
 message User {
@@ -160,12 +154,19 @@ message Answer {
 }
 
 message UserEvent {
+  enum UserEventStatus {
+    STATUS_UNSPECIFIED = 0;
+    PENDING = 1;
+    APPROVED = 2;
+    REJECTED = 3;
+  }
+
   int64 id = 1;
   int64 user_id = 2;
   int64 event_id = 3;
   google.protobuf.Int64Value rating = 4;
   string ticket = 5;
-  Status status = 6;
+  UserEventStatus status = 6;
 }
 
 message EventDuration {
@@ -205,10 +206,17 @@ message UserInterest {
 }
 
 message FacilityRequest {
+  enum FacilityRequestStatus {
+    STATUS_UNSPECIFIED = 0;
+    PENDING = 1;
+    APPROVED = 2;
+    REJECTED = 3;
+  }
+
   int64 id = 1;
   int64 event_id = 2;
   int64 facility_id = 3;
-  Status status = 4;
+  FacilityRequestStatus status = 4;
   google.protobuf.StringValue reject_reason = 5;
   google.protobuf.Timestamp start = 6;
   google.protobuf.Timestamp finish = 7;
