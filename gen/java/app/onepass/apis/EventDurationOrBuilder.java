@@ -8,16 +8,16 @@ public interface EventDurationOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 id = 1 [json_name = "id"];</code>
+   * <code>int32 id = 1 [json_name = "id"];</code>
    * @return The id.
    */
-  long getId();
+  int getId();
 
   /**
-   * <code>int64 event_id = 2 [json_name = "eventId"];</code>
+   * <code>int32 event_id = 2 [json_name = "eventId"];</code>
    * @return The eventId.
    */
-  long getEventId();
+  int getEventId();
 
   /**
    * <code>.google.protobuf.Timestamp start = 3 [json_name = "start"];</code>

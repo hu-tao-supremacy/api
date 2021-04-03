@@ -8,49 +8,52 @@ public interface UserEventOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int64 id = 1 [json_name = "id"];</code>
+   * <code>int32 id = 1 [json_name = "id"];</code>
    * @return The id.
    */
-  long getId();
+  int getId();
 
   /**
-   * <code>int64 user_id = 2 [json_name = "userId"];</code>
+   * <code>int32 user_id = 2 [json_name = "userId"];</code>
    * @return The userId.
    */
-  long getUserId();
+  int getUserId();
 
   /**
-   * <code>int64 event_id = 3 [json_name = "eventId"];</code>
+   * <code>int32 event_id = 3 [json_name = "eventId"];</code>
    * @return The eventId.
    */
-  long getEventId();
+  int getEventId();
 
   /**
-   * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+   * <code>.google.protobuf.Int32Value rating = 4 [json_name = "rating"];</code>
    * @return Whether the rating field is set.
    */
   boolean hasRating();
   /**
-   * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+   * <code>.google.protobuf.Int32Value rating = 4 [json_name = "rating"];</code>
    * @return The rating.
    */
-  com.google.protobuf.Int64Value getRating();
+  com.google.protobuf.Int32Value getRating();
   /**
-   * <code>.google.protobuf.Int64Value rating = 4 [json_name = "rating"];</code>
+   * <code>.google.protobuf.Int32Value rating = 4 [json_name = "rating"];</code>
    */
-  com.google.protobuf.Int64ValueOrBuilder getRatingOrBuilder();
+  com.google.protobuf.Int32ValueOrBuilder getRatingOrBuilder();
 
   /**
-   * <code>string ticket = 5 [json_name = "ticket"];</code>
+   * <code>.google.protobuf.StringValue ticket = 5 [json_name = "ticket"];</code>
+   * @return Whether the ticket field is set.
+   */
+  boolean hasTicket();
+  /**
+   * <code>.google.protobuf.StringValue ticket = 5 [json_name = "ticket"];</code>
    * @return The ticket.
    */
-  java.lang.String getTicket();
+  com.google.protobuf.StringValue getTicket();
   /**
-   * <code>string ticket = 5 [json_name = "ticket"];</code>
-   * @return The bytes for ticket.
+   * <code>.google.protobuf.StringValue ticket = 5 [json_name = "ticket"];</code>
    */
-  com.google.protobuf.ByteString
-      getTicketBytes();
+  com.google.protobuf.StringValueOrBuilder getTicketOrBuilder();
 
   /**
    * <code>.hts.common.UserEvent.Status status = 6 [json_name = "status"];</code>
