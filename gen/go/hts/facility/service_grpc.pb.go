@@ -29,8 +29,8 @@ type FacilityServiceClient interface {
 	GetAvailableFacilityList(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetAvailableFacilityListResponse, error)
 	GetAvailableTimeOfFacility(ctx context.Context, in *GetAvailableTimeOfFacilityRequest, opts ...grpc.CallOption) (*GetAvailableTimeOfFacilityResponse, error)
 	CreateFacilityRequest(ctx context.Context, in *CreateFacilityRequestRequest, opts ...grpc.CallOption) (*common.FacilityRequest, error)
-	ApproveFacilityRequest(ctx context.Context, in *ApproveFacilityRequestRequest, opts ...grpc.CallOption) (*common.Result, error)
-	RejectFacilityRequest(ctx context.Context, in *RejectFacilityRequestRequest, opts ...grpc.CallOption) (*common.Result, error)
+	ApproveFacilityRequest(ctx context.Context, in *ApproveFacilityRequestRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
+	RejectFacilityRequest(ctx context.Context, in *RejectFacilityRequestRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 	GetFacilityInfo(ctx context.Context, in *GetFacilityInfoRequest, opts ...grpc.CallOption) (*common.Facility, error)
 	Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 }
@@ -115,8 +115,8 @@ func (c *facilityServiceClient) CreateFacilityRequest(ctx context.Context, in *C
 	return out, nil
 }
 
-func (c *facilityServiceClient) ApproveFacilityRequest(ctx context.Context, in *ApproveFacilityRequestRequest, opts ...grpc.CallOption) (*common.Result, error) {
-	out := new(common.Result)
+func (c *facilityServiceClient) ApproveFacilityRequest(ctx context.Context, in *ApproveFacilityRequestRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error) {
+	out := new(wrapperspb.BoolValue)
 	err := c.cc.Invoke(ctx, "/hts.facility.FacilityService/ApproveFacilityRequest", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -124,8 +124,8 @@ func (c *facilityServiceClient) ApproveFacilityRequest(ctx context.Context, in *
 	return out, nil
 }
 
-func (c *facilityServiceClient) RejectFacilityRequest(ctx context.Context, in *RejectFacilityRequestRequest, opts ...grpc.CallOption) (*common.Result, error) {
-	out := new(common.Result)
+func (c *facilityServiceClient) RejectFacilityRequest(ctx context.Context, in *RejectFacilityRequestRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error) {
+	out := new(wrapperspb.BoolValue)
 	err := c.cc.Invoke(ctx, "/hts.facility.FacilityService/RejectFacilityRequest", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -163,8 +163,8 @@ type FacilityServiceServer interface {
 	GetAvailableFacilityList(context.Context, *emptypb.Empty) (*GetAvailableFacilityListResponse, error)
 	GetAvailableTimeOfFacility(context.Context, *GetAvailableTimeOfFacilityRequest) (*GetAvailableTimeOfFacilityResponse, error)
 	CreateFacilityRequest(context.Context, *CreateFacilityRequestRequest) (*common.FacilityRequest, error)
-	ApproveFacilityRequest(context.Context, *ApproveFacilityRequestRequest) (*common.Result, error)
-	RejectFacilityRequest(context.Context, *RejectFacilityRequestRequest) (*common.Result, error)
+	ApproveFacilityRequest(context.Context, *ApproveFacilityRequestRequest) (*wrapperspb.BoolValue, error)
+	RejectFacilityRequest(context.Context, *RejectFacilityRequestRequest) (*wrapperspb.BoolValue, error)
 	GetFacilityInfo(context.Context, *GetFacilityInfoRequest) (*common.Facility, error)
 	Ping(context.Context, *emptypb.Empty) (*wrapperspb.BoolValue, error)
 	mustEmbedUnimplementedFacilityServiceServer()
@@ -198,10 +198,10 @@ func (UnimplementedFacilityServiceServer) GetAvailableTimeOfFacility(context.Con
 func (UnimplementedFacilityServiceServer) CreateFacilityRequest(context.Context, *CreateFacilityRequestRequest) (*common.FacilityRequest, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateFacilityRequest not implemented")
 }
-func (UnimplementedFacilityServiceServer) ApproveFacilityRequest(context.Context, *ApproveFacilityRequestRequest) (*common.Result, error) {
+func (UnimplementedFacilityServiceServer) ApproveFacilityRequest(context.Context, *ApproveFacilityRequestRequest) (*wrapperspb.BoolValue, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ApproveFacilityRequest not implemented")
 }
-func (UnimplementedFacilityServiceServer) RejectFacilityRequest(context.Context, *RejectFacilityRequestRequest) (*common.Result, error) {
+func (UnimplementedFacilityServiceServer) RejectFacilityRequest(context.Context, *RejectFacilityRequestRequest) (*wrapperspb.BoolValue, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RejectFacilityRequest not implemented")
 }
 func (UnimplementedFacilityServiceServer) GetFacilityInfo(context.Context, *GetFacilityInfoRequest) (*common.Facility, error) {

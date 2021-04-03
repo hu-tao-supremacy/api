@@ -276,7 +276,7 @@ func (x *HasPermissionRequest) GetPermissionName() common.Permission {
 	if x != nil {
 		return x.PermissionName
 	}
-	return common.Permission_ADMINISTRATION
+	return common.Permission_PERMISSION_UNSPECIFIED
 }
 
 var File_hts_account_service_proto protoreflect.FileDescriptor
