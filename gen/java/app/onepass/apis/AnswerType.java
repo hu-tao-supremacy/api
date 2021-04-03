@@ -9,24 +9,32 @@ package app.onepass.apis;
 public enum AnswerType
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>SCALE = 0;</code>
+   * <code>ANSWER_TYPE_UNSPECIFIED = 0;</code>
    */
-  SCALE(0),
+  ANSWER_TYPE_UNSPECIFIED(0),
   /**
-   * <code>TEXT = 1;</code>
+   * <code>SCALE = 1;</code>
    */
-  TEXT(1),
+  SCALE(1),
+  /**
+   * <code>TEXT = 2;</code>
+   */
+  TEXT(2),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>SCALE = 0;</code>
+   * <code>ANSWER_TYPE_UNSPECIFIED = 0;</code>
    */
-  public static final int SCALE_VALUE = 0;
+  public static final int ANSWER_TYPE_UNSPECIFIED_VALUE = 0;
   /**
-   * <code>TEXT = 1;</code>
+   * <code>SCALE = 1;</code>
    */
-  public static final int TEXT_VALUE = 1;
+  public static final int SCALE_VALUE = 1;
+  /**
+   * <code>TEXT = 2;</code>
+   */
+  public static final int TEXT_VALUE = 2;
 
 
   public final int getNumber() {
@@ -53,8 +61,9 @@ public enum AnswerType
    */
   public static AnswerType forNumber(int value) {
     switch (value) {
-      case 0: return SCALE;
-      case 1: return TEXT;
+      case 0: return ANSWER_TYPE_UNSPECIFIED;
+      case 1: return SCALE;
+      case 2: return TEXT;
       default: return null;
     }
   }

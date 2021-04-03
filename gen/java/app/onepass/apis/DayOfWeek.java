@@ -9,64 +9,72 @@ package app.onepass.apis;
 public enum DayOfWeek
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>SUN = 0;</code>
+   * <code>DAY_OF_WEEK_UNSPECIFIED = 0;</code>
    */
-  SUN(0),
+  DAY_OF_WEEK_UNSPECIFIED(0),
   /**
-   * <code>MON = 1;</code>
+   * <code>SUN = 1;</code>
    */
-  MON(1),
+  SUN(1),
   /**
-   * <code>TUE = 2;</code>
+   * <code>MON = 2;</code>
    */
-  TUE(2),
+  MON(2),
   /**
-   * <code>WED = 3;</code>
+   * <code>TUE = 3;</code>
    */
-  WED(3),
+  TUE(3),
   /**
-   * <code>THU = 4;</code>
+   * <code>WED = 4;</code>
    */
-  THU(4),
+  WED(4),
   /**
-   * <code>FRI = 5;</code>
+   * <code>THU = 5;</code>
    */
-  FRI(5),
+  THU(5),
   /**
-   * <code>SAT = 6;</code>
+   * <code>FRI = 6;</code>
    */
-  SAT(6),
+  FRI(6),
+  /**
+   * <code>SAT = 7;</code>
+   */
+  SAT(7),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>SUN = 0;</code>
+   * <code>DAY_OF_WEEK_UNSPECIFIED = 0;</code>
    */
-  public static final int SUN_VALUE = 0;
+  public static final int DAY_OF_WEEK_UNSPECIFIED_VALUE = 0;
   /**
-   * <code>MON = 1;</code>
+   * <code>SUN = 1;</code>
    */
-  public static final int MON_VALUE = 1;
+  public static final int SUN_VALUE = 1;
   /**
-   * <code>TUE = 2;</code>
+   * <code>MON = 2;</code>
    */
-  public static final int TUE_VALUE = 2;
+  public static final int MON_VALUE = 2;
   /**
-   * <code>WED = 3;</code>
+   * <code>TUE = 3;</code>
    */
-  public static final int WED_VALUE = 3;
+  public static final int TUE_VALUE = 3;
   /**
-   * <code>THU = 4;</code>
+   * <code>WED = 4;</code>
    */
-  public static final int THU_VALUE = 4;
+  public static final int WED_VALUE = 4;
   /**
-   * <code>FRI = 5;</code>
+   * <code>THU = 5;</code>
    */
-  public static final int FRI_VALUE = 5;
+  public static final int THU_VALUE = 5;
   /**
-   * <code>SAT = 6;</code>
+   * <code>FRI = 6;</code>
    */
-  public static final int SAT_VALUE = 6;
+  public static final int FRI_VALUE = 6;
+  /**
+   * <code>SAT = 7;</code>
+   */
+  public static final int SAT_VALUE = 7;
 
 
   public final int getNumber() {
@@ -93,13 +101,14 @@ public enum DayOfWeek
    */
   public static DayOfWeek forNumber(int value) {
     switch (value) {
-      case 0: return SUN;
-      case 1: return MON;
-      case 2: return TUE;
-      case 3: return WED;
-      case 4: return THU;
-      case 5: return FRI;
-      case 6: return SAT;
+      case 0: return DAY_OF_WEEK_UNSPECIFIED;
+      case 1: return SUN;
+      case 2: return MON;
+      case 3: return TUE;
+      case 4: return WED;
+      case 5: return THU;
+      case 6: return FRI;
+      case 7: return SAT;
       default: return null;
     }
   }

@@ -138,20 +138,20 @@ private static final long serialVersionUID = 0L;
   public static final int STATUS_FIELD_NUMBER = 4;
   private int status_;
   /**
-   * <code>.hts.common.Status status = 4 [json_name = "status"];</code>
+   * <code>.hts.common.UserEvent.Status status = 4 [json_name = "status"];</code>
    * @return The enum numeric value on the wire for status.
    */
   @java.lang.Override public int getStatusValue() {
     return status_;
   }
   /**
-   * <code>.hts.common.Status status = 4 [json_name = "status"];</code>
+   * <code>.hts.common.UserEvent.Status status = 4 [json_name = "status"];</code>
    * @return The status.
    */
-  @java.lang.Override public app.onepass.apis.Status getStatus() {
+  @java.lang.Override public app.onepass.apis.UserEvent.Status getStatus() {
     @SuppressWarnings("deprecation")
-    app.onepass.apis.Status result = app.onepass.apis.Status.valueOf(status_);
-    return result == null ? app.onepass.apis.Status.UNRECOGNIZED : result;
+    app.onepass.apis.UserEvent.Status result = app.onepass.apis.UserEvent.Status.valueOf(status_);
+    return result == null ? app.onepass.apis.UserEvent.Status.UNRECOGNIZED : result;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -177,7 +177,7 @@ private static final long serialVersionUID = 0L;
     if (registeredEventId_ != 0L) {
       output.writeInt64(3, registeredEventId_);
     }
-    if (status_ != app.onepass.apis.Status.PENDING.getNumber()) {
+    if (status_ != app.onepass.apis.UserEvent.Status.STATUS_UNSPECIFIED.getNumber()) {
       output.writeEnum(4, status_);
     }
     unknownFields.writeTo(output);
@@ -201,7 +201,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(3, registeredEventId_);
     }
-    if (status_ != app.onepass.apis.Status.PENDING.getNumber()) {
+    if (status_ != app.onepass.apis.UserEvent.Status.STATUS_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(4, status_);
     }
@@ -604,14 +604,14 @@ private static final long serialVersionUID = 0L;
 
     private int status_ = 0;
     /**
-     * <code>.hts.common.Status status = 4 [json_name = "status"];</code>
+     * <code>.hts.common.UserEvent.Status status = 4 [json_name = "status"];</code>
      * @return The enum numeric value on the wire for status.
      */
     @java.lang.Override public int getStatusValue() {
       return status_;
     }
     /**
-     * <code>.hts.common.Status status = 4 [json_name = "status"];</code>
+     * <code>.hts.common.UserEvent.Status status = 4 [json_name = "status"];</code>
      * @param value The enum numeric value on the wire for status to set.
      * @return This builder for chaining.
      */
@@ -622,21 +622,21 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.hts.common.Status status = 4 [json_name = "status"];</code>
+     * <code>.hts.common.UserEvent.Status status = 4 [json_name = "status"];</code>
      * @return The status.
      */
     @java.lang.Override
-    public app.onepass.apis.Status getStatus() {
+    public app.onepass.apis.UserEvent.Status getStatus() {
       @SuppressWarnings("deprecation")
-      app.onepass.apis.Status result = app.onepass.apis.Status.valueOf(status_);
-      return result == null ? app.onepass.apis.Status.UNRECOGNIZED : result;
+      app.onepass.apis.UserEvent.Status result = app.onepass.apis.UserEvent.Status.valueOf(status_);
+      return result == null ? app.onepass.apis.UserEvent.Status.UNRECOGNIZED : result;
     }
     /**
-     * <code>.hts.common.Status status = 4 [json_name = "status"];</code>
+     * <code>.hts.common.UserEvent.Status status = 4 [json_name = "status"];</code>
      * @param value The status to set.
      * @return This builder for chaining.
      */
-    public Builder setStatus(app.onepass.apis.Status value) {
+    public Builder setStatus(app.onepass.apis.UserEvent.Status value) {
       if (value == null) {
         throw new NullPointerException();
       }
@@ -646,7 +646,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.hts.common.Status status = 4 [json_name = "status"];</code>
+     * <code>.hts.common.UserEvent.Status status = 4 [json_name = "status"];</code>
      * @return This builder for chaining.
      */
     public Builder clearStatus() {

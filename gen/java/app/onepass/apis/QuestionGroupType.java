@@ -9,24 +9,32 @@ package app.onepass.apis;
 public enum QuestionGroupType
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>PRE_EVENT = 0;</code>
+   * <code>QUESTION_GROUP_TYPE_UNSPECIFIED = 0;</code>
    */
-  PRE_EVENT(0),
+  QUESTION_GROUP_TYPE_UNSPECIFIED(0),
   /**
-   * <code>POST_EVENT = 1;</code>
+   * <code>PRE_EVENT = 1;</code>
    */
-  POST_EVENT(1),
+  PRE_EVENT(1),
+  /**
+   * <code>POST_EVENT = 2;</code>
+   */
+  POST_EVENT(2),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>PRE_EVENT = 0;</code>
+   * <code>QUESTION_GROUP_TYPE_UNSPECIFIED = 0;</code>
    */
-  public static final int PRE_EVENT_VALUE = 0;
+  public static final int QUESTION_GROUP_TYPE_UNSPECIFIED_VALUE = 0;
   /**
-   * <code>POST_EVENT = 1;</code>
+   * <code>PRE_EVENT = 1;</code>
    */
-  public static final int POST_EVENT_VALUE = 1;
+  public static final int PRE_EVENT_VALUE = 1;
+  /**
+   * <code>POST_EVENT = 2;</code>
+   */
+  public static final int POST_EVENT_VALUE = 2;
 
 
   public final int getNumber() {
@@ -53,8 +61,9 @@ public enum QuestionGroupType
    */
   public static QuestionGroupType forNumber(int value) {
     switch (value) {
-      case 0: return PRE_EVENT;
-      case 1: return POST_EVENT;
+      case 0: return QUESTION_GROUP_TYPE_UNSPECIFIED;
+      case 1: return PRE_EVENT;
+      case 2: return POST_EVENT;
       default: return null;
     }
   }

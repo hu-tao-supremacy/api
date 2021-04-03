@@ -464,7 +464,7 @@ private static final long serialVersionUID = 0L;
     if (isChulaStudent_ != false) {
       output.writeBool(7, isChulaStudent_);
     }
-    if (gender_ != app.onepass.apis.Gender.M.getNumber()) {
+    if (gender_ != app.onepass.apis.Gender.GENDER_UNSPECIFIED.getNumber()) {
       output.writeEnum(8, gender_);
     }
     if (address_ != null) {
@@ -507,7 +507,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(7, isChulaStudent_);
     }
-    if (gender_ != app.onepass.apis.Gender.M.getNumber()) {
+    if (gender_ != app.onepass.apis.Gender.GENDER_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(8, gender_);
     }

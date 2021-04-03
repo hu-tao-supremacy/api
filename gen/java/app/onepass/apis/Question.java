@@ -283,7 +283,7 @@ private static final long serialVersionUID = 0L;
     if (seq_ != 0L) {
       output.writeInt64(3, seq_);
     }
-    if (answerType_ != app.onepass.apis.AnswerType.SCALE.getNumber()) {
+    if (answerType_ != app.onepass.apis.AnswerType.ANSWER_TYPE_UNSPECIFIED.getNumber()) {
       output.writeEnum(4, answerType_);
     }
     if (isOptional_ != false) {
@@ -316,7 +316,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(3, seq_);
     }
-    if (answerType_ != app.onepass.apis.AnswerType.SCALE.getNumber()) {
+    if (answerType_ != app.onepass.apis.AnswerType.ANSWER_TYPE_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(4, answerType_);
     }

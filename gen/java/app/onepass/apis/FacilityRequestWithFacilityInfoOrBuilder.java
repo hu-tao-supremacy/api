@@ -32,15 +32,15 @@ public interface FacilityRequestWithFacilityInfoOrBuilder extends
   long getOrganizationId();
 
   /**
-   * <code>.hts.common.Status status = 5 [json_name = "status"];</code>
+   * <code>.hts.common.FacilityRequest.Status status = 5 [json_name = "status"];</code>
    * @return The enum numeric value on the wire for status.
    */
   int getStatusValue();
   /**
-   * <code>.hts.common.Status status = 5 [json_name = "status"];</code>
+   * <code>.hts.common.FacilityRequest.Status status = 5 [json_name = "status"];</code>
    * @return The status.
    */
-  app.onepass.apis.Status getStatus();
+  app.onepass.apis.FacilityRequest.Status getStatus();
 
   /**
    * <code>.google.protobuf.StringValue reject_reason = 6 [json_name = "rejectReason"];</code>

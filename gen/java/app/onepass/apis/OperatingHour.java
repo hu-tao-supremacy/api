@@ -158,7 +158,7 @@ private static final long serialVersionUID = 0L;
     if (finishHour_ != 0L) {
       output.writeInt64(2, finishHour_);
     }
-    if (day_ != app.onepass.apis.DayOfWeek.SUN.getNumber()) {
+    if (day_ != app.onepass.apis.DayOfWeek.DAY_OF_WEEK_UNSPECIFIED.getNumber()) {
       output.writeEnum(3, day_);
     }
     unknownFields.writeTo(output);
@@ -178,7 +178,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(2, finishHour_);
     }
-    if (day_ != app.onepass.apis.DayOfWeek.SUN.getNumber()) {
+    if (day_ != app.onepass.apis.DayOfWeek.DAY_OF_WEEK_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, day_);
     }

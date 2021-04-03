@@ -9,32 +9,40 @@ package app.onepass.apis;
 public enum Gender
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
-   * <code>M = 0;</code>
+   * <code>GENDER_UNSPECIFIED = 0;</code>
    */
-  M(0),
+  GENDER_UNSPECIFIED(0),
   /**
-   * <code>F = 1;</code>
+   * <code>M = 1;</code>
    */
-  F(1),
+  M(1),
   /**
-   * <code>NS = 2;</code>
+   * <code>F = 2;</code>
    */
-  NS(2),
+  F(2),
+  /**
+   * <code>NS = 3;</code>
+   */
+  NS(3),
   UNRECOGNIZED(-1),
   ;
 
   /**
-   * <code>M = 0;</code>
+   * <code>GENDER_UNSPECIFIED = 0;</code>
    */
-  public static final int M_VALUE = 0;
+  public static final int GENDER_UNSPECIFIED_VALUE = 0;
   /**
-   * <code>F = 1;</code>
+   * <code>M = 1;</code>
    */
-  public static final int F_VALUE = 1;
+  public static final int M_VALUE = 1;
   /**
-   * <code>NS = 2;</code>
+   * <code>F = 2;</code>
    */
-  public static final int NS_VALUE = 2;
+  public static final int F_VALUE = 2;
+  /**
+   * <code>NS = 3;</code>
+   */
+  public static final int NS_VALUE = 3;
 
 
   public final int getNumber() {
@@ -61,9 +69,10 @@ public enum Gender
    */
   public static Gender forNumber(int value) {
     switch (value) {
-      case 0: return M;
-      case 1: return F;
-      case 2: return NS;
+      case 0: return GENDER_UNSPECIFIED;
+      case 1: return M;
+      case 2: return F;
+      case 3: return NS;
       default: return null;
     }
   }

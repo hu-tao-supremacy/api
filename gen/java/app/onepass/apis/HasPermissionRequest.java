@@ -158,7 +158,7 @@ private static final long serialVersionUID = 0L;
     if (organizationId_ != 0L) {
       output.writeInt64(2, organizationId_);
     }
-    if (permissionName_ != app.onepass.apis.Permission.ADMINISTRATION.getNumber()) {
+    if (permissionName_ != app.onepass.apis.Permission.PERMISSION_UNSPECIFIED.getNumber()) {
       output.writeEnum(3, permissionName_);
     }
     unknownFields.writeTo(output);
@@ -178,7 +178,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(2, organizationId_);
     }
-    if (permissionName_ != app.onepass.apis.Permission.ADMINISTRATION.getNumber()) {
+    if (permissionName_ != app.onepass.apis.Permission.PERMISSION_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, permissionName_);
     }
