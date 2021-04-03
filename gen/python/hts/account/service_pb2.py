@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\020app.onepass.apisB\014AccountProtoP\001Z onepass.app/facility/hts/account',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x19hts/account/service.proto\x12\x0bhts.account\x1a\x17hts/common/common.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1egoogle/protobuf/wrappers.proto\"-\n\x12\x41\x63\x63\x65ssTokenPayload\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\";\n\x16IsAuthenticatedRequest\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x01 \x01(\tR\x0b\x61\x63\x63\x65ssToken\"5\n\x1aGenerateAccessTokenRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\"@\n\x1bGenerateAccessTokenResponse\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x01 \x01(\tR\x0b\x61\x63\x63\x65ssToken\"\x99\x01\n\x14HasPermissionRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x05R\x0eorganizationId\x12?\n\x0fpermission_name\x18\x03 \x01(\x0e\x32\x16.hts.common.PermissionR\x0epermissionName2\x9e\x04\n\x0e\x41\x63\x63ountService\x12\x46\n\x10GetUserByChulaId\x12 .hts.common.GetObjectByIdRequest\x1a\x10.hts.common.User\x12R\n\x0fIsAuthenticated\x12#.hts.account.IsAuthenticatedRequest\x1a\x1a.google.protobuf.BoolValue\x12\x37\n\x11UpdateAccountInfo\x12\x10.hts.common.User\x1a\x10.hts.common.User\x12\x41\n\x0bGetUserById\x12 .hts.common.GetObjectByIdRequest\x1a\x10.hts.common.User\x12h\n\x13GenerateAccessToken\x12\'.hts.account.GenerateAccessTokenRequest\x1a(.hts.account.GenerateAccessTokenResponse\x12N\n\rHasPermission\x12!.hts.account.HasPermissionRequest\x1a\x1a.google.protobuf.BoolValue\x12:\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x1a.google.protobuf.BoolValueBD\n\x10\x61pp.onepass.apisB\x0c\x41\x63\x63ountProtoP\x01Z onepass.app/facility/hts/accountb\x06proto3'
+  serialized_pb=b'\n\x19hts/account/service.proto\x12\x0bhts.account\x1a\x17hts/common/common.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1egoogle/protobuf/wrappers.proto\"-\n\x12\x41\x63\x63\x65ssTokenPayload\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\";\n\x16IsAuthenticatedRequest\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x01 \x01(\tR\x0b\x61\x63\x63\x65ssToken\"5\n\x1aGenerateAccessTokenRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\"@\n\x1bGenerateAccessTokenResponse\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x01 \x01(\tR\x0b\x61\x63\x63\x65ssToken\"\x99\x01\n\x14HasPermissionRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x05R\x0eorganizationId\x12?\n\x0fpermission_name\x18\x03 \x01(\x0e\x32\x16.hts.common.PermissionR\x0epermissionName\"j\n\x11\x43reateUserRequest\x12\x1d\n\nfirst_name\x18\x01 \x01(\tR\tfirstName\x12\x1b\n\tlast_name\x18\x02 \x01(\tR\x08lastName\x12\x19\n\x08\x63hula_id\x18\x03 \x01(\tR\x07\x63hulaId2\xde\x04\n\x0e\x41\x63\x63ountService\x12>\n\nCreateUser\x12\x1e.hts.account.CreateUserRequest\x1a\x10.hts.common.User\x12\x46\n\x10GetUserByChulaId\x12 .hts.common.GetObjectByIdRequest\x1a\x10.hts.common.User\x12R\n\x0fIsAuthenticated\x12#.hts.account.IsAuthenticatedRequest\x1a\x1a.google.protobuf.BoolValue\x12\x37\n\x11UpdateAccountInfo\x12\x10.hts.common.User\x1a\x10.hts.common.User\x12\x41\n\x0bGetUserById\x12 .hts.common.GetObjectByIdRequest\x1a\x10.hts.common.User\x12h\n\x13GenerateAccessToken\x12\'.hts.account.GenerateAccessTokenRequest\x1a(.hts.account.GenerateAccessTokenResponse\x12N\n\rHasPermission\x12!.hts.account.HasPermissionRequest\x1a\x1a.google.protobuf.BoolValue\x12:\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x1a.google.protobuf.BoolValueBD\n\x10\x61pp.onepass.apisB\x0c\x41\x63\x63ountProtoP\x01Z onepass.app/facility/hts/accountb\x06proto3'
   ,
   dependencies=[hts_dot_common_dot_common__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
@@ -202,12 +202,59 @@ _HASPERMISSIONREQUEST = _descriptor.Descriptor(
   serialized_end=511,
 )
 
+
+_CREATEUSERREQUEST = _descriptor.Descriptor(
+  name='CreateUserRequest',
+  full_name='hts.account.CreateUserRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='first_name', full_name='hts.account.CreateUserRequest.first_name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='firstName', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='last_name', full_name='hts.account.CreateUserRequest.last_name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='lastName', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='chula_id', full_name='hts.account.CreateUserRequest.chula_id', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='chulaId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=513,
+  serialized_end=619,
+)
+
 _HASPERMISSIONREQUEST.fields_by_name['permission_name'].enum_type = hts_dot_common_dot_common__pb2._PERMISSION
 DESCRIPTOR.message_types_by_name['AccessTokenPayload'] = _ACCESSTOKENPAYLOAD
 DESCRIPTOR.message_types_by_name['IsAuthenticatedRequest'] = _ISAUTHENTICATEDREQUEST
 DESCRIPTOR.message_types_by_name['GenerateAccessTokenRequest'] = _GENERATEACCESSTOKENREQUEST
 DESCRIPTOR.message_types_by_name['GenerateAccessTokenResponse'] = _GENERATEACCESSTOKENRESPONSE
 DESCRIPTOR.message_types_by_name['HasPermissionRequest'] = _HASPERMISSIONREQUEST
+DESCRIPTOR.message_types_by_name['CreateUserRequest'] = _CREATEUSERREQUEST
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 AccessTokenPayload = _reflection.GeneratedProtocolMessageType('AccessTokenPayload', (_message.Message,), {
@@ -245,6 +292,13 @@ HasPermissionRequest = _reflection.GeneratedProtocolMessageType('HasPermissionRe
   })
 _sym_db.RegisterMessage(HasPermissionRequest)
 
+CreateUserRequest = _reflection.GeneratedProtocolMessageType('CreateUserRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CREATEUSERREQUEST,
+  '__module__' : 'hts.account.service_pb2'
+  # @@protoc_insertion_point(class_scope:hts.account.CreateUserRequest)
+  })
+_sym_db.RegisterMessage(CreateUserRequest)
+
 
 DESCRIPTOR._options = None
 
@@ -255,13 +309,23 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=514,
-  serialized_end=1056,
+  serialized_start=622,
+  serialized_end=1228,
   methods=[
+  _descriptor.MethodDescriptor(
+    name='CreateUser',
+    full_name='hts.account.AccountService.CreateUser',
+    index=0,
+    containing_service=None,
+    input_type=_CREATEUSERREQUEST,
+    output_type=hts_dot_common_dot_common__pb2._USER,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
   _descriptor.MethodDescriptor(
     name='GetUserByChulaId',
     full_name='hts.account.AccountService.GetUserByChulaId',
-    index=0,
+    index=1,
     containing_service=None,
     input_type=hts_dot_common_dot_common__pb2._GETOBJECTBYIDREQUEST,
     output_type=hts_dot_common_dot_common__pb2._USER,
@@ -271,7 +335,7 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='IsAuthenticated',
     full_name='hts.account.AccountService.IsAuthenticated',
-    index=1,
+    index=2,
     containing_service=None,
     input_type=_ISAUTHENTICATEDREQUEST,
     output_type=google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE,
@@ -281,7 +345,7 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UpdateAccountInfo',
     full_name='hts.account.AccountService.UpdateAccountInfo',
-    index=2,
+    index=3,
     containing_service=None,
     input_type=hts_dot_common_dot_common__pb2._USER,
     output_type=hts_dot_common_dot_common__pb2._USER,
@@ -291,7 +355,7 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetUserById',
     full_name='hts.account.AccountService.GetUserById',
-    index=3,
+    index=4,
     containing_service=None,
     input_type=hts_dot_common_dot_common__pb2._GETOBJECTBYIDREQUEST,
     output_type=hts_dot_common_dot_common__pb2._USER,
@@ -301,7 +365,7 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GenerateAccessToken',
     full_name='hts.account.AccountService.GenerateAccessToken',
-    index=4,
+    index=5,
     containing_service=None,
     input_type=_GENERATEACCESSTOKENREQUEST,
     output_type=_GENERATEACCESSTOKENRESPONSE,
@@ -311,7 +375,7 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='HasPermission',
     full_name='hts.account.AccountService.HasPermission',
-    index=5,
+    index=6,
     containing_service=None,
     input_type=_HASPERMISSIONREQUEST,
     output_type=google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE,
@@ -321,7 +385,7 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Ping',
     full_name='hts.account.AccountService.Ping',
-    index=6,
+    index=7,
     containing_service=None,
     input_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     output_type=google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE,
