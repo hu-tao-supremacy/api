@@ -19,6 +19,8 @@ private static final long serialVersionUID = 0L;
     firstName_ = "";
     lastName_ = "";
     chulaId_ = "";
+    email_ = "";
+    isChulaStudent_ = "";
   }
 
   @java.lang.Override
@@ -67,6 +69,18 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             chulaId_ = s;
+            break;
+          }
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            email_ = s;
+            break;
+          }
+          case 42: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            isChulaStudent_ = s;
             break;
           }
           default: {
@@ -215,6 +229,82 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int EMAIL_FIELD_NUMBER = 4;
+  private volatile java.lang.Object email_;
+  /**
+   * <code>string email = 4 [json_name = "email"];</code>
+   * @return The email.
+   */
+  @java.lang.Override
+  public java.lang.String getEmail() {
+    java.lang.Object ref = email_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      email_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string email = 4 [json_name = "email"];</code>
+   * @return The bytes for email.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getEmailBytes() {
+    java.lang.Object ref = email_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      email_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int IS_CHULA_STUDENT_FIELD_NUMBER = 5;
+  private volatile java.lang.Object isChulaStudent_;
+  /**
+   * <code>string is_chula_student = 5 [json_name = "isChulaStudent"];</code>
+   * @return The isChulaStudent.
+   */
+  @java.lang.Override
+  public java.lang.String getIsChulaStudent() {
+    java.lang.Object ref = isChulaStudent_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      isChulaStudent_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string is_chula_student = 5 [json_name = "isChulaStudent"];</code>
+   * @return The bytes for isChulaStudent.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getIsChulaStudentBytes() {
+    java.lang.Object ref = isChulaStudent_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      isChulaStudent_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -238,6 +328,12 @@ private static final long serialVersionUID = 0L;
     if (!getChulaIdBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, chulaId_);
     }
+    if (!getEmailBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, email_);
+    }
+    if (!getIsChulaStudentBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, isChulaStudent_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -255,6 +351,12 @@ private static final long serialVersionUID = 0L;
     }
     if (!getChulaIdBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, chulaId_);
+    }
+    if (!getEmailBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, email_);
+    }
+    if (!getIsChulaStudentBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, isChulaStudent_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -277,6 +379,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getLastName())) return false;
     if (!getChulaId()
         .equals(other.getChulaId())) return false;
+    if (!getEmail()
+        .equals(other.getEmail())) return false;
+    if (!getIsChulaStudent()
+        .equals(other.getIsChulaStudent())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -294,6 +400,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getLastName().hashCode();
     hash = (37 * hash) + CHULA_ID_FIELD_NUMBER;
     hash = (53 * hash) + getChulaId().hashCode();
+    hash = (37 * hash) + EMAIL_FIELD_NUMBER;
+    hash = (53 * hash) + getEmail().hashCode();
+    hash = (37 * hash) + IS_CHULA_STUDENT_FIELD_NUMBER;
+    hash = (53 * hash) + getIsChulaStudent().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -433,6 +543,10 @@ private static final long serialVersionUID = 0L;
 
       chulaId_ = "";
 
+      email_ = "";
+
+      isChulaStudent_ = "";
+
       return this;
     }
 
@@ -462,6 +576,8 @@ private static final long serialVersionUID = 0L;
       result.firstName_ = firstName_;
       result.lastName_ = lastName_;
       result.chulaId_ = chulaId_;
+      result.email_ = email_;
+      result.isChulaStudent_ = isChulaStudent_;
       onBuilt();
       return result;
     }
@@ -520,6 +636,14 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getChulaId().isEmpty()) {
         chulaId_ = other.chulaId_;
+        onChanged();
+      }
+      if (!other.getEmail().isEmpty()) {
+        email_ = other.email_;
+        onChanged();
+      }
+      if (!other.getIsChulaStudent().isEmpty()) {
+        isChulaStudent_ = other.isChulaStudent_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -775,6 +899,158 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       chulaId_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object email_ = "";
+    /**
+     * <code>string email = 4 [json_name = "email"];</code>
+     * @return The email.
+     */
+    public java.lang.String getEmail() {
+      java.lang.Object ref = email_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        email_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string email = 4 [json_name = "email"];</code>
+     * @return The bytes for email.
+     */
+    public com.google.protobuf.ByteString
+        getEmailBytes() {
+      java.lang.Object ref = email_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        email_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string email = 4 [json_name = "email"];</code>
+     * @param value The email to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEmail(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      email_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string email = 4 [json_name = "email"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearEmail() {
+      
+      email_ = getDefaultInstance().getEmail();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string email = 4 [json_name = "email"];</code>
+     * @param value The bytes for email to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEmailBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      email_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object isChulaStudent_ = "";
+    /**
+     * <code>string is_chula_student = 5 [json_name = "isChulaStudent"];</code>
+     * @return The isChulaStudent.
+     */
+    public java.lang.String getIsChulaStudent() {
+      java.lang.Object ref = isChulaStudent_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        isChulaStudent_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string is_chula_student = 5 [json_name = "isChulaStudent"];</code>
+     * @return The bytes for isChulaStudent.
+     */
+    public com.google.protobuf.ByteString
+        getIsChulaStudentBytes() {
+      java.lang.Object ref = isChulaStudent_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        isChulaStudent_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string is_chula_student = 5 [json_name = "isChulaStudent"];</code>
+     * @param value The isChulaStudent to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIsChulaStudent(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      isChulaStudent_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string is_chula_student = 5 [json_name = "isChulaStudent"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIsChulaStudent() {
+      
+      isChulaStudent_ = getDefaultInstance().getIsChulaStudent();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string is_chula_student = 5 [json_name = "isChulaStudent"];</code>
+     * @param value The bytes for isChulaStudent to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIsChulaStudentBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      isChulaStudent_ = value;
       onChanged();
       return this;
     }
