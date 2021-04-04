@@ -125,4 +125,10 @@ public interface UserOrBuilder extends
    * <code>.google.protobuf.StringValue profile_picture_url = 10 [json_name = "profilePictureUrl"];</code>
    */
   com.google.protobuf.StringValueOrBuilder getProfilePictureUrlOrBuilder();
+
+  /**
+   * <code>bool did_setup = 11 [json_name = "didSetup"];</code>
+   * @return The didSetup.
+   */
+  boolean getDidSetup();
 }

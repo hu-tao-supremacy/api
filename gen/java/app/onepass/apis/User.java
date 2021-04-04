@@ -138,6 +138,11 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 88: {
+
+            didSetup_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -429,6 +434,17 @@ private static final long serialVersionUID = 0L;
     return getProfilePictureUrl();
   }
 
+  public static final int DID_SETUP_FIELD_NUMBER = 11;
+  private boolean didSetup_;
+  /**
+   * <code>bool did_setup = 11 [json_name = "didSetup"];</code>
+   * @return The didSetup.
+   */
+  @java.lang.Override
+  public boolean getDidSetup() {
+    return didSetup_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -472,6 +488,9 @@ private static final long serialVersionUID = 0L;
     }
     if (profilePictureUrl_ != null) {
       output.writeMessage(10, getProfilePictureUrl());
+    }
+    if (didSetup_ != false) {
+      output.writeBool(11, didSetup_);
     }
     unknownFields.writeTo(output);
   }
@@ -519,6 +538,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, getProfilePictureUrl());
     }
+    if (didSetup_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(11, didSetup_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -565,6 +588,8 @@ private static final long serialVersionUID = 0L;
       if (!getProfilePictureUrl()
           .equals(other.getProfilePictureUrl())) return false;
     }
+    if (getDidSetup()
+        != other.getDidSetup()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -605,6 +630,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PROFILE_PICTURE_URL_FIELD_NUMBER;
       hash = (53 * hash) + getProfilePictureUrl().hashCode();
     }
+    hash = (37 * hash) + DID_SETUP_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getDidSetup());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -774,6 +802,8 @@ private static final long serialVersionUID = 0L;
         profilePictureUrl_ = null;
         profilePictureUrlBuilder_ = null;
       }
+      didSetup_ = false;
+
       return this;
     }
 
@@ -826,6 +856,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.profilePictureUrl_ = profilePictureUrlBuilder_.build();
       }
+      result.didSetup_ = didSetup_;
       onBuilt();
       return result;
     }
@@ -906,6 +937,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasProfilePictureUrl()) {
         mergeProfilePictureUrl(other.getProfilePictureUrl());
+      }
+      if (other.getDidSetup() != false) {
+        setDidSetup(other.getDidSetup());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1754,6 +1788,37 @@ private static final long serialVersionUID = 0L;
         profilePictureUrl_ = null;
       }
       return profilePictureUrlBuilder_;
+    }
+
+    private boolean didSetup_ ;
+    /**
+     * <code>bool did_setup = 11 [json_name = "didSetup"];</code>
+     * @return The didSetup.
+     */
+    @java.lang.Override
+    public boolean getDidSetup() {
+      return didSetup_;
+    }
+    /**
+     * <code>bool did_setup = 11 [json_name = "didSetup"];</code>
+     * @param value The didSetup to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDidSetup(boolean value) {
+      
+      didSetup_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool did_setup = 11 [json_name = "didSetup"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDidSetup() {
+      
+      didSetup_ = false;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
