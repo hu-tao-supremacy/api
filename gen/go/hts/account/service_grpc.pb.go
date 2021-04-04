@@ -22,7 +22,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AccountServiceClient interface {
 	CreateUser(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*common.User, error)
-	GetUserByChulaId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*common.User, error)
+	GetUserByChulaId(ctx context.Context, in *GetUserByChulaIdRequest, opts ...grpc.CallOption) (*common.User, error)
 	IsAuthenticated(ctx context.Context, in *IsAuthenticatedRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 	UpdateAccountInfo(ctx context.Context, in *common.User, opts ...grpc.CallOption) (*common.User, error)
 	GetUserById(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*common.User, error)
@@ -48,7 +48,7 @@ func (c *accountServiceClient) CreateUser(ctx context.Context, in *CreateUserReq
 	return out, nil
 }
 
-func (c *accountServiceClient) GetUserByChulaId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*common.User, error) {
+func (c *accountServiceClient) GetUserByChulaId(ctx context.Context, in *GetUserByChulaIdRequest, opts ...grpc.CallOption) (*common.User, error) {
 	out := new(common.User)
 	err := c.cc.Invoke(ctx, "/hts.account.AccountService/GetUserByChulaId", in, out, opts...)
 	if err != nil {
@@ -116,7 +116,7 @@ func (c *accountServiceClient) Ping(ctx context.Context, in *emptypb.Empty, opts
 // for forward compatibility
 type AccountServiceServer interface {
 	CreateUser(context.Context, *CreateUserRequest) (*common.User, error)
-	GetUserByChulaId(context.Context, *common.GetObjectByIdRequest) (*common.User, error)
+	GetUserByChulaId(context.Context, *GetUserByChulaIdRequest) (*common.User, error)
 	IsAuthenticated(context.Context, *IsAuthenticatedRequest) (*wrapperspb.BoolValue, error)
 	UpdateAccountInfo(context.Context, *common.User) (*common.User, error)
 	GetUserById(context.Context, *common.GetObjectByIdRequest) (*common.User, error)
@@ -133,7 +133,7 @@ type UnimplementedAccountServiceServer struct {
 func (UnimplementedAccountServiceServer) CreateUser(context.Context, *CreateUserRequest) (*common.User, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateUser not implemented")
 }
-func (UnimplementedAccountServiceServer) GetUserByChulaId(context.Context, *common.GetObjectByIdRequest) (*common.User, error) {
+func (UnimplementedAccountServiceServer) GetUserByChulaId(context.Context, *GetUserByChulaIdRequest) (*common.User, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserByChulaId not implemented")
 }
 func (UnimplementedAccountServiceServer) IsAuthenticated(context.Context, *IsAuthenticatedRequest) (*wrapperspb.BoolValue, error) {
@@ -186,7 +186,7 @@ func _AccountService_CreateUser_Handler(srv interface{}, ctx context.Context, de
 }
 
 func _AccountService_GetUserByChulaId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(common.GetObjectByIdRequest)
+	in := new(GetUserByChulaIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -198,7 +198,7 @@ func _AccountService_GetUserByChulaId_Handler(srv interface{}, ctx context.Conte
 		FullMethod: "/hts.account.AccountService/GetUserByChulaId",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountServiceServer).GetUserByChulaId(ctx, req.(*common.GetObjectByIdRequest))
+		return srv.(AccountServiceServer).GetUserByChulaId(ctx, req.(*GetUserByChulaIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
