@@ -38,6 +38,7 @@ message CreateUserRequest {
   string last_name = 2;
   string chula_id = 3;
   string email = 4;
+  string is_chula_student = 5;
 }
 
 service AccountService {
