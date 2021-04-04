@@ -38,9 +38,13 @@ export interface CreateUserRequest {
   isChulaStudent: boolean;
 }
 
+export interface GetUserByChulaIdRequest {
+  id: string;
+}
+
 export interface AccountService {
   CreateUser(request: CreateUserRequest): Promise<User>;
-  GetUserByChulaId(request: GetObjectByIdRequest): Promise<User>;
+  GetUserByChulaId(request: GetUserByChulaIdRequest): Promise<User>;
   IsAuthenticated(
     request: IsAuthenticatedRequest
   ): Promise<boolean | undefined>;

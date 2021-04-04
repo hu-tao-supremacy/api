@@ -41,12 +41,16 @@ export interface CreateUserRequest {
   isChulaStudent: boolean;
 }
 
+export interface GetUserByChulaIdRequest {
+  id: string;
+}
+
 export const HTS_ACCOUNT_PACKAGE_NAME = "hts.account";
 
 export interface AccountServiceClient {
   createUser(request: CreateUserRequest): Observable<User>;
 
-  getUserByChulaId(request: GetObjectByIdRequest): Observable<User>;
+  getUserByChulaId(request: GetUserByChulaIdRequest): Observable<User>;
 
   isAuthenticated(request: IsAuthenticatedRequest): Observable<BoolValue>;
 
@@ -69,7 +73,7 @@ export interface AccountServiceController {
   ): Promise<User> | Observable<User> | User;
 
   getUserByChulaId(
-    request: GetObjectByIdRequest
+    request: GetUserByChulaIdRequest
   ): Promise<User> | Observable<User> | User;
 
   isAuthenticated(
