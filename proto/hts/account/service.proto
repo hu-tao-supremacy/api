@@ -41,9 +41,13 @@ message CreateUserRequest {
   bool is_chula_student = 5;
 }
 
+message GetUserByChulaIdRequest {
+  string id = 1;
+}
+
 service AccountService {
   rpc CreateUser(CreateUserRequest) returns (hts.common.User);
-  rpc GetUserByChulaId(hts.common.GetObjectByIdRequest) returns (hts.common.User);
+  rpc GetUserByChulaId(GetUserByChulaIdRequest) returns (hts.common.User);
   rpc IsAuthenticated(IsAuthenticatedRequest) returns (google.protobuf.BoolValue);
   rpc UpdateAccountInfo(hts.common.User) returns (hts.common.User);
   rpc GetUserById(hts.common.GetObjectByIdRequest) returns (hts.common.User);
