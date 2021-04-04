@@ -107,25 +107,20 @@ message GetOrganizationsResponse {
   repeated hts.common.Organization organizations = 1;
 }
 
-message GetOrganizationByIdResponse {
-  hts.common.Organization organization = 1;
-}
-
-
 service OrganizerService {
   rpc CreateOrganization(CreateOrganizationRequest) returns (hts.common.Organization);
   rpc GetOrganizations(google.protobuf.Empty) returns (GetOrganizationsResponse);
-  rpc GetOrganizationById(hts.common.GetObjectByIdRequest) returns (GetOrganizationByIdResponse);
-  rpc UpdateOrganization(UpdateOrganizationRequest) returns (google.protobuf.Empty);
-  rpc RemoveOrganization(RemoveOrganizationRequest) returns (google.protobuf.Empty);
+  rpc GetOrganizationById(hts.common.GetObjectByIdRequest) returns (hts.common.Organization);
+  rpc UpdateOrganization(UpdateOrganizationRequest) returns (hts.common.Organization);
+  rpc RemoveOrganization(RemoveOrganizationRequest) returns (hts.common.Organization);
   rpc AddUsersToOrganization(UpdateUsersInOrganizationRequest) returns (google.protobuf.Empty);
   rpc RemoveUsersFromOrganization(UpdateUsersInOrganizationRequest) returns (google.protobuf.Empty);
-  rpc CreateEvent(CreateEventRequest) returns (google.protobuf.Empty);
-  rpc UpdateEvent(UpdateEventRequest) returns (google.protobuf.Empty);
+  rpc CreateEvent(CreateEventRequest) returns (hts.common.Event);
+  rpc UpdateEvent(UpdateEventRequest) returns (hts.common.Event);
   rpc UpdateEventDurations(UpdateEventDurationRequest) returns (google.protobuf.Empty);
-  rpc RemoveEvent(RemoveEventRequest) returns (google.protobuf.Empty);
-  rpc UpdateRegistrationRequest(UpdateRegistrationRequestRequest) returns (google.protobuf.Empty);
-  rpc CreateTag(CreateTagRequest) returns (google.protobuf.Empty);
+  rpc RemoveEvent(RemoveEventRequest) returns (hts.common.Event);
+  rpc UpdateRegistrationRequest(UpdateRegistrationRequestRequest) returns (hts.common.UserEvent);
+  rpc CreateTag(CreateTagRequest) returns (hts.common.Tag);
   rpc AddTags(UpdateTagRequest) returns (google.protobuf.Empty);
   rpc RemoveTags(UpdateTagRequest) returns (google.protobuf.Empty);
   rpc HasEvent(HasEventRequest) returns (hts.common.Event);
