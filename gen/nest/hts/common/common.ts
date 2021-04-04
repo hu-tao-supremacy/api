@@ -73,6 +73,7 @@ export interface User {
   gender: Gender;
   address: StringValue | undefined;
   profilePictureUrl: StringValue | undefined;
+  didSetup: boolean;
 }
 
 export interface Organization {
