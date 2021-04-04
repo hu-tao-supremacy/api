@@ -42,4 +42,22 @@ public interface CreateUserRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getChulaIdBytes();
+
+  /**
+   * <code>string email = 4 [json_name = "email"];</code>
+   * @return The email.
+   */
+  java.lang.String getEmail();
+  /**
+   * <code>string email = 4 [json_name = "email"];</code>
+   * @return The bytes for email.
+   */
+  com.google.protobuf.ByteString
+      getEmailBytes();
+
+  /**
+   * <code>bool is_chula_student = 5 [json_name = "isChulaStudent"];</code>
+   * @return The isChulaStudent.
+   */
+  boolean getIsChulaStudent();
 }
