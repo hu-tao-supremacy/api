@@ -6,6 +6,7 @@ import {
   Tag,
   QuestionGroup,
   Question,
+  UserEvent,
   GetObjectByIdRequest,
 } from "../../hts/common/common";
 import { Empty } from "../../google/protobuf/empty";
@@ -107,32 +108,26 @@ export interface GetOrganizationsResponse {
   organizations: Organization[];
 }
 
-export interface GetOrganizationByIdResponse {
-  organization: Organization | undefined;
-}
-
 export interface OrganizerService {
   CreateOrganization(request: CreateOrganizationRequest): Promise<Organization>;
   GetOrganizations(request: Empty): Promise<GetOrganizationsResponse>;
-  GetOrganizationById(
-    request: GetObjectByIdRequest
-  ): Promise<GetOrganizationByIdResponse>;
-  UpdateOrganization(request: UpdateOrganizationRequest): Promise<Empty>;
-  RemoveOrganization(request: RemoveOrganizationRequest): Promise<Empty>;
+  GetOrganizationById(request: GetObjectByIdRequest): Promise<Organization>;
+  UpdateOrganization(request: UpdateOrganizationRequest): Promise<Organization>;
+  RemoveOrganization(request: RemoveOrganizationRequest): Promise<Organization>;
   AddUsersToOrganization(
     request: UpdateUsersInOrganizationRequest
   ): Promise<Empty>;
   RemoveUsersFromOrganization(
     request: UpdateUsersInOrganizationRequest
   ): Promise<Empty>;
-  CreateEvent(request: CreateEventRequest): Promise<Empty>;
-  UpdateEvent(request: UpdateEventRequest): Promise<Empty>;
+  CreateEvent(request: CreateEventRequest): Promise<Event>;
+  UpdateEvent(request: UpdateEventRequest): Promise<Event>;
   UpdateEventDurations(request: UpdateEventDurationRequest): Promise<Empty>;
-  RemoveEvent(request: RemoveEventRequest): Promise<Empty>;
+  RemoveEvent(request: RemoveEventRequest): Promise<Event>;
   UpdateRegistrationRequest(
     request: UpdateRegistrationRequestRequest
-  ): Promise<Empty>;
-  CreateTag(request: CreateTagRequest): Promise<Empty>;
+  ): Promise<UserEvent>;
+  CreateTag(request: CreateTagRequest): Promise<Tag>;
   AddTags(request: UpdateTagRequest): Promise<Empty>;
   RemoveTags(request: UpdateTagRequest): Promise<Empty>;
   HasEvent(request: HasEventRequest): Promise<Event>;

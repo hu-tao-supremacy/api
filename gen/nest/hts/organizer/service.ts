@@ -7,6 +7,7 @@ import {
   Tag,
   QuestionGroup,
   Question,
+  UserEvent,
   GetObjectByIdRequest,
 } from "../../hts/common/common";
 import { Observable } from "rxjs";
@@ -111,10 +112,6 @@ export interface GetOrganizationsResponse {
   organizations: Organization[];
 }
 
-export interface GetOrganizationByIdResponse {
-  organization: Organization | undefined;
-}
-
 export const HTS_ORGANIZER_PACKAGE_NAME = "hts.organizer";
 
 export interface OrganizerServiceClient {
@@ -124,13 +121,15 @@ export interface OrganizerServiceClient {
 
   getOrganizations(request: Empty): Observable<GetOrganizationsResponse>;
 
-  getOrganizationById(
-    request: GetObjectByIdRequest
-  ): Observable<GetOrganizationByIdResponse>;
+  getOrganizationById(request: GetObjectByIdRequest): Observable<Organization>;
 
-  updateOrganization(request: UpdateOrganizationRequest): Observable<Empty>;
+  updateOrganization(
+    request: UpdateOrganizationRequest
+  ): Observable<Organization>;
 
-  removeOrganization(request: RemoveOrganizationRequest): Observable<Empty>;
+  removeOrganization(
+    request: RemoveOrganizationRequest
+  ): Observable<Organization>;
 
   addUsersToOrganization(
     request: UpdateUsersInOrganizationRequest
@@ -140,19 +139,19 @@ export interface OrganizerServiceClient {
     request: UpdateUsersInOrganizationRequest
   ): Observable<Empty>;
 
-  createEvent(request: CreateEventRequest): Observable<Empty>;
+  createEvent(request: CreateEventRequest): Observable<Event>;
 
-  updateEvent(request: UpdateEventRequest): Observable<Empty>;
+  updateEvent(request: UpdateEventRequest): Observable<Event>;
 
   updateEventDurations(request: UpdateEventDurationRequest): Observable<Empty>;
 
-  removeEvent(request: RemoveEventRequest): Observable<Empty>;
+  removeEvent(request: RemoveEventRequest): Observable<Event>;
 
   updateRegistrationRequest(
     request: UpdateRegistrationRequestRequest
-  ): Observable<Empty>;
+  ): Observable<UserEvent>;
 
-  createTag(request: CreateTagRequest): Observable<Empty>;
+  createTag(request: CreateTagRequest): Observable<Tag>;
 
   addTags(request: UpdateTagRequest): Observable<Empty>;
 
@@ -185,30 +184,39 @@ export interface OrganizerServiceController {
 
   getOrganizationById(
     request: GetObjectByIdRequest
-  ):
-    | Promise<GetOrganizationByIdResponse>
-    | Observable<GetOrganizationByIdResponse>
-    | GetOrganizationByIdResponse;
+  ): Promise<Organization> | Observable<Organization> | Organization;
 
-  updateOrganization(request: UpdateOrganizationRequest): void;
+  updateOrganization(
+    request: UpdateOrganizationRequest
+  ): Promise<Organization> | Observable<Organization> | Organization;
 
-  removeOrganization(request: RemoveOrganizationRequest): void;
+  removeOrganization(
+    request: RemoveOrganizationRequest
+  ): Promise<Organization> | Observable<Organization> | Organization;
 
   addUsersToOrganization(request: UpdateUsersInOrganizationRequest): void;
 
   removeUsersFromOrganization(request: UpdateUsersInOrganizationRequest): void;
 
-  createEvent(request: CreateEventRequest): void;
+  createEvent(
+    request: CreateEventRequest
+  ): Promise<Event> | Observable<Event> | Event;
 
-  updateEvent(request: UpdateEventRequest): void;
+  updateEvent(
+    request: UpdateEventRequest
+  ): Promise<Event> | Observable<Event> | Event;
 
   updateEventDurations(request: UpdateEventDurationRequest): void;
 
-  removeEvent(request: RemoveEventRequest): void;
+  removeEvent(
+    request: RemoveEventRequest
+  ): Promise<Event> | Observable<Event> | Event;
 
-  updateRegistrationRequest(request: UpdateRegistrationRequestRequest): void;
+  updateRegistrationRequest(
+    request: UpdateRegistrationRequestRequest
+  ): Promise<UserEvent> | Observable<UserEvent> | UserEvent;
 
-  createTag(request: CreateTagRequest): void;
+  createTag(request: CreateTagRequest): Promise<Tag> | Observable<Tag> | Tag;
 
   addTags(request: UpdateTagRequest): void;
 
