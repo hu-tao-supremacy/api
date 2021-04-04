@@ -34,6 +34,8 @@ export interface CreateUserRequest {
   firstName: string;
   lastName: string;
   chulaId: string;
+  email: string;
+  isChulaStudent: boolean;
 }
 
 export interface AccountService {
