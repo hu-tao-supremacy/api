@@ -37,6 +37,8 @@ export interface CreateUserRequest {
   firstName: string;
   lastName: string;
   chulaId: string;
+  email: string;
+  isChulaStudent: boolean;
 }
 
 export const HTS_ACCOUNT_PACKAGE_NAME = "hts.account";
