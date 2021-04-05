@@ -8,6 +8,14 @@ import { Empty } from "../../google/protobuf/empty";
 
 export const protobufPackage = "hts.account";
 
+export enum Role {
+  ROLE_UNSPECIFIED = 0,
+  ORGANIZATION_OWNER = 1,
+  ORGANIZATION_EDITOR = 2,
+  ORGANIZATION_MEMBER = 3,
+  UNRECOGNIZED = -1,
+}
+
 export interface AccessTokenPayload {
   userId: number;
 }
@@ -46,6 +54,16 @@ export interface GetUserByEmailRequest {
   email: string;
 }
 
+export interface AssignRoleRequest {
+  userId: number;
+  role: Role;
+}
+
+export interface RemoveRoleRequest {
+  userId: number;
+  role: Role;
+}
+
 export interface AccountService {
   CreateUser(request: CreateUserRequest): Promise<User>;
   GetUserByChulaId(request: GetUserByChulaIdRequest): Promise<User>;
@@ -59,5 +77,7 @@ export interface AccountService {
     request: GenerateAccessTokenRequest
   ): Promise<GenerateAccessTokenResponse>;
   HasPermission(request: HasPermissionRequest): Promise<boolean | undefined>;
+  AssignRole(request: AssignRoleRequest): Promise<boolean | undefined>;
+  RemoveRole(request: RemoveRoleRequest): Promise<boolean | undefined>;
   Ping(request: Empty): Promise<boolean | undefined>;
 }
