@@ -11,6 +11,14 @@ import { Empty } from "../../google/protobuf/empty";
 
 export const protobufPackage = "hts.account";
 
+export enum Role {
+  ROLE_UNSPECIFIED = 0,
+  ORGANIZATION_OWNER = 1,
+  ORGANIZATION_EDITOR = 2,
+  ORGANIZATION_MEMBER = 3,
+  UNRECOGNIZED = -1,
+}
+
 export interface AccessTokenPayload {
   userId: number;
 }
@@ -49,6 +57,16 @@ export interface GetUserByEmailRequest {
   email: string;
 }
 
+export interface AssignRoleRequest {
+  userId: number;
+  role: Role;
+}
+
+export interface RemoveRoleRequest {
+  userId: number;
+  role: Role;
+}
+
 export const HTS_ACCOUNT_PACKAGE_NAME = "hts.account";
 
 export interface AccountServiceClient {
@@ -69,6 +87,10 @@ export interface AccountServiceClient {
   ): Observable<GenerateAccessTokenResponse>;
 
   hasPermission(request: HasPermissionRequest): Observable<BoolValue>;
+
+  assignRole(request: AssignRoleRequest): Observable<BoolValue>;
+
+  removeRole(request: RemoveRoleRequest): Observable<BoolValue>;
 
   ping(request: Empty): Observable<BoolValue>;
 }
@@ -107,6 +129,14 @@ export interface AccountServiceController {
     request: HasPermissionRequest
   ): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
 
+  assignRole(
+    request: AssignRoleRequest
+  ): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
+
+  removeRole(
+    request: RemoveRoleRequest
+  ): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
+
   ping(request: Empty): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
 }
 
@@ -121,6 +151,8 @@ export function AccountServiceControllerMethods() {
       "getUserById",
       "generateAccessToken",
       "hasPermission",
+      "assignRole",
+      "removeRole",
       "ping",
     ];
     for (const method of grpcMethods) {
