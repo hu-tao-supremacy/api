@@ -23,6 +23,7 @@ const _ = grpc.SupportPackageIsVersion7
 type AccountServiceClient interface {
 	CreateUser(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*common.User, error)
 	GetUserByChulaId(ctx context.Context, in *GetUserByChulaIdRequest, opts ...grpc.CallOption) (*common.User, error)
+	GetUserByEmail(ctx context.Context, in *GetUserByEmailRequest, opts ...grpc.CallOption) (*common.User, error)
 	IsAuthenticated(ctx context.Context, in *IsAuthenticatedRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 	UpdateAccountInfo(ctx context.Context, in *common.User, opts ...grpc.CallOption) (*common.User, error)
 	GetUserById(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*common.User, error)
@@ -51,6 +52,15 @@ func (c *accountServiceClient) CreateUser(ctx context.Context, in *CreateUserReq
 func (c *accountServiceClient) GetUserByChulaId(ctx context.Context, in *GetUserByChulaIdRequest, opts ...grpc.CallOption) (*common.User, error) {
 	out := new(common.User)
 	err := c.cc.Invoke(ctx, "/hts.account.AccountService/GetUserByChulaId", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountServiceClient) GetUserByEmail(ctx context.Context, in *GetUserByEmailRequest, opts ...grpc.CallOption) (*common.User, error) {
+	out := new(common.User)
+	err := c.cc.Invoke(ctx, "/hts.account.AccountService/GetUserByEmail", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -117,6 +127,7 @@ func (c *accountServiceClient) Ping(ctx context.Context, in *emptypb.Empty, opts
 type AccountServiceServer interface {
 	CreateUser(context.Context, *CreateUserRequest) (*common.User, error)
 	GetUserByChulaId(context.Context, *GetUserByChulaIdRequest) (*common.User, error)
+	GetUserByEmail(context.Context, *GetUserByEmailRequest) (*common.User, error)
 	IsAuthenticated(context.Context, *IsAuthenticatedRequest) (*wrapperspb.BoolValue, error)
 	UpdateAccountInfo(context.Context, *common.User) (*common.User, error)
 	GetUserById(context.Context, *common.GetObjectByIdRequest) (*common.User, error)
@@ -135,6 +146,9 @@ func (UnimplementedAccountServiceServer) CreateUser(context.Context, *CreateUser
 }
 func (UnimplementedAccountServiceServer) GetUserByChulaId(context.Context, *GetUserByChulaIdRequest) (*common.User, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserByChulaId not implemented")
+}
+func (UnimplementedAccountServiceServer) GetUserByEmail(context.Context, *GetUserByEmailRequest) (*common.User, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserByEmail not implemented")
 }
 func (UnimplementedAccountServiceServer) IsAuthenticated(context.Context, *IsAuthenticatedRequest) (*wrapperspb.BoolValue, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method IsAuthenticated not implemented")
@@ -199,6 +213,24 @@ func _AccountService_GetUserByChulaId_Handler(srv interface{}, ctx context.Conte
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AccountServiceServer).GetUserByChulaId(ctx, req.(*GetUserByChulaIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountService_GetUserByEmail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserByEmailRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountServiceServer).GetUserByEmail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.account.AccountService/GetUserByEmail",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountServiceServer).GetUserByEmail(ctx, req.(*GetUserByEmailRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -325,6 +357,10 @@ var AccountService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetUserByChulaId",
 			Handler:    _AccountService_GetUserByChulaId_Handler,
+		},
+		{
+			MethodName: "GetUserByEmail",
+			Handler:    _AccountService_GetUserByEmail_Handler,
 		},
 		{
 			MethodName: "IsAuthenticated",
