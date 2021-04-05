@@ -45,9 +45,14 @@ message GetUserByChulaIdRequest {
   string id = 1;
 }
 
+message GetUserByEmailRequest {
+  string email = 1;
+}
+
 service AccountService {
   rpc CreateUser(CreateUserRequest) returns (hts.common.User);
   rpc GetUserByChulaId(GetUserByChulaIdRequest) returns (hts.common.User);
+  rpc GetUserByEmail(GetUserByEmailRequest) returns (hts.common.User);
   rpc IsAuthenticated(IsAuthenticatedRequest) returns (google.protobuf.BoolValue);
   rpc UpdateAccountInfo(hts.common.User) returns (hts.common.User);
   rpc GetUserById(hts.common.GetObjectByIdRequest) returns (hts.common.User);
