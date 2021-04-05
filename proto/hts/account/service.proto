@@ -61,12 +61,14 @@ message GetUserByEmailRequest {
 
 message AssignRoleRequest {
   int32 userId = 1;
-  Role role = 2;
+  int32 organizationId = 2;
+  Role role = 3;
 }
 
 message RemoveRoleRequest {
   int32 userId = 1;
-  Role role = 2;
+  int32 organizationId = 2;
+  Role role = 3;
 }
 
 service AccountService {
