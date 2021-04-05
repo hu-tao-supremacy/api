@@ -49,6 +49,11 @@ public final class AccountProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hts_account_GetUserByChulaIdRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_account_GetUserByEmailRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_account_GetUserByEmailRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -76,24 +81,27 @@ public final class AccountProto {
       "la_id\030\003 \001(\tR\007chulaId\022\024\n\005email\030\004 \001(\tR\005ema" +
       "il\022(\n\020is_chula_student\030\005 \001(\010R\016isChulaStu" +
       "dent\")\n\027GetUserByChulaIdRequest\022\016\n\002id\030\001 " +
-      "\001(\tR\002id2\342\004\n\016AccountService\022>\n\nCreateUser" +
-      "\022\036.hts.account.CreateUserRequest\032\020.hts.c" +
-      "ommon.User\022J\n\020GetUserByChulaId\022$.hts.acc" +
-      "ount.GetUserByChulaIdRequest\032\020.hts.commo" +
-      "n.User\022R\n\017IsAuthenticated\022#.hts.account." +
-      "IsAuthenticatedRequest\032\032.google.protobuf" +
-      ".BoolValue\0227\n\021UpdateAccountInfo\022\020.hts.co" +
-      "mmon.User\032\020.hts.common.User\022A\n\013GetUserBy" +
-      "Id\022 .hts.common.GetObjectByIdRequest\032\020.h" +
-      "ts.common.User\022h\n\023GenerateAccessToken\022\'." +
-      "hts.account.GenerateAccessTokenRequest\032(" +
-      ".hts.account.GenerateAccessTokenResponse" +
-      "\022N\n\rHasPermission\022!.hts.account.HasPermi" +
-      "ssionRequest\032\032.google.protobuf.BoolValue" +
-      "\022:\n\004Ping\022\026.google.protobuf.Empty\032\032.googl" +
-      "e.protobuf.BoolValueBD\n\020app.onepass.apis" +
-      "B\014AccountProtoP\001Z onepass.app/facility/h" +
-      "ts/accountb\006proto3"
+      "\001(\tR\002id\"-\n\025GetUserByEmailRequest\022\024\n\005emai" +
+      "l\030\001 \001(\tR\005email2\252\005\n\016AccountService\022>\n\nCre" +
+      "ateUser\022\036.hts.account.CreateUserRequest\032" +
+      "\020.hts.common.User\022J\n\020GetUserByChulaId\022$." +
+      "hts.account.GetUserByChulaIdRequest\032\020.ht" +
+      "s.common.User\022F\n\016GetUserByEmail\022\".hts.ac" +
+      "count.GetUserByEmailRequest\032\020.hts.common" +
+      ".User\022R\n\017IsAuthenticated\022#.hts.account.I" +
+      "sAuthenticatedRequest\032\032.google.protobuf." +
+      "BoolValue\0227\n\021UpdateAccountInfo\022\020.hts.com" +
+      "mon.User\032\020.hts.common.User\022A\n\013GetUserByI" +
+      "d\022 .hts.common.GetObjectByIdRequest\032\020.ht" +
+      "s.common.User\022h\n\023GenerateAccessToken\022\'.h" +
+      "ts.account.GenerateAccessTokenRequest\032(." +
+      "hts.account.GenerateAccessTokenResponse\022" +
+      "N\n\rHasPermission\022!.hts.account.HasPermis" +
+      "sionRequest\032\032.google.protobuf.BoolValue\022" +
+      ":\n\004Ping\022\026.google.protobuf.Empty\032\032.google" +
+      ".protobuf.BoolValueBD\n\020app.onepass.apisB" +
+      "\014AccountProtoP\001Z onepass.app/facility/ht" +
+      "s/accountb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -144,6 +152,12 @@ public final class AccountProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_account_GetUserByChulaIdRequest_descriptor,
         new java.lang.String[] { "Id", });
+    internal_static_hts_account_GetUserByEmailRequest_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_hts_account_GetUserByEmailRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_account_GetUserByEmailRequest_descriptor,
+        new java.lang.String[] { "Email", });
     app.onepass.apis.CommonProto.getDescriptor();
     com.google.protobuf.EmptyProto.getDescriptor();
     com.google.protobuf.WrappersProto.getDescriptor();

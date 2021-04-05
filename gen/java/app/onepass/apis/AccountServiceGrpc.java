@@ -76,6 +76,37 @@ public final class AccountServiceGrpc {
     return getGetUserByChulaIdMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GetUserByEmailRequest,
+      app.onepass.apis.User> getGetUserByEmailMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetUserByEmail",
+      requestType = app.onepass.apis.GetUserByEmailRequest.class,
+      responseType = app.onepass.apis.User.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<app.onepass.apis.GetUserByEmailRequest,
+      app.onepass.apis.User> getGetUserByEmailMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.GetUserByEmailRequest, app.onepass.apis.User> getGetUserByEmailMethod;
+    if ((getGetUserByEmailMethod = AccountServiceGrpc.getGetUserByEmailMethod) == null) {
+      synchronized (AccountServiceGrpc.class) {
+        if ((getGetUserByEmailMethod = AccountServiceGrpc.getGetUserByEmailMethod) == null) {
+          AccountServiceGrpc.getGetUserByEmailMethod = getGetUserByEmailMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.GetUserByEmailRequest, app.onepass.apis.User>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetUserByEmail"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.GetUserByEmailRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.User.getDefaultInstance()))
+              .setSchemaDescriptor(new AccountServiceMethodDescriptorSupplier("GetUserByEmail"))
+              .build();
+        }
+      }
+    }
+    return getGetUserByEmailMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<app.onepass.apis.IsAuthenticatedRequest,
       com.google.protobuf.BoolValue> getIsAuthenticatedMethod;
 
@@ -326,6 +357,13 @@ public final class AccountServiceGrpc {
 
     /**
      */
+    public void getUserByEmail(app.onepass.apis.GetUserByEmailRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.User> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetUserByEmailMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void isAuthenticated(app.onepass.apis.IsAuthenticatedRequest request,
         io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getIsAuthenticatedMethod(), responseObserver);
@@ -382,6 +420,13 @@ public final class AccountServiceGrpc {
                 app.onepass.apis.GetUserByChulaIdRequest,
                 app.onepass.apis.User>(
                   this, METHODID_GET_USER_BY_CHULA_ID)))
+          .addMethod(
+            getGetUserByEmailMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                app.onepass.apis.GetUserByEmailRequest,
+                app.onepass.apis.User>(
+                  this, METHODID_GET_USER_BY_EMAIL)))
           .addMethod(
             getIsAuthenticatedMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -456,6 +501,14 @@ public final class AccountServiceGrpc {
         io.grpc.stub.StreamObserver<app.onepass.apis.User> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetUserByChulaIdMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getUserByEmail(app.onepass.apis.GetUserByEmailRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.User> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetUserByEmailMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -537,6 +590,13 @@ public final class AccountServiceGrpc {
 
     /**
      */
+    public app.onepass.apis.User getUserByEmail(app.onepass.apis.GetUserByEmailRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetUserByEmailMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public com.google.protobuf.BoolValue isAuthenticated(app.onepass.apis.IsAuthenticatedRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getIsAuthenticatedMethod(), getCallOptions(), request);
@@ -610,6 +670,14 @@ public final class AccountServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.User> getUserByEmail(
+        app.onepass.apis.GetUserByEmailRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetUserByEmailMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.BoolValue> isAuthenticated(
         app.onepass.apis.IsAuthenticatedRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -659,12 +727,13 @@ public final class AccountServiceGrpc {
 
   private static final int METHODID_CREATE_USER = 0;
   private static final int METHODID_GET_USER_BY_CHULA_ID = 1;
-  private static final int METHODID_IS_AUTHENTICATED = 2;
-  private static final int METHODID_UPDATE_ACCOUNT_INFO = 3;
-  private static final int METHODID_GET_USER_BY_ID = 4;
-  private static final int METHODID_GENERATE_ACCESS_TOKEN = 5;
-  private static final int METHODID_HAS_PERMISSION = 6;
-  private static final int METHODID_PING = 7;
+  private static final int METHODID_GET_USER_BY_EMAIL = 2;
+  private static final int METHODID_IS_AUTHENTICATED = 3;
+  private static final int METHODID_UPDATE_ACCOUNT_INFO = 4;
+  private static final int METHODID_GET_USER_BY_ID = 5;
+  private static final int METHODID_GENERATE_ACCESS_TOKEN = 6;
+  private static final int METHODID_HAS_PERMISSION = 7;
+  private static final int METHODID_PING = 8;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -689,6 +758,10 @@ public final class AccountServiceGrpc {
           break;
         case METHODID_GET_USER_BY_CHULA_ID:
           serviceImpl.getUserByChulaId((app.onepass.apis.GetUserByChulaIdRequest) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.User>) responseObserver);
+          break;
+        case METHODID_GET_USER_BY_EMAIL:
+          serviceImpl.getUserByEmail((app.onepass.apis.GetUserByEmailRequest) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.User>) responseObserver);
           break;
         case METHODID_IS_AUTHENTICATED:
@@ -778,6 +851,7 @@ public final class AccountServiceGrpc {
               .setSchemaDescriptor(new AccountServiceFileDescriptorSupplier())
               .addMethod(getCreateUserMethod())
               .addMethod(getGetUserByChulaIdMethod())
+              .addMethod(getGetUserByEmailMethod())
               .addMethod(getIsAuthenticatedMethod())
               .addMethod(getUpdateAccountInfoMethod())
               .addMethod(getGetUserByIdMethod())
