@@ -42,9 +42,14 @@ export interface GetUserByChulaIdRequest {
   id: string;
 }
 
+export interface GetUserByEmailRequest {
+  email: string;
+}
+
 export interface AccountService {
   CreateUser(request: CreateUserRequest): Promise<User>;
   GetUserByChulaId(request: GetUserByChulaIdRequest): Promise<User>;
+  GetUserByEmail(request: GetUserByEmailRequest): Promise<User>;
   IsAuthenticated(
     request: IsAuthenticatedRequest
   ): Promise<boolean | undefined>;

@@ -45,12 +45,18 @@ export interface GetUserByChulaIdRequest {
   id: string;
 }
 
+export interface GetUserByEmailRequest {
+  email: string;
+}
+
 export const HTS_ACCOUNT_PACKAGE_NAME = "hts.account";
 
 export interface AccountServiceClient {
   createUser(request: CreateUserRequest): Observable<User>;
 
   getUserByChulaId(request: GetUserByChulaIdRequest): Observable<User>;
+
+  getUserByEmail(request: GetUserByEmailRequest): Observable<User>;
 
   isAuthenticated(request: IsAuthenticatedRequest): Observable<BoolValue>;
 
@@ -74,6 +80,10 @@ export interface AccountServiceController {
 
   getUserByChulaId(
     request: GetUserByChulaIdRequest
+  ): Promise<User> | Observable<User> | User;
+
+  getUserByEmail(
+    request: GetUserByEmailRequest
   ): Promise<User> | Observable<User> | User;
 
   isAuthenticated(
@@ -105,6 +115,7 @@ export function AccountServiceControllerMethods() {
     const grpcMethods: string[] = [
       "createUser",
       "getUserByChulaId",
+      "getUserByEmail",
       "isAuthenticated",
       "updateAccountInfo",
       "getUserById",
