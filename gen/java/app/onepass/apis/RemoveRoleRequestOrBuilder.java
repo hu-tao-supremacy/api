@@ -14,12 +14,18 @@ public interface RemoveRoleRequestOrBuilder extends
   int getUserId();
 
   /**
-   * <code>.hts.account.Role role = 2 [json_name = "role"];</code>
+   * <code>int32 organizationId = 2 [json_name = "organizationId"];</code>
+   * @return The organizationId.
+   */
+  int getOrganizationId();
+
+  /**
+   * <code>.hts.account.Role role = 3 [json_name = "role"];</code>
    * @return The enum numeric value on the wire for role.
    */
   int getRoleValue();
   /**
-   * <code>.hts.account.Role role = 2 [json_name = "role"];</code>
+   * <code>.hts.account.Role role = 3 [json_name = "role"];</code>
    * @return The role.
    */
   app.onepass.apis.Role getRole();
