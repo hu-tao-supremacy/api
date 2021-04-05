@@ -11,6 +11,16 @@ import "hts/common/common.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
 
+enum Role {
+  ROLE_UNSPECIFIED = 0;
+  // Full access to all resources.
+  ORGANIZATION_OWNER = 1;
+  // Edit access to all resources.
+  ORGANIZATION_EDITOR = 2;
+  // Full management of events in organization.
+  ORGANIZATION_MEMBER = 3;
+}
+
 message AccessTokenPayload {
   int32 user_id = 1;
 }
@@ -49,6 +59,16 @@ message GetUserByEmailRequest {
   string email = 1;
 }
 
+message AssignRoleRequest {
+  int32 userId = 1;
+  Role role = 2;
+}
+
+message RemoveRoleRequest {
+  int32 userId = 1;
+  Role role = 2;
+}
+
 service AccountService {
   rpc CreateUser(CreateUserRequest) returns (hts.common.User);
   rpc GetUserByChulaId(GetUserByChulaIdRequest) returns (hts.common.User);
@@ -58,5 +78,7 @@ service AccountService {
   rpc GetUserById(hts.common.GetObjectByIdRequest) returns (hts.common.User);
   rpc GenerateAccessToken(GenerateAccessTokenRequest) returns (GenerateAccessTokenResponse);
   rpc HasPermission(HasPermissionRequest) returns (google.protobuf.BoolValue);
+  rpc AssignRole(AssignRoleRequest) returns (google.protobuf.BoolValue);
+  rpc RemoveRole(RemoveRoleRequest) returns (google.protobuf.BoolValue);
   rpc Ping(google.protobuf.Empty) returns (google.protobuf.BoolValue);
 }
