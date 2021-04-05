@@ -59,11 +59,13 @@ export interface GetUserByEmailRequest {
 
 export interface AssignRoleRequest {
   userId: number;
+  organizationId: number;
   role: Role;
 }
 
 export interface RemoveRoleRequest {
   userId: number;
+  organizationId: number;
   role: Role;
 }
 
