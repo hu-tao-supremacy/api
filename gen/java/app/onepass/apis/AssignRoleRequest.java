@@ -55,6 +55,11 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 16: {
+
+            organizationId_ = input.readInt32();
+            break;
+          }
+          case 24: {
             int rawValue = input.readEnum();
 
             role_ = rawValue;
@@ -103,17 +108,28 @@ private static final long serialVersionUID = 0L;
     return userId_;
   }
 
-  public static final int ROLE_FIELD_NUMBER = 2;
+  public static final int ORGANIZATIONID_FIELD_NUMBER = 2;
+  private int organizationId_;
+  /**
+   * <code>int32 organizationId = 2 [json_name = "organizationId"];</code>
+   * @return The organizationId.
+   */
+  @java.lang.Override
+  public int getOrganizationId() {
+    return organizationId_;
+  }
+
+  public static final int ROLE_FIELD_NUMBER = 3;
   private int role_;
   /**
-   * <code>.hts.account.Role role = 2 [json_name = "role"];</code>
+   * <code>.hts.account.Role role = 3 [json_name = "role"];</code>
    * @return The enum numeric value on the wire for role.
    */
   @java.lang.Override public int getRoleValue() {
     return role_;
   }
   /**
-   * <code>.hts.account.Role role = 2 [json_name = "role"];</code>
+   * <code>.hts.account.Role role = 3 [json_name = "role"];</code>
    * @return The role.
    */
   @java.lang.Override public app.onepass.apis.Role getRole() {
@@ -139,8 +155,11 @@ private static final long serialVersionUID = 0L;
     if (userId_ != 0) {
       output.writeInt32(1, userId_);
     }
+    if (organizationId_ != 0) {
+      output.writeInt32(2, organizationId_);
+    }
     if (role_ != app.onepass.apis.Role.ROLE_UNSPECIFIED.getNumber()) {
-      output.writeEnum(2, role_);
+      output.writeEnum(3, role_);
     }
     unknownFields.writeTo(output);
   }
@@ -155,9 +174,13 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(1, userId_);
     }
+    if (organizationId_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(2, organizationId_);
+    }
     if (role_ != app.onepass.apis.Role.ROLE_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(2, role_);
+        .computeEnumSize(3, role_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -176,6 +199,8 @@ private static final long serialVersionUID = 0L;
 
     if (getUserId()
         != other.getUserId()) return false;
+    if (getOrganizationId()
+        != other.getOrganizationId()) return false;
     if (role_ != other.role_) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
@@ -190,6 +215,8 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + USERID_FIELD_NUMBER;
     hash = (53 * hash) + getUserId();
+    hash = (37 * hash) + ORGANIZATIONID_FIELD_NUMBER;
+    hash = (53 * hash) + getOrganizationId();
     hash = (37 * hash) + ROLE_FIELD_NUMBER;
     hash = (53 * hash) + role_;
     hash = (29 * hash) + unknownFields.hashCode();
@@ -327,6 +354,8 @@ private static final long serialVersionUID = 0L;
       super.clear();
       userId_ = 0;
 
+      organizationId_ = 0;
+
       role_ = 0;
 
       return this;
@@ -356,6 +385,7 @@ private static final long serialVersionUID = 0L;
     public app.onepass.apis.AssignRoleRequest buildPartial() {
       app.onepass.apis.AssignRoleRequest result = new app.onepass.apis.AssignRoleRequest(this);
       result.userId_ = userId_;
+      result.organizationId_ = organizationId_;
       result.role_ = role_;
       onBuilt();
       return result;
@@ -407,6 +437,9 @@ private static final long serialVersionUID = 0L;
       if (other == app.onepass.apis.AssignRoleRequest.getDefaultInstance()) return this;
       if (other.getUserId() != 0) {
         setUserId(other.getUserId());
+      }
+      if (other.getOrganizationId() != 0) {
+        setOrganizationId(other.getOrganizationId());
       }
       if (other.role_ != 0) {
         setRoleValue(other.getRoleValue());
@@ -471,16 +504,47 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int organizationId_ ;
+    /**
+     * <code>int32 organizationId = 2 [json_name = "organizationId"];</code>
+     * @return The organizationId.
+     */
+    @java.lang.Override
+    public int getOrganizationId() {
+      return organizationId_;
+    }
+    /**
+     * <code>int32 organizationId = 2 [json_name = "organizationId"];</code>
+     * @param value The organizationId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOrganizationId(int value) {
+      
+      organizationId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 organizationId = 2 [json_name = "organizationId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearOrganizationId() {
+      
+      organizationId_ = 0;
+      onChanged();
+      return this;
+    }
+
     private int role_ = 0;
     /**
-     * <code>.hts.account.Role role = 2 [json_name = "role"];</code>
+     * <code>.hts.account.Role role = 3 [json_name = "role"];</code>
      * @return The enum numeric value on the wire for role.
      */
     @java.lang.Override public int getRoleValue() {
       return role_;
     }
     /**
-     * <code>.hts.account.Role role = 2 [json_name = "role"];</code>
+     * <code>.hts.account.Role role = 3 [json_name = "role"];</code>
      * @param value The enum numeric value on the wire for role to set.
      * @return This builder for chaining.
      */
@@ -491,7 +555,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.hts.account.Role role = 2 [json_name = "role"];</code>
+     * <code>.hts.account.Role role = 3 [json_name = "role"];</code>
      * @return The role.
      */
     @java.lang.Override
@@ -501,7 +565,7 @@ private static final long serialVersionUID = 0L;
       return result == null ? app.onepass.apis.Role.UNRECOGNIZED : result;
     }
     /**
-     * <code>.hts.account.Role role = 2 [json_name = "role"];</code>
+     * <code>.hts.account.Role role = 3 [json_name = "role"];</code>
      * @param value The role to set.
      * @return This builder for chaining.
      */
@@ -515,7 +579,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.hts.account.Role role = 2 [json_name = "role"];</code>
+     * <code>.hts.account.Role role = 3 [json_name = "role"];</code>
      * @return This builder for chaining.
      */
     public Builder clearRole() {

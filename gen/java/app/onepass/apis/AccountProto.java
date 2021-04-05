@@ -92,10 +92,12 @@ public final class AccountProto {
       "il\022(\n\020is_chula_student\030\005 \001(\010R\016isChulaStu" +
       "dent\")\n\027GetUserByChulaIdRequest\022\016\n\002id\030\001 " +
       "\001(\tR\002id\"-\n\025GetUserByEmailRequest\022\024\n\005emai" +
-      "l\030\001 \001(\tR\005email\"R\n\021AssignRoleRequest\022\026\n\006u" +
-      "serId\030\001 \001(\005R\006userId\022%\n\004role\030\002 \001(\0162\021.hts." +
-      "account.RoleR\004role\"R\n\021RemoveRoleRequest\022" +
-      "\026\n\006userId\030\001 \001(\005R\006userId\022%\n\004role\030\002 \001(\0162\021." +
+      "l\030\001 \001(\tR\005email\"z\n\021AssignRoleRequest\022\026\n\006u" +
+      "serId\030\001 \001(\005R\006userId\022&\n\016organizationId\030\002 " +
+      "\001(\005R\016organizationId\022%\n\004role\030\003 \001(\0162\021.hts." +
+      "account.RoleR\004role\"z\n\021RemoveRoleRequest\022" +
+      "\026\n\006userId\030\001 \001(\005R\006userId\022&\n\016organizationI" +
+      "d\030\002 \001(\005R\016organizationId\022%\n\004role\030\003 \001(\0162\021." +
       "hts.account.RoleR\004role*f\n\004Role\022\024\n\020ROLE_U" +
       "NSPECIFIED\020\000\022\026\n\022ORGANIZATION_OWNER\020\001\022\027\n\023" +
       "ORGANIZATION_EDITOR\020\002\022\027\n\023ORGANIZATION_ME" +
@@ -183,13 +185,13 @@ public final class AccountProto {
     internal_static_hts_account_AssignRoleRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_account_AssignRoleRequest_descriptor,
-        new java.lang.String[] { "UserId", "Role", });
+        new java.lang.String[] { "UserId", "OrganizationId", "Role", });
     internal_static_hts_account_RemoveRoleRequest_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_hts_account_RemoveRoleRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_account_RemoveRoleRequest_descriptor,
-        new java.lang.String[] { "UserId", "Role", });
+        new java.lang.String[] { "UserId", "OrganizationId", "Role", });
     app.onepass.apis.CommonProto.getDescriptor();
     com.google.protobuf.EmptyProto.getDescriptor();
     com.google.protobuf.WrappersProto.getDescriptor();
