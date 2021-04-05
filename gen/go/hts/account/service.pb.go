@@ -28,6 +28,58 @@ const (
 // of the legacy proto package is being used.
 const _ = proto.ProtoPackageIsVersion4
 
+type Role int32
+
+const (
+	Role_ROLE_UNSPECIFIED    Role = 0
+	Role_ORGANIZATION_OWNER  Role = 1
+	Role_ORGANIZATION_EDITOR Role = 2
+	Role_ORGANIZATION_MEMBER Role = 3
+)
+
+// Enum value maps for Role.
+var (
+	Role_name = map[int32]string{
+		0: "ROLE_UNSPECIFIED",
+		1: "ORGANIZATION_OWNER",
+		2: "ORGANIZATION_EDITOR",
+		3: "ORGANIZATION_MEMBER",
+	}
+	Role_value = map[string]int32{
+		"ROLE_UNSPECIFIED":    0,
+		"ORGANIZATION_OWNER":  1,
+		"ORGANIZATION_EDITOR": 2,
+		"ORGANIZATION_MEMBER": 3,
+	}
+)
+
+func (x Role) Enum() *Role {
+	p := new(Role)
+	*p = x
+	return p
+}
+
+func (x Role) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (Role) Descriptor() protoreflect.EnumDescriptor {
+	return file_hts_account_service_proto_enumTypes[0].Descriptor()
+}
+
+func (Role) Type() protoreflect.EnumType {
+	return &file_hts_account_service_proto_enumTypes[0]
+}
+
+func (x Role) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use Role.Descriptor instead.
+func (Role) EnumDescriptor() ([]byte, []int) {
+	return file_hts_account_service_proto_rawDescGZIP(), []int{0}
+}
+
 type AccessTokenPayload struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -452,6 +504,116 @@ func (x *GetUserByEmailRequest) GetEmail() string {
 	return ""
 }
 
+type AssignRoleRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	UserId int32 `protobuf:"varint,1,opt,name=userId,proto3" json:"userId,omitempty"`
+	Role   Role  `protobuf:"varint,2,opt,name=role,proto3,enum=hts.account.Role" json:"role,omitempty"`
+}
+
+func (x *AssignRoleRequest) Reset() {
+	*x = AssignRoleRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_hts_account_service_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *AssignRoleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AssignRoleRequest) ProtoMessage() {}
+
+func (x *AssignRoleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_hts_account_service_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AssignRoleRequest.ProtoReflect.Descriptor instead.
+func (*AssignRoleRequest) Descriptor() ([]byte, []int) {
+	return file_hts_account_service_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *AssignRoleRequest) GetUserId() int32 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
+func (x *AssignRoleRequest) GetRole() Role {
+	if x != nil {
+		return x.Role
+	}
+	return Role_ROLE_UNSPECIFIED
+}
+
+type RemoveRoleRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	UserId int32 `protobuf:"varint,1,opt,name=userId,proto3" json:"userId,omitempty"`
+	Role   Role  `protobuf:"varint,2,opt,name=role,proto3,enum=hts.account.Role" json:"role,omitempty"`
+}
+
+func (x *RemoveRoleRequest) Reset() {
+	*x = RemoveRoleRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_hts_account_service_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RemoveRoleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveRoleRequest) ProtoMessage() {}
+
+func (x *RemoveRoleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_hts_account_service_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveRoleRequest.ProtoReflect.Descriptor instead.
+func (*RemoveRoleRequest) Descriptor() ([]byte, []int) {
+	return file_hts_account_service_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *RemoveRoleRequest) GetUserId() int32 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
+func (x *RemoveRoleRequest) GetRole() Role {
+	if x != nil {
+		return x.Role
+	}
+	return Role_ROLE_UNSPECIFIED
+}
+
 var File_hts_account_service_proto protoreflect.FileDescriptor
 
 var file_hts_account_service_proto_rawDesc = []byte{
@@ -503,7 +665,24 @@ var file_hts_account_service_proto_rawDesc = []byte{
 	0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x2d, 0x0a, 0x15, 0x47, 0x65, 0x74, 0x55, 0x73,
 	0x65, 0x72, 0x42, 0x79, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
 	0x12, 0x14, 0x0a, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x32, 0xaa, 0x05, 0x0a, 0x0e, 0x41, 0x63, 0x63, 0x6f, 0x75,
+	0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x22, 0x52, 0x0a, 0x11, 0x41, 0x73, 0x73, 0x69, 0x67, 0x6e,
+	0x52, 0x6f, 0x6c, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x16, 0x0a, 0x06, 0x75,
+	0x73, 0x65, 0x72, 0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x75, 0x73, 0x65,
+	0x72, 0x49, 0x64, 0x12, 0x25, 0x0a, 0x04, 0x72, 0x6f, 0x6c, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x0e, 0x32, 0x11, 0x2e, 0x68, 0x74, 0x73, 0x2e, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x2e,
+	0x52, 0x6f, 0x6c, 0x65, 0x52, 0x04, 0x72, 0x6f, 0x6c, 0x65, 0x22, 0x52, 0x0a, 0x11, 0x52, 0x65,
+	0x6d, 0x6f, 0x76, 0x65, 0x52, 0x6f, 0x6c, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x16, 0x0a, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52,
+	0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x25, 0x0a, 0x04, 0x72, 0x6f, 0x6c, 0x65, 0x18,
+	0x02, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x11, 0x2e, 0x68, 0x74, 0x73, 0x2e, 0x61, 0x63, 0x63, 0x6f,
+	0x75, 0x6e, 0x74, 0x2e, 0x52, 0x6f, 0x6c, 0x65, 0x52, 0x04, 0x72, 0x6f, 0x6c, 0x65, 0x2a, 0x66,
+	0x0a, 0x04, 0x52, 0x6f, 0x6c, 0x65, 0x12, 0x14, 0x0a, 0x10, 0x52, 0x4f, 0x4c, 0x45, 0x5f, 0x55,
+	0x4e, 0x53, 0x50, 0x45, 0x43, 0x49, 0x46, 0x49, 0x45, 0x44, 0x10, 0x00, 0x12, 0x16, 0x0a, 0x12,
+	0x4f, 0x52, 0x47, 0x41, 0x4e, 0x49, 0x5a, 0x41, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x4f, 0x57, 0x4e,
+	0x45, 0x52, 0x10, 0x01, 0x12, 0x17, 0x0a, 0x13, 0x4f, 0x52, 0x47, 0x41, 0x4e, 0x49, 0x5a, 0x41,
+	0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x45, 0x44, 0x49, 0x54, 0x4f, 0x52, 0x10, 0x02, 0x12, 0x17, 0x0a,
+	0x13, 0x4f, 0x52, 0x47, 0x41, 0x4e, 0x49, 0x5a, 0x41, 0x54, 0x49, 0x4f, 0x4e, 0x5f, 0x4d, 0x45,
+	0x4d, 0x42, 0x45, 0x52, 0x10, 0x03, 0x32, 0xbe, 0x06, 0x0a, 0x0e, 0x41, 0x63, 0x63, 0x6f, 0x75,
 	0x6e, 0x74, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3e, 0x0a, 0x0a, 0x43, 0x72, 0x65,
 	0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x12, 0x1e, 0x2e, 0x68, 0x74, 0x73, 0x2e, 0x61, 0x63,
 	0x63, 0x6f, 0x75, 0x6e, 0x74, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72,
@@ -542,16 +721,25 @@ var file_hts_account_service_proto_rawDesc = []byte{
 	0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x2e, 0x48, 0x61, 0x73, 0x50, 0x65, 0x72, 0x6d, 0x69, 0x73,
 	0x73, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1a, 0x2e, 0x67, 0x6f,
 	0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x42, 0x6f,
-	0x6f, 0x6c, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x3a, 0x0a, 0x04, 0x50, 0x69, 0x6e, 0x67, 0x12,
-	0x16, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75,
-	0x66, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65,
-	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x42, 0x6f, 0x6f, 0x6c, 0x56, 0x61,
-	0x6c, 0x75, 0x65, 0x42, 0x44, 0x0a, 0x10, 0x61, 0x70, 0x70, 0x2e, 0x6f, 0x6e, 0x65, 0x70, 0x61,
-	0x73, 0x73, 0x2e, 0x61, 0x70, 0x69, 0x73, 0x42, 0x0c, 0x41, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74,
-	0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x20, 0x6f, 0x6e, 0x65, 0x70, 0x61, 0x73, 0x73,
-	0x2e, 0x61, 0x70, 0x70, 0x2f, 0x66, 0x61, 0x63, 0x69, 0x6c, 0x69, 0x74, 0x79, 0x2f, 0x68, 0x74,
-	0x73, 0x2f, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x33,
+	0x6f, 0x6c, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x48, 0x0a, 0x0a, 0x41, 0x73, 0x73, 0x69, 0x67,
+	0x6e, 0x52, 0x6f, 0x6c, 0x65, 0x12, 0x1e, 0x2e, 0x68, 0x74, 0x73, 0x2e, 0x61, 0x63, 0x63, 0x6f,
+	0x75, 0x6e, 0x74, 0x2e, 0x41, 0x73, 0x73, 0x69, 0x67, 0x6e, 0x52, 0x6f, 0x6c, 0x65, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x42, 0x6f, 0x6f, 0x6c, 0x56, 0x61, 0x6c, 0x75,
+	0x65, 0x12, 0x48, 0x0a, 0x0a, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x52, 0x6f, 0x6c, 0x65, 0x12,
+	0x1e, 0x2e, 0x68, 0x74, 0x73, 0x2e, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x2e, 0x52, 0x65,
+	0x6d, 0x6f, 0x76, 0x65, 0x52, 0x6f, 0x6c, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
+	0x1a, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75,
+	0x66, 0x2e, 0x42, 0x6f, 0x6f, 0x6c, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x12, 0x3a, 0x0a, 0x04, 0x50,
+	0x69, 0x6e, 0x67, 0x12, 0x16, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a, 0x1a, 0x2e, 0x67, 0x6f,
+	0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x42, 0x6f,
+	0x6f, 0x6c, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x42, 0x44, 0x0a, 0x10, 0x61, 0x70, 0x70, 0x2e, 0x6f,
+	0x6e, 0x65, 0x70, 0x61, 0x73, 0x73, 0x2e, 0x61, 0x70, 0x69, 0x73, 0x42, 0x0c, 0x41, 0x63, 0x63,
+	0x6f, 0x75, 0x6e, 0x74, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x20, 0x6f, 0x6e, 0x65,
+	0x70, 0x61, 0x73, 0x73, 0x2e, 0x61, 0x70, 0x70, 0x2f, 0x66, 0x61, 0x63, 0x69, 0x6c, 0x69, 0x74,
+	0x79, 0x2f, 0x68, 0x74, 0x73, 0x2f, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x62, 0x06, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -566,47 +754,57 @@ func file_hts_account_service_proto_rawDescGZIP() []byte {
 	return file_hts_account_service_proto_rawDescData
 }
 
-var file_hts_account_service_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_hts_account_service_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_hts_account_service_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_hts_account_service_proto_goTypes = []interface{}{
-	(*AccessTokenPayload)(nil),          // 0: hts.account.AccessTokenPayload
-	(*IsAuthenticatedRequest)(nil),      // 1: hts.account.IsAuthenticatedRequest
-	(*GenerateAccessTokenRequest)(nil),  // 2: hts.account.GenerateAccessTokenRequest
-	(*GenerateAccessTokenResponse)(nil), // 3: hts.account.GenerateAccessTokenResponse
-	(*HasPermissionRequest)(nil),        // 4: hts.account.HasPermissionRequest
-	(*CreateUserRequest)(nil),           // 5: hts.account.CreateUserRequest
-	(*GetUserByChulaIdRequest)(nil),     // 6: hts.account.GetUserByChulaIdRequest
-	(*GetUserByEmailRequest)(nil),       // 7: hts.account.GetUserByEmailRequest
-	(common.Permission)(0),              // 8: hts.common.Permission
-	(*common.User)(nil),                 // 9: hts.common.User
-	(*common.GetObjectByIdRequest)(nil), // 10: hts.common.GetObjectByIdRequest
-	(*emptypb.Empty)(nil),               // 11: google.protobuf.Empty
-	(*wrapperspb.BoolValue)(nil),        // 12: google.protobuf.BoolValue
+	(Role)(0),                           // 0: hts.account.Role
+	(*AccessTokenPayload)(nil),          // 1: hts.account.AccessTokenPayload
+	(*IsAuthenticatedRequest)(nil),      // 2: hts.account.IsAuthenticatedRequest
+	(*GenerateAccessTokenRequest)(nil),  // 3: hts.account.GenerateAccessTokenRequest
+	(*GenerateAccessTokenResponse)(nil), // 4: hts.account.GenerateAccessTokenResponse
+	(*HasPermissionRequest)(nil),        // 5: hts.account.HasPermissionRequest
+	(*CreateUserRequest)(nil),           // 6: hts.account.CreateUserRequest
+	(*GetUserByChulaIdRequest)(nil),     // 7: hts.account.GetUserByChulaIdRequest
+	(*GetUserByEmailRequest)(nil),       // 8: hts.account.GetUserByEmailRequest
+	(*AssignRoleRequest)(nil),           // 9: hts.account.AssignRoleRequest
+	(*RemoveRoleRequest)(nil),           // 10: hts.account.RemoveRoleRequest
+	(common.Permission)(0),              // 11: hts.common.Permission
+	(*common.User)(nil),                 // 12: hts.common.User
+	(*common.GetObjectByIdRequest)(nil), // 13: hts.common.GetObjectByIdRequest
+	(*emptypb.Empty)(nil),               // 14: google.protobuf.Empty
+	(*wrapperspb.BoolValue)(nil),        // 15: google.protobuf.BoolValue
 }
 var file_hts_account_service_proto_depIdxs = []int32{
-	8,  // 0: hts.account.HasPermissionRequest.permission_name:type_name -> hts.common.Permission
-	5,  // 1: hts.account.AccountService.CreateUser:input_type -> hts.account.CreateUserRequest
-	6,  // 2: hts.account.AccountService.GetUserByChulaId:input_type -> hts.account.GetUserByChulaIdRequest
-	7,  // 3: hts.account.AccountService.GetUserByEmail:input_type -> hts.account.GetUserByEmailRequest
-	1,  // 4: hts.account.AccountService.IsAuthenticated:input_type -> hts.account.IsAuthenticatedRequest
-	9,  // 5: hts.account.AccountService.UpdateAccountInfo:input_type -> hts.common.User
-	10, // 6: hts.account.AccountService.GetUserById:input_type -> hts.common.GetObjectByIdRequest
-	2,  // 7: hts.account.AccountService.GenerateAccessToken:input_type -> hts.account.GenerateAccessTokenRequest
-	4,  // 8: hts.account.AccountService.HasPermission:input_type -> hts.account.HasPermissionRequest
-	11, // 9: hts.account.AccountService.Ping:input_type -> google.protobuf.Empty
-	9,  // 10: hts.account.AccountService.CreateUser:output_type -> hts.common.User
-	9,  // 11: hts.account.AccountService.GetUserByChulaId:output_type -> hts.common.User
-	9,  // 12: hts.account.AccountService.GetUserByEmail:output_type -> hts.common.User
-	12, // 13: hts.account.AccountService.IsAuthenticated:output_type -> google.protobuf.BoolValue
-	9,  // 14: hts.account.AccountService.UpdateAccountInfo:output_type -> hts.common.User
-	9,  // 15: hts.account.AccountService.GetUserById:output_type -> hts.common.User
-	3,  // 16: hts.account.AccountService.GenerateAccessToken:output_type -> hts.account.GenerateAccessTokenResponse
-	12, // 17: hts.account.AccountService.HasPermission:output_type -> google.protobuf.BoolValue
-	12, // 18: hts.account.AccountService.Ping:output_type -> google.protobuf.BoolValue
-	10, // [10:19] is the sub-list for method output_type
-	1,  // [1:10] is the sub-list for method input_type
-	1,  // [1:1] is the sub-list for extension type_name
-	1,  // [1:1] is the sub-list for extension extendee
-	0,  // [0:1] is the sub-list for field type_name
+	11, // 0: hts.account.HasPermissionRequest.permission_name:type_name -> hts.common.Permission
+	0,  // 1: hts.account.AssignRoleRequest.role:type_name -> hts.account.Role
+	0,  // 2: hts.account.RemoveRoleRequest.role:type_name -> hts.account.Role
+	6,  // 3: hts.account.AccountService.CreateUser:input_type -> hts.account.CreateUserRequest
+	7,  // 4: hts.account.AccountService.GetUserByChulaId:input_type -> hts.account.GetUserByChulaIdRequest
+	8,  // 5: hts.account.AccountService.GetUserByEmail:input_type -> hts.account.GetUserByEmailRequest
+	2,  // 6: hts.account.AccountService.IsAuthenticated:input_type -> hts.account.IsAuthenticatedRequest
+	12, // 7: hts.account.AccountService.UpdateAccountInfo:input_type -> hts.common.User
+	13, // 8: hts.account.AccountService.GetUserById:input_type -> hts.common.GetObjectByIdRequest
+	3,  // 9: hts.account.AccountService.GenerateAccessToken:input_type -> hts.account.GenerateAccessTokenRequest
+	5,  // 10: hts.account.AccountService.HasPermission:input_type -> hts.account.HasPermissionRequest
+	9,  // 11: hts.account.AccountService.AssignRole:input_type -> hts.account.AssignRoleRequest
+	10, // 12: hts.account.AccountService.RemoveRole:input_type -> hts.account.RemoveRoleRequest
+	14, // 13: hts.account.AccountService.Ping:input_type -> google.protobuf.Empty
+	12, // 14: hts.account.AccountService.CreateUser:output_type -> hts.common.User
+	12, // 15: hts.account.AccountService.GetUserByChulaId:output_type -> hts.common.User
+	12, // 16: hts.account.AccountService.GetUserByEmail:output_type -> hts.common.User
+	15, // 17: hts.account.AccountService.IsAuthenticated:output_type -> google.protobuf.BoolValue
+	12, // 18: hts.account.AccountService.UpdateAccountInfo:output_type -> hts.common.User
+	12, // 19: hts.account.AccountService.GetUserById:output_type -> hts.common.User
+	4,  // 20: hts.account.AccountService.GenerateAccessToken:output_type -> hts.account.GenerateAccessTokenResponse
+	15, // 21: hts.account.AccountService.HasPermission:output_type -> google.protobuf.BoolValue
+	15, // 22: hts.account.AccountService.AssignRole:output_type -> google.protobuf.BoolValue
+	15, // 23: hts.account.AccountService.RemoveRole:output_type -> google.protobuf.BoolValue
+	15, // 24: hts.account.AccountService.Ping:output_type -> google.protobuf.BoolValue
+	14, // [14:25] is the sub-list for method output_type
+	3,  // [3:14] is the sub-list for method input_type
+	3,  // [3:3] is the sub-list for extension type_name
+	3,  // [3:3] is the sub-list for extension extendee
+	0,  // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_hts_account_service_proto_init() }
@@ -711,19 +909,44 @@ func file_hts_account_service_proto_init() {
 				return nil
 			}
 		}
+		file_hts_account_service_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*AssignRoleRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_hts_account_service_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RemoveRoleRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_hts_account_service_proto_rawDesc,
-			NumEnums:      0,
-			NumMessages:   8,
+			NumEnums:      1,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
 		GoTypes:           file_hts_account_service_proto_goTypes,
 		DependencyIndexes: file_hts_account_service_proto_depIdxs,
+		EnumInfos:         file_hts_account_service_proto_enumTypes,
 		MessageInfos:      file_hts_account_service_proto_msgTypes,
 	}.Build()
 	File_hts_account_service_proto = out.File

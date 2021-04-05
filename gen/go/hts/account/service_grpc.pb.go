@@ -29,6 +29,8 @@ type AccountServiceClient interface {
 	GetUserById(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*common.User, error)
 	GenerateAccessToken(ctx context.Context, in *GenerateAccessTokenRequest, opts ...grpc.CallOption) (*GenerateAccessTokenResponse, error)
 	HasPermission(ctx context.Context, in *HasPermissionRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
+	AssignRole(ctx context.Context, in *AssignRoleRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
+	RemoveRole(ctx context.Context, in *RemoveRoleRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 	Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 }
 
@@ -112,6 +114,24 @@ func (c *accountServiceClient) HasPermission(ctx context.Context, in *HasPermiss
 	return out, nil
 }
 
+func (c *accountServiceClient) AssignRole(ctx context.Context, in *AssignRoleRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error) {
+	out := new(wrapperspb.BoolValue)
+	err := c.cc.Invoke(ctx, "/hts.account.AccountService/AssignRole", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountServiceClient) RemoveRole(ctx context.Context, in *RemoveRoleRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error) {
+	out := new(wrapperspb.BoolValue)
+	err := c.cc.Invoke(ctx, "/hts.account.AccountService/RemoveRole", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *accountServiceClient) Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error) {
 	out := new(wrapperspb.BoolValue)
 	err := c.cc.Invoke(ctx, "/hts.account.AccountService/Ping", in, out, opts...)
@@ -133,6 +153,8 @@ type AccountServiceServer interface {
 	GetUserById(context.Context, *common.GetObjectByIdRequest) (*common.User, error)
 	GenerateAccessToken(context.Context, *GenerateAccessTokenRequest) (*GenerateAccessTokenResponse, error)
 	HasPermission(context.Context, *HasPermissionRequest) (*wrapperspb.BoolValue, error)
+	AssignRole(context.Context, *AssignRoleRequest) (*wrapperspb.BoolValue, error)
+	RemoveRole(context.Context, *RemoveRoleRequest) (*wrapperspb.BoolValue, error)
 	Ping(context.Context, *emptypb.Empty) (*wrapperspb.BoolValue, error)
 	mustEmbedUnimplementedAccountServiceServer()
 }
@@ -164,6 +186,12 @@ func (UnimplementedAccountServiceServer) GenerateAccessToken(context.Context, *G
 }
 func (UnimplementedAccountServiceServer) HasPermission(context.Context, *HasPermissionRequest) (*wrapperspb.BoolValue, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method HasPermission not implemented")
+}
+func (UnimplementedAccountServiceServer) AssignRole(context.Context, *AssignRoleRequest) (*wrapperspb.BoolValue, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AssignRole not implemented")
+}
+func (UnimplementedAccountServiceServer) RemoveRole(context.Context, *RemoveRoleRequest) (*wrapperspb.BoolValue, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveRole not implemented")
 }
 func (UnimplementedAccountServiceServer) Ping(context.Context, *emptypb.Empty) (*wrapperspb.BoolValue, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Ping not implemented")
@@ -325,6 +353,42 @@ func _AccountService_HasPermission_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _AccountService_AssignRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AssignRoleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountServiceServer).AssignRole(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.account.AccountService/AssignRole",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountServiceServer).AssignRole(ctx, req.(*AssignRoleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountService_RemoveRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveRoleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountServiceServer).RemoveRole(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.account.AccountService/RemoveRole",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountServiceServer).RemoveRole(ctx, req.(*RemoveRoleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _AccountService_Ping_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
@@ -381,6 +445,14 @@ var AccountService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "HasPermission",
 			Handler:    _AccountService_HasPermission_Handler,
+		},
+		{
+			MethodName: "AssignRole",
+			Handler:    _AccountService_AssignRole_Handler,
+		},
+		{
+			MethodName: "RemoveRole",
+			Handler:    _AccountService_RemoveRole_Handler,
 		},
 		{
 			MethodName: "Ping",
