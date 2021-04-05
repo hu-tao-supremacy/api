@@ -262,6 +262,68 @@ public final class AccountServiceGrpc {
     return getHasPermissionMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.AssignRoleRequest,
+      com.google.protobuf.BoolValue> getAssignRoleMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "AssignRole",
+      requestType = app.onepass.apis.AssignRoleRequest.class,
+      responseType = com.google.protobuf.BoolValue.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<app.onepass.apis.AssignRoleRequest,
+      com.google.protobuf.BoolValue> getAssignRoleMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.AssignRoleRequest, com.google.protobuf.BoolValue> getAssignRoleMethod;
+    if ((getAssignRoleMethod = AccountServiceGrpc.getAssignRoleMethod) == null) {
+      synchronized (AccountServiceGrpc.class) {
+        if ((getAssignRoleMethod = AccountServiceGrpc.getAssignRoleMethod) == null) {
+          AccountServiceGrpc.getAssignRoleMethod = getAssignRoleMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.AssignRoleRequest, com.google.protobuf.BoolValue>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "AssignRole"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.AssignRoleRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.BoolValue.getDefaultInstance()))
+              .setSchemaDescriptor(new AccountServiceMethodDescriptorSupplier("AssignRole"))
+              .build();
+        }
+      }
+    }
+    return getAssignRoleMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.RemoveRoleRequest,
+      com.google.protobuf.BoolValue> getRemoveRoleMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "RemoveRole",
+      requestType = app.onepass.apis.RemoveRoleRequest.class,
+      responseType = com.google.protobuf.BoolValue.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<app.onepass.apis.RemoveRoleRequest,
+      com.google.protobuf.BoolValue> getRemoveRoleMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.RemoveRoleRequest, com.google.protobuf.BoolValue> getRemoveRoleMethod;
+    if ((getRemoveRoleMethod = AccountServiceGrpc.getRemoveRoleMethod) == null) {
+      synchronized (AccountServiceGrpc.class) {
+        if ((getRemoveRoleMethod = AccountServiceGrpc.getRemoveRoleMethod) == null) {
+          AccountServiceGrpc.getRemoveRoleMethod = getRemoveRoleMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.RemoveRoleRequest, com.google.protobuf.BoolValue>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "RemoveRole"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.RemoveRoleRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.BoolValue.getDefaultInstance()))
+              .setSchemaDescriptor(new AccountServiceMethodDescriptorSupplier("RemoveRole"))
+              .build();
+        }
+      }
+    }
+    return getRemoveRoleMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
       com.google.protobuf.BoolValue> getPingMethod;
 
@@ -399,6 +461,20 @@ public final class AccountServiceGrpc {
 
     /**
      */
+    public void assignRole(app.onepass.apis.AssignRoleRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getAssignRoleMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void removeRole(app.onepass.apis.RemoveRoleRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getRemoveRoleMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void ping(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getPingMethod(), responseObserver);
@@ -462,6 +538,20 @@ public final class AccountServiceGrpc {
                 app.onepass.apis.HasPermissionRequest,
                 com.google.protobuf.BoolValue>(
                   this, METHODID_HAS_PERMISSION)))
+          .addMethod(
+            getAssignRoleMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                app.onepass.apis.AssignRoleRequest,
+                com.google.protobuf.BoolValue>(
+                  this, METHODID_ASSIGN_ROLE)))
+          .addMethod(
+            getRemoveRoleMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                app.onepass.apis.RemoveRoleRequest,
+                com.google.protobuf.BoolValue>(
+                  this, METHODID_REMOVE_ROLE)))
           .addMethod(
             getPingMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -553,6 +643,22 @@ public final class AccountServiceGrpc {
 
     /**
      */
+    public void assignRole(app.onepass.apis.AssignRoleRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getAssignRoleMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void removeRole(app.onepass.apis.RemoveRoleRequest request,
+        io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getRemoveRoleMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void ping(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
@@ -628,6 +734,20 @@ public final class AccountServiceGrpc {
     public com.google.protobuf.BoolValue hasPermission(app.onepass.apis.HasPermissionRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getHasPermissionMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.google.protobuf.BoolValue assignRole(app.onepass.apis.AssignRoleRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getAssignRoleMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public com.google.protobuf.BoolValue removeRole(app.onepass.apis.RemoveRoleRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getRemoveRoleMethod(), getCallOptions(), request);
     }
 
     /**
@@ -718,6 +838,22 @@ public final class AccountServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.BoolValue> assignRole(
+        app.onepass.apis.AssignRoleRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getAssignRoleMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.BoolValue> removeRole(
+        app.onepass.apis.RemoveRoleRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getRemoveRoleMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.BoolValue> ping(
         com.google.protobuf.Empty request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -733,7 +869,9 @@ public final class AccountServiceGrpc {
   private static final int METHODID_GET_USER_BY_ID = 5;
   private static final int METHODID_GENERATE_ACCESS_TOKEN = 6;
   private static final int METHODID_HAS_PERMISSION = 7;
-  private static final int METHODID_PING = 8;
+  private static final int METHODID_ASSIGN_ROLE = 8;
+  private static final int METHODID_REMOVE_ROLE = 9;
+  private static final int METHODID_PING = 10;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -782,6 +920,14 @@ public final class AccountServiceGrpc {
           break;
         case METHODID_HAS_PERMISSION:
           serviceImpl.hasPermission((app.onepass.apis.HasPermissionRequest) request,
+              (io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue>) responseObserver);
+          break;
+        case METHODID_ASSIGN_ROLE:
+          serviceImpl.assignRole((app.onepass.apis.AssignRoleRequest) request,
+              (io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue>) responseObserver);
+          break;
+        case METHODID_REMOVE_ROLE:
+          serviceImpl.removeRole((app.onepass.apis.RemoveRoleRequest) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue>) responseObserver);
           break;
         case METHODID_PING:
@@ -857,6 +1003,8 @@ public final class AccountServiceGrpc {
               .addMethod(getGetUserByIdMethod())
               .addMethod(getGenerateAccessTokenMethod())
               .addMethod(getHasPermissionMethod())
+              .addMethod(getAssignRoleMethod())
+              .addMethod(getRemoveRoleMethod())
               .addMethod(getPingMethod())
               .build();
         }
