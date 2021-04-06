@@ -1,5 +1,6 @@
 /* eslint-disable */
 import {
+  UserEvent_Status,
   Answer,
   Event,
   Tag,
@@ -66,7 +67,7 @@ export interface GenerateQRRequest {
   eventId: number;
 }
 
-export interface GetTagsByEventIdResponse {
+export interface TagsResponse {
   tags: Tag[];
 }
 
@@ -82,9 +83,9 @@ export interface GetEventDurationsByEventIdResponse {
   eventDurations: EventDuration[];
 }
 
-export interface GetUserAnswersByQuestionIdRequest {
-  questionId: number;
+export interface GetUserAnswerByQuestionIdRequest {
   userId: number;
+  questionId: number;
 }
 
 export interface GetQuestionGroupsByEventIdResponse {
@@ -99,6 +100,16 @@ export interface GetAnswersByQuestionIdResponse {
   answers: Answer[];
 }
 
+export interface GetEventsByUserIdRequest {
+  userId: string;
+}
+
+export interface GetUserEventByUserAndEventIdRequest {
+  userId: string;
+  eventId: string;
+  status: UserEvent_Status;
+}
+
 export interface ParticipantService {
   IsEventAvailable(
     request: IsEventAvailableRequest
@@ -110,6 +121,7 @@ export interface ParticipantService {
   ): Promise<SubmitAnswerForPostEventQuestionResponse>;
   GetEventById(request: GetEventByIdRequest): Promise<Event>;
   GetAllEvents(request: Empty): Promise<EventsResponse>;
+  GetAllTags(request: Empty): Promise<TagsResponse>;
   GetSuggestedEvents(request: Empty): Promise<EventsResponse>;
   GetUpcomingEvents(request: GetUpcomingEventsRequest): Promise<EventsResponse>;
   GetEventsByStringOfName(request: StringInputRequest): Promise<EventsResponse>;
@@ -120,9 +132,7 @@ export interface ParticipantService {
   GetEventsByFacilityId(request: GetObjectByIdRequest): Promise<EventsResponse>;
   GetEventsByDate(request: Date): Promise<EventsResponse>;
   GetLocationById(request: GetObjectByIdRequest): Promise<Location>;
-  GetTagsByEventId(
-    request: GetObjectByIdRequest
-  ): Promise<GetTagsByEventIdResponse>;
+  GetTagsByEventId(request: GetObjectByIdRequest): Promise<TagsResponse>;
   GetRatingByEventId(
     request: GetObjectByIdRequest
   ): Promise<GetRatingByEventIdResponse>;
@@ -141,6 +151,13 @@ export interface ParticipantService {
   GetAnswersByQuestionId(
     request: GetObjectByIdRequest
   ): Promise<GetAnswersByQuestionIdResponse>;
+  GetUserAnswerByQuestionId(
+    request: GetUserAnswerByQuestionIdRequest
+  ): Promise<Answer>;
+  GetEventsByUserId(request: GetEventsByUserIdRequest): Promise<EventsResponse>;
+  GetUserEventByUserAndEventId(
+    request: GetUserEventByUserAndEventIdRequest
+  ): Promise<UserEvent>;
   GenerateQR(request: GenerateQRRequest): Promise<GenerateQRResponse>;
   Ping(request: Empty): Promise<boolean | undefined>;
 }

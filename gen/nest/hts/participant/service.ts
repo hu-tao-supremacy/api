@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
-import { Observable } from "rxjs";
 import {
+  UserEvent_Status,
   Answer,
   Event,
   Tag,
@@ -13,6 +13,7 @@ import {
   Location,
   GetObjectByIdRequest,
 } from "../../hts/common/common";
+import { Observable } from "rxjs";
 import { Timestamp } from "../../google/protobuf/timestamp";
 import { BoolValue } from "../../google/protobuf/wrappers";
 import { Empty } from "../../google/protobuf/empty";
@@ -70,7 +71,7 @@ export interface GenerateQRRequest {
   eventId: number;
 }
 
-export interface GetTagsByEventIdResponse {
+export interface TagsResponse {
   tags: Tag[];
 }
 
@@ -86,9 +87,9 @@ export interface GetEventDurationsByEventIdResponse {
   eventDurations: EventDuration[];
 }
 
-export interface GetUserAnswersByQuestionIdRequest {
-  questionId: number;
+export interface GetUserAnswerByQuestionIdRequest {
   userId: number;
+  questionId: number;
 }
 
 export interface GetQuestionGroupsByEventIdResponse {
@@ -101,6 +102,16 @@ export interface GetQuestionsByQuestionGroupIdResponse {
 
 export interface GetAnswersByQuestionIdResponse {
   answers: Answer[];
+}
+
+export interface GetEventsByUserIdRequest {
+  userId: string;
+}
+
+export interface GetUserEventByUserAndEventIdRequest {
+  userId: string;
+  eventId: string;
+  status: UserEvent_Status;
 }
 
 export const HTS_PARTICIPANT_PACKAGE_NAME = "hts.participant";
@@ -119,6 +130,8 @@ export interface ParticipantServiceClient {
   getEventById(request: GetEventByIdRequest): Observable<Event>;
 
   getAllEvents(request: Empty): Observable<EventsResponse>;
+
+  getAllTags(request: Empty): Observable<TagsResponse>;
 
   getSuggestedEvents(request: Empty): Observable<EventsResponse>;
 
@@ -144,9 +157,7 @@ export interface ParticipantServiceClient {
 
   getLocationById(request: GetObjectByIdRequest): Observable<Location>;
 
-  getTagsByEventId(
-    request: GetObjectByIdRequest
-  ): Observable<GetTagsByEventIdResponse>;
+  getTagsByEventId(request: GetObjectByIdRequest): Observable<TagsResponse>;
 
   getRatingByEventId(
     request: GetObjectByIdRequest
@@ -171,6 +182,18 @@ export interface ParticipantServiceClient {
   getAnswersByQuestionId(
     request: GetObjectByIdRequest
   ): Observable<GetAnswersByQuestionIdResponse>;
+
+  getUserAnswerByQuestionId(
+    request: GetUserAnswerByQuestionIdRequest
+  ): Observable<Answer>;
+
+  getEventsByUserId(
+    request: GetEventsByUserIdRequest
+  ): Observable<EventsResponse>;
+
+  getUserEventByUserAndEventId(
+    request: GetUserEventByUserAndEventIdRequest
+  ): Observable<UserEvent>;
 
   generateQR(request: GenerateQRRequest): Observable<GenerateQRResponse>;
 
@@ -204,6 +227,10 @@ export interface ParticipantServiceController {
   getAllEvents(
     request: Empty
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
+
+  getAllTags(
+    request: Empty
+  ): Promise<TagsResponse> | Observable<TagsResponse> | TagsResponse;
 
   getSuggestedEvents(
     request: Empty
@@ -239,10 +266,7 @@ export interface ParticipantServiceController {
 
   getTagsByEventId(
     request: GetObjectByIdRequest
-  ):
-    | Promise<GetTagsByEventIdResponse>
-    | Observable<GetTagsByEventIdResponse>
-    | GetTagsByEventIdResponse;
+  ): Promise<TagsResponse> | Observable<TagsResponse> | TagsResponse;
 
   getRatingByEventId(
     request: GetObjectByIdRequest
@@ -286,6 +310,18 @@ export interface ParticipantServiceController {
     | Observable<GetAnswersByQuestionIdResponse>
     | GetAnswersByQuestionIdResponse;
 
+  getUserAnswerByQuestionId(
+    request: GetUserAnswerByQuestionIdRequest
+  ): Promise<Answer> | Observable<Answer> | Answer;
+
+  getEventsByUserId(
+    request: GetEventsByUserIdRequest
+  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
+
+  getUserEventByUserAndEventId(
+    request: GetUserEventByUserAndEventIdRequest
+  ): Promise<UserEvent> | Observable<UserEvent> | UserEvent;
+
   generateQR(
     request: GenerateQRRequest
   ):
@@ -305,6 +341,7 @@ export function ParticipantServiceControllerMethods() {
       "submitAnswerForPostEventQuestion",
       "getEventById",
       "getAllEvents",
+      "getAllTags",
       "getSuggestedEvents",
       "getUpcomingEvents",
       "getEventsByStringOfName",
@@ -320,6 +357,9 @@ export function ParticipantServiceControllerMethods() {
       "getQuestionGroupsByEventId",
       "getQuestionsByQuestionGroupId",
       "getAnswersByQuestionId",
+      "getUserAnswerByQuestionId",
+      "getEventsByUserId",
+      "getUserEventByUserAndEventId",
       "generateQR",
       "ping",
     ];
