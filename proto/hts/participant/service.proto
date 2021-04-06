@@ -63,7 +63,7 @@ message GenerateQRRequest {
     int32 event_id = 3;
 }
 
-message GetTagsByEventIdResponse {
+message TagsResponse {
     repeated hts.common.Tag tags = 1;
 }
 
@@ -79,9 +79,9 @@ message GetEventDurationsByEventIdResponse {
     repeated hts.common.EventDuration event_durations = 1;
 }
 
-message GetUserAnswersByQuestionIdRequest {
-    int32 question_id = 1;
-    int32 user_id = 2;
+message GetUserAnswerByQuestionIdRequest {
+    int32 user_id = 1;
+    int32 question_id = 2;
 }
 
 message GetQuestionGroupsByEventIdResponse {
@@ -94,6 +94,16 @@ message GetQuestionsByQuestionGroupIdResponse {
 
 message GetAnswersByQuestionIdResponse {
     repeated hts.common.Answer answers = 1;
+}
+
+message GetEventsByUserIdRequest {
+    string user_id = 1;
+}
+
+message GetUserEventByUserAndEventIdRequest {
+    string user_id = 1;
+    string event_id = 2;
+    hts.common.UserEvent.Status status = 3;
 }
 
 service ParticipantService {
@@ -111,6 +121,8 @@ service ParticipantService {
     rpc GetEventById(GetEventByIdRequest) returns (hts.common.Event);
     // Return all event in database
     rpc GetAllEvents(google.protobuf.Empty) returns (EventsResponse);
+    // Return all tags in database
+    rpc GetAllTags(google.protobuf.Empty) returns (TagsResponse);
     // Return 10 random events --> waiting for machine learning implementation
     rpc GetSuggestedEvents(google.protobuf.Empty) returns (EventsResponse);
     // Get events from range of date
@@ -131,7 +143,7 @@ service ParticipantService {
     rpc GetLocationById(hts.common.GetObjectByIdRequest) returns (hts.common.Location);
 
     // Get Tags, Rating, Approved User, Durations from event_id
-    rpc GetTagsByEventId(hts.common.GetObjectByIdRequest) returns (GetTagsByEventIdResponse);
+    rpc GetTagsByEventId(hts.common.GetObjectByIdRequest) returns (TagsResponse);
     rpc GetRatingByEventId(hts.common.GetObjectByIdRequest) returns (GetRatingByEventIdResponse);
     rpc GetApprovedUserByEventId(hts.common.GetObjectByIdRequest) returns (GetApprovedUserByEventIdResponse);
     rpc GetEventDurationsByEventId(hts.common.GetObjectByIdRequest) returns (GetEventDurationsByEventIdResponse);
@@ -140,6 +152,10 @@ service ParticipantService {
     rpc GetQuestionGroupsByEventId(hts.common.GetObjectByIdRequest) returns (GetQuestionGroupsByEventIdResponse);
     rpc GetQuestionsByQuestionGroupId(hts.common.GetObjectByIdRequest) returns (GetQuestionsByQuestionGroupIdResponse);
     rpc GetAnswersByQuestionId(hts.common.GetObjectByIdRequest) returns (GetAnswersByQuestionIdResponse);
+    rpc GetUserAnswerByQuestionId(GetUserAnswerByQuestionIdRequest) returns (hts.common.Answer);
+
+    rpc GetEventsByUserId(GetEventsByUserIdRequest) returns (EventsResponse);
+    rpc GetUserEventByUserAndEventId(GetUserEventByUserAndEventIdRequest) returns (hts.common.UserEvent);
 
     // Generate QR from combination of ID, User_ID, Event_ID
     rpc GenerateQR(GenerateQRRequest) returns (GenerateQRResponse);
