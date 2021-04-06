@@ -28,6 +28,7 @@ type ParticipantServiceClient interface {
 	SubmitAnswerForPostEventQuestion(ctx context.Context, in *SubmitAnswerForPostEventQuestionRequest, opts ...grpc.CallOption) (*SubmitAnswerForPostEventQuestionResponse, error)
 	GetEventById(ctx context.Context, in *GetEventByIdRequest, opts ...grpc.CallOption) (*common.Event, error)
 	GetAllEvents(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*EventsResponse, error)
+	GetAllTags(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*TagsResponse, error)
 	GetSuggestedEvents(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*EventsResponse, error)
 	GetUpcomingEvents(ctx context.Context, in *GetUpcomingEventsRequest, opts ...grpc.CallOption) (*EventsResponse, error)
 	GetEventsByStringOfName(ctx context.Context, in *StringInputRequest, opts ...grpc.CallOption) (*EventsResponse, error)
@@ -36,13 +37,16 @@ type ParticipantServiceClient interface {
 	GetEventsByFacilityId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*EventsResponse, error)
 	GetEventsByDate(ctx context.Context, in *timestamppb.Timestamp, opts ...grpc.CallOption) (*EventsResponse, error)
 	GetLocationById(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*common.Location, error)
-	GetTagsByEventId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetTagsByEventIdResponse, error)
+	GetTagsByEventId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*TagsResponse, error)
 	GetRatingByEventId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetRatingByEventIdResponse, error)
 	GetApprovedUserByEventId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetApprovedUserByEventIdResponse, error)
 	GetEventDurationsByEventId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetEventDurationsByEventIdResponse, error)
 	GetQuestionGroupsByEventId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetQuestionGroupsByEventIdResponse, error)
 	GetQuestionsByQuestionGroupId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetQuestionsByQuestionGroupIdResponse, error)
 	GetAnswersByQuestionId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetAnswersByQuestionIdResponse, error)
+	GetUserAnswerByQuestionId(ctx context.Context, in *GetUserAnswerByQuestionIdRequest, opts ...grpc.CallOption) (*common.Answer, error)
+	GetEventsByUserId(ctx context.Context, in *GetEventsByUserIdRequest, opts ...grpc.CallOption) (*EventsResponse, error)
+	GetUserEventByUserAndEventId(ctx context.Context, in *GetUserEventByUserAndEventIdRequest, opts ...grpc.CallOption) (*common.UserEvent, error)
 	GenerateQR(ctx context.Context, in *GenerateQRRequest, opts ...grpc.CallOption) (*GenerateQRResponse, error)
 	Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 }
@@ -103,6 +107,15 @@ func (c *participantServiceClient) GetEventById(ctx context.Context, in *GetEven
 func (c *participantServiceClient) GetAllEvents(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*EventsResponse, error) {
 	out := new(EventsResponse)
 	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GetAllEvents", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *participantServiceClient) GetAllTags(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*TagsResponse, error) {
+	out := new(TagsResponse)
+	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GetAllTags", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -181,8 +194,8 @@ func (c *participantServiceClient) GetLocationById(ctx context.Context, in *comm
 	return out, nil
 }
 
-func (c *participantServiceClient) GetTagsByEventId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetTagsByEventIdResponse, error) {
-	out := new(GetTagsByEventIdResponse)
+func (c *participantServiceClient) GetTagsByEventId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*TagsResponse, error) {
+	out := new(TagsResponse)
 	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GetTagsByEventId", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -244,6 +257,33 @@ func (c *participantServiceClient) GetAnswersByQuestionId(ctx context.Context, i
 	return out, nil
 }
 
+func (c *participantServiceClient) GetUserAnswerByQuestionId(ctx context.Context, in *GetUserAnswerByQuestionIdRequest, opts ...grpc.CallOption) (*common.Answer, error) {
+	out := new(common.Answer)
+	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GetUserAnswerByQuestionId", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *participantServiceClient) GetEventsByUserId(ctx context.Context, in *GetEventsByUserIdRequest, opts ...grpc.CallOption) (*EventsResponse, error) {
+	out := new(EventsResponse)
+	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GetEventsByUserId", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *participantServiceClient) GetUserEventByUserAndEventId(ctx context.Context, in *GetUserEventByUserAndEventIdRequest, opts ...grpc.CallOption) (*common.UserEvent, error) {
+	out := new(common.UserEvent)
+	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GetUserEventByUserAndEventId", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *participantServiceClient) GenerateQR(ctx context.Context, in *GenerateQRRequest, opts ...grpc.CallOption) (*GenerateQRResponse, error) {
 	out := new(GenerateQRResponse)
 	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GenerateQR", in, out, opts...)
@@ -272,6 +312,7 @@ type ParticipantServiceServer interface {
 	SubmitAnswerForPostEventQuestion(context.Context, *SubmitAnswerForPostEventQuestionRequest) (*SubmitAnswerForPostEventQuestionResponse, error)
 	GetEventById(context.Context, *GetEventByIdRequest) (*common.Event, error)
 	GetAllEvents(context.Context, *emptypb.Empty) (*EventsResponse, error)
+	GetAllTags(context.Context, *emptypb.Empty) (*TagsResponse, error)
 	GetSuggestedEvents(context.Context, *emptypb.Empty) (*EventsResponse, error)
 	GetUpcomingEvents(context.Context, *GetUpcomingEventsRequest) (*EventsResponse, error)
 	GetEventsByStringOfName(context.Context, *StringInputRequest) (*EventsResponse, error)
@@ -280,13 +321,16 @@ type ParticipantServiceServer interface {
 	GetEventsByFacilityId(context.Context, *common.GetObjectByIdRequest) (*EventsResponse, error)
 	GetEventsByDate(context.Context, *timestamppb.Timestamp) (*EventsResponse, error)
 	GetLocationById(context.Context, *common.GetObjectByIdRequest) (*common.Location, error)
-	GetTagsByEventId(context.Context, *common.GetObjectByIdRequest) (*GetTagsByEventIdResponse, error)
+	GetTagsByEventId(context.Context, *common.GetObjectByIdRequest) (*TagsResponse, error)
 	GetRatingByEventId(context.Context, *common.GetObjectByIdRequest) (*GetRatingByEventIdResponse, error)
 	GetApprovedUserByEventId(context.Context, *common.GetObjectByIdRequest) (*GetApprovedUserByEventIdResponse, error)
 	GetEventDurationsByEventId(context.Context, *common.GetObjectByIdRequest) (*GetEventDurationsByEventIdResponse, error)
 	GetQuestionGroupsByEventId(context.Context, *common.GetObjectByIdRequest) (*GetQuestionGroupsByEventIdResponse, error)
 	GetQuestionsByQuestionGroupId(context.Context, *common.GetObjectByIdRequest) (*GetQuestionsByQuestionGroupIdResponse, error)
 	GetAnswersByQuestionId(context.Context, *common.GetObjectByIdRequest) (*GetAnswersByQuestionIdResponse, error)
+	GetUserAnswerByQuestionId(context.Context, *GetUserAnswerByQuestionIdRequest) (*common.Answer, error)
+	GetEventsByUserId(context.Context, *GetEventsByUserIdRequest) (*EventsResponse, error)
+	GetUserEventByUserAndEventId(context.Context, *GetUserEventByUserAndEventIdRequest) (*common.UserEvent, error)
 	GenerateQR(context.Context, *GenerateQRRequest) (*GenerateQRResponse, error)
 	Ping(context.Context, *emptypb.Empty) (*wrapperspb.BoolValue, error)
 	mustEmbedUnimplementedParticipantServiceServer()
@@ -314,6 +358,9 @@ func (UnimplementedParticipantServiceServer) GetEventById(context.Context, *GetE
 func (UnimplementedParticipantServiceServer) GetAllEvents(context.Context, *emptypb.Empty) (*EventsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllEvents not implemented")
 }
+func (UnimplementedParticipantServiceServer) GetAllTags(context.Context, *emptypb.Empty) (*TagsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAllTags not implemented")
+}
 func (UnimplementedParticipantServiceServer) GetSuggestedEvents(context.Context, *emptypb.Empty) (*EventsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetSuggestedEvents not implemented")
 }
@@ -338,7 +385,7 @@ func (UnimplementedParticipantServiceServer) GetEventsByDate(context.Context, *t
 func (UnimplementedParticipantServiceServer) GetLocationById(context.Context, *common.GetObjectByIdRequest) (*common.Location, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetLocationById not implemented")
 }
-func (UnimplementedParticipantServiceServer) GetTagsByEventId(context.Context, *common.GetObjectByIdRequest) (*GetTagsByEventIdResponse, error) {
+func (UnimplementedParticipantServiceServer) GetTagsByEventId(context.Context, *common.GetObjectByIdRequest) (*TagsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTagsByEventId not implemented")
 }
 func (UnimplementedParticipantServiceServer) GetRatingByEventId(context.Context, *common.GetObjectByIdRequest) (*GetRatingByEventIdResponse, error) {
@@ -358,6 +405,15 @@ func (UnimplementedParticipantServiceServer) GetQuestionsByQuestionGroupId(conte
 }
 func (UnimplementedParticipantServiceServer) GetAnswersByQuestionId(context.Context, *common.GetObjectByIdRequest) (*GetAnswersByQuestionIdResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAnswersByQuestionId not implemented")
+}
+func (UnimplementedParticipantServiceServer) GetUserAnswerByQuestionId(context.Context, *GetUserAnswerByQuestionIdRequest) (*common.Answer, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserAnswerByQuestionId not implemented")
+}
+func (UnimplementedParticipantServiceServer) GetEventsByUserId(context.Context, *GetEventsByUserIdRequest) (*EventsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetEventsByUserId not implemented")
+}
+func (UnimplementedParticipantServiceServer) GetUserEventByUserAndEventId(context.Context, *GetUserEventByUserAndEventIdRequest) (*common.UserEvent, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserEventByUserAndEventId not implemented")
 }
 func (UnimplementedParticipantServiceServer) GenerateQR(context.Context, *GenerateQRRequest) (*GenerateQRResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateQR not implemented")
@@ -482,6 +538,24 @@ func _ParticipantService_GetAllEvents_Handler(srv interface{}, ctx context.Conte
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ParticipantServiceServer).GetAllEvents(ctx, req.(*emptypb.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ParticipantService_GetAllTags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(emptypb.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParticipantServiceServer).GetAllTags(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.participant.ParticipantService/GetAllTags",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParticipantServiceServer).GetAllTags(ctx, req.(*emptypb.Empty))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -756,6 +830,60 @@ func _ParticipantService_GetAnswersByQuestionId_Handler(srv interface{}, ctx con
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ParticipantService_GetUserAnswerByQuestionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserAnswerByQuestionIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParticipantServiceServer).GetUserAnswerByQuestionId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.participant.ParticipantService/GetUserAnswerByQuestionId",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParticipantServiceServer).GetUserAnswerByQuestionId(ctx, req.(*GetUserAnswerByQuestionIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ParticipantService_GetEventsByUserId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetEventsByUserIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParticipantServiceServer).GetEventsByUserId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.participant.ParticipantService/GetEventsByUserId",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParticipantServiceServer).GetEventsByUserId(ctx, req.(*GetEventsByUserIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ParticipantService_GetUserEventByUserAndEventId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserEventByUserAndEventIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParticipantServiceServer).GetUserEventByUserAndEventId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.participant.ParticipantService/GetUserEventByUserAndEventId",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParticipantServiceServer).GetUserEventByUserAndEventId(ctx, req.(*GetUserEventByUserAndEventIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ParticipantService_GenerateQR_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GenerateQRRequest)
 	if err := dec(in); err != nil {
@@ -824,6 +952,10 @@ var ParticipantService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ParticipantService_GetAllEvents_Handler,
 		},
 		{
+			MethodName: "GetAllTags",
+			Handler:    _ParticipantService_GetAllTags_Handler,
+		},
+		{
 			MethodName: "GetSuggestedEvents",
 			Handler:    _ParticipantService_GetSuggestedEvents_Handler,
 		},
@@ -882,6 +1014,18 @@ var ParticipantService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAnswersByQuestionId",
 			Handler:    _ParticipantService_GetAnswersByQuestionId_Handler,
+		},
+		{
+			MethodName: "GetUserAnswerByQuestionId",
+			Handler:    _ParticipantService_GetUserAnswerByQuestionId_Handler,
+		},
+		{
+			MethodName: "GetEventsByUserId",
+			Handler:    _ParticipantService_GetEventsByUserId_Handler,
+		},
+		{
+			MethodName: "GetUserEventByUserAndEventId",
+			Handler:    _ParticipantService_GetUserEventByUserAndEventId_Handler,
 		},
 		{
 			MethodName: "GenerateQR",
