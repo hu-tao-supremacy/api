@@ -101,10 +101,6 @@ message GetUserEventsByUserIdRequest {
     hts.common.UserEvent.Status status = 2;
 }
 
-message GetUserEventsByUserIdResponse {
-    repeated hts.common.UserEvent user_events = 1;
-}
-
 service ParticipantService {
     // Check whether event's start date is before specified date
     rpc IsEventAvailable(IsEventAvailableRequest) returns (google.protobuf.BoolValue);
@@ -151,7 +147,7 @@ service ParticipantService {
     rpc GetAnswersByQuestionId(hts.common.GetObjectByIdRequest) returns (GetAnswersByQuestionIdResponse);
     rpc GetUserAnswersByQuestionId(GetUserAnswersByQuestionIdRequest) returns (GetAnswersByQuestionIdResponse);
 
-    rpc GetUserEventsByUserId(GetUserEventsByUserIdRequest) returns (GetUserEventsByUserIdResponse);
+    rpc GetUserEventsByUserId(GetUserEventsByUserIdRequest) returns (EventsResponse);
 
     // Generate QR from combination of ID, User_ID, Event_ID
     rpc GenerateQR(GenerateQRRequest) returns (GenerateQRResponse);
