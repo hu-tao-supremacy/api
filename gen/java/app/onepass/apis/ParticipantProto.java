@@ -173,9 +173,9 @@ public final class ParticipantProto {
       "N\n\036GetAnswersByQuestionIdResponse\022,\n\007ans" +
       "wers\030\001 \003(\0132\022.hts.common.AnswerR\007answers\"" +
       "3\n\030GetEventsByUserIdRequest\022\027\n\007user_id\030\001" +
-      " \001(\tR\006userId\"\217\001\n#GetUserEventByUserAndEv" +
-      "entIdRequest\022\027\n\007user_id\030\001 \001(\tR\006userId\022\031\n" +
-      "\010event_id\030\002 \001(\tR\007eventId\0224\n\006status\030\003 \001(\016" +
+      " \001(\005R\006userId\"\217\001\n#GetUserEventByUserAndEv" +
+      "entIdRequest\022\027\n\007user_id\030\001 \001(\005R\006userId\022\031\n" +
+      "\010event_id\030\002 \001(\005R\007eventId\0224\n\006status\030\003 \001(\016" +
       "2\034.hts.common.UserEvent.StatusR\006status2\364" +
       "\023\n\022ParticipantService\022X\n\020IsEventAvailabl" +
       "e\022(.hts.participant.IsEventAvailableRequ" +

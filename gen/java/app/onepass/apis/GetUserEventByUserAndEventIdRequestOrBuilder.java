@@ -8,28 +8,16 @@ public interface GetUserEventByUserAndEventIdRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string user_id = 1 [json_name = "userId"];</code>
+   * <code>int32 user_id = 1 [json_name = "userId"];</code>
    * @return The userId.
    */
-  java.lang.String getUserId();
-  /**
-   * <code>string user_id = 1 [json_name = "userId"];</code>
-   * @return The bytes for userId.
-   */
-  com.google.protobuf.ByteString
-      getUserIdBytes();
+  int getUserId();
 
   /**
-   * <code>string event_id = 2 [json_name = "eventId"];</code>
+   * <code>int32 event_id = 2 [json_name = "eventId"];</code>
    * @return The eventId.
    */
-  java.lang.String getEventId();
-  /**
-   * <code>string event_id = 2 [json_name = "eventId"];</code>
-   * @return The bytes for eventId.
-   */
-  com.google.protobuf.ByteString
-      getEventIdBytes();
+  int getEventId();
 
   /**
    * <code>.hts.common.UserEvent.Status status = 3 [json_name = "status"];</code>

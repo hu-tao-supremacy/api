@@ -16,8 +16,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private GetUserEventByUserAndEventIdRequest() {
-    userId_ = "";
-    eventId_ = "";
     status_ = 0;
   }
 
@@ -51,16 +49,14 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 8: {
 
-            userId_ = s;
+            userId_ = input.readInt32();
             break;
           }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 16: {
 
-            eventId_ = s;
+            eventId_ = input.readInt32();
             break;
           }
           case 24: {
@@ -102,79 +98,25 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USER_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object userId_;
+  private int userId_;
   /**
-   * <code>string user_id = 1 [json_name = "userId"];</code>
+   * <code>int32 user_id = 1 [json_name = "userId"];</code>
    * @return The userId.
    */
   @java.lang.Override
-  public java.lang.String getUserId() {
-    java.lang.Object ref = userId_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      userId_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string user_id = 1 [json_name = "userId"];</code>
-   * @return The bytes for userId.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getUserIdBytes() {
-    java.lang.Object ref = userId_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      userId_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public int getUserId() {
+    return userId_;
   }
 
   public static final int EVENT_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object eventId_;
+  private int eventId_;
   /**
-   * <code>string event_id = 2 [json_name = "eventId"];</code>
+   * <code>int32 event_id = 2 [json_name = "eventId"];</code>
    * @return The eventId.
    */
   @java.lang.Override
-  public java.lang.String getEventId() {
-    java.lang.Object ref = eventId_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      eventId_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string event_id = 2 [json_name = "eventId"];</code>
-   * @return The bytes for eventId.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getEventIdBytes() {
-    java.lang.Object ref = eventId_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      eventId_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public int getEventId() {
+    return eventId_;
   }
 
   public static final int STATUS_FIELD_NUMBER = 3;
@@ -210,11 +152,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getUserIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userId_);
+    if (userId_ != 0) {
+      output.writeInt32(1, userId_);
     }
-    if (!getEventIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, eventId_);
+    if (eventId_ != 0) {
+      output.writeInt32(2, eventId_);
     }
     if (status_ != app.onepass.apis.UserEvent.Status.STATUS_UNSPECIFIED.getNumber()) {
       output.writeEnum(3, status_);
@@ -228,11 +170,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getUserIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userId_);
+    if (userId_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(1, userId_);
     }
-    if (!getEventIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, eventId_);
+    if (eventId_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(2, eventId_);
     }
     if (status_ != app.onepass.apis.UserEvent.Status.STATUS_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
@@ -253,10 +197,10 @@ private static final long serialVersionUID = 0L;
     }
     app.onepass.apis.GetUserEventByUserAndEventIdRequest other = (app.onepass.apis.GetUserEventByUserAndEventIdRequest) obj;
 
-    if (!getUserId()
-        .equals(other.getUserId())) return false;
-    if (!getEventId()
-        .equals(other.getEventId())) return false;
+    if (getUserId()
+        != other.getUserId()) return false;
+    if (getEventId()
+        != other.getEventId()) return false;
     if (status_ != other.status_) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
@@ -270,9 +214,9 @@ private static final long serialVersionUID = 0L;
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getUserId().hashCode();
+    hash = (53 * hash) + getUserId();
     hash = (37 * hash) + EVENT_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getEventId().hashCode();
+    hash = (53 * hash) + getEventId();
     hash = (37 * hash) + STATUS_FIELD_NUMBER;
     hash = (53 * hash) + status_;
     hash = (29 * hash) + unknownFields.hashCode();
@@ -408,9 +352,9 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      userId_ = "";
+      userId_ = 0;
 
-      eventId_ = "";
+      eventId_ = 0;
 
       status_ = 0;
 
@@ -491,13 +435,11 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(app.onepass.apis.GetUserEventByUserAndEventIdRequest other) {
       if (other == app.onepass.apis.GetUserEventByUserAndEventIdRequest.getDefaultInstance()) return this;
-      if (!other.getUserId().isEmpty()) {
-        userId_ = other.userId_;
-        onChanged();
+      if (other.getUserId() != 0) {
+        setUserId(other.getUserId());
       }
-      if (!other.getEventId().isEmpty()) {
-        eventId_ = other.eventId_;
-        onChanged();
+      if (other.getEventId() != 0) {
+        setEventId(other.getEventId());
       }
       if (other.status_ != 0) {
         setStatusValue(other.getStatusValue());
@@ -531,154 +473,64 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object userId_ = "";
+    private int userId_ ;
     /**
-     * <code>string user_id = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @return The userId.
      */
-    public java.lang.String getUserId() {
-      java.lang.Object ref = userId_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        userId_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override
+    public int getUserId() {
+      return userId_;
     }
     /**
-     * <code>string user_id = 1 [json_name = "userId"];</code>
-     * @return The bytes for userId.
-     */
-    public com.google.protobuf.ByteString
-        getUserIdBytes() {
-      java.lang.Object ref = userId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        userId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string user_id = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
-    public Builder setUserId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+    public Builder setUserId(int value) {
+      
       userId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string user_id = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
       
-      userId_ = getDefaultInstance().getUserId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string user_id = 1 [json_name = "userId"];</code>
-     * @param value The bytes for userId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setUserIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      userId_ = value;
+      userId_ = 0;
       onChanged();
       return this;
     }
 
-    private java.lang.Object eventId_ = "";
+    private int eventId_ ;
     /**
-     * <code>string event_id = 2 [json_name = "eventId"];</code>
+     * <code>int32 event_id = 2 [json_name = "eventId"];</code>
      * @return The eventId.
      */
-    public java.lang.String getEventId() {
-      java.lang.Object ref = eventId_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        eventId_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override
+    public int getEventId() {
+      return eventId_;
     }
     /**
-     * <code>string event_id = 2 [json_name = "eventId"];</code>
-     * @return The bytes for eventId.
-     */
-    public com.google.protobuf.ByteString
-        getEventIdBytes() {
-      java.lang.Object ref = eventId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        eventId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string event_id = 2 [json_name = "eventId"];</code>
+     * <code>int32 event_id = 2 [json_name = "eventId"];</code>
      * @param value The eventId to set.
      * @return This builder for chaining.
      */
-    public Builder setEventId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+    public Builder setEventId(int value) {
+      
       eventId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string event_id = 2 [json_name = "eventId"];</code>
+     * <code>int32 event_id = 2 [json_name = "eventId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearEventId() {
       
-      eventId_ = getDefaultInstance().getEventId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string event_id = 2 [json_name = "eventId"];</code>
-     * @param value The bytes for eventId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setEventIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      eventId_ = value;
+      eventId_ = 0;
       onChanged();
       return this;
     }
