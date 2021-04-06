@@ -63,7 +63,7 @@ message GenerateQRRequest {
     int32 event_id = 3;
 }
 
-message GetTagsByEventIdResponse {
+message TagsResponse {
     repeated hts.common.Tag tags = 1;
 }
 
@@ -116,6 +116,8 @@ service ParticipantService {
     rpc GetEventById(GetEventByIdRequest) returns (hts.common.Event);
     // Return all event in database
     rpc GetAllEvents(google.protobuf.Empty) returns (EventsResponse);
+    // Return all tags in database
+    rpc GetAllTags(google.protobuf.Empty) returns (TagsResponse);
     // Return 10 random events --> waiting for machine learning implementation
     rpc GetSuggestedEvents(google.protobuf.Empty) returns (EventsResponse);
     // Get events from range of date
@@ -136,7 +138,7 @@ service ParticipantService {
     rpc GetLocationById(hts.common.GetObjectByIdRequest) returns (hts.common.Location);
 
     // Get Tags, Rating, Approved User, Durations from event_id
-    rpc GetTagsByEventId(hts.common.GetObjectByIdRequest) returns (GetTagsByEventIdResponse);
+    rpc GetTagsByEventId(hts.common.GetObjectByIdRequest) returns (TagsResponse);
     rpc GetRatingByEventId(hts.common.GetObjectByIdRequest) returns (GetRatingByEventIdResponse);
     rpc GetApprovedUserByEventId(hts.common.GetObjectByIdRequest) returns (GetApprovedUserByEventIdResponse);
     rpc GetEventDurationsByEventId(hts.common.GetObjectByIdRequest) returns (GetEventDurationsByEventIdResponse);
