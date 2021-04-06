@@ -97,12 +97,12 @@ message GetAnswersByQuestionIdResponse {
 }
 
 message GetEventsByUserIdRequest {
-    string user_id = 1;
+    int32 user_id = 1;
 }
 
 message GetUserEventByUserAndEventIdRequest {
-    string user_id = 1;
-    string event_id = 2;
+    int32 user_id = 1;
+    int32 event_id = 2;
     hts.common.UserEvent.Status status = 3;
 }
 
