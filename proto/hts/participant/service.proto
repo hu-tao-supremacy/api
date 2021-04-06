@@ -79,7 +79,7 @@ message GetEventDurationsByEventIdResponse {
     repeated hts.common.EventDuration event_durations = 1;
 }
 
-message GetUserAnswersByQuestionIdRequest {
+message GetUserAnswerByQuestionIdRequest {
     int32 question_id = 1;
     int32 user_id = 2;
 }
@@ -147,7 +147,7 @@ service ParticipantService {
     rpc GetQuestionGroupsByEventId(hts.common.GetObjectByIdRequest) returns (GetQuestionGroupsByEventIdResponse);
     rpc GetQuestionsByQuestionGroupId(hts.common.GetObjectByIdRequest) returns (GetQuestionsByQuestionGroupIdResponse);
     rpc GetAnswersByQuestionId(hts.common.GetObjectByIdRequest) returns (GetAnswersByQuestionIdResponse);
-    rpc GetUserAnswersByQuestionId(GetUserAnswersByQuestionIdRequest) returns (GetAnswersByQuestionIdResponse);
+    rpc GetUserAnswerByQuestionId(GetUserAnswersByQuestionIdRequest) returns (hts.common.Answer);
 
     rpc GetEventsByUserId(GetEventsByUserIdRequest) returns (EventsResponse);
 
