@@ -80,7 +80,7 @@ message GetEventDurationsByEventIdResponse {
 }
 
 message GetUserAnswerByQuestionIdRequest {
-    int32 user_event_id = 1;
+    int32 user_id = 1;
     int32 question_id = 2;
 }
 
