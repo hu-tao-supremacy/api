@@ -4,18 +4,18 @@
 package app.onepass.apis;
 
 /**
- * Protobuf type {@code hts.participant.GetTagsByEventIdResponse}
+ * Protobuf type {@code hts.participant.TagsResponse}
  */
-public final class GetTagsByEventIdResponse extends
+public final class TagsResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:hts.participant.GetTagsByEventIdResponse)
-    GetTagsByEventIdResponseOrBuilder {
+    // @@protoc_insertion_point(message_implements:hts.participant.TagsResponse)
+    TagsResponseOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use GetTagsByEventIdResponse.newBuilder() to construct.
-  private GetTagsByEventIdResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use TagsResponse.newBuilder() to construct.
+  private TagsResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private GetTagsByEventIdResponse() {
+  private TagsResponse() {
     tags_ = java.util.Collections.emptyList();
   }
 
@@ -23,7 +23,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new GetTagsByEventIdResponse();
+    return new TagsResponse();
   }
 
   @java.lang.Override
@@ -31,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GetTagsByEventIdResponse(
+  private TagsResponse(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -83,15 +83,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return app.onepass.apis.ParticipantProto.internal_static_hts_participant_GetTagsByEventIdResponse_descriptor;
+    return app.onepass.apis.ParticipantProto.internal_static_hts_participant_TagsResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return app.onepass.apis.ParticipantProto.internal_static_hts_participant_GetTagsByEventIdResponse_fieldAccessorTable
+    return app.onepass.apis.ParticipantProto.internal_static_hts_participant_TagsResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            app.onepass.apis.GetTagsByEventIdResponse.class, app.onepass.apis.GetTagsByEventIdResponse.Builder.class);
+            app.onepass.apis.TagsResponse.class, app.onepass.apis.TagsResponse.Builder.class);
   }
 
   public static final int TAGS_FIELD_NUMBER = 1;
@@ -174,10 +174,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof app.onepass.apis.GetTagsByEventIdResponse)) {
+    if (!(obj instanceof app.onepass.apis.TagsResponse)) {
       return super.equals(obj);
     }
-    app.onepass.apis.GetTagsByEventIdResponse other = (app.onepass.apis.GetTagsByEventIdResponse) obj;
+    app.onepass.apis.TagsResponse other = (app.onepass.apis.TagsResponse) obj;
 
     if (!getTagsList()
         .equals(other.getTagsList())) return false;
@@ -201,69 +201,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static app.onepass.apis.GetTagsByEventIdResponse parseFrom(
+  public static app.onepass.apis.TagsResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.GetTagsByEventIdResponse parseFrom(
+  public static app.onepass.apis.TagsResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.GetTagsByEventIdResponse parseFrom(
+  public static app.onepass.apis.TagsResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.GetTagsByEventIdResponse parseFrom(
+  public static app.onepass.apis.TagsResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.GetTagsByEventIdResponse parseFrom(byte[] data)
+  public static app.onepass.apis.TagsResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.GetTagsByEventIdResponse parseFrom(
+  public static app.onepass.apis.TagsResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.GetTagsByEventIdResponse parseFrom(java.io.InputStream input)
+  public static app.onepass.apis.TagsResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.GetTagsByEventIdResponse parseFrom(
+  public static app.onepass.apis.TagsResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.GetTagsByEventIdResponse parseDelimitedFrom(java.io.InputStream input)
+  public static app.onepass.apis.TagsResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.GetTagsByEventIdResponse parseDelimitedFrom(
+  public static app.onepass.apis.TagsResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.GetTagsByEventIdResponse parseFrom(
+  public static app.onepass.apis.TagsResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.GetTagsByEventIdResponse parseFrom(
+  public static app.onepass.apis.TagsResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -276,7 +276,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(app.onepass.apis.GetTagsByEventIdResponse prototype) {
+  public static Builder newBuilder(app.onepass.apis.TagsResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -292,26 +292,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code hts.participant.GetTagsByEventIdResponse}
+   * Protobuf type {@code hts.participant.TagsResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:hts.participant.GetTagsByEventIdResponse)
-      app.onepass.apis.GetTagsByEventIdResponseOrBuilder {
+      // @@protoc_insertion_point(builder_implements:hts.participant.TagsResponse)
+      app.onepass.apis.TagsResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return app.onepass.apis.ParticipantProto.internal_static_hts_participant_GetTagsByEventIdResponse_descriptor;
+      return app.onepass.apis.ParticipantProto.internal_static_hts_participant_TagsResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return app.onepass.apis.ParticipantProto.internal_static_hts_participant_GetTagsByEventIdResponse_fieldAccessorTable
+      return app.onepass.apis.ParticipantProto.internal_static_hts_participant_TagsResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              app.onepass.apis.GetTagsByEventIdResponse.class, app.onepass.apis.GetTagsByEventIdResponse.Builder.class);
+              app.onepass.apis.TagsResponse.class, app.onepass.apis.TagsResponse.Builder.class);
     }
 
-    // Construct using app.onepass.apis.GetTagsByEventIdResponse.newBuilder()
+    // Construct using app.onepass.apis.TagsResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -342,17 +342,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return app.onepass.apis.ParticipantProto.internal_static_hts_participant_GetTagsByEventIdResponse_descriptor;
+      return app.onepass.apis.ParticipantProto.internal_static_hts_participant_TagsResponse_descriptor;
     }
 
     @java.lang.Override
-    public app.onepass.apis.GetTagsByEventIdResponse getDefaultInstanceForType() {
-      return app.onepass.apis.GetTagsByEventIdResponse.getDefaultInstance();
+    public app.onepass.apis.TagsResponse getDefaultInstanceForType() {
+      return app.onepass.apis.TagsResponse.getDefaultInstance();
     }
 
     @java.lang.Override
-    public app.onepass.apis.GetTagsByEventIdResponse build() {
-      app.onepass.apis.GetTagsByEventIdResponse result = buildPartial();
+    public app.onepass.apis.TagsResponse build() {
+      app.onepass.apis.TagsResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -360,8 +360,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public app.onepass.apis.GetTagsByEventIdResponse buildPartial() {
-      app.onepass.apis.GetTagsByEventIdResponse result = new app.onepass.apis.GetTagsByEventIdResponse(this);
+    public app.onepass.apis.TagsResponse buildPartial() {
+      app.onepass.apis.TagsResponse result = new app.onepass.apis.TagsResponse(this);
       int from_bitField0_ = bitField0_;
       if (tagsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
@@ -410,16 +410,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof app.onepass.apis.GetTagsByEventIdResponse) {
-        return mergeFrom((app.onepass.apis.GetTagsByEventIdResponse)other);
+      if (other instanceof app.onepass.apis.TagsResponse) {
+        return mergeFrom((app.onepass.apis.TagsResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(app.onepass.apis.GetTagsByEventIdResponse other) {
-      if (other == app.onepass.apis.GetTagsByEventIdResponse.getDefaultInstance()) return this;
+    public Builder mergeFrom(app.onepass.apis.TagsResponse other) {
+      if (other == app.onepass.apis.TagsResponse.getDefaultInstance()) return this;
       if (tagsBuilder_ == null) {
         if (!other.tags_.isEmpty()) {
           if (tags_.isEmpty()) {
@@ -461,11 +461,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      app.onepass.apis.GetTagsByEventIdResponse parsedMessage = null;
+      app.onepass.apis.TagsResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (app.onepass.apis.GetTagsByEventIdResponse) e.getUnfinishedMessage();
+        parsedMessage = (app.onepass.apis.TagsResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -728,41 +728,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:hts.participant.GetTagsByEventIdResponse)
+    // @@protoc_insertion_point(builder_scope:hts.participant.TagsResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:hts.participant.GetTagsByEventIdResponse)
-  private static final app.onepass.apis.GetTagsByEventIdResponse DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:hts.participant.TagsResponse)
+  private static final app.onepass.apis.TagsResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new app.onepass.apis.GetTagsByEventIdResponse();
+    DEFAULT_INSTANCE = new app.onepass.apis.TagsResponse();
   }
 
-  public static app.onepass.apis.GetTagsByEventIdResponse getDefaultInstance() {
+  public static app.onepass.apis.TagsResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<GetTagsByEventIdResponse>
-      PARSER = new com.google.protobuf.AbstractParser<GetTagsByEventIdResponse>() {
+  private static final com.google.protobuf.Parser<TagsResponse>
+      PARSER = new com.google.protobuf.AbstractParser<TagsResponse>() {
     @java.lang.Override
-    public GetTagsByEventIdResponse parsePartialFrom(
+    public TagsResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GetTagsByEventIdResponse(input, extensionRegistry);
+      return new TagsResponse(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<GetTagsByEventIdResponse> parser() {
+  public static com.google.protobuf.Parser<TagsResponse> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<GetTagsByEventIdResponse> getParserForType() {
+  public com.google.protobuf.Parser<TagsResponse> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public app.onepass.apis.GetTagsByEventIdResponse getDefaultInstanceForType() {
+  public app.onepass.apis.TagsResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
