@@ -48,6 +48,11 @@ class ParticipantServiceStub(object):
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
                 response_deserializer=hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
                 )
+        self.GetAllTags = channel.unary_unary(
+                '/hts.participant.ParticipantService/GetAllTags',
+                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                response_deserializer=hts_dot_participant_dot_service__pb2.TagsResponse.FromString,
+                )
         self.GetSuggestedEvents = channel.unary_unary(
                 '/hts.participant.ParticipantService/GetSuggestedEvents',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
@@ -91,7 +96,7 @@ class ParticipantServiceStub(object):
         self.GetTagsByEventId = channel.unary_unary(
                 '/hts.participant.ParticipantService/GetTagsByEventId',
                 request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
-                response_deserializer=hts_dot_participant_dot_service__pb2.GetTagsByEventIdResponse.FromString,
+                response_deserializer=hts_dot_participant_dot_service__pb2.TagsResponse.FromString,
                 )
         self.GetRatingByEventId = channel.unary_unary(
                 '/hts.participant.ParticipantService/GetRatingByEventId',
@@ -122,6 +127,21 @@ class ParticipantServiceStub(object):
                 '/hts.participant.ParticipantService/GetAnswersByQuestionId',
                 request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
                 response_deserializer=hts_dot_participant_dot_service__pb2.GetAnswersByQuestionIdResponse.FromString,
+                )
+        self.GetUserAnswerByQuestionId = channel.unary_unary(
+                '/hts.participant.ParticipantService/GetUserAnswerByQuestionId',
+                request_serializer=hts_dot_participant_dot_service__pb2.GetUserAnswerByQuestionIdRequest.SerializeToString,
+                response_deserializer=hts_dot_common_dot_common__pb2.Answer.FromString,
+                )
+        self.GetEventsByUserId = channel.unary_unary(
+                '/hts.participant.ParticipantService/GetEventsByUserId',
+                request_serializer=hts_dot_participant_dot_service__pb2.GetEventsByUserIdRequest.SerializeToString,
+                response_deserializer=hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
+                )
+        self.GetUserEventByUserAndEventId = channel.unary_unary(
+                '/hts.participant.ParticipantService/GetUserEventByUserAndEventId',
+                request_serializer=hts_dot_participant_dot_service__pb2.GetUserEventByUserAndEventIdRequest.SerializeToString,
+                response_deserializer=hts_dot_common_dot_common__pb2.UserEvent.FromString,
                 )
         self.GenerateQR = channel.unary_unary(
                 '/hts.participant.ParticipantService/GenerateQR',
@@ -169,6 +189,12 @@ class ParticipantServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetAllEvents(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAllTags(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -264,6 +290,24 @@ class ParticipantServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetUserAnswerByQuestionId(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetEventsByUserId(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetUserEventByUserAndEventId(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GenerateQR(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -309,6 +353,11 @@ def add_ParticipantServiceServicer_to_server(servicer, server):
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                     response_serializer=hts_dot_participant_dot_service__pb2.EventsResponse.SerializeToString,
             ),
+            'GetAllTags': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAllTags,
+                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                    response_serializer=hts_dot_participant_dot_service__pb2.TagsResponse.SerializeToString,
+            ),
             'GetSuggestedEvents': grpc.unary_unary_rpc_method_handler(
                     servicer.GetSuggestedEvents,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
@@ -352,7 +401,7 @@ def add_ParticipantServiceServicer_to_server(servicer, server):
             'GetTagsByEventId': grpc.unary_unary_rpc_method_handler(
                     servicer.GetTagsByEventId,
                     request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
-                    response_serializer=hts_dot_participant_dot_service__pb2.GetTagsByEventIdResponse.SerializeToString,
+                    response_serializer=hts_dot_participant_dot_service__pb2.TagsResponse.SerializeToString,
             ),
             'GetRatingByEventId': grpc.unary_unary_rpc_method_handler(
                     servicer.GetRatingByEventId,
@@ -383,6 +432,21 @@ def add_ParticipantServiceServicer_to_server(servicer, server):
                     servicer.GetAnswersByQuestionId,
                     request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
                     response_serializer=hts_dot_participant_dot_service__pb2.GetAnswersByQuestionIdResponse.SerializeToString,
+            ),
+            'GetUserAnswerByQuestionId': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetUserAnswerByQuestionId,
+                    request_deserializer=hts_dot_participant_dot_service__pb2.GetUserAnswerByQuestionIdRequest.FromString,
+                    response_serializer=hts_dot_common_dot_common__pb2.Answer.SerializeToString,
+            ),
+            'GetEventsByUserId': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetEventsByUserId,
+                    request_deserializer=hts_dot_participant_dot_service__pb2.GetEventsByUserIdRequest.FromString,
+                    response_serializer=hts_dot_participant_dot_service__pb2.EventsResponse.SerializeToString,
+            ),
+            'GetUserEventByUserAndEventId': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetUserEventByUserAndEventId,
+                    request_deserializer=hts_dot_participant_dot_service__pb2.GetUserEventByUserAndEventIdRequest.FromString,
+                    response_serializer=hts_dot_common_dot_common__pb2.UserEvent.SerializeToString,
             ),
             'GenerateQR': grpc.unary_unary_rpc_method_handler(
                     servicer.GenerateQR,
@@ -503,6 +567,23 @@ class ParticipantService(object):
         return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetAllEvents',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAllTags(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetAllTags',
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            hts_dot_participant_dot_service__pb2.TagsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -655,7 +736,7 @@ class ParticipantService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetTagsByEventId',
             hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
-            hts_dot_participant_dot_service__pb2.GetTagsByEventIdResponse.FromString,
+            hts_dot_participant_dot_service__pb2.TagsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -758,6 +839,57 @@ class ParticipantService(object):
         return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetAnswersByQuestionId',
             hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
             hts_dot_participant_dot_service__pb2.GetAnswersByQuestionIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetUserAnswerByQuestionId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetUserAnswerByQuestionId',
+            hts_dot_participant_dot_service__pb2.GetUserAnswerByQuestionIdRequest.SerializeToString,
+            hts_dot_common_dot_common__pb2.Answer.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetEventsByUserId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetEventsByUserId',
+            hts_dot_participant_dot_service__pb2.GetEventsByUserIdRequest.SerializeToString,
+            hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetUserEventByUserAndEventId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetUserEventByUserAndEventId',
+            hts_dot_participant_dot_service__pb2.GetUserEventByUserAndEventIdRequest.SerializeToString,
+            hts_dot_common_dot_common__pb2.UserEvent.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
