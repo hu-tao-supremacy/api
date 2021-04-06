@@ -101,12 +101,12 @@ export interface GetAnswersByQuestionIdResponse {
 }
 
 export interface GetEventsByUserIdRequest {
-  userId: string;
+  userId: number;
 }
 
 export interface GetUserEventByUserAndEventIdRequest {
-  userId: string;
-  eventId: string;
+  userId: number;
+  eventId: number;
   status: UserEvent_Status;
 }
 
