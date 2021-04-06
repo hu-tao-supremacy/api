@@ -96,7 +96,7 @@ message GetAnswersByQuestionIdResponse {
     repeated hts.common.Answer answers = 1;
 }
 
-message GetUserEventsByUserIdRequest {
+message GetEventsByUserIdRequest {
     string user_id = 1;
     hts.common.UserEvent.Status status = 2;
 }
@@ -147,7 +147,7 @@ service ParticipantService {
     rpc GetAnswersByQuestionId(hts.common.GetObjectByIdRequest) returns (GetAnswersByQuestionIdResponse);
     rpc GetUserAnswersByQuestionId(GetUserAnswersByQuestionIdRequest) returns (GetAnswersByQuestionIdResponse);
 
-    rpc GetUserEventsByUserId(GetUserEventsByUserIdRequest) returns (EventsResponse);
+    rpc GetEventsByUserId(GetEventsByUserIdRequest) returns (EventsResponse);
 
     // Generate QR from combination of ID, User_ID, Event_ID
     rpc GenerateQR(GenerateQRRequest) returns (GenerateQRResponse);
