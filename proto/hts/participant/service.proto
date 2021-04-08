@@ -26,7 +26,7 @@ message UserWithEventRequest {
     int32 event_id = 2;
 }
 
-message SubmitAnswerForPostEventQuestionRequest {
+message SubmitAnswerForEventQuestionRequest {
     message Answer {
         int32 question_id = 1;
         string value = 2;
@@ -35,7 +35,7 @@ message SubmitAnswerForPostEventQuestionRequest {
     int32 user_event_id = 2;
 }
 
-message SubmitAnswerForPostEventQuestionResponse {
+message SubmitAnswerForEventQuestionResponse {
     repeated hts.common.Answer answers = 1;
 }
 
@@ -115,7 +115,8 @@ service ParticipantService {
     rpc CancelEvent(UserWithEventRequest) returns (hts.common.Event);
 
     // Let user create then submit Post Question
-    rpc SubmitAnswerForPostEventQuestion(SubmitAnswerForPostEventQuestionRequest) returns (SubmitAnswerForPostEventQuestionResponse);
+    rpc SubmitAnswersForPostEventQuestion(SubmitAnswerForEventQuestionRequest) returns (SubmitAnswerForEventQuestionResponse);
+    rpc SubmitAnswersForPreEventQuestion(SubmitAnswerForEventQuestionRequest) returns (SubmitAnswerForEventQuestionResponse);
 
     // Return event object from event_id
     rpc GetEventById(GetEventByIdRequest) returns (hts.common.Event);
