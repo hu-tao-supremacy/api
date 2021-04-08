@@ -33,6 +33,7 @@ message SubmitAnswerForEventQuestionRequest {
     }
     repeated Answer answers = 1;
     int32 user_event_id = 2;
+    hts.common.QuestionGroupType type = 3;
 }
 
 message SubmitAnswerForEventQuestionResponse {
@@ -115,9 +116,7 @@ service ParticipantService {
     rpc CancelEvent(UserWithEventRequest) returns (hts.common.Event);
 
     // Let user create then submit Post Question
-    rpc SubmitAnswersForPostEventQuestion(SubmitAnswerForEventQuestionRequest) returns (SubmitAnswerForEventQuestionResponse);
-    rpc SubmitAnswersForPreEventQuestion(SubmitAnswerForEventQuestionRequest) returns (SubmitAnswerForEventQuestionResponse);
-
+    rpc SubmitAnswersForEventQuestion(SubmitAnswerForEventQuestionRequest) returns (SubmitAnswerForEventQuestionResponse);
     // Return event object from event_id
     rpc GetEventById(GetEventByIdRequest) returns (hts.common.Event);
     // Return all event in database
