@@ -69,6 +69,11 @@ export interface RemoveRoleRequest {
   role: Role;
 }
 
+export interface UpdateUserInterestsRequest {
+  userId: number;
+  tagIds: number[];
+}
+
 export const HTS_ACCOUNT_PACKAGE_NAME = "hts.account";
 
 export interface AccountServiceClient {
@@ -81,6 +86,8 @@ export interface AccountServiceClient {
   isAuthenticated(request: IsAuthenticatedRequest): Observable<BoolValue>;
 
   updateAccountInfo(request: User): Observable<User>;
+
+  updateUserInterests(request: UpdateUserInterestsRequest): Observable<User>;
 
   getUserById(request: GetObjectByIdRequest): Observable<User>;
 
@@ -116,6 +123,10 @@ export interface AccountServiceController {
 
   updateAccountInfo(request: User): Promise<User> | Observable<User> | User;
 
+  updateUserInterests(
+    request: UpdateUserInterestsRequest
+  ): Promise<User> | Observable<User> | User;
+
   getUserById(
     request: GetObjectByIdRequest
   ): Promise<User> | Observable<User> | User;
@@ -150,6 +161,7 @@ export function AccountServiceControllerMethods() {
       "getUserByEmail",
       "isAuthenticated",
       "updateAccountInfo",
+      "updateUserInterests",
       "getUserById",
       "generateAccessToken",
       "hasPermission",

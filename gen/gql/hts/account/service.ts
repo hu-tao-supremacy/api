@@ -66,6 +66,11 @@ export interface RemoveRoleRequest {
   role: Role;
 }
 
+export interface UpdateUserInterestsRequest {
+  userId: number;
+  tagIds: number[];
+}
+
 export interface AccountService {
   CreateUser(request: CreateUserRequest): Promise<User>;
   GetUserByChulaId(request: GetUserByChulaIdRequest): Promise<User>;
@@ -74,6 +79,7 @@ export interface AccountService {
     request: IsAuthenticatedRequest
   ): Promise<boolean | undefined>;
   UpdateAccountInfo(request: User): Promise<User>;
+  UpdateUserInterests(request: UpdateUserInterestsRequest): Promise<User>;
   GetUserById(request: GetObjectByIdRequest): Promise<User>;
   GenerateAccessToken(
     request: GenerateAccessTokenRequest
