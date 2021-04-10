@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
 import {
+  QuestionGroupType,
   UserEvent_Status,
   Answer,
   Event,
@@ -33,17 +34,18 @@ export interface UserWithEventRequest {
   eventId: number;
 }
 
-export interface SubmitAnswerForPostEventQuestionRequest {
-  answers: SubmitAnswerForPostEventQuestionRequest_Answer[];
+export interface SubmitAnswerForEventQuestionRequest {
+  answers: SubmitAnswerForEventQuestionRequest_Answer[];
   userEventId: number;
+  type: QuestionGroupType;
 }
 
-export interface SubmitAnswerForPostEventQuestionRequest_Answer {
+export interface SubmitAnswerForEventQuestionRequest_Answer {
   questionId: number;
   value: string;
 }
 
-export interface SubmitAnswerForPostEventQuestionResponse {
+export interface SubmitAnswerForEventQuestionResponse {
   answers: Answer[];
 }
 
@@ -114,6 +116,10 @@ export interface GetUserEventByUserAndEventIdRequest {
   status: UserEvent_Status;
 }
 
+export interface GetEventsByTagIdsRequest {
+  tagIds: number[];
+}
+
 export const HTS_PARTICIPANT_PACKAGE_NAME = "hts.participant";
 
 export interface ParticipantServiceClient {
@@ -123,9 +129,9 @@ export interface ParticipantServiceClient {
 
   cancelEvent(request: UserWithEventRequest): Observable<Event>;
 
-  submitAnswerForPostEventQuestion(
-    request: SubmitAnswerForPostEventQuestionRequest
-  ): Observable<SubmitAnswerForPostEventQuestionResponse>;
+  submitAnswersForEventQuestion(
+    request: SubmitAnswerForEventQuestionRequest
+  ): Observable<SubmitAnswerForEventQuestionResponse>;
 
   getEventById(request: GetEventByIdRequest): Observable<Event>;
 
@@ -143,7 +149,9 @@ export interface ParticipantServiceClient {
     request: StringInputRequest
   ): Observable<EventsResponse>;
 
-  getEventsByTagId(request: GetObjectByIdRequest): Observable<EventsResponse>;
+  getEventsByTagIds(
+    request: GetEventsByTagIdsRequest
+  ): Observable<EventsResponse>;
 
   getEventsByOrganizationId(
     request: GetObjectByIdRequest
@@ -213,12 +221,12 @@ export interface ParticipantServiceController {
     request: UserWithEventRequest
   ): Promise<Event> | Observable<Event> | Event;
 
-  submitAnswerForPostEventQuestion(
-    request: SubmitAnswerForPostEventQuestionRequest
+  submitAnswersForEventQuestion(
+    request: SubmitAnswerForEventQuestionRequest
   ):
-    | Promise<SubmitAnswerForPostEventQuestionResponse>
-    | Observable<SubmitAnswerForPostEventQuestionResponse>
-    | SubmitAnswerForPostEventQuestionResponse;
+    | Promise<SubmitAnswerForEventQuestionResponse>
+    | Observable<SubmitAnswerForEventQuestionResponse>
+    | SubmitAnswerForEventQuestionResponse;
 
   getEventById(
     request: GetEventByIdRequest
@@ -244,8 +252,8 @@ export interface ParticipantServiceController {
     request: StringInputRequest
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
-  getEventsByTagId(
-    request: GetObjectByIdRequest
+  getEventsByTagIds(
+    request: GetEventsByTagIdsRequest
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
   getEventsByOrganizationId(
@@ -338,14 +346,14 @@ export function ParticipantServiceControllerMethods() {
       "isEventAvailable",
       "joinEvent",
       "cancelEvent",
-      "submitAnswerForPostEventQuestion",
+      "submitAnswersForEventQuestion",
       "getEventById",
       "getAllEvents",
       "getAllTags",
       "getSuggestedEvents",
       "getUpcomingEvents",
       "getEventsByStringOfName",
-      "getEventsByTagId",
+      "getEventsByTagIds",
       "getEventsByOrganizationId",
       "getEventsByFacilityId",
       "getEventsByDate",

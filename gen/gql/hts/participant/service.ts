@@ -1,5 +1,6 @@
 /* eslint-disable */
 import {
+  QuestionGroupType,
   UserEvent_Status,
   Answer,
   Event,
@@ -29,17 +30,18 @@ export interface UserWithEventRequest {
   eventId: number;
 }
 
-export interface SubmitAnswerForPostEventQuestionRequest {
-  answers: SubmitAnswerForPostEventQuestionRequest_Answer[];
+export interface SubmitAnswerForEventQuestionRequest {
+  answers: SubmitAnswerForEventQuestionRequest_Answer[];
   userEventId: number;
+  type: QuestionGroupType;
 }
 
-export interface SubmitAnswerForPostEventQuestionRequest_Answer {
+export interface SubmitAnswerForEventQuestionRequest_Answer {
   questionId: number;
   value: string;
 }
 
-export interface SubmitAnswerForPostEventQuestionResponse {
+export interface SubmitAnswerForEventQuestionResponse {
   answers: Answer[];
 }
 
@@ -110,22 +112,26 @@ export interface GetUserEventByUserAndEventIdRequest {
   status: UserEvent_Status;
 }
 
+export interface GetEventsByTagIdsRequest {
+  tagIds: number[];
+}
+
 export interface ParticipantService {
   IsEventAvailable(
     request: IsEventAvailableRequest
   ): Promise<boolean | undefined>;
   JoinEvent(request: UserWithEventRequest): Promise<UserEvent>;
   CancelEvent(request: UserWithEventRequest): Promise<Event>;
-  SubmitAnswerForPostEventQuestion(
-    request: SubmitAnswerForPostEventQuestionRequest
-  ): Promise<SubmitAnswerForPostEventQuestionResponse>;
+  SubmitAnswersForEventQuestion(
+    request: SubmitAnswerForEventQuestionRequest
+  ): Promise<SubmitAnswerForEventQuestionResponse>;
   GetEventById(request: GetEventByIdRequest): Promise<Event>;
   GetAllEvents(request: Empty): Promise<EventsResponse>;
   GetAllTags(request: Empty): Promise<TagsResponse>;
   GetSuggestedEvents(request: Empty): Promise<EventsResponse>;
   GetUpcomingEvents(request: GetUpcomingEventsRequest): Promise<EventsResponse>;
   GetEventsByStringOfName(request: StringInputRequest): Promise<EventsResponse>;
-  GetEventsByTagId(request: GetObjectByIdRequest): Promise<EventsResponse>;
+  GetEventsByTagIds(request: GetEventsByTagIdsRequest): Promise<EventsResponse>;
   GetEventsByOrganizationId(
     request: GetObjectByIdRequest
   ): Promise<EventsResponse>;
