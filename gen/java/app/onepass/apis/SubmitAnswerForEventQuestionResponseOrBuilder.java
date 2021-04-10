@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface SubmitAnswerForPostEventQuestionResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.participant.SubmitAnswerForPostEventQuestionResponse)
+public interface SubmitAnswerForEventQuestionResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.participant.SubmitAnswerForEventQuestionResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**
