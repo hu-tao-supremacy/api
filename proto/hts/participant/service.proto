@@ -26,16 +26,17 @@ message UserWithEventRequest {
     int32 event_id = 2;
 }
 
-message SubmitAnswerForPostEventQuestionRequest {
+message SubmitAnswerForEventQuestionRequest {
     message Answer {
         int32 question_id = 1;
         string value = 2;
     }
     repeated Answer answers = 1;
     int32 user_event_id = 2;
+    hts.common.QuestionGroupType type = 3;
 }
 
-message SubmitAnswerForPostEventQuestionResponse {
+message SubmitAnswerForEventQuestionResponse {
     repeated hts.common.Answer answers = 1;
 }
 
@@ -106,6 +107,10 @@ message GetUserEventByUserAndEventIdRequest {
     hts.common.UserEvent.Status status = 3;
 }
 
+message GetEventsByTagIdsRequest {
+    repeated int32 tag_ids = 1;
+}
+
 service ParticipantService {
     // Check whether event's start date is before specified date
     rpc IsEventAvailable(IsEventAvailableRequest) returns (google.protobuf.BoolValue);
@@ -115,8 +120,7 @@ service ParticipantService {
     rpc CancelEvent(UserWithEventRequest) returns (hts.common.Event);
 
     // Let user create then submit Post Question
-    rpc SubmitAnswerForPostEventQuestion(SubmitAnswerForPostEventQuestionRequest) returns (SubmitAnswerForPostEventQuestionResponse);
-
+    rpc SubmitAnswersForEventQuestion(SubmitAnswerForEventQuestionRequest) returns (SubmitAnswerForEventQuestionResponse);
     // Return event object from event_id
     rpc GetEventById(GetEventByIdRequest) returns (hts.common.Event);
     // Return all event in database
@@ -131,7 +135,7 @@ service ParticipantService {
     // Get events from search string
     rpc GetEventsByStringOfName(StringInputRequest) returns (EventsResponse);
     // Get events from specified Tag
-    rpc GetEventsByTagId(hts.common.GetObjectByIdRequest) returns (EventsResponse);
+    rpc GetEventsByTagIds(GetEventsByTagIdsRequest) returns (EventsResponse);
     // Get event from specified organization
     rpc GetEventsByOrganizationId(hts.common.GetObjectByIdRequest) returns (EventsResponse);
     // Get event from specified facility
