@@ -97,10 +97,10 @@ private static final long serialVersionUID = 0L;
             app.onepass.apis.RemoveRoleRequest.class, app.onepass.apis.RemoveRoleRequest.Builder.class);
   }
 
-  public static final int USERID_FIELD_NUMBER = 1;
+  public static final int USER_ID_FIELD_NUMBER = 1;
   private int userId_;
   /**
-   * <code>int32 userId = 1 [json_name = "userId"];</code>
+   * <code>int32 user_id = 1 [json_name = "userId"];</code>
    * @return The userId.
    */
   @java.lang.Override
@@ -108,10 +108,10 @@ private static final long serialVersionUID = 0L;
     return userId_;
   }
 
-  public static final int ORGANIZATIONID_FIELD_NUMBER = 2;
+  public static final int ORGANIZATION_ID_FIELD_NUMBER = 2;
   private int organizationId_;
   /**
-   * <code>int32 organizationId = 2 [json_name = "organizationId"];</code>
+   * <code>int32 organization_id = 2 [json_name = "organizationId"];</code>
    * @return The organizationId.
    */
   @java.lang.Override
@@ -213,9 +213,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + USERID_FIELD_NUMBER;
+    hash = (37 * hash) + USER_ID_FIELD_NUMBER;
     hash = (53 * hash) + getUserId();
-    hash = (37 * hash) + ORGANIZATIONID_FIELD_NUMBER;
+    hash = (37 * hash) + ORGANIZATION_ID_FIELD_NUMBER;
     hash = (53 * hash) + getOrganizationId();
     hash = (37 * hash) + ROLE_FIELD_NUMBER;
     hash = (53 * hash) + role_;
@@ -475,7 +475,7 @@ private static final long serialVersionUID = 0L;
 
     private int userId_ ;
     /**
-     * <code>int32 userId = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @return The userId.
      */
     @java.lang.Override
@@ -483,7 +483,7 @@ private static final long serialVersionUID = 0L;
       return userId_;
     }
     /**
-     * <code>int32 userId = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @param value The userId to set.
      * @return This builder for chaining.
      */
@@ -494,7 +494,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 userId = 1 [json_name = "userId"];</code>
+     * <code>int32 user_id = 1 [json_name = "userId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
@@ -506,7 +506,7 @@ private static final long serialVersionUID = 0L;
 
     private int organizationId_ ;
     /**
-     * <code>int32 organizationId = 2 [json_name = "organizationId"];</code>
+     * <code>int32 organization_id = 2 [json_name = "organizationId"];</code>
      * @return The organizationId.
      */
     @java.lang.Override
@@ -514,7 +514,7 @@ private static final long serialVersionUID = 0L;
       return organizationId_;
     }
     /**
-     * <code>int32 organizationId = 2 [json_name = "organizationId"];</code>
+     * <code>int32 organization_id = 2 [json_name = "organizationId"];</code>
      * @param value The organizationId to set.
      * @return This builder for chaining.
      */
@@ -525,7 +525,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 organizationId = 2 [json_name = "organizationId"];</code>
+     * <code>int32 organization_id = 2 [json_name = "organizationId"];</code>
      * @return This builder for chaining.
      */
     public Builder clearOrganizationId() {
