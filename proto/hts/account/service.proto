@@ -60,15 +60,20 @@ message GetUserByEmailRequest {
 }
 
 message AssignRoleRequest {
-  int32 userId = 1;
-  int32 organizationId = 2;
+  int32 user_id = 1;
+  int32 organization_id = 2;
   Role role = 3;
 }
 
 message RemoveRoleRequest {
-  int32 userId = 1;
-  int32 organizationId = 2;
+  int32 user_id = 1;
+  int32 organization_id = 2;
   Role role = 3;
+}
+
+message UpdateUserInterestsRequest {
+  int32 user_id = 1;
+  repeated int32 tag_ids = 2;
 }
 
 service AccountService {
@@ -77,6 +82,7 @@ service AccountService {
   rpc GetUserByEmail(GetUserByEmailRequest) returns (hts.common.User);
   rpc IsAuthenticated(IsAuthenticatedRequest) returns (google.protobuf.BoolValue);
   rpc UpdateAccountInfo(hts.common.User) returns (hts.common.User);
+  rpc UpdateUserInterests(UpdateUserInterestsRequest) returns (hts.common.User);
   rpc GetUserById(hts.common.GetObjectByIdRequest) returns (hts.common.User);
   rpc GenerateAccessToken(GenerateAccessTokenRequest) returns (GenerateAccessTokenResponse);
   rpc HasPermission(HasPermissionRequest) returns (google.protobuf.BoolValue);
