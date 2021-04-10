@@ -76,6 +76,10 @@ message User {
   google.protobuf.StringValue address = 9;
   google.protobuf.StringValue profile_picture_url = 10;
   bool did_setup = 11;
+  google.protobuf.StringValue district = 12;
+  google.protobuf.StringValue zip_code = 13;
+  google.protobuf.StringValue phone_number = 14;
+  google.protobuf.StringValue province = 15;
 }
 
 message Organization {
