@@ -131,4 +131,64 @@ public interface UserOrBuilder extends
    * @return The didSetup.
    */
   boolean getDidSetup();
+
+  /**
+   * <code>.google.protobuf.StringValue district = 12 [json_name = "district"];</code>
+   * @return Whether the district field is set.
+   */
+  boolean hasDistrict();
+  /**
+   * <code>.google.protobuf.StringValue district = 12 [json_name = "district"];</code>
+   * @return The district.
+   */
+  com.google.protobuf.StringValue getDistrict();
+  /**
+   * <code>.google.protobuf.StringValue district = 12 [json_name = "district"];</code>
+   */
+  com.google.protobuf.StringValueOrBuilder getDistrictOrBuilder();
+
+  /**
+   * <code>.google.protobuf.StringValue zip_code = 13 [json_name = "zipCode"];</code>
+   * @return Whether the zipCode field is set.
+   */
+  boolean hasZipCode();
+  /**
+   * <code>.google.protobuf.StringValue zip_code = 13 [json_name = "zipCode"];</code>
+   * @return The zipCode.
+   */
+  com.google.protobuf.StringValue getZipCode();
+  /**
+   * <code>.google.protobuf.StringValue zip_code = 13 [json_name = "zipCode"];</code>
+   */
+  com.google.protobuf.StringValueOrBuilder getZipCodeOrBuilder();
+
+  /**
+   * <code>.google.protobuf.StringValue phone_number = 14 [json_name = "phoneNumber"];</code>
+   * @return Whether the phoneNumber field is set.
+   */
+  boolean hasPhoneNumber();
+  /**
+   * <code>.google.protobuf.StringValue phone_number = 14 [json_name = "phoneNumber"];</code>
+   * @return The phoneNumber.
+   */
+  com.google.protobuf.StringValue getPhoneNumber();
+  /**
+   * <code>.google.protobuf.StringValue phone_number = 14 [json_name = "phoneNumber"];</code>
+   */
+  com.google.protobuf.StringValueOrBuilder getPhoneNumberOrBuilder();
+
+  /**
+   * <code>.google.protobuf.StringValue province = 15 [json_name = "province"];</code>
+   * @return Whether the province field is set.
+   */
+  boolean hasProvince();
+  /**
+   * <code>.google.protobuf.StringValue province = 15 [json_name = "province"];</code>
+   * @return The province.
+   */
+  com.google.protobuf.StringValue getProvince();
+  /**
+   * <code>.google.protobuf.StringValue province = 15 [json_name = "province"];</code>
+   */
+  com.google.protobuf.StringValueOrBuilder getProvinceOrBuilder();
 }
