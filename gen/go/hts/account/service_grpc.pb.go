@@ -26,6 +26,7 @@ type AccountServiceClient interface {
 	GetUserByEmail(ctx context.Context, in *GetUserByEmailRequest, opts ...grpc.CallOption) (*common.User, error)
 	IsAuthenticated(ctx context.Context, in *IsAuthenticatedRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 	UpdateAccountInfo(ctx context.Context, in *common.User, opts ...grpc.CallOption) (*common.User, error)
+	UpdateUserInterests(ctx context.Context, in *UpdateUserInterestsRequest, opts ...grpc.CallOption) (*common.User, error)
 	GetUserById(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*common.User, error)
 	GenerateAccessToken(ctx context.Context, in *GenerateAccessTokenRequest, opts ...grpc.CallOption) (*GenerateAccessTokenResponse, error)
 	HasPermission(ctx context.Context, in *HasPermissionRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
@@ -81,6 +82,15 @@ func (c *accountServiceClient) IsAuthenticated(ctx context.Context, in *IsAuthen
 func (c *accountServiceClient) UpdateAccountInfo(ctx context.Context, in *common.User, opts ...grpc.CallOption) (*common.User, error) {
 	out := new(common.User)
 	err := c.cc.Invoke(ctx, "/hts.account.AccountService/UpdateAccountInfo", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountServiceClient) UpdateUserInterests(ctx context.Context, in *UpdateUserInterestsRequest, opts ...grpc.CallOption) (*common.User, error) {
+	out := new(common.User)
+	err := c.cc.Invoke(ctx, "/hts.account.AccountService/UpdateUserInterests", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -150,6 +160,7 @@ type AccountServiceServer interface {
 	GetUserByEmail(context.Context, *GetUserByEmailRequest) (*common.User, error)
 	IsAuthenticated(context.Context, *IsAuthenticatedRequest) (*wrapperspb.BoolValue, error)
 	UpdateAccountInfo(context.Context, *common.User) (*common.User, error)
+	UpdateUserInterests(context.Context, *UpdateUserInterestsRequest) (*common.User, error)
 	GetUserById(context.Context, *common.GetObjectByIdRequest) (*common.User, error)
 	GenerateAccessToken(context.Context, *GenerateAccessTokenRequest) (*GenerateAccessTokenResponse, error)
 	HasPermission(context.Context, *HasPermissionRequest) (*wrapperspb.BoolValue, error)
@@ -177,6 +188,9 @@ func (UnimplementedAccountServiceServer) IsAuthenticated(context.Context, *IsAut
 }
 func (UnimplementedAccountServiceServer) UpdateAccountInfo(context.Context, *common.User) (*common.User, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateAccountInfo not implemented")
+}
+func (UnimplementedAccountServiceServer) UpdateUserInterests(context.Context, *UpdateUserInterestsRequest) (*common.User, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateUserInterests not implemented")
 }
 func (UnimplementedAccountServiceServer) GetUserById(context.Context, *common.GetObjectByIdRequest) (*common.User, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserById not implemented")
@@ -295,6 +309,24 @@ func _AccountService_UpdateAccountInfo_Handler(srv interface{}, ctx context.Cont
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AccountServiceServer).UpdateAccountInfo(ctx, req.(*common.User))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountService_UpdateUserInterests_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateUserInterestsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountServiceServer).UpdateUserInterests(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.account.AccountService/UpdateUserInterests",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountServiceServer).UpdateUserInterests(ctx, req.(*UpdateUserInterestsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -433,6 +465,10 @@ var AccountService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateAccountInfo",
 			Handler:    _AccountService_UpdateAccountInfo_Handler,
+		},
+		{
+			MethodName: "UpdateUserInterests",
+			Handler:    _AccountService_UpdateUserInterests_Handler,
 		},
 		{
 			MethodName: "GetUserById",
