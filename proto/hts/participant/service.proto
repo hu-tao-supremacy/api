@@ -107,6 +107,10 @@ message GetUserEventByUserAndEventIdRequest {
     hts.common.UserEvent.Status status = 3;
 }
 
+message GetEventsByTagIdsRequest {
+    repeated int32 tag_ids = 1;
+}
+
 service ParticipantService {
     // Check whether event's start date is before specified date
     rpc IsEventAvailable(IsEventAvailableRequest) returns (google.protobuf.BoolValue);
@@ -131,7 +135,7 @@ service ParticipantService {
     // Get events from search string
     rpc GetEventsByStringOfName(StringInputRequest) returns (EventsResponse);
     // Get events from specified Tag
-    rpc GetEventsByTagId(hts.common.GetObjectByIdRequest) returns (EventsResponse);
+    rpc GetEventsByTagIds(GetEventsByTagIdsRequest) returns (EventsResponse);
     // Get event from specified organization
     rpc GetEventsByOrganizationId(hts.common.GetObjectByIdRequest) returns (EventsResponse);
     // Get event from specified facility
