@@ -169,6 +169,37 @@ public final class AccountServiceGrpc {
     return getUpdateAccountInfoMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.UpdateUserInterestsRequest,
+      app.onepass.apis.User> getUpdateUserInterestsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "UpdateUserInterests",
+      requestType = app.onepass.apis.UpdateUserInterestsRequest.class,
+      responseType = app.onepass.apis.User.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<app.onepass.apis.UpdateUserInterestsRequest,
+      app.onepass.apis.User> getUpdateUserInterestsMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.UpdateUserInterestsRequest, app.onepass.apis.User> getUpdateUserInterestsMethod;
+    if ((getUpdateUserInterestsMethod = AccountServiceGrpc.getUpdateUserInterestsMethod) == null) {
+      synchronized (AccountServiceGrpc.class) {
+        if ((getUpdateUserInterestsMethod = AccountServiceGrpc.getUpdateUserInterestsMethod) == null) {
+          AccountServiceGrpc.getUpdateUserInterestsMethod = getUpdateUserInterestsMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.UpdateUserInterestsRequest, app.onepass.apis.User>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateUserInterests"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.UpdateUserInterestsRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.User.getDefaultInstance()))
+              .setSchemaDescriptor(new AccountServiceMethodDescriptorSupplier("UpdateUserInterests"))
+              .build();
+        }
+      }
+    }
+    return getUpdateUserInterestsMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest,
       app.onepass.apis.User> getGetUserByIdMethod;
 
@@ -440,6 +471,13 @@ public final class AccountServiceGrpc {
 
     /**
      */
+    public void updateUserInterests(app.onepass.apis.UpdateUserInterestsRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.User> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateUserInterestsMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void getUserById(app.onepass.apis.GetObjectByIdRequest request,
         io.grpc.stub.StreamObserver<app.onepass.apis.User> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetUserByIdMethod(), responseObserver);
@@ -517,6 +555,13 @@ public final class AccountServiceGrpc {
                 app.onepass.apis.User,
                 app.onepass.apis.User>(
                   this, METHODID_UPDATE_ACCOUNT_INFO)))
+          .addMethod(
+            getUpdateUserInterestsMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                app.onepass.apis.UpdateUserInterestsRequest,
+                app.onepass.apis.User>(
+                  this, METHODID_UPDATE_USER_INTERESTS)))
           .addMethod(
             getGetUserByIdMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -619,6 +664,14 @@ public final class AccountServiceGrpc {
 
     /**
      */
+    public void updateUserInterests(app.onepass.apis.UpdateUserInterestsRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.User> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getUpdateUserInterestsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void getUserById(app.onepass.apis.GetObjectByIdRequest request,
         io.grpc.stub.StreamObserver<app.onepass.apis.User> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
@@ -713,6 +766,13 @@ public final class AccountServiceGrpc {
     public app.onepass.apis.User updateAccountInfo(app.onepass.apis.User request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateAccountInfoMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public app.onepass.apis.User updateUserInterests(app.onepass.apis.UpdateUserInterestsRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getUpdateUserInterestsMethod(), getCallOptions(), request);
     }
 
     /**
@@ -814,6 +874,14 @@ public final class AccountServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.User> updateUserInterests(
+        app.onepass.apis.UpdateUserInterestsRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getUpdateUserInterestsMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.User> getUserById(
         app.onepass.apis.GetObjectByIdRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -866,12 +934,13 @@ public final class AccountServiceGrpc {
   private static final int METHODID_GET_USER_BY_EMAIL = 2;
   private static final int METHODID_IS_AUTHENTICATED = 3;
   private static final int METHODID_UPDATE_ACCOUNT_INFO = 4;
-  private static final int METHODID_GET_USER_BY_ID = 5;
-  private static final int METHODID_GENERATE_ACCESS_TOKEN = 6;
-  private static final int METHODID_HAS_PERMISSION = 7;
-  private static final int METHODID_ASSIGN_ROLE = 8;
-  private static final int METHODID_REMOVE_ROLE = 9;
-  private static final int METHODID_PING = 10;
+  private static final int METHODID_UPDATE_USER_INTERESTS = 5;
+  private static final int METHODID_GET_USER_BY_ID = 6;
+  private static final int METHODID_GENERATE_ACCESS_TOKEN = 7;
+  private static final int METHODID_HAS_PERMISSION = 8;
+  private static final int METHODID_ASSIGN_ROLE = 9;
+  private static final int METHODID_REMOVE_ROLE = 10;
+  private static final int METHODID_PING = 11;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -908,6 +977,10 @@ public final class AccountServiceGrpc {
           break;
         case METHODID_UPDATE_ACCOUNT_INFO:
           serviceImpl.updateAccountInfo((app.onepass.apis.User) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.User>) responseObserver);
+          break;
+        case METHODID_UPDATE_USER_INTERESTS:
+          serviceImpl.updateUserInterests((app.onepass.apis.UpdateUserInterestsRequest) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.User>) responseObserver);
           break;
         case METHODID_GET_USER_BY_ID:
@@ -1000,6 +1073,7 @@ public final class AccountServiceGrpc {
               .addMethod(getGetUserByEmailMethod())
               .addMethod(getIsAuthenticatedMethod())
               .addMethod(getUpdateAccountInfoMethod())
+              .addMethod(getUpdateUserInterestsMethod())
               .addMethod(getGetUserByIdMethod())
               .addMethod(getGenerateAccessTokenMethod())
               .addMethod(getHasPermissionMethod())

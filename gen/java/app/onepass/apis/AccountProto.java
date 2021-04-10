@@ -64,6 +64,11 @@ public final class AccountProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hts_account_RemoveRoleRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_account_UpdateUserInterestsRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_account_UpdateUserInterestsRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -92,38 +97,43 @@ public final class AccountProto {
       "il\022(\n\020is_chula_student\030\005 \001(\010R\016isChulaStu" +
       "dent\")\n\027GetUserByChulaIdRequest\022\016\n\002id\030\001 " +
       "\001(\tR\002id\"-\n\025GetUserByEmailRequest\022\024\n\005emai" +
-      "l\030\001 \001(\tR\005email\"z\n\021AssignRoleRequest\022\026\n\006u" +
-      "serId\030\001 \001(\005R\006userId\022&\n\016organizationId\030\002 " +
-      "\001(\005R\016organizationId\022%\n\004role\030\003 \001(\0162\021.hts." +
-      "account.RoleR\004role\"z\n\021RemoveRoleRequest\022" +
-      "\026\n\006userId\030\001 \001(\005R\006userId\022&\n\016organizationI" +
-      "d\030\002 \001(\005R\016organizationId\022%\n\004role\030\003 \001(\0162\021." +
-      "hts.account.RoleR\004role*f\n\004Role\022\024\n\020ROLE_U" +
-      "NSPECIFIED\020\000\022\026\n\022ORGANIZATION_OWNER\020\001\022\027\n\023" +
-      "ORGANIZATION_EDITOR\020\002\022\027\n\023ORGANIZATION_ME" +
-      "MBER\020\0032\276\006\n\016AccountService\022>\n\nCreateUser\022" +
-      "\036.hts.account.CreateUserRequest\032\020.hts.co" +
-      "mmon.User\022J\n\020GetUserByChulaId\022$.hts.acco" +
-      "unt.GetUserByChulaIdRequest\032\020.hts.common" +
-      ".User\022F\n\016GetUserByEmail\022\".hts.account.Ge" +
-      "tUserByEmailRequest\032\020.hts.common.User\022R\n" +
-      "\017IsAuthenticated\022#.hts.account.IsAuthent" +
-      "icatedRequest\032\032.google.protobuf.BoolValu" +
-      "e\0227\n\021UpdateAccountInfo\022\020.hts.common.User" +
-      "\032\020.hts.common.User\022A\n\013GetUserById\022 .hts." +
-      "common.GetObjectByIdRequest\032\020.hts.common" +
-      ".User\022h\n\023GenerateAccessToken\022\'.hts.accou" +
-      "nt.GenerateAccessTokenRequest\032(.hts.acco" +
-      "unt.GenerateAccessTokenResponse\022N\n\rHasPe" +
-      "rmission\022!.hts.account.HasPermissionRequ" +
-      "est\032\032.google.protobuf.BoolValue\022H\n\nAssig" +
-      "nRole\022\036.hts.account.AssignRoleRequest\032\032." +
-      "google.protobuf.BoolValue\022H\n\nRemoveRole\022" +
-      "\036.hts.account.RemoveRoleRequest\032\032.google" +
-      ".protobuf.BoolValue\022:\n\004Ping\022\026.google.pro" +
-      "tobuf.Empty\032\032.google.protobuf.BoolValueB" +
-      "D\n\020app.onepass.apisB\014AccountProtoP\001Z one" +
-      "pass.app/facility/hts/accountb\006proto3"
+      "l\030\001 \001(\tR\005email\"|\n\021AssignRoleRequest\022\027\n\007u" +
+      "ser_id\030\001 \001(\005R\006userId\022\'\n\017organization_id\030" +
+      "\002 \001(\005R\016organizationId\022%\n\004role\030\003 \001(\0162\021.ht" +
+      "s.account.RoleR\004role\"|\n\021RemoveRoleReques" +
+      "t\022\027\n\007user_id\030\001 \001(\005R\006userId\022\'\n\017organizati" +
+      "on_id\030\002 \001(\005R\016organizationId\022%\n\004role\030\003 \001(" +
+      "\0162\021.hts.account.RoleR\004role\"N\n\032UpdateUser" +
+      "InterestsRequest\022\027\n\007user_id\030\001 \001(\005R\006userI" +
+      "d\022\027\n\007tag_ids\030\002 \003(\005R\006tagIds*f\n\004Role\022\024\n\020RO" +
+      "LE_UNSPECIFIED\020\000\022\026\n\022ORGANIZATION_OWNER\020\001" +
+      "\022\027\n\023ORGANIZATION_EDITOR\020\002\022\027\n\023ORGANIZATIO" +
+      "N_MEMBER\020\0032\220\007\n\016AccountService\022>\n\nCreateU" +
+      "ser\022\036.hts.account.CreateUserRequest\032\020.ht" +
+      "s.common.User\022J\n\020GetUserByChulaId\022$.hts." +
+      "account.GetUserByChulaIdRequest\032\020.hts.co" +
+      "mmon.User\022F\n\016GetUserByEmail\022\".hts.accoun" +
+      "t.GetUserByEmailRequest\032\020.hts.common.Use" +
+      "r\022R\n\017IsAuthenticated\022#.hts.account.IsAut" +
+      "henticatedRequest\032\032.google.protobuf.Bool" +
+      "Value\0227\n\021UpdateAccountInfo\022\020.hts.common." +
+      "User\032\020.hts.common.User\022P\n\023UpdateUserInte" +
+      "rests\022\'.hts.account.UpdateUserInterestsR" +
+      "equest\032\020.hts.common.User\022A\n\013GetUserById\022" +
+      " .hts.common.GetObjectByIdRequest\032\020.hts." +
+      "common.User\022h\n\023GenerateAccessToken\022\'.hts" +
+      ".account.GenerateAccessTokenRequest\032(.ht" +
+      "s.account.GenerateAccessTokenResponse\022N\n" +
+      "\rHasPermission\022!.hts.account.HasPermissi" +
+      "onRequest\032\032.google.protobuf.BoolValue\022H\n" +
+      "\nAssignRole\022\036.hts.account.AssignRoleRequ" +
+      "est\032\032.google.protobuf.BoolValue\022H\n\nRemov" +
+      "eRole\022\036.hts.account.RemoveRoleRequest\032\032." +
+      "google.protobuf.BoolValue\022:\n\004Ping\022\026.goog" +
+      "le.protobuf.Empty\032\032.google.protobuf.Bool" +
+      "ValueBD\n\020app.onepass.apisB\014AccountProtoP" +
+      "\001Z onepass.app/facility/hts/accountb\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -192,6 +202,12 @@ public final class AccountProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_account_RemoveRoleRequest_descriptor,
         new java.lang.String[] { "UserId", "OrganizationId", "Role", });
+    internal_static_hts_account_UpdateUserInterestsRequest_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_hts_account_UpdateUserInterestsRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_account_UpdateUserInterestsRequest_descriptor,
+        new java.lang.String[] { "UserId", "TagIds", });
     app.onepass.apis.CommonProto.getDescriptor();
     com.google.protobuf.EmptyProto.getDescriptor();
     com.google.protobuf.WrappersProto.getDescriptor();

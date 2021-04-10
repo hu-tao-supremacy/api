@@ -4,26 +4,26 @@
 package app.onepass.apis;
 
 /**
- * Protobuf type {@code hts.account.AssignRoleRequest}
+ * Protobuf type {@code hts.account.UpdateUserInterestsRequest}
  */
-public final class AssignRoleRequest extends
+public final class UpdateUserInterestsRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:hts.account.AssignRoleRequest)
-    AssignRoleRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:hts.account.UpdateUserInterestsRequest)
+    UpdateUserInterestsRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use AssignRoleRequest.newBuilder() to construct.
-  private AssignRoleRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use UpdateUserInterestsRequest.newBuilder() to construct.
+  private UpdateUserInterestsRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private AssignRoleRequest() {
-    role_ = 0;
+  private UpdateUserInterestsRequest() {
+    tagIds_ = emptyIntList();
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new AssignRoleRequest();
+    return new UpdateUserInterestsRequest();
   }
 
   @java.lang.Override
@@ -31,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AssignRoleRequest(
+  private UpdateUserInterestsRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -39,6 +39,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -55,14 +56,24 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 16: {
-
-            organizationId_ = input.readInt32();
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              tagIds_ = newIntList();
+              mutable_bitField0_ |= 0x00000001;
+            }
+            tagIds_.addInt(input.readInt32());
             break;
           }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            role_ = rawValue;
+          case 18: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+              tagIds_ = newIntList();
+              mutable_bitField0_ |= 0x00000001;
+            }
+            while (input.getBytesUntilLimit() > 0) {
+              tagIds_.addInt(input.readInt32());
+            }
+            input.popLimit(limit);
             break;
           }
           default: {
@@ -80,21 +91,24 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        tagIds_.makeImmutable(); // C
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return app.onepass.apis.AccountProto.internal_static_hts_account_AssignRoleRequest_descriptor;
+    return app.onepass.apis.AccountProto.internal_static_hts_account_UpdateUserInterestsRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return app.onepass.apis.AccountProto.internal_static_hts_account_AssignRoleRequest_fieldAccessorTable
+    return app.onepass.apis.AccountProto.internal_static_hts_account_UpdateUserInterestsRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            app.onepass.apis.AssignRoleRequest.class, app.onepass.apis.AssignRoleRequest.Builder.class);
+            app.onepass.apis.UpdateUserInterestsRequest.class, app.onepass.apis.UpdateUserInterestsRequest.Builder.class);
   }
 
   public static final int USER_ID_FIELD_NUMBER = 1;
@@ -108,35 +122,33 @@ private static final long serialVersionUID = 0L;
     return userId_;
   }
 
-  public static final int ORGANIZATION_ID_FIELD_NUMBER = 2;
-  private int organizationId_;
+  public static final int TAG_IDS_FIELD_NUMBER = 2;
+  private com.google.protobuf.Internal.IntList tagIds_;
   /**
-   * <code>int32 organization_id = 2 [json_name = "organizationId"];</code>
-   * @return The organizationId.
+   * <code>repeated int32 tag_ids = 2 [json_name = "tagIds"];</code>
+   * @return A list containing the tagIds.
    */
   @java.lang.Override
-  public int getOrganizationId() {
-    return organizationId_;
-  }
-
-  public static final int ROLE_FIELD_NUMBER = 3;
-  private int role_;
-  /**
-   * <code>.hts.account.Role role = 3 [json_name = "role"];</code>
-   * @return The enum numeric value on the wire for role.
-   */
-  @java.lang.Override public int getRoleValue() {
-    return role_;
+  public java.util.List<java.lang.Integer>
+      getTagIdsList() {
+    return tagIds_;
   }
   /**
-   * <code>.hts.account.Role role = 3 [json_name = "role"];</code>
-   * @return The role.
+   * <code>repeated int32 tag_ids = 2 [json_name = "tagIds"];</code>
+   * @return The count of tagIds.
    */
-  @java.lang.Override public app.onepass.apis.Role getRole() {
-    @SuppressWarnings("deprecation")
-    app.onepass.apis.Role result = app.onepass.apis.Role.valueOf(role_);
-    return result == null ? app.onepass.apis.Role.UNRECOGNIZED : result;
+  public int getTagIdsCount() {
+    return tagIds_.size();
   }
+  /**
+   * <code>repeated int32 tag_ids = 2 [json_name = "tagIds"];</code>
+   * @param index The index of the element to return.
+   * @return The tagIds at the given index.
+   */
+  public int getTagIds(int index) {
+    return tagIds_.getInt(index);
+  }
+  private int tagIdsMemoizedSerializedSize = -1;
 
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
@@ -152,14 +164,16 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    getSerializedSize();
     if (userId_ != 0) {
       output.writeInt32(1, userId_);
     }
-    if (organizationId_ != 0) {
-      output.writeInt32(2, organizationId_);
+    if (getTagIdsList().size() > 0) {
+      output.writeUInt32NoTag(18);
+      output.writeUInt32NoTag(tagIdsMemoizedSerializedSize);
     }
-    if (role_ != app.onepass.apis.Role.ROLE_UNSPECIFIED.getNumber()) {
-      output.writeEnum(3, role_);
+    for (int i = 0; i < tagIds_.size(); i++) {
+      output.writeInt32NoTag(tagIds_.getInt(i));
     }
     unknownFields.writeTo(output);
   }
@@ -174,13 +188,19 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(1, userId_);
     }
-    if (organizationId_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, organizationId_);
-    }
-    if (role_ != app.onepass.apis.Role.ROLE_UNSPECIFIED.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(3, role_);
+    {
+      int dataSize = 0;
+      for (int i = 0; i < tagIds_.size(); i++) {
+        dataSize += com.google.protobuf.CodedOutputStream
+          .computeInt32SizeNoTag(tagIds_.getInt(i));
+      }
+      size += dataSize;
+      if (!getTagIdsList().isEmpty()) {
+        size += 1;
+        size += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(dataSize);
+      }
+      tagIdsMemoizedSerializedSize = dataSize;
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -192,16 +212,15 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof app.onepass.apis.AssignRoleRequest)) {
+    if (!(obj instanceof app.onepass.apis.UpdateUserInterestsRequest)) {
       return super.equals(obj);
     }
-    app.onepass.apis.AssignRoleRequest other = (app.onepass.apis.AssignRoleRequest) obj;
+    app.onepass.apis.UpdateUserInterestsRequest other = (app.onepass.apis.UpdateUserInterestsRequest) obj;
 
     if (getUserId()
         != other.getUserId()) return false;
-    if (getOrganizationId()
-        != other.getOrganizationId()) return false;
-    if (role_ != other.role_) return false;
+    if (!getTagIdsList()
+        .equals(other.getTagIdsList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -215,78 +234,78 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
     hash = (53 * hash) + getUserId();
-    hash = (37 * hash) + ORGANIZATION_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getOrganizationId();
-    hash = (37 * hash) + ROLE_FIELD_NUMBER;
-    hash = (53 * hash) + role_;
+    if (getTagIdsCount() > 0) {
+      hash = (37 * hash) + TAG_IDS_FIELD_NUMBER;
+      hash = (53 * hash) + getTagIdsList().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static app.onepass.apis.AssignRoleRequest parseFrom(
+  public static app.onepass.apis.UpdateUserInterestsRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.AssignRoleRequest parseFrom(
+  public static app.onepass.apis.UpdateUserInterestsRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.AssignRoleRequest parseFrom(
+  public static app.onepass.apis.UpdateUserInterestsRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.AssignRoleRequest parseFrom(
+  public static app.onepass.apis.UpdateUserInterestsRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.AssignRoleRequest parseFrom(byte[] data)
+  public static app.onepass.apis.UpdateUserInterestsRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.AssignRoleRequest parseFrom(
+  public static app.onepass.apis.UpdateUserInterestsRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.AssignRoleRequest parseFrom(java.io.InputStream input)
+  public static app.onepass.apis.UpdateUserInterestsRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.AssignRoleRequest parseFrom(
+  public static app.onepass.apis.UpdateUserInterestsRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.AssignRoleRequest parseDelimitedFrom(java.io.InputStream input)
+  public static app.onepass.apis.UpdateUserInterestsRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.AssignRoleRequest parseDelimitedFrom(
+  public static app.onepass.apis.UpdateUserInterestsRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.AssignRoleRequest parseFrom(
+  public static app.onepass.apis.UpdateUserInterestsRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.AssignRoleRequest parseFrom(
+  public static app.onepass.apis.UpdateUserInterestsRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -299,7 +318,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(app.onepass.apis.AssignRoleRequest prototype) {
+  public static Builder newBuilder(app.onepass.apis.UpdateUserInterestsRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -315,26 +334,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code hts.account.AssignRoleRequest}
+   * Protobuf type {@code hts.account.UpdateUserInterestsRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:hts.account.AssignRoleRequest)
-      app.onepass.apis.AssignRoleRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:hts.account.UpdateUserInterestsRequest)
+      app.onepass.apis.UpdateUserInterestsRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return app.onepass.apis.AccountProto.internal_static_hts_account_AssignRoleRequest_descriptor;
+      return app.onepass.apis.AccountProto.internal_static_hts_account_UpdateUserInterestsRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return app.onepass.apis.AccountProto.internal_static_hts_account_AssignRoleRequest_fieldAccessorTable
+      return app.onepass.apis.AccountProto.internal_static_hts_account_UpdateUserInterestsRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              app.onepass.apis.AssignRoleRequest.class, app.onepass.apis.AssignRoleRequest.Builder.class);
+              app.onepass.apis.UpdateUserInterestsRequest.class, app.onepass.apis.UpdateUserInterestsRequest.Builder.class);
     }
 
-    // Construct using app.onepass.apis.AssignRoleRequest.newBuilder()
+    // Construct using app.onepass.apis.UpdateUserInterestsRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -354,27 +373,25 @@ private static final long serialVersionUID = 0L;
       super.clear();
       userId_ = 0;
 
-      organizationId_ = 0;
-
-      role_ = 0;
-
+      tagIds_ = emptyIntList();
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return app.onepass.apis.AccountProto.internal_static_hts_account_AssignRoleRequest_descriptor;
+      return app.onepass.apis.AccountProto.internal_static_hts_account_UpdateUserInterestsRequest_descriptor;
     }
 
     @java.lang.Override
-    public app.onepass.apis.AssignRoleRequest getDefaultInstanceForType() {
-      return app.onepass.apis.AssignRoleRequest.getDefaultInstance();
+    public app.onepass.apis.UpdateUserInterestsRequest getDefaultInstanceForType() {
+      return app.onepass.apis.UpdateUserInterestsRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public app.onepass.apis.AssignRoleRequest build() {
-      app.onepass.apis.AssignRoleRequest result = buildPartial();
+    public app.onepass.apis.UpdateUserInterestsRequest build() {
+      app.onepass.apis.UpdateUserInterestsRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -382,11 +399,15 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public app.onepass.apis.AssignRoleRequest buildPartial() {
-      app.onepass.apis.AssignRoleRequest result = new app.onepass.apis.AssignRoleRequest(this);
+    public app.onepass.apis.UpdateUserInterestsRequest buildPartial() {
+      app.onepass.apis.UpdateUserInterestsRequest result = new app.onepass.apis.UpdateUserInterestsRequest(this);
+      int from_bitField0_ = bitField0_;
       result.userId_ = userId_;
-      result.organizationId_ = organizationId_;
-      result.role_ = role_;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        tagIds_.makeImmutable();
+        bitField0_ = (bitField0_ & ~0x00000001);
+      }
+      result.tagIds_ = tagIds_;
       onBuilt();
       return result;
     }
@@ -425,24 +446,28 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof app.onepass.apis.AssignRoleRequest) {
-        return mergeFrom((app.onepass.apis.AssignRoleRequest)other);
+      if (other instanceof app.onepass.apis.UpdateUserInterestsRequest) {
+        return mergeFrom((app.onepass.apis.UpdateUserInterestsRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(app.onepass.apis.AssignRoleRequest other) {
-      if (other == app.onepass.apis.AssignRoleRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(app.onepass.apis.UpdateUserInterestsRequest other) {
+      if (other == app.onepass.apis.UpdateUserInterestsRequest.getDefaultInstance()) return this;
       if (other.getUserId() != 0) {
         setUserId(other.getUserId());
       }
-      if (other.getOrganizationId() != 0) {
-        setOrganizationId(other.getOrganizationId());
-      }
-      if (other.role_ != 0) {
-        setRoleValue(other.getRoleValue());
+      if (!other.tagIds_.isEmpty()) {
+        if (tagIds_.isEmpty()) {
+          tagIds_ = other.tagIds_;
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          ensureTagIdsIsMutable();
+          tagIds_.addAll(other.tagIds_);
+        }
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -459,11 +484,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      app.onepass.apis.AssignRoleRequest parsedMessage = null;
+      app.onepass.apis.UpdateUserInterestsRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (app.onepass.apis.AssignRoleRequest) e.getUnfinishedMessage();
+        parsedMessage = (app.onepass.apis.UpdateUserInterestsRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -472,6 +497,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private int userId_ ;
     /**
@@ -504,87 +530,81 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int organizationId_ ;
-    /**
-     * <code>int32 organization_id = 2 [json_name = "organizationId"];</code>
-     * @return The organizationId.
-     */
-    @java.lang.Override
-    public int getOrganizationId() {
-      return organizationId_;
+    private com.google.protobuf.Internal.IntList tagIds_ = emptyIntList();
+    private void ensureTagIdsIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        tagIds_ = mutableCopy(tagIds_);
+        bitField0_ |= 0x00000001;
+       }
     }
     /**
-     * <code>int32 organization_id = 2 [json_name = "organizationId"];</code>
-     * @param value The organizationId to set.
+     * <code>repeated int32 tag_ids = 2 [json_name = "tagIds"];</code>
+     * @return A list containing the tagIds.
+     */
+    public java.util.List<java.lang.Integer>
+        getTagIdsList() {
+      return ((bitField0_ & 0x00000001) != 0) ?
+               java.util.Collections.unmodifiableList(tagIds_) : tagIds_;
+    }
+    /**
+     * <code>repeated int32 tag_ids = 2 [json_name = "tagIds"];</code>
+     * @return The count of tagIds.
+     */
+    public int getTagIdsCount() {
+      return tagIds_.size();
+    }
+    /**
+     * <code>repeated int32 tag_ids = 2 [json_name = "tagIds"];</code>
+     * @param index The index of the element to return.
+     * @return The tagIds at the given index.
+     */
+    public int getTagIds(int index) {
+      return tagIds_.getInt(index);
+    }
+    /**
+     * <code>repeated int32 tag_ids = 2 [json_name = "tagIds"];</code>
+     * @param index The index to set the value at.
+     * @param value The tagIds to set.
      * @return This builder for chaining.
      */
-    public Builder setOrganizationId(int value) {
-      
-      organizationId_ = value;
+    public Builder setTagIds(
+        int index, int value) {
+      ensureTagIdsIsMutable();
+      tagIds_.setInt(index, value);
       onChanged();
       return this;
     }
     /**
-     * <code>int32 organization_id = 2 [json_name = "organizationId"];</code>
+     * <code>repeated int32 tag_ids = 2 [json_name = "tagIds"];</code>
+     * @param value The tagIds to add.
      * @return This builder for chaining.
      */
-    public Builder clearOrganizationId() {
-      
-      organizationId_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private int role_ = 0;
-    /**
-     * <code>.hts.account.Role role = 3 [json_name = "role"];</code>
-     * @return The enum numeric value on the wire for role.
-     */
-    @java.lang.Override public int getRoleValue() {
-      return role_;
-    }
-    /**
-     * <code>.hts.account.Role role = 3 [json_name = "role"];</code>
-     * @param value The enum numeric value on the wire for role to set.
-     * @return This builder for chaining.
-     */
-    public Builder setRoleValue(int value) {
-      
-      role_ = value;
+    public Builder addTagIds(int value) {
+      ensureTagIdsIsMutable();
+      tagIds_.addInt(value);
       onChanged();
       return this;
     }
     /**
-     * <code>.hts.account.Role role = 3 [json_name = "role"];</code>
-     * @return The role.
-     */
-    @java.lang.Override
-    public app.onepass.apis.Role getRole() {
-      @SuppressWarnings("deprecation")
-      app.onepass.apis.Role result = app.onepass.apis.Role.valueOf(role_);
-      return result == null ? app.onepass.apis.Role.UNRECOGNIZED : result;
-    }
-    /**
-     * <code>.hts.account.Role role = 3 [json_name = "role"];</code>
-     * @param value The role to set.
+     * <code>repeated int32 tag_ids = 2 [json_name = "tagIds"];</code>
+     * @param values The tagIds to add.
      * @return This builder for chaining.
      */
-    public Builder setRole(app.onepass.apis.Role value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      role_ = value.getNumber();
+    public Builder addAllTagIds(
+        java.lang.Iterable<? extends java.lang.Integer> values) {
+      ensureTagIdsIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, tagIds_);
       onChanged();
       return this;
     }
     /**
-     * <code>.hts.account.Role role = 3 [json_name = "role"];</code>
+     * <code>repeated int32 tag_ids = 2 [json_name = "tagIds"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearRole() {
-      
-      role_ = 0;
+    public Builder clearTagIds() {
+      tagIds_ = emptyIntList();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -601,41 +621,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:hts.account.AssignRoleRequest)
+    // @@protoc_insertion_point(builder_scope:hts.account.UpdateUserInterestsRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:hts.account.AssignRoleRequest)
-  private static final app.onepass.apis.AssignRoleRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:hts.account.UpdateUserInterestsRequest)
+  private static final app.onepass.apis.UpdateUserInterestsRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new app.onepass.apis.AssignRoleRequest();
+    DEFAULT_INSTANCE = new app.onepass.apis.UpdateUserInterestsRequest();
   }
 
-  public static app.onepass.apis.AssignRoleRequest getDefaultInstance() {
+  public static app.onepass.apis.UpdateUserInterestsRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<AssignRoleRequest>
-      PARSER = new com.google.protobuf.AbstractParser<AssignRoleRequest>() {
+  private static final com.google.protobuf.Parser<UpdateUserInterestsRequest>
+      PARSER = new com.google.protobuf.AbstractParser<UpdateUserInterestsRequest>() {
     @java.lang.Override
-    public AssignRoleRequest parsePartialFrom(
+    public UpdateUserInterestsRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AssignRoleRequest(input, extensionRegistry);
+      return new UpdateUserInterestsRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<AssignRoleRequest> parser() {
+  public static com.google.protobuf.Parser<UpdateUserInterestsRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<AssignRoleRequest> getParserForType() {
+  public com.google.protobuf.Parser<UpdateUserInterestsRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public app.onepass.apis.AssignRoleRequest getDefaultInstanceForType() {
+  public app.onepass.apis.UpdateUserInterestsRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

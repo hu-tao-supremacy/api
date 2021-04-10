@@ -8,13 +8,13 @@ public interface AssignRoleRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int32 userId = 1 [json_name = "userId"];</code>
+   * <code>int32 user_id = 1 [json_name = "userId"];</code>
    * @return The userId.
    */
   int getUserId();
 
   /**
-   * <code>int32 organizationId = 2 [json_name = "organizationId"];</code>
+   * <code>int32 organization_id = 2 [json_name = "organizationId"];</code>
    * @return The organizationId.
    */
   int getOrganizationId();
