@@ -74,6 +74,10 @@ export interface User {
   address: StringValue | undefined;
   profilePictureUrl: StringValue | undefined;
   didSetup: boolean;
+  district: StringValue | undefined;
+  zipCode: StringValue | undefined;
+  phoneNumber: StringValue | undefined;
+  province: StringValue | undefined;
 }
 
 export interface Organization {
