@@ -26,8 +26,8 @@ type OrganizerServiceClient interface {
 	GetOrganizationById(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*common.Organization, error)
 	UpdateOrganization(ctx context.Context, in *UpdateOrganizationRequest, opts ...grpc.CallOption) (*common.Organization, error)
 	RemoveOrganization(ctx context.Context, in *RemoveOrganizationRequest, opts ...grpc.CallOption) (*common.Organization, error)
-	AddUsersToOrganization(ctx context.Context, in *UpdateUsersInOrganizationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	RemoveUsersFromOrganization(ctx context.Context, in *UpdateUsersInOrganizationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	AddUsersToOrganization(ctx context.Context, in *UpdateUsersInOrganizationRequest, opts ...grpc.CallOption) (*IdsResponse, error)
+	RemoveUsersFromOrganization(ctx context.Context, in *UpdateUsersInOrganizationRequest, opts ...grpc.CallOption) (*IdsResponse, error)
 	CreateEvent(ctx context.Context, in *CreateEventRequest, opts ...grpc.CallOption) (*common.Event, error)
 	UpdateEvent(ctx context.Context, in *UpdateEventRequest, opts ...grpc.CallOption) (*common.Event, error)
 	UpdateEventDurations(ctx context.Context, in *UpdateEventDurationRequest, opts ...grpc.CallOption) (*IdsResponse, error)
@@ -97,8 +97,8 @@ func (c *organizerServiceClient) RemoveOrganization(ctx context.Context, in *Rem
 	return out, nil
 }
 
-func (c *organizerServiceClient) AddUsersToOrganization(ctx context.Context, in *UpdateUsersInOrganizationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *organizerServiceClient) AddUsersToOrganization(ctx context.Context, in *UpdateUsersInOrganizationRequest, opts ...grpc.CallOption) (*IdsResponse, error) {
+	out := new(IdsResponse)
 	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/AddUsersToOrganization", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -106,8 +106,8 @@ func (c *organizerServiceClient) AddUsersToOrganization(ctx context.Context, in 
 	return out, nil
 }
 
-func (c *organizerServiceClient) RemoveUsersFromOrganization(ctx context.Context, in *UpdateUsersInOrganizationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *organizerServiceClient) RemoveUsersFromOrganization(ctx context.Context, in *UpdateUsersInOrganizationRequest, opts ...grpc.CallOption) (*IdsResponse, error) {
+	out := new(IdsResponse)
 	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/RemoveUsersFromOrganization", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -250,8 +250,8 @@ type OrganizerServiceServer interface {
 	GetOrganizationById(context.Context, *common.GetObjectByIdRequest) (*common.Organization, error)
 	UpdateOrganization(context.Context, *UpdateOrganizationRequest) (*common.Organization, error)
 	RemoveOrganization(context.Context, *RemoveOrganizationRequest) (*common.Organization, error)
-	AddUsersToOrganization(context.Context, *UpdateUsersInOrganizationRequest) (*emptypb.Empty, error)
-	RemoveUsersFromOrganization(context.Context, *UpdateUsersInOrganizationRequest) (*emptypb.Empty, error)
+	AddUsersToOrganization(context.Context, *UpdateUsersInOrganizationRequest) (*IdsResponse, error)
+	RemoveUsersFromOrganization(context.Context, *UpdateUsersInOrganizationRequest) (*IdsResponse, error)
 	CreateEvent(context.Context, *CreateEventRequest) (*common.Event, error)
 	UpdateEvent(context.Context, *UpdateEventRequest) (*common.Event, error)
 	UpdateEventDurations(context.Context, *UpdateEventDurationRequest) (*IdsResponse, error)
@@ -288,10 +288,10 @@ func (UnimplementedOrganizerServiceServer) UpdateOrganization(context.Context, *
 func (UnimplementedOrganizerServiceServer) RemoveOrganization(context.Context, *RemoveOrganizationRequest) (*common.Organization, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoveOrganization not implemented")
 }
-func (UnimplementedOrganizerServiceServer) AddUsersToOrganization(context.Context, *UpdateUsersInOrganizationRequest) (*emptypb.Empty, error) {
+func (UnimplementedOrganizerServiceServer) AddUsersToOrganization(context.Context, *UpdateUsersInOrganizationRequest) (*IdsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddUsersToOrganization not implemented")
 }
-func (UnimplementedOrganizerServiceServer) RemoveUsersFromOrganization(context.Context, *UpdateUsersInOrganizationRequest) (*emptypb.Empty, error) {
+func (UnimplementedOrganizerServiceServer) RemoveUsersFromOrganization(context.Context, *UpdateUsersInOrganizationRequest) (*IdsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoveUsersFromOrganization not implemented")
 }
 func (UnimplementedOrganizerServiceServer) CreateEvent(context.Context, *CreateEventRequest) (*common.Event, error) {
