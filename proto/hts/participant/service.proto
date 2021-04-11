@@ -125,6 +125,8 @@ service ParticipantService {
     rpc GetEventById(GetEventByIdRequest) returns (hts.common.Event);
     // Return all event in database
     rpc GetAllEvents(google.protobuf.Empty) returns (EventsResponse);
+    // Return tag object from tag_id
+    rpc GetTagById(hts.common.GetObjectByIdRequest) returns (hts.common.Tag);
     // Return all tags in database
     rpc GetAllTags(google.protobuf.Empty) returns (TagsResponse);
     // Return 10 random events --> waiting for machine learning implementation
