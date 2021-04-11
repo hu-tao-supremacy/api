@@ -73,7 +73,12 @@ export interface TagsResponse {
   tags: Tag[];
 }
 
-export interface GetApprovedUserByEventIdResponse {
+export interface GetUsersByEventIdRequest {
+  eventId: number;
+  status: UserEvent_Status;
+}
+
+export interface GetUsersByEventIdResponse {
   users: User[];
 }
 
@@ -143,9 +148,9 @@ export interface ParticipantService {
   GetRatingByEventId(
     request: GetObjectByIdRequest
   ): Promise<GetRatingByEventIdResponse>;
-  GetApprovedUserByEventId(
-    request: GetObjectByIdRequest
-  ): Promise<GetApprovedUserByEventIdResponse>;
+  GetUsersByEventId(
+    request: GetUsersByEventIdRequest
+  ): Promise<GetUsersByEventIdResponse>;
   GetEventDurationsByEventId(
     request: GetObjectByIdRequest
   ): Promise<GetEventDurationsByEventIdResponse>;
