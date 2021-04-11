@@ -7,6 +7,8 @@ import {
   Tag,
   QuestionGroup,
   Question,
+  UserOrganization,
+  EventDuration,
   UserEvent,
   GetObjectByIdRequest,
 } from "../../hts/common/common";
@@ -108,12 +110,28 @@ export interface RemoveQuestionsRequest {
   questionIds: number[];
 }
 
-export interface IdsResponse {
-  ids: number[];
+export interface OrganizationListResponse {
+  organizations: Organization[];
 }
 
-export interface GetOrganizationsResponse {
-  organizations: Organization[];
+export interface UserOrganizationListResponse {
+  userOrganizations: UserOrganization[];
+}
+
+export interface EventDurationListResponse {
+  eventDurations: EventDuration[];
+}
+
+export interface TagListResponse {
+  tags: Tag[];
+}
+
+export interface QuestionGroupListResponse {
+  questionGroups: QuestionGroup[];
+}
+
+export interface QuestionListResponse {
+  questions: Question[];
 }
 
 export const HTS_ORGANIZER_PACKAGE_NAME = "hts.organizer";
@@ -123,7 +141,7 @@ export interface OrganizerServiceClient {
     request: CreateOrganizationRequest
   ): Observable<Organization>;
 
-  getOrganizations(request: Empty): Observable<GetOrganizationsResponse>;
+  getOrganizations(request: Empty): Observable<OrganizationListResponse>;
 
   getOrganizationById(request: GetObjectByIdRequest): Observable<Organization>;
 
@@ -137,11 +155,11 @@ export interface OrganizerServiceClient {
 
   addUsersToOrganization(
     request: UpdateUsersInOrganizationRequest
-  ): Observable<IdsResponse>;
+  ): Observable<UserOrganizationListResponse>;
 
   removeUsersFromOrganization(
     request: UpdateUsersInOrganizationRequest
-  ): Observable<IdsResponse>;
+  ): Observable<UserOrganizationListResponse>;
 
   createEvent(request: CreateEventRequest): Observable<Event>;
 
@@ -149,7 +167,7 @@ export interface OrganizerServiceClient {
 
   updateEventDurations(
     request: UpdateEventDurationRequest
-  ): Observable<IdsResponse>;
+  ): Observable<EventDurationListResponse>;
 
   removeEvent(request: RemoveEventRequest): Observable<Event>;
 
@@ -159,21 +177,25 @@ export interface OrganizerServiceClient {
 
   createTag(request: CreateTagRequest): Observable<Tag>;
 
-  addTags(request: UpdateTagRequest): Observable<IdsResponse>;
+  addTags(request: UpdateTagRequest): Observable<TagListResponse>;
 
-  removeTags(request: UpdateTagRequest): Observable<IdsResponse>;
+  removeTags(request: UpdateTagRequest): Observable<TagListResponse>;
 
   hasEvent(request: HasEventRequest): Observable<Event>;
 
-  addQuestionGroups(request: AddQuestionGroupsRequest): Observable<IdsResponse>;
+  addQuestionGroups(
+    request: AddQuestionGroupsRequest
+  ): Observable<QuestionGroupListResponse>;
 
   removeQuestionGroups(
     request: RemoveQuestionGroupsRequest
-  ): Observable<IdsResponse>;
+  ): Observable<QuestionGroupListResponse>;
 
-  addQuestions(request: AddQuestionsRequest): Observable<IdsResponse>;
+  addQuestions(request: AddQuestionsRequest): Observable<QuestionListResponse>;
 
-  removeQuestions(request: RemoveQuestionsRequest): Observable<IdsResponse>;
+  removeQuestions(
+    request: RemoveQuestionsRequest
+  ): Observable<QuestionListResponse>;
 
   ping(request: Empty): Observable<BoolValue>;
 }
@@ -186,9 +208,9 @@ export interface OrganizerServiceController {
   getOrganizations(
     request: Empty
   ):
-    | Promise<GetOrganizationsResponse>
-    | Observable<GetOrganizationsResponse>
-    | GetOrganizationsResponse;
+    | Promise<OrganizationListResponse>
+    | Observable<OrganizationListResponse>
+    | OrganizationListResponse;
 
   getOrganizationById(
     request: GetObjectByIdRequest
@@ -204,11 +226,17 @@ export interface OrganizerServiceController {
 
   addUsersToOrganization(
     request: UpdateUsersInOrganizationRequest
-  ): Promise<IdsResponse> | Observable<IdsResponse> | IdsResponse;
+  ):
+    | Promise<UserOrganizationListResponse>
+    | Observable<UserOrganizationListResponse>
+    | UserOrganizationListResponse;
 
   removeUsersFromOrganization(
     request: UpdateUsersInOrganizationRequest
-  ): Promise<IdsResponse> | Observable<IdsResponse> | IdsResponse;
+  ):
+    | Promise<UserOrganizationListResponse>
+    | Observable<UserOrganizationListResponse>
+    | UserOrganizationListResponse;
 
   createEvent(
     request: CreateEventRequest
@@ -220,7 +248,10 @@ export interface OrganizerServiceController {
 
   updateEventDurations(
     request: UpdateEventDurationRequest
-  ): Promise<IdsResponse> | Observable<IdsResponse> | IdsResponse;
+  ):
+    | Promise<EventDurationListResponse>
+    | Observable<EventDurationListResponse>
+    | EventDurationListResponse;
 
   removeEvent(
     request: RemoveEventRequest
@@ -234,11 +265,11 @@ export interface OrganizerServiceController {
 
   addTags(
     request: UpdateTagRequest
-  ): Promise<IdsResponse> | Observable<IdsResponse> | IdsResponse;
+  ): Promise<TagListResponse> | Observable<TagListResponse> | TagListResponse;
 
   removeTags(
     request: UpdateTagRequest
-  ): Promise<IdsResponse> | Observable<IdsResponse> | IdsResponse;
+  ): Promise<TagListResponse> | Observable<TagListResponse> | TagListResponse;
 
   hasEvent(
     request: HasEventRequest
@@ -246,19 +277,31 @@ export interface OrganizerServiceController {
 
   addQuestionGroups(
     request: AddQuestionGroupsRequest
-  ): Promise<IdsResponse> | Observable<IdsResponse> | IdsResponse;
+  ):
+    | Promise<QuestionGroupListResponse>
+    | Observable<QuestionGroupListResponse>
+    | QuestionGroupListResponse;
 
   removeQuestionGroups(
     request: RemoveQuestionGroupsRequest
-  ): Promise<IdsResponse> | Observable<IdsResponse> | IdsResponse;
+  ):
+    | Promise<QuestionGroupListResponse>
+    | Observable<QuestionGroupListResponse>
+    | QuestionGroupListResponse;
 
   addQuestions(
     request: AddQuestionsRequest
-  ): Promise<IdsResponse> | Observable<IdsResponse> | IdsResponse;
+  ):
+    | Promise<QuestionListResponse>
+    | Observable<QuestionListResponse>
+    | QuestionListResponse;
 
   removeQuestions(
     request: RemoveQuestionsRequest
-  ): Promise<IdsResponse> | Observable<IdsResponse> | IdsResponse;
+  ):
+    | Promise<QuestionListResponse>
+    | Observable<QuestionListResponse>
+    | QuestionListResponse;
 
   ping(request: Empty): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
 }

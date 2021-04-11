@@ -6,6 +6,8 @@ import {
   Tag,
   QuestionGroup,
   Question,
+  UserOrganization,
+  EventDuration,
   UserEvent,
   GetObjectByIdRequest,
 } from "../../hts/common/common";
@@ -104,44 +106,64 @@ export interface RemoveQuestionsRequest {
   questionIds: number[];
 }
 
-export interface IdsResponse {
-  ids: number[];
+export interface OrganizationListResponse {
+  organizations: Organization[];
 }
 
-export interface GetOrganizationsResponse {
-  organizations: Organization[];
+export interface UserOrganizationListResponse {
+  userOrganizations: UserOrganization[];
+}
+
+export interface EventDurationListResponse {
+  eventDurations: EventDuration[];
+}
+
+export interface TagListResponse {
+  tags: Tag[];
+}
+
+export interface QuestionGroupListResponse {
+  questionGroups: QuestionGroup[];
+}
+
+export interface QuestionListResponse {
+  questions: Question[];
 }
 
 export interface OrganizerService {
   CreateOrganization(request: CreateOrganizationRequest): Promise<Organization>;
-  GetOrganizations(request: Empty): Promise<GetOrganizationsResponse>;
+  GetOrganizations(request: Empty): Promise<OrganizationListResponse>;
   GetOrganizationById(request: GetObjectByIdRequest): Promise<Organization>;
   UpdateOrganization(request: UpdateOrganizationRequest): Promise<Organization>;
   RemoveOrganization(request: RemoveOrganizationRequest): Promise<Organization>;
   AddUsersToOrganization(
     request: UpdateUsersInOrganizationRequest
-  ): Promise<IdsResponse>;
+  ): Promise<UserOrganizationListResponse>;
   RemoveUsersFromOrganization(
     request: UpdateUsersInOrganizationRequest
-  ): Promise<IdsResponse>;
+  ): Promise<UserOrganizationListResponse>;
   CreateEvent(request: CreateEventRequest): Promise<Event>;
   UpdateEvent(request: UpdateEventRequest): Promise<Event>;
   UpdateEventDurations(
     request: UpdateEventDurationRequest
-  ): Promise<IdsResponse>;
+  ): Promise<EventDurationListResponse>;
   RemoveEvent(request: RemoveEventRequest): Promise<Event>;
   UpdateRegistrationRequest(
     request: UpdateRegistrationRequestRequest
   ): Promise<UserEvent>;
   CreateTag(request: CreateTagRequest): Promise<Tag>;
-  AddTags(request: UpdateTagRequest): Promise<IdsResponse>;
-  RemoveTags(request: UpdateTagRequest): Promise<IdsResponse>;
+  AddTags(request: UpdateTagRequest): Promise<TagListResponse>;
+  RemoveTags(request: UpdateTagRequest): Promise<TagListResponse>;
   HasEvent(request: HasEventRequest): Promise<Event>;
-  AddQuestionGroups(request: AddQuestionGroupsRequest): Promise<IdsResponse>;
+  AddQuestionGroups(
+    request: AddQuestionGroupsRequest
+  ): Promise<QuestionGroupListResponse>;
   RemoveQuestionGroups(
     request: RemoveQuestionGroupsRequest
-  ): Promise<IdsResponse>;
-  AddQuestions(request: AddQuestionsRequest): Promise<IdsResponse>;
-  RemoveQuestions(request: RemoveQuestionsRequest): Promise<IdsResponse>;
+  ): Promise<QuestionGroupListResponse>;
+  AddQuestions(request: AddQuestionsRequest): Promise<QuestionListResponse>;
+  RemoveQuestions(
+    request: RemoveQuestionsRequest
+  ): Promise<QuestionListResponse>;
   Ping(request: Empty): Promise<boolean | undefined>;
 }
