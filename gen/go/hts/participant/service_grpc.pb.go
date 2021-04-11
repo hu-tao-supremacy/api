@@ -40,7 +40,7 @@ type ParticipantServiceClient interface {
 	GetLocationById(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*common.Location, error)
 	GetTagsByEventId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*TagsResponse, error)
 	GetRatingByEventId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetRatingByEventIdResponse, error)
-	GetApprovedUserByEventId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetApprovedUserByEventIdResponse, error)
+	GetUsersByEventId(ctx context.Context, in *GetUsersByEventIdRequest, opts ...grpc.CallOption) (*GetUsersByEventIdResponse, error)
 	GetEventDurationsByEventId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetEventDurationsByEventIdResponse, error)
 	GetQuestionGroupsByEventId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetQuestionGroupsByEventIdResponse, error)
 	GetQuestionsByQuestionGroupId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetQuestionsByQuestionGroupIdResponse, error)
@@ -222,9 +222,9 @@ func (c *participantServiceClient) GetRatingByEventId(ctx context.Context, in *c
 	return out, nil
 }
 
-func (c *participantServiceClient) GetApprovedUserByEventId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetApprovedUserByEventIdResponse, error) {
-	out := new(GetApprovedUserByEventIdResponse)
-	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GetApprovedUserByEventId", in, out, opts...)
+func (c *participantServiceClient) GetUsersByEventId(ctx context.Context, in *GetUsersByEventIdRequest, opts ...grpc.CallOption) (*GetUsersByEventIdResponse, error) {
+	out := new(GetUsersByEventIdResponse)
+	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GetUsersByEventId", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -334,7 +334,7 @@ type ParticipantServiceServer interface {
 	GetLocationById(context.Context, *common.GetObjectByIdRequest) (*common.Location, error)
 	GetTagsByEventId(context.Context, *common.GetObjectByIdRequest) (*TagsResponse, error)
 	GetRatingByEventId(context.Context, *common.GetObjectByIdRequest) (*GetRatingByEventIdResponse, error)
-	GetApprovedUserByEventId(context.Context, *common.GetObjectByIdRequest) (*GetApprovedUserByEventIdResponse, error)
+	GetUsersByEventId(context.Context, *GetUsersByEventIdRequest) (*GetUsersByEventIdResponse, error)
 	GetEventDurationsByEventId(context.Context, *common.GetObjectByIdRequest) (*GetEventDurationsByEventIdResponse, error)
 	GetQuestionGroupsByEventId(context.Context, *common.GetObjectByIdRequest) (*GetQuestionGroupsByEventIdResponse, error)
 	GetQuestionsByQuestionGroupId(context.Context, *common.GetObjectByIdRequest) (*GetQuestionsByQuestionGroupIdResponse, error)
@@ -405,8 +405,8 @@ func (UnimplementedParticipantServiceServer) GetTagsByEventId(context.Context, *
 func (UnimplementedParticipantServiceServer) GetRatingByEventId(context.Context, *common.GetObjectByIdRequest) (*GetRatingByEventIdResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetRatingByEventId not implemented")
 }
-func (UnimplementedParticipantServiceServer) GetApprovedUserByEventId(context.Context, *common.GetObjectByIdRequest) (*GetApprovedUserByEventIdResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetApprovedUserByEventId not implemented")
+func (UnimplementedParticipantServiceServer) GetUsersByEventId(context.Context, *GetUsersByEventIdRequest) (*GetUsersByEventIdResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUsersByEventId not implemented")
 }
 func (UnimplementedParticipantServiceServer) GetEventDurationsByEventId(context.Context, *common.GetObjectByIdRequest) (*GetEventDurationsByEventIdResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetEventDurationsByEventId not implemented")
@@ -772,20 +772,20 @@ func _ParticipantService_GetRatingByEventId_Handler(srv interface{}, ctx context
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ParticipantService_GetApprovedUserByEventId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(common.GetObjectByIdRequest)
+func _ParticipantService_GetUsersByEventId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUsersByEventIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ParticipantServiceServer).GetApprovedUserByEventId(ctx, in)
+		return srv.(ParticipantServiceServer).GetUsersByEventId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.participant.ParticipantService/GetApprovedUserByEventId",
+		FullMethod: "/hts.participant.ParticipantService/GetUsersByEventId",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ParticipantServiceServer).GetApprovedUserByEventId(ctx, req.(*common.GetObjectByIdRequest))
+		return srv.(ParticipantServiceServer).GetUsersByEventId(ctx, req.(*GetUsersByEventIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1032,8 +1032,8 @@ var ParticipantService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _ParticipantService_GetRatingByEventId_Handler,
 		},
 		{
-			MethodName: "GetApprovedUserByEventId",
-			Handler:    _ParticipantService_GetApprovedUserByEventId_Handler,
+			MethodName: "GetUsersByEventId",
+			Handler:    _ParticipantService_GetUsersByEventId_Handler,
 		},
 		{
 			MethodName: "GetEventDurationsByEventId",
