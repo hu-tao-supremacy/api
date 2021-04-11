@@ -85,12 +85,12 @@ class OrganizerServiceStub(object):
         self.AddTags = channel.unary_unary(
                 '/hts.organizer.OrganizerService/AddTags',
                 request_serializer=hts_dot_organizer_dot_service__pb2.UpdateTagRequest.SerializeToString,
-                response_deserializer=hts_dot_organizer_dot_service__pb2.TagListResponse.FromString,
+                response_deserializer=hts_dot_organizer_dot_service__pb2.EventTagListResponse.FromString,
                 )
         self.RemoveTags = channel.unary_unary(
                 '/hts.organizer.OrganizerService/RemoveTags',
                 request_serializer=hts_dot_organizer_dot_service__pb2.UpdateTagRequest.SerializeToString,
-                response_deserializer=hts_dot_organizer_dot_service__pb2.TagListResponse.FromString,
+                response_deserializer=hts_dot_organizer_dot_service__pb2.EventTagListResponse.FromString,
                 )
         self.HasEvent = channel.unary_unary(
                 '/hts.organizer.OrganizerService/HasEvent',
@@ -324,12 +324,12 @@ def add_OrganizerServiceServicer_to_server(servicer, server):
             'AddTags': grpc.unary_unary_rpc_method_handler(
                     servicer.AddTags,
                     request_deserializer=hts_dot_organizer_dot_service__pb2.UpdateTagRequest.FromString,
-                    response_serializer=hts_dot_organizer_dot_service__pb2.TagListResponse.SerializeToString,
+                    response_serializer=hts_dot_organizer_dot_service__pb2.EventTagListResponse.SerializeToString,
             ),
             'RemoveTags': grpc.unary_unary_rpc_method_handler(
                     servicer.RemoveTags,
                     request_deserializer=hts_dot_organizer_dot_service__pb2.UpdateTagRequest.FromString,
-                    response_serializer=hts_dot_organizer_dot_service__pb2.TagListResponse.SerializeToString,
+                    response_serializer=hts_dot_organizer_dot_service__pb2.EventTagListResponse.SerializeToString,
             ),
             'HasEvent': grpc.unary_unary_rpc_method_handler(
                     servicer.HasEvent,
@@ -605,7 +605,7 @@ class OrganizerService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/AddTags',
             hts_dot_organizer_dot_service__pb2.UpdateTagRequest.SerializeToString,
-            hts_dot_organizer_dot_service__pb2.TagListResponse.FromString,
+            hts_dot_organizer_dot_service__pb2.EventTagListResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -622,7 +622,7 @@ class OrganizerService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/RemoveTags',
             hts_dot_organizer_dot_service__pb2.UpdateTagRequest.SerializeToString,
-            hts_dot_organizer_dot_service__pb2.TagListResponse.FromString,
+            hts_dot_organizer_dot_service__pb2.EventTagListResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
