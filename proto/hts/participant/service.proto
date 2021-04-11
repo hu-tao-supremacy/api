@@ -68,12 +68,12 @@ message TagsResponse {
     repeated hts.common.Tag tags = 1;
 }
 
-message GetUserByEventIdRequest {
+message GetUsersByEventIdRequest {
     int32 event_id = 1;
     hts.common.UserEvent.Status status = 2;
 }
 
-message GetUserByEventIdResponse {
+message GetUsersByEventIdResponse {
     repeated hts.common.User users= 1;
 }
 
@@ -156,7 +156,7 @@ service ParticipantService {
     // Get Tags, Rating, Approved User, Durations from event_id
     rpc GetTagsByEventId(hts.common.GetObjectByIdRequest) returns (TagsResponse);
     rpc GetRatingByEventId(hts.common.GetObjectByIdRequest) returns (GetRatingByEventIdResponse);
-    rpc GetUserByEventId(GetUserByEventIdRequest) returns (GetUserByEventIdResponse);
+    rpc GetUsersByEventId(GetUsersByEventIdRequest) returns (GetUsersByEventIdResponse);
     rpc GetEventDurationsByEventId(hts.common.GetObjectByIdRequest) returns (GetEventDurationsByEventIdResponse);
 
     // Get Questions
