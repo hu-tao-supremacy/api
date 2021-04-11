@@ -75,6 +75,7 @@ export interface User {
   zipCode: string | undefined;
   phoneNumber: string | undefined;
   province: string | undefined;
+  academicYear: number | undefined;
 }
 
 export interface Organization {
