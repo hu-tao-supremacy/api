@@ -115,8 +115,8 @@ message EventDurationListResponse {
   repeated hts.common.EventDuration event_durations = 1;
 }
 
-message TagListResponse {
-  repeated hts.common.Tag tags = 1;
+message EventTagListResponse {
+  repeated hts.common.EventTag event_tags = 1;
 }
 
 message QuestionGroupListResponse {
@@ -141,8 +141,8 @@ service OrganizerService {
   rpc RemoveEvent(RemoveEventRequest) returns (hts.common.Event);
   rpc UpdateRegistrationRequest(UpdateRegistrationRequestRequest) returns (hts.common.UserEvent);
   rpc CreateTag(CreateTagRequest) returns (hts.common.Tag);
-  rpc AddTags(UpdateTagRequest) returns (TagListResponse);
-  rpc RemoveTags(UpdateTagRequest) returns (TagListResponse);
+  rpc AddTags(UpdateTagRequest) returns (EventTagListResponse);
+  rpc RemoveTags(UpdateTagRequest) returns (EventTagListResponse);
   rpc HasEvent(HasEventRequest) returns (hts.common.Event);
   rpc AddQuestionGroups(AddQuestionGroupsRequest) returns (QuestionGroupListResponse);
   rpc RemoveQuestionGroups(RemoveQuestionGroupsRequest) returns (QuestionGroupListResponse);
