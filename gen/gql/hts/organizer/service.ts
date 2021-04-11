@@ -8,6 +8,7 @@ import {
   Question,
   UserOrganization,
   EventDuration,
+  EventTag,
   UserEvent,
   GetObjectByIdRequest,
 } from "../../hts/common/common";
@@ -118,8 +119,8 @@ export interface EventDurationListResponse {
   eventDurations: EventDuration[];
 }
 
-export interface TagListResponse {
-  tags: Tag[];
+export interface EventTagListResponse {
+  eventTags: EventTag[];
 }
 
 export interface QuestionGroupListResponse {
@@ -152,8 +153,8 @@ export interface OrganizerService {
     request: UpdateRegistrationRequestRequest
   ): Promise<UserEvent>;
   CreateTag(request: CreateTagRequest): Promise<Tag>;
-  AddTags(request: UpdateTagRequest): Promise<TagListResponse>;
-  RemoveTags(request: UpdateTagRequest): Promise<TagListResponse>;
+  AddTags(request: UpdateTagRequest): Promise<EventTagListResponse>;
+  RemoveTags(request: UpdateTagRequest): Promise<EventTagListResponse>;
   HasEvent(request: HasEventRequest): Promise<Event>;
   AddQuestionGroups(
     request: AddQuestionGroupsRequest
