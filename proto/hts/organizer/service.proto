@@ -104,7 +104,7 @@ message RemoveQuestionsRequest {
 }
 
 message IdsResponse {
-  repeated int32 question_ids = 1;
+  repeated int32 ids = 1;
 }
 
 message GetOrganizationsResponse {
