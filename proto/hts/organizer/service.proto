@@ -103,6 +103,10 @@ message RemoveQuestionsRequest {
   repeated int32 question_ids = 2;
 }
 
+message IdsResponse {
+  repeated int32 question_ids = 1;
+}
+
 message GetOrganizationsResponse {
   repeated hts.common.Organization organizations = 1;
 }
@@ -117,16 +121,16 @@ service OrganizerService {
   rpc RemoveUsersFromOrganization(UpdateUsersInOrganizationRequest) returns (google.protobuf.Empty);
   rpc CreateEvent(CreateEventRequest) returns (hts.common.Event);
   rpc UpdateEvent(UpdateEventRequest) returns (hts.common.Event);
-  rpc UpdateEventDurations(UpdateEventDurationRequest) returns (google.protobuf.Empty);
+  rpc UpdateEventDurations(UpdateEventDurationRequest) returns (IdsResponse);
   rpc RemoveEvent(RemoveEventRequest) returns (hts.common.Event);
   rpc UpdateRegistrationRequest(UpdateRegistrationRequestRequest) returns (hts.common.UserEvent);
   rpc CreateTag(CreateTagRequest) returns (hts.common.Tag);
-  rpc AddTags(UpdateTagRequest) returns (google.protobuf.Empty);
-  rpc RemoveTags(UpdateTagRequest) returns (google.protobuf.Empty);
+  rpc AddTags(UpdateTagRequest) returns (IdsResponse);
+  rpc RemoveTags(UpdateTagRequest) returns (IdsResponse);
   rpc HasEvent(HasEventRequest) returns (hts.common.Event);
-  rpc AddQuestionGroups(AddQuestionGroupsRequest) returns (google.protobuf.Empty);
-  rpc RemoveQuestionGroups(RemoveQuestionGroupsRequest) returns (google.protobuf.Empty);
-  rpc AddQuestions(AddQuestionsRequest) returns (google.protobuf.Empty);
-  rpc RemoveQuestions(RemoveQuestionsRequest) returns (google.protobuf.Empty);
+  rpc AddQuestionGroups(AddQuestionGroupsRequest) returns (IdsResponse);
+  rpc RemoveQuestionGroups(RemoveQuestionGroupsRequest) returns (IdsResponse);
+  rpc AddQuestions(AddQuestionsRequest) returns (IdsResponse);
+  rpc RemoveQuestions(RemoveQuestionsRequest) returns (IdsResponse);
   rpc Ping(google.protobuf.Empty) returns (google.protobuf.BoolValue);
 }
