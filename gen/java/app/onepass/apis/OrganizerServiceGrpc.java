@@ -170,28 +170,28 @@ public final class OrganizerServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<app.onepass.apis.UpdateUsersInOrganizationRequest,
-      com.google.protobuf.Empty> getAddUsersToOrganizationMethod;
+      app.onepass.apis.IdsResponse> getAddUsersToOrganizationMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "AddUsersToOrganization",
       requestType = app.onepass.apis.UpdateUsersInOrganizationRequest.class,
-      responseType = com.google.protobuf.Empty.class,
+      responseType = app.onepass.apis.IdsResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<app.onepass.apis.UpdateUsersInOrganizationRequest,
-      com.google.protobuf.Empty> getAddUsersToOrganizationMethod() {
-    io.grpc.MethodDescriptor<app.onepass.apis.UpdateUsersInOrganizationRequest, com.google.protobuf.Empty> getAddUsersToOrganizationMethod;
+      app.onepass.apis.IdsResponse> getAddUsersToOrganizationMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.UpdateUsersInOrganizationRequest, app.onepass.apis.IdsResponse> getAddUsersToOrganizationMethod;
     if ((getAddUsersToOrganizationMethod = OrganizerServiceGrpc.getAddUsersToOrganizationMethod) == null) {
       synchronized (OrganizerServiceGrpc.class) {
         if ((getAddUsersToOrganizationMethod = OrganizerServiceGrpc.getAddUsersToOrganizationMethod) == null) {
           OrganizerServiceGrpc.getAddUsersToOrganizationMethod = getAddUsersToOrganizationMethod =
-              io.grpc.MethodDescriptor.<app.onepass.apis.UpdateUsersInOrganizationRequest, com.google.protobuf.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<app.onepass.apis.UpdateUsersInOrganizationRequest, app.onepass.apis.IdsResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "AddUsersToOrganization"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.UpdateUsersInOrganizationRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.google.protobuf.Empty.getDefaultInstance()))
+                  app.onepass.apis.IdsResponse.getDefaultInstance()))
               .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("AddUsersToOrganization"))
               .build();
         }
@@ -201,28 +201,28 @@ public final class OrganizerServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<app.onepass.apis.UpdateUsersInOrganizationRequest,
-      com.google.protobuf.Empty> getRemoveUsersFromOrganizationMethod;
+      app.onepass.apis.IdsResponse> getRemoveUsersFromOrganizationMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "RemoveUsersFromOrganization",
       requestType = app.onepass.apis.UpdateUsersInOrganizationRequest.class,
-      responseType = com.google.protobuf.Empty.class,
+      responseType = app.onepass.apis.IdsResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<app.onepass.apis.UpdateUsersInOrganizationRequest,
-      com.google.protobuf.Empty> getRemoveUsersFromOrganizationMethod() {
-    io.grpc.MethodDescriptor<app.onepass.apis.UpdateUsersInOrganizationRequest, com.google.protobuf.Empty> getRemoveUsersFromOrganizationMethod;
+      app.onepass.apis.IdsResponse> getRemoveUsersFromOrganizationMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.UpdateUsersInOrganizationRequest, app.onepass.apis.IdsResponse> getRemoveUsersFromOrganizationMethod;
     if ((getRemoveUsersFromOrganizationMethod = OrganizerServiceGrpc.getRemoveUsersFromOrganizationMethod) == null) {
       synchronized (OrganizerServiceGrpc.class) {
         if ((getRemoveUsersFromOrganizationMethod = OrganizerServiceGrpc.getRemoveUsersFromOrganizationMethod) == null) {
           OrganizerServiceGrpc.getRemoveUsersFromOrganizationMethod = getRemoveUsersFromOrganizationMethod =
-              io.grpc.MethodDescriptor.<app.onepass.apis.UpdateUsersInOrganizationRequest, com.google.protobuf.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<app.onepass.apis.UpdateUsersInOrganizationRequest, app.onepass.apis.IdsResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "RemoveUsersFromOrganization"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.UpdateUsersInOrganizationRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.google.protobuf.Empty.getDefaultInstance()))
+                  app.onepass.apis.IdsResponse.getDefaultInstance()))
               .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("RemoveUsersFromOrganization"))
               .build();
         }
@@ -751,14 +751,14 @@ public final class OrganizerServiceGrpc {
     /**
      */
     public void addUsersToOrganization(app.onepass.apis.UpdateUsersInOrganizationRequest request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<app.onepass.apis.IdsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getAddUsersToOrganizationMethod(), responseObserver);
     }
 
     /**
      */
     public void removeUsersFromOrganization(app.onepass.apis.UpdateUsersInOrganizationRequest request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<app.onepass.apis.IdsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getRemoveUsersFromOrganizationMethod(), responseObserver);
     }
 
@@ -902,14 +902,14 @@ public final class OrganizerServiceGrpc {
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 app.onepass.apis.UpdateUsersInOrganizationRequest,
-                com.google.protobuf.Empty>(
+                app.onepass.apis.IdsResponse>(
                   this, METHODID_ADD_USERS_TO_ORGANIZATION)))
           .addMethod(
             getRemoveUsersFromOrganizationMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 app.onepass.apis.UpdateUsersInOrganizationRequest,
-                com.google.protobuf.Empty>(
+                app.onepass.apis.IdsResponse>(
                   this, METHODID_REMOVE_USERS_FROM_ORGANIZATION)))
           .addMethod(
             getCreateEventMethod(),
@@ -1070,7 +1070,7 @@ public final class OrganizerServiceGrpc {
     /**
      */
     public void addUsersToOrganization(app.onepass.apis.UpdateUsersInOrganizationRequest request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<app.onepass.apis.IdsResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getAddUsersToOrganizationMethod(), getCallOptions()), request, responseObserver);
     }
@@ -1078,7 +1078,7 @@ public final class OrganizerServiceGrpc {
     /**
      */
     public void removeUsersFromOrganization(app.onepass.apis.UpdateUsersInOrganizationRequest request,
-        io.grpc.stub.StreamObserver<com.google.protobuf.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<app.onepass.apis.IdsResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getRemoveUsersFromOrganizationMethod(), getCallOptions()), request, responseObserver);
     }
@@ -1247,14 +1247,14 @@ public final class OrganizerServiceGrpc {
 
     /**
      */
-    public com.google.protobuf.Empty addUsersToOrganization(app.onepass.apis.UpdateUsersInOrganizationRequest request) {
+    public app.onepass.apis.IdsResponse addUsersToOrganization(app.onepass.apis.UpdateUsersInOrganizationRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getAddUsersToOrganizationMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public com.google.protobuf.Empty removeUsersFromOrganization(app.onepass.apis.UpdateUsersInOrganizationRequest request) {
+    public app.onepass.apis.IdsResponse removeUsersFromOrganization(app.onepass.apis.UpdateUsersInOrganizationRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getRemoveUsersFromOrganizationMethod(), getCallOptions(), request);
     }
@@ -1414,7 +1414,7 @@ public final class OrganizerServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> addUsersToOrganization(
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.IdsResponse> addUsersToOrganization(
         app.onepass.apis.UpdateUsersInOrganizationRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getAddUsersToOrganizationMethod(), getCallOptions()), request);
@@ -1422,7 +1422,7 @@ public final class OrganizerServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.Empty> removeUsersFromOrganization(
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.IdsResponse> removeUsersFromOrganization(
         app.onepass.apis.UpdateUsersInOrganizationRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getRemoveUsersFromOrganizationMethod(), getCallOptions()), request);
@@ -1602,11 +1602,11 @@ public final class OrganizerServiceGrpc {
           break;
         case METHODID_ADD_USERS_TO_ORGANIZATION:
           serviceImpl.addUsersToOrganization((app.onepass.apis.UpdateUsersInOrganizationRequest) request,
-              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<app.onepass.apis.IdsResponse>) responseObserver);
           break;
         case METHODID_REMOVE_USERS_FROM_ORGANIZATION:
           serviceImpl.removeUsersFromOrganization((app.onepass.apis.UpdateUsersInOrganizationRequest) request,
-              (io.grpc.stub.StreamObserver<com.google.protobuf.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<app.onepass.apis.IdsResponse>) responseObserver);
           break;
         case METHODID_CREATE_EVENT:
           serviceImpl.createEvent((app.onepass.apis.CreateEventRequest) request,
