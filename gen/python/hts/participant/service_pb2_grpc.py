@@ -48,6 +48,11 @@ class ParticipantServiceStub(object):
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
                 response_deserializer=hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
                 )
+        self.GetTagById = channel.unary_unary(
+                '/hts.participant.ParticipantService/GetTagById',
+                request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
+                response_deserializer=hts_dot_common_dot_common__pb2.Tag.FromString,
+                )
         self.GetAllTags = channel.unary_unary(
                 '/hts.participant.ParticipantService/GetAllTags',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
@@ -189,6 +194,12 @@ class ParticipantServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetAllEvents(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetTagById(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -352,6 +363,11 @@ def add_ParticipantServiceServicer_to_server(servicer, server):
                     servicer.GetAllEvents,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                     response_serializer=hts_dot_participant_dot_service__pb2.EventsResponse.SerializeToString,
+            ),
+            'GetTagById': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetTagById,
+                    request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
+                    response_serializer=hts_dot_common_dot_common__pb2.Tag.SerializeToString,
             ),
             'GetAllTags': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAllTags,
@@ -567,6 +583,23 @@ class ParticipantService(object):
         return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetAllEvents',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetTagById(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetTagById',
+            hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
+            hts_dot_common_dot_common__pb2.Tag.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
