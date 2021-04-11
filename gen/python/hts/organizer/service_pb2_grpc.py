@@ -45,12 +45,12 @@ class OrganizerServiceStub(object):
         self.AddUsersToOrganization = channel.unary_unary(
                 '/hts.organizer.OrganizerService/AddUsersToOrganization',
                 request_serializer=hts_dot_organizer_dot_service__pb2.UpdateUsersInOrganizationRequest.SerializeToString,
-                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                response_deserializer=hts_dot_organizer_dot_service__pb2.IdsResponse.FromString,
                 )
         self.RemoveUsersFromOrganization = channel.unary_unary(
                 '/hts.organizer.OrganizerService/RemoveUsersFromOrganization',
                 request_serializer=hts_dot_organizer_dot_service__pb2.UpdateUsersInOrganizationRequest.SerializeToString,
-                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                response_deserializer=hts_dot_organizer_dot_service__pb2.IdsResponse.FromString,
                 )
         self.CreateEvent = channel.unary_unary(
                 '/hts.organizer.OrganizerService/CreateEvent',
@@ -284,12 +284,12 @@ def add_OrganizerServiceServicer_to_server(servicer, server):
             'AddUsersToOrganization': grpc.unary_unary_rpc_method_handler(
                     servicer.AddUsersToOrganization,
                     request_deserializer=hts_dot_organizer_dot_service__pb2.UpdateUsersInOrganizationRequest.FromString,
-                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                    response_serializer=hts_dot_organizer_dot_service__pb2.IdsResponse.SerializeToString,
             ),
             'RemoveUsersFromOrganization': grpc.unary_unary_rpc_method_handler(
                     servicer.RemoveUsersFromOrganization,
                     request_deserializer=hts_dot_organizer_dot_service__pb2.UpdateUsersInOrganizationRequest.FromString,
-                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                    response_serializer=hts_dot_organizer_dot_service__pb2.IdsResponse.SerializeToString,
             ),
             'CreateEvent': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateEvent,
@@ -469,7 +469,7 @@ class OrganizerService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/AddUsersToOrganization',
             hts_dot_organizer_dot_service__pb2.UpdateUsersInOrganizationRequest.SerializeToString,
-            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            hts_dot_organizer_dot_service__pb2.IdsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -486,7 +486,7 @@ class OrganizerService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/RemoveUsersFromOrganization',
             hts_dot_organizer_dot_service__pb2.UpdateUsersInOrganizationRequest.SerializeToString,
-            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            hts_dot_organizer_dot_service__pb2.IdsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
