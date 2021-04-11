@@ -34,8 +34,8 @@ type OrganizerServiceClient interface {
 	RemoveEvent(ctx context.Context, in *RemoveEventRequest, opts ...grpc.CallOption) (*common.Event, error)
 	UpdateRegistrationRequest(ctx context.Context, in *UpdateRegistrationRequestRequest, opts ...grpc.CallOption) (*common.UserEvent, error)
 	CreateTag(ctx context.Context, in *CreateTagRequest, opts ...grpc.CallOption) (*common.Tag, error)
-	AddTags(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*TagListResponse, error)
-	RemoveTags(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*TagListResponse, error)
+	AddTags(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*EventTagListResponse, error)
+	RemoveTags(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*EventTagListResponse, error)
 	HasEvent(ctx context.Context, in *HasEventRequest, opts ...grpc.CallOption) (*common.Event, error)
 	AddQuestionGroups(ctx context.Context, in *AddQuestionGroupsRequest, opts ...grpc.CallOption) (*QuestionGroupListResponse, error)
 	RemoveQuestionGroups(ctx context.Context, in *RemoveQuestionGroupsRequest, opts ...grpc.CallOption) (*QuestionGroupListResponse, error)
@@ -169,8 +169,8 @@ func (c *organizerServiceClient) CreateTag(ctx context.Context, in *CreateTagReq
 	return out, nil
 }
 
-func (c *organizerServiceClient) AddTags(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*TagListResponse, error) {
-	out := new(TagListResponse)
+func (c *organizerServiceClient) AddTags(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*EventTagListResponse, error) {
+	out := new(EventTagListResponse)
 	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/AddTags", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -178,8 +178,8 @@ func (c *organizerServiceClient) AddTags(ctx context.Context, in *UpdateTagReque
 	return out, nil
 }
 
-func (c *organizerServiceClient) RemoveTags(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*TagListResponse, error) {
-	out := new(TagListResponse)
+func (c *organizerServiceClient) RemoveTags(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*EventTagListResponse, error) {
+	out := new(EventTagListResponse)
 	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/RemoveTags", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -258,8 +258,8 @@ type OrganizerServiceServer interface {
 	RemoveEvent(context.Context, *RemoveEventRequest) (*common.Event, error)
 	UpdateRegistrationRequest(context.Context, *UpdateRegistrationRequestRequest) (*common.UserEvent, error)
 	CreateTag(context.Context, *CreateTagRequest) (*common.Tag, error)
-	AddTags(context.Context, *UpdateTagRequest) (*TagListResponse, error)
-	RemoveTags(context.Context, *UpdateTagRequest) (*TagListResponse, error)
+	AddTags(context.Context, *UpdateTagRequest) (*EventTagListResponse, error)
+	RemoveTags(context.Context, *UpdateTagRequest) (*EventTagListResponse, error)
 	HasEvent(context.Context, *HasEventRequest) (*common.Event, error)
 	AddQuestionGroups(context.Context, *AddQuestionGroupsRequest) (*QuestionGroupListResponse, error)
 	RemoveQuestionGroups(context.Context, *RemoveQuestionGroupsRequest) (*QuestionGroupListResponse, error)
@@ -312,10 +312,10 @@ func (UnimplementedOrganizerServiceServer) UpdateRegistrationRequest(context.Con
 func (UnimplementedOrganizerServiceServer) CreateTag(context.Context, *CreateTagRequest) (*common.Tag, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTag not implemented")
 }
-func (UnimplementedOrganizerServiceServer) AddTags(context.Context, *UpdateTagRequest) (*TagListResponse, error) {
+func (UnimplementedOrganizerServiceServer) AddTags(context.Context, *UpdateTagRequest) (*EventTagListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddTags not implemented")
 }
-func (UnimplementedOrganizerServiceServer) RemoveTags(context.Context, *UpdateTagRequest) (*TagListResponse, error) {
+func (UnimplementedOrganizerServiceServer) RemoveTags(context.Context, *UpdateTagRequest) (*EventTagListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoveTags not implemented")
 }
 func (UnimplementedOrganizerServiceServer) HasEvent(context.Context, *HasEventRequest) (*common.Event, error) {
