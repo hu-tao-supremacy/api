@@ -12,8 +12,8 @@ import {
 } from "../../hts/common/common";
 import { Observable } from "rxjs";
 import { Timestamp } from "../../google/protobuf/timestamp";
-import { Empty } from "../../google/protobuf/empty";
 import { BoolValue } from "../../google/protobuf/wrappers";
+import { Empty } from "../../google/protobuf/empty";
 
 export const protobufPackage = "hts.organizer";
 
@@ -137,11 +137,11 @@ export interface OrganizerServiceClient {
 
   addUsersToOrganization(
     request: UpdateUsersInOrganizationRequest
-  ): Observable<Empty>;
+  ): Observable<IdsResponse>;
 
   removeUsersFromOrganization(
     request: UpdateUsersInOrganizationRequest
-  ): Observable<Empty>;
+  ): Observable<IdsResponse>;
 
   createEvent(request: CreateEventRequest): Observable<Event>;
 
@@ -202,9 +202,13 @@ export interface OrganizerServiceController {
     request: RemoveOrganizationRequest
   ): Promise<Organization> | Observable<Organization> | Organization;
 
-  addUsersToOrganization(request: UpdateUsersInOrganizationRequest): void;
+  addUsersToOrganization(
+    request: UpdateUsersInOrganizationRequest
+  ): Promise<IdsResponse> | Observable<IdsResponse> | IdsResponse;
 
-  removeUsersFromOrganization(request: UpdateUsersInOrganizationRequest): void;
+  removeUsersFromOrganization(
+    request: UpdateUsersInOrganizationRequest
+  ): Promise<IdsResponse> | Observable<IdsResponse> | IdsResponse;
 
   createEvent(
     request: CreateEventRequest
