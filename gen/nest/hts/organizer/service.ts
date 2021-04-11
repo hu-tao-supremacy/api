@@ -108,6 +108,10 @@ export interface RemoveQuestionsRequest {
   questionIds: number[];
 }
 
+export interface IdsResponse {
+  ids: number[];
+}
+
 export interface GetOrganizationsResponse {
   organizations: Organization[];
 }
@@ -143,7 +147,9 @@ export interface OrganizerServiceClient {
 
   updateEvent(request: UpdateEventRequest): Observable<Event>;
 
-  updateEventDurations(request: UpdateEventDurationRequest): Observable<Empty>;
+  updateEventDurations(
+    request: UpdateEventDurationRequest
+  ): Observable<IdsResponse>;
 
   removeEvent(request: RemoveEventRequest): Observable<Event>;
 
@@ -153,19 +159,21 @@ export interface OrganizerServiceClient {
 
   createTag(request: CreateTagRequest): Observable<Tag>;
 
-  addTags(request: UpdateTagRequest): Observable<Empty>;
+  addTags(request: UpdateTagRequest): Observable<IdsResponse>;
 
-  removeTags(request: UpdateTagRequest): Observable<Empty>;
+  removeTags(request: UpdateTagRequest): Observable<IdsResponse>;
 
   hasEvent(request: HasEventRequest): Observable<Event>;
 
-  addQuestionGroups(request: AddQuestionGroupsRequest): Observable<Empty>;
+  addQuestionGroups(request: AddQuestionGroupsRequest): Observable<IdsResponse>;
 
-  removeQuestionGroups(request: RemoveQuestionGroupsRequest): Observable<Empty>;
+  removeQuestionGroups(
+    request: RemoveQuestionGroupsRequest
+  ): Observable<IdsResponse>;
 
-  addQuestions(request: AddQuestionsRequest): Observable<Empty>;
+  addQuestions(request: AddQuestionsRequest): Observable<IdsResponse>;
 
-  removeQuestions(request: RemoveQuestionsRequest): Observable<Empty>;
+  removeQuestions(request: RemoveQuestionsRequest): Observable<IdsResponse>;
 
   ping(request: Empty): Observable<BoolValue>;
 }
@@ -206,7 +214,9 @@ export interface OrganizerServiceController {
     request: UpdateEventRequest
   ): Promise<Event> | Observable<Event> | Event;
 
-  updateEventDurations(request: UpdateEventDurationRequest): void;
+  updateEventDurations(
+    request: UpdateEventDurationRequest
+  ): Promise<IdsResponse> | Observable<IdsResponse> | IdsResponse;
 
   removeEvent(
     request: RemoveEventRequest
@@ -218,21 +228,33 @@ export interface OrganizerServiceController {
 
   createTag(request: CreateTagRequest): Promise<Tag> | Observable<Tag> | Tag;
 
-  addTags(request: UpdateTagRequest): void;
+  addTags(
+    request: UpdateTagRequest
+  ): Promise<IdsResponse> | Observable<IdsResponse> | IdsResponse;
 
-  removeTags(request: UpdateTagRequest): void;
+  removeTags(
+    request: UpdateTagRequest
+  ): Promise<IdsResponse> | Observable<IdsResponse> | IdsResponse;
 
   hasEvent(
     request: HasEventRequest
   ): Promise<Event> | Observable<Event> | Event;
 
-  addQuestionGroups(request: AddQuestionGroupsRequest): void;
+  addQuestionGroups(
+    request: AddQuestionGroupsRequest
+  ): Promise<IdsResponse> | Observable<IdsResponse> | IdsResponse;
 
-  removeQuestionGroups(request: RemoveQuestionGroupsRequest): void;
+  removeQuestionGroups(
+    request: RemoveQuestionGroupsRequest
+  ): Promise<IdsResponse> | Observable<IdsResponse> | IdsResponse;
 
-  addQuestions(request: AddQuestionsRequest): void;
+  addQuestions(
+    request: AddQuestionsRequest
+  ): Promise<IdsResponse> | Observable<IdsResponse> | IdsResponse;
 
-  removeQuestions(request: RemoveQuestionsRequest): void;
+  removeQuestions(
+    request: RemoveQuestionsRequest
+  ): Promise<IdsResponse> | Observable<IdsResponse> | IdsResponse;
 
   ping(request: Empty): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
 }
