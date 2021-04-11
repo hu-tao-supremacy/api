@@ -137,6 +137,8 @@ export interface ParticipantServiceClient {
 
   getAllEvents(request: Empty): Observable<EventsResponse>;
 
+  getTagById(request: GetObjectByIdRequest): Observable<Tag>;
+
   getAllTags(request: Empty): Observable<TagsResponse>;
 
   getSuggestedEvents(request: Empty): Observable<EventsResponse>;
@@ -235,6 +237,10 @@ export interface ParticipantServiceController {
   getAllEvents(
     request: Empty
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
+
+  getTagById(
+    request: GetObjectByIdRequest
+  ): Promise<Tag> | Observable<Tag> | Tag;
 
   getAllTags(
     request: Empty
@@ -349,6 +355,7 @@ export function ParticipantServiceControllerMethods() {
       "submitAnswersForEventQuestion",
       "getEventById",
       "getAllEvents",
+      "getTagById",
       "getAllTags",
       "getSuggestedEvents",
       "getUpcomingEvents",
