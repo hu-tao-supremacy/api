@@ -117,8 +117,8 @@ service OrganizerService {
   rpc GetOrganizationById(hts.common.GetObjectByIdRequest) returns (hts.common.Organization);
   rpc UpdateOrganization(UpdateOrganizationRequest) returns (hts.common.Organization);
   rpc RemoveOrganization(RemoveOrganizationRequest) returns (hts.common.Organization);
-  rpc AddUsersToOrganization(UpdateUsersInOrganizationRequest) returns (google.protobuf.Empty);
-  rpc RemoveUsersFromOrganization(UpdateUsersInOrganizationRequest) returns (google.protobuf.Empty);
+  rpc AddUsersToOrganization(UpdateUsersInOrganizationRequest) returns (IdsResponse);
+  rpc RemoveUsersFromOrganization(UpdateUsersInOrganizationRequest) returns (IdsResponse);
   rpc CreateEvent(CreateEventRequest) returns (hts.common.Event);
   rpc UpdateEvent(UpdateEventRequest) returns (hts.common.Event);
   rpc UpdateEventDurations(UpdateEventDurationRequest) returns (IdsResponse);
