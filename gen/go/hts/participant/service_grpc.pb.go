@@ -28,6 +28,7 @@ type ParticipantServiceClient interface {
 	SubmitAnswersForEventQuestion(ctx context.Context, in *SubmitAnswerForEventQuestionRequest, opts ...grpc.CallOption) (*SubmitAnswerForEventQuestionResponse, error)
 	GetEventById(ctx context.Context, in *GetEventByIdRequest, opts ...grpc.CallOption) (*common.Event, error)
 	GetAllEvents(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*EventsResponse, error)
+	GetTagById(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*common.Tag, error)
 	GetAllTags(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*TagsResponse, error)
 	GetSuggestedEvents(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*EventsResponse, error)
 	GetUpcomingEvents(ctx context.Context, in *GetUpcomingEventsRequest, opts ...grpc.CallOption) (*EventsResponse, error)
@@ -107,6 +108,15 @@ func (c *participantServiceClient) GetEventById(ctx context.Context, in *GetEven
 func (c *participantServiceClient) GetAllEvents(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*EventsResponse, error) {
 	out := new(EventsResponse)
 	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GetAllEvents", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *participantServiceClient) GetTagById(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*common.Tag, error) {
+	out := new(common.Tag)
+	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GetTagById", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -312,6 +322,7 @@ type ParticipantServiceServer interface {
 	SubmitAnswersForEventQuestion(context.Context, *SubmitAnswerForEventQuestionRequest) (*SubmitAnswerForEventQuestionResponse, error)
 	GetEventById(context.Context, *GetEventByIdRequest) (*common.Event, error)
 	GetAllEvents(context.Context, *emptypb.Empty) (*EventsResponse, error)
+	GetTagById(context.Context, *common.GetObjectByIdRequest) (*common.Tag, error)
 	GetAllTags(context.Context, *emptypb.Empty) (*TagsResponse, error)
 	GetSuggestedEvents(context.Context, *emptypb.Empty) (*EventsResponse, error)
 	GetUpcomingEvents(context.Context, *GetUpcomingEventsRequest) (*EventsResponse, error)
@@ -357,6 +368,9 @@ func (UnimplementedParticipantServiceServer) GetEventById(context.Context, *GetE
 }
 func (UnimplementedParticipantServiceServer) GetAllEvents(context.Context, *emptypb.Empty) (*EventsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllEvents not implemented")
+}
+func (UnimplementedParticipantServiceServer) GetTagById(context.Context, *common.GetObjectByIdRequest) (*common.Tag, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTagById not implemented")
 }
 func (UnimplementedParticipantServiceServer) GetAllTags(context.Context, *emptypb.Empty) (*TagsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllTags not implemented")
@@ -538,6 +552,24 @@ func _ParticipantService_GetAllEvents_Handler(srv interface{}, ctx context.Conte
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ParticipantServiceServer).GetAllEvents(ctx, req.(*emptypb.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ParticipantService_GetTagById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(common.GetObjectByIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParticipantServiceServer).GetTagById(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.participant.ParticipantService/GetTagById",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParticipantServiceServer).GetTagById(ctx, req.(*common.GetObjectByIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -950,6 +982,10 @@ var ParticipantService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAllEvents",
 			Handler:    _ParticipantService_GetAllEvents_Handler,
+		},
+		{
+			MethodName: "GetTagById",
+			Handler:    _ParticipantService_GetTagById_Handler,
 		},
 		{
 			MethodName: "GetAllTags",
