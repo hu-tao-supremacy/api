@@ -78,6 +78,7 @@ export interface User {
   zipCode: StringValue | undefined;
   phoneNumber: StringValue | undefined;
   province: StringValue | undefined;
+  academicYear: Int32Value | undefined;
 }
 
 export interface Organization {

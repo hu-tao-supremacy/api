@@ -127,6 +127,7 @@ export interface ParticipantService {
   ): Promise<SubmitAnswerForEventQuestionResponse>;
   GetEventById(request: GetEventByIdRequest): Promise<Event>;
   GetAllEvents(request: Empty): Promise<EventsResponse>;
+  GetTagById(request: GetObjectByIdRequest): Promise<Tag>;
   GetAllTags(request: Empty): Promise<TagsResponse>;
   GetSuggestedEvents(request: Empty): Promise<EventsResponse>;
   GetUpcomingEvents(request: GetUpcomingEventsRequest): Promise<EventsResponse>;
