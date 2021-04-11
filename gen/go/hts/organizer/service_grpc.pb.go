@@ -30,17 +30,17 @@ type OrganizerServiceClient interface {
 	RemoveUsersFromOrganization(ctx context.Context, in *UpdateUsersInOrganizationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	CreateEvent(ctx context.Context, in *CreateEventRequest, opts ...grpc.CallOption) (*common.Event, error)
 	UpdateEvent(ctx context.Context, in *UpdateEventRequest, opts ...grpc.CallOption) (*common.Event, error)
-	UpdateEventDurations(ctx context.Context, in *UpdateEventDurationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	UpdateEventDurations(ctx context.Context, in *UpdateEventDurationRequest, opts ...grpc.CallOption) (*IdsResponse, error)
 	RemoveEvent(ctx context.Context, in *RemoveEventRequest, opts ...grpc.CallOption) (*common.Event, error)
 	UpdateRegistrationRequest(ctx context.Context, in *UpdateRegistrationRequestRequest, opts ...grpc.CallOption) (*common.UserEvent, error)
 	CreateTag(ctx context.Context, in *CreateTagRequest, opts ...grpc.CallOption) (*common.Tag, error)
-	AddTags(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	RemoveTags(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	AddTags(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*IdsResponse, error)
+	RemoveTags(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*IdsResponse, error)
 	HasEvent(ctx context.Context, in *HasEventRequest, opts ...grpc.CallOption) (*common.Event, error)
-	AddQuestionGroups(ctx context.Context, in *AddQuestionGroupsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	RemoveQuestionGroups(ctx context.Context, in *RemoveQuestionGroupsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	AddQuestions(ctx context.Context, in *AddQuestionsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
-	RemoveQuestions(ctx context.Context, in *RemoveQuestionsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	AddQuestionGroups(ctx context.Context, in *AddQuestionGroupsRequest, opts ...grpc.CallOption) (*IdsResponse, error)
+	RemoveQuestionGroups(ctx context.Context, in *RemoveQuestionGroupsRequest, opts ...grpc.CallOption) (*IdsResponse, error)
+	AddQuestions(ctx context.Context, in *AddQuestionsRequest, opts ...grpc.CallOption) (*IdsResponse, error)
+	RemoveQuestions(ctx context.Context, in *RemoveQuestionsRequest, opts ...grpc.CallOption) (*IdsResponse, error)
 	Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 }
 
@@ -133,8 +133,8 @@ func (c *organizerServiceClient) UpdateEvent(ctx context.Context, in *UpdateEven
 	return out, nil
 }
 
-func (c *organizerServiceClient) UpdateEventDurations(ctx context.Context, in *UpdateEventDurationRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *organizerServiceClient) UpdateEventDurations(ctx context.Context, in *UpdateEventDurationRequest, opts ...grpc.CallOption) (*IdsResponse, error) {
+	out := new(IdsResponse)
 	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/UpdateEventDurations", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -169,8 +169,8 @@ func (c *organizerServiceClient) CreateTag(ctx context.Context, in *CreateTagReq
 	return out, nil
 }
 
-func (c *organizerServiceClient) AddTags(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *organizerServiceClient) AddTags(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*IdsResponse, error) {
+	out := new(IdsResponse)
 	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/AddTags", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -178,8 +178,8 @@ func (c *organizerServiceClient) AddTags(ctx context.Context, in *UpdateTagReque
 	return out, nil
 }
 
-func (c *organizerServiceClient) RemoveTags(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *organizerServiceClient) RemoveTags(ctx context.Context, in *UpdateTagRequest, opts ...grpc.CallOption) (*IdsResponse, error) {
+	out := new(IdsResponse)
 	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/RemoveTags", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -196,8 +196,8 @@ func (c *organizerServiceClient) HasEvent(ctx context.Context, in *HasEventReque
 	return out, nil
 }
 
-func (c *organizerServiceClient) AddQuestionGroups(ctx context.Context, in *AddQuestionGroupsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *organizerServiceClient) AddQuestionGroups(ctx context.Context, in *AddQuestionGroupsRequest, opts ...grpc.CallOption) (*IdsResponse, error) {
+	out := new(IdsResponse)
 	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/AddQuestionGroups", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -205,8 +205,8 @@ func (c *organizerServiceClient) AddQuestionGroups(ctx context.Context, in *AddQ
 	return out, nil
 }
 
-func (c *organizerServiceClient) RemoveQuestionGroups(ctx context.Context, in *RemoveQuestionGroupsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *organizerServiceClient) RemoveQuestionGroups(ctx context.Context, in *RemoveQuestionGroupsRequest, opts ...grpc.CallOption) (*IdsResponse, error) {
+	out := new(IdsResponse)
 	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/RemoveQuestionGroups", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -214,8 +214,8 @@ func (c *organizerServiceClient) RemoveQuestionGroups(ctx context.Context, in *R
 	return out, nil
 }
 
-func (c *organizerServiceClient) AddQuestions(ctx context.Context, in *AddQuestionsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *organizerServiceClient) AddQuestions(ctx context.Context, in *AddQuestionsRequest, opts ...grpc.CallOption) (*IdsResponse, error) {
+	out := new(IdsResponse)
 	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/AddQuestions", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -223,8 +223,8 @@ func (c *organizerServiceClient) AddQuestions(ctx context.Context, in *AddQuesti
 	return out, nil
 }
 
-func (c *organizerServiceClient) RemoveQuestions(ctx context.Context, in *RemoveQuestionsRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
-	out := new(emptypb.Empty)
+func (c *organizerServiceClient) RemoveQuestions(ctx context.Context, in *RemoveQuestionsRequest, opts ...grpc.CallOption) (*IdsResponse, error) {
+	out := new(IdsResponse)
 	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/RemoveQuestions", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -254,17 +254,17 @@ type OrganizerServiceServer interface {
 	RemoveUsersFromOrganization(context.Context, *UpdateUsersInOrganizationRequest) (*emptypb.Empty, error)
 	CreateEvent(context.Context, *CreateEventRequest) (*common.Event, error)
 	UpdateEvent(context.Context, *UpdateEventRequest) (*common.Event, error)
-	UpdateEventDurations(context.Context, *UpdateEventDurationRequest) (*emptypb.Empty, error)
+	UpdateEventDurations(context.Context, *UpdateEventDurationRequest) (*IdsResponse, error)
 	RemoveEvent(context.Context, *RemoveEventRequest) (*common.Event, error)
 	UpdateRegistrationRequest(context.Context, *UpdateRegistrationRequestRequest) (*common.UserEvent, error)
 	CreateTag(context.Context, *CreateTagRequest) (*common.Tag, error)
-	AddTags(context.Context, *UpdateTagRequest) (*emptypb.Empty, error)
-	RemoveTags(context.Context, *UpdateTagRequest) (*emptypb.Empty, error)
+	AddTags(context.Context, *UpdateTagRequest) (*IdsResponse, error)
+	RemoveTags(context.Context, *UpdateTagRequest) (*IdsResponse, error)
 	HasEvent(context.Context, *HasEventRequest) (*common.Event, error)
-	AddQuestionGroups(context.Context, *AddQuestionGroupsRequest) (*emptypb.Empty, error)
-	RemoveQuestionGroups(context.Context, *RemoveQuestionGroupsRequest) (*emptypb.Empty, error)
-	AddQuestions(context.Context, *AddQuestionsRequest) (*emptypb.Empty, error)
-	RemoveQuestions(context.Context, *RemoveQuestionsRequest) (*emptypb.Empty, error)
+	AddQuestionGroups(context.Context, *AddQuestionGroupsRequest) (*IdsResponse, error)
+	RemoveQuestionGroups(context.Context, *RemoveQuestionGroupsRequest) (*IdsResponse, error)
+	AddQuestions(context.Context, *AddQuestionsRequest) (*IdsResponse, error)
+	RemoveQuestions(context.Context, *RemoveQuestionsRequest) (*IdsResponse, error)
 	Ping(context.Context, *emptypb.Empty) (*wrapperspb.BoolValue, error)
 	mustEmbedUnimplementedOrganizerServiceServer()
 }
@@ -300,7 +300,7 @@ func (UnimplementedOrganizerServiceServer) CreateEvent(context.Context, *CreateE
 func (UnimplementedOrganizerServiceServer) UpdateEvent(context.Context, *UpdateEventRequest) (*common.Event, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateEvent not implemented")
 }
-func (UnimplementedOrganizerServiceServer) UpdateEventDurations(context.Context, *UpdateEventDurationRequest) (*emptypb.Empty, error) {
+func (UnimplementedOrganizerServiceServer) UpdateEventDurations(context.Context, *UpdateEventDurationRequest) (*IdsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateEventDurations not implemented")
 }
 func (UnimplementedOrganizerServiceServer) RemoveEvent(context.Context, *RemoveEventRequest) (*common.Event, error) {
@@ -312,25 +312,25 @@ func (UnimplementedOrganizerServiceServer) UpdateRegistrationRequest(context.Con
 func (UnimplementedOrganizerServiceServer) CreateTag(context.Context, *CreateTagRequest) (*common.Tag, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTag not implemented")
 }
-func (UnimplementedOrganizerServiceServer) AddTags(context.Context, *UpdateTagRequest) (*emptypb.Empty, error) {
+func (UnimplementedOrganizerServiceServer) AddTags(context.Context, *UpdateTagRequest) (*IdsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddTags not implemented")
 }
-func (UnimplementedOrganizerServiceServer) RemoveTags(context.Context, *UpdateTagRequest) (*emptypb.Empty, error) {
+func (UnimplementedOrganizerServiceServer) RemoveTags(context.Context, *UpdateTagRequest) (*IdsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoveTags not implemented")
 }
 func (UnimplementedOrganizerServiceServer) HasEvent(context.Context, *HasEventRequest) (*common.Event, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method HasEvent not implemented")
 }
-func (UnimplementedOrganizerServiceServer) AddQuestionGroups(context.Context, *AddQuestionGroupsRequest) (*emptypb.Empty, error) {
+func (UnimplementedOrganizerServiceServer) AddQuestionGroups(context.Context, *AddQuestionGroupsRequest) (*IdsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddQuestionGroups not implemented")
 }
-func (UnimplementedOrganizerServiceServer) RemoveQuestionGroups(context.Context, *RemoveQuestionGroupsRequest) (*emptypb.Empty, error) {
+func (UnimplementedOrganizerServiceServer) RemoveQuestionGroups(context.Context, *RemoveQuestionGroupsRequest) (*IdsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoveQuestionGroups not implemented")
 }
-func (UnimplementedOrganizerServiceServer) AddQuestions(context.Context, *AddQuestionsRequest) (*emptypb.Empty, error) {
+func (UnimplementedOrganizerServiceServer) AddQuestions(context.Context, *AddQuestionsRequest) (*IdsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddQuestions not implemented")
 }
-func (UnimplementedOrganizerServiceServer) RemoveQuestions(context.Context, *RemoveQuestionsRequest) (*emptypb.Empty, error) {
+func (UnimplementedOrganizerServiceServer) RemoveQuestions(context.Context, *RemoveQuestionsRequest) (*IdsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoveQuestions not implemented")
 }
 func (UnimplementedOrganizerServiceServer) Ping(context.Context, *emptypb.Empty) (*wrapperspb.BoolValue, error) {
