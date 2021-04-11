@@ -120,10 +120,10 @@ export interface OrganizerService {
   RemoveOrganization(request: RemoveOrganizationRequest): Promise<Organization>;
   AddUsersToOrganization(
     request: UpdateUsersInOrganizationRequest
-  ): Promise<Empty>;
+  ): Promise<IdsResponse>;
   RemoveUsersFromOrganization(
     request: UpdateUsersInOrganizationRequest
-  ): Promise<Empty>;
+  ): Promise<IdsResponse>;
   CreateEvent(request: CreateEventRequest): Promise<Event>;
   UpdateEvent(request: UpdateEventRequest): Promise<Event>;
   UpdateEventDurations(
