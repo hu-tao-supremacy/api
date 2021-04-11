@@ -80,7 +80,7 @@ message User {
   google.protobuf.StringValue zip_code = 13;
   google.protobuf.StringValue phone_number = 14;
   google.protobuf.StringValue province = 15;
-  google.protobuf.Int32Value academicYear = 16;
+  google.protobuf.Int32Value academic_year = 16;
 }
 
 message Organization {
