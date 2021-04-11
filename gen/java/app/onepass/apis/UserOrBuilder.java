@@ -193,17 +193,17 @@ public interface UserOrBuilder extends
   com.google.protobuf.StringValueOrBuilder getProvinceOrBuilder();
 
   /**
-   * <code>.google.protobuf.Int32Value academicYear = 16 [json_name = "academicYear"];</code>
+   * <code>.google.protobuf.Int32Value academic_year = 16 [json_name = "academicYear"];</code>
    * @return Whether the academicYear field is set.
    */
   boolean hasAcademicYear();
   /**
-   * <code>.google.protobuf.Int32Value academicYear = 16 [json_name = "academicYear"];</code>
+   * <code>.google.protobuf.Int32Value academic_year = 16 [json_name = "academicYear"];</code>
    * @return The academicYear.
    */
   com.google.protobuf.Int32Value getAcademicYear();
   /**
-   * <code>.google.protobuf.Int32Value academicYear = 16 [json_name = "academicYear"];</code>
+   * <code>.google.protobuf.Int32Value academic_year = 16 [json_name = "academicYear"];</code>
    */
   com.google.protobuf.Int32ValueOrBuilder getAcademicYearOrBuilder();
 }
