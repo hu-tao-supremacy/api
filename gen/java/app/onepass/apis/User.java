@@ -614,10 +614,10 @@ private static final long serialVersionUID = 0L;
     return getProvince();
   }
 
-  public static final int ACADEMICYEAR_FIELD_NUMBER = 16;
+  public static final int ACADEMIC_YEAR_FIELD_NUMBER = 16;
   private com.google.protobuf.Int32Value academicYear_;
   /**
-   * <code>.google.protobuf.Int32Value academicYear = 16 [json_name = "academicYear"];</code>
+   * <code>.google.protobuf.Int32Value academic_year = 16 [json_name = "academicYear"];</code>
    * @return Whether the academicYear field is set.
    */
   @java.lang.Override
@@ -625,7 +625,7 @@ private static final long serialVersionUID = 0L;
     return academicYear_ != null;
   }
   /**
-   * <code>.google.protobuf.Int32Value academicYear = 16 [json_name = "academicYear"];</code>
+   * <code>.google.protobuf.Int32Value academic_year = 16 [json_name = "academicYear"];</code>
    * @return The academicYear.
    */
   @java.lang.Override
@@ -633,7 +633,7 @@ private static final long serialVersionUID = 0L;
     return academicYear_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : academicYear_;
   }
   /**
-   * <code>.google.protobuf.Int32Value academicYear = 16 [json_name = "academicYear"];</code>
+   * <code>.google.protobuf.Int32Value academic_year = 16 [json_name = "academicYear"];</code>
    */
   @java.lang.Override
   public com.google.protobuf.Int32ValueOrBuilder getAcademicYearOrBuilder() {
@@ -905,7 +905,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getProvince().hashCode();
     }
     if (hasAcademicYear()) {
-      hash = (37 * hash) + ACADEMICYEAR_FIELD_NUMBER;
+      hash = (37 * hash) + ACADEMIC_YEAR_FIELD_NUMBER;
       hash = (53 * hash) + getAcademicYear().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
@@ -2646,14 +2646,14 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> academicYearBuilder_;
     /**
-     * <code>.google.protobuf.Int32Value academicYear = 16 [json_name = "academicYear"];</code>
+     * <code>.google.protobuf.Int32Value academic_year = 16 [json_name = "academicYear"];</code>
      * @return Whether the academicYear field is set.
      */
     public boolean hasAcademicYear() {
       return academicYearBuilder_ != null || academicYear_ != null;
     }
     /**
-     * <code>.google.protobuf.Int32Value academicYear = 16 [json_name = "academicYear"];</code>
+     * <code>.google.protobuf.Int32Value academic_year = 16 [json_name = "academicYear"];</code>
      * @return The academicYear.
      */
     public com.google.protobuf.Int32Value getAcademicYear() {
@@ -2664,7 +2664,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Int32Value academicYear = 16 [json_name = "academicYear"];</code>
+     * <code>.google.protobuf.Int32Value academic_year = 16 [json_name = "academicYear"];</code>
      */
     public Builder setAcademicYear(com.google.protobuf.Int32Value value) {
       if (academicYearBuilder_ == null) {
@@ -2680,7 +2680,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Int32Value academicYear = 16 [json_name = "academicYear"];</code>
+     * <code>.google.protobuf.Int32Value academic_year = 16 [json_name = "academicYear"];</code>
      */
     public Builder setAcademicYear(
         com.google.protobuf.Int32Value.Builder builderForValue) {
@@ -2694,7 +2694,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Int32Value academicYear = 16 [json_name = "academicYear"];</code>
+     * <code>.google.protobuf.Int32Value academic_year = 16 [json_name = "academicYear"];</code>
      */
     public Builder mergeAcademicYear(com.google.protobuf.Int32Value value) {
       if (academicYearBuilder_ == null) {
@@ -2712,7 +2712,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Int32Value academicYear = 16 [json_name = "academicYear"];</code>
+     * <code>.google.protobuf.Int32Value academic_year = 16 [json_name = "academicYear"];</code>
      */
     public Builder clearAcademicYear() {
       if (academicYearBuilder_ == null) {
@@ -2726,7 +2726,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.google.protobuf.Int32Value academicYear = 16 [json_name = "academicYear"];</code>
+     * <code>.google.protobuf.Int32Value academic_year = 16 [json_name = "academicYear"];</code>
      */
     public com.google.protobuf.Int32Value.Builder getAcademicYearBuilder() {
       
@@ -2734,7 +2734,7 @@ private static final long serialVersionUID = 0L;
       return getAcademicYearFieldBuilder().getBuilder();
     }
     /**
-     * <code>.google.protobuf.Int32Value academicYear = 16 [json_name = "academicYear"];</code>
+     * <code>.google.protobuf.Int32Value academic_year = 16 [json_name = "academicYear"];</code>
      */
     public com.google.protobuf.Int32ValueOrBuilder getAcademicYearOrBuilder() {
       if (academicYearBuilder_ != null) {
@@ -2745,7 +2745,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>.google.protobuf.Int32Value academicYear = 16 [json_name = "academicYear"];</code>
+     * <code>.google.protobuf.Int32Value academic_year = 16 [json_name = "academicYear"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> 
