@@ -200,6 +200,37 @@ public final class ParticipantServiceGrpc {
     return getGetAllEventsMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest,
+      app.onepass.apis.Tag> getGetTagByIdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetTagById",
+      requestType = app.onepass.apis.GetObjectByIdRequest.class,
+      responseType = app.onepass.apis.Tag.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest,
+      app.onepass.apis.Tag> getGetTagByIdMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest, app.onepass.apis.Tag> getGetTagByIdMethod;
+    if ((getGetTagByIdMethod = ParticipantServiceGrpc.getGetTagByIdMethod) == null) {
+      synchronized (ParticipantServiceGrpc.class) {
+        if ((getGetTagByIdMethod = ParticipantServiceGrpc.getGetTagByIdMethod) == null) {
+          ParticipantServiceGrpc.getGetTagByIdMethod = getGetTagByIdMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.GetObjectByIdRequest, app.onepass.apis.Tag>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetTagById"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.GetObjectByIdRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.Tag.getDefaultInstance()))
+              .setSchemaDescriptor(new ParticipantServiceMethodDescriptorSupplier("GetTagById"))
+              .build();
+        }
+      }
+    }
+    return getGetTagByIdMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
       app.onepass.apis.TagsResponse> getGetAllTagsMethod;
 
@@ -943,6 +974,13 @@ public final class ParticipantServiceGrpc {
 
     /**
      */
+    public void getTagById(app.onepass.apis.GetObjectByIdRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.Tag> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetTagByIdMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void getAllTags(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<app.onepass.apis.TagsResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetAllTagsMethod(), responseObserver);
@@ -1132,6 +1170,13 @@ public final class ParticipantServiceGrpc {
                 com.google.protobuf.Empty,
                 app.onepass.apis.EventsResponse>(
                   this, METHODID_GET_ALL_EVENTS)))
+          .addMethod(
+            getGetTagByIdMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                app.onepass.apis.GetObjectByIdRequest,
+                app.onepass.apis.Tag>(
+                  this, METHODID_GET_TAG_BY_ID)))
           .addMethod(
             getGetAllTagsMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -1343,6 +1388,14 @@ public final class ParticipantServiceGrpc {
         io.grpc.stub.StreamObserver<app.onepass.apis.EventsResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetAllEventsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getTagById(app.onepass.apis.GetObjectByIdRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.Tag> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetTagByIdMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -1572,6 +1625,13 @@ public final class ParticipantServiceGrpc {
 
     /**
      */
+    public app.onepass.apis.Tag getTagById(app.onepass.apis.GetObjectByIdRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetTagByIdMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public app.onepass.apis.TagsResponse getAllTags(com.google.protobuf.Empty request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetAllTagsMethod(), getCallOptions(), request);
@@ -1782,6 +1842,14 @@ public final class ParticipantServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.Tag> getTagById(
+        app.onepass.apis.GetObjectByIdRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetTagByIdMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.TagsResponse> getAllTags(
         com.google.protobuf.Empty request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -1955,27 +2023,28 @@ public final class ParticipantServiceGrpc {
   private static final int METHODID_SUBMIT_ANSWERS_FOR_EVENT_QUESTION = 3;
   private static final int METHODID_GET_EVENT_BY_ID = 4;
   private static final int METHODID_GET_ALL_EVENTS = 5;
-  private static final int METHODID_GET_ALL_TAGS = 6;
-  private static final int METHODID_GET_SUGGESTED_EVENTS = 7;
-  private static final int METHODID_GET_UPCOMING_EVENTS = 8;
-  private static final int METHODID_GET_EVENTS_BY_STRING_OF_NAME = 9;
-  private static final int METHODID_GET_EVENTS_BY_TAG_IDS = 10;
-  private static final int METHODID_GET_EVENTS_BY_ORGANIZATION_ID = 11;
-  private static final int METHODID_GET_EVENTS_BY_FACILITY_ID = 12;
-  private static final int METHODID_GET_EVENTS_BY_DATE = 13;
-  private static final int METHODID_GET_LOCATION_BY_ID = 14;
-  private static final int METHODID_GET_TAGS_BY_EVENT_ID = 15;
-  private static final int METHODID_GET_RATING_BY_EVENT_ID = 16;
-  private static final int METHODID_GET_APPROVED_USER_BY_EVENT_ID = 17;
-  private static final int METHODID_GET_EVENT_DURATIONS_BY_EVENT_ID = 18;
-  private static final int METHODID_GET_QUESTION_GROUPS_BY_EVENT_ID = 19;
-  private static final int METHODID_GET_QUESTIONS_BY_QUESTION_GROUP_ID = 20;
-  private static final int METHODID_GET_ANSWERS_BY_QUESTION_ID = 21;
-  private static final int METHODID_GET_USER_ANSWER_BY_QUESTION_ID = 22;
-  private static final int METHODID_GET_EVENTS_BY_USER_ID = 23;
-  private static final int METHODID_GET_USER_EVENT_BY_USER_AND_EVENT_ID = 24;
-  private static final int METHODID_GENERATE_QR = 25;
-  private static final int METHODID_PING = 26;
+  private static final int METHODID_GET_TAG_BY_ID = 6;
+  private static final int METHODID_GET_ALL_TAGS = 7;
+  private static final int METHODID_GET_SUGGESTED_EVENTS = 8;
+  private static final int METHODID_GET_UPCOMING_EVENTS = 9;
+  private static final int METHODID_GET_EVENTS_BY_STRING_OF_NAME = 10;
+  private static final int METHODID_GET_EVENTS_BY_TAG_IDS = 11;
+  private static final int METHODID_GET_EVENTS_BY_ORGANIZATION_ID = 12;
+  private static final int METHODID_GET_EVENTS_BY_FACILITY_ID = 13;
+  private static final int METHODID_GET_EVENTS_BY_DATE = 14;
+  private static final int METHODID_GET_LOCATION_BY_ID = 15;
+  private static final int METHODID_GET_TAGS_BY_EVENT_ID = 16;
+  private static final int METHODID_GET_RATING_BY_EVENT_ID = 17;
+  private static final int METHODID_GET_APPROVED_USER_BY_EVENT_ID = 18;
+  private static final int METHODID_GET_EVENT_DURATIONS_BY_EVENT_ID = 19;
+  private static final int METHODID_GET_QUESTION_GROUPS_BY_EVENT_ID = 20;
+  private static final int METHODID_GET_QUESTIONS_BY_QUESTION_GROUP_ID = 21;
+  private static final int METHODID_GET_ANSWERS_BY_QUESTION_ID = 22;
+  private static final int METHODID_GET_USER_ANSWER_BY_QUESTION_ID = 23;
+  private static final int METHODID_GET_EVENTS_BY_USER_ID = 24;
+  private static final int METHODID_GET_USER_EVENT_BY_USER_AND_EVENT_ID = 25;
+  private static final int METHODID_GENERATE_QR = 26;
+  private static final int METHODID_PING = 27;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -2017,6 +2086,10 @@ public final class ParticipantServiceGrpc {
         case METHODID_GET_ALL_EVENTS:
           serviceImpl.getAllEvents((com.google.protobuf.Empty) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.EventsResponse>) responseObserver);
+          break;
+        case METHODID_GET_TAG_BY_ID:
+          serviceImpl.getTagById((app.onepass.apis.GetObjectByIdRequest) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.Tag>) responseObserver);
           break;
         case METHODID_GET_ALL_TAGS:
           serviceImpl.getAllTags((com.google.protobuf.Empty) request,
@@ -2169,6 +2242,7 @@ public final class ParticipantServiceGrpc {
               .addMethod(getSubmitAnswersForEventQuestionMethod())
               .addMethod(getGetEventByIdMethod())
               .addMethod(getGetAllEventsMethod())
+              .addMethod(getGetTagByIdMethod())
               .addMethod(getGetAllTagsMethod())
               .addMethod(getGetSuggestedEventsMethod())
               .addMethod(getGetUpcomingEventsMethod())
