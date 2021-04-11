@@ -104,6 +104,10 @@ export interface RemoveQuestionsRequest {
   questionIds: number[];
 }
 
+export interface IdsResponse {
+  ids: number[];
+}
+
 export interface GetOrganizationsResponse {
   organizations: Organization[];
 }
@@ -122,18 +126,22 @@ export interface OrganizerService {
   ): Promise<Empty>;
   CreateEvent(request: CreateEventRequest): Promise<Event>;
   UpdateEvent(request: UpdateEventRequest): Promise<Event>;
-  UpdateEventDurations(request: UpdateEventDurationRequest): Promise<Empty>;
+  UpdateEventDurations(
+    request: UpdateEventDurationRequest
+  ): Promise<IdsResponse>;
   RemoveEvent(request: RemoveEventRequest): Promise<Event>;
   UpdateRegistrationRequest(
     request: UpdateRegistrationRequestRequest
   ): Promise<UserEvent>;
   CreateTag(request: CreateTagRequest): Promise<Tag>;
-  AddTags(request: UpdateTagRequest): Promise<Empty>;
-  RemoveTags(request: UpdateTagRequest): Promise<Empty>;
+  AddTags(request: UpdateTagRequest): Promise<IdsResponse>;
+  RemoveTags(request: UpdateTagRequest): Promise<IdsResponse>;
   HasEvent(request: HasEventRequest): Promise<Event>;
-  AddQuestionGroups(request: AddQuestionGroupsRequest): Promise<Empty>;
-  RemoveQuestionGroups(request: RemoveQuestionGroupsRequest): Promise<Empty>;
-  AddQuestions(request: AddQuestionsRequest): Promise<Empty>;
-  RemoveQuestions(request: RemoveQuestionsRequest): Promise<Empty>;
+  AddQuestionGroups(request: AddQuestionGroupsRequest): Promise<IdsResponse>;
+  RemoveQuestionGroups(
+    request: RemoveQuestionGroupsRequest
+  ): Promise<IdsResponse>;
+  AddQuestions(request: AddQuestionsRequest): Promise<IdsResponse>;
+  RemoveQuestions(request: RemoveQuestionsRequest): Promise<IdsResponse>;
   Ping(request: Empty): Promise<boolean | undefined>;
 }
