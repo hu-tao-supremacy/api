@@ -418,28 +418,28 @@ public final class OrganizerServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<app.onepass.apis.UpdateTagRequest,
-      app.onepass.apis.TagListResponse> getAddTagsMethod;
+      app.onepass.apis.EventTagListResponse> getAddTagsMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "AddTags",
       requestType = app.onepass.apis.UpdateTagRequest.class,
-      responseType = app.onepass.apis.TagListResponse.class,
+      responseType = app.onepass.apis.EventTagListResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<app.onepass.apis.UpdateTagRequest,
-      app.onepass.apis.TagListResponse> getAddTagsMethod() {
-    io.grpc.MethodDescriptor<app.onepass.apis.UpdateTagRequest, app.onepass.apis.TagListResponse> getAddTagsMethod;
+      app.onepass.apis.EventTagListResponse> getAddTagsMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.UpdateTagRequest, app.onepass.apis.EventTagListResponse> getAddTagsMethod;
     if ((getAddTagsMethod = OrganizerServiceGrpc.getAddTagsMethod) == null) {
       synchronized (OrganizerServiceGrpc.class) {
         if ((getAddTagsMethod = OrganizerServiceGrpc.getAddTagsMethod) == null) {
           OrganizerServiceGrpc.getAddTagsMethod = getAddTagsMethod =
-              io.grpc.MethodDescriptor.<app.onepass.apis.UpdateTagRequest, app.onepass.apis.TagListResponse>newBuilder()
+              io.grpc.MethodDescriptor.<app.onepass.apis.UpdateTagRequest, app.onepass.apis.EventTagListResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "AddTags"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.UpdateTagRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  app.onepass.apis.TagListResponse.getDefaultInstance()))
+                  app.onepass.apis.EventTagListResponse.getDefaultInstance()))
               .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("AddTags"))
               .build();
         }
@@ -449,28 +449,28 @@ public final class OrganizerServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<app.onepass.apis.UpdateTagRequest,
-      app.onepass.apis.TagListResponse> getRemoveTagsMethod;
+      app.onepass.apis.EventTagListResponse> getRemoveTagsMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "RemoveTags",
       requestType = app.onepass.apis.UpdateTagRequest.class,
-      responseType = app.onepass.apis.TagListResponse.class,
+      responseType = app.onepass.apis.EventTagListResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<app.onepass.apis.UpdateTagRequest,
-      app.onepass.apis.TagListResponse> getRemoveTagsMethod() {
-    io.grpc.MethodDescriptor<app.onepass.apis.UpdateTagRequest, app.onepass.apis.TagListResponse> getRemoveTagsMethod;
+      app.onepass.apis.EventTagListResponse> getRemoveTagsMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.UpdateTagRequest, app.onepass.apis.EventTagListResponse> getRemoveTagsMethod;
     if ((getRemoveTagsMethod = OrganizerServiceGrpc.getRemoveTagsMethod) == null) {
       synchronized (OrganizerServiceGrpc.class) {
         if ((getRemoveTagsMethod = OrganizerServiceGrpc.getRemoveTagsMethod) == null) {
           OrganizerServiceGrpc.getRemoveTagsMethod = getRemoveTagsMethod =
-              io.grpc.MethodDescriptor.<app.onepass.apis.UpdateTagRequest, app.onepass.apis.TagListResponse>newBuilder()
+              io.grpc.MethodDescriptor.<app.onepass.apis.UpdateTagRequest, app.onepass.apis.EventTagListResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "RemoveTags"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.UpdateTagRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  app.onepass.apis.TagListResponse.getDefaultInstance()))
+                  app.onepass.apis.EventTagListResponse.getDefaultInstance()))
               .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("RemoveTags"))
               .build();
         }
@@ -807,14 +807,14 @@ public final class OrganizerServiceGrpc {
     /**
      */
     public void addTags(app.onepass.apis.UpdateTagRequest request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.TagListResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<app.onepass.apis.EventTagListResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getAddTagsMethod(), responseObserver);
     }
 
     /**
      */
     public void removeTags(app.onepass.apis.UpdateTagRequest request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.TagListResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<app.onepass.apis.EventTagListResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getRemoveTagsMethod(), responseObserver);
     }
 
@@ -958,14 +958,14 @@ public final class OrganizerServiceGrpc {
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 app.onepass.apis.UpdateTagRequest,
-                app.onepass.apis.TagListResponse>(
+                app.onepass.apis.EventTagListResponse>(
                   this, METHODID_ADD_TAGS)))
           .addMethod(
             getRemoveTagsMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 app.onepass.apis.UpdateTagRequest,
-                app.onepass.apis.TagListResponse>(
+                app.onepass.apis.EventTagListResponse>(
                   this, METHODID_REMOVE_TAGS)))
           .addMethod(
             getHasEventMethod(),
@@ -1134,7 +1134,7 @@ public final class OrganizerServiceGrpc {
     /**
      */
     public void addTags(app.onepass.apis.UpdateTagRequest request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.TagListResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<app.onepass.apis.EventTagListResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getAddTagsMethod(), getCallOptions()), request, responseObserver);
     }
@@ -1142,7 +1142,7 @@ public final class OrganizerServiceGrpc {
     /**
      */
     public void removeTags(app.onepass.apis.UpdateTagRequest request,
-        io.grpc.stub.StreamObserver<app.onepass.apis.TagListResponse> responseObserver) {
+        io.grpc.stub.StreamObserver<app.onepass.apis.EventTagListResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getRemoveTagsMethod(), getCallOptions()), request, responseObserver);
     }
@@ -1303,14 +1303,14 @@ public final class OrganizerServiceGrpc {
 
     /**
      */
-    public app.onepass.apis.TagListResponse addTags(app.onepass.apis.UpdateTagRequest request) {
+    public app.onepass.apis.EventTagListResponse addTags(app.onepass.apis.UpdateTagRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getAddTagsMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public app.onepass.apis.TagListResponse removeTags(app.onepass.apis.UpdateTagRequest request) {
+    public app.onepass.apis.EventTagListResponse removeTags(app.onepass.apis.UpdateTagRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getRemoveTagsMethod(), getCallOptions(), request);
     }
@@ -1478,7 +1478,7 @@ public final class OrganizerServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.TagListResponse> addTags(
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.EventTagListResponse> addTags(
         app.onepass.apis.UpdateTagRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getAddTagsMethod(), getCallOptions()), request);
@@ -1486,7 +1486,7 @@ public final class OrganizerServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.TagListResponse> removeTags(
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.EventTagListResponse> removeTags(
         app.onepass.apis.UpdateTagRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getRemoveTagsMethod(), getCallOptions()), request);
@@ -1634,11 +1634,11 @@ public final class OrganizerServiceGrpc {
           break;
         case METHODID_ADD_TAGS:
           serviceImpl.addTags((app.onepass.apis.UpdateTagRequest) request,
-              (io.grpc.stub.StreamObserver<app.onepass.apis.TagListResponse>) responseObserver);
+              (io.grpc.stub.StreamObserver<app.onepass.apis.EventTagListResponse>) responseObserver);
           break;
         case METHODID_REMOVE_TAGS:
           serviceImpl.removeTags((app.onepass.apis.UpdateTagRequest) request,
-              (io.grpc.stub.StreamObserver<app.onepass.apis.TagListResponse>) responseObserver);
+              (io.grpc.stub.StreamObserver<app.onepass.apis.EventTagListResponse>) responseObserver);
           break;
         case METHODID_HAS_EVENT:
           serviceImpl.hasEvent((app.onepass.apis.HasEventRequest) request,
