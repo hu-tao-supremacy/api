@@ -115,12 +115,6 @@ export interface GetEventsByUserIdRequest {
   userId: number;
 }
 
-export interface GetUserEventByUserAndEventIdRequest {
-  userId: number;
-  eventId: number;
-  status: UserEvent_Status;
-}
-
 export interface GetEventsByTagIdsRequest {
   tagIds: number[];
 }
@@ -211,7 +205,7 @@ export interface ParticipantServiceClient {
   ): Observable<EventsResponse>;
 
   getUserEventByUserAndEventId(
-    request: GetUserEventByUserAndEventIdRequest
+    request: UserWithEventRequest
   ): Observable<UserEvent>;
 
   getUserEventsByEventId(
@@ -346,7 +340,7 @@ export interface ParticipantServiceController {
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
   getUserEventByUserAndEventId(
-    request: GetUserEventByUserAndEventIdRequest
+    request: UserWithEventRequest
   ): Promise<UserEvent> | Observable<UserEvent> | UserEvent;
 
   getUserEventsByEventId(
