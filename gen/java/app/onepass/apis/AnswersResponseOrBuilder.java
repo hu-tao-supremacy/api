@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface GetAnswersByQuestionIdResponseOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.participant.GetAnswersByQuestionIdResponse)
+public interface AnswersResponseOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.participant.AnswersResponse)
     com.google.protobuf.MessageOrBuilder {
 
   /**
