@@ -77,7 +77,12 @@ export interface TagsResponse {
   tags: Tag[];
 }
 
-export interface GetApprovedUserByEventIdResponse {
+export interface GetUsersByEventIdRequest {
+  eventId: number;
+  status: UserEvent_Status;
+}
+
+export interface GetUsersByEventIdResponse {
   users: User[];
 }
 
@@ -173,9 +178,9 @@ export interface ParticipantServiceClient {
     request: GetObjectByIdRequest
   ): Observable<GetRatingByEventIdResponse>;
 
-  getApprovedUserByEventId(
-    request: GetObjectByIdRequest
-  ): Observable<GetApprovedUserByEventIdResponse>;
+  getUsersByEventId(
+    request: GetUsersByEventIdRequest
+  ): Observable<GetUsersByEventIdResponse>;
 
   getEventDurationsByEventId(
     request: GetObjectByIdRequest
@@ -289,12 +294,12 @@ export interface ParticipantServiceController {
     | Observable<GetRatingByEventIdResponse>
     | GetRatingByEventIdResponse;
 
-  getApprovedUserByEventId(
-    request: GetObjectByIdRequest
+  getUsersByEventId(
+    request: GetUsersByEventIdRequest
   ):
-    | Promise<GetApprovedUserByEventIdResponse>
-    | Observable<GetApprovedUserByEventIdResponse>
-    | GetApprovedUserByEventIdResponse;
+    | Promise<GetUsersByEventIdResponse>
+    | Observable<GetUsersByEventIdResponse>
+    | GetUsersByEventIdResponse;
 
   getEventDurationsByEventId(
     request: GetObjectByIdRequest
@@ -367,7 +372,7 @@ export function ParticipantServiceControllerMethods() {
       "getLocationById",
       "getTagsByEventId",
       "getRatingByEventId",
-      "getApprovedUserByEventId",
+      "getUsersByEventId",
       "getEventDurationsByEventId",
       "getQuestionGroupsByEventId",
       "getQuestionsByQuestionGroupId",
