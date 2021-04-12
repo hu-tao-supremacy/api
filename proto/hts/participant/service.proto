@@ -106,12 +106,6 @@ message GetEventsByUserIdRequest {
     int32 user_id = 1;
 }
 
-message GetUserEventByUserAndEventIdRequest {
-    int32 user_id = 1;
-    int32 event_id = 2;
-    hts.common.UserEvent.Status status = 3;
-}
-
 message GetEventsByTagIdsRequest {
     repeated int32 tag_ids = 1;
 }
@@ -170,7 +164,7 @@ service ParticipantService {
     rpc GetUserAnswerByQuestionId(GetUserAnswerByQuestionIdRequest) returns (hts.common.Answer);
 
     rpc GetEventsByUserId(GetEventsByUserIdRequest) returns (EventsResponse);
-    rpc GetUserEventByUserAndEventId(GetUserEventByUserAndEventIdRequest) returns (hts.common.UserEvent);
+    rpc GetUserEventByUserAndEventId(UserWithEventRequest) returns (hts.common.UserEvent);
 
     rpc GetUserEventsByEventId(hts.common.GetObjectByIdRequest) returns (GetUserEventsByEventIdResponse);
 
