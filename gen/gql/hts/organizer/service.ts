@@ -9,6 +9,7 @@ import {
   UserOrganization,
   EventDuration,
   EventTag,
+  Answer,
   UserEvent,
   GetObjectByIdRequest,
 } from "../../hts/common/common";
@@ -131,6 +132,10 @@ export interface QuestionListResponse {
   questions: Question[];
 }
 
+export interface AnswerListResponse {
+  answers: Answer[];
+}
+
 export interface OrganizerService {
   CreateOrganization(request: CreateOrganizationRequest): Promise<Organization>;
   GetOrganizations(request: Empty): Promise<OrganizationListResponse>;
@@ -166,5 +171,8 @@ export interface OrganizerService {
   RemoveQuestions(
     request: RemoveQuestionsRequest
   ): Promise<QuestionListResponse>;
+  GetAnswersByQuestionId(
+    request: GetObjectByIdRequest
+  ): Promise<AnswerListResponse>;
   Ping(request: Empty): Promise<boolean | undefined>;
 }
