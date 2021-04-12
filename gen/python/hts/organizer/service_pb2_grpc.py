@@ -117,6 +117,11 @@ class OrganizerServiceStub(object):
                 request_serializer=hts_dot_organizer_dot_service__pb2.RemoveQuestionsRequest.SerializeToString,
                 response_deserializer=hts_dot_organizer_dot_service__pb2.QuestionListResponse.FromString,
                 )
+        self.GetAnswersByQuestionId = channel.unary_unary(
+                '/hts.organizer.OrganizerService/GetAnswersByQuestionId',
+                request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
+                response_deserializer=hts_dot_organizer_dot_service__pb2.AnswerListResponse.FromString,
+                )
         self.Ping = channel.unary_unary(
                 '/hts.organizer.OrganizerService/Ping',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
@@ -247,6 +252,12 @@ class OrganizerServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAnswersByQuestionId(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Ping(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -355,6 +366,11 @@ def add_OrganizerServiceServicer_to_server(servicer, server):
                     servicer.RemoveQuestions,
                     request_deserializer=hts_dot_organizer_dot_service__pb2.RemoveQuestionsRequest.FromString,
                     response_serializer=hts_dot_organizer_dot_service__pb2.QuestionListResponse.SerializeToString,
+            ),
+            'GetAnswersByQuestionId': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAnswersByQuestionId,
+                    request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
+                    response_serializer=hts_dot_organizer_dot_service__pb2.AnswerListResponse.SerializeToString,
             ),
             'Ping': grpc.unary_unary_rpc_method_handler(
                     servicer.Ping,
@@ -708,6 +724,23 @@ class OrganizerService(object):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/RemoveQuestions',
             hts_dot_organizer_dot_service__pb2.RemoveQuestionsRequest.SerializeToString,
             hts_dot_organizer_dot_service__pb2.QuestionListResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAnswersByQuestionId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/GetAnswersByQuestionId',
+            hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
+            hts_dot_organizer_dot_service__pb2.AnswerListResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
