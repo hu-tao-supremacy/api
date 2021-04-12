@@ -41,6 +41,7 @@ type OrganizerServiceClient interface {
 	RemoveQuestionGroups(ctx context.Context, in *RemoveQuestionGroupsRequest, opts ...grpc.CallOption) (*QuestionGroupListResponse, error)
 	AddQuestions(ctx context.Context, in *AddQuestionsRequest, opts ...grpc.CallOption) (*QuestionListResponse, error)
 	RemoveQuestions(ctx context.Context, in *RemoveQuestionsRequest, opts ...grpc.CallOption) (*QuestionListResponse, error)
+	GetAnswersByQuestionId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*AnswerListResponse, error)
 	Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 }
 
@@ -232,6 +233,15 @@ func (c *organizerServiceClient) RemoveQuestions(ctx context.Context, in *Remove
 	return out, nil
 }
 
+func (c *organizerServiceClient) GetAnswersByQuestionId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*AnswerListResponse, error) {
+	out := new(AnswerListResponse)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/GetAnswersByQuestionId", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *organizerServiceClient) Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error) {
 	out := new(wrapperspb.BoolValue)
 	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/Ping", in, out, opts...)
@@ -265,6 +275,7 @@ type OrganizerServiceServer interface {
 	RemoveQuestionGroups(context.Context, *RemoveQuestionGroupsRequest) (*QuestionGroupListResponse, error)
 	AddQuestions(context.Context, *AddQuestionsRequest) (*QuestionListResponse, error)
 	RemoveQuestions(context.Context, *RemoveQuestionsRequest) (*QuestionListResponse, error)
+	GetAnswersByQuestionId(context.Context, *common.GetObjectByIdRequest) (*AnswerListResponse, error)
 	Ping(context.Context, *emptypb.Empty) (*wrapperspb.BoolValue, error)
 	mustEmbedUnimplementedOrganizerServiceServer()
 }
@@ -332,6 +343,9 @@ func (UnimplementedOrganizerServiceServer) AddQuestions(context.Context, *AddQue
 }
 func (UnimplementedOrganizerServiceServer) RemoveQuestions(context.Context, *RemoveQuestionsRequest) (*QuestionListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoveQuestions not implemented")
+}
+func (UnimplementedOrganizerServiceServer) GetAnswersByQuestionId(context.Context, *common.GetObjectByIdRequest) (*AnswerListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAnswersByQuestionId not implemented")
 }
 func (UnimplementedOrganizerServiceServer) Ping(context.Context, *emptypb.Empty) (*wrapperspb.BoolValue, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Ping not implemented")
@@ -709,6 +723,24 @@ func _OrganizerService_RemoveQuestions_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _OrganizerService_GetAnswersByQuestionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(common.GetObjectByIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrganizerServiceServer).GetAnswersByQuestionId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.organizer.OrganizerService/GetAnswersByQuestionId",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrganizerServiceServer).GetAnswersByQuestionId(ctx, req.(*common.GetObjectByIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _OrganizerService_Ping_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
@@ -813,6 +845,10 @@ var OrganizerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RemoveQuestions",
 			Handler:    _OrganizerService_RemoveQuestions_Handler,
+		},
+		{
+			MethodName: "GetAnswersByQuestionId",
+			Handler:    _OrganizerService_GetAnswersByQuestionId_Handler,
 		},
 		{
 			MethodName: "Ping",

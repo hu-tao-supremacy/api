@@ -48,6 +48,7 @@ type ParticipantServiceClient interface {
 	GetUserAnswerByQuestionId(ctx context.Context, in *GetUserAnswerByQuestionIdRequest, opts ...grpc.CallOption) (*common.Answer, error)
 	GetEventsByUserId(ctx context.Context, in *GetEventsByUserIdRequest, opts ...grpc.CallOption) (*EventsResponse, error)
 	GetUserEventByUserAndEventId(ctx context.Context, in *GetUserEventByUserAndEventIdRequest, opts ...grpc.CallOption) (*common.UserEvent, error)
+	GetUserEventsByEventId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetUserEventsByEventIdResponse, error)
 	GenerateQR(ctx context.Context, in *GenerateQRRequest, opts ...grpc.CallOption) (*GenerateQRResponse, error)
 	Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 }
@@ -294,6 +295,15 @@ func (c *participantServiceClient) GetUserEventByUserAndEventId(ctx context.Cont
 	return out, nil
 }
 
+func (c *participantServiceClient) GetUserEventsByEventId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetUserEventsByEventIdResponse, error) {
+	out := new(GetUserEventsByEventIdResponse)
+	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GetUserEventsByEventId", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *participantServiceClient) GenerateQR(ctx context.Context, in *GenerateQRRequest, opts ...grpc.CallOption) (*GenerateQRResponse, error) {
 	out := new(GenerateQRResponse)
 	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GenerateQR", in, out, opts...)
@@ -342,6 +352,7 @@ type ParticipantServiceServer interface {
 	GetUserAnswerByQuestionId(context.Context, *GetUserAnswerByQuestionIdRequest) (*common.Answer, error)
 	GetEventsByUserId(context.Context, *GetEventsByUserIdRequest) (*EventsResponse, error)
 	GetUserEventByUserAndEventId(context.Context, *GetUserEventByUserAndEventIdRequest) (*common.UserEvent, error)
+	GetUserEventsByEventId(context.Context, *common.GetObjectByIdRequest) (*GetUserEventsByEventIdResponse, error)
 	GenerateQR(context.Context, *GenerateQRRequest) (*GenerateQRResponse, error)
 	Ping(context.Context, *emptypb.Empty) (*wrapperspb.BoolValue, error)
 	mustEmbedUnimplementedParticipantServiceServer()
@@ -428,6 +439,9 @@ func (UnimplementedParticipantServiceServer) GetEventsByUserId(context.Context, 
 }
 func (UnimplementedParticipantServiceServer) GetUserEventByUserAndEventId(context.Context, *GetUserEventByUserAndEventIdRequest) (*common.UserEvent, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserEventByUserAndEventId not implemented")
+}
+func (UnimplementedParticipantServiceServer) GetUserEventsByEventId(context.Context, *common.GetObjectByIdRequest) (*GetUserEventsByEventIdResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserEventsByEventId not implemented")
 }
 func (UnimplementedParticipantServiceServer) GenerateQR(context.Context, *GenerateQRRequest) (*GenerateQRResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateQR not implemented")
@@ -916,6 +930,24 @@ func _ParticipantService_GetUserEventByUserAndEventId_Handler(srv interface{}, c
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ParticipantService_GetUserEventsByEventId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(common.GetObjectByIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParticipantServiceServer).GetUserEventsByEventId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.participant.ParticipantService/GetUserEventsByEventId",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParticipantServiceServer).GetUserEventsByEventId(ctx, req.(*common.GetObjectByIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ParticipantService_GenerateQR_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GenerateQRRequest)
 	if err := dec(in); err != nil {
@@ -1062,6 +1094,10 @@ var ParticipantService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetUserEventByUserAndEventId",
 			Handler:    _ParticipantService_GetUserEventByUserAndEventId_Handler,
+		},
+		{
+			MethodName: "GetUserEventsByEventId",
+			Handler:    _ParticipantService_GetUserEventsByEventId_Handler,
 		},
 		{
 			MethodName: "GenerateQR",
