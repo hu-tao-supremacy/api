@@ -44,7 +44,8 @@ type ParticipantServiceClient interface {
 	GetEventDurationsByEventId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetEventDurationsByEventIdResponse, error)
 	GetQuestionGroupsByEventId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetQuestionGroupsByEventIdResponse, error)
 	GetQuestionsByQuestionGroupId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetQuestionsByQuestionGroupIdResponse, error)
-	GetAnswersByQuestionId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetAnswersByQuestionIdResponse, error)
+	GetAnswersByQuestionId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*AnswersResponse, error)
+	GetAnswersByUserEventId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*AnswersResponse, error)
 	GetUserAnswerByQuestionId(ctx context.Context, in *GetUserAnswerByQuestionIdRequest, opts ...grpc.CallOption) (*common.Answer, error)
 	GetEventsByUserId(ctx context.Context, in *GetEventsByUserIdRequest, opts ...grpc.CallOption) (*EventsResponse, error)
 	GetUserEventByUserAndEventId(ctx context.Context, in *UserWithEventRequest, opts ...grpc.CallOption) (*common.UserEvent, error)
@@ -259,9 +260,18 @@ func (c *participantServiceClient) GetQuestionsByQuestionGroupId(ctx context.Con
 	return out, nil
 }
 
-func (c *participantServiceClient) GetAnswersByQuestionId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetAnswersByQuestionIdResponse, error) {
-	out := new(GetAnswersByQuestionIdResponse)
+func (c *participantServiceClient) GetAnswersByQuestionId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*AnswersResponse, error) {
+	out := new(AnswersResponse)
 	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GetAnswersByQuestionId", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *participantServiceClient) GetAnswersByUserEventId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*AnswersResponse, error) {
+	out := new(AnswersResponse)
+	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GetAnswersByUserEventId", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -348,7 +358,8 @@ type ParticipantServiceServer interface {
 	GetEventDurationsByEventId(context.Context, *common.GetObjectByIdRequest) (*GetEventDurationsByEventIdResponse, error)
 	GetQuestionGroupsByEventId(context.Context, *common.GetObjectByIdRequest) (*GetQuestionGroupsByEventIdResponse, error)
 	GetQuestionsByQuestionGroupId(context.Context, *common.GetObjectByIdRequest) (*GetQuestionsByQuestionGroupIdResponse, error)
-	GetAnswersByQuestionId(context.Context, *common.GetObjectByIdRequest) (*GetAnswersByQuestionIdResponse, error)
+	GetAnswersByQuestionId(context.Context, *common.GetObjectByIdRequest) (*AnswersResponse, error)
+	GetAnswersByUserEventId(context.Context, *common.GetObjectByIdRequest) (*AnswersResponse, error)
 	GetUserAnswerByQuestionId(context.Context, *GetUserAnswerByQuestionIdRequest) (*common.Answer, error)
 	GetEventsByUserId(context.Context, *GetEventsByUserIdRequest) (*EventsResponse, error)
 	GetUserEventByUserAndEventId(context.Context, *UserWithEventRequest) (*common.UserEvent, error)
@@ -428,8 +439,11 @@ func (UnimplementedParticipantServiceServer) GetQuestionGroupsByEventId(context.
 func (UnimplementedParticipantServiceServer) GetQuestionsByQuestionGroupId(context.Context, *common.GetObjectByIdRequest) (*GetQuestionsByQuestionGroupIdResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetQuestionsByQuestionGroupId not implemented")
 }
-func (UnimplementedParticipantServiceServer) GetAnswersByQuestionId(context.Context, *common.GetObjectByIdRequest) (*GetAnswersByQuestionIdResponse, error) {
+func (UnimplementedParticipantServiceServer) GetAnswersByQuestionId(context.Context, *common.GetObjectByIdRequest) (*AnswersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAnswersByQuestionId not implemented")
+}
+func (UnimplementedParticipantServiceServer) GetAnswersByUserEventId(context.Context, *common.GetObjectByIdRequest) (*AnswersResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAnswersByUserEventId not implemented")
 }
 func (UnimplementedParticipantServiceServer) GetUserAnswerByQuestionId(context.Context, *GetUserAnswerByQuestionIdRequest) (*common.Answer, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserAnswerByQuestionId not implemented")
@@ -876,6 +890,24 @@ func _ParticipantService_GetAnswersByQuestionId_Handler(srv interface{}, ctx con
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ParticipantService_GetAnswersByUserEventId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(common.GetObjectByIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParticipantServiceServer).GetAnswersByUserEventId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.participant.ParticipantService/GetAnswersByUserEventId",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParticipantServiceServer).GetAnswersByUserEventId(ctx, req.(*common.GetObjectByIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ParticipantService_GetUserAnswerByQuestionId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetUserAnswerByQuestionIdRequest)
 	if err := dec(in); err != nil {
@@ -1082,6 +1114,10 @@ var ParticipantService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAnswersByQuestionId",
 			Handler:    _ParticipantService_GetAnswersByQuestionId_Handler,
+		},
+		{
+			MethodName: "GetAnswersByUserEventId",
+			Handler:    _ParticipantService_GetAnswersByUserEventId_Handler,
 		},
 		{
 			MethodName: "GetUserAnswerByQuestionId",
