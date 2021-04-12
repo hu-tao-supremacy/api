@@ -107,7 +107,7 @@ export interface GetQuestionsByQuestionGroupIdResponse {
   questions: Question[];
 }
 
-export interface GetAnswersByQuestionIdResponse {
+export interface AnswersResponse {
   answers: Answer[];
 }
 
@@ -194,7 +194,11 @@ export interface ParticipantServiceClient {
 
   getAnswersByQuestionId(
     request: GetObjectByIdRequest
-  ): Observable<GetAnswersByQuestionIdResponse>;
+  ): Observable<AnswersResponse>;
+
+  getAnswersByUserEventId(
+    request: GetObjectByIdRequest
+  ): Observable<AnswersResponse>;
 
   getUserAnswerByQuestionId(
     request: GetUserAnswerByQuestionIdRequest
@@ -326,10 +330,11 @@ export interface ParticipantServiceController {
 
   getAnswersByQuestionId(
     request: GetObjectByIdRequest
-  ):
-    | Promise<GetAnswersByQuestionIdResponse>
-    | Observable<GetAnswersByQuestionIdResponse>
-    | GetAnswersByQuestionIdResponse;
+  ): Promise<AnswersResponse> | Observable<AnswersResponse> | AnswersResponse;
+
+  getAnswersByUserEventId(
+    request: GetObjectByIdRequest
+  ): Promise<AnswersResponse> | Observable<AnswersResponse> | AnswersResponse;
 
   getUserAnswerByQuestionId(
     request: GetUserAnswerByQuestionIdRequest
@@ -386,6 +391,7 @@ export function ParticipantServiceControllerMethods() {
       "getQuestionGroupsByEventId",
       "getQuestionsByQuestionGroupId",
       "getAnswersByQuestionId",
+      "getAnswersByUserEventId",
       "getUserAnswerByQuestionId",
       "getEventsByUserId",
       "getUserEventByUserAndEventId",
