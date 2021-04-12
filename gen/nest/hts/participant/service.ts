@@ -125,6 +125,10 @@ export interface GetEventsByTagIdsRequest {
   tagIds: number[];
 }
 
+export interface GetUserEventsByEventIdResponse {
+  userEvents: UserEvent[];
+}
+
 export const HTS_PARTICIPANT_PACKAGE_NAME = "hts.participant";
 
 export interface ParticipantServiceClient {
@@ -209,6 +213,10 @@ export interface ParticipantServiceClient {
   getUserEventByUserAndEventId(
     request: GetUserEventByUserAndEventIdRequest
   ): Observable<UserEvent>;
+
+  getUserEventsByEventId(
+    request: GetObjectByIdRequest
+  ): Observable<GetUserEventsByEventIdResponse>;
 
   generateQR(request: GenerateQRRequest): Observable<GenerateQRResponse>;
 
@@ -341,6 +349,13 @@ export interface ParticipantServiceController {
     request: GetUserEventByUserAndEventIdRequest
   ): Promise<UserEvent> | Observable<UserEvent> | UserEvent;
 
+  getUserEventsByEventId(
+    request: GetObjectByIdRequest
+  ):
+    | Promise<GetUserEventsByEventIdResponse>
+    | Observable<GetUserEventsByEventIdResponse>
+    | GetUserEventsByEventIdResponse;
+
   generateQR(
     request: GenerateQRRequest
   ):
@@ -380,6 +395,7 @@ export function ParticipantServiceControllerMethods() {
       "getUserAnswerByQuestionId",
       "getEventsByUserId",
       "getUserEventByUserAndEventId",
+      "getUserEventsByEventId",
       "generateQR",
       "ping",
     ];

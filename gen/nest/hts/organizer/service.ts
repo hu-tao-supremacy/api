@@ -10,6 +10,7 @@ import {
   UserOrganization,
   EventDuration,
   EventTag,
+  Answer,
   UserEvent,
   GetObjectByIdRequest,
 } from "../../hts/common/common";
@@ -135,6 +136,10 @@ export interface QuestionListResponse {
   questions: Question[];
 }
 
+export interface AnswerListResponse {
+  answers: Answer[];
+}
+
 export const HTS_ORGANIZER_PACKAGE_NAME = "hts.organizer";
 
 export interface OrganizerServiceClient {
@@ -197,6 +202,10 @@ export interface OrganizerServiceClient {
   removeQuestions(
     request: RemoveQuestionsRequest
   ): Observable<QuestionListResponse>;
+
+  getAnswersByQuestionId(
+    request: GetObjectByIdRequest
+  ): Observable<AnswerListResponse>;
 
   ping(request: Empty): Observable<BoolValue>;
 }
@@ -310,6 +319,13 @@ export interface OrganizerServiceController {
     | Observable<QuestionListResponse>
     | QuestionListResponse;
 
+  getAnswersByQuestionId(
+    request: GetObjectByIdRequest
+  ):
+    | Promise<AnswerListResponse>
+    | Observable<AnswerListResponse>
+    | AnswerListResponse;
+
   ping(request: Empty): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
 }
 
@@ -336,6 +352,7 @@ export function OrganizerServiceControllerMethods() {
       "removeQuestionGroups",
       "addQuestions",
       "removeQuestions",
+      "getAnswersByQuestionId",
       "ping",
     ];
     for (const method of grpcMethods) {
