@@ -131,7 +131,12 @@ class ParticipantServiceStub(object):
         self.GetAnswersByQuestionId = channel.unary_unary(
                 '/hts.participant.ParticipantService/GetAnswersByQuestionId',
                 request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
-                response_deserializer=hts_dot_participant_dot_service__pb2.GetAnswersByQuestionIdResponse.FromString,
+                response_deserializer=hts_dot_participant_dot_service__pb2.AnswersResponse.FromString,
+                )
+        self.GetAnswersByUserEventId = channel.unary_unary(
+                '/hts.participant.ParticipantService/GetAnswersByUserEventId',
+                request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
+                response_deserializer=hts_dot_participant_dot_service__pb2.AnswersResponse.FromString,
                 )
         self.GetUserAnswerByQuestionId = channel.unary_unary(
                 '/hts.participant.ParticipantService/GetUserAnswerByQuestionId',
@@ -306,6 +311,12 @@ class ParticipantServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAnswersByUserEventId(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetUserAnswerByQuestionId(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -458,7 +469,12 @@ def add_ParticipantServiceServicer_to_server(servicer, server):
             'GetAnswersByQuestionId': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAnswersByQuestionId,
                     request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
-                    response_serializer=hts_dot_participant_dot_service__pb2.GetAnswersByQuestionIdResponse.SerializeToString,
+                    response_serializer=hts_dot_participant_dot_service__pb2.AnswersResponse.SerializeToString,
+            ),
+            'GetAnswersByUserEventId': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAnswersByUserEventId,
+                    request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
+                    response_serializer=hts_dot_participant_dot_service__pb2.AnswersResponse.SerializeToString,
             ),
             'GetUserAnswerByQuestionId': grpc.unary_unary_rpc_method_handler(
                     servicer.GetUserAnswerByQuestionId,
@@ -887,7 +903,24 @@ class ParticipantService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetAnswersByQuestionId',
             hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
-            hts_dot_participant_dot_service__pb2.GetAnswersByQuestionIdResponse.FromString,
+            hts_dot_participant_dot_service__pb2.AnswersResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAnswersByUserEventId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetAnswersByUserEventId',
+            hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
+            hts_dot_participant_dot_service__pb2.AnswersResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
