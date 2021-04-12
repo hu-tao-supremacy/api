@@ -103,7 +103,7 @@ export interface GetQuestionsByQuestionGroupIdResponse {
   questions: Question[];
 }
 
-export interface GetAnswersByQuestionIdResponse {
+export interface AnswersResponse {
   answers: Answer[];
 }
 
@@ -160,7 +160,10 @@ export interface ParticipantService {
   ): Promise<GetQuestionsByQuestionGroupIdResponse>;
   GetAnswersByQuestionId(
     request: GetObjectByIdRequest
-  ): Promise<GetAnswersByQuestionIdResponse>;
+  ): Promise<AnswersResponse>;
+  GetAnswersByUserEventId(
+    request: GetObjectByIdRequest
+  ): Promise<AnswersResponse>;
   GetUserAnswerByQuestionId(
     request: GetUserAnswerByQuestionIdRequest
   ): Promise<Answer>;
