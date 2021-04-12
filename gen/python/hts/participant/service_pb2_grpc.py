@@ -148,6 +148,11 @@ class ParticipantServiceStub(object):
                 request_serializer=hts_dot_participant_dot_service__pb2.GetUserEventByUserAndEventIdRequest.SerializeToString,
                 response_deserializer=hts_dot_common_dot_common__pb2.UserEvent.FromString,
                 )
+        self.GetUserEventsByEventId = channel.unary_unary(
+                '/hts.participant.ParticipantService/GetUserEventsByEventId',
+                request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
+                response_deserializer=hts_dot_participant_dot_service__pb2.GetUserEventsByEventIdResponse.FromString,
+                )
         self.GenerateQR = channel.unary_unary(
                 '/hts.participant.ParticipantService/GenerateQR',
                 request_serializer=hts_dot_participant_dot_service__pb2.GenerateQRRequest.SerializeToString,
@@ -319,6 +324,12 @@ class ParticipantServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetUserEventsByEventId(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GenerateQR(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -463,6 +474,11 @@ def add_ParticipantServiceServicer_to_server(servicer, server):
                     servicer.GetUserEventByUserAndEventId,
                     request_deserializer=hts_dot_participant_dot_service__pb2.GetUserEventByUserAndEventIdRequest.FromString,
                     response_serializer=hts_dot_common_dot_common__pb2.UserEvent.SerializeToString,
+            ),
+            'GetUserEventsByEventId': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetUserEventsByEventId,
+                    request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
+                    response_serializer=hts_dot_participant_dot_service__pb2.GetUserEventsByEventIdResponse.SerializeToString,
             ),
             'GenerateQR': grpc.unary_unary_rpc_method_handler(
                     servicer.GenerateQR,
@@ -923,6 +939,23 @@ class ParticipantService(object):
         return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetUserEventByUserAndEventId',
             hts_dot_participant_dot_service__pb2.GetUserEventByUserAndEventIdRequest.SerializeToString,
             hts_dot_common_dot_common__pb2.UserEvent.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetUserEventsByEventId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetUserEventsByEventId',
+            hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
+            hts_dot_participant_dot_service__pb2.GetUserEventsByEventIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

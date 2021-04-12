@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\020app.onepass.apisB\016OrganizerProtoP\001Z\"onepass.app/facility/hts/organizer',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x1bhts/organizer/service.proto\x12\rhts.organizer\x1a\x17hts/common/common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1egoogle/protobuf/wrappers.proto\"p\n\x08\x44uration\x12\x30\n\x05start\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12\x32\n\x06\x66inish\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x06\x66inish\"r\n\x19\x43reateOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12<\n\x0corganization\x18\x02 \x01(\x0b\x32\x18.hts.common.OrganizationR\x0corganization\"r\n\x19UpdateOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12<\n\x0corganization\x18\x02 \x01(\x0b\x32\x18.hts.common.OrganizationR\x0corganization\"]\n\x19RemoveOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x05R\x0eorganizationId\"\x83\x01\n UpdateUsersInOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\x1d\n\x08user_ids\x18\x02 \x03(\x05\x42\x02\x10\x01R\x07userIds\x12\'\n\x0forganization_id\x18\x03 \x01(\x05R\x0eorganizationId\"V\n\x12\x43reateEventRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\'\n\x05\x65vent\x18\x02 \x01(\x0b\x32\x11.hts.common.EventR\x05\x65vent\"V\n\x12UpdateEventRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\'\n\x05\x65vent\x18\x02 \x01(\x0b\x32\x11.hts.common.EventR\x05\x65vent\"\x85\x01\n\x1aUpdateEventDurationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x05R\x07\x65ventId\x12\x33\n\x08\x64uration\x18\x03 \x03(\x0b\x32\x17.hts.organizer.DurationR\x08\x64uration\"H\n\x12RemoveEventRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x05R\x07\x65ventId\"\xcf\x01\n UpdateRegistrationRequestRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12,\n\x12registered_user_id\x18\x02 \x01(\x05R\x10registeredUserId\x12.\n\x13registered_event_id\x18\x03 \x01(\x05R\x11registeredEventId\x12\x34\n\x06status\x18\x04 \x01(\x0e\x32\x1c.hts.common.UserEvent.StatusR\x06status\"w\n\x10\x43reateTagRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x05R\x0eorganizationId\x12!\n\x03tag\x18\x03 \x01(\x0b\x32\x0f.hts.common.TagR\x03tag\"c\n\x10UpdateTagRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\x1b\n\x07tag_ids\x18\x02 \x03(\x05\x42\x02\x10\x01R\x06tagIds\x12\x19\n\x08\x65vent_id\x18\x03 \x01(\x05R\x07\x65ventId\"U\n\x0fHasEventRequest\x12\'\n\x0forganization_id\x18\x01 \x01(\x05R\x0eorganizationId\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x05R\x07\x65ventId\"w\n\x18\x41\x64\x64QuestionGroupsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\x42\n\x0fquestion_groups\x18\x02 \x03(\x0b\x32\x19.hts.common.QuestionGroupR\x0equestionGroups\"d\n\x1bRemoveQuestionGroupsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12,\n\x12question_group_ids\x18\x02 \x03(\x05R\x10questionGroupIds\"b\n\x13\x41\x64\x64QuestionsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\x32\n\tquestions\x18\x02 \x03(\x0b\x32\x14.hts.common.QuestionR\tquestions\"T\n\x16RemoveQuestionsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12!\n\x0cquestion_ids\x18\x02 \x03(\x05R\x0bquestionIds\"Z\n\x18OrganizationListResponse\x12>\n\rorganizations\x18\x01 \x03(\x0b\x32\x18.hts.common.OrganizationR\rorganizations\"k\n\x1cUserOrganizationListResponse\x12K\n\x12user_organizations\x18\x01 \x03(\x0b\x32\x1c.hts.common.UserOrganizationR\x11userOrganizations\"_\n\x19\x45ventDurationListResponse\x12\x42\n\x0f\x65vent_durations\x18\x01 \x03(\x0b\x32\x19.hts.common.EventDurationR\x0e\x65ventDurations\"K\n\x14\x45ventTagListResponse\x12\x33\n\nevent_tags\x18\x01 \x03(\x0b\x32\x14.hts.common.EventTagR\teventTags\"_\n\x19QuestionGroupListResponse\x12\x42\n\x0fquestion_groups\x18\x01 \x03(\x0b\x32\x19.hts.common.QuestionGroupR\x0equestionGroups\"J\n\x14QuestionListResponse\x12\x32\n\tquestions\x18\x01 \x03(\x0b\x32\x14.hts.common.QuestionR\tquestions2\xcb\x0e\n\x10OrganizerService\x12X\n\x12\x43reateOrganization\x12(.hts.organizer.CreateOrganizationRequest\x1a\x18.hts.common.Organization\x12S\n\x10GetOrganizations\x12\x16.google.protobuf.Empty\x1a\'.hts.organizer.OrganizationListResponse\x12Q\n\x13GetOrganizationById\x12 .hts.common.GetObjectByIdRequest\x1a\x18.hts.common.Organization\x12X\n\x12UpdateOrganization\x12(.hts.organizer.UpdateOrganizationRequest\x1a\x18.hts.common.Organization\x12X\n\x12RemoveOrganization\x12(.hts.organizer.RemoveOrganizationRequest\x1a\x18.hts.common.Organization\x12v\n\x16\x41\x64\x64UsersToOrganization\x12/.hts.organizer.UpdateUsersInOrganizationRequest\x1a+.hts.organizer.UserOrganizationListResponse\x12{\n\x1bRemoveUsersFromOrganization\x12/.hts.organizer.UpdateUsersInOrganizationRequest\x1a+.hts.organizer.UserOrganizationListResponse\x12\x43\n\x0b\x43reateEvent\x12!.hts.organizer.CreateEventRequest\x1a\x11.hts.common.Event\x12\x43\n\x0bUpdateEvent\x12!.hts.organizer.UpdateEventRequest\x1a\x11.hts.common.Event\x12k\n\x14UpdateEventDurations\x12).hts.organizer.UpdateEventDurationRequest\x1a(.hts.organizer.EventDurationListResponse\x12\x43\n\x0bRemoveEvent\x12!.hts.organizer.RemoveEventRequest\x1a\x11.hts.common.Event\x12\x63\n\x19UpdateRegistrationRequest\x12/.hts.organizer.UpdateRegistrationRequestRequest\x1a\x15.hts.common.UserEvent\x12=\n\tCreateTag\x12\x1f.hts.organizer.CreateTagRequest\x1a\x0f.hts.common.Tag\x12O\n\x07\x41\x64\x64Tags\x12\x1f.hts.organizer.UpdateTagRequest\x1a#.hts.organizer.EventTagListResponse\x12R\n\nRemoveTags\x12\x1f.hts.organizer.UpdateTagRequest\x1a#.hts.organizer.EventTagListResponse\x12=\n\x08HasEvent\x12\x1e.hts.organizer.HasEventRequest\x1a\x11.hts.common.Event\x12\x66\n\x11\x41\x64\x64QuestionGroups\x12\'.hts.organizer.AddQuestionGroupsRequest\x1a(.hts.organizer.QuestionGroupListResponse\x12l\n\x14RemoveQuestionGroups\x12*.hts.organizer.RemoveQuestionGroupsRequest\x1a(.hts.organizer.QuestionGroupListResponse\x12W\n\x0c\x41\x64\x64Questions\x12\".hts.organizer.AddQuestionsRequest\x1a#.hts.organizer.QuestionListResponse\x12]\n\x0fRemoveQuestions\x12%.hts.organizer.RemoveQuestionsRequest\x1a#.hts.organizer.QuestionListResponse\x12:\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x1a.google.protobuf.BoolValueBH\n\x10\x61pp.onepass.apisB\x0eOrganizerProtoP\x01Z\"onepass.app/facility/hts/organizerb\x06proto3'
+  serialized_pb=b'\n\x1bhts/organizer/service.proto\x12\rhts.organizer\x1a\x17hts/common/common.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1egoogle/protobuf/wrappers.proto\"p\n\x08\x44uration\x12\x30\n\x05start\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05start\x12\x32\n\x06\x66inish\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x06\x66inish\"r\n\x19\x43reateOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12<\n\x0corganization\x18\x02 \x01(\x0b\x32\x18.hts.common.OrganizationR\x0corganization\"r\n\x19UpdateOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12<\n\x0corganization\x18\x02 \x01(\x0b\x32\x18.hts.common.OrganizationR\x0corganization\"]\n\x19RemoveOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x05R\x0eorganizationId\"\x83\x01\n UpdateUsersInOrganizationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\x1d\n\x08user_ids\x18\x02 \x03(\x05\x42\x02\x10\x01R\x07userIds\x12\'\n\x0forganization_id\x18\x03 \x01(\x05R\x0eorganizationId\"V\n\x12\x43reateEventRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\'\n\x05\x65vent\x18\x02 \x01(\x0b\x32\x11.hts.common.EventR\x05\x65vent\"V\n\x12UpdateEventRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\'\n\x05\x65vent\x18\x02 \x01(\x0b\x32\x11.hts.common.EventR\x05\x65vent\"\x85\x01\n\x1aUpdateEventDurationRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x05R\x07\x65ventId\x12\x33\n\x08\x64uration\x18\x03 \x03(\x0b\x32\x17.hts.organizer.DurationR\x08\x64uration\"H\n\x12RemoveEventRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x05R\x07\x65ventId\"\xcf\x01\n UpdateRegistrationRequestRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12,\n\x12registered_user_id\x18\x02 \x01(\x05R\x10registeredUserId\x12.\n\x13registered_event_id\x18\x03 \x01(\x05R\x11registeredEventId\x12\x34\n\x06status\x18\x04 \x01(\x0e\x32\x1c.hts.common.UserEvent.StatusR\x06status\"w\n\x10\x43reateTagRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x05R\x0eorganizationId\x12!\n\x03tag\x18\x03 \x01(\x0b\x32\x0f.hts.common.TagR\x03tag\"c\n\x10UpdateTagRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\x1b\n\x07tag_ids\x18\x02 \x03(\x05\x42\x02\x10\x01R\x06tagIds\x12\x19\n\x08\x65vent_id\x18\x03 \x01(\x05R\x07\x65ventId\"U\n\x0fHasEventRequest\x12\'\n\x0forganization_id\x18\x01 \x01(\x05R\x0eorganizationId\x12\x19\n\x08\x65vent_id\x18\x02 \x01(\x05R\x07\x65ventId\"w\n\x18\x41\x64\x64QuestionGroupsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\x42\n\x0fquestion_groups\x18\x02 \x03(\x0b\x32\x19.hts.common.QuestionGroupR\x0equestionGroups\"d\n\x1bRemoveQuestionGroupsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12,\n\x12question_group_ids\x18\x02 \x03(\x05R\x10questionGroupIds\"b\n\x13\x41\x64\x64QuestionsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\x32\n\tquestions\x18\x02 \x03(\x0b\x32\x14.hts.common.QuestionR\tquestions\"T\n\x16RemoveQuestionsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12!\n\x0cquestion_ids\x18\x02 \x03(\x05R\x0bquestionIds\"Z\n\x18OrganizationListResponse\x12>\n\rorganizations\x18\x01 \x03(\x0b\x32\x18.hts.common.OrganizationR\rorganizations\"k\n\x1cUserOrganizationListResponse\x12K\n\x12user_organizations\x18\x01 \x03(\x0b\x32\x1c.hts.common.UserOrganizationR\x11userOrganizations\"_\n\x19\x45ventDurationListResponse\x12\x42\n\x0f\x65vent_durations\x18\x01 \x03(\x0b\x32\x19.hts.common.EventDurationR\x0e\x65ventDurations\"K\n\x14\x45ventTagListResponse\x12\x33\n\nevent_tags\x18\x01 \x03(\x0b\x32\x14.hts.common.EventTagR\teventTags\"_\n\x19QuestionGroupListResponse\x12\x42\n\x0fquestion_groups\x18\x01 \x03(\x0b\x32\x19.hts.common.QuestionGroupR\x0equestionGroups\"J\n\x14QuestionListResponse\x12\x32\n\tquestions\x18\x01 \x03(\x0b\x32\x14.hts.common.QuestionR\tquestions\"B\n\x12\x41nswerListResponse\x12,\n\x07\x61nswers\x18\x01 \x03(\x0b\x32\x12.hts.common.AnswerR\x07\x61nswers2\xaa\x0f\n\x10OrganizerService\x12X\n\x12\x43reateOrganization\x12(.hts.organizer.CreateOrganizationRequest\x1a\x18.hts.common.Organization\x12S\n\x10GetOrganizations\x12\x16.google.protobuf.Empty\x1a\'.hts.organizer.OrganizationListResponse\x12Q\n\x13GetOrganizationById\x12 .hts.common.GetObjectByIdRequest\x1a\x18.hts.common.Organization\x12X\n\x12UpdateOrganization\x12(.hts.organizer.UpdateOrganizationRequest\x1a\x18.hts.common.Organization\x12X\n\x12RemoveOrganization\x12(.hts.organizer.RemoveOrganizationRequest\x1a\x18.hts.common.Organization\x12v\n\x16\x41\x64\x64UsersToOrganization\x12/.hts.organizer.UpdateUsersInOrganizationRequest\x1a+.hts.organizer.UserOrganizationListResponse\x12{\n\x1bRemoveUsersFromOrganization\x12/.hts.organizer.UpdateUsersInOrganizationRequest\x1a+.hts.organizer.UserOrganizationListResponse\x12\x43\n\x0b\x43reateEvent\x12!.hts.organizer.CreateEventRequest\x1a\x11.hts.common.Event\x12\x43\n\x0bUpdateEvent\x12!.hts.organizer.UpdateEventRequest\x1a\x11.hts.common.Event\x12k\n\x14UpdateEventDurations\x12).hts.organizer.UpdateEventDurationRequest\x1a(.hts.organizer.EventDurationListResponse\x12\x43\n\x0bRemoveEvent\x12!.hts.organizer.RemoveEventRequest\x1a\x11.hts.common.Event\x12\x63\n\x19UpdateRegistrationRequest\x12/.hts.organizer.UpdateRegistrationRequestRequest\x1a\x15.hts.common.UserEvent\x12=\n\tCreateTag\x12\x1f.hts.organizer.CreateTagRequest\x1a\x0f.hts.common.Tag\x12O\n\x07\x41\x64\x64Tags\x12\x1f.hts.organizer.UpdateTagRequest\x1a#.hts.organizer.EventTagListResponse\x12R\n\nRemoveTags\x12\x1f.hts.organizer.UpdateTagRequest\x1a#.hts.organizer.EventTagListResponse\x12=\n\x08HasEvent\x12\x1e.hts.organizer.HasEventRequest\x1a\x11.hts.common.Event\x12\x66\n\x11\x41\x64\x64QuestionGroups\x12\'.hts.organizer.AddQuestionGroupsRequest\x1a(.hts.organizer.QuestionGroupListResponse\x12l\n\x14RemoveQuestionGroups\x12*.hts.organizer.RemoveQuestionGroupsRequest\x1a(.hts.organizer.QuestionGroupListResponse\x12W\n\x0c\x41\x64\x64Questions\x12\".hts.organizer.AddQuestionsRequest\x1a#.hts.organizer.QuestionListResponse\x12]\n\x0fRemoveQuestions\x12%.hts.organizer.RemoveQuestionsRequest\x1a#.hts.organizer.QuestionListResponse\x12]\n\x16GetAnswersByQuestionId\x12 .hts.common.GetObjectByIdRequest\x1a!.hts.organizer.AnswerListResponse\x12:\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x1a.google.protobuf.BoolValueBH\n\x10\x61pp.onepass.apisB\x0eOrganizerProtoP\x01Z\"onepass.app/facility/hts/organizerb\x06proto3'
   ,
   dependencies=[hts_dot_common_dot_common__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
@@ -926,6 +926,38 @@ _QUESTIONLISTRESPONSE = _descriptor.Descriptor(
   serialized_end=2600,
 )
 
+
+_ANSWERLISTRESPONSE = _descriptor.Descriptor(
+  name='AnswerListResponse',
+  full_name='hts.organizer.AnswerListResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='answers', full_name='hts.organizer.AnswerListResponse.answers', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='answers', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2602,
+  serialized_end=2668,
+)
+
 _DURATION.fields_by_name['start'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _DURATION.fields_by_name['finish'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _CREATEORGANIZATIONREQUEST.fields_by_name['organization'].message_type = hts_dot_common_dot_common__pb2._ORGANIZATION
@@ -943,6 +975,7 @@ _EVENTDURATIONLISTRESPONSE.fields_by_name['event_durations'].message_type = hts_
 _EVENTTAGLISTRESPONSE.fields_by_name['event_tags'].message_type = hts_dot_common_dot_common__pb2._EVENTTAG
 _QUESTIONGROUPLISTRESPONSE.fields_by_name['question_groups'].message_type = hts_dot_common_dot_common__pb2._QUESTIONGROUP
 _QUESTIONLISTRESPONSE.fields_by_name['questions'].message_type = hts_dot_common_dot_common__pb2._QUESTION
+_ANSWERLISTRESPONSE.fields_by_name['answers'].message_type = hts_dot_common_dot_common__pb2._ANSWER
 DESCRIPTOR.message_types_by_name['Duration'] = _DURATION
 DESCRIPTOR.message_types_by_name['CreateOrganizationRequest'] = _CREATEORGANIZATIONREQUEST
 DESCRIPTOR.message_types_by_name['UpdateOrganizationRequest'] = _UPDATEORGANIZATIONREQUEST
@@ -966,6 +999,7 @@ DESCRIPTOR.message_types_by_name['EventDurationListResponse'] = _EVENTDURATIONLI
 DESCRIPTOR.message_types_by_name['EventTagListResponse'] = _EVENTTAGLISTRESPONSE
 DESCRIPTOR.message_types_by_name['QuestionGroupListResponse'] = _QUESTIONGROUPLISTRESPONSE
 DESCRIPTOR.message_types_by_name['QuestionListResponse'] = _QUESTIONLISTRESPONSE
+DESCRIPTOR.message_types_by_name['AnswerListResponse'] = _ANSWERLISTRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 Duration = _reflection.GeneratedProtocolMessageType('Duration', (_message.Message,), {
@@ -1129,6 +1163,13 @@ QuestionListResponse = _reflection.GeneratedProtocolMessageType('QuestionListRes
   })
 _sym_db.RegisterMessage(QuestionListResponse)
 
+AnswerListResponse = _reflection.GeneratedProtocolMessageType('AnswerListResponse', (_message.Message,), {
+  'DESCRIPTOR' : _ANSWERLISTRESPONSE,
+  '__module__' : 'hts.organizer.service_pb2'
+  # @@protoc_insertion_point(class_scope:hts.organizer.AnswerListResponse)
+  })
+_sym_db.RegisterMessage(AnswerListResponse)
+
 
 DESCRIPTOR._options = None
 _UPDATEUSERSINORGANIZATIONREQUEST.fields_by_name['user_ids']._options = None
@@ -1141,8 +1182,8 @@ _ORGANIZERSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=2603,
-  serialized_end=4470,
+  serialized_start=2671,
+  serialized_end=4633,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateOrganization',
@@ -1345,9 +1386,19 @@ _ORGANIZERSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='GetAnswersByQuestionId',
+    full_name='hts.organizer.OrganizerService.GetAnswersByQuestionId',
+    index=20,
+    containing_service=None,
+    input_type=hts_dot_common_dot_common__pb2._GETOBJECTBYIDREQUEST,
+    output_type=_ANSWERLISTRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='Ping',
     full_name='hts.organizer.OrganizerService.Ping',
-    index=20,
+    index=21,
     containing_service=None,
     input_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     output_type=google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE,
