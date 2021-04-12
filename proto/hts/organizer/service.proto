@@ -152,6 +152,6 @@ service OrganizerService {
   rpc RemoveQuestionGroups(RemoveQuestionGroupsRequest) returns (QuestionGroupListResponse);
   rpc AddQuestions(AddQuestionsRequest) returns (QuestionListResponse);
   rpc RemoveQuestions(RemoveQuestionsRequest) returns (QuestionListResponse);
-  rpc GetAnswersByQuestionId(GetObjectByIdRequest) returns (AnswerListResponse);
+  rpc GetAnswersByQuestionId(hts.common.GetObjectByIdRequest) returns (AnswerListResponse);
   rpc Ping(google.protobuf.Empty) returns (google.protobuf.BoolValue);
 }
