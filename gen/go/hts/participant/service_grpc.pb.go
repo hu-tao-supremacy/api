@@ -47,7 +47,7 @@ type ParticipantServiceClient interface {
 	GetAnswersByQuestionId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetAnswersByQuestionIdResponse, error)
 	GetUserAnswerByQuestionId(ctx context.Context, in *GetUserAnswerByQuestionIdRequest, opts ...grpc.CallOption) (*common.Answer, error)
 	GetEventsByUserId(ctx context.Context, in *GetEventsByUserIdRequest, opts ...grpc.CallOption) (*EventsResponse, error)
-	GetUserEventByUserAndEventId(ctx context.Context, in *GetUserEventByUserAndEventIdRequest, opts ...grpc.CallOption) (*common.UserEvent, error)
+	GetUserEventByUserAndEventId(ctx context.Context, in *UserWithEventRequest, opts ...grpc.CallOption) (*common.UserEvent, error)
 	GetUserEventsByEventId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetUserEventsByEventIdResponse, error)
 	GenerateQR(ctx context.Context, in *GenerateQRRequest, opts ...grpc.CallOption) (*GenerateQRResponse, error)
 	Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
@@ -286,7 +286,7 @@ func (c *participantServiceClient) GetEventsByUserId(ctx context.Context, in *Ge
 	return out, nil
 }
 
-func (c *participantServiceClient) GetUserEventByUserAndEventId(ctx context.Context, in *GetUserEventByUserAndEventIdRequest, opts ...grpc.CallOption) (*common.UserEvent, error) {
+func (c *participantServiceClient) GetUserEventByUserAndEventId(ctx context.Context, in *UserWithEventRequest, opts ...grpc.CallOption) (*common.UserEvent, error) {
 	out := new(common.UserEvent)
 	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GetUserEventByUserAndEventId", in, out, opts...)
 	if err != nil {
@@ -351,7 +351,7 @@ type ParticipantServiceServer interface {
 	GetAnswersByQuestionId(context.Context, *common.GetObjectByIdRequest) (*GetAnswersByQuestionIdResponse, error)
 	GetUserAnswerByQuestionId(context.Context, *GetUserAnswerByQuestionIdRequest) (*common.Answer, error)
 	GetEventsByUserId(context.Context, *GetEventsByUserIdRequest) (*EventsResponse, error)
-	GetUserEventByUserAndEventId(context.Context, *GetUserEventByUserAndEventIdRequest) (*common.UserEvent, error)
+	GetUserEventByUserAndEventId(context.Context, *UserWithEventRequest) (*common.UserEvent, error)
 	GetUserEventsByEventId(context.Context, *common.GetObjectByIdRequest) (*GetUserEventsByEventIdResponse, error)
 	GenerateQR(context.Context, *GenerateQRRequest) (*GenerateQRResponse, error)
 	Ping(context.Context, *emptypb.Empty) (*wrapperspb.BoolValue, error)
@@ -437,7 +437,7 @@ func (UnimplementedParticipantServiceServer) GetUserAnswerByQuestionId(context.C
 func (UnimplementedParticipantServiceServer) GetEventsByUserId(context.Context, *GetEventsByUserIdRequest) (*EventsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetEventsByUserId not implemented")
 }
-func (UnimplementedParticipantServiceServer) GetUserEventByUserAndEventId(context.Context, *GetUserEventByUserAndEventIdRequest) (*common.UserEvent, error) {
+func (UnimplementedParticipantServiceServer) GetUserEventByUserAndEventId(context.Context, *UserWithEventRequest) (*common.UserEvent, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserEventByUserAndEventId not implemented")
 }
 func (UnimplementedParticipantServiceServer) GetUserEventsByEventId(context.Context, *common.GetObjectByIdRequest) (*GetUserEventsByEventIdResponse, error) {
@@ -913,7 +913,7 @@ func _ParticipantService_GetEventsByUserId_Handler(srv interface{}, ctx context.
 }
 
 func _ParticipantService_GetUserEventByUserAndEventId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetUserEventByUserAndEventIdRequest)
+	in := new(UserWithEventRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -925,7 +925,7 @@ func _ParticipantService_GetUserEventByUserAndEventId_Handler(srv interface{}, c
 		FullMethod: "/hts.participant.ParticipantService/GetUserEventByUserAndEventId",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ParticipantServiceServer).GetUserEventByUserAndEventId(ctx, req.(*GetUserEventByUserAndEventIdRequest))
+		return srv.(ParticipantServiceServer).GetUserEventByUserAndEventId(ctx, req.(*UserWithEventRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
