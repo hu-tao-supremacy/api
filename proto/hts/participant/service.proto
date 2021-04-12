@@ -98,7 +98,7 @@ message GetQuestionsByQuestionGroupIdResponse {
     repeated hts.common.Question questions = 1;
 }
 
-message GetAnswersByQuestionIdResponse {
+message AnswersResponse {
     repeated hts.common.Answer answers = 1;
 }
 
@@ -160,7 +160,8 @@ service ParticipantService {
     // Get Questions
     rpc GetQuestionGroupsByEventId(hts.common.GetObjectByIdRequest) returns (GetQuestionGroupsByEventIdResponse);
     rpc GetQuestionsByQuestionGroupId(hts.common.GetObjectByIdRequest) returns (GetQuestionsByQuestionGroupIdResponse);
-    rpc GetAnswersByQuestionId(hts.common.GetObjectByIdRequest) returns (GetAnswersByQuestionIdResponse);
+    rpc GetAnswersByQuestionId(hts.common.GetObjectByIdRequest) returns (AnswersResponse);
+    rpc GetAnswersByUserEventId(hts.common.GetObjectByIdRequest) returns (AnswersResponse);
     rpc GetUserAnswerByQuestionId(GetUserAnswerByQuestionIdRequest) returns (hts.common.Answer);
 
     rpc GetEventsByUserId(GetEventsByUserIdRequest) returns (EventsResponse);
