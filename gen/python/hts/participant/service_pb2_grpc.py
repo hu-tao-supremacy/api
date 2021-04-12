@@ -145,7 +145,7 @@ class ParticipantServiceStub(object):
                 )
         self.GetUserEventByUserAndEventId = channel.unary_unary(
                 '/hts.participant.ParticipantService/GetUserEventByUserAndEventId',
-                request_serializer=hts_dot_participant_dot_service__pb2.GetUserEventByUserAndEventIdRequest.SerializeToString,
+                request_serializer=hts_dot_participant_dot_service__pb2.UserWithEventRequest.SerializeToString,
                 response_deserializer=hts_dot_common_dot_common__pb2.UserEvent.FromString,
                 )
         self.GetUserEventsByEventId = channel.unary_unary(
@@ -472,7 +472,7 @@ def add_ParticipantServiceServicer_to_server(servicer, server):
             ),
             'GetUserEventByUserAndEventId': grpc.unary_unary_rpc_method_handler(
                     servicer.GetUserEventByUserAndEventId,
-                    request_deserializer=hts_dot_participant_dot_service__pb2.GetUserEventByUserAndEventIdRequest.FromString,
+                    request_deserializer=hts_dot_participant_dot_service__pb2.UserWithEventRequest.FromString,
                     response_serializer=hts_dot_common_dot_common__pb2.UserEvent.SerializeToString,
             ),
             'GetUserEventsByEventId': grpc.unary_unary_rpc_method_handler(
@@ -937,7 +937,7 @@ class ParticipantService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetUserEventByUserAndEventId',
-            hts_dot_participant_dot_service__pb2.GetUserEventByUserAndEventIdRequest.SerializeToString,
+            hts_dot_participant_dot_service__pb2.UserWithEventRequest.SerializeToString,
             hts_dot_common_dot_common__pb2.UserEvent.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
