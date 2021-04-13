@@ -32,7 +32,8 @@ type AccountServiceClient interface {
 	HasPermission(ctx context.Context, in *HasPermissionRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 	AssignRole(ctx context.Context, in *AssignRoleRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 	RemoveRole(ctx context.Context, in *RemoveRoleRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
-	GetOrganizationsByUserId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetOrganizationsByUserIdResponse, error)
+	GetUserOrganizationsByUserId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetUserOrganizationsByUserIdResponse, error)
+	GetUserOrganizationsByOrganizationId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetUserOrganizationsByOrganizationIdResponse, error)
 	Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 }
 
@@ -143,9 +144,18 @@ func (c *accountServiceClient) RemoveRole(ctx context.Context, in *RemoveRoleReq
 	return out, nil
 }
 
-func (c *accountServiceClient) GetOrganizationsByUserId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetOrganizationsByUserIdResponse, error) {
-	out := new(GetOrganizationsByUserIdResponse)
-	err := c.cc.Invoke(ctx, "/hts.account.AccountService/GetOrganizationsByUserId", in, out, opts...)
+func (c *accountServiceClient) GetUserOrganizationsByUserId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetUserOrganizationsByUserIdResponse, error) {
+	out := new(GetUserOrganizationsByUserIdResponse)
+	err := c.cc.Invoke(ctx, "/hts.account.AccountService/GetUserOrganizationsByUserId", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountServiceClient) GetUserOrganizationsByOrganizationId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetUserOrganizationsByOrganizationIdResponse, error) {
+	out := new(GetUserOrganizationsByOrganizationIdResponse)
+	err := c.cc.Invoke(ctx, "/hts.account.AccountService/GetUserOrganizationsByOrganizationId", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -176,7 +186,8 @@ type AccountServiceServer interface {
 	HasPermission(context.Context, *HasPermissionRequest) (*wrapperspb.BoolValue, error)
 	AssignRole(context.Context, *AssignRoleRequest) (*wrapperspb.BoolValue, error)
 	RemoveRole(context.Context, *RemoveRoleRequest) (*wrapperspb.BoolValue, error)
-	GetOrganizationsByUserId(context.Context, *common.GetObjectByIdRequest) (*GetOrganizationsByUserIdResponse, error)
+	GetUserOrganizationsByUserId(context.Context, *common.GetObjectByIdRequest) (*GetUserOrganizationsByUserIdResponse, error)
+	GetUserOrganizationsByOrganizationId(context.Context, *common.GetObjectByIdRequest) (*GetUserOrganizationsByOrganizationIdResponse, error)
 	Ping(context.Context, *emptypb.Empty) (*wrapperspb.BoolValue, error)
 	mustEmbedUnimplementedAccountServiceServer()
 }
@@ -218,8 +229,11 @@ func (UnimplementedAccountServiceServer) AssignRole(context.Context, *AssignRole
 func (UnimplementedAccountServiceServer) RemoveRole(context.Context, *RemoveRoleRequest) (*wrapperspb.BoolValue, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoveRole not implemented")
 }
-func (UnimplementedAccountServiceServer) GetOrganizationsByUserId(context.Context, *common.GetObjectByIdRequest) (*GetOrganizationsByUserIdResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetOrganizationsByUserId not implemented")
+func (UnimplementedAccountServiceServer) GetUserOrganizationsByUserId(context.Context, *common.GetObjectByIdRequest) (*GetUserOrganizationsByUserIdResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserOrganizationsByUserId not implemented")
+}
+func (UnimplementedAccountServiceServer) GetUserOrganizationsByOrganizationId(context.Context, *common.GetObjectByIdRequest) (*GetUserOrganizationsByOrganizationIdResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserOrganizationsByOrganizationId not implemented")
 }
 func (UnimplementedAccountServiceServer) Ping(context.Context, *emptypb.Empty) (*wrapperspb.BoolValue, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Ping not implemented")
@@ -435,20 +449,38 @@ func _AccountService_RemoveRole_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccountService_GetOrganizationsByUserId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _AccountService_GetUserOrganizationsByUserId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(common.GetObjectByIdRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccountServiceServer).GetOrganizationsByUserId(ctx, in)
+		return srv.(AccountServiceServer).GetUserOrganizationsByUserId(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.account.AccountService/GetOrganizationsByUserId",
+		FullMethod: "/hts.account.AccountService/GetUserOrganizationsByUserId",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountServiceServer).GetOrganizationsByUserId(ctx, req.(*common.GetObjectByIdRequest))
+		return srv.(AccountServiceServer).GetUserOrganizationsByUserId(ctx, req.(*common.GetObjectByIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountService_GetUserOrganizationsByOrganizationId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(common.GetObjectByIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountServiceServer).GetUserOrganizationsByOrganizationId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.account.AccountService/GetUserOrganizationsByOrganizationId",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountServiceServer).GetUserOrganizationsByOrganizationId(ctx, req.(*common.GetObjectByIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -523,8 +555,12 @@ var AccountService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _AccountService_RemoveRole_Handler,
 		},
 		{
-			MethodName: "GetOrganizationsByUserId",
-			Handler:    _AccountService_GetOrganizationsByUserId_Handler,
+			MethodName: "GetUserOrganizationsByUserId",
+			Handler:    _AccountService_GetUserOrganizationsByUserId_Handler,
+		},
+		{
+			MethodName: "GetUserOrganizationsByOrganizationId",
+			Handler:    _AccountService_GetUserOrganizationsByOrganizationId_Handler,
 		},
 		{
 			MethodName: "Ping",
