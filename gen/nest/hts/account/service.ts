@@ -2,7 +2,7 @@
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
 import {
   Permission,
-  Organization,
+  UserOrganization,
   User,
   GetObjectByIdRequest,
 } from "../../hts/common/common";
@@ -75,8 +75,12 @@ export interface UpdateUserInterestsRequest {
   tagIds: number[];
 }
 
-export interface GetOrganizationsByUserIdResponse {
-  organizations: Organization[];
+export interface GetUserOrganizationsByUserIdResponse {
+  userOrganizations: UserOrganization[];
+}
+
+export interface GetUserOrganizationsByOrganizationIdResponse {
+  userOrganizations: UserOrganization[];
 }
 
 export const HTS_ACCOUNT_PACKAGE_NAME = "hts.account";
@@ -106,9 +110,13 @@ export interface AccountServiceClient {
 
   removeRole(request: RemoveRoleRequest): Observable<BoolValue>;
 
-  getOrganizationsByUserId(
+  getUserOrganizationsByUserId(
     request: GetObjectByIdRequest
-  ): Observable<GetOrganizationsByUserIdResponse>;
+  ): Observable<GetUserOrganizationsByUserIdResponse>;
+
+  getUserOrganizationsByOrganizationId(
+    request: GetObjectByIdRequest
+  ): Observable<GetUserOrganizationsByOrganizationIdResponse>;
 
   ping(request: Empty): Observable<BoolValue>;
 }
@@ -159,12 +167,19 @@ export interface AccountServiceController {
     request: RemoveRoleRequest
   ): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
 
-  getOrganizationsByUserId(
+  getUserOrganizationsByUserId(
     request: GetObjectByIdRequest
   ):
-    | Promise<GetOrganizationsByUserIdResponse>
-    | Observable<GetOrganizationsByUserIdResponse>
-    | GetOrganizationsByUserIdResponse;
+    | Promise<GetUserOrganizationsByUserIdResponse>
+    | Observable<GetUserOrganizationsByUserIdResponse>
+    | GetUserOrganizationsByUserIdResponse;
+
+  getUserOrganizationsByOrganizationId(
+    request: GetObjectByIdRequest
+  ):
+    | Promise<GetUserOrganizationsByOrganizationIdResponse>
+    | Observable<GetUserOrganizationsByOrganizationIdResponse>
+    | GetUserOrganizationsByOrganizationIdResponse;
 
   ping(request: Empty): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
 }
@@ -183,7 +198,8 @@ export function AccountServiceControllerMethods() {
       "hasPermission",
       "assignRole",
       "removeRole",
-      "getOrganizationsByUserId",
+      "getUserOrganizationsByUserId",
+      "getUserOrganizationsByOrganizationId",
       "ping",
     ];
     for (const method of grpcMethods) {
