@@ -24,6 +24,7 @@ type OrganizerServiceClient interface {
 	CreateOrganization(ctx context.Context, in *CreateOrganizationRequest, opts ...grpc.CallOption) (*common.Organization, error)
 	GetOrganizations(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*OrganizationListResponse, error)
 	GetOrganizationById(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*common.Organization, error)
+	GetUsersInOrganizationById(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*UserListResponse, error)
 	UpdateOrganization(ctx context.Context, in *UpdateOrganizationRequest, opts ...grpc.CallOption) (*common.Organization, error)
 	RemoveOrganization(ctx context.Context, in *RemoveOrganizationRequest, opts ...grpc.CallOption) (*common.Organization, error)
 	AddUsersToOrganization(ctx context.Context, in *UpdateUsersInOrganizationRequest, opts ...grpc.CallOption) (*UserOrganizationListResponse, error)
@@ -74,6 +75,15 @@ func (c *organizerServiceClient) GetOrganizations(ctx context.Context, in *empty
 func (c *organizerServiceClient) GetOrganizationById(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*common.Organization, error) {
 	out := new(common.Organization)
 	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/GetOrganizationById", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *organizerServiceClient) GetUsersInOrganizationById(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*UserListResponse, error) {
+	out := new(UserListResponse)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/GetUsersInOrganizationById", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -258,6 +268,7 @@ type OrganizerServiceServer interface {
 	CreateOrganization(context.Context, *CreateOrganizationRequest) (*common.Organization, error)
 	GetOrganizations(context.Context, *emptypb.Empty) (*OrganizationListResponse, error)
 	GetOrganizationById(context.Context, *common.GetObjectByIdRequest) (*common.Organization, error)
+	GetUsersInOrganizationById(context.Context, *common.GetObjectByIdRequest) (*UserListResponse, error)
 	UpdateOrganization(context.Context, *UpdateOrganizationRequest) (*common.Organization, error)
 	RemoveOrganization(context.Context, *RemoveOrganizationRequest) (*common.Organization, error)
 	AddUsersToOrganization(context.Context, *UpdateUsersInOrganizationRequest) (*UserOrganizationListResponse, error)
@@ -292,6 +303,9 @@ func (UnimplementedOrganizerServiceServer) GetOrganizations(context.Context, *em
 }
 func (UnimplementedOrganizerServiceServer) GetOrganizationById(context.Context, *common.GetObjectByIdRequest) (*common.Organization, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOrganizationById not implemented")
+}
+func (UnimplementedOrganizerServiceServer) GetUsersInOrganizationById(context.Context, *common.GetObjectByIdRequest) (*UserListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUsersInOrganizationById not implemented")
 }
 func (UnimplementedOrganizerServiceServer) UpdateOrganization(context.Context, *UpdateOrganizationRequest) (*common.Organization, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateOrganization not implemented")
@@ -413,6 +427,24 @@ func _OrganizerService_GetOrganizationById_Handler(srv interface{}, ctx context.
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(OrganizerServiceServer).GetOrganizationById(ctx, req.(*common.GetObjectByIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OrganizerService_GetUsersInOrganizationById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(common.GetObjectByIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrganizerServiceServer).GetUsersInOrganizationById(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.organizer.OrganizerService/GetUsersInOrganizationById",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrganizerServiceServer).GetUsersInOrganizationById(ctx, req.(*common.GetObjectByIdRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -777,6 +809,10 @@ var OrganizerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetOrganizationById",
 			Handler:    _OrganizerService_GetOrganizationById_Handler,
+		},
+		{
+			MethodName: "GetUsersInOrganizationById",
+			Handler:    _OrganizerService_GetUsersInOrganizationById_Handler,
 		},
 		{
 			MethodName: "UpdateOrganization",
