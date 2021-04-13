@@ -107,6 +107,10 @@ message OrganizationListResponse {
   repeated hts.common.Organization organizations = 1;
 }
 
+message UserListResponse {
+  repeated hts.common.User users = 1;
+}
+
 message UserOrganizationListResponse {
   repeated hts.common.UserOrganization user_organizations = 1;
 }
@@ -135,6 +139,7 @@ service OrganizerService {
   rpc CreateOrganization(CreateOrganizationRequest) returns (hts.common.Organization);
   rpc GetOrganizations(google.protobuf.Empty) returns (OrganizationListResponse);
   rpc GetOrganizationById(hts.common.GetObjectByIdRequest) returns (hts.common.Organization);
+  rpc GetUsersInOrganizationById(hts.common.GetObjectByIdRequest) returns (UserListResponse);
   rpc UpdateOrganization(UpdateOrganizationRequest) returns (hts.common.Organization);
   rpc RemoveOrganization(RemoveOrganizationRequest) returns (hts.common.Organization);
   rpc AddUsersToOrganization(UpdateUsersInOrganizationRequest) returns (UserOrganizationListResponse);
