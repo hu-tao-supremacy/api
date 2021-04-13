@@ -1,7 +1,7 @@
 /* eslint-disable */
 import {
   Permission,
-  Organization,
+  UserOrganization,
   User,
   GetObjectByIdRequest,
 } from "../../hts/common/common";
@@ -72,8 +72,12 @@ export interface UpdateUserInterestsRequest {
   tagIds: number[];
 }
 
-export interface GetOrganizationsByUserIdResponse {
-  organizations: Organization[];
+export interface GetUserOrganizationsByUserIdResponse {
+  userOrganizations: UserOrganization[];
+}
+
+export interface GetUserOrganizationsByOrganizationIdResponse {
+  userOrganizations: UserOrganization[];
 }
 
 export interface AccountService {
@@ -92,8 +96,11 @@ export interface AccountService {
   HasPermission(request: HasPermissionRequest): Promise<boolean | undefined>;
   AssignRole(request: AssignRoleRequest): Promise<boolean | undefined>;
   RemoveRole(request: RemoveRoleRequest): Promise<boolean | undefined>;
-  GetOrganizationsByUserId(
+  GetUserOrganizationsByUserId(
     request: GetObjectByIdRequest
-  ): Promise<GetOrganizationsByUserIdResponse>;
+  ): Promise<GetUserOrganizationsByUserIdResponse>;
+  GetUserOrganizationsByOrganizationId(
+    request: GetObjectByIdRequest
+  ): Promise<GetUserOrganizationsByOrganizationIdResponse>;
   Ping(request: Empty): Promise<boolean | undefined>;
 }
