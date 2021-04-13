@@ -6,6 +6,7 @@ import {
   Tag,
   QuestionGroup,
   Question,
+  User,
   UserOrganization,
   EventDuration,
   EventTag,
@@ -112,6 +113,10 @@ export interface OrganizationListResponse {
   organizations: Organization[];
 }
 
+export interface UserListResponse {
+  users: User[];
+}
+
 export interface UserOrganizationListResponse {
   userOrganizations: UserOrganization[];
 }
@@ -140,6 +145,9 @@ export interface OrganizerService {
   CreateOrganization(request: CreateOrganizationRequest): Promise<Organization>;
   GetOrganizations(request: Empty): Promise<OrganizationListResponse>;
   GetOrganizationById(request: GetObjectByIdRequest): Promise<Organization>;
+  GetUsersInOrganizationById(
+    request: GetObjectByIdRequest
+  ): Promise<UserListResponse>;
   UpdateOrganization(request: UpdateOrganizationRequest): Promise<Organization>;
   RemoveOrganization(request: RemoveOrganizationRequest): Promise<Organization>;
   AddUsersToOrganization(
