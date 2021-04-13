@@ -77,7 +77,7 @@ message UpdateUserInterestsRequest {
 }
 
 message GetOrganizationsByUserIdResponse {
-  repeated hts.common.Organization = 1;
+  repeated hts.common.Organization organizations = 1;
 }
 
 service AccountService {
