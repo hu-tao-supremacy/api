@@ -76,8 +76,12 @@ message UpdateUserInterestsRequest {
   repeated int32 tag_ids = 2;
 }
 
-message GetOrganizationsByUserIdResponse {
-  repeated hts.common.Organization organizations = 1;
+message GetUserOrganizationsByUserIdResponse {
+  repeated hts.common.UserOrganization user_organizations = 1;
+}
+
+message GetUserOrganizationsByOrganizationIdResponse {
+  repeated hts.common.UserOrganization user_organizations = 1;
 }
 
 service AccountService {
@@ -92,6 +96,7 @@ service AccountService {
   rpc HasPermission(HasPermissionRequest) returns (google.protobuf.BoolValue);
   rpc AssignRole(AssignRoleRequest) returns (google.protobuf.BoolValue);
   rpc RemoveRole(RemoveRoleRequest) returns (google.protobuf.BoolValue);
-  rpc GetOrganizationsByUserId(hts.common.GetObjectByIdRequest) returns (GetOrganizationsByUserIdResponse);
+  rpc GetUserOrganizationsByUserId(hts.common.GetObjectByIdRequest) returns (GetUserOrganizationsByUserIdResponse);
+  rpc GetUserOrganizationsByOrganizationId(hts.common.GetObjectByIdRequest) returns (GetUserOrganizationsByOrganizationIdResponse);
   rpc Ping(google.protobuf.Empty) returns (google.protobuf.BoolValue);
 }
