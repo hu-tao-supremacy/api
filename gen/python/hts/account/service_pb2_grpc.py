@@ -72,6 +72,11 @@ class AccountServiceStub(object):
                 request_serializer=hts_dot_account_dot_service__pb2.RemoveRoleRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_wrappers__pb2.BoolValue.FromString,
                 )
+        self.GetOrganizationsByUserId = channel.unary_unary(
+                '/hts.account.AccountService/GetOrganizationsByUserId',
+                request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
+                response_deserializer=hts_dot_account_dot_service__pb2.GetOrganizationsByUserIdResponse.FromString,
+                )
         self.Ping = channel.unary_unary(
                 '/hts.account.AccountService/Ping',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
@@ -148,6 +153,12 @@ class AccountServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetOrganizationsByUserId(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Ping(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -211,6 +222,11 @@ def add_AccountServiceServicer_to_server(servicer, server):
                     servicer.RemoveRole,
                     request_deserializer=hts_dot_account_dot_service__pb2.RemoveRoleRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_wrappers__pb2.BoolValue.SerializeToString,
+            ),
+            'GetOrganizationsByUserId': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOrganizationsByUserId,
+                    request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
+                    response_serializer=hts_dot_account_dot_service__pb2.GetOrganizationsByUserIdResponse.SerializeToString,
             ),
             'Ping': grpc.unary_unary_rpc_method_handler(
                     servicer.Ping,
@@ -411,6 +427,23 @@ class AccountService(object):
         return grpc.experimental.unary_unary(request, target, '/hts.account.AccountService/RemoveRole',
             hts_dot_account_dot_service__pb2.RemoveRoleRequest.SerializeToString,
             google_dot_protobuf_dot_wrappers__pb2.BoolValue.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetOrganizationsByUserId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.account.AccountService/GetOrganizationsByUserId',
+            hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
+            hts_dot_account_dot_service__pb2.GetOrganizationsByUserIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
