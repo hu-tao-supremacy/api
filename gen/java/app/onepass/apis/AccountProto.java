@@ -69,6 +69,11 @@ public final class AccountProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hts_account_UpdateUserInterestsRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_account_GetOrganizationsByUserIdResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_account_GetOrganizationsByUserIdResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -105,35 +110,40 @@ public final class AccountProto {
       "on_id\030\002 \001(\005R\016organizationId\022%\n\004role\030\003 \001(" +
       "\0162\021.hts.account.RoleR\004role\"N\n\032UpdateUser" +
       "InterestsRequest\022\027\n\007user_id\030\001 \001(\005R\006userI" +
-      "d\022\027\n\007tag_ids\030\002 \003(\005R\006tagIds*f\n\004Role\022\024\n\020RO" +
-      "LE_UNSPECIFIED\020\000\022\026\n\022ORGANIZATION_OWNER\020\001" +
-      "\022\027\n\023ORGANIZATION_EDITOR\020\002\022\027\n\023ORGANIZATIO" +
-      "N_MEMBER\020\0032\220\007\n\016AccountService\022>\n\nCreateU" +
-      "ser\022\036.hts.account.CreateUserRequest\032\020.ht" +
-      "s.common.User\022J\n\020GetUserByChulaId\022$.hts." +
-      "account.GetUserByChulaIdRequest\032\020.hts.co" +
-      "mmon.User\022F\n\016GetUserByEmail\022\".hts.accoun" +
-      "t.GetUserByEmailRequest\032\020.hts.common.Use" +
-      "r\022R\n\017IsAuthenticated\022#.hts.account.IsAut" +
-      "henticatedRequest\032\032.google.protobuf.Bool" +
-      "Value\0227\n\021UpdateAccountInfo\022\020.hts.common." +
-      "User\032\020.hts.common.User\022P\n\023UpdateUserInte" +
-      "rests\022\'.hts.account.UpdateUserInterestsR" +
-      "equest\032\020.hts.common.User\022A\n\013GetUserById\022" +
-      " .hts.common.GetObjectByIdRequest\032\020.hts." +
-      "common.User\022h\n\023GenerateAccessToken\022\'.hts" +
-      ".account.GenerateAccessTokenRequest\032(.ht" +
-      "s.account.GenerateAccessTokenResponse\022N\n" +
-      "\rHasPermission\022!.hts.account.HasPermissi" +
-      "onRequest\032\032.google.protobuf.BoolValue\022H\n" +
-      "\nAssignRole\022\036.hts.account.AssignRoleRequ" +
-      "est\032\032.google.protobuf.BoolValue\022H\n\nRemov" +
-      "eRole\022\036.hts.account.RemoveRoleRequest\032\032." +
-      "google.protobuf.BoolValue\022:\n\004Ping\022\026.goog" +
-      "le.protobuf.Empty\032\032.google.protobuf.Bool" +
-      "ValueBD\n\020app.onepass.apisB\014AccountProtoP" +
-      "\001Z onepass.app/facility/hts/accountb\006pro" +
-      "to3"
+      "d\022\027\n\007tag_ids\030\002 \003(\005R\006tagIds\"b\n GetOrganiz" +
+      "ationsByUserIdResponse\022>\n\rorganizations\030" +
+      "\001 \003(\0132\030.hts.common.OrganizationR\rorganiz" +
+      "ations*f\n\004Role\022\024\n\020ROLE_UNSPECIFIED\020\000\022\026\n\022" +
+      "ORGANIZATION_OWNER\020\001\022\027\n\023ORGANIZATION_EDI" +
+      "TOR\020\002\022\027\n\023ORGANIZATION_MEMBER\020\0032\375\007\n\016Accou" +
+      "ntService\022>\n\nCreateUser\022\036.hts.account.Cr" +
+      "eateUserRequest\032\020.hts.common.User\022J\n\020Get" +
+      "UserByChulaId\022$.hts.account.GetUserByChu" +
+      "laIdRequest\032\020.hts.common.User\022F\n\016GetUser" +
+      "ByEmail\022\".hts.account.GetUserByEmailRequ" +
+      "est\032\020.hts.common.User\022R\n\017IsAuthenticated" +
+      "\022#.hts.account.IsAuthenticatedRequest\032\032." +
+      "google.protobuf.BoolValue\0227\n\021UpdateAccou" +
+      "ntInfo\022\020.hts.common.User\032\020.hts.common.Us" +
+      "er\022P\n\023UpdateUserInterests\022\'.hts.account." +
+      "UpdateUserInterestsRequest\032\020.hts.common." +
+      "User\022A\n\013GetUserById\022 .hts.common.GetObje" +
+      "ctByIdRequest\032\020.hts.common.User\022h\n\023Gener" +
+      "ateAccessToken\022\'.hts.account.GenerateAcc" +
+      "essTokenRequest\032(.hts.account.GenerateAc" +
+      "cessTokenResponse\022N\n\rHasPermission\022!.hts" +
+      ".account.HasPermissionRequest\032\032.google.p" +
+      "rotobuf.BoolValue\022H\n\nAssignRole\022\036.hts.ac" +
+      "count.AssignRoleRequest\032\032.google.protobu" +
+      "f.BoolValue\022H\n\nRemoveRole\022\036.hts.account." +
+      "RemoveRoleRequest\032\032.google.protobuf.Bool" +
+      "Value\022k\n\030GetOrganizationsByUserId\022 .hts." +
+      "common.GetObjectByIdRequest\032-.hts.accoun" +
+      "t.GetOrganizationsByUserIdResponse\022:\n\004Pi" +
+      "ng\022\026.google.protobuf.Empty\032\032.google.prot" +
+      "obuf.BoolValueBD\n\020app.onepass.apisB\014Acco" +
+      "untProtoP\001Z onepass.app/facility/hts/acc" +
+      "ountb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -208,6 +218,12 @@ public final class AccountProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_account_UpdateUserInterestsRequest_descriptor,
         new java.lang.String[] { "UserId", "TagIds", });
+    internal_static_hts_account_GetOrganizationsByUserIdResponse_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_hts_account_GetOrganizationsByUserIdResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_account_GetOrganizationsByUserIdResponse_descriptor,
+        new java.lang.String[] { "Organizations", });
     app.onepass.apis.CommonProto.getDescriptor();
     com.google.protobuf.EmptyProto.getDescriptor();
     com.google.protobuf.WrappersProto.getDescriptor();
