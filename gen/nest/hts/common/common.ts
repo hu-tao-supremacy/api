@@ -135,7 +135,7 @@ export interface Event {
   coverImageHash: StringValue | undefined;
   posterImageUrl: StringValue | undefined;
   posterImageHash: StringValue | undefined;
-  contact: string;
+  contact: StringValue | undefined;
   profileImageUrl: StringValue | undefined;
   profileImageHash: StringValue | undefined;
   attendeeLimit: number;

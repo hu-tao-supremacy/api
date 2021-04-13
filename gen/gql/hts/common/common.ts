@@ -132,7 +132,7 @@ export interface Event {
   coverImageHash: string | undefined;
   posterImageUrl: string | undefined;
   posterImageHash: string | undefined;
-  contact: string;
+  contact: string | undefined;
   profileImageUrl: string | undefined;
   profileImageHash: string | undefined;
   attendeeLimit: number;

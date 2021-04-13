@@ -2,6 +2,7 @@
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
 import {
   Permission,
+  Organization,
   User,
   GetObjectByIdRequest,
 } from "../../hts/common/common";
@@ -74,6 +75,10 @@ export interface UpdateUserInterestsRequest {
   tagIds: number[];
 }
 
+export interface GetOrganizationsByUserIdResponse {
+  organizations: Organization[];
+}
+
 export const HTS_ACCOUNT_PACKAGE_NAME = "hts.account";
 
 export interface AccountServiceClient {
@@ -100,6 +105,10 @@ export interface AccountServiceClient {
   assignRole(request: AssignRoleRequest): Observable<BoolValue>;
 
   removeRole(request: RemoveRoleRequest): Observable<BoolValue>;
+
+  getOrganizationsByUserId(
+    request: GetObjectByIdRequest
+  ): Observable<GetOrganizationsByUserIdResponse>;
 
   ping(request: Empty): Observable<BoolValue>;
 }
@@ -150,6 +159,13 @@ export interface AccountServiceController {
     request: RemoveRoleRequest
   ): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
 
+  getOrganizationsByUserId(
+    request: GetObjectByIdRequest
+  ):
+    | Promise<GetOrganizationsByUserIdResponse>
+    | Observable<GetOrganizationsByUserIdResponse>
+    | GetOrganizationsByUserIdResponse;
+
   ping(request: Empty): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
 }
 
@@ -167,6 +183,7 @@ export function AccountServiceControllerMethods() {
       "hasPermission",
       "assignRole",
       "removeRole",
+      "getOrganizationsByUserId",
       "ping",
     ];
     for (const method of grpcMethods) {

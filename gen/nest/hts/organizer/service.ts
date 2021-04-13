@@ -7,6 +7,7 @@ import {
   Tag,
   QuestionGroup,
   Question,
+  User,
   UserOrganization,
   EventDuration,
   EventTag,
@@ -116,6 +117,10 @@ export interface OrganizationListResponse {
   organizations: Organization[];
 }
 
+export interface UserListResponse {
+  users: User[];
+}
+
 export interface UserOrganizationListResponse {
   userOrganizations: UserOrganization[];
 }
@@ -150,6 +155,10 @@ export interface OrganizerServiceClient {
   getOrganizations(request: Empty): Observable<OrganizationListResponse>;
 
   getOrganizationById(request: GetObjectByIdRequest): Observable<Organization>;
+
+  getUsersInOrganizationById(
+    request: GetObjectByIdRequest
+  ): Observable<UserListResponse>;
 
   updateOrganization(
     request: UpdateOrganizationRequest
@@ -225,6 +234,13 @@ export interface OrganizerServiceController {
   getOrganizationById(
     request: GetObjectByIdRequest
   ): Promise<Organization> | Observable<Organization> | Organization;
+
+  getUsersInOrganizationById(
+    request: GetObjectByIdRequest
+  ):
+    | Promise<UserListResponse>
+    | Observable<UserListResponse>
+    | UserListResponse;
 
   updateOrganization(
     request: UpdateOrganizationRequest
@@ -335,6 +351,7 @@ export function OrganizerServiceControllerMethods() {
       "createOrganization",
       "getOrganizations",
       "getOrganizationById",
+      "getUsersInOrganizationById",
       "updateOrganization",
       "removeOrganization",
       "addUsersToOrganization",
