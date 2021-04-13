@@ -119,16 +119,19 @@ public interface EventOrBuilder extends
   com.google.protobuf.StringValueOrBuilder getPosterImageHashOrBuilder();
 
   /**
-   * <code>string contact = 10 [json_name = "contact"];</code>
+   * <code>.google.protobuf.StringValue contact = 10 [json_name = "contact"];</code>
+   * @return Whether the contact field is set.
+   */
+  boolean hasContact();
+  /**
+   * <code>.google.protobuf.StringValue contact = 10 [json_name = "contact"];</code>
    * @return The contact.
    */
-  java.lang.String getContact();
+  com.google.protobuf.StringValue getContact();
   /**
-   * <code>string contact = 10 [json_name = "contact"];</code>
-   * @return The bytes for contact.
+   * <code>.google.protobuf.StringValue contact = 10 [json_name = "contact"];</code>
    */
-  com.google.protobuf.ByteString
-      getContactBytes();
+  com.google.protobuf.StringValueOrBuilder getContactOrBuilder();
 
   /**
    * <code>.google.protobuf.StringValue profile_image_url = 11 [json_name = "profileImageUrl"];</code>
