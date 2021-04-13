@@ -107,6 +107,37 @@ public final class OrganizerServiceGrpc {
     return getGetOrganizationByIdMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest,
+      app.onepass.apis.UserListResponse> getGetUsersInOrganizationByIdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetUsersInOrganizationById",
+      requestType = app.onepass.apis.GetObjectByIdRequest.class,
+      responseType = app.onepass.apis.UserListResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest,
+      app.onepass.apis.UserListResponse> getGetUsersInOrganizationByIdMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest, app.onepass.apis.UserListResponse> getGetUsersInOrganizationByIdMethod;
+    if ((getGetUsersInOrganizationByIdMethod = OrganizerServiceGrpc.getGetUsersInOrganizationByIdMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getGetUsersInOrganizationByIdMethod = OrganizerServiceGrpc.getGetUsersInOrganizationByIdMethod) == null) {
+          OrganizerServiceGrpc.getGetUsersInOrganizationByIdMethod = getGetUsersInOrganizationByIdMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.GetObjectByIdRequest, app.onepass.apis.UserListResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetUsersInOrganizationById"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.GetObjectByIdRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.UserListResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("GetUsersInOrganizationById"))
+              .build();
+        }
+      }
+    }
+    return getGetUsersInOrganizationByIdMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<app.onepass.apis.UpdateOrganizationRequest,
       app.onepass.apis.Organization> getUpdateOrganizationMethod;
 
@@ -767,6 +798,13 @@ public final class OrganizerServiceGrpc {
 
     /**
      */
+    public void getUsersInOrganizationById(app.onepass.apis.GetObjectByIdRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.UserListResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetUsersInOrganizationByIdMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void updateOrganization(app.onepass.apis.UpdateOrganizationRequest request,
         io.grpc.stub.StreamObserver<app.onepass.apis.Organization> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateOrganizationMethod(), responseObserver);
@@ -921,6 +959,13 @@ public final class OrganizerServiceGrpc {
                 app.onepass.apis.GetObjectByIdRequest,
                 app.onepass.apis.Organization>(
                   this, METHODID_GET_ORGANIZATION_BY_ID)))
+          .addMethod(
+            getGetUsersInOrganizationByIdMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                app.onepass.apis.GetObjectByIdRequest,
+                app.onepass.apis.UserListResponse>(
+                  this, METHODID_GET_USERS_IN_ORGANIZATION_BY_ID)))
           .addMethod(
             getUpdateOrganizationMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -1094,6 +1139,14 @@ public final class OrganizerServiceGrpc {
         io.grpc.stub.StreamObserver<app.onepass.apis.Organization> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetOrganizationByIdMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getUsersInOrganizationById(app.onepass.apis.GetObjectByIdRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.UserListResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetUsersInOrganizationByIdMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -1286,6 +1339,13 @@ public final class OrganizerServiceGrpc {
 
     /**
      */
+    public app.onepass.apis.UserListResponse getUsersInOrganizationById(app.onepass.apis.GetObjectByIdRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetUsersInOrganizationByIdMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public app.onepass.apis.Organization updateOrganization(app.onepass.apis.UpdateOrganizationRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateOrganizationMethod(), getCallOptions(), request);
@@ -1458,6 +1518,14 @@ public final class OrganizerServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.UserListResponse> getUsersInOrganizationById(
+        app.onepass.apis.GetObjectByIdRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetUsersInOrganizationByIdMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.Organization> updateOrganization(
         app.onepass.apis.UpdateOrganizationRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -1612,25 +1680,26 @@ public final class OrganizerServiceGrpc {
   private static final int METHODID_CREATE_ORGANIZATION = 0;
   private static final int METHODID_GET_ORGANIZATIONS = 1;
   private static final int METHODID_GET_ORGANIZATION_BY_ID = 2;
-  private static final int METHODID_UPDATE_ORGANIZATION = 3;
-  private static final int METHODID_REMOVE_ORGANIZATION = 4;
-  private static final int METHODID_ADD_USERS_TO_ORGANIZATION = 5;
-  private static final int METHODID_REMOVE_USERS_FROM_ORGANIZATION = 6;
-  private static final int METHODID_CREATE_EVENT = 7;
-  private static final int METHODID_UPDATE_EVENT = 8;
-  private static final int METHODID_UPDATE_EVENT_DURATIONS = 9;
-  private static final int METHODID_REMOVE_EVENT = 10;
-  private static final int METHODID_UPDATE_REGISTRATION_REQUEST = 11;
-  private static final int METHODID_CREATE_TAG = 12;
-  private static final int METHODID_ADD_TAGS = 13;
-  private static final int METHODID_REMOVE_TAGS = 14;
-  private static final int METHODID_HAS_EVENT = 15;
-  private static final int METHODID_ADD_QUESTION_GROUPS = 16;
-  private static final int METHODID_REMOVE_QUESTION_GROUPS = 17;
-  private static final int METHODID_ADD_QUESTIONS = 18;
-  private static final int METHODID_REMOVE_QUESTIONS = 19;
-  private static final int METHODID_GET_ANSWERS_BY_QUESTION_ID = 20;
-  private static final int METHODID_PING = 21;
+  private static final int METHODID_GET_USERS_IN_ORGANIZATION_BY_ID = 3;
+  private static final int METHODID_UPDATE_ORGANIZATION = 4;
+  private static final int METHODID_REMOVE_ORGANIZATION = 5;
+  private static final int METHODID_ADD_USERS_TO_ORGANIZATION = 6;
+  private static final int METHODID_REMOVE_USERS_FROM_ORGANIZATION = 7;
+  private static final int METHODID_CREATE_EVENT = 8;
+  private static final int METHODID_UPDATE_EVENT = 9;
+  private static final int METHODID_UPDATE_EVENT_DURATIONS = 10;
+  private static final int METHODID_REMOVE_EVENT = 11;
+  private static final int METHODID_UPDATE_REGISTRATION_REQUEST = 12;
+  private static final int METHODID_CREATE_TAG = 13;
+  private static final int METHODID_ADD_TAGS = 14;
+  private static final int METHODID_REMOVE_TAGS = 15;
+  private static final int METHODID_HAS_EVENT = 16;
+  private static final int METHODID_ADD_QUESTION_GROUPS = 17;
+  private static final int METHODID_REMOVE_QUESTION_GROUPS = 18;
+  private static final int METHODID_ADD_QUESTIONS = 19;
+  private static final int METHODID_REMOVE_QUESTIONS = 20;
+  private static final int METHODID_GET_ANSWERS_BY_QUESTION_ID = 21;
+  private static final int METHODID_PING = 22;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1660,6 +1729,10 @@ public final class OrganizerServiceGrpc {
         case METHODID_GET_ORGANIZATION_BY_ID:
           serviceImpl.getOrganizationById((app.onepass.apis.GetObjectByIdRequest) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.Organization>) responseObserver);
+          break;
+        case METHODID_GET_USERS_IN_ORGANIZATION_BY_ID:
+          serviceImpl.getUsersInOrganizationById((app.onepass.apis.GetObjectByIdRequest) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.UserListResponse>) responseObserver);
           break;
         case METHODID_UPDATE_ORGANIZATION:
           serviceImpl.updateOrganization((app.onepass.apis.UpdateOrganizationRequest) request,
@@ -1801,6 +1874,7 @@ public final class OrganizerServiceGrpc {
               .addMethod(getCreateOrganizationMethod())
               .addMethod(getGetOrganizationsMethod())
               .addMethod(getGetOrganizationByIdMethod())
+              .addMethod(getGetUsersInOrganizationByIdMethod())
               .addMethod(getUpdateOrganizationMethod())
               .addMethod(getRemoveOrganizationMethod())
               .addMethod(getAddUsersToOrganizationMethod())

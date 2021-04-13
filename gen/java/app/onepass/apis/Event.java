@@ -18,7 +18,6 @@ private static final long serialVersionUID = 0L;
   private Event() {
     description_ = "";
     name_ = "";
-    contact_ = "";
   }
 
   @java.lang.Override
@@ -139,9 +138,16 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
+            com.google.protobuf.StringValue.Builder subBuilder = null;
+            if (contact_ != null) {
+              subBuilder = contact_.toBuilder();
+            }
+            contact_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(contact_);
+              contact_ = subBuilder.buildPartial();
+            }
 
-            contact_ = s;
             break;
           }
           case 90: {
@@ -436,41 +442,29 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONTACT_FIELD_NUMBER = 10;
-  private volatile java.lang.Object contact_;
+  private com.google.protobuf.StringValue contact_;
   /**
-   * <code>string contact = 10 [json_name = "contact"];</code>
+   * <code>.google.protobuf.StringValue contact = 10 [json_name = "contact"];</code>
+   * @return Whether the contact field is set.
+   */
+  @java.lang.Override
+  public boolean hasContact() {
+    return contact_ != null;
+  }
+  /**
+   * <code>.google.protobuf.StringValue contact = 10 [json_name = "contact"];</code>
    * @return The contact.
    */
   @java.lang.Override
-  public java.lang.String getContact() {
-    java.lang.Object ref = contact_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      contact_ = s;
-      return s;
-    }
+  public com.google.protobuf.StringValue getContact() {
+    return contact_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : contact_;
   }
   /**
-   * <code>string contact = 10 [json_name = "contact"];</code>
-   * @return The bytes for contact.
+   * <code>.google.protobuf.StringValue contact = 10 [json_name = "contact"];</code>
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
-      getContactBytes() {
-    java.lang.Object ref = contact_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      contact_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public com.google.protobuf.StringValueOrBuilder getContactOrBuilder() {
+    return getContact();
   }
 
   public static final int PROFILE_IMAGE_URL_FIELD_NUMBER = 11;
@@ -577,8 +571,8 @@ private static final long serialVersionUID = 0L;
     if (posterImageHash_ != null) {
       output.writeMessage(9, getPosterImageHash());
     }
-    if (!getContactBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 10, contact_);
+    if (contact_ != null) {
+      output.writeMessage(10, getContact());
     }
     if (profileImageUrl_ != null) {
       output.writeMessage(11, getProfileImageUrl());
@@ -632,8 +626,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, getPosterImageHash());
     }
-    if (!getContactBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, contact_);
+    if (contact_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(10, getContact());
     }
     if (profileImageUrl_ != null) {
       size += com.google.protobuf.CodedOutputStream
@@ -695,8 +690,11 @@ private static final long serialVersionUID = 0L;
       if (!getPosterImageHash()
           .equals(other.getPosterImageHash())) return false;
     }
-    if (!getContact()
-        .equals(other.getContact())) return false;
+    if (hasContact() != other.hasContact()) return false;
+    if (hasContact()) {
+      if (!getContact()
+          .equals(other.getContact())) return false;
+    }
     if (hasProfileImageUrl() != other.hasProfileImageUrl()) return false;
     if (hasProfileImageUrl()) {
       if (!getProfileImageUrl()
@@ -748,8 +746,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + POSTER_IMAGE_HASH_FIELD_NUMBER;
       hash = (53 * hash) + getPosterImageHash().hashCode();
     }
-    hash = (37 * hash) + CONTACT_FIELD_NUMBER;
-    hash = (53 * hash) + getContact().hashCode();
+    if (hasContact()) {
+      hash = (37 * hash) + CONTACT_FIELD_NUMBER;
+      hash = (53 * hash) + getContact().hashCode();
+    }
     if (hasProfileImageUrl()) {
       hash = (37 * hash) + PROFILE_IMAGE_URL_FIELD_NUMBER;
       hash = (53 * hash) + getProfileImageUrl().hashCode();
@@ -931,8 +931,12 @@ private static final long serialVersionUID = 0L;
         posterImageHash_ = null;
         posterImageHashBuilder_ = null;
       }
-      contact_ = "";
-
+      if (contactBuilder_ == null) {
+        contact_ = null;
+      } else {
+        contact_ = null;
+        contactBuilder_ = null;
+      }
       if (profileImageUrlBuilder_ == null) {
         profileImageUrl_ = null;
       } else {
@@ -1002,7 +1006,11 @@ private static final long serialVersionUID = 0L;
       } else {
         result.posterImageHash_ = posterImageHashBuilder_.build();
       }
-      result.contact_ = contact_;
+      if (contactBuilder_ == null) {
+        result.contact_ = contact_;
+      } else {
+        result.contact_ = contactBuilder_.build();
+      }
       if (profileImageUrlBuilder_ == null) {
         result.profileImageUrl_ = profileImageUrl_;
       } else {
@@ -1091,9 +1099,8 @@ private static final long serialVersionUID = 0L;
       if (other.hasPosterImageHash()) {
         mergePosterImageHash(other.getPosterImageHash());
       }
-      if (!other.getContact().isEmpty()) {
-        contact_ = other.contact_;
-        onChanged();
+      if (other.hasContact()) {
+        mergeContact(other.getContact());
       }
       if (other.hasProfileImageUrl()) {
         mergeProfileImageUrl(other.getProfileImageUrl());
@@ -1942,80 +1949,123 @@ private static final long serialVersionUID = 0L;
       return posterImageHashBuilder_;
     }
 
-    private java.lang.Object contact_ = "";
+    private com.google.protobuf.StringValue contact_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> contactBuilder_;
     /**
-     * <code>string contact = 10 [json_name = "contact"];</code>
+     * <code>.google.protobuf.StringValue contact = 10 [json_name = "contact"];</code>
+     * @return Whether the contact field is set.
+     */
+    public boolean hasContact() {
+      return contactBuilder_ != null || contact_ != null;
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact = 10 [json_name = "contact"];</code>
      * @return The contact.
      */
-    public java.lang.String getContact() {
-      java.lang.Object ref = contact_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        contact_ = s;
-        return s;
+    public com.google.protobuf.StringValue getContact() {
+      if (contactBuilder_ == null) {
+        return contact_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : contact_;
       } else {
-        return (java.lang.String) ref;
+        return contactBuilder_.getMessage();
       }
     }
     /**
-     * <code>string contact = 10 [json_name = "contact"];</code>
-     * @return The bytes for contact.
+     * <code>.google.protobuf.StringValue contact = 10 [json_name = "contact"];</code>
      */
-    public com.google.protobuf.ByteString
-        getContactBytes() {
-      java.lang.Object ref = contact_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        contact_ = b;
-        return b;
+    public Builder setContact(com.google.protobuf.StringValue value) {
+      if (contactBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        contact_ = value;
+        onChanged();
       } else {
-        return (com.google.protobuf.ByteString) ref;
+        contactBuilder_.setMessage(value);
       }
+
+      return this;
     }
     /**
-     * <code>string contact = 10 [json_name = "contact"];</code>
-     * @param value The contact to set.
-     * @return This builder for chaining.
+     * <code>.google.protobuf.StringValue contact = 10 [json_name = "contact"];</code>
      */
     public Builder setContact(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      contact_ = value;
-      onChanged();
+        com.google.protobuf.StringValue.Builder builderForValue) {
+      if (contactBuilder_ == null) {
+        contact_ = builderForValue.build();
+        onChanged();
+      } else {
+        contactBuilder_.setMessage(builderForValue.build());
+      }
+
       return this;
     }
     /**
-     * <code>string contact = 10 [json_name = "contact"];</code>
-     * @return This builder for chaining.
+     * <code>.google.protobuf.StringValue contact = 10 [json_name = "contact"];</code>
+     */
+    public Builder mergeContact(com.google.protobuf.StringValue value) {
+      if (contactBuilder_ == null) {
+        if (contact_ != null) {
+          contact_ =
+            com.google.protobuf.StringValue.newBuilder(contact_).mergeFrom(value).buildPartial();
+        } else {
+          contact_ = value;
+        }
+        onChanged();
+      } else {
+        contactBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact = 10 [json_name = "contact"];</code>
      */
     public Builder clearContact() {
-      
-      contact_ = getDefaultInstance().getContact();
-      onChanged();
+      if (contactBuilder_ == null) {
+        contact_ = null;
+        onChanged();
+      } else {
+        contact_ = null;
+        contactBuilder_ = null;
+      }
+
       return this;
     }
     /**
-     * <code>string contact = 10 [json_name = "contact"];</code>
-     * @param value The bytes for contact to set.
-     * @return This builder for chaining.
+     * <code>.google.protobuf.StringValue contact = 10 [json_name = "contact"];</code>
      */
-    public Builder setContactBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+    public com.google.protobuf.StringValue.Builder getContactBuilder() {
       
-      contact_ = value;
       onChanged();
-      return this;
+      return getContactFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact = 10 [json_name = "contact"];</code>
+     */
+    public com.google.protobuf.StringValueOrBuilder getContactOrBuilder() {
+      if (contactBuilder_ != null) {
+        return contactBuilder_.getMessageOrBuilder();
+      } else {
+        return contact_ == null ?
+            com.google.protobuf.StringValue.getDefaultInstance() : contact_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.StringValue contact = 10 [json_name = "contact"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        getContactFieldBuilder() {
+      if (contactBuilder_ == null) {
+        contactBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                getContact(),
+                getParentForChildren(),
+                isClean());
+        contact_ = null;
+      }
+      return contactBuilder_;
     }
 
     private com.google.protobuf.StringValue profileImageUrl_;

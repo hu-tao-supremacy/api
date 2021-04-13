@@ -355,6 +355,37 @@ public final class AccountServiceGrpc {
     return getRemoveRoleMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest,
+      app.onepass.apis.GetOrganizationsByUserIdResponse> getGetOrganizationsByUserIdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetOrganizationsByUserId",
+      requestType = app.onepass.apis.GetObjectByIdRequest.class,
+      responseType = app.onepass.apis.GetOrganizationsByUserIdResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest,
+      app.onepass.apis.GetOrganizationsByUserIdResponse> getGetOrganizationsByUserIdMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest, app.onepass.apis.GetOrganizationsByUserIdResponse> getGetOrganizationsByUserIdMethod;
+    if ((getGetOrganizationsByUserIdMethod = AccountServiceGrpc.getGetOrganizationsByUserIdMethod) == null) {
+      synchronized (AccountServiceGrpc.class) {
+        if ((getGetOrganizationsByUserIdMethod = AccountServiceGrpc.getGetOrganizationsByUserIdMethod) == null) {
+          AccountServiceGrpc.getGetOrganizationsByUserIdMethod = getGetOrganizationsByUserIdMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.GetObjectByIdRequest, app.onepass.apis.GetOrganizationsByUserIdResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetOrganizationsByUserId"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.GetObjectByIdRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.GetOrganizationsByUserIdResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new AccountServiceMethodDescriptorSupplier("GetOrganizationsByUserId"))
+              .build();
+        }
+      }
+    }
+    return getGetOrganizationsByUserIdMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
       com.google.protobuf.BoolValue> getPingMethod;
 
@@ -513,6 +544,13 @@ public final class AccountServiceGrpc {
 
     /**
      */
+    public void getOrganizationsByUserId(app.onepass.apis.GetObjectByIdRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.GetOrganizationsByUserIdResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetOrganizationsByUserIdMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void ping(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getPingMethod(), responseObserver);
@@ -597,6 +635,13 @@ public final class AccountServiceGrpc {
                 app.onepass.apis.RemoveRoleRequest,
                 com.google.protobuf.BoolValue>(
                   this, METHODID_REMOVE_ROLE)))
+          .addMethod(
+            getGetOrganizationsByUserIdMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                app.onepass.apis.GetObjectByIdRequest,
+                app.onepass.apis.GetOrganizationsByUserIdResponse>(
+                  this, METHODID_GET_ORGANIZATIONS_BY_USER_ID)))
           .addMethod(
             getPingMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -712,6 +757,14 @@ public final class AccountServiceGrpc {
 
     /**
      */
+    public void getOrganizationsByUserId(app.onepass.apis.GetObjectByIdRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.GetOrganizationsByUserIdResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetOrganizationsByUserIdMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void ping(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
@@ -808,6 +861,13 @@ public final class AccountServiceGrpc {
     public com.google.protobuf.BoolValue removeRole(app.onepass.apis.RemoveRoleRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getRemoveRoleMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public app.onepass.apis.GetOrganizationsByUserIdResponse getOrganizationsByUserId(app.onepass.apis.GetObjectByIdRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetOrganizationsByUserIdMethod(), getCallOptions(), request);
     }
 
     /**
@@ -922,6 +982,14 @@ public final class AccountServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.GetOrganizationsByUserIdResponse> getOrganizationsByUserId(
+        app.onepass.apis.GetObjectByIdRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetOrganizationsByUserIdMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.BoolValue> ping(
         com.google.protobuf.Empty request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -940,7 +1008,8 @@ public final class AccountServiceGrpc {
   private static final int METHODID_HAS_PERMISSION = 8;
   private static final int METHODID_ASSIGN_ROLE = 9;
   private static final int METHODID_REMOVE_ROLE = 10;
-  private static final int METHODID_PING = 11;
+  private static final int METHODID_GET_ORGANIZATIONS_BY_USER_ID = 11;
+  private static final int METHODID_PING = 12;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1002,6 +1071,10 @@ public final class AccountServiceGrpc {
         case METHODID_REMOVE_ROLE:
           serviceImpl.removeRole((app.onepass.apis.RemoveRoleRequest) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue>) responseObserver);
+          break;
+        case METHODID_GET_ORGANIZATIONS_BY_USER_ID:
+          serviceImpl.getOrganizationsByUserId((app.onepass.apis.GetObjectByIdRequest) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.GetOrganizationsByUserIdResponse>) responseObserver);
           break;
         case METHODID_PING:
           serviceImpl.ping((com.google.protobuf.Empty) request,
@@ -1079,6 +1152,7 @@ public final class AccountServiceGrpc {
               .addMethod(getHasPermissionMethod())
               .addMethod(getAssignRoleMethod())
               .addMethod(getRemoveRoleMethod())
+              .addMethod(getGetOrganizationsByUserIdMethod())
               .addMethod(getPingMethod())
               .build();
         }
