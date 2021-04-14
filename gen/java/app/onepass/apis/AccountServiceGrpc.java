@@ -169,35 +169,66 @@ public final class AccountServiceGrpc {
     return getUpdateAccountInfoMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.UpdateUserInterestsRequest,
-      app.onepass.apis.User> getUpdateUserInterestsMethod;
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.SetInterestedTagsRequest,
+      app.onepass.apis.User> getSetInterestedTagsMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "UpdateUserInterests",
-      requestType = app.onepass.apis.UpdateUserInterestsRequest.class,
+      fullMethodName = SERVICE_NAME + '/' + "SetInterestedTags",
+      requestType = app.onepass.apis.SetInterestedTagsRequest.class,
       responseType = app.onepass.apis.User.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<app.onepass.apis.UpdateUserInterestsRequest,
-      app.onepass.apis.User> getUpdateUserInterestsMethod() {
-    io.grpc.MethodDescriptor<app.onepass.apis.UpdateUserInterestsRequest, app.onepass.apis.User> getUpdateUserInterestsMethod;
-    if ((getUpdateUserInterestsMethod = AccountServiceGrpc.getUpdateUserInterestsMethod) == null) {
+  public static io.grpc.MethodDescriptor<app.onepass.apis.SetInterestedTagsRequest,
+      app.onepass.apis.User> getSetInterestedTagsMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.SetInterestedTagsRequest, app.onepass.apis.User> getSetInterestedTagsMethod;
+    if ((getSetInterestedTagsMethod = AccountServiceGrpc.getSetInterestedTagsMethod) == null) {
       synchronized (AccountServiceGrpc.class) {
-        if ((getUpdateUserInterestsMethod = AccountServiceGrpc.getUpdateUserInterestsMethod) == null) {
-          AccountServiceGrpc.getUpdateUserInterestsMethod = getUpdateUserInterestsMethod =
-              io.grpc.MethodDescriptor.<app.onepass.apis.UpdateUserInterestsRequest, app.onepass.apis.User>newBuilder()
+        if ((getSetInterestedTagsMethod = AccountServiceGrpc.getSetInterestedTagsMethod) == null) {
+          AccountServiceGrpc.getSetInterestedTagsMethod = getSetInterestedTagsMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.SetInterestedTagsRequest, app.onepass.apis.User>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateUserInterests"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "SetInterestedTags"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  app.onepass.apis.UpdateUserInterestsRequest.getDefaultInstance()))
+                  app.onepass.apis.SetInterestedTagsRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.User.getDefaultInstance()))
-              .setSchemaDescriptor(new AccountServiceMethodDescriptorSupplier("UpdateUserInterests"))
+              .setSchemaDescriptor(new AccountServiceMethodDescriptorSupplier("SetInterestedTags"))
               .build();
         }
       }
     }
-    return getUpdateUserInterestsMethod;
+    return getSetInterestedTagsMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.SetInterestedEventsRequest,
+      app.onepass.apis.User> getSetInterestedEventsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "SetInterestedEvents",
+      requestType = app.onepass.apis.SetInterestedEventsRequest.class,
+      responseType = app.onepass.apis.User.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<app.onepass.apis.SetInterestedEventsRequest,
+      app.onepass.apis.User> getSetInterestedEventsMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.SetInterestedEventsRequest, app.onepass.apis.User> getSetInterestedEventsMethod;
+    if ((getSetInterestedEventsMethod = AccountServiceGrpc.getSetInterestedEventsMethod) == null) {
+      synchronized (AccountServiceGrpc.class) {
+        if ((getSetInterestedEventsMethod = AccountServiceGrpc.getSetInterestedEventsMethod) == null) {
+          AccountServiceGrpc.getSetInterestedEventsMethod = getSetInterestedEventsMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.SetInterestedEventsRequest, app.onepass.apis.User>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "SetInterestedEvents"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.SetInterestedEventsRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.User.getDefaultInstance()))
+              .setSchemaDescriptor(new AccountServiceMethodDescriptorSupplier("SetInterestedEvents"))
+              .build();
+        }
+      }
+    }
+    return getSetInterestedEventsMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest,
@@ -533,9 +564,16 @@ public final class AccountServiceGrpc {
 
     /**
      */
-    public void updateUserInterests(app.onepass.apis.UpdateUserInterestsRequest request,
+    public void setInterestedTags(app.onepass.apis.SetInterestedTagsRequest request,
         io.grpc.stub.StreamObserver<app.onepass.apis.User> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateUserInterestsMethod(), responseObserver);
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSetInterestedTagsMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void setInterestedEvents(app.onepass.apis.SetInterestedEventsRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.User> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSetInterestedEventsMethod(), responseObserver);
     }
 
     /**
@@ -632,12 +670,19 @@ public final class AccountServiceGrpc {
                 app.onepass.apis.User>(
                   this, METHODID_UPDATE_ACCOUNT_INFO)))
           .addMethod(
-            getUpdateUserInterestsMethod(),
+            getSetInterestedTagsMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                app.onepass.apis.UpdateUserInterestsRequest,
+                app.onepass.apis.SetInterestedTagsRequest,
                 app.onepass.apis.User>(
-                  this, METHODID_UPDATE_USER_INTERESTS)))
+                  this, METHODID_SET_INTERESTED_TAGS)))
+          .addMethod(
+            getSetInterestedEventsMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                app.onepass.apis.SetInterestedEventsRequest,
+                app.onepass.apis.User>(
+                  this, METHODID_SET_INTERESTED_EVENTS)))
           .addMethod(
             getGetUserByIdMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -754,10 +799,18 @@ public final class AccountServiceGrpc {
 
     /**
      */
-    public void updateUserInterests(app.onepass.apis.UpdateUserInterestsRequest request,
+    public void setInterestedTags(app.onepass.apis.SetInterestedTagsRequest request,
         io.grpc.stub.StreamObserver<app.onepass.apis.User> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getUpdateUserInterestsMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getSetInterestedTagsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void setInterestedEvents(app.onepass.apis.SetInterestedEventsRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.User> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getSetInterestedEventsMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -876,9 +929,16 @@ public final class AccountServiceGrpc {
 
     /**
      */
-    public app.onepass.apis.User updateUserInterests(app.onepass.apis.UpdateUserInterestsRequest request) {
+    public app.onepass.apis.User setInterestedTags(app.onepass.apis.SetInterestedTagsRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getUpdateUserInterestsMethod(), getCallOptions(), request);
+          getChannel(), getSetInterestedTagsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public app.onepass.apis.User setInterestedEvents(app.onepass.apis.SetInterestedEventsRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getSetInterestedEventsMethod(), getCallOptions(), request);
     }
 
     /**
@@ -994,10 +1054,18 @@ public final class AccountServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.User> updateUserInterests(
-        app.onepass.apis.UpdateUserInterestsRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.User> setInterestedTags(
+        app.onepass.apis.SetInterestedTagsRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getUpdateUserInterestsMethod(), getCallOptions()), request);
+          getChannel().newCall(getSetInterestedTagsMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.User> setInterestedEvents(
+        app.onepass.apis.SetInterestedEventsRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getSetInterestedEventsMethod(), getCallOptions()), request);
     }
 
     /**
@@ -1070,15 +1138,16 @@ public final class AccountServiceGrpc {
   private static final int METHODID_GET_USER_BY_EMAIL = 2;
   private static final int METHODID_IS_AUTHENTICATED = 3;
   private static final int METHODID_UPDATE_ACCOUNT_INFO = 4;
-  private static final int METHODID_UPDATE_USER_INTERESTS = 5;
-  private static final int METHODID_GET_USER_BY_ID = 6;
-  private static final int METHODID_GENERATE_ACCESS_TOKEN = 7;
-  private static final int METHODID_HAS_PERMISSION = 8;
-  private static final int METHODID_ASSIGN_ROLE = 9;
-  private static final int METHODID_REMOVE_ROLE = 10;
-  private static final int METHODID_GET_USER_ORGANIZATIONS_BY_USER_ID = 11;
-  private static final int METHODID_GET_USER_ORGANIZATIONS_BY_ORGANIZATION_ID = 12;
-  private static final int METHODID_PING = 13;
+  private static final int METHODID_SET_INTERESTED_TAGS = 5;
+  private static final int METHODID_SET_INTERESTED_EVENTS = 6;
+  private static final int METHODID_GET_USER_BY_ID = 7;
+  private static final int METHODID_GENERATE_ACCESS_TOKEN = 8;
+  private static final int METHODID_HAS_PERMISSION = 9;
+  private static final int METHODID_ASSIGN_ROLE = 10;
+  private static final int METHODID_REMOVE_ROLE = 11;
+  private static final int METHODID_GET_USER_ORGANIZATIONS_BY_USER_ID = 12;
+  private static final int METHODID_GET_USER_ORGANIZATIONS_BY_ORGANIZATION_ID = 13;
+  private static final int METHODID_PING = 14;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1117,8 +1186,12 @@ public final class AccountServiceGrpc {
           serviceImpl.updateAccountInfo((app.onepass.apis.User) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.User>) responseObserver);
           break;
-        case METHODID_UPDATE_USER_INTERESTS:
-          serviceImpl.updateUserInterests((app.onepass.apis.UpdateUserInterestsRequest) request,
+        case METHODID_SET_INTERESTED_TAGS:
+          serviceImpl.setInterestedTags((app.onepass.apis.SetInterestedTagsRequest) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.User>) responseObserver);
+          break;
+        case METHODID_SET_INTERESTED_EVENTS:
+          serviceImpl.setInterestedEvents((app.onepass.apis.SetInterestedEventsRequest) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.User>) responseObserver);
           break;
         case METHODID_GET_USER_BY_ID:
@@ -1219,7 +1292,8 @@ public final class AccountServiceGrpc {
               .addMethod(getGetUserByEmailMethod())
               .addMethod(getIsAuthenticatedMethod())
               .addMethod(getUpdateAccountInfoMethod())
-              .addMethod(getUpdateUserInterestsMethod())
+              .addMethod(getSetInterestedTagsMethod())
+              .addMethod(getSetInterestedEventsMethod())
               .addMethod(getGetUserByIdMethod())
               .addMethod(getGenerateAccessTokenMethod())
               .addMethod(getHasPermissionMethod())
