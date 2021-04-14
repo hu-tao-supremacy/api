@@ -173,6 +173,7 @@ message UserEvent {
   google.protobuf.Int32Value rating = 4;
   google.protobuf.StringValue ticket = 5;
   Status status = 6;
+  bool is_internal = 7;
 }
 
 message EventDuration {
