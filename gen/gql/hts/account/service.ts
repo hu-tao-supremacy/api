@@ -67,9 +67,14 @@ export interface RemoveRoleRequest {
   role: Role;
 }
 
-export interface UpdateUserInterestsRequest {
+export interface SetInterestedTagsRequest {
   userId: number;
   tagIds: number[];
+}
+
+export interface SetInterestedEventsRequest {
+  userId: number;
+  eventIds: number[];
 }
 
 export interface GetUserOrganizationsByUserIdResponse {
@@ -88,7 +93,8 @@ export interface AccountService {
     request: IsAuthenticatedRequest
   ): Promise<boolean | undefined>;
   UpdateAccountInfo(request: User): Promise<User>;
-  UpdateUserInterests(request: UpdateUserInterestsRequest): Promise<User>;
+  SetInterestedTags(request: SetInterestedTagsRequest): Promise<User>;
+  SetInterestedEvents(request: SetInterestedEventsRequest): Promise<User>;
   GetUserById(request: GetObjectByIdRequest): Promise<User>;
   GenerateAccessToken(
     request: GenerateAccessTokenRequest
