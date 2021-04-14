@@ -4,18 +4,18 @@
 package app.onepass.apis;
 
 /**
- * Protobuf type {@code hts.account.UpdateUserInterestsRequest}
+ * Protobuf type {@code hts.account.SetInterestedTagsRequest}
  */
-public final class UpdateUserInterestsRequest extends
+public final class SetInterestedTagsRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:hts.account.UpdateUserInterestsRequest)
-    UpdateUserInterestsRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:hts.account.SetInterestedTagsRequest)
+    SetInterestedTagsRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use UpdateUserInterestsRequest.newBuilder() to construct.
-  private UpdateUserInterestsRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use SetInterestedTagsRequest.newBuilder() to construct.
+  private SetInterestedTagsRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private UpdateUserInterestsRequest() {
+  private SetInterestedTagsRequest() {
     tagIds_ = emptyIntList();
   }
 
@@ -23,7 +23,7 @@ private static final long serialVersionUID = 0L;
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new UpdateUserInterestsRequest();
+    return new SetInterestedTagsRequest();
   }
 
   @java.lang.Override
@@ -31,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UpdateUserInterestsRequest(
+  private SetInterestedTagsRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -100,15 +100,15 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return app.onepass.apis.AccountProto.internal_static_hts_account_UpdateUserInterestsRequest_descriptor;
+    return app.onepass.apis.AccountProto.internal_static_hts_account_SetInterestedTagsRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return app.onepass.apis.AccountProto.internal_static_hts_account_UpdateUserInterestsRequest_fieldAccessorTable
+    return app.onepass.apis.AccountProto.internal_static_hts_account_SetInterestedTagsRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            app.onepass.apis.UpdateUserInterestsRequest.class, app.onepass.apis.UpdateUserInterestsRequest.Builder.class);
+            app.onepass.apis.SetInterestedTagsRequest.class, app.onepass.apis.SetInterestedTagsRequest.Builder.class);
   }
 
   public static final int USER_ID_FIELD_NUMBER = 1;
@@ -212,10 +212,10 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof app.onepass.apis.UpdateUserInterestsRequest)) {
+    if (!(obj instanceof app.onepass.apis.SetInterestedTagsRequest)) {
       return super.equals(obj);
     }
-    app.onepass.apis.UpdateUserInterestsRequest other = (app.onepass.apis.UpdateUserInterestsRequest) obj;
+    app.onepass.apis.SetInterestedTagsRequest other = (app.onepass.apis.SetInterestedTagsRequest) obj;
 
     if (getUserId()
         != other.getUserId()) return false;
@@ -243,69 +243,69 @@ private static final long serialVersionUID = 0L;
     return hash;
   }
 
-  public static app.onepass.apis.UpdateUserInterestsRequest parseFrom(
+  public static app.onepass.apis.SetInterestedTagsRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.UpdateUserInterestsRequest parseFrom(
+  public static app.onepass.apis.SetInterestedTagsRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.UpdateUserInterestsRequest parseFrom(
+  public static app.onepass.apis.SetInterestedTagsRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.UpdateUserInterestsRequest parseFrom(
+  public static app.onepass.apis.SetInterestedTagsRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.UpdateUserInterestsRequest parseFrom(byte[] data)
+  public static app.onepass.apis.SetInterestedTagsRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.UpdateUserInterestsRequest parseFrom(
+  public static app.onepass.apis.SetInterestedTagsRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.UpdateUserInterestsRequest parseFrom(java.io.InputStream input)
+  public static app.onepass.apis.SetInterestedTagsRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.UpdateUserInterestsRequest parseFrom(
+  public static app.onepass.apis.SetInterestedTagsRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.UpdateUserInterestsRequest parseDelimitedFrom(java.io.InputStream input)
+  public static app.onepass.apis.SetInterestedTagsRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.UpdateUserInterestsRequest parseDelimitedFrom(
+  public static app.onepass.apis.SetInterestedTagsRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.UpdateUserInterestsRequest parseFrom(
+  public static app.onepass.apis.SetInterestedTagsRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.UpdateUserInterestsRequest parseFrom(
+  public static app.onepass.apis.SetInterestedTagsRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -318,7 +318,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(app.onepass.apis.UpdateUserInterestsRequest prototype) {
+  public static Builder newBuilder(app.onepass.apis.SetInterestedTagsRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -334,26 +334,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code hts.account.UpdateUserInterestsRequest}
+   * Protobuf type {@code hts.account.SetInterestedTagsRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:hts.account.UpdateUserInterestsRequest)
-      app.onepass.apis.UpdateUserInterestsRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:hts.account.SetInterestedTagsRequest)
+      app.onepass.apis.SetInterestedTagsRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return app.onepass.apis.AccountProto.internal_static_hts_account_UpdateUserInterestsRequest_descriptor;
+      return app.onepass.apis.AccountProto.internal_static_hts_account_SetInterestedTagsRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return app.onepass.apis.AccountProto.internal_static_hts_account_UpdateUserInterestsRequest_fieldAccessorTable
+      return app.onepass.apis.AccountProto.internal_static_hts_account_SetInterestedTagsRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              app.onepass.apis.UpdateUserInterestsRequest.class, app.onepass.apis.UpdateUserInterestsRequest.Builder.class);
+              app.onepass.apis.SetInterestedTagsRequest.class, app.onepass.apis.SetInterestedTagsRequest.Builder.class);
     }
 
-    // Construct using app.onepass.apis.UpdateUserInterestsRequest.newBuilder()
+    // Construct using app.onepass.apis.SetInterestedTagsRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -381,17 +381,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return app.onepass.apis.AccountProto.internal_static_hts_account_UpdateUserInterestsRequest_descriptor;
+      return app.onepass.apis.AccountProto.internal_static_hts_account_SetInterestedTagsRequest_descriptor;
     }
 
     @java.lang.Override
-    public app.onepass.apis.UpdateUserInterestsRequest getDefaultInstanceForType() {
-      return app.onepass.apis.UpdateUserInterestsRequest.getDefaultInstance();
+    public app.onepass.apis.SetInterestedTagsRequest getDefaultInstanceForType() {
+      return app.onepass.apis.SetInterestedTagsRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public app.onepass.apis.UpdateUserInterestsRequest build() {
-      app.onepass.apis.UpdateUserInterestsRequest result = buildPartial();
+    public app.onepass.apis.SetInterestedTagsRequest build() {
+      app.onepass.apis.SetInterestedTagsRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -399,8 +399,8 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public app.onepass.apis.UpdateUserInterestsRequest buildPartial() {
-      app.onepass.apis.UpdateUserInterestsRequest result = new app.onepass.apis.UpdateUserInterestsRequest(this);
+    public app.onepass.apis.SetInterestedTagsRequest buildPartial() {
+      app.onepass.apis.SetInterestedTagsRequest result = new app.onepass.apis.SetInterestedTagsRequest(this);
       int from_bitField0_ = bitField0_;
       result.userId_ = userId_;
       if (((bitField0_ & 0x00000001) != 0)) {
@@ -446,16 +446,16 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof app.onepass.apis.UpdateUserInterestsRequest) {
-        return mergeFrom((app.onepass.apis.UpdateUserInterestsRequest)other);
+      if (other instanceof app.onepass.apis.SetInterestedTagsRequest) {
+        return mergeFrom((app.onepass.apis.SetInterestedTagsRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(app.onepass.apis.UpdateUserInterestsRequest other) {
-      if (other == app.onepass.apis.UpdateUserInterestsRequest.getDefaultInstance()) return this;
+    public Builder mergeFrom(app.onepass.apis.SetInterestedTagsRequest other) {
+      if (other == app.onepass.apis.SetInterestedTagsRequest.getDefaultInstance()) return this;
       if (other.getUserId() != 0) {
         setUserId(other.getUserId());
       }
@@ -484,11 +484,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      app.onepass.apis.UpdateUserInterestsRequest parsedMessage = null;
+      app.onepass.apis.SetInterestedTagsRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (app.onepass.apis.UpdateUserInterestsRequest) e.getUnfinishedMessage();
+        parsedMessage = (app.onepass.apis.SetInterestedTagsRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -621,41 +621,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:hts.account.UpdateUserInterestsRequest)
+    // @@protoc_insertion_point(builder_scope:hts.account.SetInterestedTagsRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:hts.account.UpdateUserInterestsRequest)
-  private static final app.onepass.apis.UpdateUserInterestsRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:hts.account.SetInterestedTagsRequest)
+  private static final app.onepass.apis.SetInterestedTagsRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new app.onepass.apis.UpdateUserInterestsRequest();
+    DEFAULT_INSTANCE = new app.onepass.apis.SetInterestedTagsRequest();
   }
 
-  public static app.onepass.apis.UpdateUserInterestsRequest getDefaultInstance() {
+  public static app.onepass.apis.SetInterestedTagsRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<UpdateUserInterestsRequest>
-      PARSER = new com.google.protobuf.AbstractParser<UpdateUserInterestsRequest>() {
+  private static final com.google.protobuf.Parser<SetInterestedTagsRequest>
+      PARSER = new com.google.protobuf.AbstractParser<SetInterestedTagsRequest>() {
     @java.lang.Override
-    public UpdateUserInterestsRequest parsePartialFrom(
+    public SetInterestedTagsRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpdateUserInterestsRequest(input, extensionRegistry);
+      return new SetInterestedTagsRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<UpdateUserInterestsRequest> parser() {
+  public static com.google.protobuf.Parser<SetInterestedTagsRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<UpdateUserInterestsRequest> getParserForType() {
+  public com.google.protobuf.Parser<SetInterestedTagsRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public app.onepass.apis.UpdateUserInterestsRequest getDefaultInstanceForType() {
+  public app.onepass.apis.SetInterestedTagsRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

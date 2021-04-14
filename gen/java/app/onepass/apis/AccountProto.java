@@ -65,10 +65,15 @@ public final class AccountProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hts_account_RemoveRoleRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_hts_account_UpdateUserInterestsRequest_descriptor;
+    internal_static_hts_account_SetInterestedTagsRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_hts_account_UpdateUserInterestsRequest_fieldAccessorTable;
+      internal_static_hts_account_SetInterestedTagsRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_account_SetInterestedEventsRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_account_SetInterestedEventsRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_hts_account_GetUserOrganizationsByUserIdResponse_descriptor;
   static final 
@@ -113,28 +118,32 @@ public final class AccountProto {
       "s.account.RoleR\004role\"|\n\021RemoveRoleReques" +
       "t\022\027\n\007user_id\030\001 \001(\005R\006userId\022\'\n\017organizati" +
       "on_id\030\002 \001(\005R\016organizationId\022%\n\004role\030\003 \001(" +
-      "\0162\021.hts.account.RoleR\004role\"N\n\032UpdateUser" +
-      "InterestsRequest\022\027\n\007user_id\030\001 \001(\005R\006userI" +
-      "d\022\027\n\007tag_ids\030\002 \003(\005R\006tagIds\"s\n$GetUserOrg" +
-      "anizationsByUserIdResponse\022K\n\022user_organ" +
-      "izations\030\001 \003(\0132\034.hts.common.UserOrganiza" +
-      "tionR\021userOrganizations\"{\n,GetUserOrgani" +
-      "zationsByOrganizationIdResponse\022K\n\022user_" +
-      "organizations\030\001 \003(\0132\034.hts.common.UserOrg" +
-      "anizationR\021userOrganizations*f\n\004Role\022\024\n\020" +
-      "ROLE_UNSPECIFIED\020\000\022\026\n\022ORGANIZATION_OWNER" +
-      "\020\001\022\027\n\023ORGANIZATION_EDITOR\020\002\022\027\n\023ORGANIZAT" +
-      "ION_MEMBER\020\0032\213\t\n\016AccountService\022>\n\nCreat" +
-      "eUser\022\036.hts.account.CreateUserRequest\032\020." +
-      "hts.common.User\022J\n\020GetUserByChulaId\022$.ht" +
-      "s.account.GetUserByChulaIdRequest\032\020.hts." +
-      "common.User\022F\n\016GetUserByEmail\022\".hts.acco" +
-      "unt.GetUserByEmailRequest\032\020.hts.common.U" +
-      "ser\022R\n\017IsAuthenticated\022#.hts.account.IsA" +
-      "uthenticatedRequest\032\032.google.protobuf.Bo" +
-      "olValue\0227\n\021UpdateAccountInfo\022\020.hts.commo" +
-      "n.User\032\020.hts.common.User\022P\n\023UpdateUserIn" +
-      "terests\022\'.hts.account.UpdateUserInterest" +
+      "\0162\021.hts.account.RoleR\004role\"L\n\030SetInteres" +
+      "tedTagsRequest\022\027\n\007user_id\030\001 \001(\005R\006userId\022" +
+      "\027\n\007tag_ids\030\002 \003(\005R\006tagIds\"R\n\032SetIntereste" +
+      "dEventsRequest\022\027\n\007user_id\030\001 \001(\005R\006userId\022" +
+      "\033\n\tevent_ids\030\002 \003(\005R\010eventIds\"s\n$GetUserO" +
+      "rganizationsByUserIdResponse\022K\n\022user_org" +
+      "anizations\030\001 \003(\0132\034.hts.common.UserOrgani" +
+      "zationR\021userOrganizations\"{\n,GetUserOrga" +
+      "nizationsByOrganizationIdResponse\022K\n\022use" +
+      "r_organizations\030\001 \003(\0132\034.hts.common.UserO" +
+      "rganizationR\021userOrganizations*f\n\004Role\022\024" +
+      "\n\020ROLE_UNSPECIFIED\020\000\022\026\n\022ORGANIZATION_OWN" +
+      "ER\020\001\022\027\n\023ORGANIZATION_EDITOR\020\002\022\027\n\023ORGANIZ" +
+      "ATION_MEMBER\020\0032\331\t\n\016AccountService\022>\n\nCre" +
+      "ateUser\022\036.hts.account.CreateUserRequest\032" +
+      "\020.hts.common.User\022J\n\020GetUserByChulaId\022$." +
+      "hts.account.GetUserByChulaIdRequest\032\020.ht" +
+      "s.common.User\022F\n\016GetUserByEmail\022\".hts.ac" +
+      "count.GetUserByEmailRequest\032\020.hts.common" +
+      ".User\022R\n\017IsAuthenticated\022#.hts.account.I" +
+      "sAuthenticatedRequest\032\032.google.protobuf." +
+      "BoolValue\0227\n\021UpdateAccountInfo\022\020.hts.com" +
+      "mon.User\032\020.hts.common.User\022L\n\021SetInteres" +
+      "tedTags\022%.hts.account.SetInterestedTagsR" +
+      "equest\032\020.hts.common.User\022P\n\023SetIntereste" +
+      "dEvents\022\'.hts.account.SetInterestedEvent" +
       "sRequest\032\020.hts.common.User\022A\n\013GetUserByI" +
       "d\022 .hts.common.GetObjectByIdRequest\032\020.ht" +
       "s.common.User\022h\n\023GenerateAccessToken\022\'.h" +
@@ -224,20 +233,26 @@ public final class AccountProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_account_RemoveRoleRequest_descriptor,
         new java.lang.String[] { "UserId", "OrganizationId", "Role", });
-    internal_static_hts_account_UpdateUserInterestsRequest_descriptor =
+    internal_static_hts_account_SetInterestedTagsRequest_descriptor =
       getDescriptor().getMessageTypes().get(10);
-    internal_static_hts_account_UpdateUserInterestsRequest_fieldAccessorTable = new
+    internal_static_hts_account_SetInterestedTagsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_hts_account_UpdateUserInterestsRequest_descriptor,
+        internal_static_hts_account_SetInterestedTagsRequest_descriptor,
         new java.lang.String[] { "UserId", "TagIds", });
-    internal_static_hts_account_GetUserOrganizationsByUserIdResponse_descriptor =
+    internal_static_hts_account_SetInterestedEventsRequest_descriptor =
       getDescriptor().getMessageTypes().get(11);
+    internal_static_hts_account_SetInterestedEventsRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_account_SetInterestedEventsRequest_descriptor,
+        new java.lang.String[] { "UserId", "EventIds", });
+    internal_static_hts_account_GetUserOrganizationsByUserIdResponse_descriptor =
+      getDescriptor().getMessageTypes().get(12);
     internal_static_hts_account_GetUserOrganizationsByUserIdResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_account_GetUserOrganizationsByUserIdResponse_descriptor,
         new java.lang.String[] { "UserOrganizations", });
     internal_static_hts_account_GetUserOrganizationsByOrganizationIdResponse_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_hts_account_GetUserOrganizationsByOrganizationIdResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_account_GetUserOrganizationsByOrganizationIdResponse_descriptor,

@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface UpdateUserInterestsRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.account.UpdateUserInterestsRequest)
+public interface SetInterestedTagsRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.account.SetInterestedTagsRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
