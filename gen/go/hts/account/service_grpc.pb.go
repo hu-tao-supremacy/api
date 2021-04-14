@@ -26,7 +26,8 @@ type AccountServiceClient interface {
 	GetUserByEmail(ctx context.Context, in *GetUserByEmailRequest, opts ...grpc.CallOption) (*common.User, error)
 	IsAuthenticated(ctx context.Context, in *IsAuthenticatedRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 	UpdateAccountInfo(ctx context.Context, in *common.User, opts ...grpc.CallOption) (*common.User, error)
-	UpdateUserInterests(ctx context.Context, in *UpdateUserInterestsRequest, opts ...grpc.CallOption) (*common.User, error)
+	SetInterestedTags(ctx context.Context, in *SetInterestedTagsRequest, opts ...grpc.CallOption) (*common.User, error)
+	SetInterestedEvents(ctx context.Context, in *SetInterestedEventsRequest, opts ...grpc.CallOption) (*common.User, error)
 	GetUserById(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*common.User, error)
 	GenerateAccessToken(ctx context.Context, in *GenerateAccessTokenRequest, opts ...grpc.CallOption) (*GenerateAccessTokenResponse, error)
 	HasPermission(ctx context.Context, in *HasPermissionRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
@@ -90,9 +91,18 @@ func (c *accountServiceClient) UpdateAccountInfo(ctx context.Context, in *common
 	return out, nil
 }
 
-func (c *accountServiceClient) UpdateUserInterests(ctx context.Context, in *UpdateUserInterestsRequest, opts ...grpc.CallOption) (*common.User, error) {
+func (c *accountServiceClient) SetInterestedTags(ctx context.Context, in *SetInterestedTagsRequest, opts ...grpc.CallOption) (*common.User, error) {
 	out := new(common.User)
-	err := c.cc.Invoke(ctx, "/hts.account.AccountService/UpdateUserInterests", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/hts.account.AccountService/SetInterestedTags", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountServiceClient) SetInterestedEvents(ctx context.Context, in *SetInterestedEventsRequest, opts ...grpc.CallOption) (*common.User, error) {
+	out := new(common.User)
+	err := c.cc.Invoke(ctx, "/hts.account.AccountService/SetInterestedEvents", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -180,7 +190,8 @@ type AccountServiceServer interface {
 	GetUserByEmail(context.Context, *GetUserByEmailRequest) (*common.User, error)
 	IsAuthenticated(context.Context, *IsAuthenticatedRequest) (*wrapperspb.BoolValue, error)
 	UpdateAccountInfo(context.Context, *common.User) (*common.User, error)
-	UpdateUserInterests(context.Context, *UpdateUserInterestsRequest) (*common.User, error)
+	SetInterestedTags(context.Context, *SetInterestedTagsRequest) (*common.User, error)
+	SetInterestedEvents(context.Context, *SetInterestedEventsRequest) (*common.User, error)
 	GetUserById(context.Context, *common.GetObjectByIdRequest) (*common.User, error)
 	GenerateAccessToken(context.Context, *GenerateAccessTokenRequest) (*GenerateAccessTokenResponse, error)
 	HasPermission(context.Context, *HasPermissionRequest) (*wrapperspb.BoolValue, error)
@@ -211,8 +222,11 @@ func (UnimplementedAccountServiceServer) IsAuthenticated(context.Context, *IsAut
 func (UnimplementedAccountServiceServer) UpdateAccountInfo(context.Context, *common.User) (*common.User, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateAccountInfo not implemented")
 }
-func (UnimplementedAccountServiceServer) UpdateUserInterests(context.Context, *UpdateUserInterestsRequest) (*common.User, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateUserInterests not implemented")
+func (UnimplementedAccountServiceServer) SetInterestedTags(context.Context, *SetInterestedTagsRequest) (*common.User, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SetInterestedTags not implemented")
+}
+func (UnimplementedAccountServiceServer) SetInterestedEvents(context.Context, *SetInterestedEventsRequest) (*common.User, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SetInterestedEvents not implemented")
 }
 func (UnimplementedAccountServiceServer) GetUserById(context.Context, *common.GetObjectByIdRequest) (*common.User, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserById not implemented")
@@ -341,20 +355,38 @@ func _AccountService_UpdateAccountInfo_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccountService_UpdateUserInterests_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateUserInterestsRequest)
+func _AccountService_SetInterestedTags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetInterestedTagsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccountServiceServer).UpdateUserInterests(ctx, in)
+		return srv.(AccountServiceServer).SetInterestedTags(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/hts.account.AccountService/UpdateUserInterests",
+		FullMethod: "/hts.account.AccountService/SetInterestedTags",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountServiceServer).UpdateUserInterests(ctx, req.(*UpdateUserInterestsRequest))
+		return srv.(AccountServiceServer).SetInterestedTags(ctx, req.(*SetInterestedTagsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountService_SetInterestedEvents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetInterestedEventsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountServiceServer).SetInterestedEvents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.account.AccountService/SetInterestedEvents",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountServiceServer).SetInterestedEvents(ctx, req.(*SetInterestedEventsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -531,8 +563,12 @@ var AccountService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _AccountService_UpdateAccountInfo_Handler,
 		},
 		{
-			MethodName: "UpdateUserInterests",
-			Handler:    _AccountService_UpdateUserInterests_Handler,
+			MethodName: "SetInterestedTags",
+			Handler:    _AccountService_SetInterestedTags_Handler,
+		},
+		{
+			MethodName: "SetInterestedEvents",
+			Handler:    _AccountService_SetInterestedEvents_Handler,
 		},
 		{
 			MethodName: "GetUserById",
