@@ -70,9 +70,14 @@ export interface RemoveRoleRequest {
   role: Role;
 }
 
-export interface UpdateUserInterestsRequest {
+export interface SetInterestedTagsRequest {
   userId: number;
   tagIds: number[];
+}
+
+export interface SetInterestedEventsRequest {
+  userId: number;
+  eventIds: number[];
 }
 
 export interface GetUserOrganizationsByUserIdResponse {
@@ -96,7 +101,9 @@ export interface AccountServiceClient {
 
   updateAccountInfo(request: User): Observable<User>;
 
-  updateUserInterests(request: UpdateUserInterestsRequest): Observable<User>;
+  setInterestedTags(request: SetInterestedTagsRequest): Observable<User>;
+
+  setInterestedEvents(request: SetInterestedEventsRequest): Observable<User>;
 
   getUserById(request: GetObjectByIdRequest): Observable<User>;
 
@@ -140,8 +147,12 @@ export interface AccountServiceController {
 
   updateAccountInfo(request: User): Promise<User> | Observable<User> | User;
 
-  updateUserInterests(
-    request: UpdateUserInterestsRequest
+  setInterestedTags(
+    request: SetInterestedTagsRequest
+  ): Promise<User> | Observable<User> | User;
+
+  setInterestedEvents(
+    request: SetInterestedEventsRequest
   ): Promise<User> | Observable<User> | User;
 
   getUserById(
@@ -192,7 +203,8 @@ export function AccountServiceControllerMethods() {
       "getUserByEmail",
       "isAuthenticated",
       "updateAccountInfo",
-      "updateUserInterests",
+      "setInterestedTags",
+      "setInterestedEvents",
       "getUserById",
       "generateAccessToken",
       "hasPermission",
