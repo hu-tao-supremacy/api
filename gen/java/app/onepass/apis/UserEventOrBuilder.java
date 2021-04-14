@@ -65,4 +65,10 @@ public interface UserEventOrBuilder extends
    * @return The status.
    */
   app.onepass.apis.UserEvent.Status getStatus();
+
+  /**
+   * <code>bool is_internal = 7 [json_name = "isInternal"];</code>
+   * @return The isInternal.
+   */
+  boolean getIsInternal();
 }

@@ -96,6 +96,11 @@ private static final long serialVersionUID = 0L;
             status_ = rawValue;
             break;
           }
+          case 56: {
+
+            isInternal_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -358,6 +363,17 @@ private static final long serialVersionUID = 0L;
     return result == null ? app.onepass.apis.UserEvent.Status.UNRECOGNIZED : result;
   }
 
+  public static final int IS_INTERNAL_FIELD_NUMBER = 7;
+  private boolean isInternal_;
+  /**
+   * <code>bool is_internal = 7 [json_name = "isInternal"];</code>
+   * @return The isInternal.
+   */
+  @java.lang.Override
+  public boolean getIsInternal() {
+    return isInternal_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -389,6 +405,9 @@ private static final long serialVersionUID = 0L;
     }
     if (status_ != app.onepass.apis.UserEvent.Status.STATUS_UNSPECIFIED.getNumber()) {
       output.writeEnum(6, status_);
+    }
+    if (isInternal_ != false) {
+      output.writeBool(7, isInternal_);
     }
     unknownFields.writeTo(output);
   }
@@ -423,6 +442,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(6, status_);
     }
+    if (isInternal_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(7, isInternal_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -455,6 +478,8 @@ private static final long serialVersionUID = 0L;
           .equals(other.getTicket())) return false;
     }
     if (status_ != other.status_) return false;
+    if (getIsInternal()
+        != other.getIsInternal()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -482,6 +507,9 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + STATUS_FIELD_NUMBER;
     hash = (53 * hash) + status_;
+    hash = (37 * hash) + IS_INTERNAL_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIsInternal());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -635,6 +663,8 @@ private static final long serialVersionUID = 0L;
       }
       status_ = 0;
 
+      isInternal_ = false;
+
       return this;
     }
 
@@ -675,6 +705,7 @@ private static final long serialVersionUID = 0L;
         result.ticket_ = ticketBuilder_.build();
       }
       result.status_ = status_;
+      result.isInternal_ = isInternal_;
       onBuilt();
       return result;
     }
@@ -740,6 +771,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.status_ != 0) {
         setStatusValue(other.getStatusValue());
+      }
+      if (other.getIsInternal() != false) {
+        setIsInternal(other.getIsInternal());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1151,6 +1185,37 @@ private static final long serialVersionUID = 0L;
     public Builder clearStatus() {
       
       status_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private boolean isInternal_ ;
+    /**
+     * <code>bool is_internal = 7 [json_name = "isInternal"];</code>
+     * @return The isInternal.
+     */
+    @java.lang.Override
+    public boolean getIsInternal() {
+      return isInternal_;
+    }
+    /**
+     * <code>bool is_internal = 7 [json_name = "isInternal"];</code>
+     * @param value The isInternal to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIsInternal(boolean value) {
+      
+      isInternal_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool is_internal = 7 [json_name = "isInternal"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIsInternal() {
+      
+      isInternal_ = false;
       onChanged();
       return this;
     }
