@@ -42,9 +42,14 @@ class AccountServiceStub(object):
                 request_serializer=hts_dot_common_dot_common__pb2.User.SerializeToString,
                 response_deserializer=hts_dot_common_dot_common__pb2.User.FromString,
                 )
-        self.UpdateUserInterests = channel.unary_unary(
-                '/hts.account.AccountService/UpdateUserInterests',
-                request_serializer=hts_dot_account_dot_service__pb2.UpdateUserInterestsRequest.SerializeToString,
+        self.SetInterestedTags = channel.unary_unary(
+                '/hts.account.AccountService/SetInterestedTags',
+                request_serializer=hts_dot_account_dot_service__pb2.SetInterestedTagsRequest.SerializeToString,
+                response_deserializer=hts_dot_common_dot_common__pb2.User.FromString,
+                )
+        self.SetInterestedEvents = channel.unary_unary(
+                '/hts.account.AccountService/SetInterestedEvents',
+                request_serializer=hts_dot_account_dot_service__pb2.SetInterestedEventsRequest.SerializeToString,
                 response_deserializer=hts_dot_common_dot_common__pb2.User.FromString,
                 )
         self.GetUserById = channel.unary_unary(
@@ -122,7 +127,13 @@ class AccountServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UpdateUserInterests(self, request, context):
+    def SetInterestedTags(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetInterestedEvents(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -204,9 +215,14 @@ def add_AccountServiceServicer_to_server(servicer, server):
                     request_deserializer=hts_dot_common_dot_common__pb2.User.FromString,
                     response_serializer=hts_dot_common_dot_common__pb2.User.SerializeToString,
             ),
-            'UpdateUserInterests': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateUserInterests,
-                    request_deserializer=hts_dot_account_dot_service__pb2.UpdateUserInterestsRequest.FromString,
+            'SetInterestedTags': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetInterestedTags,
+                    request_deserializer=hts_dot_account_dot_service__pb2.SetInterestedTagsRequest.FromString,
+                    response_serializer=hts_dot_common_dot_common__pb2.User.SerializeToString,
+            ),
+            'SetInterestedEvents': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetInterestedEvents,
+                    request_deserializer=hts_dot_account_dot_service__pb2.SetInterestedEventsRequest.FromString,
                     response_serializer=hts_dot_common_dot_common__pb2.User.SerializeToString,
             ),
             'GetUserById': grpc.unary_unary_rpc_method_handler(
@@ -345,7 +361,7 @@ class AccountService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def UpdateUserInterests(request,
+    def SetInterestedTags(request,
             target,
             options=(),
             channel_credentials=None,
@@ -355,8 +371,25 @@ class AccountService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hts.account.AccountService/UpdateUserInterests',
-            hts_dot_account_dot_service__pb2.UpdateUserInterestsRequest.SerializeToString,
+        return grpc.experimental.unary_unary(request, target, '/hts.account.AccountService/SetInterestedTags',
+            hts_dot_account_dot_service__pb2.SetInterestedTagsRequest.SerializeToString,
+            hts_dot_common_dot_common__pb2.User.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetInterestedEvents(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.account.AccountService/SetInterestedEvents',
+            hts_dot_account_dot_service__pb2.SetInterestedEventsRequest.SerializeToString,
             hts_dot_common_dot_common__pb2.User.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
