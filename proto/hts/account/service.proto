@@ -71,9 +71,14 @@ message RemoveRoleRequest {
   Role role = 3;
 }
 
-message UpdateUserInterestsRequest {
+message SetInterestedTagsRequest {
   int32 user_id = 1;
   repeated int32 tag_ids = 2;
+}
+
+message SetInterestedEventsRequest {
+  int32 user_id = 1;
+  repeated int32 event_ids = 2;
 }
 
 message GetUserOrganizationsByUserIdResponse {
@@ -90,7 +95,8 @@ service AccountService {
   rpc GetUserByEmail(GetUserByEmailRequest) returns (hts.common.User);
   rpc IsAuthenticated(IsAuthenticatedRequest) returns (google.protobuf.BoolValue);
   rpc UpdateAccountInfo(hts.common.User) returns (hts.common.User);
-  rpc UpdateUserInterests(UpdateUserInterestsRequest) returns (hts.common.User);
+  rpc SetInterestedTags(SetInterestedTagsRequest) returns (hts.common.User);
+  rpc SetInterestedEvents(SetInterestedEventsRequest) returns (hts.common.User);
   rpc GetUserById(hts.common.GetObjectByIdRequest) returns (hts.common.User);
   rpc GenerateAccessToken(GenerateAccessTokenRequest) returns (GenerateAccessTokenResponse);
   rpc HasPermission(HasPermissionRequest) returns (google.protobuf.BoolValue);
