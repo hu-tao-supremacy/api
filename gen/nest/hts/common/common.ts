@@ -164,6 +164,7 @@ export interface UserEvent {
   rating: Int32Value | undefined;
   ticket: StringValue | undefined;
   status: UserEvent_Status;
+  isInternal: boolean;
 }
 
 export enum UserEvent_Status {
