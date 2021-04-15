@@ -127,6 +127,41 @@ class OrganizerServiceStub(object):
                 request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
                 response_deserializer=hts_dot_organizer_dot_service__pb2.AnswerListResponse.FromString,
                 )
+        self.CreateLocation = channel.unary_unary(
+                '/hts.organizer.OrganizerService/CreateLocation',
+                request_serializer=hts_dot_organizer_dot_service__pb2.CreateLocationRequest.SerializeToString,
+                response_deserializer=hts_dot_common_dot_common__pb2.Location.FromString,
+                )
+        self.GetLocations = channel.unary_unary(
+                '/hts.organizer.OrganizerService/GetLocations',
+                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                response_deserializer=hts_dot_organizer_dot_service__pb2.LocationListResponse.FromString,
+                )
+        self.GetLocationById = channel.unary_unary(
+                '/hts.organizer.OrganizerService/GetLocationById',
+                request_serializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
+                response_deserializer=hts_dot_common_dot_common__pb2.Location.FromString,
+                )
+        self.SearchLocationsByName = channel.unary_unary(
+                '/hts.organizer.OrganizerService/SearchLocationsByName',
+                request_serializer=hts_dot_common_dot_common__pb2.GetObjectByNameRequest.SerializeToString,
+                response_deserializer=hts_dot_organizer_dot_service__pb2.LocationListResponse.FromString,
+                )
+        self.UpdateLocation = channel.unary_unary(
+                '/hts.organizer.OrganizerService/UpdateLocation',
+                request_serializer=hts_dot_organizer_dot_service__pb2.UpdateLocationRequest.SerializeToString,
+                response_deserializer=hts_dot_common_dot_common__pb2.Location.FromString,
+                )
+        self.RemoveLocation = channel.unary_unary(
+                '/hts.organizer.OrganizerService/RemoveLocation',
+                request_serializer=hts_dot_organizer_dot_service__pb2.RemoveLocationRequest.SerializeToString,
+                response_deserializer=hts_dot_common_dot_common__pb2.Location.FromString,
+                )
+        self.GenerateTicket = channel.unary_unary(
+                '/hts.organizer.OrganizerService/GenerateTicket',
+                request_serializer=hts_dot_organizer_dot_service__pb2.GenerateTicketRequest.SerializeToString,
+                response_deserializer=hts_dot_common_dot_common__pb2.UserEvent.FromString,
+                )
         self.Ping = channel.unary_unary(
                 '/hts.organizer.OrganizerService/Ping',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
@@ -269,6 +304,48 @@ class OrganizerServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateLocation(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetLocations(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetLocationById(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SearchLocationsByName(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateLocation(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RemoveLocation(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GenerateTicket(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def Ping(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -387,6 +464,41 @@ def add_OrganizerServiceServicer_to_server(servicer, server):
                     servicer.GetAnswersByQuestionId,
                     request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
                     response_serializer=hts_dot_organizer_dot_service__pb2.AnswerListResponse.SerializeToString,
+            ),
+            'CreateLocation': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateLocation,
+                    request_deserializer=hts_dot_organizer_dot_service__pb2.CreateLocationRequest.FromString,
+                    response_serializer=hts_dot_common_dot_common__pb2.Location.SerializeToString,
+            ),
+            'GetLocations': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetLocations,
+                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                    response_serializer=hts_dot_organizer_dot_service__pb2.LocationListResponse.SerializeToString,
+            ),
+            'GetLocationById': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetLocationById,
+                    request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByIdRequest.FromString,
+                    response_serializer=hts_dot_common_dot_common__pb2.Location.SerializeToString,
+            ),
+            'SearchLocationsByName': grpc.unary_unary_rpc_method_handler(
+                    servicer.SearchLocationsByName,
+                    request_deserializer=hts_dot_common_dot_common__pb2.GetObjectByNameRequest.FromString,
+                    response_serializer=hts_dot_organizer_dot_service__pb2.LocationListResponse.SerializeToString,
+            ),
+            'UpdateLocation': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateLocation,
+                    request_deserializer=hts_dot_organizer_dot_service__pb2.UpdateLocationRequest.FromString,
+                    response_serializer=hts_dot_common_dot_common__pb2.Location.SerializeToString,
+            ),
+            'RemoveLocation': grpc.unary_unary_rpc_method_handler(
+                    servicer.RemoveLocation,
+                    request_deserializer=hts_dot_organizer_dot_service__pb2.RemoveLocationRequest.FromString,
+                    response_serializer=hts_dot_common_dot_common__pb2.Location.SerializeToString,
+            ),
+            'GenerateTicket': grpc.unary_unary_rpc_method_handler(
+                    servicer.GenerateTicket,
+                    request_deserializer=hts_dot_organizer_dot_service__pb2.GenerateTicketRequest.FromString,
+                    response_serializer=hts_dot_common_dot_common__pb2.UserEvent.SerializeToString,
             ),
             'Ping': grpc.unary_unary_rpc_method_handler(
                     servicer.Ping,
@@ -774,6 +886,125 @@ class OrganizerService(object):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/GetAnswersByQuestionId',
             hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
             hts_dot_organizer_dot_service__pb2.AnswerListResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateLocation(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/CreateLocation',
+            hts_dot_organizer_dot_service__pb2.CreateLocationRequest.SerializeToString,
+            hts_dot_common_dot_common__pb2.Location.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetLocations(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/GetLocations',
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            hts_dot_organizer_dot_service__pb2.LocationListResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetLocationById(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/GetLocationById',
+            hts_dot_common_dot_common__pb2.GetObjectByIdRequest.SerializeToString,
+            hts_dot_common_dot_common__pb2.Location.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SearchLocationsByName(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/SearchLocationsByName',
+            hts_dot_common_dot_common__pb2.GetObjectByNameRequest.SerializeToString,
+            hts_dot_organizer_dot_service__pb2.LocationListResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateLocation(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/UpdateLocation',
+            hts_dot_organizer_dot_service__pb2.UpdateLocationRequest.SerializeToString,
+            hts_dot_common_dot_common__pb2.Location.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RemoveLocation(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/RemoveLocation',
+            hts_dot_organizer_dot_service__pb2.RemoveLocationRequest.SerializeToString,
+            hts_dot_common_dot_common__pb2.Location.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GenerateTicket(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/GenerateTicket',
+            hts_dot_organizer_dot_service__pb2.GenerateTicketRequest.SerializeToString,
+            hts_dot_common_dot_common__pb2.UserEvent.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
