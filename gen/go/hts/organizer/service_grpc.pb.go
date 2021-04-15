@@ -43,6 +43,13 @@ type OrganizerServiceClient interface {
 	AddQuestions(ctx context.Context, in *AddQuestionsRequest, opts ...grpc.CallOption) (*QuestionListResponse, error)
 	RemoveQuestions(ctx context.Context, in *RemoveQuestionsRequest, opts ...grpc.CallOption) (*QuestionListResponse, error)
 	GetAnswersByQuestionId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*AnswerListResponse, error)
+	CreateLocation(ctx context.Context, in *CreateLocationRequest, opts ...grpc.CallOption) (*common.Location, error)
+	GetLocations(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*LocationListResponse, error)
+	GetLocationById(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*common.Location, error)
+	SearchLocationsByName(ctx context.Context, in *common.GetObjectByNameRequest, opts ...grpc.CallOption) (*LocationListResponse, error)
+	UpdateLocation(ctx context.Context, in *UpdateLocationRequest, opts ...grpc.CallOption) (*common.Location, error)
+	RemoveLocation(ctx context.Context, in *RemoveLocationRequest, opts ...grpc.CallOption) (*common.Location, error)
+	GenerateTicket(ctx context.Context, in *GenerateTicketRequest, opts ...grpc.CallOption) (*common.UserEvent, error)
 	Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 }
 
@@ -252,6 +259,69 @@ func (c *organizerServiceClient) GetAnswersByQuestionId(ctx context.Context, in 
 	return out, nil
 }
 
+func (c *organizerServiceClient) CreateLocation(ctx context.Context, in *CreateLocationRequest, opts ...grpc.CallOption) (*common.Location, error) {
+	out := new(common.Location)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/CreateLocation", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *organizerServiceClient) GetLocations(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*LocationListResponse, error) {
+	out := new(LocationListResponse)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/GetLocations", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *organizerServiceClient) GetLocationById(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*common.Location, error) {
+	out := new(common.Location)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/GetLocationById", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *organizerServiceClient) SearchLocationsByName(ctx context.Context, in *common.GetObjectByNameRequest, opts ...grpc.CallOption) (*LocationListResponse, error) {
+	out := new(LocationListResponse)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/SearchLocationsByName", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *organizerServiceClient) UpdateLocation(ctx context.Context, in *UpdateLocationRequest, opts ...grpc.CallOption) (*common.Location, error) {
+	out := new(common.Location)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/UpdateLocation", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *organizerServiceClient) RemoveLocation(ctx context.Context, in *RemoveLocationRequest, opts ...grpc.CallOption) (*common.Location, error) {
+	out := new(common.Location)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/RemoveLocation", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *organizerServiceClient) GenerateTicket(ctx context.Context, in *GenerateTicketRequest, opts ...grpc.CallOption) (*common.UserEvent, error) {
+	out := new(common.UserEvent)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/GenerateTicket", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *organizerServiceClient) Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error) {
 	out := new(wrapperspb.BoolValue)
 	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/Ping", in, out, opts...)
@@ -287,6 +357,13 @@ type OrganizerServiceServer interface {
 	AddQuestions(context.Context, *AddQuestionsRequest) (*QuestionListResponse, error)
 	RemoveQuestions(context.Context, *RemoveQuestionsRequest) (*QuestionListResponse, error)
 	GetAnswersByQuestionId(context.Context, *common.GetObjectByIdRequest) (*AnswerListResponse, error)
+	CreateLocation(context.Context, *CreateLocationRequest) (*common.Location, error)
+	GetLocations(context.Context, *emptypb.Empty) (*LocationListResponse, error)
+	GetLocationById(context.Context, *common.GetObjectByIdRequest) (*common.Location, error)
+	SearchLocationsByName(context.Context, *common.GetObjectByNameRequest) (*LocationListResponse, error)
+	UpdateLocation(context.Context, *UpdateLocationRequest) (*common.Location, error)
+	RemoveLocation(context.Context, *RemoveLocationRequest) (*common.Location, error)
+	GenerateTicket(context.Context, *GenerateTicketRequest) (*common.UserEvent, error)
 	Ping(context.Context, *emptypb.Empty) (*wrapperspb.BoolValue, error)
 	mustEmbedUnimplementedOrganizerServiceServer()
 }
@@ -360,6 +437,27 @@ func (UnimplementedOrganizerServiceServer) RemoveQuestions(context.Context, *Rem
 }
 func (UnimplementedOrganizerServiceServer) GetAnswersByQuestionId(context.Context, *common.GetObjectByIdRequest) (*AnswerListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAnswersByQuestionId not implemented")
+}
+func (UnimplementedOrganizerServiceServer) CreateLocation(context.Context, *CreateLocationRequest) (*common.Location, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateLocation not implemented")
+}
+func (UnimplementedOrganizerServiceServer) GetLocations(context.Context, *emptypb.Empty) (*LocationListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetLocations not implemented")
+}
+func (UnimplementedOrganizerServiceServer) GetLocationById(context.Context, *common.GetObjectByIdRequest) (*common.Location, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetLocationById not implemented")
+}
+func (UnimplementedOrganizerServiceServer) SearchLocationsByName(context.Context, *common.GetObjectByNameRequest) (*LocationListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchLocationsByName not implemented")
+}
+func (UnimplementedOrganizerServiceServer) UpdateLocation(context.Context, *UpdateLocationRequest) (*common.Location, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateLocation not implemented")
+}
+func (UnimplementedOrganizerServiceServer) RemoveLocation(context.Context, *RemoveLocationRequest) (*common.Location, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveLocation not implemented")
+}
+func (UnimplementedOrganizerServiceServer) GenerateTicket(context.Context, *GenerateTicketRequest) (*common.UserEvent, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GenerateTicket not implemented")
 }
 func (UnimplementedOrganizerServiceServer) Ping(context.Context, *emptypb.Empty) (*wrapperspb.BoolValue, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Ping not implemented")
@@ -773,6 +871,132 @@ func _OrganizerService_GetAnswersByQuestionId_Handler(srv interface{}, ctx conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _OrganizerService_CreateLocation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateLocationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrganizerServiceServer).CreateLocation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.organizer.OrganizerService/CreateLocation",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrganizerServiceServer).CreateLocation(ctx, req.(*CreateLocationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OrganizerService_GetLocations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(emptypb.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrganizerServiceServer).GetLocations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.organizer.OrganizerService/GetLocations",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrganizerServiceServer).GetLocations(ctx, req.(*emptypb.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OrganizerService_GetLocationById_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(common.GetObjectByIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrganizerServiceServer).GetLocationById(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.organizer.OrganizerService/GetLocationById",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrganizerServiceServer).GetLocationById(ctx, req.(*common.GetObjectByIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OrganizerService_SearchLocationsByName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(common.GetObjectByNameRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrganizerServiceServer).SearchLocationsByName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.organizer.OrganizerService/SearchLocationsByName",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrganizerServiceServer).SearchLocationsByName(ctx, req.(*common.GetObjectByNameRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OrganizerService_UpdateLocation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateLocationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrganizerServiceServer).UpdateLocation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.organizer.OrganizerService/UpdateLocation",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrganizerServiceServer).UpdateLocation(ctx, req.(*UpdateLocationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OrganizerService_RemoveLocation_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveLocationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrganizerServiceServer).RemoveLocation(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.organizer.OrganizerService/RemoveLocation",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrganizerServiceServer).RemoveLocation(ctx, req.(*RemoveLocationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OrganizerService_GenerateTicket_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GenerateTicketRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrganizerServiceServer).GenerateTicket(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.organizer.OrganizerService/GenerateTicket",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrganizerServiceServer).GenerateTicket(ctx, req.(*GenerateTicketRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _OrganizerService_Ping_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
@@ -885,6 +1109,34 @@ var OrganizerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAnswersByQuestionId",
 			Handler:    _OrganizerService_GetAnswersByQuestionId_Handler,
+		},
+		{
+			MethodName: "CreateLocation",
+			Handler:    _OrganizerService_CreateLocation_Handler,
+		},
+		{
+			MethodName: "GetLocations",
+			Handler:    _OrganizerService_GetLocations_Handler,
+		},
+		{
+			MethodName: "GetLocationById",
+			Handler:    _OrganizerService_GetLocationById_Handler,
+		},
+		{
+			MethodName: "SearchLocationsByName",
+			Handler:    _OrganizerService_SearchLocationsByName_Handler,
+		},
+		{
+			MethodName: "UpdateLocation",
+			Handler:    _OrganizerService_UpdateLocation_Handler,
+		},
+		{
+			MethodName: "RemoveLocation",
+			Handler:    _OrganizerService_RemoveLocation_Handler,
+		},
+		{
+			MethodName: "GenerateTicket",
+			Handler:    _OrganizerService_GenerateTicket_Handler,
 		},
 		{
 			MethodName: "Ping",
