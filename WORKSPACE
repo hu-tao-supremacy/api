@@ -1,4 +1,4 @@
-workspace(name = "hu-tao-supremacy")
+workspace(name = "hu-tao-supremacy-api")
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
