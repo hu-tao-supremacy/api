@@ -4,25 +4,26 @@
 package app.onepass.apis;
 
 /**
- * Protobuf type {@code hts.common.UserInterest}
+ * Protobuf type {@code hts.common.GetObjectByNameRequest}
  */
-public final class UserInterest extends
+public final class GetObjectByNameRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:hts.common.UserInterest)
-    UserInterestOrBuilder {
+    // @@protoc_insertion_point(message_implements:hts.common.GetObjectByNameRequest)
+    GetObjectByNameRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use UserInterest.newBuilder() to construct.
-  private UserInterest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use GetObjectByNameRequest.newBuilder() to construct.
+  private GetObjectByNameRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private UserInterest() {
+  private GetObjectByNameRequest() {
+    name_ = "";
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new UserInterest();
+    return new GetObjectByNameRequest();
   }
 
   @java.lang.Override
@@ -30,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UserInterest(
+  private GetObjectByNameRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -48,19 +49,10 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 8: {
+          case 10: {
+            java.lang.String s = input.readStringRequireUtf8();
 
-            id_ = input.readInt32();
-            break;
-          }
-          case 16: {
-
-            userId_ = input.readInt32();
-            break;
-          }
-          case 24: {
-
-            tagId_ = input.readInt32();
+            name_ = s;
             break;
           }
           default: {
@@ -84,48 +76,53 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return app.onepass.apis.CommonProto.internal_static_hts_common_UserInterest_descriptor;
+    return app.onepass.apis.CommonProto.internal_static_hts_common_GetObjectByNameRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return app.onepass.apis.CommonProto.internal_static_hts_common_UserInterest_fieldAccessorTable
+    return app.onepass.apis.CommonProto.internal_static_hts_common_GetObjectByNameRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            app.onepass.apis.UserInterest.class, app.onepass.apis.UserInterest.Builder.class);
+            app.onepass.apis.GetObjectByNameRequest.class, app.onepass.apis.GetObjectByNameRequest.Builder.class);
   }
 
-  public static final int ID_FIELD_NUMBER = 1;
-  private int id_;
+  public static final int NAME_FIELD_NUMBER = 1;
+  private volatile java.lang.Object name_;
   /**
-   * <code>int32 id = 1 [json_name = "id"];</code>
-   * @return The id.
+   * <code>string name = 1 [json_name = "name"];</code>
+   * @return The name.
    */
   @java.lang.Override
-  public int getId() {
-    return id_;
+  public java.lang.String getName() {
+    java.lang.Object ref = name_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      name_ = s;
+      return s;
+    }
   }
-
-  public static final int USER_ID_FIELD_NUMBER = 2;
-  private int userId_;
   /**
-   * <code>int32 user_id = 2 [json_name = "userId"];</code>
-   * @return The userId.
+   * <code>string name = 1 [json_name = "name"];</code>
+   * @return The bytes for name.
    */
   @java.lang.Override
-  public int getUserId() {
-    return userId_;
-  }
-
-  public static final int TAG_ID_FIELD_NUMBER = 3;
-  private int tagId_;
-  /**
-   * <code>int32 tag_id = 3 [json_name = "tagId"];</code>
-   * @return The tagId.
-   */
-  @java.lang.Override
-  public int getTagId() {
-    return tagId_;
+  public com.google.protobuf.ByteString
+      getNameBytes() {
+    java.lang.Object ref = name_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      name_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -142,14 +139,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (id_ != 0) {
-      output.writeInt32(1, id_);
-    }
-    if (userId_ != 0) {
-      output.writeInt32(2, userId_);
-    }
-    if (tagId_ != 0) {
-      output.writeInt32(3, tagId_);
+    if (!getNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
     }
     unknownFields.writeTo(output);
   }
@@ -160,17 +151,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (id_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, id_);
-    }
-    if (userId_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, userId_);
-    }
-    if (tagId_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(3, tagId_);
+    if (!getNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -182,17 +164,13 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof app.onepass.apis.UserInterest)) {
+    if (!(obj instanceof app.onepass.apis.GetObjectByNameRequest)) {
       return super.equals(obj);
     }
-    app.onepass.apis.UserInterest other = (app.onepass.apis.UserInterest) obj;
+    app.onepass.apis.GetObjectByNameRequest other = (app.onepass.apis.GetObjectByNameRequest) obj;
 
-    if (getId()
-        != other.getId()) return false;
-    if (getUserId()
-        != other.getUserId()) return false;
-    if (getTagId()
-        != other.getTagId()) return false;
+    if (!getName()
+        .equals(other.getName())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -204,80 +182,76 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ID_FIELD_NUMBER;
-    hash = (53 * hash) + getId();
-    hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getUserId();
-    hash = (37 * hash) + TAG_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getTagId();
+    hash = (37 * hash) + NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getName().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static app.onepass.apis.UserInterest parseFrom(
+  public static app.onepass.apis.GetObjectByNameRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.UserInterest parseFrom(
+  public static app.onepass.apis.GetObjectByNameRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.UserInterest parseFrom(
+  public static app.onepass.apis.GetObjectByNameRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.UserInterest parseFrom(
+  public static app.onepass.apis.GetObjectByNameRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.UserInterest parseFrom(byte[] data)
+  public static app.onepass.apis.GetObjectByNameRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static app.onepass.apis.UserInterest parseFrom(
+  public static app.onepass.apis.GetObjectByNameRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static app.onepass.apis.UserInterest parseFrom(java.io.InputStream input)
+  public static app.onepass.apis.GetObjectByNameRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.UserInterest parseFrom(
+  public static app.onepass.apis.GetObjectByNameRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.UserInterest parseDelimitedFrom(java.io.InputStream input)
+  public static app.onepass.apis.GetObjectByNameRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.UserInterest parseDelimitedFrom(
+  public static app.onepass.apis.GetObjectByNameRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static app.onepass.apis.UserInterest parseFrom(
+  public static app.onepass.apis.GetObjectByNameRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static app.onepass.apis.UserInterest parseFrom(
+  public static app.onepass.apis.GetObjectByNameRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -290,7 +264,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(app.onepass.apis.UserInterest prototype) {
+  public static Builder newBuilder(app.onepass.apis.GetObjectByNameRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -306,26 +280,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code hts.common.UserInterest}
+   * Protobuf type {@code hts.common.GetObjectByNameRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:hts.common.UserInterest)
-      app.onepass.apis.UserInterestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:hts.common.GetObjectByNameRequest)
+      app.onepass.apis.GetObjectByNameRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return app.onepass.apis.CommonProto.internal_static_hts_common_UserInterest_descriptor;
+      return app.onepass.apis.CommonProto.internal_static_hts_common_GetObjectByNameRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return app.onepass.apis.CommonProto.internal_static_hts_common_UserInterest_fieldAccessorTable
+      return app.onepass.apis.CommonProto.internal_static_hts_common_GetObjectByNameRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              app.onepass.apis.UserInterest.class, app.onepass.apis.UserInterest.Builder.class);
+              app.onepass.apis.GetObjectByNameRequest.class, app.onepass.apis.GetObjectByNameRequest.Builder.class);
     }
 
-    // Construct using app.onepass.apis.UserInterest.newBuilder()
+    // Construct using app.onepass.apis.GetObjectByNameRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -343,11 +317,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      id_ = 0;
-
-      userId_ = 0;
-
-      tagId_ = 0;
+      name_ = "";
 
       return this;
     }
@@ -355,17 +325,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return app.onepass.apis.CommonProto.internal_static_hts_common_UserInterest_descriptor;
+      return app.onepass.apis.CommonProto.internal_static_hts_common_GetObjectByNameRequest_descriptor;
     }
 
     @java.lang.Override
-    public app.onepass.apis.UserInterest getDefaultInstanceForType() {
-      return app.onepass.apis.UserInterest.getDefaultInstance();
+    public app.onepass.apis.GetObjectByNameRequest getDefaultInstanceForType() {
+      return app.onepass.apis.GetObjectByNameRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public app.onepass.apis.UserInterest build() {
-      app.onepass.apis.UserInterest result = buildPartial();
+    public app.onepass.apis.GetObjectByNameRequest build() {
+      app.onepass.apis.GetObjectByNameRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -373,11 +343,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public app.onepass.apis.UserInterest buildPartial() {
-      app.onepass.apis.UserInterest result = new app.onepass.apis.UserInterest(this);
-      result.id_ = id_;
-      result.userId_ = userId_;
-      result.tagId_ = tagId_;
+    public app.onepass.apis.GetObjectByNameRequest buildPartial() {
+      app.onepass.apis.GetObjectByNameRequest result = new app.onepass.apis.GetObjectByNameRequest(this);
+      result.name_ = name_;
       onBuilt();
       return result;
     }
@@ -416,24 +384,19 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof app.onepass.apis.UserInterest) {
-        return mergeFrom((app.onepass.apis.UserInterest)other);
+      if (other instanceof app.onepass.apis.GetObjectByNameRequest) {
+        return mergeFrom((app.onepass.apis.GetObjectByNameRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(app.onepass.apis.UserInterest other) {
-      if (other == app.onepass.apis.UserInterest.getDefaultInstance()) return this;
-      if (other.getId() != 0) {
-        setId(other.getId());
-      }
-      if (other.getUserId() != 0) {
-        setUserId(other.getUserId());
-      }
-      if (other.getTagId() != 0) {
-        setTagId(other.getTagId());
+    public Builder mergeFrom(app.onepass.apis.GetObjectByNameRequest other) {
+      if (other == app.onepass.apis.GetObjectByNameRequest.getDefaultInstance()) return this;
+      if (!other.getName().isEmpty()) {
+        name_ = other.name_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -450,11 +413,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      app.onepass.apis.UserInterest parsedMessage = null;
+      app.onepass.apis.GetObjectByNameRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (app.onepass.apis.UserInterest) e.getUnfinishedMessage();
+        parsedMessage = (app.onepass.apis.GetObjectByNameRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -464,95 +427,78 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int id_ ;
+    private java.lang.Object name_ = "";
     /**
-     * <code>int32 id = 1 [json_name = "id"];</code>
-     * @return The id.
+     * <code>string name = 1 [json_name = "name"];</code>
+     * @return The name.
      */
-    @java.lang.Override
-    public int getId() {
-      return id_;
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <code>int32 id = 1 [json_name = "id"];</code>
-     * @param value The id to set.
+     * <code>string name = 1 [json_name = "name"];</code>
+     * @return The bytes for name.
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string name = 1 [json_name = "name"];</code>
+     * @param value The name to set.
      * @return This builder for chaining.
      */
-    public Builder setId(int value) {
-      
-      id_ = value;
+    public Builder setName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      name_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 id = 1 [json_name = "id"];</code>
+     * <code>string name = 1 [json_name = "name"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearId() {
+    public Builder clearName() {
       
-      id_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private int userId_ ;
-    /**
-     * <code>int32 user_id = 2 [json_name = "userId"];</code>
-     * @return The userId.
-     */
-    @java.lang.Override
-    public int getUserId() {
-      return userId_;
-    }
-    /**
-     * <code>int32 user_id = 2 [json_name = "userId"];</code>
-     * @param value The userId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setUserId(int value) {
-      
-      userId_ = value;
+      name_ = getDefaultInstance().getName();
       onChanged();
       return this;
     }
     /**
-     * <code>int32 user_id = 2 [json_name = "userId"];</code>
+     * <code>string name = 1 [json_name = "name"];</code>
+     * @param value The bytes for name to set.
      * @return This builder for chaining.
      */
-    public Builder clearUserId() {
+    public Builder setNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
       
-      userId_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private int tagId_ ;
-    /**
-     * <code>int32 tag_id = 3 [json_name = "tagId"];</code>
-     * @return The tagId.
-     */
-    @java.lang.Override
-    public int getTagId() {
-      return tagId_;
-    }
-    /**
-     * <code>int32 tag_id = 3 [json_name = "tagId"];</code>
-     * @param value The tagId to set.
-     * @return This builder for chaining.
-     */
-    public Builder setTagId(int value) {
-      
-      tagId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int32 tag_id = 3 [json_name = "tagId"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearTagId() {
-      
-      tagId_ = 0;
+      name_ = value;
       onChanged();
       return this;
     }
@@ -569,41 +515,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:hts.common.UserInterest)
+    // @@protoc_insertion_point(builder_scope:hts.common.GetObjectByNameRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:hts.common.UserInterest)
-  private static final app.onepass.apis.UserInterest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:hts.common.GetObjectByNameRequest)
+  private static final app.onepass.apis.GetObjectByNameRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new app.onepass.apis.UserInterest();
+    DEFAULT_INSTANCE = new app.onepass.apis.GetObjectByNameRequest();
   }
 
-  public static app.onepass.apis.UserInterest getDefaultInstance() {
+  public static app.onepass.apis.GetObjectByNameRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<UserInterest>
-      PARSER = new com.google.protobuf.AbstractParser<UserInterest>() {
+  private static final com.google.protobuf.Parser<GetObjectByNameRequest>
+      PARSER = new com.google.protobuf.AbstractParser<GetObjectByNameRequest>() {
     @java.lang.Override
-    public UserInterest parsePartialFrom(
+    public GetObjectByNameRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UserInterest(input, extensionRegistry);
+      return new GetObjectByNameRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<UserInterest> parser() {
+  public static com.google.protobuf.Parser<GetObjectByNameRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<UserInterest> getParserForType() {
+  public com.google.protobuf.Parser<GetObjectByNameRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public app.onepass.apis.UserInterest getDefaultInstanceForType() {
+  public app.onepass.apis.GetObjectByNameRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

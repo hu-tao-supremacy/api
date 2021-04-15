@@ -14,7 +14,7 @@ public interface UserInterestOrBuilder extends
   int getId();
 
   /**
-   * <code>int32 userId = 2 [json_name = "userId"];</code>
+   * <code>int32 user_id = 2 [json_name = "userId"];</code>
    * @return The userId.
    */
   int getUserId();

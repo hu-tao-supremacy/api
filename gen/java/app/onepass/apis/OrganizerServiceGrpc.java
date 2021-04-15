@@ -696,6 +696,223 @@ public final class OrganizerServiceGrpc {
     return getGetAnswersByQuestionIdMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.CreateLocationRequest,
+      app.onepass.apis.Location> getCreateLocationMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "CreateLocation",
+      requestType = app.onepass.apis.CreateLocationRequest.class,
+      responseType = app.onepass.apis.Location.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<app.onepass.apis.CreateLocationRequest,
+      app.onepass.apis.Location> getCreateLocationMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.CreateLocationRequest, app.onepass.apis.Location> getCreateLocationMethod;
+    if ((getCreateLocationMethod = OrganizerServiceGrpc.getCreateLocationMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getCreateLocationMethod = OrganizerServiceGrpc.getCreateLocationMethod) == null) {
+          OrganizerServiceGrpc.getCreateLocationMethod = getCreateLocationMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.CreateLocationRequest, app.onepass.apis.Location>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CreateLocation"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.CreateLocationRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.Location.getDefaultInstance()))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("CreateLocation"))
+              .build();
+        }
+      }
+    }
+    return getCreateLocationMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      app.onepass.apis.LocationListResponse> getGetLocationsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetLocations",
+      requestType = com.google.protobuf.Empty.class,
+      responseType = app.onepass.apis.LocationListResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<com.google.protobuf.Empty,
+      app.onepass.apis.LocationListResponse> getGetLocationsMethod() {
+    io.grpc.MethodDescriptor<com.google.protobuf.Empty, app.onepass.apis.LocationListResponse> getGetLocationsMethod;
+    if ((getGetLocationsMethod = OrganizerServiceGrpc.getGetLocationsMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getGetLocationsMethod = OrganizerServiceGrpc.getGetLocationsMethod) == null) {
+          OrganizerServiceGrpc.getGetLocationsMethod = getGetLocationsMethod =
+              io.grpc.MethodDescriptor.<com.google.protobuf.Empty, app.onepass.apis.LocationListResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetLocations"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.google.protobuf.Empty.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.LocationListResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("GetLocations"))
+              .build();
+        }
+      }
+    }
+    return getGetLocationsMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest,
+      app.onepass.apis.Location> getGetLocationByIdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GetLocationById",
+      requestType = app.onepass.apis.GetObjectByIdRequest.class,
+      responseType = app.onepass.apis.Location.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest,
+      app.onepass.apis.Location> getGetLocationByIdMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByIdRequest, app.onepass.apis.Location> getGetLocationByIdMethod;
+    if ((getGetLocationByIdMethod = OrganizerServiceGrpc.getGetLocationByIdMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getGetLocationByIdMethod = OrganizerServiceGrpc.getGetLocationByIdMethod) == null) {
+          OrganizerServiceGrpc.getGetLocationByIdMethod = getGetLocationByIdMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.GetObjectByIdRequest, app.onepass.apis.Location>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetLocationById"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.GetObjectByIdRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.Location.getDefaultInstance()))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("GetLocationById"))
+              .build();
+        }
+      }
+    }
+    return getGetLocationByIdMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByNameRequest,
+      app.onepass.apis.LocationListResponse> getSearchLocationsByNameMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "SearchLocationsByName",
+      requestType = app.onepass.apis.GetObjectByNameRequest.class,
+      responseType = app.onepass.apis.LocationListResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByNameRequest,
+      app.onepass.apis.LocationListResponse> getSearchLocationsByNameMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.GetObjectByNameRequest, app.onepass.apis.LocationListResponse> getSearchLocationsByNameMethod;
+    if ((getSearchLocationsByNameMethod = OrganizerServiceGrpc.getSearchLocationsByNameMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getSearchLocationsByNameMethod = OrganizerServiceGrpc.getSearchLocationsByNameMethod) == null) {
+          OrganizerServiceGrpc.getSearchLocationsByNameMethod = getSearchLocationsByNameMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.GetObjectByNameRequest, app.onepass.apis.LocationListResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "SearchLocationsByName"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.GetObjectByNameRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.LocationListResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("SearchLocationsByName"))
+              .build();
+        }
+      }
+    }
+    return getSearchLocationsByNameMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.UpdateLocationRequest,
+      app.onepass.apis.Location> getUpdateLocationMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "UpdateLocation",
+      requestType = app.onepass.apis.UpdateLocationRequest.class,
+      responseType = app.onepass.apis.Location.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<app.onepass.apis.UpdateLocationRequest,
+      app.onepass.apis.Location> getUpdateLocationMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.UpdateLocationRequest, app.onepass.apis.Location> getUpdateLocationMethod;
+    if ((getUpdateLocationMethod = OrganizerServiceGrpc.getUpdateLocationMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getUpdateLocationMethod = OrganizerServiceGrpc.getUpdateLocationMethod) == null) {
+          OrganizerServiceGrpc.getUpdateLocationMethod = getUpdateLocationMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.UpdateLocationRequest, app.onepass.apis.Location>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateLocation"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.UpdateLocationRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.Location.getDefaultInstance()))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("UpdateLocation"))
+              .build();
+        }
+      }
+    }
+    return getUpdateLocationMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.RemoveLocationRequest,
+      app.onepass.apis.Location> getRemoveLocationMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "RemoveLocation",
+      requestType = app.onepass.apis.RemoveLocationRequest.class,
+      responseType = app.onepass.apis.Location.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<app.onepass.apis.RemoveLocationRequest,
+      app.onepass.apis.Location> getRemoveLocationMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.RemoveLocationRequest, app.onepass.apis.Location> getRemoveLocationMethod;
+    if ((getRemoveLocationMethod = OrganizerServiceGrpc.getRemoveLocationMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getRemoveLocationMethod = OrganizerServiceGrpc.getRemoveLocationMethod) == null) {
+          OrganizerServiceGrpc.getRemoveLocationMethod = getRemoveLocationMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.RemoveLocationRequest, app.onepass.apis.Location>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "RemoveLocation"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.RemoveLocationRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.Location.getDefaultInstance()))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("RemoveLocation"))
+              .build();
+        }
+      }
+    }
+    return getRemoveLocationMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GenerateTicketRequest,
+      app.onepass.apis.UserEvent> getGenerateTicketMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "GenerateTicket",
+      requestType = app.onepass.apis.GenerateTicketRequest.class,
+      responseType = app.onepass.apis.UserEvent.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<app.onepass.apis.GenerateTicketRequest,
+      app.onepass.apis.UserEvent> getGenerateTicketMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.GenerateTicketRequest, app.onepass.apis.UserEvent> getGenerateTicketMethod;
+    if ((getGenerateTicketMethod = OrganizerServiceGrpc.getGenerateTicketMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getGenerateTicketMethod = OrganizerServiceGrpc.getGenerateTicketMethod) == null) {
+          OrganizerServiceGrpc.getGenerateTicketMethod = getGenerateTicketMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.GenerateTicketRequest, app.onepass.apis.UserEvent>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GenerateTicket"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.GenerateTicketRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.UserEvent.getDefaultInstance()))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("GenerateTicket"))
+              .build();
+        }
+      }
+    }
+    return getGenerateTicketMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
       com.google.protobuf.BoolValue> getPingMethod;
 
@@ -931,6 +1148,55 @@ public final class OrganizerServiceGrpc {
 
     /**
      */
+    public void createLocation(app.onepass.apis.CreateLocationRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.Location> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCreateLocationMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getLocations(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.LocationListResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetLocationsMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void getLocationById(app.onepass.apis.GetObjectByIdRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.Location> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetLocationByIdMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void searchLocationsByName(app.onepass.apis.GetObjectByNameRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.LocationListResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSearchLocationsByNameMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void updateLocation(app.onepass.apis.UpdateLocationRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.Location> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateLocationMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void removeLocation(app.onepass.apis.RemoveLocationRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.Location> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getRemoveLocationMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void generateTicket(app.onepass.apis.GenerateTicketRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.UserEvent> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGenerateTicketMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void ping(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getPingMethod(), responseObserver);
@@ -1092,6 +1358,55 @@ public final class OrganizerServiceGrpc {
                 app.onepass.apis.GetObjectByIdRequest,
                 app.onepass.apis.AnswerListResponse>(
                   this, METHODID_GET_ANSWERS_BY_QUESTION_ID)))
+          .addMethod(
+            getCreateLocationMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                app.onepass.apis.CreateLocationRequest,
+                app.onepass.apis.Location>(
+                  this, METHODID_CREATE_LOCATION)))
+          .addMethod(
+            getGetLocationsMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                com.google.protobuf.Empty,
+                app.onepass.apis.LocationListResponse>(
+                  this, METHODID_GET_LOCATIONS)))
+          .addMethod(
+            getGetLocationByIdMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                app.onepass.apis.GetObjectByIdRequest,
+                app.onepass.apis.Location>(
+                  this, METHODID_GET_LOCATION_BY_ID)))
+          .addMethod(
+            getSearchLocationsByNameMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                app.onepass.apis.GetObjectByNameRequest,
+                app.onepass.apis.LocationListResponse>(
+                  this, METHODID_SEARCH_LOCATIONS_BY_NAME)))
+          .addMethod(
+            getUpdateLocationMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                app.onepass.apis.UpdateLocationRequest,
+                app.onepass.apis.Location>(
+                  this, METHODID_UPDATE_LOCATION)))
+          .addMethod(
+            getRemoveLocationMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                app.onepass.apis.RemoveLocationRequest,
+                app.onepass.apis.Location>(
+                  this, METHODID_REMOVE_LOCATION)))
+          .addMethod(
+            getGenerateTicketMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                app.onepass.apis.GenerateTicketRequest,
+                app.onepass.apis.UserEvent>(
+                  this, METHODID_GENERATE_TICKET)))
           .addMethod(
             getPingMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -1295,6 +1610,62 @@ public final class OrganizerServiceGrpc {
 
     /**
      */
+    public void createLocation(app.onepass.apis.CreateLocationRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.Location> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getCreateLocationMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getLocations(com.google.protobuf.Empty request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.LocationListResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetLocationsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void getLocationById(app.onepass.apis.GetObjectByIdRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.Location> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGetLocationByIdMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void searchLocationsByName(app.onepass.apis.GetObjectByNameRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.LocationListResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getSearchLocationsByNameMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void updateLocation(app.onepass.apis.UpdateLocationRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.Location> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getUpdateLocationMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void removeLocation(app.onepass.apis.RemoveLocationRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.Location> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getRemoveLocationMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void generateTicket(app.onepass.apis.GenerateTicketRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.UserEvent> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getGenerateTicketMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void ping(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
@@ -1468,6 +1839,55 @@ public final class OrganizerServiceGrpc {
     public app.onepass.apis.AnswerListResponse getAnswersByQuestionId(app.onepass.apis.GetObjectByIdRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetAnswersByQuestionIdMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public app.onepass.apis.Location createLocation(app.onepass.apis.CreateLocationRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getCreateLocationMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public app.onepass.apis.LocationListResponse getLocations(com.google.protobuf.Empty request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetLocationsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public app.onepass.apis.Location getLocationById(app.onepass.apis.GetObjectByIdRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetLocationByIdMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public app.onepass.apis.LocationListResponse searchLocationsByName(app.onepass.apis.GetObjectByNameRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getSearchLocationsByNameMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public app.onepass.apis.Location updateLocation(app.onepass.apis.UpdateLocationRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getUpdateLocationMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public app.onepass.apis.Location removeLocation(app.onepass.apis.RemoveLocationRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getRemoveLocationMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public app.onepass.apis.UserEvent generateTicket(app.onepass.apis.GenerateTicketRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGenerateTicketMethod(), getCallOptions(), request);
     }
 
     /**
@@ -1670,6 +2090,62 @@ public final class OrganizerServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.Location> createLocation(
+        app.onepass.apis.CreateLocationRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getCreateLocationMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.LocationListResponse> getLocations(
+        com.google.protobuf.Empty request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetLocationsMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.Location> getLocationById(
+        app.onepass.apis.GetObjectByIdRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGetLocationByIdMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.LocationListResponse> searchLocationsByName(
+        app.onepass.apis.GetObjectByNameRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getSearchLocationsByNameMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.Location> updateLocation(
+        app.onepass.apis.UpdateLocationRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getUpdateLocationMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.Location> removeLocation(
+        app.onepass.apis.RemoveLocationRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getRemoveLocationMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.UserEvent> generateTicket(
+        app.onepass.apis.GenerateTicketRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getGenerateTicketMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.BoolValue> ping(
         com.google.protobuf.Empty request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -1699,7 +2175,14 @@ public final class OrganizerServiceGrpc {
   private static final int METHODID_ADD_QUESTIONS = 19;
   private static final int METHODID_REMOVE_QUESTIONS = 20;
   private static final int METHODID_GET_ANSWERS_BY_QUESTION_ID = 21;
-  private static final int METHODID_PING = 22;
+  private static final int METHODID_CREATE_LOCATION = 22;
+  private static final int METHODID_GET_LOCATIONS = 23;
+  private static final int METHODID_GET_LOCATION_BY_ID = 24;
+  private static final int METHODID_SEARCH_LOCATIONS_BY_NAME = 25;
+  private static final int METHODID_UPDATE_LOCATION = 26;
+  private static final int METHODID_REMOVE_LOCATION = 27;
+  private static final int METHODID_GENERATE_TICKET = 28;
+  private static final int METHODID_PING = 29;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1806,6 +2289,34 @@ public final class OrganizerServiceGrpc {
           serviceImpl.getAnswersByQuestionId((app.onepass.apis.GetObjectByIdRequest) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.AnswerListResponse>) responseObserver);
           break;
+        case METHODID_CREATE_LOCATION:
+          serviceImpl.createLocation((app.onepass.apis.CreateLocationRequest) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.Location>) responseObserver);
+          break;
+        case METHODID_GET_LOCATIONS:
+          serviceImpl.getLocations((com.google.protobuf.Empty) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.LocationListResponse>) responseObserver);
+          break;
+        case METHODID_GET_LOCATION_BY_ID:
+          serviceImpl.getLocationById((app.onepass.apis.GetObjectByIdRequest) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.Location>) responseObserver);
+          break;
+        case METHODID_SEARCH_LOCATIONS_BY_NAME:
+          serviceImpl.searchLocationsByName((app.onepass.apis.GetObjectByNameRequest) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.LocationListResponse>) responseObserver);
+          break;
+        case METHODID_UPDATE_LOCATION:
+          serviceImpl.updateLocation((app.onepass.apis.UpdateLocationRequest) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.Location>) responseObserver);
+          break;
+        case METHODID_REMOVE_LOCATION:
+          serviceImpl.removeLocation((app.onepass.apis.RemoveLocationRequest) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.Location>) responseObserver);
+          break;
+        case METHODID_GENERATE_TICKET:
+          serviceImpl.generateTicket((app.onepass.apis.GenerateTicketRequest) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.UserEvent>) responseObserver);
+          break;
         case METHODID_PING:
           serviceImpl.ping((com.google.protobuf.Empty) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue>) responseObserver);
@@ -1893,6 +2404,13 @@ public final class OrganizerServiceGrpc {
               .addMethod(getAddQuestionsMethod())
               .addMethod(getRemoveQuestionsMethod())
               .addMethod(getGetAnswersByQuestionIdMethod())
+              .addMethod(getCreateLocationMethod())
+              .addMethod(getGetLocationsMethod())
+              .addMethod(getGetLocationByIdMethod())
+              .addMethod(getSearchLocationsByNameMethod())
+              .addMethod(getUpdateLocationMethod())
+              .addMethod(getRemoveLocationMethod())
+              .addMethod(getGenerateTicketMethod())
               .addMethod(getPingMethod())
               .build();
         }
