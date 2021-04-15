@@ -48,7 +48,7 @@ message UpdateEventRequest {
   hts.common.Event event = 2;
 }
 
-message UpdateEventDurationRequest {
+message UpdateEventDurationsRequest {
   int32 user_id = 1;
   int32 event_id = 2;
   repeated Duration duration = 3;
@@ -170,7 +170,7 @@ service OrganizerService {
   rpc RemoveUsersFromOrganization(UpdateUsersInOrganizationRequest) returns (UserOrganizationListResponse);
   rpc CreateEvent(CreateEventRequest) returns (hts.common.Event);
   rpc UpdateEvent(UpdateEventRequest) returns (hts.common.Event);
-  rpc UpdateEventDurations(UpdateEventDurationRequest) returns (EventDurationListResponse);
+  rpc UpdateEventDurations(UpdateEventDurationsRequest) returns (EventDurationListResponse);
   rpc RemoveEvent(RemoveEventRequest) returns (hts.common.Event);
   rpc UpdateRegistrationRequest(UpdateRegistrationRequestRequest) returns (hts.common.UserEvent);
   rpc CreateTag(CreateTagRequest) returns (hts.common.Tag);
