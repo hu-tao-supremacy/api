@@ -12,6 +12,10 @@ import {
   Question,
   UserEvent,
   Location,
+  questionGroupTypeFromJSON,
+  questionGroupTypeToJSON,
+  userEvent_StatusFromJSON,
+  userEvent_StatusToJSON,
   GetObjectByIdRequest,
 } from "../../hts/common/common";
 import { Observable } from "rxjs";
@@ -129,6 +133,686 @@ export interface SetRatingByUserEventIdRequest {
 }
 
 export const HTS_PARTICIPANT_PACKAGE_NAME = "hts.participant";
+
+const baseGetEventByIdRequest: object = { eventId: 0 };
+
+export const GetEventByIdRequest = {
+  fromJSON(object: any): GetEventByIdRequest {
+    const message = { ...baseGetEventByIdRequest } as GetEventByIdRequest;
+    if (object.eventId !== undefined && object.eventId !== null) {
+      message.eventId = Number(object.eventId);
+    } else {
+      message.eventId = 0;
+    }
+    return message;
+  },
+
+  toJSON(message: GetEventByIdRequest): unknown {
+    const obj: any = {};
+    message.eventId !== undefined && (obj.eventId = message.eventId);
+    return obj;
+  },
+};
+
+const baseStringInputRequest: object = { text: "" };
+
+export const StringInputRequest = {
+  fromJSON(object: any): StringInputRequest {
+    const message = { ...baseStringInputRequest } as StringInputRequest;
+    if (object.text !== undefined && object.text !== null) {
+      message.text = String(object.text);
+    } else {
+      message.text = "";
+    }
+    return message;
+  },
+
+  toJSON(message: StringInputRequest): unknown {
+    const obj: any = {};
+    message.text !== undefined && (obj.text = message.text);
+    return obj;
+  },
+};
+
+const baseUserWithEventRequest: object = { userId: 0, eventId: 0 };
+
+export const UserWithEventRequest = {
+  fromJSON(object: any): UserWithEventRequest {
+    const message = { ...baseUserWithEventRequest } as UserWithEventRequest;
+    if (object.userId !== undefined && object.userId !== null) {
+      message.userId = Number(object.userId);
+    } else {
+      message.userId = 0;
+    }
+    if (object.eventId !== undefined && object.eventId !== null) {
+      message.eventId = Number(object.eventId);
+    } else {
+      message.eventId = 0;
+    }
+    return message;
+  },
+
+  toJSON(message: UserWithEventRequest): unknown {
+    const obj: any = {};
+    message.userId !== undefined && (obj.userId = message.userId);
+    message.eventId !== undefined && (obj.eventId = message.eventId);
+    return obj;
+  },
+};
+
+const baseSubmitAnswerForEventQuestionRequest: object = {
+  userEventId: 0,
+  type: 0,
+};
+
+export const SubmitAnswerForEventQuestionRequest = {
+  fromJSON(object: any): SubmitAnswerForEventQuestionRequest {
+    const message = {
+      ...baseSubmitAnswerForEventQuestionRequest,
+    } as SubmitAnswerForEventQuestionRequest;
+    message.answers = [];
+    if (object.answers !== undefined && object.answers !== null) {
+      for (const e of object.answers) {
+        message.answers.push(
+          SubmitAnswerForEventQuestionRequest_Answer.fromJSON(e)
+        );
+      }
+    }
+    if (object.userEventId !== undefined && object.userEventId !== null) {
+      message.userEventId = Number(object.userEventId);
+    } else {
+      message.userEventId = 0;
+    }
+    if (object.type !== undefined && object.type !== null) {
+      message.type = questionGroupTypeFromJSON(object.type);
+    } else {
+      message.type = 0;
+    }
+    return message;
+  },
+
+  toJSON(message: SubmitAnswerForEventQuestionRequest): unknown {
+    const obj: any = {};
+    if (message.answers) {
+      obj.answers = message.answers.map((e) =>
+        e ? SubmitAnswerForEventQuestionRequest_Answer.toJSON(e) : undefined
+      );
+    } else {
+      obj.answers = [];
+    }
+    message.userEventId !== undefined &&
+      (obj.userEventId = message.userEventId);
+    message.type !== undefined &&
+      (obj.type = questionGroupTypeToJSON(message.type));
+    return obj;
+  },
+};
+
+const baseSubmitAnswerForEventQuestionRequest_Answer: object = {
+  questionId: 0,
+  value: "",
+};
+
+export const SubmitAnswerForEventQuestionRequest_Answer = {
+  fromJSON(object: any): SubmitAnswerForEventQuestionRequest_Answer {
+    const message = {
+      ...baseSubmitAnswerForEventQuestionRequest_Answer,
+    } as SubmitAnswerForEventQuestionRequest_Answer;
+    if (object.questionId !== undefined && object.questionId !== null) {
+      message.questionId = Number(object.questionId);
+    } else {
+      message.questionId = 0;
+    }
+    if (object.value !== undefined && object.value !== null) {
+      message.value = String(object.value);
+    } else {
+      message.value = "";
+    }
+    return message;
+  },
+
+  toJSON(message: SubmitAnswerForEventQuestionRequest_Answer): unknown {
+    const obj: any = {};
+    message.questionId !== undefined && (obj.questionId = message.questionId);
+    message.value !== undefined && (obj.value = message.value);
+    return obj;
+  },
+};
+
+const baseSubmitAnswerForEventQuestionResponse: object = {};
+
+export const SubmitAnswerForEventQuestionResponse = {
+  fromJSON(object: any): SubmitAnswerForEventQuestionResponse {
+    const message = {
+      ...baseSubmitAnswerForEventQuestionResponse,
+    } as SubmitAnswerForEventQuestionResponse;
+    message.answers = [];
+    if (object.answers !== undefined && object.answers !== null) {
+      for (const e of object.answers) {
+        message.answers.push(Answer.fromJSON(e));
+      }
+    }
+    return message;
+  },
+
+  toJSON(message: SubmitAnswerForEventQuestionResponse): unknown {
+    const obj: any = {};
+    if (message.answers) {
+      obj.answers = message.answers.map((e) =>
+        e ? Answer.toJSON(e) : undefined
+      );
+    } else {
+      obj.answers = [];
+    }
+    return obj;
+  },
+};
+
+const baseGenerateQRResponse: object = { data: "" };
+
+export const GenerateQRResponse = {
+  fromJSON(object: any): GenerateQRResponse {
+    const message = { ...baseGenerateQRResponse } as GenerateQRResponse;
+    if (object.data !== undefined && object.data !== null) {
+      message.data = String(object.data);
+    } else {
+      message.data = "";
+    }
+    return message;
+  },
+
+  toJSON(message: GenerateQRResponse): unknown {
+    const obj: any = {};
+    message.data !== undefined && (obj.data = message.data);
+    return obj;
+  },
+};
+
+const baseEventsResponse: object = {};
+
+export const EventsResponse = {
+  fromJSON(object: any): EventsResponse {
+    const message = { ...baseEventsResponse } as EventsResponse;
+    message.event = [];
+    if (object.event !== undefined && object.event !== null) {
+      for (const e of object.event) {
+        message.event.push(Event.fromJSON(e));
+      }
+    }
+    return message;
+  },
+
+  toJSON(message: EventsResponse): unknown {
+    const obj: any = {};
+    if (message.event) {
+      obj.event = message.event.map((e) => (e ? Event.toJSON(e) : undefined));
+    } else {
+      obj.event = [];
+    }
+    return obj;
+  },
+};
+
+const baseIsEventAvailableRequest: object = { eventId: 0 };
+
+export const IsEventAvailableRequest = {
+  fromJSON(object: any): IsEventAvailableRequest {
+    const message = {
+      ...baseIsEventAvailableRequest,
+    } as IsEventAvailableRequest;
+    if (object.eventId !== undefined && object.eventId !== null) {
+      message.eventId = Number(object.eventId);
+    } else {
+      message.eventId = 0;
+    }
+    if (object.date !== undefined && object.date !== null) {
+      message.date = fromJsonTimestamp(object.date);
+    } else {
+      message.date = undefined;
+    }
+    return message;
+  },
+
+  toJSON(message: IsEventAvailableRequest): unknown {
+    const obj: any = {};
+    message.eventId !== undefined && (obj.eventId = message.eventId);
+    message.date !== undefined &&
+      (obj.date =
+        message.date !== undefined
+          ? fromTimestamp(message.date).toISOString()
+          : null);
+    return obj;
+  },
+};
+
+const baseGetUpcomingEventsRequest: object = {};
+
+export const GetUpcomingEventsRequest = {
+  fromJSON(object: any): GetUpcomingEventsRequest {
+    const message = {
+      ...baseGetUpcomingEventsRequest,
+    } as GetUpcomingEventsRequest;
+    if (object.start !== undefined && object.start !== null) {
+      message.start = fromJsonTimestamp(object.start);
+    } else {
+      message.start = undefined;
+    }
+    if (object.end !== undefined && object.end !== null) {
+      message.end = fromJsonTimestamp(object.end);
+    } else {
+      message.end = undefined;
+    }
+    return message;
+  },
+
+  toJSON(message: GetUpcomingEventsRequest): unknown {
+    const obj: any = {};
+    message.start !== undefined &&
+      (obj.start =
+        message.start !== undefined
+          ? fromTimestamp(message.start).toISOString()
+          : null);
+    message.end !== undefined &&
+      (obj.end =
+        message.end !== undefined
+          ? fromTimestamp(message.end).toISOString()
+          : null);
+    return obj;
+  },
+};
+
+const baseGenerateQRRequest: object = { userEventId: 0, userId: 0, eventId: 0 };
+
+export const GenerateQRRequest = {
+  fromJSON(object: any): GenerateQRRequest {
+    const message = { ...baseGenerateQRRequest } as GenerateQRRequest;
+    if (object.userEventId !== undefined && object.userEventId !== null) {
+      message.userEventId = Number(object.userEventId);
+    } else {
+      message.userEventId = 0;
+    }
+    if (object.userId !== undefined && object.userId !== null) {
+      message.userId = Number(object.userId);
+    } else {
+      message.userId = 0;
+    }
+    if (object.eventId !== undefined && object.eventId !== null) {
+      message.eventId = Number(object.eventId);
+    } else {
+      message.eventId = 0;
+    }
+    return message;
+  },
+
+  toJSON(message: GenerateQRRequest): unknown {
+    const obj: any = {};
+    message.userEventId !== undefined &&
+      (obj.userEventId = message.userEventId);
+    message.userId !== undefined && (obj.userId = message.userId);
+    message.eventId !== undefined && (obj.eventId = message.eventId);
+    return obj;
+  },
+};
+
+const baseTagsResponse: object = {};
+
+export const TagsResponse = {
+  fromJSON(object: any): TagsResponse {
+    const message = { ...baseTagsResponse } as TagsResponse;
+    message.tags = [];
+    if (object.tags !== undefined && object.tags !== null) {
+      for (const e of object.tags) {
+        message.tags.push(Tag.fromJSON(e));
+      }
+    }
+    return message;
+  },
+
+  toJSON(message: TagsResponse): unknown {
+    const obj: any = {};
+    if (message.tags) {
+      obj.tags = message.tags.map((e) => (e ? Tag.toJSON(e) : undefined));
+    } else {
+      obj.tags = [];
+    }
+    return obj;
+  },
+};
+
+const baseGetUsersByEventIdRequest: object = { eventId: 0, status: 0 };
+
+export const GetUsersByEventIdRequest = {
+  fromJSON(object: any): GetUsersByEventIdRequest {
+    const message = {
+      ...baseGetUsersByEventIdRequest,
+    } as GetUsersByEventIdRequest;
+    if (object.eventId !== undefined && object.eventId !== null) {
+      message.eventId = Number(object.eventId);
+    } else {
+      message.eventId = 0;
+    }
+    if (object.status !== undefined && object.status !== null) {
+      message.status = userEvent_StatusFromJSON(object.status);
+    } else {
+      message.status = 0;
+    }
+    return message;
+  },
+
+  toJSON(message: GetUsersByEventIdRequest): unknown {
+    const obj: any = {};
+    message.eventId !== undefined && (obj.eventId = message.eventId);
+    message.status !== undefined &&
+      (obj.status = userEvent_StatusToJSON(message.status));
+    return obj;
+  },
+};
+
+const baseGetUsersByEventIdResponse: object = {};
+
+export const GetUsersByEventIdResponse = {
+  fromJSON(object: any): GetUsersByEventIdResponse {
+    const message = {
+      ...baseGetUsersByEventIdResponse,
+    } as GetUsersByEventIdResponse;
+    message.users = [];
+    if (object.users !== undefined && object.users !== null) {
+      for (const e of object.users) {
+        message.users.push(User.fromJSON(e));
+      }
+    }
+    return message;
+  },
+
+  toJSON(message: GetUsersByEventIdResponse): unknown {
+    const obj: any = {};
+    if (message.users) {
+      obj.users = message.users.map((e) => (e ? User.toJSON(e) : undefined));
+    } else {
+      obj.users = [];
+    }
+    return obj;
+  },
+};
+
+const baseGetRatingByEventIdResponse: object = { result: 0 };
+
+export const GetRatingByEventIdResponse = {
+  fromJSON(object: any): GetRatingByEventIdResponse {
+    const message = {
+      ...baseGetRatingByEventIdResponse,
+    } as GetRatingByEventIdResponse;
+    message.result = [];
+    if (object.result !== undefined && object.result !== null) {
+      for (const e of object.result) {
+        message.result.push(Number(e));
+      }
+    }
+    return message;
+  },
+
+  toJSON(message: GetRatingByEventIdResponse): unknown {
+    const obj: any = {};
+    if (message.result) {
+      obj.result = message.result.map((e) => e);
+    } else {
+      obj.result = [];
+    }
+    return obj;
+  },
+};
+
+const baseGetEventDurationsByEventIdResponse: object = {};
+
+export const GetEventDurationsByEventIdResponse = {
+  fromJSON(object: any): GetEventDurationsByEventIdResponse {
+    const message = {
+      ...baseGetEventDurationsByEventIdResponse,
+    } as GetEventDurationsByEventIdResponse;
+    message.eventDurations = [];
+    if (object.eventDurations !== undefined && object.eventDurations !== null) {
+      for (const e of object.eventDurations) {
+        message.eventDurations.push(EventDuration.fromJSON(e));
+      }
+    }
+    return message;
+  },
+
+  toJSON(message: GetEventDurationsByEventIdResponse): unknown {
+    const obj: any = {};
+    if (message.eventDurations) {
+      obj.eventDurations = message.eventDurations.map((e) =>
+        e ? EventDuration.toJSON(e) : undefined
+      );
+    } else {
+      obj.eventDurations = [];
+    }
+    return obj;
+  },
+};
+
+const baseGetUserAnswerByQuestionIdRequest: object = {
+  userId: 0,
+  questionId: 0,
+};
+
+export const GetUserAnswerByQuestionIdRequest = {
+  fromJSON(object: any): GetUserAnswerByQuestionIdRequest {
+    const message = {
+      ...baseGetUserAnswerByQuestionIdRequest,
+    } as GetUserAnswerByQuestionIdRequest;
+    if (object.userId !== undefined && object.userId !== null) {
+      message.userId = Number(object.userId);
+    } else {
+      message.userId = 0;
+    }
+    if (object.questionId !== undefined && object.questionId !== null) {
+      message.questionId = Number(object.questionId);
+    } else {
+      message.questionId = 0;
+    }
+    return message;
+  },
+
+  toJSON(message: GetUserAnswerByQuestionIdRequest): unknown {
+    const obj: any = {};
+    message.userId !== undefined && (obj.userId = message.userId);
+    message.questionId !== undefined && (obj.questionId = message.questionId);
+    return obj;
+  },
+};
+
+const baseGetQuestionGroupsByEventIdResponse: object = {};
+
+export const GetQuestionGroupsByEventIdResponse = {
+  fromJSON(object: any): GetQuestionGroupsByEventIdResponse {
+    const message = {
+      ...baseGetQuestionGroupsByEventIdResponse,
+    } as GetQuestionGroupsByEventIdResponse;
+    message.questionGroups = [];
+    if (object.questionGroups !== undefined && object.questionGroups !== null) {
+      for (const e of object.questionGroups) {
+        message.questionGroups.push(QuestionGroup.fromJSON(e));
+      }
+    }
+    return message;
+  },
+
+  toJSON(message: GetQuestionGroupsByEventIdResponse): unknown {
+    const obj: any = {};
+    if (message.questionGroups) {
+      obj.questionGroups = message.questionGroups.map((e) =>
+        e ? QuestionGroup.toJSON(e) : undefined
+      );
+    } else {
+      obj.questionGroups = [];
+    }
+    return obj;
+  },
+};
+
+const baseGetQuestionsByQuestionGroupIdResponse: object = {};
+
+export const GetQuestionsByQuestionGroupIdResponse = {
+  fromJSON(object: any): GetQuestionsByQuestionGroupIdResponse {
+    const message = {
+      ...baseGetQuestionsByQuestionGroupIdResponse,
+    } as GetQuestionsByQuestionGroupIdResponse;
+    message.questions = [];
+    if (object.questions !== undefined && object.questions !== null) {
+      for (const e of object.questions) {
+        message.questions.push(Question.fromJSON(e));
+      }
+    }
+    return message;
+  },
+
+  toJSON(message: GetQuestionsByQuestionGroupIdResponse): unknown {
+    const obj: any = {};
+    if (message.questions) {
+      obj.questions = message.questions.map((e) =>
+        e ? Question.toJSON(e) : undefined
+      );
+    } else {
+      obj.questions = [];
+    }
+    return obj;
+  },
+};
+
+const baseAnswersResponse: object = {};
+
+export const AnswersResponse = {
+  fromJSON(object: any): AnswersResponse {
+    const message = { ...baseAnswersResponse } as AnswersResponse;
+    message.answers = [];
+    if (object.answers !== undefined && object.answers !== null) {
+      for (const e of object.answers) {
+        message.answers.push(Answer.fromJSON(e));
+      }
+    }
+    return message;
+  },
+
+  toJSON(message: AnswersResponse): unknown {
+    const obj: any = {};
+    if (message.answers) {
+      obj.answers = message.answers.map((e) =>
+        e ? Answer.toJSON(e) : undefined
+      );
+    } else {
+      obj.answers = [];
+    }
+    return obj;
+  },
+};
+
+const baseGetEventsByUserIdRequest: object = { userId: 0 };
+
+export const GetEventsByUserIdRequest = {
+  fromJSON(object: any): GetEventsByUserIdRequest {
+    const message = {
+      ...baseGetEventsByUserIdRequest,
+    } as GetEventsByUserIdRequest;
+    if (object.userId !== undefined && object.userId !== null) {
+      message.userId = Number(object.userId);
+    } else {
+      message.userId = 0;
+    }
+    return message;
+  },
+
+  toJSON(message: GetEventsByUserIdRequest): unknown {
+    const obj: any = {};
+    message.userId !== undefined && (obj.userId = message.userId);
+    return obj;
+  },
+};
+
+const baseGetEventsByTagIdsRequest: object = { tagIds: 0 };
+
+export const GetEventsByTagIdsRequest = {
+  fromJSON(object: any): GetEventsByTagIdsRequest {
+    const message = {
+      ...baseGetEventsByTagIdsRequest,
+    } as GetEventsByTagIdsRequest;
+    message.tagIds = [];
+    if (object.tagIds !== undefined && object.tagIds !== null) {
+      for (const e of object.tagIds) {
+        message.tagIds.push(Number(e));
+      }
+    }
+    return message;
+  },
+
+  toJSON(message: GetEventsByTagIdsRequest): unknown {
+    const obj: any = {};
+    if (message.tagIds) {
+      obj.tagIds = message.tagIds.map((e) => e);
+    } else {
+      obj.tagIds = [];
+    }
+    return obj;
+  },
+};
+
+const baseGetUserEventsByEventIdResponse: object = {};
+
+export const GetUserEventsByEventIdResponse = {
+  fromJSON(object: any): GetUserEventsByEventIdResponse {
+    const message = {
+      ...baseGetUserEventsByEventIdResponse,
+    } as GetUserEventsByEventIdResponse;
+    message.userEvents = [];
+    if (object.userEvents !== undefined && object.userEvents !== null) {
+      for (const e of object.userEvents) {
+        message.userEvents.push(UserEvent.fromJSON(e));
+      }
+    }
+    return message;
+  },
+
+  toJSON(message: GetUserEventsByEventIdResponse): unknown {
+    const obj: any = {};
+    if (message.userEvents) {
+      obj.userEvents = message.userEvents.map((e) =>
+        e ? UserEvent.toJSON(e) : undefined
+      );
+    } else {
+      obj.userEvents = [];
+    }
+    return obj;
+  },
+};
+
+const baseSetRatingByUserEventIdRequest: object = { userEventId: 0, rating: 0 };
+
+export const SetRatingByUserEventIdRequest = {
+  fromJSON(object: any): SetRatingByUserEventIdRequest {
+    const message = {
+      ...baseSetRatingByUserEventIdRequest,
+    } as SetRatingByUserEventIdRequest;
+    if (object.userEventId !== undefined && object.userEventId !== null) {
+      message.userEventId = Number(object.userEventId);
+    } else {
+      message.userEventId = 0;
+    }
+    if (object.rating !== undefined && object.rating !== null) {
+      message.rating = Number(object.rating);
+    } else {
+      message.rating = 0;
+    }
+    return message;
+  },
+
+  toJSON(message: SetRatingByUserEventIdRequest): unknown {
+    const obj: any = {};
+    message.userEventId !== undefined &&
+      (obj.userEventId = message.userEventId);
+    message.rating !== undefined && (obj.rating = message.rating);
+    return obj;
+  },
+};
 
 export interface ParticipantServiceClient {
   isEventAvailable(request: IsEventAvailableRequest): Observable<BoolValue>;
@@ -440,3 +1124,25 @@ export function ParticipantServiceControllerMethods() {
 }
 
 export const PARTICIPANT_SERVICE_NAME = "ParticipantService";
+
+function toTimestamp(date: Date): Timestamp {
+  const seconds = date.getTime() / 1_000;
+  const nanos = (date.getTime() % 1_000) * 1_000_000;
+  return { seconds, nanos };
+}
+
+function fromTimestamp(t: Timestamp): Date {
+  let millis = t.seconds * 1_000;
+  millis += t.nanos / 1_000_000;
+  return new Date(millis);
+}
+
+function fromJsonTimestamp(o: any): Timestamp {
+  if (o instanceof Date) {
+    return toTimestamp(o);
+  } else if (typeof o === "string") {
+    return toTimestamp(new Date(o));
+  } else {
+    return Timestamp.fromJSON(o);
+  }
+}
