@@ -239,3 +239,7 @@ export interface Facility {
 export interface GetObjectByIdRequest {
   id: number;
 }
+
+export interface GetObjectByNameRequest {
+  name: string;
+}
