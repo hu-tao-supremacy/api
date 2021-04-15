@@ -103,6 +103,26 @@ message RemoveQuestionsRequest {
   repeated int32 question_ids = 2;
 }
 
+message CreateLocationRequest {
+  int32 user_id = 1;
+  hts.common.Location location = 2;
+}
+
+message UpdateLocationRequest {
+  int32 user_id = 1;
+  hts.common.Location location = 2;
+}
+
+message RemoveLocationRequest {
+  int32 user_id = 1;
+  int32 location_id = 2;
+}
+
+message GenerateTicketRequest {
+  int32 user_id = 1;
+  int32 event_id = 2;
+}
+
 message OrganizationListResponse {
   repeated hts.common.Organization organizations = 1;
 }
@@ -135,6 +155,10 @@ message AnswerListResponse {
   repeated hts.common.Answer answers = 1;
 }
 
+message LocationListResponse {
+  repeated hts.common.Location locations = 1;
+}
+
 service OrganizerService {
   rpc CreateOrganization(CreateOrganizationRequest) returns (hts.common.Organization);
   rpc GetOrganizations(google.protobuf.Empty) returns (OrganizationListResponse);
@@ -158,5 +182,12 @@ service OrganizerService {
   rpc AddQuestions(AddQuestionsRequest) returns (QuestionListResponse);
   rpc RemoveQuestions(RemoveQuestionsRequest) returns (QuestionListResponse);
   rpc GetAnswersByQuestionId(hts.common.GetObjectByIdRequest) returns (AnswerListResponse);
+  rpc CreateLocation(CreateLocationRequest) returns (hts.common.Location);
+  rpc GetLocations(google.protobuf.Empty) returns (LocationListResponse);
+  rpc GetLocationById(hts.common.GetObjectByIdRequest) returns (hts.common.Location);
+  rpc SearchLocationsByName(hts.common.GetObjectByNameRequest) returns (LocationListResponse);
+  rpc UpdateLocation(UpdateLocationRequest) returns (hts.common.Location);
+  rpc RemoveLocation(RemoveLocationRequest) returns (hts.common.Location);
+  rpc GenerateTicket(GenerateTicketRequest) returns (hts.common.UserEvent);
   rpc Ping(google.protobuf.Empty) returns (google.protobuf.BoolValue);
 }
