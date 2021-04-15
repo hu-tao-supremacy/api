@@ -7,6 +7,7 @@ import {
   Tag,
   QuestionGroup,
   Question,
+  Location,
   User,
   UserOrganization,
   EventDuration,
@@ -14,6 +15,7 @@ import {
   Answer,
   UserEvent,
   GetObjectByIdRequest,
+  GetObjectByNameRequest,
 } from "../../hts/common/common";
 import { Observable } from "rxjs";
 import { Timestamp } from "../../google/protobuf/timestamp";
@@ -113,6 +115,26 @@ export interface RemoveQuestionsRequest {
   questionIds: number[];
 }
 
+export interface CreateLocationRequest {
+  userId: number;
+  location: Location | undefined;
+}
+
+export interface UpdateLocationRequest {
+  userId: number;
+  location: Location | undefined;
+}
+
+export interface RemoveLocationRequest {
+  userId: number;
+  locationId: number;
+}
+
+export interface GenerateTicketRequest {
+  userId: number;
+  eventId: number;
+}
+
 export interface OrganizationListResponse {
   organizations: Organization[];
 }
@@ -143,6 +165,10 @@ export interface QuestionListResponse {
 
 export interface AnswerListResponse {
   answers: Answer[];
+}
+
+export interface LocationListResponse {
+  locations: Location[];
 }
 
 export const HTS_ORGANIZER_PACKAGE_NAME = "hts.organizer";
@@ -215,6 +241,22 @@ export interface OrganizerServiceClient {
   getAnswersByQuestionId(
     request: GetObjectByIdRequest
   ): Observable<AnswerListResponse>;
+
+  createLocation(request: CreateLocationRequest): Observable<Location>;
+
+  getLocations(request: Empty): Observable<LocationListResponse>;
+
+  getLocationById(request: GetObjectByIdRequest): Observable<Location>;
+
+  searchLocationsByName(
+    request: GetObjectByNameRequest
+  ): Observable<LocationListResponse>;
+
+  updateLocation(request: UpdateLocationRequest): Observable<Location>;
+
+  removeLocation(request: RemoveLocationRequest): Observable<Location>;
+
+  generateTicket(request: GenerateTicketRequest): Observable<UserEvent>;
 
   ping(request: Empty): Observable<BoolValue>;
 }
@@ -342,6 +384,40 @@ export interface OrganizerServiceController {
     | Observable<AnswerListResponse>
     | AnswerListResponse;
 
+  createLocation(
+    request: CreateLocationRequest
+  ): Promise<Location> | Observable<Location> | Location;
+
+  getLocations(
+    request: Empty
+  ):
+    | Promise<LocationListResponse>
+    | Observable<LocationListResponse>
+    | LocationListResponse;
+
+  getLocationById(
+    request: GetObjectByIdRequest
+  ): Promise<Location> | Observable<Location> | Location;
+
+  searchLocationsByName(
+    request: GetObjectByNameRequest
+  ):
+    | Promise<LocationListResponse>
+    | Observable<LocationListResponse>
+    | LocationListResponse;
+
+  updateLocation(
+    request: UpdateLocationRequest
+  ): Promise<Location> | Observable<Location> | Location;
+
+  removeLocation(
+    request: RemoveLocationRequest
+  ): Promise<Location> | Observable<Location> | Location;
+
+  generateTicket(
+    request: GenerateTicketRequest
+  ): Promise<UserEvent> | Observable<UserEvent> | UserEvent;
+
   ping(request: Empty): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
 }
 
@@ -370,6 +446,13 @@ export function OrganizerServiceControllerMethods() {
       "addQuestions",
       "removeQuestions",
       "getAnswersByQuestionId",
+      "createLocation",
+      "getLocations",
+      "getLocationById",
+      "searchLocationsByName",
+      "updateLocation",
+      "removeLocation",
+      "generateTicket",
       "ping",
     ];
     for (const method of grpcMethods) {

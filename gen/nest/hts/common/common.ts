@@ -243,4 +243,8 @@ export interface GetObjectByIdRequest {
   id: number;
 }
 
+export interface GetObjectByNameRequest {
+  name: string;
+}
+
 export const HTS_COMMON_PACKAGE_NAME = "hts.common";

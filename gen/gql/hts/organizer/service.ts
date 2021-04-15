@@ -6,6 +6,7 @@ import {
   Tag,
   QuestionGroup,
   Question,
+  Location,
   User,
   UserOrganization,
   EventDuration,
@@ -13,6 +14,7 @@ import {
   Answer,
   UserEvent,
   GetObjectByIdRequest,
+  GetObjectByNameRequest,
 } from "../../hts/common/common";
 import { Empty } from "../../google/protobuf/empty";
 
@@ -109,6 +111,26 @@ export interface RemoveQuestionsRequest {
   questionIds: number[];
 }
 
+export interface CreateLocationRequest {
+  userId: number;
+  location: Location | undefined;
+}
+
+export interface UpdateLocationRequest {
+  userId: number;
+  location: Location | undefined;
+}
+
+export interface RemoveLocationRequest {
+  userId: number;
+  locationId: number;
+}
+
+export interface GenerateTicketRequest {
+  userId: number;
+  eventId: number;
+}
+
 export interface OrganizationListResponse {
   organizations: Organization[];
 }
@@ -139,6 +161,10 @@ export interface QuestionListResponse {
 
 export interface AnswerListResponse {
   answers: Answer[];
+}
+
+export interface LocationListResponse {
+  locations: Location[];
 }
 
 export interface OrganizerService {
@@ -182,5 +208,14 @@ export interface OrganizerService {
   GetAnswersByQuestionId(
     request: GetObjectByIdRequest
   ): Promise<AnswerListResponse>;
+  CreateLocation(request: CreateLocationRequest): Promise<Location>;
+  GetLocations(request: Empty): Promise<LocationListResponse>;
+  GetLocationById(request: GetObjectByIdRequest): Promise<Location>;
+  SearchLocationsByName(
+    request: GetObjectByNameRequest
+  ): Promise<LocationListResponse>;
+  UpdateLocation(request: UpdateLocationRequest): Promise<Location>;
+  RemoveLocation(request: RemoveLocationRequest): Promise<Location>;
+  GenerateTicket(request: GenerateTicketRequest): Promise<UserEvent>;
   Ping(request: Empty): Promise<boolean | undefined>;
 }
