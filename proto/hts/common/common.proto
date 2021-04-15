@@ -208,7 +208,7 @@ message UserPermission {
 
 message UserInterest {
   int32 id = 1;
-  int32 userId = 2;
+  int32 user_id = 2;
   int32 tag_id = 3;
 }
 
@@ -241,4 +241,8 @@ message Facility {
 
 message GetObjectByIdRequest {
   int32 id = 1;
+}
+
+message GetObjectByNameRequest {
+  string name = 1;
 }
