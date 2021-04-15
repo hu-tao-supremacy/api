@@ -100,6 +100,26 @@ public final class OrganizerProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hts_organizer_RemoveQuestionsRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_organizer_CreateLocationRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_organizer_CreateLocationRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_organizer_UpdateLocationRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_organizer_UpdateLocationRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_organizer_RemoveLocationRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_organizer_RemoveLocationRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_organizer_GenerateTicketRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_organizer_GenerateTicketRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_hts_organizer_OrganizationListResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -139,6 +159,11 @@ public final class OrganizerProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hts_organizer_AnswerListResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_organizer_LocationListResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_organizer_LocationListResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -199,7 +224,16 @@ public final class OrganizerProto {
       "estions\030\002 \003(\0132\024.hts.common.QuestionR\tque" +
       "stions\"T\n\026RemoveQuestionsRequest\022\027\n\007user" +
       "_id\030\001 \001(\005R\006userId\022!\n\014question_ids\030\002 \003(\005R" +
-      "\013questionIds\"Z\n\030OrganizationListResponse" +
+      "\013questionIds\"b\n\025CreateLocationRequest\022\027\n" +
+      "\007user_id\030\001 \001(\005R\006userId\0220\n\010location\030\002 \001(\013" +
+      "2\024.hts.common.LocationR\010location\"b\n\025Upda" +
+      "teLocationRequest\022\027\n\007user_id\030\001 \001(\005R\006user" +
+      "Id\0220\n\010location\030\002 \001(\0132\024.hts.common.Locati" +
+      "onR\010location\"Q\n\025RemoveLocationRequest\022\027\n" +
+      "\007user_id\030\001 \001(\005R\006userId\022\037\n\013location_id\030\002 " +
+      "\001(\005R\nlocationId\"K\n\025GenerateTicketRequest" +
+      "\022\027\n\007user_id\030\001 \001(\005R\006userId\022\031\n\010event_id\030\002 " +
+      "\001(\005R\007eventId\"Z\n\030OrganizationListResponse" +
       "\022>\n\rorganizations\030\001 \003(\0132\030.hts.common.Org" +
       "anizationR\rorganizations\":\n\020UserListResp" +
       "onse\022&\n\005users\030\001 \003(\0132\020.hts.common.UserR\005u" +
@@ -216,60 +250,76 @@ public final class OrganizerProto {
       "Response\0222\n\tquestions\030\001 \003(\0132\024.hts.common" +
       ".QuestionR\tquestions\"B\n\022AnswerListRespon" +
       "se\022,\n\007answers\030\001 \003(\0132\022.hts.common.AnswerR" +
-      "\007answers2\213\020\n\020OrganizerService\022X\n\022CreateO" +
-      "rganization\022(.hts.organizer.CreateOrgani" +
-      "zationRequest\032\030.hts.common.Organization\022" +
-      "S\n\020GetOrganizations\022\026.google.protobuf.Em" +
-      "pty\032\'.hts.organizer.OrganizationListResp" +
-      "onse\022Q\n\023GetOrganizationById\022 .hts.common" +
-      ".GetObjectByIdRequest\032\030.hts.common.Organ" +
-      "ization\022_\n\032GetUsersInOrganizationById\022 ." +
-      "hts.common.GetObjectByIdRequest\032\037.hts.or" +
-      "ganizer.UserListResponse\022X\n\022UpdateOrgani" +
-      "zation\022(.hts.organizer.UpdateOrganizatio" +
-      "nRequest\032\030.hts.common.Organization\022X\n\022Re" +
-      "moveOrganization\022(.hts.organizer.RemoveO" +
-      "rganizationRequest\032\030.hts.common.Organiza" +
-      "tion\022v\n\026AddUsersToOrganization\022/.hts.org" +
-      "anizer.UpdateUsersInOrganizationRequest\032" +
-      "+.hts.organizer.UserOrganizationListResp" +
-      "onse\022{\n\033RemoveUsersFromOrganization\022/.ht" +
-      "s.organizer.UpdateUsersInOrganizationReq" +
-      "uest\032+.hts.organizer.UserOrganizationLis" +
-      "tResponse\022C\n\013CreateEvent\022!.hts.organizer" +
-      ".CreateEventRequest\032\021.hts.common.Event\022C" +
-      "\n\013UpdateEvent\022!.hts.organizer.UpdateEven" +
-      "tRequest\032\021.hts.common.Event\022k\n\024UpdateEve" +
-      "ntDurations\022).hts.organizer.UpdateEventD" +
-      "urationRequest\032(.hts.organizer.EventDura" +
-      "tionListResponse\022C\n\013RemoveEvent\022!.hts.or" +
-      "ganizer.RemoveEventRequest\032\021.hts.common." +
-      "Event\022c\n\031UpdateRegistrationRequest\022/.hts" +
-      ".organizer.UpdateRegistrationRequestRequ" +
-      "est\032\025.hts.common.UserEvent\022=\n\tCreateTag\022" +
-      "\037.hts.organizer.CreateTagRequest\032\017.hts.c" +
-      "ommon.Tag\022O\n\007AddTags\022\037.hts.organizer.Upd" +
+      "\007answers\"J\n\024LocationListResponse\0222\n\tloca" +
+      "tions\030\001 \003(\0132\024.hts.common.LocationR\tlocat" +
+      "ions2\276\024\n\020OrganizerService\022X\n\022CreateOrgan" +
+      "ization\022(.hts.organizer.CreateOrganizati" +
+      "onRequest\032\030.hts.common.Organization\022S\n\020G" +
+      "etOrganizations\022\026.google.protobuf.Empty\032" +
+      "\'.hts.organizer.OrganizationListResponse" +
+      "\022Q\n\023GetOrganizationById\022 .hts.common.Get" +
+      "ObjectByIdRequest\032\030.hts.common.Organizat" +
+      "ion\022_\n\032GetUsersInOrganizationById\022 .hts." +
+      "common.GetObjectByIdRequest\032\037.hts.organi" +
+      "zer.UserListResponse\022X\n\022UpdateOrganizati" +
+      "on\022(.hts.organizer.UpdateOrganizationReq" +
+      "uest\032\030.hts.common.Organization\022X\n\022Remove" +
+      "Organization\022(.hts.organizer.RemoveOrgan" +
+      "izationRequest\032\030.hts.common.Organization" +
+      "\022v\n\026AddUsersToOrganization\022/.hts.organiz" +
+      "er.UpdateUsersInOrganizationRequest\032+.ht" +
+      "s.organizer.UserOrganizationListResponse" +
+      "\022{\n\033RemoveUsersFromOrganization\022/.hts.or" +
+      "ganizer.UpdateUsersInOrganizationRequest" +
+      "\032+.hts.organizer.UserOrganizationListRes" +
+      "ponse\022C\n\013CreateEvent\022!.hts.organizer.Cre" +
+      "ateEventRequest\032\021.hts.common.Event\022C\n\013Up" +
+      "dateEvent\022!.hts.organizer.UpdateEventReq" +
+      "uest\032\021.hts.common.Event\022k\n\024UpdateEventDu" +
+      "rations\022).hts.organizer.UpdateEventDurat" +
+      "ionRequest\032(.hts.organizer.EventDuration" +
+      "ListResponse\022C\n\013RemoveEvent\022!.hts.organi" +
+      "zer.RemoveEventRequest\032\021.hts.common.Even" +
+      "t\022c\n\031UpdateRegistrationRequest\022/.hts.org" +
+      "anizer.UpdateRegistrationRequestRequest\032" +
+      "\025.hts.common.UserEvent\022=\n\tCreateTag\022\037.ht" +
+      "s.organizer.CreateTagRequest\032\017.hts.commo" +
+      "n.Tag\022O\n\007AddTags\022\037.hts.organizer.UpdateT" +
+      "agRequest\032#.hts.organizer.EventTagListRe" +
+      "sponse\022R\n\nRemoveTags\022\037.hts.organizer.Upd" +
       "ateTagRequest\032#.hts.organizer.EventTagLi" +
-      "stResponse\022R\n\nRemoveTags\022\037.hts.organizer" +
-      ".UpdateTagRequest\032#.hts.organizer.EventT" +
-      "agListResponse\022=\n\010HasEvent\022\036.hts.organiz" +
-      "er.HasEventRequest\032\021.hts.common.Event\022f\n" +
-      "\021AddQuestionGroups\022\'.hts.organizer.AddQu" +
-      "estionGroupsRequest\032(.hts.organizer.Ques" +
-      "tionGroupListResponse\022l\n\024RemoveQuestionG" +
-      "roups\022*.hts.organizer.RemoveQuestionGrou" +
-      "psRequest\032(.hts.organizer.QuestionGroupL" +
-      "istResponse\022W\n\014AddQuestions\022\".hts.organi" +
-      "zer.AddQuestionsRequest\032#.hts.organizer." +
-      "QuestionListResponse\022]\n\017RemoveQuestions\022" +
-      "%.hts.organizer.RemoveQuestionsRequest\032#" +
-      ".hts.organizer.QuestionListResponse\022]\n\026G" +
-      "etAnswersByQuestionId\022 .hts.common.GetOb" +
-      "jectByIdRequest\032!.hts.organizer.AnswerLi" +
-      "stResponse\022:\n\004Ping\022\026.google.protobuf.Emp" +
-      "ty\032\032.google.protobuf.BoolValueBH\n\020app.on" +
-      "epass.apisB\016OrganizerProtoP\001Z\"onepass.ap" +
-      "p/facility/hts/organizerb\006proto3"
+      "stResponse\022=\n\010HasEvent\022\036.hts.organizer.H" +
+      "asEventRequest\032\021.hts.common.Event\022f\n\021Add" +
+      "QuestionGroups\022\'.hts.organizer.AddQuesti" +
+      "onGroupsRequest\032(.hts.organizer.Question" +
+      "GroupListResponse\022l\n\024RemoveQuestionGroup" +
+      "s\022*.hts.organizer.RemoveQuestionGroupsRe" +
+      "quest\032(.hts.organizer.QuestionGroupListR" +
+      "esponse\022W\n\014AddQuestions\022\".hts.organizer." +
+      "AddQuestionsRequest\032#.hts.organizer.Ques" +
+      "tionListResponse\022]\n\017RemoveQuestions\022%.ht" +
+      "s.organizer.RemoveQuestionsRequest\032#.hts" +
+      ".organizer.QuestionListResponse\022]\n\026GetAn" +
+      "swersByQuestionId\022 .hts.common.GetObject" +
+      "ByIdRequest\032!.hts.organizer.AnswerListRe" +
+      "sponse\022L\n\016CreateLocation\022$.hts.organizer" +
+      ".CreateLocationRequest\032\024.hts.common.Loca" +
+      "tion\022K\n\014GetLocations\022\026.google.protobuf.E" +
+      "mpty\032#.hts.organizer.LocationListRespons" +
+      "e\022I\n\017GetLocationById\022 .hts.common.GetObj" +
+      "ectByIdRequest\032\024.hts.common.Location\022`\n\025" +
+      "SearchLocationsByName\022\".hts.common.GetOb" +
+      "jectByNameRequest\032#.hts.organizer.Locati" +
+      "onListResponse\022L\n\016UpdateLocation\022$.hts.o" +
+      "rganizer.UpdateLocationRequest\032\024.hts.com" +
+      "mon.Location\022L\n\016RemoveLocation\022$.hts.org" +
+      "anizer.RemoveLocationRequest\032\024.hts.commo" +
+      "n.Location\022M\n\016GenerateTicket\022$.hts.organ" +
+      "izer.GenerateTicketRequest\032\025.hts.common." +
+      "UserEvent\022:\n\004Ping\022\026.google.protobuf.Empt" +
+      "y\032\032.google.protobuf.BoolValueBH\n\020app.one" +
+      "pass.apisB\016OrganizerProtoP\001Z\"onepass.app" +
+      "/facility/hts/organizerb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -381,54 +431,84 @@ public final class OrganizerProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_organizer_RemoveQuestionsRequest_descriptor,
         new java.lang.String[] { "UserId", "QuestionIds", });
-    internal_static_hts_organizer_OrganizationListResponse_descriptor =
+    internal_static_hts_organizer_CreateLocationRequest_descriptor =
       getDescriptor().getMessageTypes().get(17);
+    internal_static_hts_organizer_CreateLocationRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_organizer_CreateLocationRequest_descriptor,
+        new java.lang.String[] { "UserId", "Location", });
+    internal_static_hts_organizer_UpdateLocationRequest_descriptor =
+      getDescriptor().getMessageTypes().get(18);
+    internal_static_hts_organizer_UpdateLocationRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_organizer_UpdateLocationRequest_descriptor,
+        new java.lang.String[] { "UserId", "Location", });
+    internal_static_hts_organizer_RemoveLocationRequest_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_hts_organizer_RemoveLocationRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_organizer_RemoveLocationRequest_descriptor,
+        new java.lang.String[] { "UserId", "LocationId", });
+    internal_static_hts_organizer_GenerateTicketRequest_descriptor =
+      getDescriptor().getMessageTypes().get(20);
+    internal_static_hts_organizer_GenerateTicketRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_organizer_GenerateTicketRequest_descriptor,
+        new java.lang.String[] { "UserId", "EventId", });
+    internal_static_hts_organizer_OrganizationListResponse_descriptor =
+      getDescriptor().getMessageTypes().get(21);
     internal_static_hts_organizer_OrganizationListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_organizer_OrganizationListResponse_descriptor,
         new java.lang.String[] { "Organizations", });
     internal_static_hts_organizer_UserListResponse_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_hts_organizer_UserListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_organizer_UserListResponse_descriptor,
         new java.lang.String[] { "Users", });
     internal_static_hts_organizer_UserOrganizationListResponse_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_hts_organizer_UserOrganizationListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_organizer_UserOrganizationListResponse_descriptor,
         new java.lang.String[] { "UserOrganizations", });
     internal_static_hts_organizer_EventDurationListResponse_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_hts_organizer_EventDurationListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_organizer_EventDurationListResponse_descriptor,
         new java.lang.String[] { "EventDurations", });
     internal_static_hts_organizer_EventTagListResponse_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_hts_organizer_EventTagListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_organizer_EventTagListResponse_descriptor,
         new java.lang.String[] { "EventTags", });
     internal_static_hts_organizer_QuestionGroupListResponse_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(26);
     internal_static_hts_organizer_QuestionGroupListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_organizer_QuestionGroupListResponse_descriptor,
         new java.lang.String[] { "QuestionGroups", });
     internal_static_hts_organizer_QuestionListResponse_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_hts_organizer_QuestionListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_organizer_QuestionListResponse_descriptor,
         new java.lang.String[] { "Questions", });
     internal_static_hts_organizer_AnswerListResponse_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_hts_organizer_AnswerListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_organizer_AnswerListResponse_descriptor,
         new java.lang.String[] { "Answers", });
+    internal_static_hts_organizer_LocationListResponse_descriptor =
+      getDescriptor().getMessageTypes().get(29);
+    internal_static_hts_organizer_LocationListResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_organizer_LocationListResponse_descriptor,
+        new java.lang.String[] { "Locations", });
     app.onepass.apis.CommonProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
     com.google.protobuf.EmptyProto.getDescriptor();
