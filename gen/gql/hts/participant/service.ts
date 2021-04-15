@@ -119,6 +119,11 @@ export interface GetUserEventsByEventIdResponse {
   userEvents: UserEvent[];
 }
 
+export interface SetRatingByUserEventIdRequest {
+  userEventId: number;
+  rating: number;
+}
+
 export interface ParticipantService {
   IsEventAvailable(
     request: IsEventAvailableRequest
@@ -174,6 +179,9 @@ export interface ParticipantService {
   GetUserEventsByEventId(
     request: GetObjectByIdRequest
   ): Promise<GetUserEventsByEventIdResponse>;
+  SetRatingByUserEventId(
+    request: SetRatingByUserEventIdRequest
+  ): Promise<UserEvent>;
   GenerateQR(request: GenerateQRRequest): Promise<GenerateQRResponse>;
   Ping(request: Empty): Promise<boolean | undefined>;
 }

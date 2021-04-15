@@ -123,6 +123,11 @@ export interface GetUserEventsByEventIdResponse {
   userEvents: UserEvent[];
 }
 
+export interface SetRatingByUserEventIdRequest {
+  userEventId: number;
+  rating: number;
+}
+
 export const HTS_PARTICIPANT_PACKAGE_NAME = "hts.participant";
 
 export interface ParticipantServiceClient {
@@ -215,6 +220,10 @@ export interface ParticipantServiceClient {
   getUserEventsByEventId(
     request: GetObjectByIdRequest
   ): Observable<GetUserEventsByEventIdResponse>;
+
+  setRatingByUserEventId(
+    request: SetRatingByUserEventIdRequest
+  ): Observable<UserEvent>;
 
   generateQR(request: GenerateQRRequest): Observable<GenerateQRResponse>;
 
@@ -355,6 +364,10 @@ export interface ParticipantServiceController {
     | Observable<GetUserEventsByEventIdResponse>
     | GetUserEventsByEventIdResponse;
 
+  setRatingByUserEventId(
+    request: SetRatingByUserEventIdRequest
+  ): Promise<UserEvent> | Observable<UserEvent> | UserEvent;
+
   generateQR(
     request: GenerateQRRequest
   ):
@@ -396,6 +409,7 @@ export function ParticipantServiceControllerMethods() {
       "getEventsByUserId",
       "getUserEventByUserAndEventId",
       "getUserEventsByEventId",
+      "setRatingByUserEventId",
       "generateQR",
       "ping",
     ];
