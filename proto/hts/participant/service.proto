@@ -116,7 +116,7 @@ message GetUserEventsByEventIdResponse {
 
 message SetRatingByUserEventIdRequest {
     int32 user_event_id = 1;
-    string rating = 2;
+    int32 rating = 2;
 }
 
 service ParticipantService {
