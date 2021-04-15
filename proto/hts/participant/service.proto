@@ -166,8 +166,9 @@ service ParticipantService {
 
     rpc GetEventsByUserId(GetEventsByUserIdRequest) returns (EventsResponse);
     rpc GetUserEventByUserAndEventId(UserWithEventRequest) returns (hts.common.UserEvent);
-
     rpc GetUserEventsByEventId(hts.common.GetObjectByIdRequest) returns (GetUserEventsByEventIdResponse);
+
+    rpc SetRatingByUserEventId(hts.common.GetObjectByIdRequest) returns (hts.common.UserEvent)
 
     // Generate QR from combination of ID, User_ID, Event_ID
     rpc GenerateQR(GenerateQRRequest) returns (GenerateQRResponse);
