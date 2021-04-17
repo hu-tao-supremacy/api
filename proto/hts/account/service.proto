@@ -89,8 +89,17 @@ message GetUserOrganizationsByOrganizationIdResponse {
   repeated hts.common.UserOrganization user_organizations = 1;
 }
 
+message SearchUserRequest {
+  string keyword = 1;
+}
+
+message SearchUserResponse {
+  repeated hts.common.User users = 1;
+}
+
 service AccountService {
   rpc CreateUser(CreateUserRequest) returns (hts.common.User);
+  rpc SearchUser(SearchUserRequest) returns (SearchUserResponse);
   rpc GetUserByChulaId(GetUserByChulaIdRequest) returns (hts.common.User);
   rpc GetUserByEmail(GetUserByEmailRequest) returns (hts.common.User);
   rpc IsAuthenticated(IsAuthenticatedRequest) returns (google.protobuf.BoolValue);
