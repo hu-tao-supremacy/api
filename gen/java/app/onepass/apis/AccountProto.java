@@ -84,6 +84,16 @@ public final class AccountProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hts_account_GetUserOrganizationsByOrganizationIdResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_account_SearchUserRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_account_SearchUserRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_account_SearchUserResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_account_SearchUserResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -128,43 +138,48 @@ public final class AccountProto {
       "zationR\021userOrganizations\"{\n,GetUserOrga" +
       "nizationsByOrganizationIdResponse\022K\n\022use" +
       "r_organizations\030\001 \003(\0132\034.hts.common.UserO" +
-      "rganizationR\021userOrganizations*f\n\004Role\022\024" +
-      "\n\020ROLE_UNSPECIFIED\020\000\022\026\n\022ORGANIZATION_OWN" +
-      "ER\020\001\022\027\n\023ORGANIZATION_EDITOR\020\002\022\027\n\023ORGANIZ" +
-      "ATION_MEMBER\020\0032\331\t\n\016AccountService\022>\n\nCre" +
-      "ateUser\022\036.hts.account.CreateUserRequest\032" +
-      "\020.hts.common.User\022J\n\020GetUserByChulaId\022$." +
-      "hts.account.GetUserByChulaIdRequest\032\020.ht" +
-      "s.common.User\022F\n\016GetUserByEmail\022\".hts.ac" +
-      "count.GetUserByEmailRequest\032\020.hts.common" +
-      ".User\022R\n\017IsAuthenticated\022#.hts.account.I" +
-      "sAuthenticatedRequest\032\032.google.protobuf." +
-      "BoolValue\0227\n\021UpdateAccountInfo\022\020.hts.com" +
-      "mon.User\032\020.hts.common.User\022L\n\021SetInteres" +
-      "tedTags\022%.hts.account.SetInterestedTagsR" +
-      "equest\032\020.hts.common.User\022P\n\023SetIntereste" +
-      "dEvents\022\'.hts.account.SetInterestedEvent" +
-      "sRequest\032\020.hts.common.User\022A\n\013GetUserByI" +
-      "d\022 .hts.common.GetObjectByIdRequest\032\020.ht" +
-      "s.common.User\022h\n\023GenerateAccessToken\022\'.h" +
-      "ts.account.GenerateAccessTokenRequest\032(." +
-      "hts.account.GenerateAccessTokenResponse\022" +
-      "N\n\rHasPermission\022!.hts.account.HasPermis" +
-      "sionRequest\032\032.google.protobuf.BoolValue\022" +
-      "H\n\nAssignRole\022\036.hts.account.AssignRoleRe" +
-      "quest\032\032.google.protobuf.BoolValue\022H\n\nRem" +
-      "oveRole\022\036.hts.account.RemoveRoleRequest\032" +
-      "\032.google.protobuf.BoolValue\022s\n\034GetUserOr" +
-      "ganizationsByUserId\022 .hts.common.GetObje" +
-      "ctByIdRequest\0321.hts.account.GetUserOrgan" +
-      "izationsByUserIdResponse\022\203\001\n$GetUserOrga" +
-      "nizationsByOrganizationId\022 .hts.common.G" +
-      "etObjectByIdRequest\0329.hts.account.GetUse" +
-      "rOrganizationsByOrganizationIdResponse\022:" +
-      "\n\004Ping\022\026.google.protobuf.Empty\032\032.google." +
-      "protobuf.BoolValueBD\n\020app.onepass.apisB\014" +
-      "AccountProtoP\001Z onepass.app/facility/hts" +
-      "/accountb\006proto3"
+      "rganizationR\021userOrganizations\"-\n\021Search" +
+      "UserRequest\022\030\n\007keyword\030\001 \001(\tR\007keyword\"<\n" +
+      "\022SearchUserResponse\022&\n\005users\030\001 \003(\0132\020.hts" +
+      ".common.UserR\005users*f\n\004Role\022\024\n\020ROLE_UNSP" +
+      "ECIFIED\020\000\022\026\n\022ORGANIZATION_OWNER\020\001\022\027\n\023ORG" +
+      "ANIZATION_EDITOR\020\002\022\027\n\023ORGANIZATION_MEMBE" +
+      "R\020\0032\250\n\n\016AccountService\022>\n\nCreateUser\022\036.h" +
+      "ts.account.CreateUserRequest\032\020.hts.commo" +
+      "n.User\022M\n\nSearchUser\022\036.hts.account.Searc" +
+      "hUserRequest\032\037.hts.account.SearchUserRes" +
+      "ponse\022J\n\020GetUserByChulaId\022$.hts.account." +
+      "GetUserByChulaIdRequest\032\020.hts.common.Use" +
+      "r\022F\n\016GetUserByEmail\022\".hts.account.GetUse" +
+      "rByEmailRequest\032\020.hts.common.User\022R\n\017IsA" +
+      "uthenticated\022#.hts.account.IsAuthenticat" +
+      "edRequest\032\032.google.protobuf.BoolValue\0227\n" +
+      "\021UpdateAccountInfo\022\020.hts.common.User\032\020.h" +
+      "ts.common.User\022L\n\021SetInterestedTags\022%.ht" +
+      "s.account.SetInterestedTagsRequest\032\020.hts" +
+      ".common.User\022P\n\023SetInterestedEvents\022\'.ht" +
+      "s.account.SetInterestedEventsRequest\032\020.h" +
+      "ts.common.User\022A\n\013GetUserById\022 .hts.comm" +
+      "on.GetObjectByIdRequest\032\020.hts.common.Use" +
+      "r\022h\n\023GenerateAccessToken\022\'.hts.account.G" +
+      "enerateAccessTokenRequest\032(.hts.account." +
+      "GenerateAccessTokenResponse\022N\n\rHasPermis" +
+      "sion\022!.hts.account.HasPermissionRequest\032" +
+      "\032.google.protobuf.BoolValue\022H\n\nAssignRol" +
+      "e\022\036.hts.account.AssignRoleRequest\032\032.goog" +
+      "le.protobuf.BoolValue\022H\n\nRemoveRole\022\036.ht" +
+      "s.account.RemoveRoleRequest\032\032.google.pro" +
+      "tobuf.BoolValue\022s\n\034GetUserOrganizationsB" +
+      "yUserId\022 .hts.common.GetObjectByIdReques" +
+      "t\0321.hts.account.GetUserOrganizationsByUs" +
+      "erIdResponse\022\203\001\n$GetUserOrganizationsByO" +
+      "rganizationId\022 .hts.common.GetObjectById" +
+      "Request\0329.hts.account.GetUserOrganizatio" +
+      "nsByOrganizationIdResponse\022:\n\004Ping\022\026.goo" +
+      "gle.protobuf.Empty\032\032.google.protobuf.Boo" +
+      "lValueBD\n\020app.onepass.apisB\014AccountProto" +
+      "P\001Z onepass.app/facility/hts/accountb\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -257,6 +272,18 @@ public final class AccountProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_account_GetUserOrganizationsByOrganizationIdResponse_descriptor,
         new java.lang.String[] { "UserOrganizations", });
+    internal_static_hts_account_SearchUserRequest_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_hts_account_SearchUserRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_account_SearchUserRequest_descriptor,
+        new java.lang.String[] { "Keyword", });
+    internal_static_hts_account_SearchUserResponse_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_hts_account_SearchUserResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_account_SearchUserResponse_descriptor,
+        new java.lang.String[] { "Users", });
     app.onepass.apis.CommonProto.getDescriptor();
     com.google.protobuf.EmptyProto.getDescriptor();
     com.google.protobuf.WrappersProto.getDescriptor();
