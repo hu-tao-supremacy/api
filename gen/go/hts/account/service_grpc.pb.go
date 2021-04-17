@@ -22,6 +22,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AccountServiceClient interface {
 	CreateUser(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*common.User, error)
+	SearchUser(ctx context.Context, in *SearchUserRequest, opts ...grpc.CallOption) (*SearchUserResponse, error)
 	GetUserByChulaId(ctx context.Context, in *GetUserByChulaIdRequest, opts ...grpc.CallOption) (*common.User, error)
 	GetUserByEmail(ctx context.Context, in *GetUserByEmailRequest, opts ...grpc.CallOption) (*common.User, error)
 	IsAuthenticated(ctx context.Context, in *IsAuthenticatedRequest, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
@@ -49,6 +50,15 @@ func NewAccountServiceClient(cc grpc.ClientConnInterface) AccountServiceClient {
 func (c *accountServiceClient) CreateUser(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*common.User, error) {
 	out := new(common.User)
 	err := c.cc.Invoke(ctx, "/hts.account.AccountService/CreateUser", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountServiceClient) SearchUser(ctx context.Context, in *SearchUserRequest, opts ...grpc.CallOption) (*SearchUserResponse, error) {
+	out := new(SearchUserResponse)
+	err := c.cc.Invoke(ctx, "/hts.account.AccountService/SearchUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -186,6 +196,7 @@ func (c *accountServiceClient) Ping(ctx context.Context, in *emptypb.Empty, opts
 // for forward compatibility
 type AccountServiceServer interface {
 	CreateUser(context.Context, *CreateUserRequest) (*common.User, error)
+	SearchUser(context.Context, *SearchUserRequest) (*SearchUserResponse, error)
 	GetUserByChulaId(context.Context, *GetUserByChulaIdRequest) (*common.User, error)
 	GetUserByEmail(context.Context, *GetUserByEmailRequest) (*common.User, error)
 	IsAuthenticated(context.Context, *IsAuthenticatedRequest) (*wrapperspb.BoolValue, error)
@@ -209,6 +220,9 @@ type UnimplementedAccountServiceServer struct {
 
 func (UnimplementedAccountServiceServer) CreateUser(context.Context, *CreateUserRequest) (*common.User, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateUser not implemented")
+}
+func (UnimplementedAccountServiceServer) SearchUser(context.Context, *SearchUserRequest) (*SearchUserResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchUser not implemented")
 }
 func (UnimplementedAccountServiceServer) GetUserByChulaId(context.Context, *GetUserByChulaIdRequest) (*common.User, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserByChulaId not implemented")
@@ -279,6 +293,24 @@ func _AccountService_CreateUser_Handler(srv interface{}, ctx context.Context, de
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AccountServiceServer).CreateUser(ctx, req.(*CreateUserRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountService_SearchUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchUserRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountServiceServer).SearchUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.account.AccountService/SearchUser",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountServiceServer).SearchUser(ctx, req.(*SearchUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -545,6 +577,10 @@ var AccountService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CreateUser",
 			Handler:    _AccountService_CreateUser_Handler,
+		},
+		{
+			MethodName: "SearchUser",
+			Handler:    _AccountService_SearchUser_Handler,
 		},
 		{
 			MethodName: "GetUserByChulaId",
