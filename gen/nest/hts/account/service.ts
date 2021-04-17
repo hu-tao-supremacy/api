@@ -126,6 +126,14 @@ export interface GetUserOrganizationsByOrganizationIdResponse {
   userOrganizations: UserOrganization[];
 }
 
+export interface SearchUserRequest {
+  keyword: string;
+}
+
+export interface SearchUserResponse {
+  users: User[];
+}
+
 export const HTS_ACCOUNT_PACKAGE_NAME = "hts.account";
 
 const baseAccessTokenPayload: object = { userId: 0 };
@@ -541,8 +549,55 @@ export const GetUserOrganizationsByOrganizationIdResponse = {
   },
 };
 
+const baseSearchUserRequest: object = { keyword: "" };
+
+export const SearchUserRequest = {
+  fromJSON(object: any): SearchUserRequest {
+    const message = { ...baseSearchUserRequest } as SearchUserRequest;
+    if (object.keyword !== undefined && object.keyword !== null) {
+      message.keyword = String(object.keyword);
+    } else {
+      message.keyword = "";
+    }
+    return message;
+  },
+
+  toJSON(message: SearchUserRequest): unknown {
+    const obj: any = {};
+    message.keyword !== undefined && (obj.keyword = message.keyword);
+    return obj;
+  },
+};
+
+const baseSearchUserResponse: object = {};
+
+export const SearchUserResponse = {
+  fromJSON(object: any): SearchUserResponse {
+    const message = { ...baseSearchUserResponse } as SearchUserResponse;
+    message.users = [];
+    if (object.users !== undefined && object.users !== null) {
+      for (const e of object.users) {
+        message.users.push(User.fromJSON(e));
+      }
+    }
+    return message;
+  },
+
+  toJSON(message: SearchUserResponse): unknown {
+    const obj: any = {};
+    if (message.users) {
+      obj.users = message.users.map((e) => (e ? User.toJSON(e) : undefined));
+    } else {
+      obj.users = [];
+    }
+    return obj;
+  },
+};
+
 export interface AccountServiceClient {
   createUser(request: CreateUserRequest): Observable<User>;
+
+  searchUser(request: SearchUserRequest): Observable<SearchUserResponse>;
 
   getUserByChulaId(request: GetUserByChulaIdRequest): Observable<User>;
 
@@ -583,6 +638,13 @@ export interface AccountServiceController {
   createUser(
     request: CreateUserRequest
   ): Promise<User> | Observable<User> | User;
+
+  searchUser(
+    request: SearchUserRequest
+  ):
+    | Promise<SearchUserResponse>
+    | Observable<SearchUserResponse>
+    | SearchUserResponse;
 
   getUserByChulaId(
     request: GetUserByChulaIdRequest
@@ -650,6 +712,7 @@ export function AccountServiceControllerMethods() {
   return function (constructor: Function) {
     const grpcMethods: string[] = [
       "createUser",
+      "searchUser",
       "getUserByChulaId",
       "getUserByEmail",
       "isAuthenticated",
