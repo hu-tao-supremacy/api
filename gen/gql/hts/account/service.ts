@@ -124,6 +124,14 @@ export interface GetUserOrganizationsByOrganizationIdResponse {
   userOrganizations: UserOrganization[];
 }
 
+export interface SearchUserRequest {
+  keyword: string;
+}
+
+export interface SearchUserResponse {
+  users: User[];
+}
+
 const baseAccessTokenPayload: object = { userId: 0 };
 
 export const AccessTokenPayload = {
@@ -1292,8 +1300,129 @@ export const GetUserOrganizationsByOrganizationIdResponse = {
   },
 };
 
+const baseSearchUserRequest: object = { keyword: "" };
+
+export const SearchUserRequest = {
+  encode(message: SearchUserRequest, writer: Writer = Writer.create()): Writer {
+    if (message.keyword !== "") {
+      writer.uint32(10).string(message.keyword);
+    }
+    return writer;
+  },
+
+  decode(input: Reader | Uint8Array, length?: number): SearchUserRequest {
+    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = { ...baseSearchUserRequest } as SearchUserRequest;
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.keyword = reader.string();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): SearchUserRequest {
+    const message = { ...baseSearchUserRequest } as SearchUserRequest;
+    if (object.keyword !== undefined && object.keyword !== null) {
+      message.keyword = String(object.keyword);
+    } else {
+      message.keyword = "";
+    }
+    return message;
+  },
+
+  toJSON(message: SearchUserRequest): unknown {
+    const obj: any = {};
+    message.keyword !== undefined && (obj.keyword = message.keyword);
+    return obj;
+  },
+
+  fromPartial(object: DeepPartial<SearchUserRequest>): SearchUserRequest {
+    const message = { ...baseSearchUserRequest } as SearchUserRequest;
+    if (object.keyword !== undefined && object.keyword !== null) {
+      message.keyword = object.keyword;
+    } else {
+      message.keyword = "";
+    }
+    return message;
+  },
+};
+
+const baseSearchUserResponse: object = {};
+
+export const SearchUserResponse = {
+  encode(
+    message: SearchUserResponse,
+    writer: Writer = Writer.create()
+  ): Writer {
+    for (const v of message.users) {
+      User.encode(v!, writer.uint32(10).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: Reader | Uint8Array, length?: number): SearchUserResponse {
+    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = { ...baseSearchUserResponse } as SearchUserResponse;
+    message.users = [];
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.users.push(User.decode(reader, reader.uint32()));
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): SearchUserResponse {
+    const message = { ...baseSearchUserResponse } as SearchUserResponse;
+    message.users = [];
+    if (object.users !== undefined && object.users !== null) {
+      for (const e of object.users) {
+        message.users.push(User.fromJSON(e));
+      }
+    }
+    return message;
+  },
+
+  toJSON(message: SearchUserResponse): unknown {
+    const obj: any = {};
+    if (message.users) {
+      obj.users = message.users.map((e) => (e ? User.toJSON(e) : undefined));
+    } else {
+      obj.users = [];
+    }
+    return obj;
+  },
+
+  fromPartial(object: DeepPartial<SearchUserResponse>): SearchUserResponse {
+    const message = { ...baseSearchUserResponse } as SearchUserResponse;
+    message.users = [];
+    if (object.users !== undefined && object.users !== null) {
+      for (const e of object.users) {
+        message.users.push(User.fromPartial(e));
+      }
+    }
+    return message;
+  },
+};
+
 export interface AccountService {
   CreateUser(request: CreateUserRequest): Promise<User>;
+  SearchUser(request: SearchUserRequest): Promise<SearchUserResponse>;
   GetUserByChulaId(request: GetUserByChulaIdRequest): Promise<User>;
   GetUserByEmail(request: GetUserByEmailRequest): Promise<User>;
   IsAuthenticated(
