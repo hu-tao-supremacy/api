@@ -45,6 +45,37 @@ public final class AccountServiceGrpc {
     return getCreateUserMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.SearchUserRequest,
+      app.onepass.apis.SearchUserResponse> getSearchUserMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "SearchUser",
+      requestType = app.onepass.apis.SearchUserRequest.class,
+      responseType = app.onepass.apis.SearchUserResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<app.onepass.apis.SearchUserRequest,
+      app.onepass.apis.SearchUserResponse> getSearchUserMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.SearchUserRequest, app.onepass.apis.SearchUserResponse> getSearchUserMethod;
+    if ((getSearchUserMethod = AccountServiceGrpc.getSearchUserMethod) == null) {
+      synchronized (AccountServiceGrpc.class) {
+        if ((getSearchUserMethod = AccountServiceGrpc.getSearchUserMethod) == null) {
+          AccountServiceGrpc.getSearchUserMethod = getSearchUserMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.SearchUserRequest, app.onepass.apis.SearchUserResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "SearchUser"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.SearchUserRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.SearchUserResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new AccountServiceMethodDescriptorSupplier("SearchUser"))
+              .build();
+        }
+      }
+    }
+    return getSearchUserMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<app.onepass.apis.GetUserByChulaIdRequest,
       app.onepass.apis.User> getGetUserByChulaIdMethod;
 
@@ -536,6 +567,13 @@ public final class AccountServiceGrpc {
 
     /**
      */
+    public void searchUser(app.onepass.apis.SearchUserRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.SearchUserResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSearchUserMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void getUserByChulaId(app.onepass.apis.GetUserByChulaIdRequest request,
         io.grpc.stub.StreamObserver<app.onepass.apis.User> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetUserByChulaIdMethod(), responseObserver);
@@ -641,6 +679,13 @@ public final class AccountServiceGrpc {
                 app.onepass.apis.CreateUserRequest,
                 app.onepass.apis.User>(
                   this, METHODID_CREATE_USER)))
+          .addMethod(
+            getSearchUserMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                app.onepass.apis.SearchUserRequest,
+                app.onepass.apis.SearchUserResponse>(
+                  this, METHODID_SEARCH_USER)))
           .addMethod(
             getGetUserByChulaIdMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -763,6 +808,14 @@ public final class AccountServiceGrpc {
         io.grpc.stub.StreamObserver<app.onepass.apis.User> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getCreateUserMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void searchUser(app.onepass.apis.SearchUserRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.SearchUserResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getSearchUserMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -901,6 +954,13 @@ public final class AccountServiceGrpc {
 
     /**
      */
+    public app.onepass.apis.SearchUserResponse searchUser(app.onepass.apis.SearchUserRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getSearchUserMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public app.onepass.apis.User getUserByChulaId(app.onepass.apis.GetUserByChulaIdRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetUserByChulaIdMethod(), getCallOptions(), request);
@@ -1022,6 +1082,14 @@ public final class AccountServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.SearchUserResponse> searchUser(
+        app.onepass.apis.SearchUserRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getSearchUserMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.User> getUserByChulaId(
         app.onepass.apis.GetUserByChulaIdRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -1134,20 +1202,21 @@ public final class AccountServiceGrpc {
   }
 
   private static final int METHODID_CREATE_USER = 0;
-  private static final int METHODID_GET_USER_BY_CHULA_ID = 1;
-  private static final int METHODID_GET_USER_BY_EMAIL = 2;
-  private static final int METHODID_IS_AUTHENTICATED = 3;
-  private static final int METHODID_UPDATE_ACCOUNT_INFO = 4;
-  private static final int METHODID_SET_INTERESTED_TAGS = 5;
-  private static final int METHODID_SET_INTERESTED_EVENTS = 6;
-  private static final int METHODID_GET_USER_BY_ID = 7;
-  private static final int METHODID_GENERATE_ACCESS_TOKEN = 8;
-  private static final int METHODID_HAS_PERMISSION = 9;
-  private static final int METHODID_ASSIGN_ROLE = 10;
-  private static final int METHODID_REMOVE_ROLE = 11;
-  private static final int METHODID_GET_USER_ORGANIZATIONS_BY_USER_ID = 12;
-  private static final int METHODID_GET_USER_ORGANIZATIONS_BY_ORGANIZATION_ID = 13;
-  private static final int METHODID_PING = 14;
+  private static final int METHODID_SEARCH_USER = 1;
+  private static final int METHODID_GET_USER_BY_CHULA_ID = 2;
+  private static final int METHODID_GET_USER_BY_EMAIL = 3;
+  private static final int METHODID_IS_AUTHENTICATED = 4;
+  private static final int METHODID_UPDATE_ACCOUNT_INFO = 5;
+  private static final int METHODID_SET_INTERESTED_TAGS = 6;
+  private static final int METHODID_SET_INTERESTED_EVENTS = 7;
+  private static final int METHODID_GET_USER_BY_ID = 8;
+  private static final int METHODID_GENERATE_ACCESS_TOKEN = 9;
+  private static final int METHODID_HAS_PERMISSION = 10;
+  private static final int METHODID_ASSIGN_ROLE = 11;
+  private static final int METHODID_REMOVE_ROLE = 12;
+  private static final int METHODID_GET_USER_ORGANIZATIONS_BY_USER_ID = 13;
+  private static final int METHODID_GET_USER_ORGANIZATIONS_BY_ORGANIZATION_ID = 14;
+  private static final int METHODID_PING = 15;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1169,6 +1238,10 @@ public final class AccountServiceGrpc {
         case METHODID_CREATE_USER:
           serviceImpl.createUser((app.onepass.apis.CreateUserRequest) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.User>) responseObserver);
+          break;
+        case METHODID_SEARCH_USER:
+          serviceImpl.searchUser((app.onepass.apis.SearchUserRequest) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.SearchUserResponse>) responseObserver);
           break;
         case METHODID_GET_USER_BY_CHULA_ID:
           serviceImpl.getUserByChulaId((app.onepass.apis.GetUserByChulaIdRequest) request,
@@ -1288,6 +1361,7 @@ public final class AccountServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new AccountServiceFileDescriptorSupplier())
               .addMethod(getCreateUserMethod())
+              .addMethod(getSearchUserMethod())
               .addMethod(getGetUserByChulaIdMethod())
               .addMethod(getGetUserByEmailMethod())
               .addMethod(getIsAuthenticatedMethod())
