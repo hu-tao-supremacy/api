@@ -23,7 +23,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'\n\020app.onepass.apisB\014AccountProtoP\001Z onepass.app/facility/hts/account',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x19hts/account/service.proto\x12\x0bhts.account\x1a\x17hts/common/common.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1egoogle/protobuf/wrappers.proto\"-\n\x12\x41\x63\x63\x65ssTokenPayload\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\";\n\x16IsAuthenticatedRequest\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x01 \x01(\tR\x0b\x61\x63\x63\x65ssToken\"5\n\x1aGenerateAccessTokenRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\"@\n\x1bGenerateAccessTokenResponse\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x01 \x01(\tR\x0b\x61\x63\x63\x65ssToken\"\x99\x01\n\x14HasPermissionRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x05R\x0eorganizationId\x12?\n\x0fpermission_name\x18\x03 \x01(\x0e\x32\x16.hts.common.PermissionR\x0epermissionName\"\xaa\x01\n\x11\x43reateUserRequest\x12\x1d\n\nfirst_name\x18\x01 \x01(\tR\tfirstName\x12\x1b\n\tlast_name\x18\x02 \x01(\tR\x08lastName\x12\x19\n\x08\x63hula_id\x18\x03 \x01(\tR\x07\x63hulaId\x12\x14\n\x05\x65mail\x18\x04 \x01(\tR\x05\x65mail\x12(\n\x10is_chula_student\x18\x05 \x01(\x08R\x0eisChulaStudent\")\n\x17GetUserByChulaIdRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"-\n\x15GetUserByEmailRequest\x12\x14\n\x05\x65mail\x18\x01 \x01(\tR\x05\x65mail\"|\n\x11\x41ssignRoleRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x05R\x0eorganizationId\x12%\n\x04role\x18\x03 \x01(\x0e\x32\x11.hts.account.RoleR\x04role\"|\n\x11RemoveRoleRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x05R\x0eorganizationId\x12%\n\x04role\x18\x03 \x01(\x0e\x32\x11.hts.account.RoleR\x04role\"L\n\x18SetInterestedTagsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\x17\n\x07tag_ids\x18\x02 \x03(\x05R\x06tagIds\"R\n\x1aSetInterestedEventsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\x1b\n\tevent_ids\x18\x02 \x03(\x05R\x08\x65ventIds\"s\n$GetUserOrganizationsByUserIdResponse\x12K\n\x12user_organizations\x18\x01 \x03(\x0b\x32\x1c.hts.common.UserOrganizationR\x11userOrganizations\"{\n,GetUserOrganizationsByOrganizationIdResponse\x12K\n\x12user_organizations\x18\x01 \x03(\x0b\x32\x1c.hts.common.UserOrganizationR\x11userOrganizations*f\n\x04Role\x12\x14\n\x10ROLE_UNSPECIFIED\x10\x00\x12\x16\n\x12ORGANIZATION_OWNER\x10\x01\x12\x17\n\x13ORGANIZATION_EDITOR\x10\x02\x12\x17\n\x13ORGANIZATION_MEMBER\x10\x03\x32\xd9\t\n\x0e\x41\x63\x63ountService\x12>\n\nCreateUser\x12\x1e.hts.account.CreateUserRequest\x1a\x10.hts.common.User\x12J\n\x10GetUserByChulaId\x12$.hts.account.GetUserByChulaIdRequest\x1a\x10.hts.common.User\x12\x46\n\x0eGetUserByEmail\x12\".hts.account.GetUserByEmailRequest\x1a\x10.hts.common.User\x12R\n\x0fIsAuthenticated\x12#.hts.account.IsAuthenticatedRequest\x1a\x1a.google.protobuf.BoolValue\x12\x37\n\x11UpdateAccountInfo\x12\x10.hts.common.User\x1a\x10.hts.common.User\x12L\n\x11SetInterestedTags\x12%.hts.account.SetInterestedTagsRequest\x1a\x10.hts.common.User\x12P\n\x13SetInterestedEvents\x12\'.hts.account.SetInterestedEventsRequest\x1a\x10.hts.common.User\x12\x41\n\x0bGetUserById\x12 .hts.common.GetObjectByIdRequest\x1a\x10.hts.common.User\x12h\n\x13GenerateAccessToken\x12\'.hts.account.GenerateAccessTokenRequest\x1a(.hts.account.GenerateAccessTokenResponse\x12N\n\rHasPermission\x12!.hts.account.HasPermissionRequest\x1a\x1a.google.protobuf.BoolValue\x12H\n\nAssignRole\x12\x1e.hts.account.AssignRoleRequest\x1a\x1a.google.protobuf.BoolValue\x12H\n\nRemoveRole\x12\x1e.hts.account.RemoveRoleRequest\x1a\x1a.google.protobuf.BoolValue\x12s\n\x1cGetUserOrganizationsByUserId\x12 .hts.common.GetObjectByIdRequest\x1a\x31.hts.account.GetUserOrganizationsByUserIdResponse\x12\x83\x01\n$GetUserOrganizationsByOrganizationId\x12 .hts.common.GetObjectByIdRequest\x1a\x39.hts.account.GetUserOrganizationsByOrganizationIdResponse\x12:\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x1a.google.protobuf.BoolValueBD\n\x10\x61pp.onepass.apisB\x0c\x41\x63\x63ountProtoP\x01Z onepass.app/facility/hts/accountb\x06proto3'
+  serialized_pb=b'\n\x19hts/account/service.proto\x12\x0bhts.account\x1a\x17hts/common/common.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1egoogle/protobuf/wrappers.proto\"-\n\x12\x41\x63\x63\x65ssTokenPayload\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\";\n\x16IsAuthenticatedRequest\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x01 \x01(\tR\x0b\x61\x63\x63\x65ssToken\"5\n\x1aGenerateAccessTokenRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\"@\n\x1bGenerateAccessTokenResponse\x12!\n\x0c\x61\x63\x63\x65ss_token\x18\x01 \x01(\tR\x0b\x61\x63\x63\x65ssToken\"\x99\x01\n\x14HasPermissionRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x05R\x0eorganizationId\x12?\n\x0fpermission_name\x18\x03 \x01(\x0e\x32\x16.hts.common.PermissionR\x0epermissionName\"\xaa\x01\n\x11\x43reateUserRequest\x12\x1d\n\nfirst_name\x18\x01 \x01(\tR\tfirstName\x12\x1b\n\tlast_name\x18\x02 \x01(\tR\x08lastName\x12\x19\n\x08\x63hula_id\x18\x03 \x01(\tR\x07\x63hulaId\x12\x14\n\x05\x65mail\x18\x04 \x01(\tR\x05\x65mail\x12(\n\x10is_chula_student\x18\x05 \x01(\x08R\x0eisChulaStudent\")\n\x17GetUserByChulaIdRequest\x12\x0e\n\x02id\x18\x01 \x01(\tR\x02id\"-\n\x15GetUserByEmailRequest\x12\x14\n\x05\x65mail\x18\x01 \x01(\tR\x05\x65mail\"|\n\x11\x41ssignRoleRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x05R\x0eorganizationId\x12%\n\x04role\x18\x03 \x01(\x0e\x32\x11.hts.account.RoleR\x04role\"|\n\x11RemoveRoleRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\'\n\x0forganization_id\x18\x02 \x01(\x05R\x0eorganizationId\x12%\n\x04role\x18\x03 \x01(\x0e\x32\x11.hts.account.RoleR\x04role\"L\n\x18SetInterestedTagsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\x17\n\x07tag_ids\x18\x02 \x03(\x05R\x06tagIds\"R\n\x1aSetInterestedEventsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\x1b\n\tevent_ids\x18\x02 \x03(\x05R\x08\x65ventIds\"s\n$GetUserOrganizationsByUserIdResponse\x12K\n\x12user_organizations\x18\x01 \x03(\x0b\x32\x1c.hts.common.UserOrganizationR\x11userOrganizations\"{\n,GetUserOrganizationsByOrganizationIdResponse\x12K\n\x12user_organizations\x18\x01 \x03(\x0b\x32\x1c.hts.common.UserOrganizationR\x11userOrganizations\"-\n\x11SearchUserRequest\x12\x18\n\x07keyword\x18\x01 \x01(\tR\x07keyword\"<\n\x12SearchUserResponse\x12&\n\x05users\x18\x01 \x03(\x0b\x32\x10.hts.common.UserR\x05users*f\n\x04Role\x12\x14\n\x10ROLE_UNSPECIFIED\x10\x00\x12\x16\n\x12ORGANIZATION_OWNER\x10\x01\x12\x17\n\x13ORGANIZATION_EDITOR\x10\x02\x12\x17\n\x13ORGANIZATION_MEMBER\x10\x03\x32\xa8\n\n\x0e\x41\x63\x63ountService\x12>\n\nCreateUser\x12\x1e.hts.account.CreateUserRequest\x1a\x10.hts.common.User\x12M\n\nSearchUser\x12\x1e.hts.account.SearchUserRequest\x1a\x1f.hts.account.SearchUserResponse\x12J\n\x10GetUserByChulaId\x12$.hts.account.GetUserByChulaIdRequest\x1a\x10.hts.common.User\x12\x46\n\x0eGetUserByEmail\x12\".hts.account.GetUserByEmailRequest\x1a\x10.hts.common.User\x12R\n\x0fIsAuthenticated\x12#.hts.account.IsAuthenticatedRequest\x1a\x1a.google.protobuf.BoolValue\x12\x37\n\x11UpdateAccountInfo\x12\x10.hts.common.User\x1a\x10.hts.common.User\x12L\n\x11SetInterestedTags\x12%.hts.account.SetInterestedTagsRequest\x1a\x10.hts.common.User\x12P\n\x13SetInterestedEvents\x12\'.hts.account.SetInterestedEventsRequest\x1a\x10.hts.common.User\x12\x41\n\x0bGetUserById\x12 .hts.common.GetObjectByIdRequest\x1a\x10.hts.common.User\x12h\n\x13GenerateAccessToken\x12\'.hts.account.GenerateAccessTokenRequest\x1a(.hts.account.GenerateAccessTokenResponse\x12N\n\rHasPermission\x12!.hts.account.HasPermissionRequest\x1a\x1a.google.protobuf.BoolValue\x12H\n\nAssignRole\x12\x1e.hts.account.AssignRoleRequest\x1a\x1a.google.protobuf.BoolValue\x12H\n\nRemoveRole\x12\x1e.hts.account.RemoveRoleRequest\x1a\x1a.google.protobuf.BoolValue\x12s\n\x1cGetUserOrganizationsByUserId\x12 .hts.common.GetObjectByIdRequest\x1a\x31.hts.account.GetUserOrganizationsByUserIdResponse\x12\x83\x01\n$GetUserOrganizationsByOrganizationId\x12 .hts.common.GetObjectByIdRequest\x1a\x39.hts.account.GetUserOrganizationsByOrganizationIdResponse\x12:\n\x04Ping\x12\x16.google.protobuf.Empty\x1a\x1a.google.protobuf.BoolValueBD\n\x10\x61pp.onepass.apisB\x0c\x41\x63\x63ountProtoP\x01Z onepass.app/facility/hts/accountb\x06proto3'
   ,
   dependencies=[hts_dot_common_dot_common__pb2.DESCRIPTOR,google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,])
 
@@ -57,8 +57,8 @@ _ROLE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1432,
-  serialized_end=1534,
+  serialized_start=1541,
+  serialized_end=1643,
 )
 _sym_db.RegisterEnumDescriptor(_ROLE)
 
@@ -601,11 +601,76 @@ _GETUSERORGANIZATIONSBYORGANIZATIONIDRESPONSE = _descriptor.Descriptor(
   serialized_end=1430,
 )
 
+
+_SEARCHUSERREQUEST = _descriptor.Descriptor(
+  name='SearchUserRequest',
+  full_name='hts.account.SearchUserRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='keyword', full_name='hts.account.SearchUserRequest.keyword', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='keyword', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1432,
+  serialized_end=1477,
+)
+
+
+_SEARCHUSERRESPONSE = _descriptor.Descriptor(
+  name='SearchUserResponse',
+  full_name='hts.account.SearchUserResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='users', full_name='hts.account.SearchUserResponse.users', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='users', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1479,
+  serialized_end=1539,
+)
+
 _HASPERMISSIONREQUEST.fields_by_name['permission_name'].enum_type = hts_dot_common_dot_common__pb2._PERMISSION
 _ASSIGNROLEREQUEST.fields_by_name['role'].enum_type = _ROLE
 _REMOVEROLEREQUEST.fields_by_name['role'].enum_type = _ROLE
 _GETUSERORGANIZATIONSBYUSERIDRESPONSE.fields_by_name['user_organizations'].message_type = hts_dot_common_dot_common__pb2._USERORGANIZATION
 _GETUSERORGANIZATIONSBYORGANIZATIONIDRESPONSE.fields_by_name['user_organizations'].message_type = hts_dot_common_dot_common__pb2._USERORGANIZATION
+_SEARCHUSERRESPONSE.fields_by_name['users'].message_type = hts_dot_common_dot_common__pb2._USER
 DESCRIPTOR.message_types_by_name['AccessTokenPayload'] = _ACCESSTOKENPAYLOAD
 DESCRIPTOR.message_types_by_name['IsAuthenticatedRequest'] = _ISAUTHENTICATEDREQUEST
 DESCRIPTOR.message_types_by_name['GenerateAccessTokenRequest'] = _GENERATEACCESSTOKENREQUEST
@@ -620,6 +685,8 @@ DESCRIPTOR.message_types_by_name['SetInterestedTagsRequest'] = _SETINTERESTEDTAG
 DESCRIPTOR.message_types_by_name['SetInterestedEventsRequest'] = _SETINTERESTEDEVENTSREQUEST
 DESCRIPTOR.message_types_by_name['GetUserOrganizationsByUserIdResponse'] = _GETUSERORGANIZATIONSBYUSERIDRESPONSE
 DESCRIPTOR.message_types_by_name['GetUserOrganizationsByOrganizationIdResponse'] = _GETUSERORGANIZATIONSBYORGANIZATIONIDRESPONSE
+DESCRIPTOR.message_types_by_name['SearchUserRequest'] = _SEARCHUSERREQUEST
+DESCRIPTOR.message_types_by_name['SearchUserResponse'] = _SEARCHUSERRESPONSE
 DESCRIPTOR.enum_types_by_name['Role'] = _ROLE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -721,6 +788,20 @@ GetUserOrganizationsByOrganizationIdResponse = _reflection.GeneratedProtocolMess
   })
 _sym_db.RegisterMessage(GetUserOrganizationsByOrganizationIdResponse)
 
+SearchUserRequest = _reflection.GeneratedProtocolMessageType('SearchUserRequest', (_message.Message,), {
+  'DESCRIPTOR' : _SEARCHUSERREQUEST,
+  '__module__' : 'hts.account.service_pb2'
+  # @@protoc_insertion_point(class_scope:hts.account.SearchUserRequest)
+  })
+_sym_db.RegisterMessage(SearchUserRequest)
+
+SearchUserResponse = _reflection.GeneratedProtocolMessageType('SearchUserResponse', (_message.Message,), {
+  'DESCRIPTOR' : _SEARCHUSERRESPONSE,
+  '__module__' : 'hts.account.service_pb2'
+  # @@protoc_insertion_point(class_scope:hts.account.SearchUserResponse)
+  })
+_sym_db.RegisterMessage(SearchUserResponse)
+
 
 DESCRIPTOR._options = None
 
@@ -731,8 +812,8 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1537,
-  serialized_end=2778,
+  serialized_start=1646,
+  serialized_end=2966,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateUser',
@@ -745,9 +826,19 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='SearchUser',
+    full_name='hts.account.AccountService.SearchUser',
+    index=1,
+    containing_service=None,
+    input_type=_SEARCHUSERREQUEST,
+    output_type=_SEARCHUSERRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='GetUserByChulaId',
     full_name='hts.account.AccountService.GetUserByChulaId',
-    index=1,
+    index=2,
     containing_service=None,
     input_type=_GETUSERBYCHULAIDREQUEST,
     output_type=hts_dot_common_dot_common__pb2._USER,
@@ -757,7 +848,7 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetUserByEmail',
     full_name='hts.account.AccountService.GetUserByEmail',
-    index=2,
+    index=3,
     containing_service=None,
     input_type=_GETUSERBYEMAILREQUEST,
     output_type=hts_dot_common_dot_common__pb2._USER,
@@ -767,7 +858,7 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='IsAuthenticated',
     full_name='hts.account.AccountService.IsAuthenticated',
-    index=3,
+    index=4,
     containing_service=None,
     input_type=_ISAUTHENTICATEDREQUEST,
     output_type=google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE,
@@ -777,7 +868,7 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='UpdateAccountInfo',
     full_name='hts.account.AccountService.UpdateAccountInfo',
-    index=4,
+    index=5,
     containing_service=None,
     input_type=hts_dot_common_dot_common__pb2._USER,
     output_type=hts_dot_common_dot_common__pb2._USER,
@@ -787,7 +878,7 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='SetInterestedTags',
     full_name='hts.account.AccountService.SetInterestedTags',
-    index=5,
+    index=6,
     containing_service=None,
     input_type=_SETINTERESTEDTAGSREQUEST,
     output_type=hts_dot_common_dot_common__pb2._USER,
@@ -797,7 +888,7 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='SetInterestedEvents',
     full_name='hts.account.AccountService.SetInterestedEvents',
-    index=6,
+    index=7,
     containing_service=None,
     input_type=_SETINTERESTEDEVENTSREQUEST,
     output_type=hts_dot_common_dot_common__pb2._USER,
@@ -807,7 +898,7 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetUserById',
     full_name='hts.account.AccountService.GetUserById',
-    index=7,
+    index=8,
     containing_service=None,
     input_type=hts_dot_common_dot_common__pb2._GETOBJECTBYIDREQUEST,
     output_type=hts_dot_common_dot_common__pb2._USER,
@@ -817,7 +908,7 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GenerateAccessToken',
     full_name='hts.account.AccountService.GenerateAccessToken',
-    index=8,
+    index=9,
     containing_service=None,
     input_type=_GENERATEACCESSTOKENREQUEST,
     output_type=_GENERATEACCESSTOKENRESPONSE,
@@ -827,7 +918,7 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='HasPermission',
     full_name='hts.account.AccountService.HasPermission',
-    index=9,
+    index=10,
     containing_service=None,
     input_type=_HASPERMISSIONREQUEST,
     output_type=google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE,
@@ -837,7 +928,7 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='AssignRole',
     full_name='hts.account.AccountService.AssignRole',
-    index=10,
+    index=11,
     containing_service=None,
     input_type=_ASSIGNROLEREQUEST,
     output_type=google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE,
@@ -847,7 +938,7 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='RemoveRole',
     full_name='hts.account.AccountService.RemoveRole',
-    index=11,
+    index=12,
     containing_service=None,
     input_type=_REMOVEROLEREQUEST,
     output_type=google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE,
@@ -857,7 +948,7 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetUserOrganizationsByUserId',
     full_name='hts.account.AccountService.GetUserOrganizationsByUserId',
-    index=12,
+    index=13,
     containing_service=None,
     input_type=hts_dot_common_dot_common__pb2._GETOBJECTBYIDREQUEST,
     output_type=_GETUSERORGANIZATIONSBYUSERIDRESPONSE,
@@ -867,7 +958,7 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetUserOrganizationsByOrganizationId',
     full_name='hts.account.AccountService.GetUserOrganizationsByOrganizationId',
-    index=13,
+    index=14,
     containing_service=None,
     input_type=hts_dot_common_dot_common__pb2._GETOBJECTBYIDREQUEST,
     output_type=_GETUSERORGANIZATIONSBYORGANIZATIONIDRESPONSE,
@@ -877,7 +968,7 @@ _ACCOUNTSERVICE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='Ping',
     full_name='hts.account.AccountService.Ping',
-    index=14,
+    index=15,
     containing_service=None,
     input_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
     output_type=google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE,

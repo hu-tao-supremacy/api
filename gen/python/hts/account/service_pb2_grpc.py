@@ -22,6 +22,11 @@ class AccountServiceStub(object):
                 request_serializer=hts_dot_account_dot_service__pb2.CreateUserRequest.SerializeToString,
                 response_deserializer=hts_dot_common_dot_common__pb2.User.FromString,
                 )
+        self.SearchUser = channel.unary_unary(
+                '/hts.account.AccountService/SearchUser',
+                request_serializer=hts_dot_account_dot_service__pb2.SearchUserRequest.SerializeToString,
+                response_deserializer=hts_dot_account_dot_service__pb2.SearchUserResponse.FromString,
+                )
         self.GetUserByChulaId = channel.unary_unary(
                 '/hts.account.AccountService/GetUserByChulaId',
                 request_serializer=hts_dot_account_dot_service__pb2.GetUserByChulaIdRequest.SerializeToString,
@@ -98,6 +103,12 @@ class AccountServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def CreateUser(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SearchUser(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -195,6 +206,11 @@ def add_AccountServiceServicer_to_server(servicer, server):
                     request_deserializer=hts_dot_account_dot_service__pb2.CreateUserRequest.FromString,
                     response_serializer=hts_dot_common_dot_common__pb2.User.SerializeToString,
             ),
+            'SearchUser': grpc.unary_unary_rpc_method_handler(
+                    servicer.SearchUser,
+                    request_deserializer=hts_dot_account_dot_service__pb2.SearchUserRequest.FromString,
+                    response_serializer=hts_dot_account_dot_service__pb2.SearchUserResponse.SerializeToString,
+            ),
             'GetUserByChulaId': grpc.unary_unary_rpc_method_handler(
                     servicer.GetUserByChulaId,
                     request_deserializer=hts_dot_account_dot_service__pb2.GetUserByChulaIdRequest.FromString,
@@ -289,6 +305,23 @@ class AccountService(object):
         return grpc.experimental.unary_unary(request, target, '/hts.account.AccountService/CreateUser',
             hts_dot_account_dot_service__pb2.CreateUserRequest.SerializeToString,
             hts_dot_common_dot_common__pb2.User.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SearchUser(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.account.AccountService/SearchUser',
+            hts_dot_account_dot_service__pb2.SearchUserRequest.SerializeToString,
+            hts_dot_account_dot_service__pb2.SearchUserResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
