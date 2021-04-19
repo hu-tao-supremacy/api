@@ -141,6 +141,8 @@ message Event {
   google.protobuf.StringValue profile_image_url = 11;
   google.protobuf.StringValue profile_image_hash = 12;
   int32 attendee_limit = 13;
+  // timestamptz/timestamp with time zone
+  string registration_due_date = 14;
 }
 
 message Location {
