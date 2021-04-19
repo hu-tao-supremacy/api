@@ -380,6 +380,7 @@ export interface Event {
   profileImageUrl: string | undefined;
   profileImageHash: string | undefined;
   attendeeLimit: number;
+  registrationDueDate: Date | undefined;
 }
 
 export interface Location {
@@ -1932,6 +1933,12 @@ export const Event = {
     if (message.attendeeLimit !== 0) {
       writer.uint32(104).int32(message.attendeeLimit);
     }
+    if (message.registrationDueDate !== undefined) {
+      Timestamp.encode(
+        toTimestamp(message.registrationDueDate),
+        writer.uint32(114).fork()
+      ).ldelim();
+    }
     return writer;
   },
 
@@ -1998,6 +2005,11 @@ export const Event = {
           break;
         case 13:
           message.attendeeLimit = reader.int32();
+          break;
+        case 14:
+          message.registrationDueDate = fromTimestamp(
+            Timestamp.decode(reader, reader.uint32())
+          );
           break;
         default:
           reader.skipType(tag & 7);
@@ -2083,6 +2095,16 @@ export const Event = {
     } else {
       message.attendeeLimit = 0;
     }
+    if (
+      object.registrationDueDate !== undefined &&
+      object.registrationDueDate !== null
+    ) {
+      message.registrationDueDate = fromJsonTimestamp(
+        object.registrationDueDate
+      );
+    } else {
+      message.registrationDueDate = undefined;
+    }
     return message;
   },
 
@@ -2110,6 +2132,11 @@ export const Event = {
       (obj.profileImageHash = message.profileImageHash);
     message.attendeeLimit !== undefined &&
       (obj.attendeeLimit = message.attendeeLimit);
+    message.registrationDueDate !== undefined &&
+      (obj.registrationDueDate =
+        message.registrationDueDate !== undefined
+          ? message.registrationDueDate.toISOString()
+          : null);
     return obj;
   },
 
@@ -2188,6 +2215,14 @@ export const Event = {
       message.attendeeLimit = object.attendeeLimit;
     } else {
       message.attendeeLimit = 0;
+    }
+    if (
+      object.registrationDueDate !== undefined &&
+      object.registrationDueDate !== null
+    ) {
+      message.registrationDueDate = object.registrationDueDate;
+    } else {
+      message.registrationDueDate = undefined;
     }
     return message;
   },

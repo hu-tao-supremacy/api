@@ -379,6 +379,7 @@ export interface Event {
   profileImageUrl: StringValue | undefined;
   profileImageHash: StringValue | undefined;
   attendeeLimit: number;
+  registrationDueDate: Timestamp | undefined;
 }
 
 export interface Location {
@@ -1172,6 +1173,16 @@ export const Event = {
     } else {
       message.attendeeLimit = 0;
     }
+    if (
+      object.registrationDueDate !== undefined &&
+      object.registrationDueDate !== null
+    ) {
+      message.registrationDueDate = fromJsonTimestamp(
+        object.registrationDueDate
+      );
+    } else {
+      message.registrationDueDate = undefined;
+    }
     return message;
   },
 
@@ -1217,6 +1228,11 @@ export const Event = {
         : undefined);
     message.attendeeLimit !== undefined &&
       (obj.attendeeLimit = message.attendeeLimit);
+    message.registrationDueDate !== undefined &&
+      (obj.registrationDueDate =
+        message.registrationDueDate !== undefined
+          ? fromTimestamp(message.registrationDueDate).toISOString()
+          : null);
     return obj;
   },
 };
