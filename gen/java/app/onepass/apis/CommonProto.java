@@ -186,7 +186,7 @@ public final class CommonProto {
       "\030\006 \001(\tR\005title\022\032\n\010subtitle\030\007 \001(\tR\010subtitl" +
       "e\"d\n\020UserOrganization\022\016\n\002id\030\001 \001(\005R\002id\022\027\n" +
       "\007user_id\030\002 \001(\005R\006userId\022\'\n\017organization_i" +
-      "d\030\003 \001(\005R\016organizationId\"\311\005\n\005Event\022\016\n\002id\030" +
+      "d\030\003 \001(\005R\016organizationId\"\231\006\n\005Event\022\016\n\002id\030" +
       "\001 \001(\005R\002id\022\'\n\017organization_id\030\002 \001(\005R\016orga" +
       "nizationId\022<\n\013location_id\030\003 \001(\0132\033.google" +
       ".protobuf.Int32ValueR\nlocationId\022 \n\013desc" +
@@ -204,7 +204,9 @@ public final class CommonProto {
       "ngValueR\017profileImageUrl\022J\n\022profile_imag" +
       "e_hash\030\014 \001(\0132\034.google.protobuf.StringVal" +
       "ueR\020profileImageHash\022%\n\016attendee_limit\030\r" +
-      " \001(\005R\rattendeeLimit\"\324\002\n\010Location\022\016\n\002id\030\001" +
+      " \001(\005R\rattendeeLimit\022N\n\025registration_due_" +
+      "date\030\016 \001(\0132\032.google.protobuf.TimestampR\023" +
+      "registrationDueDate\"\324\002\n\010Location\022\016\n\002id\030\001" +
       " \001(\005R\002id\022\022\n\004name\030\002 \001(\tR\004name\022$\n\016google_m" +
       "ap_url\030\003 \001(\tR\014googleMapUrl\022>\n\013descriptio" +
       "n\030\004 \001(\0132\034.google.protobuf.StringValueR\013d" +
@@ -325,7 +327,7 @@ public final class CommonProto {
     internal_static_hts_common_Event_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_common_Event_descriptor,
-        new java.lang.String[] { "Id", "OrganizationId", "LocationId", "Description", "Name", "CoverImageUrl", "CoverImageHash", "PosterImageUrl", "PosterImageHash", "Contact", "ProfileImageUrl", "ProfileImageHash", "AttendeeLimit", });
+        new java.lang.String[] { "Id", "OrganizationId", "LocationId", "Description", "Name", "CoverImageUrl", "CoverImageHash", "PosterImageUrl", "PosterImageHash", "Contact", "ProfileImageUrl", "ProfileImageHash", "AttendeeLimit", "RegistrationDueDate", });
     internal_static_hts_common_Location_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_hts_common_Location_fieldAccessorTable = new
