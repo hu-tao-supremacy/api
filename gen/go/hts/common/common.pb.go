@@ -1074,19 +1074,20 @@ type Event struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id               int32                   `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	OrganizationId   int32                   `protobuf:"varint,2,opt,name=organization_id,json=organizationId,proto3" json:"organization_id,omitempty"`
-	LocationId       *wrapperspb.Int32Value  `protobuf:"bytes,3,opt,name=location_id,json=locationId,proto3" json:"location_id,omitempty"`
-	Description      string                  `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
-	Name             string                  `protobuf:"bytes,5,opt,name=name,proto3" json:"name,omitempty"`
-	CoverImageUrl    *wrapperspb.StringValue `protobuf:"bytes,6,opt,name=cover_image_url,json=coverImageUrl,proto3" json:"cover_image_url,omitempty"`
-	CoverImageHash   *wrapperspb.StringValue `protobuf:"bytes,7,opt,name=cover_image_hash,json=coverImageHash,proto3" json:"cover_image_hash,omitempty"`
-	PosterImageUrl   *wrapperspb.StringValue `protobuf:"bytes,8,opt,name=poster_image_url,json=posterImageUrl,proto3" json:"poster_image_url,omitempty"`
-	PosterImageHash  *wrapperspb.StringValue `protobuf:"bytes,9,opt,name=poster_image_hash,json=posterImageHash,proto3" json:"poster_image_hash,omitempty"`
-	Contact          *wrapperspb.StringValue `protobuf:"bytes,10,opt,name=contact,proto3" json:"contact,omitempty"`
-	ProfileImageUrl  *wrapperspb.StringValue `protobuf:"bytes,11,opt,name=profile_image_url,json=profileImageUrl,proto3" json:"profile_image_url,omitempty"`
-	ProfileImageHash *wrapperspb.StringValue `protobuf:"bytes,12,opt,name=profile_image_hash,json=profileImageHash,proto3" json:"profile_image_hash,omitempty"`
-	AttendeeLimit    int32                   `protobuf:"varint,13,opt,name=attendee_limit,json=attendeeLimit,proto3" json:"attendee_limit,omitempty"`
+	Id                  int32                   `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	OrganizationId      int32                   `protobuf:"varint,2,opt,name=organization_id,json=organizationId,proto3" json:"organization_id,omitempty"`
+	LocationId          *wrapperspb.Int32Value  `protobuf:"bytes,3,opt,name=location_id,json=locationId,proto3" json:"location_id,omitempty"`
+	Description         string                  `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
+	Name                string                  `protobuf:"bytes,5,opt,name=name,proto3" json:"name,omitempty"`
+	CoverImageUrl       *wrapperspb.StringValue `protobuf:"bytes,6,opt,name=cover_image_url,json=coverImageUrl,proto3" json:"cover_image_url,omitempty"`
+	CoverImageHash      *wrapperspb.StringValue `protobuf:"bytes,7,opt,name=cover_image_hash,json=coverImageHash,proto3" json:"cover_image_hash,omitempty"`
+	PosterImageUrl      *wrapperspb.StringValue `protobuf:"bytes,8,opt,name=poster_image_url,json=posterImageUrl,proto3" json:"poster_image_url,omitempty"`
+	PosterImageHash     *wrapperspb.StringValue `protobuf:"bytes,9,opt,name=poster_image_hash,json=posterImageHash,proto3" json:"poster_image_hash,omitempty"`
+	Contact             *wrapperspb.StringValue `protobuf:"bytes,10,opt,name=contact,proto3" json:"contact,omitempty"`
+	ProfileImageUrl     *wrapperspb.StringValue `protobuf:"bytes,11,opt,name=profile_image_url,json=profileImageUrl,proto3" json:"profile_image_url,omitempty"`
+	ProfileImageHash    *wrapperspb.StringValue `protobuf:"bytes,12,opt,name=profile_image_hash,json=profileImageHash,proto3" json:"profile_image_hash,omitempty"`
+	AttendeeLimit       int32                   `protobuf:"varint,13,opt,name=attendee_limit,json=attendeeLimit,proto3" json:"attendee_limit,omitempty"`
+	RegistrationDueDate *timestamppb.Timestamp  `protobuf:"bytes,14,opt,name=registration_due_date,json=registrationDueDate,proto3" json:"registration_due_date,omitempty"`
 }
 
 func (x *Event) Reset() {
@@ -1210,6 +1211,13 @@ func (x *Event) GetAttendeeLimit() int32 {
 		return x.AttendeeLimit
 	}
 	return 0
+}
+
+func (x *Event) GetRegistrationDueDate() *timestamppb.Timestamp {
+	if x != nil {
+		return x.RegistrationDueDate
+	}
+	return nil
 }
 
 type Location struct {
@@ -2289,7 +2297,7 @@ var file_hts_common_common_proto_rawDesc = []byte{
 	0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x27, 0x0a, 0x0f, 0x6f, 0x72, 0x67, 0x61, 0x6e, 0x69,
 	0x7a, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x69, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x05, 0x52,
 	0x0e, 0x6f, 0x72, 0x67, 0x61, 0x6e, 0x69, 0x7a, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x49, 0x64, 0x22,
-	0xc9, 0x05, 0x0a, 0x05, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18,
+	0x99, 0x06, 0x0a, 0x05, 0x45, 0x76, 0x65, 0x6e, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18,
 	0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x02, 0x69, 0x64, 0x12, 0x27, 0x0a, 0x0f, 0x6f, 0x72, 0x67,
 	0x61, 0x6e, 0x69, 0x7a, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01,
 	0x28, 0x05, 0x52, 0x0e, 0x6f, 0x72, 0x67, 0x61, 0x6e, 0x69, 0x7a, 0x61, 0x74, 0x69, 0x6f, 0x6e,
@@ -2333,7 +2341,12 @@ var file_hts_common_common_proto_rawDesc = []byte{
 	0x75, 0x65, 0x52, 0x10, 0x70, 0x72, 0x6f, 0x66, 0x69, 0x6c, 0x65, 0x49, 0x6d, 0x61, 0x67, 0x65,
 	0x48, 0x61, 0x73, 0x68, 0x12, 0x25, 0x0a, 0x0e, 0x61, 0x74, 0x74, 0x65, 0x6e, 0x64, 0x65, 0x65,
 	0x5f, 0x6c, 0x69, 0x6d, 0x69, 0x74, 0x18, 0x0d, 0x20, 0x01, 0x28, 0x05, 0x52, 0x0d, 0x61, 0x74,
-	0x74, 0x65, 0x6e, 0x64, 0x65, 0x65, 0x4c, 0x69, 0x6d, 0x69, 0x74, 0x22, 0xd4, 0x02, 0x0a, 0x08,
+	0x74, 0x65, 0x6e, 0x64, 0x65, 0x65, 0x4c, 0x69, 0x6d, 0x69, 0x74, 0x12, 0x4e, 0x0a, 0x15, 0x72,
+	0x65, 0x67, 0x69, 0x73, 0x74, 0x72, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x5f, 0x64, 0x75, 0x65, 0x5f,
+	0x64, 0x61, 0x74, 0x65, 0x18, 0x0e, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x67, 0x6f, 0x6f,
+	0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x54, 0x69, 0x6d,
+	0x65, 0x73, 0x74, 0x61, 0x6d, 0x70, 0x52, 0x13, 0x72, 0x65, 0x67, 0x69, 0x73, 0x74, 0x72, 0x61,
+	0x74, 0x69, 0x6f, 0x6e, 0x44, 0x75, 0x65, 0x44, 0x61, 0x74, 0x65, 0x22, 0xd4, 0x02, 0x0a, 0x08,
 	0x4c, 0x6f, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01,
 	0x20, 0x01, 0x28, 0x05, 0x52, 0x02, 0x69, 0x64, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65,
 	0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x24, 0x0a, 0x0e,
@@ -2599,26 +2612,27 @@ var file_hts_common_common_proto_depIdxs = []int32{
 	27, // 32: hts.common.Event.contact:type_name -> google.protobuf.StringValue
 	27, // 33: hts.common.Event.profile_image_url:type_name -> google.protobuf.StringValue
 	27, // 34: hts.common.Event.profile_image_hash:type_name -> google.protobuf.StringValue
-	27, // 35: hts.common.Location.description:type_name -> google.protobuf.StringValue
-	27, // 36: hts.common.Location.travel_information_image_url:type_name -> google.protobuf.StringValue
-	27, // 37: hts.common.Location.travel_information_image_hash:type_name -> google.protobuf.StringValue
-	28, // 38: hts.common.UserEvent.rating:type_name -> google.protobuf.Int32Value
-	27, // 39: hts.common.UserEvent.ticket:type_name -> google.protobuf.StringValue
-	5,  // 40: hts.common.UserEvent.status:type_name -> hts.common.UserEvent.Status
-	29, // 41: hts.common.EventDuration.start:type_name -> google.protobuf.Timestamp
-	29, // 42: hts.common.EventDuration.finish:type_name -> google.protobuf.Timestamp
-	4,  // 43: hts.common.OrganizationPermission.permission:type_name -> hts.common.Permission
-	4,  // 44: hts.common.UserPermission.permission_name:type_name -> hts.common.Permission
-	6,  // 45: hts.common.FacilityRequest.status:type_name -> hts.common.FacilityRequest.Status
-	27, // 46: hts.common.FacilityRequest.reject_reason:type_name -> google.protobuf.StringValue
-	29, // 47: hts.common.FacilityRequest.start:type_name -> google.protobuf.Timestamp
-	29, // 48: hts.common.FacilityRequest.finish:type_name -> google.protobuf.Timestamp
-	7,  // 49: hts.common.Facility.operating_hours:type_name -> hts.common.OperatingHour
-	50, // [50:50] is the sub-list for method output_type
-	50, // [50:50] is the sub-list for method input_type
-	50, // [50:50] is the sub-list for extension type_name
-	50, // [50:50] is the sub-list for extension extendee
-	0,  // [0:50] is the sub-list for field type_name
+	29, // 35: hts.common.Event.registration_due_date:type_name -> google.protobuf.Timestamp
+	27, // 36: hts.common.Location.description:type_name -> google.protobuf.StringValue
+	27, // 37: hts.common.Location.travel_information_image_url:type_name -> google.protobuf.StringValue
+	27, // 38: hts.common.Location.travel_information_image_hash:type_name -> google.protobuf.StringValue
+	28, // 39: hts.common.UserEvent.rating:type_name -> google.protobuf.Int32Value
+	27, // 40: hts.common.UserEvent.ticket:type_name -> google.protobuf.StringValue
+	5,  // 41: hts.common.UserEvent.status:type_name -> hts.common.UserEvent.Status
+	29, // 42: hts.common.EventDuration.start:type_name -> google.protobuf.Timestamp
+	29, // 43: hts.common.EventDuration.finish:type_name -> google.protobuf.Timestamp
+	4,  // 44: hts.common.OrganizationPermission.permission:type_name -> hts.common.Permission
+	4,  // 45: hts.common.UserPermission.permission_name:type_name -> hts.common.Permission
+	6,  // 46: hts.common.FacilityRequest.status:type_name -> hts.common.FacilityRequest.Status
+	27, // 47: hts.common.FacilityRequest.reject_reason:type_name -> google.protobuf.StringValue
+	29, // 48: hts.common.FacilityRequest.start:type_name -> google.protobuf.Timestamp
+	29, // 49: hts.common.FacilityRequest.finish:type_name -> google.protobuf.Timestamp
+	7,  // 50: hts.common.Facility.operating_hours:type_name -> hts.common.OperatingHour
+	51, // [51:51] is the sub-list for method output_type
+	51, // [51:51] is the sub-list for method input_type
+	51, // [51:51] is the sub-list for extension type_name
+	51, // [51:51] is the sub-list for extension extendee
+	0,  // [0:51] is the sub-list for field type_name
 }
 
 func init() { file_hts_common_common_proto_init() }
