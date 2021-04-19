@@ -168,4 +168,16 @@ public interface EventOrBuilder extends
    * @return The attendeeLimit.
    */
   int getAttendeeLimit();
+
+  /**
+   * <code>string registration_due_date = 14 [json_name = "registrationDueDate"];</code>
+   * @return The registrationDueDate.
+   */
+  java.lang.String getRegistrationDueDate();
+  /**
+   * <code>string registration_due_date = 14 [json_name = "registrationDueDate"];</code>
+   * @return The bytes for registrationDueDate.
+   */
+  com.google.protobuf.ByteString
+      getRegistrationDueDateBytes();
 }

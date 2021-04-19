@@ -18,6 +18,7 @@ private static final long serialVersionUID = 0L;
   private Event() {
     description_ = "";
     name_ = "";
+    registrationDueDate_ = "";
   }
 
   @java.lang.Override
@@ -179,6 +180,12 @@ private static final long serialVersionUID = 0L;
           case 104: {
 
             attendeeLimit_ = input.readInt32();
+            break;
+          }
+          case 114: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            registrationDueDate_ = s;
             break;
           }
           default: {
@@ -530,6 +537,44 @@ private static final long serialVersionUID = 0L;
     return attendeeLimit_;
   }
 
+  public static final int REGISTRATION_DUE_DATE_FIELD_NUMBER = 14;
+  private volatile java.lang.Object registrationDueDate_;
+  /**
+   * <code>string registration_due_date = 14 [json_name = "registrationDueDate"];</code>
+   * @return The registrationDueDate.
+   */
+  @java.lang.Override
+  public java.lang.String getRegistrationDueDate() {
+    java.lang.Object ref = registrationDueDate_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      registrationDueDate_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string registration_due_date = 14 [json_name = "registrationDueDate"];</code>
+   * @return The bytes for registrationDueDate.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getRegistrationDueDateBytes() {
+    java.lang.Object ref = registrationDueDate_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      registrationDueDate_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -582,6 +627,9 @@ private static final long serialVersionUID = 0L;
     }
     if (attendeeLimit_ != 0) {
       output.writeInt32(13, attendeeLimit_);
+    }
+    if (!getRegistrationDueDateBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 14, registrationDueDate_);
     }
     unknownFields.writeTo(output);
   }
@@ -641,6 +689,9 @@ private static final long serialVersionUID = 0L;
     if (attendeeLimit_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(13, attendeeLimit_);
+    }
+    if (!getRegistrationDueDateBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, registrationDueDate_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -707,6 +758,8 @@ private static final long serialVersionUID = 0L;
     }
     if (getAttendeeLimit()
         != other.getAttendeeLimit()) return false;
+    if (!getRegistrationDueDate()
+        .equals(other.getRegistrationDueDate())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -760,6 +813,8 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + ATTENDEE_LIMIT_FIELD_NUMBER;
     hash = (53 * hash) + getAttendeeLimit();
+    hash = (37 * hash) + REGISTRATION_DUE_DATE_FIELD_NUMBER;
+    hash = (53 * hash) + getRegistrationDueDate().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -951,6 +1006,8 @@ private static final long serialVersionUID = 0L;
       }
       attendeeLimit_ = 0;
 
+      registrationDueDate_ = "";
+
       return this;
     }
 
@@ -1022,6 +1079,7 @@ private static final long serialVersionUID = 0L;
         result.profileImageHash_ = profileImageHashBuilder_.build();
       }
       result.attendeeLimit_ = attendeeLimit_;
+      result.registrationDueDate_ = registrationDueDate_;
       onBuilt();
       return result;
     }
@@ -1110,6 +1168,10 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getAttendeeLimit() != 0) {
         setAttendeeLimit(other.getAttendeeLimit());
+      }
+      if (!other.getRegistrationDueDate().isEmpty()) {
+        registrationDueDate_ = other.registrationDueDate_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -2333,6 +2395,82 @@ private static final long serialVersionUID = 0L;
     public Builder clearAttendeeLimit() {
       
       attendeeLimit_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object registrationDueDate_ = "";
+    /**
+     * <code>string registration_due_date = 14 [json_name = "registrationDueDate"];</code>
+     * @return The registrationDueDate.
+     */
+    public java.lang.String getRegistrationDueDate() {
+      java.lang.Object ref = registrationDueDate_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        registrationDueDate_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string registration_due_date = 14 [json_name = "registrationDueDate"];</code>
+     * @return The bytes for registrationDueDate.
+     */
+    public com.google.protobuf.ByteString
+        getRegistrationDueDateBytes() {
+      java.lang.Object ref = registrationDueDate_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        registrationDueDate_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string registration_due_date = 14 [json_name = "registrationDueDate"];</code>
+     * @param value The registrationDueDate to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRegistrationDueDate(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      registrationDueDate_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string registration_due_date = 14 [json_name = "registrationDueDate"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRegistrationDueDate() {
+      
+      registrationDueDate_ = getDefaultInstance().getRegistrationDueDate();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string registration_due_date = 14 [json_name = "registrationDueDate"];</code>
+     * @param value The bytes for registrationDueDate to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRegistrationDueDateBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      registrationDueDate_ = value;
       onChanged();
       return this;
     }
