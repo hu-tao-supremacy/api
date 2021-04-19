@@ -181,6 +181,19 @@ private static final long serialVersionUID = 0L;
             attendeeLimit_ = input.readInt32();
             break;
           }
+          case 114: {
+            com.google.protobuf.Timestamp.Builder subBuilder = null;
+            if (registrationDueDate_ != null) {
+              subBuilder = registrationDueDate_.toBuilder();
+            }
+            registrationDueDate_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+            if (subBuilder != null) {
+              subBuilder.mergeFrom(registrationDueDate_);
+              registrationDueDate_ = subBuilder.buildPartial();
+            }
+
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -530,6 +543,32 @@ private static final long serialVersionUID = 0L;
     return attendeeLimit_;
   }
 
+  public static final int REGISTRATION_DUE_DATE_FIELD_NUMBER = 14;
+  private com.google.protobuf.Timestamp registrationDueDate_;
+  /**
+   * <code>.google.protobuf.Timestamp registration_due_date = 14 [json_name = "registrationDueDate"];</code>
+   * @return Whether the registrationDueDate field is set.
+   */
+  @java.lang.Override
+  public boolean hasRegistrationDueDate() {
+    return registrationDueDate_ != null;
+  }
+  /**
+   * <code>.google.protobuf.Timestamp registration_due_date = 14 [json_name = "registrationDueDate"];</code>
+   * @return The registrationDueDate.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Timestamp getRegistrationDueDate() {
+    return registrationDueDate_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : registrationDueDate_;
+  }
+  /**
+   * <code>.google.protobuf.Timestamp registration_due_date = 14 [json_name = "registrationDueDate"];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.TimestampOrBuilder getRegistrationDueDateOrBuilder() {
+    return getRegistrationDueDate();
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -582,6 +621,9 @@ private static final long serialVersionUID = 0L;
     }
     if (attendeeLimit_ != 0) {
       output.writeInt32(13, attendeeLimit_);
+    }
+    if (registrationDueDate_ != null) {
+      output.writeMessage(14, getRegistrationDueDate());
     }
     unknownFields.writeTo(output);
   }
@@ -641,6 +683,10 @@ private static final long serialVersionUID = 0L;
     if (attendeeLimit_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(13, attendeeLimit_);
+    }
+    if (registrationDueDate_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(14, getRegistrationDueDate());
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -707,6 +753,11 @@ private static final long serialVersionUID = 0L;
     }
     if (getAttendeeLimit()
         != other.getAttendeeLimit()) return false;
+    if (hasRegistrationDueDate() != other.hasRegistrationDueDate()) return false;
+    if (hasRegistrationDueDate()) {
+      if (!getRegistrationDueDate()
+          .equals(other.getRegistrationDueDate())) return false;
+    }
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -760,6 +811,10 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + ATTENDEE_LIMIT_FIELD_NUMBER;
     hash = (53 * hash) + getAttendeeLimit();
+    if (hasRegistrationDueDate()) {
+      hash = (37 * hash) + REGISTRATION_DUE_DATE_FIELD_NUMBER;
+      hash = (53 * hash) + getRegistrationDueDate().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -951,6 +1006,12 @@ private static final long serialVersionUID = 0L;
       }
       attendeeLimit_ = 0;
 
+      if (registrationDueDateBuilder_ == null) {
+        registrationDueDate_ = null;
+      } else {
+        registrationDueDate_ = null;
+        registrationDueDateBuilder_ = null;
+      }
       return this;
     }
 
@@ -1022,6 +1083,11 @@ private static final long serialVersionUID = 0L;
         result.profileImageHash_ = profileImageHashBuilder_.build();
       }
       result.attendeeLimit_ = attendeeLimit_;
+      if (registrationDueDateBuilder_ == null) {
+        result.registrationDueDate_ = registrationDueDate_;
+      } else {
+        result.registrationDueDate_ = registrationDueDateBuilder_.build();
+      }
       onBuilt();
       return result;
     }
@@ -1110,6 +1176,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getAttendeeLimit() != 0) {
         setAttendeeLimit(other.getAttendeeLimit());
+      }
+      if (other.hasRegistrationDueDate()) {
+        mergeRegistrationDueDate(other.getRegistrationDueDate());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -2335,6 +2404,125 @@ private static final long serialVersionUID = 0L;
       attendeeLimit_ = 0;
       onChanged();
       return this;
+    }
+
+    private com.google.protobuf.Timestamp registrationDueDate_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> registrationDueDateBuilder_;
+    /**
+     * <code>.google.protobuf.Timestamp registration_due_date = 14 [json_name = "registrationDueDate"];</code>
+     * @return Whether the registrationDueDate field is set.
+     */
+    public boolean hasRegistrationDueDate() {
+      return registrationDueDateBuilder_ != null || registrationDueDate_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp registration_due_date = 14 [json_name = "registrationDueDate"];</code>
+     * @return The registrationDueDate.
+     */
+    public com.google.protobuf.Timestamp getRegistrationDueDate() {
+      if (registrationDueDateBuilder_ == null) {
+        return registrationDueDate_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : registrationDueDate_;
+      } else {
+        return registrationDueDateBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>.google.protobuf.Timestamp registration_due_date = 14 [json_name = "registrationDueDate"];</code>
+     */
+    public Builder setRegistrationDueDate(com.google.protobuf.Timestamp value) {
+      if (registrationDueDateBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        registrationDueDate_ = value;
+        onChanged();
+      } else {
+        registrationDueDateBuilder_.setMessage(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp registration_due_date = 14 [json_name = "registrationDueDate"];</code>
+     */
+    public Builder setRegistrationDueDate(
+        com.google.protobuf.Timestamp.Builder builderForValue) {
+      if (registrationDueDateBuilder_ == null) {
+        registrationDueDate_ = builderForValue.build();
+        onChanged();
+      } else {
+        registrationDueDateBuilder_.setMessage(builderForValue.build());
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp registration_due_date = 14 [json_name = "registrationDueDate"];</code>
+     */
+    public Builder mergeRegistrationDueDate(com.google.protobuf.Timestamp value) {
+      if (registrationDueDateBuilder_ == null) {
+        if (registrationDueDate_ != null) {
+          registrationDueDate_ =
+            com.google.protobuf.Timestamp.newBuilder(registrationDueDate_).mergeFrom(value).buildPartial();
+        } else {
+          registrationDueDate_ = value;
+        }
+        onChanged();
+      } else {
+        registrationDueDateBuilder_.mergeFrom(value);
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp registration_due_date = 14 [json_name = "registrationDueDate"];</code>
+     */
+    public Builder clearRegistrationDueDate() {
+      if (registrationDueDateBuilder_ == null) {
+        registrationDueDate_ = null;
+        onChanged();
+      } else {
+        registrationDueDate_ = null;
+        registrationDueDateBuilder_ = null;
+      }
+
+      return this;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp registration_due_date = 14 [json_name = "registrationDueDate"];</code>
+     */
+    public com.google.protobuf.Timestamp.Builder getRegistrationDueDateBuilder() {
+      
+      onChanged();
+      return getRegistrationDueDateFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>.google.protobuf.Timestamp registration_due_date = 14 [json_name = "registrationDueDate"];</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getRegistrationDueDateOrBuilder() {
+      if (registrationDueDateBuilder_ != null) {
+        return registrationDueDateBuilder_.getMessageOrBuilder();
+      } else {
+        return registrationDueDate_ == null ?
+            com.google.protobuf.Timestamp.getDefaultInstance() : registrationDueDate_;
+      }
+    }
+    /**
+     * <code>.google.protobuf.Timestamp registration_due_date = 14 [json_name = "registrationDueDate"];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        getRegistrationDueDateFieldBuilder() {
+      if (registrationDueDateBuilder_ == null) {
+        registrationDueDateBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                getRegistrationDueDate(),
+                getParentForChildren(),
+                isClean());
+        registrationDueDate_ = null;
+      }
+      return registrationDueDateBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

@@ -168,4 +168,19 @@ public interface EventOrBuilder extends
    * @return The attendeeLimit.
    */
   int getAttendeeLimit();
+
+  /**
+   * <code>.google.protobuf.Timestamp registration_due_date = 14 [json_name = "registrationDueDate"];</code>
+   * @return Whether the registrationDueDate field is set.
+   */
+  boolean hasRegistrationDueDate();
+  /**
+   * <code>.google.protobuf.Timestamp registration_due_date = 14 [json_name = "registrationDueDate"];</code>
+   * @return The registrationDueDate.
+   */
+  com.google.protobuf.Timestamp getRegistrationDueDate();
+  /**
+   * <code>.google.protobuf.Timestamp registration_due_date = 14 [json_name = "registrationDueDate"];</code>
+   */
+  com.google.protobuf.TimestampOrBuilder getRegistrationDueDateOrBuilder();
 }
