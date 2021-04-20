@@ -415,6 +415,7 @@ export enum UserEvent_Status {
   PENDING = 1,
   APPROVED = 2,
   REJECTED = 3,
+  ATTENDED = 4,
   UNRECOGNIZED = -1,
 }
 
@@ -432,6 +433,9 @@ export function userEvent_StatusFromJSON(object: any): UserEvent_Status {
     case 3:
     case "REJECTED":
       return UserEvent_Status.REJECTED;
+    case 4:
+    case "ATTENDED":
+      return UserEvent_Status.ATTENDED;
     case -1:
     case "UNRECOGNIZED":
     default:
@@ -449,6 +453,8 @@ export function userEvent_StatusToJSON(object: UserEvent_Status): string {
       return "APPROVED";
     case UserEvent_Status.REJECTED:
       return "REJECTED";
+    case UserEvent_Status.ATTENDED:
+      return "ATTENDED";
     default:
       return "UNKNOWN";
   }
