@@ -389,6 +389,7 @@ export interface Location {
   description: StringValue | undefined;
   travelInformationImageUrl: StringValue | undefined;
   travelInformationImageHash: StringValue | undefined;
+  isOnline: boolean;
 }
 
 export interface Answer {
@@ -1237,7 +1238,12 @@ export const Event = {
   },
 };
 
-const baseLocation: object = { id: 0, name: "", googleMapUrl: "" };
+const baseLocation: object = {
+  id: 0,
+  name: "",
+  googleMapUrl: "",
+  isOnline: false,
+};
 
 export const Location = {
   fromJSON(object: any): Location {
@@ -1282,6 +1288,11 @@ export const Location = {
     } else {
       message.travelInformationImageHash = undefined;
     }
+    if (object.isOnline !== undefined && object.isOnline !== null) {
+      message.isOnline = Boolean(object.isOnline);
+    } else {
+      message.isOnline = false;
+    }
     return message;
   },
 
@@ -1303,6 +1314,7 @@ export const Location = {
       (obj.travelInformationImageHash = message.travelInformationImageHash
         ? StringValue.toJSON(message.travelInformationImageHash)
         : undefined);
+    message.isOnline !== undefined && (obj.isOnline = message.isOnline);
     return obj;
   },
 };

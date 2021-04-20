@@ -390,6 +390,7 @@ export interface Location {
   description: string | undefined;
   travelInformationImageUrl: string | undefined;
   travelInformationImageHash: string | undefined;
+  isOnline: boolean;
 }
 
 export interface Answer {
@@ -2228,7 +2229,12 @@ export const Event = {
   },
 };
 
-const baseLocation: object = { id: 0, name: "", googleMapUrl: "" };
+const baseLocation: object = {
+  id: 0,
+  name: "",
+  googleMapUrl: "",
+  isOnline: false,
+};
 
 export const Location = {
   encode(message: Location, writer: Writer = Writer.create()): Writer {
@@ -2258,6 +2264,9 @@ export const Location = {
         { value: message.travelInformationImageHash! },
         writer.uint32(50).fork()
       ).ldelim();
+    }
+    if (message.isOnline === true) {
+      writer.uint32(56).bool(message.isOnline);
     }
     return writer;
   },
@@ -2295,6 +2304,9 @@ export const Location = {
             reader,
             reader.uint32()
           ).value;
+          break;
+        case 7:
+          message.isOnline = reader.bool();
           break;
         default:
           reader.skipType(tag & 7);
@@ -2346,6 +2358,11 @@ export const Location = {
     } else {
       message.travelInformationImageHash = undefined;
     }
+    if (object.isOnline !== undefined && object.isOnline !== null) {
+      message.isOnline = Boolean(object.isOnline);
+    } else {
+      message.isOnline = false;
+    }
     return message;
   },
 
@@ -2361,6 +2378,7 @@ export const Location = {
       (obj.travelInformationImageUrl = message.travelInformationImageUrl);
     message.travelInformationImageHash !== undefined &&
       (obj.travelInformationImageHash = message.travelInformationImageHash);
+    message.isOnline !== undefined && (obj.isOnline = message.isOnline);
     return obj;
   },
 
@@ -2401,6 +2419,11 @@ export const Location = {
       message.travelInformationImageHash = object.travelInformationImageHash;
     } else {
       message.travelInformationImageHash = undefined;
+    }
+    if (object.isOnline !== undefined && object.isOnline !== null) {
+      message.isOnline = object.isOnline;
+    } else {
+      message.isOnline = false;
     }
     return message;
   },
