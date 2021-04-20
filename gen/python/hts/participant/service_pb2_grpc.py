@@ -68,6 +68,11 @@ class ParticipantServiceStub(object):
                 request_serializer=hts_dot_participant_dot_service__pb2.GetUpcomingEventsRequest.SerializeToString,
                 response_deserializer=hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
                 )
+        self.GetOnlineEvents = channel.unary_unary(
+                '/hts.participant.ParticipantService/GetOnlineEvents',
+                request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                response_deserializer=hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
+                )
         self.GetEventsByStringOfName = channel.unary_unary(
                 '/hts.participant.ParticipantService/GetEventsByStringOfName',
                 request_serializer=hts_dot_participant_dot_service__pb2.StringInputRequest.SerializeToString,
@@ -233,6 +238,12 @@ class ParticipantServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetUpcomingEvents(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetOnlineEvents(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -415,6 +426,11 @@ def add_ParticipantServiceServicer_to_server(servicer, server):
             'GetUpcomingEvents': grpc.unary_unary_rpc_method_handler(
                     servicer.GetUpcomingEvents,
                     request_deserializer=hts_dot_participant_dot_service__pb2.GetUpcomingEventsRequest.FromString,
+                    response_serializer=hts_dot_participant_dot_service__pb2.EventsResponse.SerializeToString,
+            ),
+            'GetOnlineEvents': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOnlineEvents,
+                    request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                     response_serializer=hts_dot_participant_dot_service__pb2.EventsResponse.SerializeToString,
             ),
             'GetEventsByStringOfName': grpc.unary_unary_rpc_method_handler(
@@ -698,6 +714,23 @@ class ParticipantService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetUpcomingEvents',
             hts_dot_participant_dot_service__pb2.GetUpcomingEventsRequest.SerializeToString,
+            hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetOnlineEvents(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/hts.participant.ParticipantService/GetOnlineEvents',
+            google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             hts_dot_participant_dot_service__pb2.EventsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
