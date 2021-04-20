@@ -154,6 +154,10 @@ private static final long serialVersionUID = 0L;
      * <code>REJECTED = 3;</code>
      */
     REJECTED(3),
+    /**
+     * <code>ATTENDED = 4;</code>
+     */
+    ATTENDED(4),
     UNRECOGNIZED(-1),
     ;
 
@@ -173,6 +177,10 @@ private static final long serialVersionUID = 0L;
      * <code>REJECTED = 3;</code>
      */
     public static final int REJECTED_VALUE = 3;
+    /**
+     * <code>ATTENDED = 4;</code>
+     */
+    public static final int ATTENDED_VALUE = 4;
 
 
     public final int getNumber() {
@@ -203,6 +211,7 @@ private static final long serialVersionUID = 0L;
         case 1: return PENDING;
         case 2: return APPROVED;
         case 3: return REJECTED;
+        case 4: return ATTENDED;
         default: return null;
       }
     }
