@@ -839,6 +839,8 @@ export interface ParticipantServiceClient {
     request: GetUpcomingEventsRequest
   ): Observable<EventsResponse>;
 
+  getOnlineEvents(request: Empty): Observable<EventsResponse>;
+
   getEventsByStringOfName(
     request: StringInputRequest
   ): Observable<EventsResponse>;
@@ -958,6 +960,10 @@ export interface ParticipantServiceController {
     request: GetUpcomingEventsRequest
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
+  getOnlineEvents(
+    request: Empty
+  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
+
   getEventsByStringOfName(
     request: StringInputRequest
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
@@ -1075,6 +1081,7 @@ export function ParticipantServiceControllerMethods() {
       "getAllTags",
       "getSuggestedEvents",
       "getUpcomingEvents",
+      "getOnlineEvents",
       "getEventsByStringOfName",
       "getEventsByTagIds",
       "getEventsByOrganizationId",

@@ -2051,6 +2051,7 @@ export interface ParticipantService {
   GetAllTags(request: Empty): Promise<TagsResponse>;
   GetSuggestedEvents(request: Empty): Promise<EventsResponse>;
   GetUpcomingEvents(request: GetUpcomingEventsRequest): Promise<EventsResponse>;
+  GetOnlineEvents(request: Empty): Promise<EventsResponse>;
   GetEventsByStringOfName(request: StringInputRequest): Promise<EventsResponse>;
   GetEventsByTagIds(request: GetEventsByTagIdsRequest): Promise<EventsResponse>;
   GetEventsByOrganizationId(
