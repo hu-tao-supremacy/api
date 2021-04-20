@@ -206,7 +206,7 @@ public final class CommonProto {
       "ueR\020profileImageHash\022%\n\016attendee_limit\030\r" +
       " \001(\005R\rattendeeLimit\022N\n\025registration_due_" +
       "date\030\016 \001(\0132\032.google.protobuf.TimestampR\023" +
-      "registrationDueDate\"\324\002\n\010Location\022\016\n\002id\030\001" +
+      "registrationDueDate\"\361\002\n\010Location\022\016\n\002id\030\001" +
       " \001(\005R\002id\022\022\n\004name\030\002 \001(\tR\004name\022$\n\016google_m" +
       "ap_url\030\003 \001(\tR\014googleMapUrl\022>\n\013descriptio" +
       "n\030\004 \001(\0132\034.google.protobuf.StringValueR\013d" +
@@ -215,70 +215,71 @@ public final class CommonProto {
       "travelInformationImageUrl\022_\n\035travel_info" +
       "rmation_image_hash\030\006 \001(\0132\034.google.protob" +
       "uf.StringValueR\032travelInformationImageHa" +
-      "sh\"s\n\006Answer\022\016\n\002id\030\001 \001(\005R\002id\022\"\n\ruser_eve" +
-      "nt_id\030\002 \001(\005R\013userEventId\022\037\n\013question_id\030" +
-      "\003 \001(\005R\nquestionId\022\024\n\005value\030\004 \001(\tR\005value\"" +
-      "\334\002\n\tUserEvent\022\016\n\002id\030\001 \001(\005R\002id\022\027\n\007user_id" +
-      "\030\002 \001(\005R\006userId\022\031\n\010event_id\030\003 \001(\005R\007eventI" +
-      "d\0223\n\006rating\030\004 \001(\0132\033.google.protobuf.Int3" +
-      "2ValueR\006rating\0224\n\006ticket\030\005 \001(\0132\034.google." +
-      "protobuf.StringValueR\006ticket\0224\n\006status\030\006" +
-      " \001(\0162\034.hts.common.UserEvent.StatusR\006stat" +
-      "us\022\037\n\013is_internal\030\007 \001(\010R\nisInternal\"I\n\006S" +
-      "tatus\022\026\n\022STATUS_UNSPECIFIED\020\000\022\013\n\007PENDING" +
-      "\020\001\022\014\n\010APPROVED\020\002\022\014\n\010REJECTED\020\003\"\240\001\n\rEvent" +
-      "Duration\022\016\n\002id\030\001 \001(\005R\002id\022\031\n\010event_id\030\002 \001" +
-      "(\005R\007eventId\0220\n\005start\030\003 \001(\0132\032.google.prot" +
-      "obuf.TimestampR\005start\0222\n\006finish\030\004 \001(\0132\032." +
-      "google.protobuf.TimestampR\006finish\")\n\003Tag" +
-      "\022\016\n\002id\030\001 \001(\005R\002id\022\022\n\004name\030\002 \001(\tR\004name\"L\n\010" +
-      "EventTag\022\016\n\002id\030\001 \001(\005R\002id\022\031\n\010event_id\030\002 \001" +
-      "(\005R\007eventId\022\025\n\006tag_id\030\003 \001(\005R\005tagId\"\211\001\n\026O" +
-      "rganizationPermission\022\016\n\002id\030\001 \001(\005R\002id\022\'\n" +
-      "\017organization_id\030\002 \001(\005R\016organizationId\0226" +
-      "\n\npermission\030\003 \001(\0162\026.hts.common.Permissi" +
-      "onR\npermission\"z\n\016UserPermission\022\016\n\002id\030\001" +
-      " \001(\005R\002id\022\027\n\007user_id\030\002 \001(\005R\006userId\022?\n\017per" +
-      "mission_name\030\003 \001(\0162\026.hts.common.Permissi" +
-      "onR\016permissionName\"N\n\014UserInterest\022\016\n\002id" +
-      "\030\001 \001(\005R\002id\022\027\n\007user_id\030\002 \001(\005R\006userId\022\025\n\006t" +
-      "ag_id\030\003 \001(\005R\005tagId\"\215\003\n\017FacilityRequest\022\016" +
-      "\n\002id\030\001 \001(\005R\002id\022\031\n\010event_id\030\002 \001(\005R\007eventI" +
-      "d\022\037\n\013facility_id\030\003 \001(\005R\nfacilityId\022:\n\006st" +
-      "atus\030\004 \001(\0162\".hts.common.FacilityRequest." +
-      "StatusR\006status\022A\n\rreject_reason\030\005 \001(\0132\034." +
-      "google.protobuf.StringValueR\014rejectReaso" +
-      "n\0220\n\005start\030\006 \001(\0132\032.google.protobuf.Times" +
-      "tampR\005start\0222\n\006finish\030\007 \001(\0132\032.google.pro" +
-      "tobuf.TimestampR\006finish\"I\n\006Status\022\026\n\022STA" +
-      "TUS_UNSPECIFIED\020\000\022\013\n\007PENDING\020\001\022\014\n\010APPROV" +
-      "ED\020\002\022\014\n\010REJECTED\020\003\"\367\001\n\010Facility\022\016\n\002id\030\001 " +
-      "\001(\005R\002id\022\'\n\017organization_id\030\002 \001(\005R\016organi" +
-      "zationId\022\022\n\004name\030\003 \001(\tR\004name\022\032\n\010latitude" +
-      "\030\004 \001(\001R\010latitude\022\034\n\tlongitude\030\005 \001(\001R\tlon" +
-      "gitude\022B\n\017operating_hours\030\006 \003(\0132\031.hts.co" +
-      "mmon.OperatingHourR\016operatingHours\022 \n\013de" +
-      "scription\030\007 \001(\tR\013description\"&\n\024GetObjec" +
-      "tByIdRequest\022\016\n\002id\030\001 \001(\005R\002id\",\n\026GetObjec" +
-      "tByNameRequest\022\022\n\004name\030\001 \001(\tR\004name*g\n\tDa" +
-      "yOfWeek\022\033\n\027DAY_OF_WEEK_UNSPECIFIED\020\000\022\007\n\003" +
-      "SUN\020\001\022\007\n\003MON\020\002\022\007\n\003TUE\020\003\022\007\n\003WED\020\004\022\007\n\003THU\020" +
-      "\005\022\007\n\003FRI\020\006\022\007\n\003SAT\020\007*>\n\nAnswerType\022\033\n\027ANS" +
-      "WER_TYPE_UNSPECIFIED\020\000\022\t\n\005SCALE\020\001\022\010\n\004TEX" +
-      "T\020\002*W\n\021QuestionGroupType\022#\n\037QUESTION_GRO" +
-      "UP_TYPE_UNSPECIFIED\020\000\022\r\n\tPRE_EVENT\020\001\022\016\n\n" +
-      "POST_EVENT\020\002*6\n\006Gender\022\026\n\022GENDER_UNSPECI" +
-      "FIED\020\000\022\005\n\001M\020\001\022\005\n\001F\020\002\022\006\n\002NS\020\003*\302\002\n\nPermiss" +
-      "ion\022\032\n\026PERMISSION_UNSPECIFIED\020\000\022\027\n\023ORGAN" +
-      "IZATION_UPDATE\020\001\022\027\n\023ORGANIZATION_REMOVE\020" +
-      "\002\022\033\n\027ORGANIZATION_MEMBER_ADD\020\003\022\036\n\032ORGANI" +
-      "ZATION_MEMBER_REMOVE\020\004\022\020\n\014EVENT_CREATE\020\005" +
-      "\022\020\n\014EVENT_UPDATE\020\006\022\020\n\014EVENT_REMOVE\020\007\022\016\n\n" +
-      "TAG_CREATE\020\010\022\016\n\nTAG_REMOVE\020\t\022\024\n\020EVENT_TA" +
-      "G_UPDATE\020\n\022\023\n\017FACILITY_CREATE\020\013\022\023\n\017FACIL" +
-      "ITY_UPDATE\020\014\022\023\n\017FACILITY_REMOVE\020\rBB\n\020app" +
-      ".onepass.apisB\013CommonProtoP\001Z\037onepass.ap" +
-      "p/facility/hts/commonb\006proto3"
+      "sh\022\033\n\tis_online\030\007 \001(\010R\010isOnline\"s\n\006Answe" +
+      "r\022\016\n\002id\030\001 \001(\005R\002id\022\"\n\ruser_event_id\030\002 \001(\005" +
+      "R\013userEventId\022\037\n\013question_id\030\003 \001(\005R\nques" +
+      "tionId\022\024\n\005value\030\004 \001(\tR\005value\"\334\002\n\tUserEve" +
+      "nt\022\016\n\002id\030\001 \001(\005R\002id\022\027\n\007user_id\030\002 \001(\005R\006use" +
+      "rId\022\031\n\010event_id\030\003 \001(\005R\007eventId\0223\n\006rating" +
+      "\030\004 \001(\0132\033.google.protobuf.Int32ValueR\006rat" +
+      "ing\0224\n\006ticket\030\005 \001(\0132\034.google.protobuf.St" +
+      "ringValueR\006ticket\0224\n\006status\030\006 \001(\0162\034.hts." +
+      "common.UserEvent.StatusR\006status\022\037\n\013is_in" +
+      "ternal\030\007 \001(\010R\nisInternal\"I\n\006Status\022\026\n\022ST" +
+      "ATUS_UNSPECIFIED\020\000\022\013\n\007PENDING\020\001\022\014\n\010APPRO" +
+      "VED\020\002\022\014\n\010REJECTED\020\003\"\240\001\n\rEventDuration\022\016\n" +
+      "\002id\030\001 \001(\005R\002id\022\031\n\010event_id\030\002 \001(\005R\007eventId" +
+      "\0220\n\005start\030\003 \001(\0132\032.google.protobuf.Timest" +
+      "ampR\005start\0222\n\006finish\030\004 \001(\0132\032.google.prot" +
+      "obuf.TimestampR\006finish\")\n\003Tag\022\016\n\002id\030\001 \001(" +
+      "\005R\002id\022\022\n\004name\030\002 \001(\tR\004name\"L\n\010EventTag\022\016\n" +
+      "\002id\030\001 \001(\005R\002id\022\031\n\010event_id\030\002 \001(\005R\007eventId" +
+      "\022\025\n\006tag_id\030\003 \001(\005R\005tagId\"\211\001\n\026Organization" +
+      "Permission\022\016\n\002id\030\001 \001(\005R\002id\022\'\n\017organizati" +
+      "on_id\030\002 \001(\005R\016organizationId\0226\n\npermissio" +
+      "n\030\003 \001(\0162\026.hts.common.PermissionR\npermiss" +
+      "ion\"z\n\016UserPermission\022\016\n\002id\030\001 \001(\005R\002id\022\027\n" +
+      "\007user_id\030\002 \001(\005R\006userId\022?\n\017permission_nam" +
+      "e\030\003 \001(\0162\026.hts.common.PermissionR\016permiss" +
+      "ionName\"N\n\014UserInterest\022\016\n\002id\030\001 \001(\005R\002id\022" +
+      "\027\n\007user_id\030\002 \001(\005R\006userId\022\025\n\006tag_id\030\003 \001(\005" +
+      "R\005tagId\"\215\003\n\017FacilityRequest\022\016\n\002id\030\001 \001(\005R" +
+      "\002id\022\031\n\010event_id\030\002 \001(\005R\007eventId\022\037\n\013facili" +
+      "ty_id\030\003 \001(\005R\nfacilityId\022:\n\006status\030\004 \001(\0162" +
+      "\".hts.common.FacilityRequest.StatusR\006sta" +
+      "tus\022A\n\rreject_reason\030\005 \001(\0132\034.google.prot" +
+      "obuf.StringValueR\014rejectReason\0220\n\005start\030" +
+      "\006 \001(\0132\032.google.protobuf.TimestampR\005start" +
+      "\0222\n\006finish\030\007 \001(\0132\032.google.protobuf.Times" +
+      "tampR\006finish\"I\n\006Status\022\026\n\022STATUS_UNSPECI" +
+      "FIED\020\000\022\013\n\007PENDING\020\001\022\014\n\010APPROVED\020\002\022\014\n\010REJ" +
+      "ECTED\020\003\"\367\001\n\010Facility\022\016\n\002id\030\001 \001(\005R\002id\022\'\n\017" +
+      "organization_id\030\002 \001(\005R\016organizationId\022\022\n" +
+      "\004name\030\003 \001(\tR\004name\022\032\n\010latitude\030\004 \001(\001R\010lat" +
+      "itude\022\034\n\tlongitude\030\005 \001(\001R\tlongitude\022B\n\017o" +
+      "perating_hours\030\006 \003(\0132\031.hts.common.Operat" +
+      "ingHourR\016operatingHours\022 \n\013description\030\007" +
+      " \001(\tR\013description\"&\n\024GetObjectByIdReques" +
+      "t\022\016\n\002id\030\001 \001(\005R\002id\",\n\026GetObjectByNameRequ" +
+      "est\022\022\n\004name\030\001 \001(\tR\004name*g\n\tDayOfWeek\022\033\n\027" +
+      "DAY_OF_WEEK_UNSPECIFIED\020\000\022\007\n\003SUN\020\001\022\007\n\003MO" +
+      "N\020\002\022\007\n\003TUE\020\003\022\007\n\003WED\020\004\022\007\n\003THU\020\005\022\007\n\003FRI\020\006\022" +
+      "\007\n\003SAT\020\007*>\n\nAnswerType\022\033\n\027ANSWER_TYPE_UN" +
+      "SPECIFIED\020\000\022\t\n\005SCALE\020\001\022\010\n\004TEXT\020\002*W\n\021Ques" +
+      "tionGroupType\022#\n\037QUESTION_GROUP_TYPE_UNS" +
+      "PECIFIED\020\000\022\r\n\tPRE_EVENT\020\001\022\016\n\nPOST_EVENT\020" +
+      "\002*6\n\006Gender\022\026\n\022GENDER_UNSPECIFIED\020\000\022\005\n\001M" +
+      "\020\001\022\005\n\001F\020\002\022\006\n\002NS\020\003*\302\002\n\nPermission\022\032\n\026PERM" +
+      "ISSION_UNSPECIFIED\020\000\022\027\n\023ORGANIZATION_UPD" +
+      "ATE\020\001\022\027\n\023ORGANIZATION_REMOVE\020\002\022\033\n\027ORGANI" +
+      "ZATION_MEMBER_ADD\020\003\022\036\n\032ORGANIZATION_MEMB" +
+      "ER_REMOVE\020\004\022\020\n\014EVENT_CREATE\020\005\022\020\n\014EVENT_U" +
+      "PDATE\020\006\022\020\n\014EVENT_REMOVE\020\007\022\016\n\nTAG_CREATE\020" +
+      "\010\022\016\n\nTAG_REMOVE\020\t\022\024\n\020EVENT_TAG_UPDATE\020\n\022" +
+      "\023\n\017FACILITY_CREATE\020\013\022\023\n\017FACILITY_UPDATE\020" +
+      "\014\022\023\n\017FACILITY_REMOVE\020\rBB\n\020app.onepass.ap" +
+      "isB\013CommonProtoP\001Z\037onepass.app/facility/" +
+      "hts/commonb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -333,7 +334,7 @@ public final class CommonProto {
     internal_static_hts_common_Location_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_common_Location_descriptor,
-        new java.lang.String[] { "Id", "Name", "GoogleMapUrl", "Description", "TravelInformationImageUrl", "TravelInformationImageHash", });
+        new java.lang.String[] { "Id", "Name", "GoogleMapUrl", "Description", "TravelInformationImageUrl", "TravelInformationImageHash", "IsOnline", });
     internal_static_hts_common_Answer_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_hts_common_Answer_fieldAccessorTable = new

@@ -106,6 +106,11 @@ private static final long serialVersionUID = 0L;
 
             break;
           }
+          case 56: {
+
+            isOnline_ = input.readBool();
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -303,6 +308,17 @@ private static final long serialVersionUID = 0L;
     return getTravelInformationImageHash();
   }
 
+  public static final int IS_ONLINE_FIELD_NUMBER = 7;
+  private boolean isOnline_;
+  /**
+   * <code>bool is_online = 7 [json_name = "isOnline"];</code>
+   * @return The isOnline.
+   */
+  @java.lang.Override
+  public boolean getIsOnline() {
+    return isOnline_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -335,6 +351,9 @@ private static final long serialVersionUID = 0L;
     if (travelInformationImageHash_ != null) {
       output.writeMessage(6, getTravelInformationImageHash());
     }
+    if (isOnline_ != false) {
+      output.writeBool(7, isOnline_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -365,6 +384,10 @@ private static final long serialVersionUID = 0L;
     if (travelInformationImageHash_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getTravelInformationImageHash());
+    }
+    if (isOnline_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(7, isOnline_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -402,6 +425,8 @@ private static final long serialVersionUID = 0L;
       if (!getTravelInformationImageHash()
           .equals(other.getTravelInformationImageHash())) return false;
     }
+    if (getIsOnline()
+        != other.getIsOnline()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -431,6 +456,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TRAVEL_INFORMATION_IMAGE_HASH_FIELD_NUMBER;
       hash = (53 * hash) + getTravelInformationImageHash().hashCode();
     }
+    hash = (37 * hash) + IS_ONLINE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIsOnline());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -588,6 +616,8 @@ private static final long serialVersionUID = 0L;
         travelInformationImageHash_ = null;
         travelInformationImageHashBuilder_ = null;
       }
+      isOnline_ = false;
+
       return this;
     }
 
@@ -632,6 +662,7 @@ private static final long serialVersionUID = 0L;
       } else {
         result.travelInformationImageHash_ = travelInformationImageHashBuilder_.build();
       }
+      result.isOnline_ = isOnline_;
       onBuilt();
       return result;
     }
@@ -699,6 +730,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasTravelInformationImageHash()) {
         mergeTravelInformationImageHash(other.getTravelInformationImageHash());
+      }
+      if (other.getIsOnline() != false) {
+        setIsOnline(other.getIsOnline());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -1267,6 +1301,37 @@ private static final long serialVersionUID = 0L;
         travelInformationImageHash_ = null;
       }
       return travelInformationImageHashBuilder_;
+    }
+
+    private boolean isOnline_ ;
+    /**
+     * <code>bool is_online = 7 [json_name = "isOnline"];</code>
+     * @return The isOnline.
+     */
+    @java.lang.Override
+    public boolean getIsOnline() {
+      return isOnline_;
+    }
+    /**
+     * <code>bool is_online = 7 [json_name = "isOnline"];</code>
+     * @param value The isOnline to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIsOnline(boolean value) {
+      
+      isOnline_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>bool is_online = 7 [json_name = "isOnline"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIsOnline() {
+      
+      isOnline_ = false;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
