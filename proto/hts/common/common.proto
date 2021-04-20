@@ -151,6 +151,7 @@ message Location {
   google.protobuf.StringValue description = 4;
   google.protobuf.StringValue travel_information_image_url = 5;
   google.protobuf.StringValue travel_information_image_hash = 6;
+  bool is_online = 7;
 }
 
 message Answer {
