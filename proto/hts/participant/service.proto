@@ -142,6 +142,8 @@ service ParticipantService {
     // Get events from range of date
     rpc GetUpcomingEvents(GetUpcomingEventsRequest) returns (EventsResponse);
 
+    rpc GetOnlineEvents(google.protobuf.Empty) returns (EventsResponse);
+
     // Get events from search string
     rpc GetEventsByStringOfName(StringInputRequest) returns (EventsResponse);
     // Get events from specified Tag
