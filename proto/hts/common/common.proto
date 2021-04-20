@@ -167,6 +167,7 @@ message UserEvent {
     PENDING = 1;
     APPROVED = 2;
     REJECTED = 3;
+    ATTENDED = 4;
   }
 
   int32 id = 1;
