@@ -4,14 +4,14 @@ package hts.personalization;
 
 import "hts/common/common.proto";
 
-message FibonacciRequest {
-  int32 index = 1;
+message GetRecommendedEventsRequest {
+  int32 user_id = 1;
 }
 
-message FibonacciResponse {
-  int32 result = 1;
+message GetRecommendedEventsResponse {
+  repeated hts.common.Event event_collection = 1;
 }
 
 service PersonalizationService {
-  rpc Fibonacci(FibonacciRequest) returns (FibonacciResponse);
+  rpc GetRecommendedEvents(GetRecommendedEventsRequest) returns (GetRecommendedEventsResponse);
 }
