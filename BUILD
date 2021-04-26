@@ -114,6 +114,7 @@ nest_proto_compile(
         ":facility_proto",
         ":organizer_proto",
         ":participant_proto",
+        ":personalization_proto",
     ],
 )
 
@@ -126,7 +127,8 @@ ts_proto_compile(
         ":account_proto",
         ":facility_proto",
         ":organizer_proto",
-        ":participant_proto"
+        ":participant_proto",
+        ":personalization_proto"
     ],
 )
 
@@ -138,7 +140,8 @@ gql_ts_proto_compile(
         ":account_proto",
         ":facility_proto",
         ":organizer_proto",
-        ":participant_proto"
+        ":participant_proto",
+        ":personalization_proto"
     ],
 )
 
