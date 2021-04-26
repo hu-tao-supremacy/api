@@ -20,28 +20,28 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n!hts/personalization/service.proto\x12\x13hts.personalization\x1a\x17hts/common/common.proto\"(\n\x10\x46ibonacciRequest\x12\x14\n\x05index\x18\x01 \x01(\x05R\x05index\"+\n\x11\x46ibonacciResponse\x12\x16\n\x06result\x18\x01 \x01(\x05R\x06result2t\n\x16PersonalizationService\x12Z\n\tFibonacci\x12%.hts.personalization.FibonacciRequest\x1a&.hts.personalization.FibonacciResponseb\x06proto3'
+  serialized_pb=b'\n!hts/personalization/service.proto\x12\x13hts.personalization\x1a\x17hts/common/common.proto\"6\n\x1bGetRecommendedEventsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\"\\\n\x1cGetRecommendedEventsResponse\x12<\n\x10\x65vent_collection\x18\x01 \x03(\x0b\x32\x11.hts.common.EventR\x0f\x65ventCollection2\x95\x01\n\x16PersonalizationService\x12{\n\x14GetRecommendedEvents\x12\x30.hts.personalization.GetRecommendedEventsRequest\x1a\x31.hts.personalization.GetRecommendedEventsResponseb\x06proto3'
   ,
   dependencies=[hts_dot_common_dot_common__pb2.DESCRIPTOR,])
 
 
 
 
-_FIBONACCIREQUEST = _descriptor.Descriptor(
-  name='FibonacciRequest',
-  full_name='hts.personalization.FibonacciRequest',
+_GETRECOMMENDEDEVENTSREQUEST = _descriptor.Descriptor(
+  name='GetRecommendedEventsRequest',
+  full_name='hts.personalization.GetRecommendedEventsRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='index', full_name='hts.personalization.FibonacciRequest.index', index=0,
+      name='user_id', full_name='hts.personalization.GetRecommendedEventsRequest.user_id', index=0,
       number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='index', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='userId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -55,25 +55,25 @@ _FIBONACCIREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=83,
-  serialized_end=123,
+  serialized_end=137,
 )
 
 
-_FIBONACCIRESPONSE = _descriptor.Descriptor(
-  name='FibonacciResponse',
-  full_name='hts.personalization.FibonacciResponse',
+_GETRECOMMENDEDEVENTSRESPONSE = _descriptor.Descriptor(
+  name='GetRecommendedEventsResponse',
+  full_name='hts.personalization.GetRecommendedEventsResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='result', full_name='hts.personalization.FibonacciResponse.result', index=0,
-      number=1, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      name='event_collection', full_name='hts.personalization.GetRecommendedEventsResponse.event_collection', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, json_name='result', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+      serialized_options=None, json_name='eventCollection', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -86,27 +86,28 @@ _FIBONACCIRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=125,
-  serialized_end=168,
+  serialized_start=139,
+  serialized_end=231,
 )
 
-DESCRIPTOR.message_types_by_name['FibonacciRequest'] = _FIBONACCIREQUEST
-DESCRIPTOR.message_types_by_name['FibonacciResponse'] = _FIBONACCIRESPONSE
+_GETRECOMMENDEDEVENTSRESPONSE.fields_by_name['event_collection'].message_type = hts_dot_common_dot_common__pb2._EVENT
+DESCRIPTOR.message_types_by_name['GetRecommendedEventsRequest'] = _GETRECOMMENDEDEVENTSREQUEST
+DESCRIPTOR.message_types_by_name['GetRecommendedEventsResponse'] = _GETRECOMMENDEDEVENTSRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-FibonacciRequest = _reflection.GeneratedProtocolMessageType('FibonacciRequest', (_message.Message,), {
-  'DESCRIPTOR' : _FIBONACCIREQUEST,
+GetRecommendedEventsRequest = _reflection.GeneratedProtocolMessageType('GetRecommendedEventsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETRECOMMENDEDEVENTSREQUEST,
   '__module__' : 'hts.personalization.service_pb2'
-  # @@protoc_insertion_point(class_scope:hts.personalization.FibonacciRequest)
+  # @@protoc_insertion_point(class_scope:hts.personalization.GetRecommendedEventsRequest)
   })
-_sym_db.RegisterMessage(FibonacciRequest)
+_sym_db.RegisterMessage(GetRecommendedEventsRequest)
 
-FibonacciResponse = _reflection.GeneratedProtocolMessageType('FibonacciResponse', (_message.Message,), {
-  'DESCRIPTOR' : _FIBONACCIRESPONSE,
+GetRecommendedEventsResponse = _reflection.GeneratedProtocolMessageType('GetRecommendedEventsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETRECOMMENDEDEVENTSRESPONSE,
   '__module__' : 'hts.personalization.service_pb2'
-  # @@protoc_insertion_point(class_scope:hts.personalization.FibonacciResponse)
+  # @@protoc_insertion_point(class_scope:hts.personalization.GetRecommendedEventsResponse)
   })
-_sym_db.RegisterMessage(FibonacciResponse)
+_sym_db.RegisterMessage(GetRecommendedEventsResponse)
 
 
 
@@ -117,16 +118,16 @@ _PERSONALIZATIONSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=170,
-  serialized_end=286,
+  serialized_start=234,
+  serialized_end=383,
   methods=[
   _descriptor.MethodDescriptor(
-    name='Fibonacci',
-    full_name='hts.personalization.PersonalizationService.Fibonacci',
+    name='GetRecommendedEvents',
+    full_name='hts.personalization.PersonalizationService.GetRecommendedEvents',
     index=0,
     containing_service=None,
-    input_type=_FIBONACCIREQUEST,
-    output_type=_FIBONACCIRESPONSE,
+    input_type=_GETRECOMMENDEDEVENTSREQUEST,
+    output_type=_GETRECOMMENDEDEVENTSRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
