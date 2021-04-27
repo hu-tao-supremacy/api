@@ -913,6 +913,37 @@ public final class OrganizerServiceGrpc {
     return getGenerateTicketMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.CheckInRequest,
+      app.onepass.apis.UserEvent> getCheckInMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "CheckIn",
+      requestType = app.onepass.apis.CheckInRequest.class,
+      responseType = app.onepass.apis.UserEvent.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<app.onepass.apis.CheckInRequest,
+      app.onepass.apis.UserEvent> getCheckInMethod() {
+    io.grpc.MethodDescriptor<app.onepass.apis.CheckInRequest, app.onepass.apis.UserEvent> getCheckInMethod;
+    if ((getCheckInMethod = OrganizerServiceGrpc.getCheckInMethod) == null) {
+      synchronized (OrganizerServiceGrpc.class) {
+        if ((getCheckInMethod = OrganizerServiceGrpc.getCheckInMethod) == null) {
+          OrganizerServiceGrpc.getCheckInMethod = getCheckInMethod =
+              io.grpc.MethodDescriptor.<app.onepass.apis.CheckInRequest, app.onepass.apis.UserEvent>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "CheckIn"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.CheckInRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  app.onepass.apis.UserEvent.getDefaultInstance()))
+              .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("CheckIn"))
+              .build();
+        }
+      }
+    }
+    return getCheckInMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<com.google.protobuf.Empty,
       com.google.protobuf.BoolValue> getPingMethod;
 
@@ -1197,6 +1228,13 @@ public final class OrganizerServiceGrpc {
 
     /**
      */
+    public void checkIn(app.onepass.apis.CheckInRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.UserEvent> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getCheckInMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void ping(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getPingMethod(), responseObserver);
@@ -1407,6 +1445,13 @@ public final class OrganizerServiceGrpc {
                 app.onepass.apis.GenerateTicketRequest,
                 app.onepass.apis.UserEvent>(
                   this, METHODID_GENERATE_TICKET)))
+          .addMethod(
+            getCheckInMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                app.onepass.apis.CheckInRequest,
+                app.onepass.apis.UserEvent>(
+                  this, METHODID_CHECK_IN)))
           .addMethod(
             getPingMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
@@ -1666,6 +1711,14 @@ public final class OrganizerServiceGrpc {
 
     /**
      */
+    public void checkIn(app.onepass.apis.CheckInRequest request,
+        io.grpc.stub.StreamObserver<app.onepass.apis.UserEvent> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getCheckInMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void ping(com.google.protobuf.Empty request,
         io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
@@ -1888,6 +1941,13 @@ public final class OrganizerServiceGrpc {
     public app.onepass.apis.UserEvent generateTicket(app.onepass.apis.GenerateTicketRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGenerateTicketMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public app.onepass.apis.UserEvent checkIn(app.onepass.apis.CheckInRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getCheckInMethod(), getCallOptions(), request);
     }
 
     /**
@@ -2146,6 +2206,14 @@ public final class OrganizerServiceGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.UserEvent> checkIn(
+        app.onepass.apis.CheckInRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getCheckInMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<com.google.protobuf.BoolValue> ping(
         com.google.protobuf.Empty request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
@@ -2182,7 +2250,8 @@ public final class OrganizerServiceGrpc {
   private static final int METHODID_UPDATE_LOCATION = 26;
   private static final int METHODID_REMOVE_LOCATION = 27;
   private static final int METHODID_GENERATE_TICKET = 28;
-  private static final int METHODID_PING = 29;
+  private static final int METHODID_CHECK_IN = 29;
+  private static final int METHODID_PING = 30;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -2317,6 +2386,10 @@ public final class OrganizerServiceGrpc {
           serviceImpl.generateTicket((app.onepass.apis.GenerateTicketRequest) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.UserEvent>) responseObserver);
           break;
+        case METHODID_CHECK_IN:
+          serviceImpl.checkIn((app.onepass.apis.CheckInRequest) request,
+              (io.grpc.stub.StreamObserver<app.onepass.apis.UserEvent>) responseObserver);
+          break;
         case METHODID_PING:
           serviceImpl.ping((com.google.protobuf.Empty) request,
               (io.grpc.stub.StreamObserver<com.google.protobuf.BoolValue>) responseObserver);
@@ -2411,6 +2484,7 @@ public final class OrganizerServiceGrpc {
               .addMethod(getUpdateLocationMethod())
               .addMethod(getRemoveLocationMethod())
               .addMethod(getGenerateTicketMethod())
+              .addMethod(getCheckInMethod())
               .addMethod(getPingMethod())
               .build();
         }
