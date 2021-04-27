@@ -50,6 +50,7 @@ type OrganizerServiceClient interface {
 	UpdateLocation(ctx context.Context, in *UpdateLocationRequest, opts ...grpc.CallOption) (*common.Location, error)
 	RemoveLocation(ctx context.Context, in *RemoveLocationRequest, opts ...grpc.CallOption) (*common.Location, error)
 	GenerateTicket(ctx context.Context, in *GenerateTicketRequest, opts ...grpc.CallOption) (*common.UserEvent, error)
+	CheckIn(ctx context.Context, in *CheckInRequest, opts ...grpc.CallOption) (*common.UserEvent, error)
 	Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
 }
 
@@ -322,6 +323,15 @@ func (c *organizerServiceClient) GenerateTicket(ctx context.Context, in *Generat
 	return out, nil
 }
 
+func (c *organizerServiceClient) CheckIn(ctx context.Context, in *CheckInRequest, opts ...grpc.CallOption) (*common.UserEvent, error) {
+	out := new(common.UserEvent)
+	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/CheckIn", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *organizerServiceClient) Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error) {
 	out := new(wrapperspb.BoolValue)
 	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/Ping", in, out, opts...)
@@ -364,6 +374,7 @@ type OrganizerServiceServer interface {
 	UpdateLocation(context.Context, *UpdateLocationRequest) (*common.Location, error)
 	RemoveLocation(context.Context, *RemoveLocationRequest) (*common.Location, error)
 	GenerateTicket(context.Context, *GenerateTicketRequest) (*common.UserEvent, error)
+	CheckIn(context.Context, *CheckInRequest) (*common.UserEvent, error)
 	Ping(context.Context, *emptypb.Empty) (*wrapperspb.BoolValue, error)
 	mustEmbedUnimplementedOrganizerServiceServer()
 }
@@ -458,6 +469,9 @@ func (UnimplementedOrganizerServiceServer) RemoveLocation(context.Context, *Remo
 }
 func (UnimplementedOrganizerServiceServer) GenerateTicket(context.Context, *GenerateTicketRequest) (*common.UserEvent, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateTicket not implemented")
+}
+func (UnimplementedOrganizerServiceServer) CheckIn(context.Context, *CheckInRequest) (*common.UserEvent, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CheckIn not implemented")
 }
 func (UnimplementedOrganizerServiceServer) Ping(context.Context, *emptypb.Empty) (*wrapperspb.BoolValue, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Ping not implemented")
@@ -997,6 +1011,24 @@ func _OrganizerService_GenerateTicket_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _OrganizerService_CheckIn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckInRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrganizerServiceServer).CheckIn(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.organizer.OrganizerService/CheckIn",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrganizerServiceServer).CheckIn(ctx, req.(*CheckInRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _OrganizerService_Ping_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(emptypb.Empty)
 	if err := dec(in); err != nil {
@@ -1137,6 +1169,10 @@ var OrganizerService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GenerateTicket",
 			Handler:    _OrganizerService_GenerateTicket_Handler,
+		},
+		{
+			MethodName: "CheckIn",
+			Handler:    _OrganizerService_CheckIn_Handler,
 		},
 		{
 			MethodName: "Ping",
