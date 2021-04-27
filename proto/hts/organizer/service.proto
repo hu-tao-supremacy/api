@@ -159,6 +159,11 @@ message LocationListResponse {
   repeated hts.common.Location locations = 1;
 }
 
+message CheckInRequest {
+  int32 user_id = 1;
+  int32 event_id = 2;
+}
+
 service OrganizerService {
   rpc CreateOrganization(CreateOrganizationRequest) returns (hts.common.Organization);
   rpc GetOrganizations(google.protobuf.Empty) returns (OrganizationListResponse);
@@ -189,5 +194,6 @@ service OrganizerService {
   rpc UpdateLocation(UpdateLocationRequest) returns (hts.common.Location);
   rpc RemoveLocation(RemoveLocationRequest) returns (hts.common.Location);
   rpc GenerateTicket(GenerateTicketRequest) returns (hts.common.UserEvent);
+  rpc CheckIn(CheckInRequest) returns (hts.common.UserEvent);
   rpc Ping(google.protobuf.Empty) returns (google.protobuf.BoolValue);
 }
