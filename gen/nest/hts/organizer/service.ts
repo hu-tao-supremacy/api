@@ -173,6 +173,11 @@ export interface LocationListResponse {
   locations: Location[];
 }
 
+export interface CheckInRequest {
+  userId: number;
+  eventId: number;
+}
+
 export const HTS_ORGANIZER_PACKAGE_NAME = "hts.organizer";
 
 const baseDuration: object = {};
@@ -1117,6 +1122,32 @@ export const LocationListResponse = {
   },
 };
 
+const baseCheckInRequest: object = { userId: 0, eventId: 0 };
+
+export const CheckInRequest = {
+  fromJSON(object: any): CheckInRequest {
+    const message = { ...baseCheckInRequest } as CheckInRequest;
+    if (object.userId !== undefined && object.userId !== null) {
+      message.userId = Number(object.userId);
+    } else {
+      message.userId = 0;
+    }
+    if (object.eventId !== undefined && object.eventId !== null) {
+      message.eventId = Number(object.eventId);
+    } else {
+      message.eventId = 0;
+    }
+    return message;
+  },
+
+  toJSON(message: CheckInRequest): unknown {
+    const obj: any = {};
+    message.userId !== undefined && (obj.userId = message.userId);
+    message.eventId !== undefined && (obj.eventId = message.eventId);
+    return obj;
+  },
+};
+
 export interface OrganizerServiceClient {
   createOrganization(
     request: CreateOrganizationRequest
@@ -1201,6 +1232,8 @@ export interface OrganizerServiceClient {
   removeLocation(request: RemoveLocationRequest): Observable<Location>;
 
   generateTicket(request: GenerateTicketRequest): Observable<UserEvent>;
+
+  checkIn(request: CheckInRequest): Observable<UserEvent>;
 
   ping(request: Empty): Observable<BoolValue>;
 }
@@ -1362,6 +1395,10 @@ export interface OrganizerServiceController {
     request: GenerateTicketRequest
   ): Promise<UserEvent> | Observable<UserEvent> | UserEvent;
 
+  checkIn(
+    request: CheckInRequest
+  ): Promise<UserEvent> | Observable<UserEvent> | UserEvent;
+
   ping(request: Empty): Promise<BoolValue> | Observable<BoolValue> | BoolValue;
 }
 
@@ -1397,6 +1434,7 @@ export function OrganizerServiceControllerMethods() {
       "updateLocation",
       "removeLocation",
       "generateTicket",
+      "checkIn",
       "ping",
     ];
     for (const method of grpcMethods) {

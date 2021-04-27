@@ -171,6 +171,11 @@ export interface LocationListResponse {
   locations: Location[];
 }
 
+export interface CheckInRequest {
+  userId: number;
+  eventId: number;
+}
+
 const baseDuration: object = {};
 
 export const Duration = {
@@ -2755,6 +2760,78 @@ export const LocationListResponse = {
   },
 };
 
+const baseCheckInRequest: object = { userId: 0, eventId: 0 };
+
+export const CheckInRequest = {
+  encode(message: CheckInRequest, writer: Writer = Writer.create()): Writer {
+    if (message.userId !== 0) {
+      writer.uint32(8).int32(message.userId);
+    }
+    if (message.eventId !== 0) {
+      writer.uint32(16).int32(message.eventId);
+    }
+    return writer;
+  },
+
+  decode(input: Reader | Uint8Array, length?: number): CheckInRequest {
+    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = { ...baseCheckInRequest } as CheckInRequest;
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.userId = reader.int32();
+          break;
+        case 2:
+          message.eventId = reader.int32();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): CheckInRequest {
+    const message = { ...baseCheckInRequest } as CheckInRequest;
+    if (object.userId !== undefined && object.userId !== null) {
+      message.userId = Number(object.userId);
+    } else {
+      message.userId = 0;
+    }
+    if (object.eventId !== undefined && object.eventId !== null) {
+      message.eventId = Number(object.eventId);
+    } else {
+      message.eventId = 0;
+    }
+    return message;
+  },
+
+  toJSON(message: CheckInRequest): unknown {
+    const obj: any = {};
+    message.userId !== undefined && (obj.userId = message.userId);
+    message.eventId !== undefined && (obj.eventId = message.eventId);
+    return obj;
+  },
+
+  fromPartial(object: DeepPartial<CheckInRequest>): CheckInRequest {
+    const message = { ...baseCheckInRequest } as CheckInRequest;
+    if (object.userId !== undefined && object.userId !== null) {
+      message.userId = object.userId;
+    } else {
+      message.userId = 0;
+    }
+    if (object.eventId !== undefined && object.eventId !== null) {
+      message.eventId = object.eventId;
+    } else {
+      message.eventId = 0;
+    }
+    return message;
+  },
+};
+
 export interface OrganizerService {
   CreateOrganization(request: CreateOrganizationRequest): Promise<Organization>;
   GetOrganizations(request: Empty): Promise<OrganizationListResponse>;
@@ -2805,6 +2882,7 @@ export interface OrganizerService {
   UpdateLocation(request: UpdateLocationRequest): Promise<Location>;
   RemoveLocation(request: RemoveLocationRequest): Promise<Location>;
   GenerateTicket(request: GenerateTicketRequest): Promise<UserEvent>;
+  CheckIn(request: CheckInRequest): Promise<UserEvent>;
   Ping(request: Empty): Promise<boolean | undefined>;
 }
 
