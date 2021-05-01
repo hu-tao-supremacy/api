@@ -7,6 +7,7 @@ export const protobufPackage = "hts.personalization";
 
 export interface GetRecommendedEventsRequest {
   userId: number;
+  kEvents: number;
 }
 
 export interface GetRecommendedEventsResponse {
@@ -15,7 +16,7 @@ export interface GetRecommendedEventsResponse {
 
 export const HTS_PERSONALIZATION_PACKAGE_NAME = "hts.personalization";
 
-const baseGetRecommendedEventsRequest: object = { userId: 0 };
+const baseGetRecommendedEventsRequest: object = { userId: 0, kEvents: 0 };
 
 export const GetRecommendedEventsRequest = {
   fromJSON(object: any): GetRecommendedEventsRequest {
@@ -27,12 +28,18 @@ export const GetRecommendedEventsRequest = {
     } else {
       message.userId = 0;
     }
+    if (object.kEvents !== undefined && object.kEvents !== null) {
+      message.kEvents = Number(object.kEvents);
+    } else {
+      message.kEvents = 0;
+    }
     return message;
   },
 
   toJSON(message: GetRecommendedEventsRequest): unknown {
     const obj: any = {};
     message.userId !== undefined && (obj.userId = message.userId);
+    message.kEvents !== undefined && (obj.kEvents = message.kEvents);
     return obj;
   },
 };
