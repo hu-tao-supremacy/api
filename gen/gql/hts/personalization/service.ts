@@ -6,13 +6,14 @@ export const protobufPackage = "hts.personalization";
 
 export interface GetRecommendedEventsRequest {
   userId: number;
+  kEvents: number;
 }
 
 export interface GetRecommendedEventsResponse {
   eventCollection: Event[];
 }
 
-const baseGetRecommendedEventsRequest: object = { userId: 0 };
+const baseGetRecommendedEventsRequest: object = { userId: 0, kEvents: 0 };
 
 export const GetRecommendedEventsRequest = {
   encode(
@@ -21,6 +22,9 @@ export const GetRecommendedEventsRequest = {
   ): Writer {
     if (message.userId !== 0) {
       writer.uint32(8).int32(message.userId);
+    }
+    if (message.kEvents !== 0) {
+      writer.uint32(16).int32(message.kEvents);
     }
     return writer;
   },
@@ -40,6 +44,9 @@ export const GetRecommendedEventsRequest = {
         case 1:
           message.userId = reader.int32();
           break;
+        case 2:
+          message.kEvents = reader.int32();
+          break;
         default:
           reader.skipType(tag & 7);
           break;
@@ -57,12 +64,18 @@ export const GetRecommendedEventsRequest = {
     } else {
       message.userId = 0;
     }
+    if (object.kEvents !== undefined && object.kEvents !== null) {
+      message.kEvents = Number(object.kEvents);
+    } else {
+      message.kEvents = 0;
+    }
     return message;
   },
 
   toJSON(message: GetRecommendedEventsRequest): unknown {
     const obj: any = {};
     message.userId !== undefined && (obj.userId = message.userId);
+    message.kEvents !== undefined && (obj.kEvents = message.kEvents);
     return obj;
   },
 
@@ -76,6 +89,11 @@ export const GetRecommendedEventsRequest = {
       message.userId = object.userId;
     } else {
       message.userId = 0;
+    }
+    if (object.kEvents !== undefined && object.kEvents !== null) {
+      message.kEvents = object.kEvents;
+    } else {
+      message.kEvents = 0;
     }
     return message;
   },
