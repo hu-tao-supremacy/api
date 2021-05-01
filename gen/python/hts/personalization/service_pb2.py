@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n!hts/personalization/service.proto\x12\x13hts.personalization\x1a\x17hts/common/common.proto\"6\n\x1bGetRecommendedEventsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\"\\\n\x1cGetRecommendedEventsResponse\x12<\n\x10\x65vent_collection\x18\x01 \x03(\x0b\x32\x11.hts.common.EventR\x0f\x65ventCollection2\x95\x01\n\x16PersonalizationService\x12{\n\x14GetRecommendedEvents\x12\x30.hts.personalization.GetRecommendedEventsRequest\x1a\x31.hts.personalization.GetRecommendedEventsResponseb\x06proto3'
+  serialized_pb=b'\n!hts/personalization/service.proto\x12\x13hts.personalization\x1a\x17hts/common/common.proto\"Q\n\x1bGetRecommendedEventsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\x05R\x06userId\x12\x19\n\x08k_events\x18\x02 \x01(\x05R\x07kEvents\"\\\n\x1cGetRecommendedEventsResponse\x12<\n\x10\x65vent_collection\x18\x01 \x03(\x0b\x32\x11.hts.common.EventR\x0f\x65ventCollection2\x95\x01\n\x16PersonalizationService\x12{\n\x14GetRecommendedEvents\x12\x30.hts.personalization.GetRecommendedEventsRequest\x1a\x31.hts.personalization.GetRecommendedEventsResponseb\x06proto3'
   ,
   dependencies=[hts_dot_common_dot_common__pb2.DESCRIPTOR,])
 
@@ -42,6 +42,13 @@ _GETRECOMMENDEDEVENTSREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, json_name='userId', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='k_events', full_name='hts.personalization.GetRecommendedEventsRequest.k_events', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, json_name='kEvents', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -55,7 +62,7 @@ _GETRECOMMENDEDEVENTSREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=83,
-  serialized_end=137,
+  serialized_end=164,
 )
 
 
@@ -86,8 +93,8 @@ _GETRECOMMENDEDEVENTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=139,
-  serialized_end=231,
+  serialized_start=166,
+  serialized_end=258,
 )
 
 _GETRECOMMENDEDEVENTSRESPONSE.fields_by_name['event_collection'].message_type = hts_dot_common_dot_common__pb2._EVENT
@@ -118,8 +125,8 @@ _PERSONALIZATIONSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=234,
-  serialized_end=383,
+  serialized_start=261,
+  serialized_end=410,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetRecommendedEvents',
