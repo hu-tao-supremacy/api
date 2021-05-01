@@ -6,6 +6,7 @@ import "hts/common/common.proto";
 
 message GetRecommendedEventsRequest {
   int32 user_id = 1;
+  int32 k_events = 2;
 }
 
 message GetRecommendedEventsResponse {
