@@ -132,6 +132,11 @@ export interface SetRatingByUserEventIdRequest {
   rating: number;
 }
 
+export interface GetPastEventsFromTagsRequest {
+  tagId: number[];
+  numberOfEvents: number;
+}
+
 export const HTS_PARTICIPANT_PACKAGE_NAME = "hts.participant";
 
 const baseGetEventByIdRequest: object = { eventId: 0 };
@@ -814,6 +819,43 @@ export const SetRatingByUserEventIdRequest = {
   },
 };
 
+const baseGetPastEventsFromTagsRequest: object = {
+  tagId: 0,
+  numberOfEvents: 0,
+};
+
+export const GetPastEventsFromTagsRequest = {
+  fromJSON(object: any): GetPastEventsFromTagsRequest {
+    const message = {
+      ...baseGetPastEventsFromTagsRequest,
+    } as GetPastEventsFromTagsRequest;
+    message.tagId = [];
+    if (object.tagId !== undefined && object.tagId !== null) {
+      for (const e of object.tagId) {
+        message.tagId.push(Number(e));
+      }
+    }
+    if (object.numberOfEvents !== undefined && object.numberOfEvents !== null) {
+      message.numberOfEvents = Number(object.numberOfEvents);
+    } else {
+      message.numberOfEvents = 0;
+    }
+    return message;
+  },
+
+  toJSON(message: GetPastEventsFromTagsRequest): unknown {
+    const obj: any = {};
+    if (message.tagId) {
+      obj.tagId = message.tagId.map((e) => e);
+    } else {
+      obj.tagId = [];
+    }
+    message.numberOfEvents !== undefined &&
+      (obj.numberOfEvents = message.numberOfEvents);
+    return obj;
+  },
+};
+
 export interface ParticipantServiceClient {
   isEventAvailable(request: IsEventAvailableRequest): Observable<BoolValue>;
 
@@ -906,6 +948,10 @@ export interface ParticipantServiceClient {
   getUserEventsByEventId(
     request: GetObjectByIdRequest
   ): Observable<GetUserEventsByEventIdResponse>;
+
+  getPastEventsFromTags(
+    request: GetPastEventsFromTagsRequest
+  ): Observable<EventsResponse>;
 
   setRatingByUserEventId(
     request: SetRatingByUserEventIdRequest
@@ -1054,6 +1100,10 @@ export interface ParticipantServiceController {
     | Observable<GetUserEventsByEventIdResponse>
     | GetUserEventsByEventIdResponse;
 
+  getPastEventsFromTags(
+    request: GetPastEventsFromTagsRequest
+  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
+
   setRatingByUserEventId(
     request: SetRatingByUserEventIdRequest
   ): Promise<UserEvent> | Observable<UserEvent> | UserEvent;
@@ -1100,6 +1150,7 @@ export function ParticipantServiceControllerMethods() {
       "getEventsByUserId",
       "getUserEventByUserAndEventId",
       "getUserEventsByEventId",
+      "getPastEventsFromTags",
       "setRatingByUserEventId",
       "generateQR",
       "ping",

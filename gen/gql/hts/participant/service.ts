@@ -130,6 +130,11 @@ export interface SetRatingByUserEventIdRequest {
   rating: number;
 }
 
+export interface GetPastEventsFromTagsRequest {
+  tagId: number[];
+  numberOfEvents: number;
+}
+
 const baseGetEventByIdRequest: object = { eventId: 0 };
 
 export const GetEventByIdRequest = {
@@ -2036,6 +2041,112 @@ export const SetRatingByUserEventIdRequest = {
   },
 };
 
+const baseGetPastEventsFromTagsRequest: object = {
+  tagId: 0,
+  numberOfEvents: 0,
+};
+
+export const GetPastEventsFromTagsRequest = {
+  encode(
+    message: GetPastEventsFromTagsRequest,
+    writer: Writer = Writer.create()
+  ): Writer {
+    writer.uint32(10).fork();
+    for (const v of message.tagId) {
+      writer.int32(v);
+    }
+    writer.ldelim();
+    if (message.numberOfEvents !== 0) {
+      writer.uint32(16).int32(message.numberOfEvents);
+    }
+    return writer;
+  },
+
+  decode(
+    input: Reader | Uint8Array,
+    length?: number
+  ): GetPastEventsFromTagsRequest {
+    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = {
+      ...baseGetPastEventsFromTagsRequest,
+    } as GetPastEventsFromTagsRequest;
+    message.tagId = [];
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          if ((tag & 7) === 2) {
+            const end2 = reader.uint32() + reader.pos;
+            while (reader.pos < end2) {
+              message.tagId.push(reader.int32());
+            }
+          } else {
+            message.tagId.push(reader.int32());
+          }
+          break;
+        case 2:
+          message.numberOfEvents = reader.int32();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): GetPastEventsFromTagsRequest {
+    const message = {
+      ...baseGetPastEventsFromTagsRequest,
+    } as GetPastEventsFromTagsRequest;
+    message.tagId = [];
+    if (object.tagId !== undefined && object.tagId !== null) {
+      for (const e of object.tagId) {
+        message.tagId.push(Number(e));
+      }
+    }
+    if (object.numberOfEvents !== undefined && object.numberOfEvents !== null) {
+      message.numberOfEvents = Number(object.numberOfEvents);
+    } else {
+      message.numberOfEvents = 0;
+    }
+    return message;
+  },
+
+  toJSON(message: GetPastEventsFromTagsRequest): unknown {
+    const obj: any = {};
+    if (message.tagId) {
+      obj.tagId = message.tagId.map((e) => e);
+    } else {
+      obj.tagId = [];
+    }
+    message.numberOfEvents !== undefined &&
+      (obj.numberOfEvents = message.numberOfEvents);
+    return obj;
+  },
+
+  fromPartial(
+    object: DeepPartial<GetPastEventsFromTagsRequest>
+  ): GetPastEventsFromTagsRequest {
+    const message = {
+      ...baseGetPastEventsFromTagsRequest,
+    } as GetPastEventsFromTagsRequest;
+    message.tagId = [];
+    if (object.tagId !== undefined && object.tagId !== null) {
+      for (const e of object.tagId) {
+        message.tagId.push(e);
+      }
+    }
+    if (object.numberOfEvents !== undefined && object.numberOfEvents !== null) {
+      message.numberOfEvents = object.numberOfEvents;
+    } else {
+      message.numberOfEvents = 0;
+    }
+    return message;
+  },
+};
+
 export interface ParticipantService {
   IsEventAvailable(
     request: IsEventAvailableRequest
@@ -2092,6 +2203,9 @@ export interface ParticipantService {
   GetUserEventsByEventId(
     request: GetObjectByIdRequest
   ): Promise<GetUserEventsByEventIdResponse>;
+  GetPastEventsFromTags(
+    request: GetPastEventsFromTagsRequest
+  ): Promise<EventsResponse>;
   SetRatingByUserEventId(
     request: SetRatingByUserEventIdRequest
   ): Promise<UserEvent>;
