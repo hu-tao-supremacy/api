@@ -189,8 +189,6 @@ message EventDuration {
 message Tag {
   int32 id = 1;
   string name = 2;
-  string image_url = 3;
-  string image_hash = 4;
 }
 
 message EventTag {
