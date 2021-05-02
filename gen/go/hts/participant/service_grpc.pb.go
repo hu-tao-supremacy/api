@@ -51,6 +51,7 @@ type ParticipantServiceClient interface {
 	GetEventsByUserId(ctx context.Context, in *GetEventsByUserIdRequest, opts ...grpc.CallOption) (*EventsResponse, error)
 	GetUserEventByUserAndEventId(ctx context.Context, in *UserWithEventRequest, opts ...grpc.CallOption) (*common.UserEvent, error)
 	GetUserEventsByEventId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*GetUserEventsByEventIdResponse, error)
+	GetPastEventsFromTags(ctx context.Context, in *GetPastEventsFromTagsRequest, opts ...grpc.CallOption) (*EventsResponse, error)
 	SetRatingByUserEventId(ctx context.Context, in *SetRatingByUserEventIdRequest, opts ...grpc.CallOption) (*common.UserEvent, error)
 	GenerateQR(ctx context.Context, in *GenerateQRRequest, opts ...grpc.CallOption) (*GenerateQRResponse, error)
 	Ping(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*wrapperspb.BoolValue, error)
@@ -325,6 +326,15 @@ func (c *participantServiceClient) GetUserEventsByEventId(ctx context.Context, i
 	return out, nil
 }
 
+func (c *participantServiceClient) GetPastEventsFromTags(ctx context.Context, in *GetPastEventsFromTagsRequest, opts ...grpc.CallOption) (*EventsResponse, error) {
+	out := new(EventsResponse)
+	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GetPastEventsFromTags", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *participantServiceClient) SetRatingByUserEventId(ctx context.Context, in *SetRatingByUserEventIdRequest, opts ...grpc.CallOption) (*common.UserEvent, error) {
 	out := new(common.UserEvent)
 	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/SetRatingByUserEventId", in, out, opts...)
@@ -385,6 +395,7 @@ type ParticipantServiceServer interface {
 	GetEventsByUserId(context.Context, *GetEventsByUserIdRequest) (*EventsResponse, error)
 	GetUserEventByUserAndEventId(context.Context, *UserWithEventRequest) (*common.UserEvent, error)
 	GetUserEventsByEventId(context.Context, *common.GetObjectByIdRequest) (*GetUserEventsByEventIdResponse, error)
+	GetPastEventsFromTags(context.Context, *GetPastEventsFromTagsRequest) (*EventsResponse, error)
 	SetRatingByUserEventId(context.Context, *SetRatingByUserEventIdRequest) (*common.UserEvent, error)
 	GenerateQR(context.Context, *GenerateQRRequest) (*GenerateQRResponse, error)
 	Ping(context.Context, *emptypb.Empty) (*wrapperspb.BoolValue, error)
@@ -481,6 +492,9 @@ func (UnimplementedParticipantServiceServer) GetUserEventByUserAndEventId(contex
 }
 func (UnimplementedParticipantServiceServer) GetUserEventsByEventId(context.Context, *common.GetObjectByIdRequest) (*GetUserEventsByEventIdResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserEventsByEventId not implemented")
+}
+func (UnimplementedParticipantServiceServer) GetPastEventsFromTags(context.Context, *GetPastEventsFromTagsRequest) (*EventsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPastEventsFromTags not implemented")
 }
 func (UnimplementedParticipantServiceServer) SetRatingByUserEventId(context.Context, *SetRatingByUserEventIdRequest) (*common.UserEvent, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SetRatingByUserEventId not implemented")
@@ -1026,6 +1040,24 @@ func _ParticipantService_GetUserEventsByEventId_Handler(srv interface{}, ctx con
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ParticipantService_GetPastEventsFromTags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetPastEventsFromTagsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParticipantServiceServer).GetPastEventsFromTags(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.participant.ParticipantService/GetPastEventsFromTags",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParticipantServiceServer).GetPastEventsFromTags(ctx, req.(*GetPastEventsFromTagsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ParticipantService_SetRatingByUserEventId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SetRatingByUserEventIdRequest)
 	if err := dec(in); err != nil {
@@ -1202,6 +1234,10 @@ var ParticipantService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetUserEventsByEventId",
 			Handler:    _ParticipantService_GetUserEventsByEventId_Handler,
+		},
+		{
+			MethodName: "GetPastEventsFromTags",
+			Handler:    _ParticipantService_GetPastEventsFromTags_Handler,
 		},
 		{
 			MethodName: "SetRatingByUserEventId",
