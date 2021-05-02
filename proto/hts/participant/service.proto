@@ -121,7 +121,7 @@ message SetRatingByUserEventIdRequest {
 
 message GetPastEventsFromTagsRequest {
     repeated hts.common.Tag tag_id= 1;
-    int32 number_of_events = 2
+    int32 number_of_events = 2;
 }
 
 service ParticipantService {
