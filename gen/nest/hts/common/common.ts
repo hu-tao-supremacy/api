@@ -469,6 +469,8 @@ export interface EventDuration {
 export interface Tag {
   id: number;
   name: string;
+  imageUrl: string;
+  imageHash: string;
 }
 
 export interface EventTag {
@@ -1479,7 +1481,7 @@ export const EventDuration = {
   },
 };
 
-const baseTag: object = { id: 0, name: "" };
+const baseTag: object = { id: 0, name: "", imageUrl: "", imageHash: "" };
 
 export const Tag = {
   fromJSON(object: any): Tag {
@@ -1494,6 +1496,16 @@ export const Tag = {
     } else {
       message.name = "";
     }
+    if (object.imageUrl !== undefined && object.imageUrl !== null) {
+      message.imageUrl = String(object.imageUrl);
+    } else {
+      message.imageUrl = "";
+    }
+    if (object.imageHash !== undefined && object.imageHash !== null) {
+      message.imageHash = String(object.imageHash);
+    } else {
+      message.imageHash = "";
+    }
     return message;
   },
 
@@ -1501,6 +1513,8 @@ export const Tag = {
     const obj: any = {};
     message.id !== undefined && (obj.id = message.id);
     message.name !== undefined && (obj.name = message.name);
+    message.imageUrl !== undefined && (obj.imageUrl = message.imageUrl);
+    message.imageHash !== undefined && (obj.imageHash = message.imageHash);
     return obj;
   },
 };
