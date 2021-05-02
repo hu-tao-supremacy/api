@@ -17,8 +17,6 @@ private static final long serialVersionUID = 0L;
   }
   private Tag() {
     name_ = "";
-    imageUrl_ = "";
-    imageHash_ = "";
   }
 
   @java.lang.Override
@@ -60,18 +58,6 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             name_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            imageUrl_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            imageHash_ = s;
             break;
           }
           default: {
@@ -155,82 +141,6 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int IMAGE_URL_FIELD_NUMBER = 3;
-  private volatile java.lang.Object imageUrl_;
-  /**
-   * <code>string image_url = 3 [json_name = "imageUrl"];</code>
-   * @return The imageUrl.
-   */
-  @java.lang.Override
-  public java.lang.String getImageUrl() {
-    java.lang.Object ref = imageUrl_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      imageUrl_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string image_url = 3 [json_name = "imageUrl"];</code>
-   * @return The bytes for imageUrl.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getImageUrlBytes() {
-    java.lang.Object ref = imageUrl_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      imageUrl_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int IMAGE_HASH_FIELD_NUMBER = 4;
-  private volatile java.lang.Object imageHash_;
-  /**
-   * <code>string image_hash = 4 [json_name = "imageHash"];</code>
-   * @return The imageHash.
-   */
-  @java.lang.Override
-  public java.lang.String getImageHash() {
-    java.lang.Object ref = imageHash_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      imageHash_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string image_hash = 4 [json_name = "imageHash"];</code>
-   * @return The bytes for imageHash.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getImageHashBytes() {
-    java.lang.Object ref = imageHash_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      imageHash_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -251,12 +161,6 @@ private static final long serialVersionUID = 0L;
     if (!getNameBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
     }
-    if (!getImageUrlBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, imageUrl_);
-    }
-    if (!getImageHashBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, imageHash_);
-    }
     unknownFields.writeTo(output);
   }
 
@@ -272,12 +176,6 @@ private static final long serialVersionUID = 0L;
     }
     if (!getNameBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
-    }
-    if (!getImageUrlBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, imageUrl_);
-    }
-    if (!getImageHashBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, imageHash_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -298,10 +196,6 @@ private static final long serialVersionUID = 0L;
         != other.getId()) return false;
     if (!getName()
         .equals(other.getName())) return false;
-    if (!getImageUrl()
-        .equals(other.getImageUrl())) return false;
-    if (!getImageHash()
-        .equals(other.getImageHash())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -317,10 +211,6 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getId();
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
-    hash = (37 * hash) + IMAGE_URL_FIELD_NUMBER;
-    hash = (53 * hash) + getImageUrl().hashCode();
-    hash = (37 * hash) + IMAGE_HASH_FIELD_NUMBER;
-    hash = (53 * hash) + getImageHash().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -458,10 +348,6 @@ private static final long serialVersionUID = 0L;
 
       name_ = "";
 
-      imageUrl_ = "";
-
-      imageHash_ = "";
-
       return this;
     }
 
@@ -490,8 +376,6 @@ private static final long serialVersionUID = 0L;
       app.onepass.apis.Tag result = new app.onepass.apis.Tag(this);
       result.id_ = id_;
       result.name_ = name_;
-      result.imageUrl_ = imageUrl_;
-      result.imageHash_ = imageHash_;
       onBuilt();
       return result;
     }
@@ -545,14 +429,6 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
-        onChanged();
-      }
-      if (!other.getImageUrl().isEmpty()) {
-        imageUrl_ = other.imageUrl_;
-        onChanged();
-      }
-      if (!other.getImageHash().isEmpty()) {
-        imageHash_ = other.imageHash_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -687,158 +563,6 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       name_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object imageUrl_ = "";
-    /**
-     * <code>string image_url = 3 [json_name = "imageUrl"];</code>
-     * @return The imageUrl.
-     */
-    public java.lang.String getImageUrl() {
-      java.lang.Object ref = imageUrl_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        imageUrl_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string image_url = 3 [json_name = "imageUrl"];</code>
-     * @return The bytes for imageUrl.
-     */
-    public com.google.protobuf.ByteString
-        getImageUrlBytes() {
-      java.lang.Object ref = imageUrl_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        imageUrl_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string image_url = 3 [json_name = "imageUrl"];</code>
-     * @param value The imageUrl to set.
-     * @return This builder for chaining.
-     */
-    public Builder setImageUrl(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      imageUrl_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string image_url = 3 [json_name = "imageUrl"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearImageUrl() {
-      
-      imageUrl_ = getDefaultInstance().getImageUrl();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string image_url = 3 [json_name = "imageUrl"];</code>
-     * @param value The bytes for imageUrl to set.
-     * @return This builder for chaining.
-     */
-    public Builder setImageUrlBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      imageUrl_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object imageHash_ = "";
-    /**
-     * <code>string image_hash = 4 [json_name = "imageHash"];</code>
-     * @return The imageHash.
-     */
-    public java.lang.String getImageHash() {
-      java.lang.Object ref = imageHash_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        imageHash_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string image_hash = 4 [json_name = "imageHash"];</code>
-     * @return The bytes for imageHash.
-     */
-    public com.google.protobuf.ByteString
-        getImageHashBytes() {
-      java.lang.Object ref = imageHash_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        imageHash_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string image_hash = 4 [json_name = "imageHash"];</code>
-     * @param value The imageHash to set.
-     * @return This builder for chaining.
-     */
-    public Builder setImageHash(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      imageHash_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string image_hash = 4 [json_name = "imageHash"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearImageHash() {
-      
-      imageHash_ = getDefaultInstance().getImageHash();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string image_hash = 4 [json_name = "imageHash"];</code>
-     * @param value The bytes for imageHash to set.
-     * @return This builder for chaining.
-     */
-    public Builder setImageHashBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      imageHash_ = value;
       onChanged();
       return this;
     }
