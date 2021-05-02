@@ -24,4 +24,28 @@ public interface TagOrBuilder extends
    */
   com.google.protobuf.ByteString
       getNameBytes();
+
+  /**
+   * <code>string image_url = 3 [json_name = "imageUrl"];</code>
+   * @return The imageUrl.
+   */
+  java.lang.String getImageUrl();
+  /**
+   * <code>string image_url = 3 [json_name = "imageUrl"];</code>
+   * @return The bytes for imageUrl.
+   */
+  com.google.protobuf.ByteString
+      getImageUrlBytes();
+
+  /**
+   * <code>string image_hash = 4 [json_name = "imageHash"];</code>
+   * @return The imageHash.
+   */
+  java.lang.String getImageHash();
+  /**
+   * <code>string image_hash = 4 [json_name = "imageHash"];</code>
+   * @return The bytes for imageHash.
+   */
+  com.google.protobuf.ByteString
+      getImageHashBytes();
 }
