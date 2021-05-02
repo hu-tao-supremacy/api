@@ -470,6 +470,8 @@ export interface EventDuration {
 export interface Tag {
   id: number;
   name: string;
+  imageUrl: string;
+  imageHash: string;
 }
 
 export interface EventTag {
@@ -2832,7 +2834,7 @@ export const EventDuration = {
   },
 };
 
-const baseTag: object = { id: 0, name: "" };
+const baseTag: object = { id: 0, name: "", imageUrl: "", imageHash: "" };
 
 export const Tag = {
   encode(message: Tag, writer: Writer = Writer.create()): Writer {
@@ -2841,6 +2843,12 @@ export const Tag = {
     }
     if (message.name !== "") {
       writer.uint32(18).string(message.name);
+    }
+    if (message.imageUrl !== "") {
+      writer.uint32(26).string(message.imageUrl);
+    }
+    if (message.imageHash !== "") {
+      writer.uint32(34).string(message.imageHash);
     }
     return writer;
   },
@@ -2857,6 +2865,12 @@ export const Tag = {
           break;
         case 2:
           message.name = reader.string();
+          break;
+        case 3:
+          message.imageUrl = reader.string();
+          break;
+        case 4:
+          message.imageHash = reader.string();
           break;
         default:
           reader.skipType(tag & 7);
@@ -2878,6 +2892,16 @@ export const Tag = {
     } else {
       message.name = "";
     }
+    if (object.imageUrl !== undefined && object.imageUrl !== null) {
+      message.imageUrl = String(object.imageUrl);
+    } else {
+      message.imageUrl = "";
+    }
+    if (object.imageHash !== undefined && object.imageHash !== null) {
+      message.imageHash = String(object.imageHash);
+    } else {
+      message.imageHash = "";
+    }
     return message;
   },
 
@@ -2885,6 +2909,8 @@ export const Tag = {
     const obj: any = {};
     message.id !== undefined && (obj.id = message.id);
     message.name !== undefined && (obj.name = message.name);
+    message.imageUrl !== undefined && (obj.imageUrl = message.imageUrl);
+    message.imageHash !== undefined && (obj.imageHash = message.imageHash);
     return obj;
   },
 
@@ -2899,6 +2925,16 @@ export const Tag = {
       message.name = object.name;
     } else {
       message.name = "";
+    }
+    if (object.imageUrl !== undefined && object.imageUrl !== null) {
+      message.imageUrl = object.imageUrl;
+    } else {
+      message.imageUrl = "";
+    }
+    if (object.imageHash !== undefined && object.imageHash !== null) {
+      message.imageHash = object.imageHash;
+    } else {
+      message.imageHash = "";
     }
     return message;
   },
