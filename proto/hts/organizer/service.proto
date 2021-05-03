@@ -160,7 +160,7 @@ message LocationListResponse {
 }
 
 message CheckInRequest {
-  int32 user_id = 1;
+  string ticket = 1;
   int32 event_id = 2;
 }
 
