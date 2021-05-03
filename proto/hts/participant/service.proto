@@ -124,6 +124,14 @@ message GetPastEventsFromTagsRequest {
     int32 number_of_events = 2;
 }
 
+message GetOnlineEventsRequest {
+    int32 n = 1;
+}
+
+message GetOnSiteEventsRequest {
+    int32 n = 1;
+}
+
 service ParticipantService {
     // Check whether event's start date is before specified date
     rpc IsEventAvailable(IsEventAvailableRequest) returns (google.protobuf.BoolValue);
@@ -147,7 +155,8 @@ service ParticipantService {
     // Get events from range of date
     rpc GetUpcomingEvents(GetUpcomingEventsRequest) returns (EventsResponse);
 
-    rpc GetOnlineEvents(google.protobuf.Empty) returns (EventsResponse);
+    rpc GetOnlineEvents(GetOnlineEventsRequest) returns (EventsResponse);
+    rpc GetOnSiteEvents(GetOnSiteEventsRequest) returns (EventsResponse);
 
     // Get events from search string
     rpc GetEventsByStringOfName(StringInputRequest) returns (EventsResponse);
