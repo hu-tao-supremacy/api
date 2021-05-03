@@ -137,6 +137,14 @@ export interface GetPastEventsFromTagsRequest {
   numberOfEvents: number;
 }
 
+export interface GetOnlineEventsRequest {
+  n: number;
+}
+
+export interface GetOnSiteEventsRequest {
+  n: number;
+}
+
 export const HTS_PARTICIPANT_PACKAGE_NAME = "hts.participant";
 
 const baseGetEventByIdRequest: object = { eventId: 0 };
@@ -856,6 +864,46 @@ export const GetPastEventsFromTagsRequest = {
   },
 };
 
+const baseGetOnlineEventsRequest: object = { n: 0 };
+
+export const GetOnlineEventsRequest = {
+  fromJSON(object: any): GetOnlineEventsRequest {
+    const message = { ...baseGetOnlineEventsRequest } as GetOnlineEventsRequest;
+    if (object.n !== undefined && object.n !== null) {
+      message.n = Number(object.n);
+    } else {
+      message.n = 0;
+    }
+    return message;
+  },
+
+  toJSON(message: GetOnlineEventsRequest): unknown {
+    const obj: any = {};
+    message.n !== undefined && (obj.n = message.n);
+    return obj;
+  },
+};
+
+const baseGetOnSiteEventsRequest: object = { n: 0 };
+
+export const GetOnSiteEventsRequest = {
+  fromJSON(object: any): GetOnSiteEventsRequest {
+    const message = { ...baseGetOnSiteEventsRequest } as GetOnSiteEventsRequest;
+    if (object.n !== undefined && object.n !== null) {
+      message.n = Number(object.n);
+    } else {
+      message.n = 0;
+    }
+    return message;
+  },
+
+  toJSON(message: GetOnSiteEventsRequest): unknown {
+    const obj: any = {};
+    message.n !== undefined && (obj.n = message.n);
+    return obj;
+  },
+};
+
 export interface ParticipantServiceClient {
   isEventAvailable(request: IsEventAvailableRequest): Observable<BoolValue>;
 
@@ -881,7 +929,9 @@ export interface ParticipantServiceClient {
     request: GetUpcomingEventsRequest
   ): Observable<EventsResponse>;
 
-  getOnlineEvents(request: Empty): Observable<EventsResponse>;
+  getOnlineEvents(request: GetOnlineEventsRequest): Observable<EventsResponse>;
+
+  getOnSiteEvents(request: GetOnSiteEventsRequest): Observable<EventsResponse>;
 
   getEventsByStringOfName(
     request: StringInputRequest
@@ -1007,7 +1057,11 @@ export interface ParticipantServiceController {
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
   getOnlineEvents(
-    request: Empty
+    request: GetOnlineEventsRequest
+  ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
+
+  getOnSiteEvents(
+    request: GetOnSiteEventsRequest
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
 
   getEventsByStringOfName(
@@ -1132,6 +1186,7 @@ export function ParticipantServiceControllerMethods() {
       "getSuggestedEvents",
       "getUpcomingEvents",
       "getOnlineEvents",
+      "getOnSiteEvents",
       "getEventsByStringOfName",
       "getEventsByTagIds",
       "getEventsByOrganizationId",
