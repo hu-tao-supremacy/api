@@ -139,6 +139,16 @@ public final class ParticipantProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hts_participant_GetPastEventsFromTagsRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_participant_GetOnlineEventsRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_participant_GetOnlineEventsRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hts_participant_GetOnSiteEventsRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hts_participant_GetOnSiteEventsRequest_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -204,7 +214,9 @@ public final class ParticipantProto {
       "er_event_id\030\001 \001(\005R\013userEventId\022\026\n\006rating" +
       "\030\002 \001(\005R\006rating\"_\n\034GetPastEventsFromTagsR" +
       "equest\022\025\n\006tag_id\030\001 \003(\005R\005tagId\022(\n\020number_" +
-      "of_events\030\002 \001(\005R\016numberOfEvents2\363\027\n\022Part" +
+      "of_events\030\002 \001(\005R\016numberOfEvents\"&\n\026GetOn" +
+      "lineEventsRequest\022\014\n\001n\030\001 \001(\005R\001n\"&\n\026GetOn" +
+      "SiteEventsRequest\022\014\n\001n\030\001 \001(\005R\001n2\341\030\n\022Part" +
       "icipantService\022X\n\020IsEventAvailable\022(.hts" +
       ".participant.IsEventAvailableRequest\032\032.g" +
       "oogle.protobuf.BoolValue\022I\n\tJoinEvent\022%." +
@@ -226,64 +238,67 @@ public final class ParticipantProto {
       "y\032\037.hts.participant.EventsResponse\022_\n\021Ge" +
       "tUpcomingEvents\022).hts.participant.GetUpc" +
       "omingEventsRequest\032\037.hts.participant.Eve" +
-      "ntsResponse\022J\n\017GetOnlineEvents\022\026.google." +
-      "protobuf.Empty\032\037.hts.participant.EventsR" +
-      "esponse\022_\n\027GetEventsByStringOfName\022#.hts" +
-      ".participant.StringInputRequest\032\037.hts.pa" +
-      "rticipant.EventsResponse\022_\n\021GetEventsByT" +
-      "agIds\022).hts.participant.GetEventsByTagId" +
-      "sRequest\032\037.hts.participant.EventsRespons" +
-      "e\022^\n\031GetEventsByOrganizationId\022 .hts.com" +
-      "mon.GetObjectByIdRequest\032\037.hts.participa" +
-      "nt.EventsResponse\022Z\n\025GetEventsByFacility" +
-      "Id\022 .hts.common.GetObjectByIdRequest\032\037.h" +
-      "ts.participant.EventsResponse\022N\n\017GetEven" +
-      "tsByDate\022\032.google.protobuf.Timestamp\032\037.h" +
-      "ts.participant.EventsResponse\022I\n\017GetLoca" +
-      "tionById\022 .hts.common.GetObjectByIdReque" +
-      "st\032\024.hts.common.Location\022S\n\020GetTagsByEve" +
-      "ntId\022 .hts.common.GetObjectByIdRequest\032\035" +
-      ".hts.participant.TagsResponse\022c\n\022GetRati" +
-      "ngByEventId\022 .hts.common.GetObjectByIdRe" +
-      "quest\032+.hts.participant.GetRatingByEvent" +
-      "IdResponse\022j\n\021GetUsersByEventId\022).hts.pa" +
-      "rticipant.GetUsersByEventIdRequest\032*.hts" +
-      ".participant.GetUsersByEventIdResponse\022s" +
-      "\n\032GetEventDurationsByEventId\022 .hts.commo" +
-      "n.GetObjectByIdRequest\0323.hts.participant" +
-      ".GetEventDurationsByEventIdResponse\022s\n\032G" +
-      "etQuestionGroupsByEventId\022 .hts.common.G" +
-      "etObjectByIdRequest\0323.hts.participant.Ge" +
-      "tQuestionGroupsByEventIdResponse\022y\n\035GetQ" +
-      "uestionsByQuestionGroupId\022 .hts.common.G" +
-      "etObjectByIdRequest\0326.hts.participant.Ge" +
-      "tQuestionsByQuestionGroupIdResponse\022\\\n\026G" +
-      "etAnswersByQuestionId\022 .hts.common.GetOb" +
-      "jectByIdRequest\032 .hts.participant.Answer" +
-      "sResponse\022]\n\027GetAnswersByUserEventId\022 .h" +
-      "ts.common.GetObjectByIdRequest\032 .hts.par" +
-      "ticipant.AnswersResponse\022b\n\031GetUserAnswe" +
-      "rByQuestionId\0221.hts.participant.GetUserA" +
-      "nswerByQuestionIdRequest\032\022.hts.common.An" +
-      "swer\022_\n\021GetEventsByUserId\022).hts.particip" +
-      "ant.GetEventsByUserIdRequest\032\037.hts.parti" +
-      "cipant.EventsResponse\022\\\n\034GetUserEventByU" +
-      "serAndEventId\022%.hts.participant.UserWith" +
-      "EventRequest\032\025.hts.common.UserEvent\022k\n\026G" +
-      "etUserEventsByEventId\022 .hts.common.GetOb" +
-      "jectByIdRequest\032/.hts.participant.GetUse" +
-      "rEventsByEventIdResponse\022g\n\025GetPastEvent" +
-      "sFromTags\022-.hts.participant.GetPastEvent" +
-      "sFromTagsRequest\032\037.hts.participant.Event" +
-      "sResponse\022_\n\026SetRatingByUserEventId\022..ht" +
-      "s.participant.SetRatingByUserEventIdRequ" +
-      "est\032\025.hts.common.UserEvent\022U\n\nGenerateQR" +
-      "\022\".hts.participant.GenerateQRRequest\032#.h" +
-      "ts.participant.GenerateQRResponse\022:\n\004Pin" +
-      "g\022\026.google.protobuf.Empty\032\032.google.proto" +
-      "buf.BoolValueBL\n\020app.onepass.apisB\020Parti" +
-      "cipantProtoP\001Z$onepass.app/facility/hts/" +
-      "participantb\006proto3"
+      "ntsResponse\022[\n\017GetOnlineEvents\022\'.hts.par" +
+      "ticipant.GetOnlineEventsRequest\032\037.hts.pa" +
+      "rticipant.EventsResponse\022[\n\017GetOnSiteEve" +
+      "nts\022\'.hts.participant.GetOnSiteEventsReq" +
+      "uest\032\037.hts.participant.EventsResponse\022_\n" +
+      "\027GetEventsByStringOfName\022#.hts.participa" +
+      "nt.StringInputRequest\032\037.hts.participant." +
+      "EventsResponse\022_\n\021GetEventsByTagIds\022).ht" +
+      "s.participant.GetEventsByTagIdsRequest\032\037" +
+      ".hts.participant.EventsResponse\022^\n\031GetEv" +
+      "entsByOrganizationId\022 .hts.common.GetObj" +
+      "ectByIdRequest\032\037.hts.participant.EventsR" +
+      "esponse\022Z\n\025GetEventsByFacilityId\022 .hts.c" +
+      "ommon.GetObjectByIdRequest\032\037.hts.partici" +
+      "pant.EventsResponse\022N\n\017GetEventsByDate\022\032" +
+      ".google.protobuf.Timestamp\032\037.hts.partici" +
+      "pant.EventsResponse\022I\n\017GetLocationById\022 " +
+      ".hts.common.GetObjectByIdRequest\032\024.hts.c" +
+      "ommon.Location\022S\n\020GetTagsByEventId\022 .hts" +
+      ".common.GetObjectByIdRequest\032\035.hts.parti" +
+      "cipant.TagsResponse\022c\n\022GetRatingByEventI" +
+      "d\022 .hts.common.GetObjectByIdRequest\032+.ht" +
+      "s.participant.GetRatingByEventIdResponse" +
+      "\022j\n\021GetUsersByEventId\022).hts.participant." +
+      "GetUsersByEventIdRequest\032*.hts.participa" +
+      "nt.GetUsersByEventIdResponse\022s\n\032GetEvent" +
+      "DurationsByEventId\022 .hts.common.GetObjec" +
+      "tByIdRequest\0323.hts.participant.GetEventD" +
+      "urationsByEventIdResponse\022s\n\032GetQuestion" +
+      "GroupsByEventId\022 .hts.common.GetObjectBy" +
+      "IdRequest\0323.hts.participant.GetQuestionG" +
+      "roupsByEventIdResponse\022y\n\035GetQuestionsBy" +
+      "QuestionGroupId\022 .hts.common.GetObjectBy" +
+      "IdRequest\0326.hts.participant.GetQuestions" +
+      "ByQuestionGroupIdResponse\022\\\n\026GetAnswersB" +
+      "yQuestionId\022 .hts.common.GetObjectByIdRe" +
+      "quest\032 .hts.participant.AnswersResponse\022" +
+      "]\n\027GetAnswersByUserEventId\022 .hts.common." +
+      "GetObjectByIdRequest\032 .hts.participant.A" +
+      "nswersResponse\022b\n\031GetUserAnswerByQuestio" +
+      "nId\0221.hts.participant.GetUserAnswerByQue" +
+      "stionIdRequest\032\022.hts.common.Answer\022_\n\021Ge" +
+      "tEventsByUserId\022).hts.participant.GetEve" +
+      "ntsByUserIdRequest\032\037.hts.participant.Eve" +
+      "ntsResponse\022\\\n\034GetUserEventByUserAndEven" +
+      "tId\022%.hts.participant.UserWithEventReque" +
+      "st\032\025.hts.common.UserEvent\022k\n\026GetUserEven" +
+      "tsByEventId\022 .hts.common.GetObjectByIdRe" +
+      "quest\032/.hts.participant.GetUserEventsByE" +
+      "ventIdResponse\022g\n\025GetPastEventsFromTags\022" +
+      "-.hts.participant.GetPastEventsFromTagsR" +
+      "equest\032\037.hts.participant.EventsResponse\022" +
+      "_\n\026SetRatingByUserEventId\022..hts.particip" +
+      "ant.SetRatingByUserEventIdRequest\032\025.hts." +
+      "common.UserEvent\022U\n\nGenerateQR\022\".hts.par" +
+      "ticipant.GenerateQRRequest\032#.hts.partici" +
+      "pant.GenerateQRResponse\022:\n\004Ping\022\026.google" +
+      ".protobuf.Empty\032\032.google.protobuf.BoolVa" +
+      "lueBL\n\020app.onepass.apisB\020ParticipantProt" +
+      "oP\001Z$onepass.app/facility/hts/participan" +
+      "tb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -443,6 +458,18 @@ public final class ParticipantProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hts_participant_GetPastEventsFromTagsRequest_descriptor,
         new java.lang.String[] { "TagId", "NumberOfEvents", });
+    internal_static_hts_participant_GetOnlineEventsRequest_descriptor =
+      getDescriptor().getMessageTypes().get(24);
+    internal_static_hts_participant_GetOnlineEventsRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_participant_GetOnlineEventsRequest_descriptor,
+        new java.lang.String[] { "N", });
+    internal_static_hts_participant_GetOnSiteEventsRequest_descriptor =
+      getDescriptor().getMessageTypes().get(25);
+    internal_static_hts_participant_GetOnSiteEventsRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hts_participant_GetOnSiteEventsRequest_descriptor,
+        new java.lang.String[] { "N", });
     app.onepass.apis.CommonProto.getDescriptor();
     com.google.protobuf.EmptyProto.getDescriptor();
     com.google.protobuf.WrappersProto.getDescriptor();
