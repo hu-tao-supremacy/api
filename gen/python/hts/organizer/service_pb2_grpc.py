@@ -69,7 +69,7 @@ class OrganizerServiceStub(object):
                 )
         self.UpdateEventDurations = channel.unary_unary(
                 '/hts.organizer.OrganizerService/UpdateEventDurations',
-                request_serializer=hts_dot_organizer_dot_service__pb2.UpdateEventDurationRequest.SerializeToString,
+                request_serializer=hts_dot_organizer_dot_service__pb2.UpdateEventDurationsRequest.SerializeToString,
                 response_deserializer=hts_dot_organizer_dot_service__pb2.EventDurationListResponse.FromString,
                 )
         self.RemoveEvent = channel.unary_unary(
@@ -418,7 +418,7 @@ def add_OrganizerServiceServicer_to_server(servicer, server):
             ),
             'UpdateEventDurations': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateEventDurations,
-                    request_deserializer=hts_dot_organizer_dot_service__pb2.UpdateEventDurationRequest.FromString,
+                    request_deserializer=hts_dot_organizer_dot_service__pb2.UpdateEventDurationsRequest.FromString,
                     response_serializer=hts_dot_organizer_dot_service__pb2.EventDurationListResponse.SerializeToString,
             ),
             'RemoveEvent': grpc.unary_unary_rpc_method_handler(
@@ -713,7 +713,7 @@ class OrganizerService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/hts.organizer.OrganizerService/UpdateEventDurations',
-            hts_dot_organizer_dot_service__pb2.UpdateEventDurationRequest.SerializeToString,
+            hts_dot_organizer_dot_service__pb2.UpdateEventDurationsRequest.SerializeToString,
             hts_dot_organizer_dot_service__pb2.EventDurationListResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
