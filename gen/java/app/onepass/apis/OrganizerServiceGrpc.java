@@ -324,27 +324,27 @@ public final class OrganizerServiceGrpc {
     return getUpdateEventMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.UpdateEventDurationRequest,
+  private static volatile io.grpc.MethodDescriptor<app.onepass.apis.UpdateEventDurationsRequest,
       app.onepass.apis.EventDurationListResponse> getUpdateEventDurationsMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "UpdateEventDurations",
-      requestType = app.onepass.apis.UpdateEventDurationRequest.class,
+      requestType = app.onepass.apis.UpdateEventDurationsRequest.class,
       responseType = app.onepass.apis.EventDurationListResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<app.onepass.apis.UpdateEventDurationRequest,
+  public static io.grpc.MethodDescriptor<app.onepass.apis.UpdateEventDurationsRequest,
       app.onepass.apis.EventDurationListResponse> getUpdateEventDurationsMethod() {
-    io.grpc.MethodDescriptor<app.onepass.apis.UpdateEventDurationRequest, app.onepass.apis.EventDurationListResponse> getUpdateEventDurationsMethod;
+    io.grpc.MethodDescriptor<app.onepass.apis.UpdateEventDurationsRequest, app.onepass.apis.EventDurationListResponse> getUpdateEventDurationsMethod;
     if ((getUpdateEventDurationsMethod = OrganizerServiceGrpc.getUpdateEventDurationsMethod) == null) {
       synchronized (OrganizerServiceGrpc.class) {
         if ((getUpdateEventDurationsMethod = OrganizerServiceGrpc.getUpdateEventDurationsMethod) == null) {
           OrganizerServiceGrpc.getUpdateEventDurationsMethod = getUpdateEventDurationsMethod =
-              io.grpc.MethodDescriptor.<app.onepass.apis.UpdateEventDurationRequest, app.onepass.apis.EventDurationListResponse>newBuilder()
+              io.grpc.MethodDescriptor.<app.onepass.apis.UpdateEventDurationsRequest, app.onepass.apis.EventDurationListResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "UpdateEventDurations"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  app.onepass.apis.UpdateEventDurationRequest.getDefaultInstance()))
+                  app.onepass.apis.UpdateEventDurationsRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   app.onepass.apis.EventDurationListResponse.getDefaultInstance()))
               .setSchemaDescriptor(new OrganizerServiceMethodDescriptorSupplier("UpdateEventDurations"))
@@ -1095,7 +1095,7 @@ public final class OrganizerServiceGrpc {
 
     /**
      */
-    public void updateEventDurations(app.onepass.apis.UpdateEventDurationRequest request,
+    public void updateEventDurations(app.onepass.apis.UpdateEventDurationsRequest request,
         io.grpc.stub.StreamObserver<app.onepass.apis.EventDurationListResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getUpdateEventDurationsMethod(), responseObserver);
     }
@@ -1316,7 +1316,7 @@ public final class OrganizerServiceGrpc {
             getUpdateEventDurationsMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                app.onepass.apis.UpdateEventDurationRequest,
+                app.onepass.apis.UpdateEventDurationsRequest,
                 app.onepass.apis.EventDurationListResponse>(
                   this, METHODID_UPDATE_EVENT_DURATIONS)))
           .addMethod(
@@ -1559,7 +1559,7 @@ public final class OrganizerServiceGrpc {
 
     /**
      */
-    public void updateEventDurations(app.onepass.apis.UpdateEventDurationRequest request,
+    public void updateEventDurations(app.onepass.apis.UpdateEventDurationsRequest request,
         io.grpc.stub.StreamObserver<app.onepass.apis.EventDurationListResponse> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getUpdateEventDurationsMethod(), getCallOptions()), request, responseObserver);
@@ -1812,7 +1812,7 @@ public final class OrganizerServiceGrpc {
 
     /**
      */
-    public app.onepass.apis.EventDurationListResponse updateEventDurations(app.onepass.apis.UpdateEventDurationRequest request) {
+    public app.onepass.apis.EventDurationListResponse updateEventDurations(app.onepass.apis.UpdateEventDurationsRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getUpdateEventDurationsMethod(), getCallOptions(), request);
     }
@@ -2055,7 +2055,7 @@ public final class OrganizerServiceGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<app.onepass.apis.EventDurationListResponse> updateEventDurations(
-        app.onepass.apis.UpdateEventDurationRequest request) {
+        app.onepass.apis.UpdateEventDurationsRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getUpdateEventDurationsMethod(), getCallOptions()), request);
     }
@@ -2311,7 +2311,7 @@ public final class OrganizerServiceGrpc {
               (io.grpc.stub.StreamObserver<app.onepass.apis.Event>) responseObserver);
           break;
         case METHODID_UPDATE_EVENT_DURATIONS:
-          serviceImpl.updateEventDurations((app.onepass.apis.UpdateEventDurationRequest) request,
+          serviceImpl.updateEventDurations((app.onepass.apis.UpdateEventDurationsRequest) request,
               (io.grpc.stub.StreamObserver<app.onepass.apis.EventDurationListResponse>) responseObserver);
           break;
         case METHODID_REMOVE_EVENT:

@@ -16,6 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private CheckInRequest() {
+    ticket_ = "";
   }
 
   @java.lang.Override
@@ -48,9 +49,10 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 8: {
+          case 10: {
+            java.lang.String s = input.readStringRequireUtf8();
 
-            userId_ = input.readInt32();
+            ticket_ = s;
             break;
           }
           case 16: {
@@ -90,15 +92,42 @@ private static final long serialVersionUID = 0L;
             app.onepass.apis.CheckInRequest.class, app.onepass.apis.CheckInRequest.Builder.class);
   }
 
-  public static final int USER_ID_FIELD_NUMBER = 1;
-  private int userId_;
+  public static final int TICKET_FIELD_NUMBER = 1;
+  private volatile java.lang.Object ticket_;
   /**
-   * <code>int32 user_id = 1 [json_name = "userId"];</code>
-   * @return The userId.
+   * <code>string ticket = 1 [json_name = "ticket"];</code>
+   * @return The ticket.
    */
   @java.lang.Override
-  public int getUserId() {
-    return userId_;
+  public java.lang.String getTicket() {
+    java.lang.Object ref = ticket_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      ticket_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string ticket = 1 [json_name = "ticket"];</code>
+   * @return The bytes for ticket.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getTicketBytes() {
+    java.lang.Object ref = ticket_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      ticket_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   public static final int EVENT_ID_FIELD_NUMBER = 2;
@@ -126,8 +155,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (userId_ != 0) {
-      output.writeInt32(1, userId_);
+    if (!getTicketBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, ticket_);
     }
     if (eventId_ != 0) {
       output.writeInt32(2, eventId_);
@@ -141,9 +170,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (userId_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, userId_);
+    if (!getTicketBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, ticket_);
     }
     if (eventId_ != 0) {
       size += com.google.protobuf.CodedOutputStream
@@ -164,8 +192,8 @@ private static final long serialVersionUID = 0L;
     }
     app.onepass.apis.CheckInRequest other = (app.onepass.apis.CheckInRequest) obj;
 
-    if (getUserId()
-        != other.getUserId()) return false;
+    if (!getTicket()
+        .equals(other.getTicket())) return false;
     if (getEventId()
         != other.getEventId()) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
@@ -179,8 +207,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + USER_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getUserId();
+    hash = (37 * hash) + TICKET_FIELD_NUMBER;
+    hash = (53 * hash) + getTicket().hashCode();
     hash = (37 * hash) + EVENT_ID_FIELD_NUMBER;
     hash = (53 * hash) + getEventId();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -316,7 +344,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      userId_ = 0;
+      ticket_ = "";
 
       eventId_ = 0;
 
@@ -346,7 +374,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public app.onepass.apis.CheckInRequest buildPartial() {
       app.onepass.apis.CheckInRequest result = new app.onepass.apis.CheckInRequest(this);
-      result.userId_ = userId_;
+      result.ticket_ = ticket_;
       result.eventId_ = eventId_;
       onBuilt();
       return result;
@@ -396,8 +424,9 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(app.onepass.apis.CheckInRequest other) {
       if (other == app.onepass.apis.CheckInRequest.getDefaultInstance()) return this;
-      if (other.getUserId() != 0) {
-        setUserId(other.getUserId());
+      if (!other.getTicket().isEmpty()) {
+        ticket_ = other.ticket_;
+        onChanged();
       }
       if (other.getEventId() != 0) {
         setEventId(other.getEventId());
@@ -431,33 +460,78 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int userId_ ;
+    private java.lang.Object ticket_ = "";
     /**
-     * <code>int32 user_id = 1 [json_name = "userId"];</code>
-     * @return The userId.
+     * <code>string ticket = 1 [json_name = "ticket"];</code>
+     * @return The ticket.
      */
-    @java.lang.Override
-    public int getUserId() {
-      return userId_;
+    public java.lang.String getTicket() {
+      java.lang.Object ref = ticket_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        ticket_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <code>int32 user_id = 1 [json_name = "userId"];</code>
-     * @param value The userId to set.
+     * <code>string ticket = 1 [json_name = "ticket"];</code>
+     * @return The bytes for ticket.
+     */
+    public com.google.protobuf.ByteString
+        getTicketBytes() {
+      java.lang.Object ref = ticket_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        ticket_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string ticket = 1 [json_name = "ticket"];</code>
+     * @param value The ticket to set.
      * @return This builder for chaining.
      */
-    public Builder setUserId(int value) {
-      
-      userId_ = value;
+    public Builder setTicket(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      ticket_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 user_id = 1 [json_name = "userId"];</code>
+     * <code>string ticket = 1 [json_name = "ticket"];</code>
      * @return This builder for chaining.
      */
-    public Builder clearUserId() {
+    public Builder clearTicket() {
       
-      userId_ = 0;
+      ticket_ = getDefaultInstance().getTicket();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string ticket = 1 [json_name = "ticket"];</code>
+     * @param value The bytes for ticket to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTicketBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      ticket_ = value;
       onChanged();
       return this;
     }

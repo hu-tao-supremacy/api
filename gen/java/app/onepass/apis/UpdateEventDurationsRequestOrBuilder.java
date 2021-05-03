@@ -3,8 +3,8 @@
 
 package app.onepass.apis;
 
-public interface UpdateEventDurationRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:hts.organizer.UpdateEventDurationRequest)
+public interface UpdateEventDurationsRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:hts.organizer.UpdateEventDurationsRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
