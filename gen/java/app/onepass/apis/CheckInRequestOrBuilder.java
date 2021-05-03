@@ -8,10 +8,16 @@ public interface CheckInRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int32 user_id = 1 [json_name = "userId"];</code>
-   * @return The userId.
+   * <code>string ticket = 1 [json_name = "ticket"];</code>
+   * @return The ticket.
    */
-  int getUserId();
+  java.lang.String getTicket();
+  /**
+   * <code>string ticket = 1 [json_name = "ticket"];</code>
+   * @return The bytes for ticket.
+   */
+  com.google.protobuf.ByteString
+      getTicketBytes();
 
   /**
    * <code>int32 event_id = 2 [json_name = "eventId"];</code>
