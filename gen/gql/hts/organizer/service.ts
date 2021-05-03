@@ -60,7 +60,7 @@ export interface UpdateEventRequest {
   event: Event | undefined;
 }
 
-export interface UpdateEventDurationRequest {
+export interface UpdateEventDurationsRequest {
   userId: number;
   eventId: number;
   duration: Duration[];
@@ -172,7 +172,7 @@ export interface LocationListResponse {
 }
 
 export interface CheckInRequest {
-  userId: number;
+  ticket: string;
   eventId: number;
 }
 
@@ -809,11 +809,11 @@ export const UpdateEventRequest = {
   },
 };
 
-const baseUpdateEventDurationRequest: object = { userId: 0, eventId: 0 };
+const baseUpdateEventDurationsRequest: object = { userId: 0, eventId: 0 };
 
-export const UpdateEventDurationRequest = {
+export const UpdateEventDurationsRequest = {
   encode(
-    message: UpdateEventDurationRequest,
+    message: UpdateEventDurationsRequest,
     writer: Writer = Writer.create()
   ): Writer {
     if (message.userId !== 0) {
@@ -831,12 +831,12 @@ export const UpdateEventDurationRequest = {
   decode(
     input: Reader | Uint8Array,
     length?: number
-  ): UpdateEventDurationRequest {
+  ): UpdateEventDurationsRequest {
     const reader = input instanceof Uint8Array ? new Reader(input) : input;
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = {
-      ...baseUpdateEventDurationRequest,
-    } as UpdateEventDurationRequest;
+      ...baseUpdateEventDurationsRequest,
+    } as UpdateEventDurationsRequest;
     message.duration = [];
     while (reader.pos < end) {
       const tag = reader.uint32();
@@ -858,10 +858,10 @@ export const UpdateEventDurationRequest = {
     return message;
   },
 
-  fromJSON(object: any): UpdateEventDurationRequest {
+  fromJSON(object: any): UpdateEventDurationsRequest {
     const message = {
-      ...baseUpdateEventDurationRequest,
-    } as UpdateEventDurationRequest;
+      ...baseUpdateEventDurationsRequest,
+    } as UpdateEventDurationsRequest;
     message.duration = [];
     if (object.userId !== undefined && object.userId !== null) {
       message.userId = Number(object.userId);
@@ -881,7 +881,7 @@ export const UpdateEventDurationRequest = {
     return message;
   },
 
-  toJSON(message: UpdateEventDurationRequest): unknown {
+  toJSON(message: UpdateEventDurationsRequest): unknown {
     const obj: any = {};
     message.userId !== undefined && (obj.userId = message.userId);
     message.eventId !== undefined && (obj.eventId = message.eventId);
@@ -896,11 +896,11 @@ export const UpdateEventDurationRequest = {
   },
 
   fromPartial(
-    object: DeepPartial<UpdateEventDurationRequest>
-  ): UpdateEventDurationRequest {
+    object: DeepPartial<UpdateEventDurationsRequest>
+  ): UpdateEventDurationsRequest {
     const message = {
-      ...baseUpdateEventDurationRequest,
-    } as UpdateEventDurationRequest;
+      ...baseUpdateEventDurationsRequest,
+    } as UpdateEventDurationsRequest;
     message.duration = [];
     if (object.userId !== undefined && object.userId !== null) {
       message.userId = object.userId;
@@ -2760,12 +2760,12 @@ export const LocationListResponse = {
   },
 };
 
-const baseCheckInRequest: object = { userId: 0, eventId: 0 };
+const baseCheckInRequest: object = { ticket: "", eventId: 0 };
 
 export const CheckInRequest = {
   encode(message: CheckInRequest, writer: Writer = Writer.create()): Writer {
-    if (message.userId !== 0) {
-      writer.uint32(8).int32(message.userId);
+    if (message.ticket !== "") {
+      writer.uint32(10).string(message.ticket);
     }
     if (message.eventId !== 0) {
       writer.uint32(16).int32(message.eventId);
@@ -2781,7 +2781,7 @@ export const CheckInRequest = {
       const tag = reader.uint32();
       switch (tag >>> 3) {
         case 1:
-          message.userId = reader.int32();
+          message.ticket = reader.string();
           break;
         case 2:
           message.eventId = reader.int32();
@@ -2796,10 +2796,10 @@ export const CheckInRequest = {
 
   fromJSON(object: any): CheckInRequest {
     const message = { ...baseCheckInRequest } as CheckInRequest;
-    if (object.userId !== undefined && object.userId !== null) {
-      message.userId = Number(object.userId);
+    if (object.ticket !== undefined && object.ticket !== null) {
+      message.ticket = String(object.ticket);
     } else {
-      message.userId = 0;
+      message.ticket = "";
     }
     if (object.eventId !== undefined && object.eventId !== null) {
       message.eventId = Number(object.eventId);
@@ -2811,17 +2811,17 @@ export const CheckInRequest = {
 
   toJSON(message: CheckInRequest): unknown {
     const obj: any = {};
-    message.userId !== undefined && (obj.userId = message.userId);
+    message.ticket !== undefined && (obj.ticket = message.ticket);
     message.eventId !== undefined && (obj.eventId = message.eventId);
     return obj;
   },
 
   fromPartial(object: DeepPartial<CheckInRequest>): CheckInRequest {
     const message = { ...baseCheckInRequest } as CheckInRequest;
-    if (object.userId !== undefined && object.userId !== null) {
-      message.userId = object.userId;
+    if (object.ticket !== undefined && object.ticket !== null) {
+      message.ticket = object.ticket;
     } else {
-      message.userId = 0;
+      message.ticket = "";
     }
     if (object.eventId !== undefined && object.eventId !== null) {
       message.eventId = object.eventId;
@@ -2850,7 +2850,7 @@ export interface OrganizerService {
   CreateEvent(request: CreateEventRequest): Promise<Event>;
   UpdateEvent(request: UpdateEventRequest): Promise<Event>;
   UpdateEventDurations(
-    request: UpdateEventDurationRequest
+    request: UpdateEventDurationsRequest
   ): Promise<EventDurationListResponse>;
   RemoveEvent(request: RemoveEventRequest): Promise<Event>;
   UpdateRegistrationRequest(

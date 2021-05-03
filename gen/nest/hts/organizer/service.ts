@@ -62,7 +62,7 @@ export interface UpdateEventRequest {
   event: Event | undefined;
 }
 
-export interface UpdateEventDurationRequest {
+export interface UpdateEventDurationsRequest {
   userId: number;
   eventId: number;
   duration: Duration[];
@@ -174,7 +174,7 @@ export interface LocationListResponse {
 }
 
 export interface CheckInRequest {
-  userId: number;
+  ticket: string;
   eventId: number;
 }
 
@@ -403,13 +403,13 @@ export const UpdateEventRequest = {
   },
 };
 
-const baseUpdateEventDurationRequest: object = { userId: 0, eventId: 0 };
+const baseUpdateEventDurationsRequest: object = { userId: 0, eventId: 0 };
 
-export const UpdateEventDurationRequest = {
-  fromJSON(object: any): UpdateEventDurationRequest {
+export const UpdateEventDurationsRequest = {
+  fromJSON(object: any): UpdateEventDurationsRequest {
     const message = {
-      ...baseUpdateEventDurationRequest,
-    } as UpdateEventDurationRequest;
+      ...baseUpdateEventDurationsRequest,
+    } as UpdateEventDurationsRequest;
     message.duration = [];
     if (object.userId !== undefined && object.userId !== null) {
       message.userId = Number(object.userId);
@@ -429,7 +429,7 @@ export const UpdateEventDurationRequest = {
     return message;
   },
 
-  toJSON(message: UpdateEventDurationRequest): unknown {
+  toJSON(message: UpdateEventDurationsRequest): unknown {
     const obj: any = {};
     message.userId !== undefined && (obj.userId = message.userId);
     message.eventId !== undefined && (obj.eventId = message.eventId);
@@ -1122,15 +1122,15 @@ export const LocationListResponse = {
   },
 };
 
-const baseCheckInRequest: object = { userId: 0, eventId: 0 };
+const baseCheckInRequest: object = { ticket: "", eventId: 0 };
 
 export const CheckInRequest = {
   fromJSON(object: any): CheckInRequest {
     const message = { ...baseCheckInRequest } as CheckInRequest;
-    if (object.userId !== undefined && object.userId !== null) {
-      message.userId = Number(object.userId);
+    if (object.ticket !== undefined && object.ticket !== null) {
+      message.ticket = String(object.ticket);
     } else {
-      message.userId = 0;
+      message.ticket = "";
     }
     if (object.eventId !== undefined && object.eventId !== null) {
       message.eventId = Number(object.eventId);
@@ -1142,7 +1142,7 @@ export const CheckInRequest = {
 
   toJSON(message: CheckInRequest): unknown {
     const obj: any = {};
-    message.userId !== undefined && (obj.userId = message.userId);
+    message.ticket !== undefined && (obj.ticket = message.ticket);
     message.eventId !== undefined && (obj.eventId = message.eventId);
     return obj;
   },
@@ -1182,7 +1182,7 @@ export interface OrganizerServiceClient {
   updateEvent(request: UpdateEventRequest): Observable<Event>;
 
   updateEventDurations(
-    request: UpdateEventDurationRequest
+    request: UpdateEventDurationsRequest
   ): Observable<EventDurationListResponse>;
 
   removeEvent(request: RemoveEventRequest): Observable<Event>;
@@ -1292,7 +1292,7 @@ export interface OrganizerServiceController {
   ): Promise<Event> | Observable<Event> | Event;
 
   updateEventDurations(
-    request: UpdateEventDurationRequest
+    request: UpdateEventDurationsRequest
   ):
     | Promise<EventDurationListResponse>
     | Observable<EventDurationListResponse>
