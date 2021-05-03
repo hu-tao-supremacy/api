@@ -31,7 +31,7 @@ type OrganizerServiceClient interface {
 	RemoveUsersFromOrganization(ctx context.Context, in *UpdateUsersInOrganizationRequest, opts ...grpc.CallOption) (*UserOrganizationListResponse, error)
 	CreateEvent(ctx context.Context, in *CreateEventRequest, opts ...grpc.CallOption) (*common.Event, error)
 	UpdateEvent(ctx context.Context, in *UpdateEventRequest, opts ...grpc.CallOption) (*common.Event, error)
-	UpdateEventDurations(ctx context.Context, in *UpdateEventDurationRequest, opts ...grpc.CallOption) (*EventDurationListResponse, error)
+	UpdateEventDurations(ctx context.Context, in *UpdateEventDurationsRequest, opts ...grpc.CallOption) (*EventDurationListResponse, error)
 	RemoveEvent(ctx context.Context, in *RemoveEventRequest, opts ...grpc.CallOption) (*common.Event, error)
 	UpdateRegistrationRequest(ctx context.Context, in *UpdateRegistrationRequestRequest, opts ...grpc.CallOption) (*common.UserEvent, error)
 	CreateTag(ctx context.Context, in *CreateTagRequest, opts ...grpc.CallOption) (*common.Tag, error)
@@ -152,7 +152,7 @@ func (c *organizerServiceClient) UpdateEvent(ctx context.Context, in *UpdateEven
 	return out, nil
 }
 
-func (c *organizerServiceClient) UpdateEventDurations(ctx context.Context, in *UpdateEventDurationRequest, opts ...grpc.CallOption) (*EventDurationListResponse, error) {
+func (c *organizerServiceClient) UpdateEventDurations(ctx context.Context, in *UpdateEventDurationsRequest, opts ...grpc.CallOption) (*EventDurationListResponse, error) {
 	out := new(EventDurationListResponse)
 	err := c.cc.Invoke(ctx, "/hts.organizer.OrganizerService/UpdateEventDurations", in, out, opts...)
 	if err != nil {
@@ -355,7 +355,7 @@ type OrganizerServiceServer interface {
 	RemoveUsersFromOrganization(context.Context, *UpdateUsersInOrganizationRequest) (*UserOrganizationListResponse, error)
 	CreateEvent(context.Context, *CreateEventRequest) (*common.Event, error)
 	UpdateEvent(context.Context, *UpdateEventRequest) (*common.Event, error)
-	UpdateEventDurations(context.Context, *UpdateEventDurationRequest) (*EventDurationListResponse, error)
+	UpdateEventDurations(context.Context, *UpdateEventDurationsRequest) (*EventDurationListResponse, error)
 	RemoveEvent(context.Context, *RemoveEventRequest) (*common.Event, error)
 	UpdateRegistrationRequest(context.Context, *UpdateRegistrationRequestRequest) (*common.UserEvent, error)
 	CreateTag(context.Context, *CreateTagRequest) (*common.Tag, error)
@@ -413,7 +413,7 @@ func (UnimplementedOrganizerServiceServer) CreateEvent(context.Context, *CreateE
 func (UnimplementedOrganizerServiceServer) UpdateEvent(context.Context, *UpdateEventRequest) (*common.Event, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateEvent not implemented")
 }
-func (UnimplementedOrganizerServiceServer) UpdateEventDurations(context.Context, *UpdateEventDurationRequest) (*EventDurationListResponse, error) {
+func (UnimplementedOrganizerServiceServer) UpdateEventDurations(context.Context, *UpdateEventDurationsRequest) (*EventDurationListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateEventDurations not implemented")
 }
 func (UnimplementedOrganizerServiceServer) RemoveEvent(context.Context, *RemoveEventRequest) (*common.Event, error) {
@@ -670,7 +670,7 @@ func _OrganizerService_UpdateEvent_Handler(srv interface{}, ctx context.Context,
 }
 
 func _OrganizerService_UpdateEventDurations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateEventDurationRequest)
+	in := new(UpdateEventDurationsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -682,7 +682,7 @@ func _OrganizerService_UpdateEventDurations_Handler(srv interface{}, ctx context
 		FullMethod: "/hts.organizer.OrganizerService/UpdateEventDurations",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(OrganizerServiceServer).UpdateEventDurations(ctx, req.(*UpdateEventDurationRequest))
+		return srv.(OrganizerServiceServer).UpdateEventDurations(ctx, req.(*UpdateEventDurationsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
