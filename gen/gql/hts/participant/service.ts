@@ -135,6 +135,14 @@ export interface GetPastEventsFromTagsRequest {
   numberOfEvents: number;
 }
 
+export interface GetOnlineEventsRequest {
+  n: number;
+}
+
+export interface GetOnSiteEventsRequest {
+  n: number;
+}
+
 const baseGetEventByIdRequest: object = { eventId: 0 };
 
 export const GetEventByIdRequest = {
@@ -2147,6 +2155,126 @@ export const GetPastEventsFromTagsRequest = {
   },
 };
 
+const baseGetOnlineEventsRequest: object = { n: 0 };
+
+export const GetOnlineEventsRequest = {
+  encode(
+    message: GetOnlineEventsRequest,
+    writer: Writer = Writer.create()
+  ): Writer {
+    if (message.n !== 0) {
+      writer.uint32(8).int32(message.n);
+    }
+    return writer;
+  },
+
+  decode(input: Reader | Uint8Array, length?: number): GetOnlineEventsRequest {
+    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = { ...baseGetOnlineEventsRequest } as GetOnlineEventsRequest;
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.n = reader.int32();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): GetOnlineEventsRequest {
+    const message = { ...baseGetOnlineEventsRequest } as GetOnlineEventsRequest;
+    if (object.n !== undefined && object.n !== null) {
+      message.n = Number(object.n);
+    } else {
+      message.n = 0;
+    }
+    return message;
+  },
+
+  toJSON(message: GetOnlineEventsRequest): unknown {
+    const obj: any = {};
+    message.n !== undefined && (obj.n = message.n);
+    return obj;
+  },
+
+  fromPartial(
+    object: DeepPartial<GetOnlineEventsRequest>
+  ): GetOnlineEventsRequest {
+    const message = { ...baseGetOnlineEventsRequest } as GetOnlineEventsRequest;
+    if (object.n !== undefined && object.n !== null) {
+      message.n = object.n;
+    } else {
+      message.n = 0;
+    }
+    return message;
+  },
+};
+
+const baseGetOnSiteEventsRequest: object = { n: 0 };
+
+export const GetOnSiteEventsRequest = {
+  encode(
+    message: GetOnSiteEventsRequest,
+    writer: Writer = Writer.create()
+  ): Writer {
+    if (message.n !== 0) {
+      writer.uint32(8).int32(message.n);
+    }
+    return writer;
+  },
+
+  decode(input: Reader | Uint8Array, length?: number): GetOnSiteEventsRequest {
+    const reader = input instanceof Uint8Array ? new Reader(input) : input;
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = { ...baseGetOnSiteEventsRequest } as GetOnSiteEventsRequest;
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          message.n = reader.int32();
+          break;
+        default:
+          reader.skipType(tag & 7);
+          break;
+      }
+    }
+    return message;
+  },
+
+  fromJSON(object: any): GetOnSiteEventsRequest {
+    const message = { ...baseGetOnSiteEventsRequest } as GetOnSiteEventsRequest;
+    if (object.n !== undefined && object.n !== null) {
+      message.n = Number(object.n);
+    } else {
+      message.n = 0;
+    }
+    return message;
+  },
+
+  toJSON(message: GetOnSiteEventsRequest): unknown {
+    const obj: any = {};
+    message.n !== undefined && (obj.n = message.n);
+    return obj;
+  },
+
+  fromPartial(
+    object: DeepPartial<GetOnSiteEventsRequest>
+  ): GetOnSiteEventsRequest {
+    const message = { ...baseGetOnSiteEventsRequest } as GetOnSiteEventsRequest;
+    if (object.n !== undefined && object.n !== null) {
+      message.n = object.n;
+    } else {
+      message.n = 0;
+    }
+    return message;
+  },
+};
+
 export interface ParticipantService {
   IsEventAvailable(
     request: IsEventAvailableRequest
@@ -2162,7 +2290,8 @@ export interface ParticipantService {
   GetAllTags(request: Empty): Promise<TagsResponse>;
   GetSuggestedEvents(request: Empty): Promise<EventsResponse>;
   GetUpcomingEvents(request: GetUpcomingEventsRequest): Promise<EventsResponse>;
-  GetOnlineEvents(request: Empty): Promise<EventsResponse>;
+  GetOnlineEvents(request: GetOnlineEventsRequest): Promise<EventsResponse>;
+  GetOnSiteEvents(request: GetOnSiteEventsRequest): Promise<EventsResponse>;
   GetEventsByStringOfName(request: StringInputRequest): Promise<EventsResponse>;
   GetEventsByTagIds(request: GetEventsByTagIdsRequest): Promise<EventsResponse>;
   GetEventsByOrganizationId(
