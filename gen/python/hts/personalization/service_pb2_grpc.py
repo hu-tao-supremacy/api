@@ -14,17 +14,17 @@ class PersonalizationServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.Fibonacci = channel.unary_unary(
-                '/hts.personalization.PersonalizationService/Fibonacci',
-                request_serializer=hts_dot_personalization_dot_service__pb2.FibonacciRequest.SerializeToString,
-                response_deserializer=hts_dot_personalization_dot_service__pb2.FibonacciResponse.FromString,
+        self.GetRecommendedEvents = channel.unary_unary(
+                '/hts.personalization.PersonalizationService/GetRecommendedEvents',
+                request_serializer=hts_dot_personalization_dot_service__pb2.GetRecommendedEventsRequest.SerializeToString,
+                response_deserializer=hts_dot_personalization_dot_service__pb2.GetRecommendedEventsResponse.FromString,
                 )
 
 
 class PersonalizationServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def Fibonacci(self, request, context):
+    def GetRecommendedEvents(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -33,10 +33,10 @@ class PersonalizationServiceServicer(object):
 
 def add_PersonalizationServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'Fibonacci': grpc.unary_unary_rpc_method_handler(
-                    servicer.Fibonacci,
-                    request_deserializer=hts_dot_personalization_dot_service__pb2.FibonacciRequest.FromString,
-                    response_serializer=hts_dot_personalization_dot_service__pb2.FibonacciResponse.SerializeToString,
+            'GetRecommendedEvents': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetRecommendedEvents,
+                    request_deserializer=hts_dot_personalization_dot_service__pb2.GetRecommendedEventsRequest.FromString,
+                    response_serializer=hts_dot_personalization_dot_service__pb2.GetRecommendedEventsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -49,7 +49,7 @@ class PersonalizationService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def Fibonacci(request,
+    def GetRecommendedEvents(request,
             target,
             options=(),
             channel_credentials=None,
@@ -59,8 +59,8 @@ class PersonalizationService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/hts.personalization.PersonalizationService/Fibonacci',
-            hts_dot_personalization_dot_service__pb2.FibonacciRequest.SerializeToString,
-            hts_dot_personalization_dot_service__pb2.FibonacciResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/hts.personalization.PersonalizationService/GetRecommendedEvents',
+            hts_dot_personalization_dot_service__pb2.GetRecommendedEventsRequest.SerializeToString,
+            hts_dot_personalization_dot_service__pb2.GetRecommendedEventsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

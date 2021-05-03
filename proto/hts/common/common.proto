@@ -141,6 +141,7 @@ message Event {
   google.protobuf.StringValue profile_image_url = 11;
   google.protobuf.StringValue profile_image_hash = 12;
   int32 attendee_limit = 13;
+  google.protobuf.Timestamp registration_due_date = 14;
 }
 
 message Location {
@@ -150,6 +151,7 @@ message Location {
   google.protobuf.StringValue description = 4;
   google.protobuf.StringValue travel_information_image_url = 5;
   google.protobuf.StringValue travel_information_image_hash = 6;
+  bool is_online = 7;
 }
 
 message Answer {
@@ -165,6 +167,7 @@ message UserEvent {
     PENDING = 1;
     APPROVED = 2;
     REJECTED = 3;
+    ATTENDED = 4;
   }
 
   int32 id = 1;

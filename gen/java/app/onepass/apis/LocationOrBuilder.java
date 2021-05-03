@@ -81,4 +81,10 @@ public interface LocationOrBuilder extends
    * <code>.google.protobuf.StringValue travel_information_image_hash = 6 [json_name = "travelInformationImageHash"];</code>
    */
   com.google.protobuf.StringValueOrBuilder getTravelInformationImageHashOrBuilder();
+
+  /**
+   * <code>bool is_online = 7 [json_name = "isOnline"];</code>
+   * @return The isOnline.
+   */
+  boolean getIsOnline();
 }
