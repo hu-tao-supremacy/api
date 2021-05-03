@@ -32,7 +32,8 @@ type ParticipantServiceClient interface {
 	GetAllTags(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*TagsResponse, error)
 	GetSuggestedEvents(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*EventsResponse, error)
 	GetUpcomingEvents(ctx context.Context, in *GetUpcomingEventsRequest, opts ...grpc.CallOption) (*EventsResponse, error)
-	GetOnlineEvents(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*EventsResponse, error)
+	GetOnlineEvents(ctx context.Context, in *GetOnlineEventsRequest, opts ...grpc.CallOption) (*EventsResponse, error)
+	GetOnSiteEvents(ctx context.Context, in *GetOnSiteEventsRequest, opts ...grpc.CallOption) (*EventsResponse, error)
 	GetEventsByStringOfName(ctx context.Context, in *StringInputRequest, opts ...grpc.CallOption) (*EventsResponse, error)
 	GetEventsByTagIds(ctx context.Context, in *GetEventsByTagIdsRequest, opts ...grpc.CallOption) (*EventsResponse, error)
 	GetEventsByOrganizationId(ctx context.Context, in *common.GetObjectByIdRequest, opts ...grpc.CallOption) (*EventsResponse, error)
@@ -155,9 +156,18 @@ func (c *participantServiceClient) GetUpcomingEvents(ctx context.Context, in *Ge
 	return out, nil
 }
 
-func (c *participantServiceClient) GetOnlineEvents(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*EventsResponse, error) {
+func (c *participantServiceClient) GetOnlineEvents(ctx context.Context, in *GetOnlineEventsRequest, opts ...grpc.CallOption) (*EventsResponse, error) {
 	out := new(EventsResponse)
 	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GetOnlineEvents", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *participantServiceClient) GetOnSiteEvents(ctx context.Context, in *GetOnSiteEventsRequest, opts ...grpc.CallOption) (*EventsResponse, error) {
+	out := new(EventsResponse)
+	err := c.cc.Invoke(ctx, "/hts.participant.ParticipantService/GetOnSiteEvents", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -376,7 +386,8 @@ type ParticipantServiceServer interface {
 	GetAllTags(context.Context, *emptypb.Empty) (*TagsResponse, error)
 	GetSuggestedEvents(context.Context, *emptypb.Empty) (*EventsResponse, error)
 	GetUpcomingEvents(context.Context, *GetUpcomingEventsRequest) (*EventsResponse, error)
-	GetOnlineEvents(context.Context, *emptypb.Empty) (*EventsResponse, error)
+	GetOnlineEvents(context.Context, *GetOnlineEventsRequest) (*EventsResponse, error)
+	GetOnSiteEvents(context.Context, *GetOnSiteEventsRequest) (*EventsResponse, error)
 	GetEventsByStringOfName(context.Context, *StringInputRequest) (*EventsResponse, error)
 	GetEventsByTagIds(context.Context, *GetEventsByTagIdsRequest) (*EventsResponse, error)
 	GetEventsByOrganizationId(context.Context, *common.GetObjectByIdRequest) (*EventsResponse, error)
@@ -436,8 +447,11 @@ func (UnimplementedParticipantServiceServer) GetSuggestedEvents(context.Context,
 func (UnimplementedParticipantServiceServer) GetUpcomingEvents(context.Context, *GetUpcomingEventsRequest) (*EventsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUpcomingEvents not implemented")
 }
-func (UnimplementedParticipantServiceServer) GetOnlineEvents(context.Context, *emptypb.Empty) (*EventsResponse, error) {
+func (UnimplementedParticipantServiceServer) GetOnlineEvents(context.Context, *GetOnlineEventsRequest) (*EventsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOnlineEvents not implemented")
+}
+func (UnimplementedParticipantServiceServer) GetOnSiteEvents(context.Context, *GetOnSiteEventsRequest) (*EventsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetOnSiteEvents not implemented")
 }
 func (UnimplementedParticipantServiceServer) GetEventsByStringOfName(context.Context, *StringInputRequest) (*EventsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetEventsByStringOfName not implemented")
@@ -699,7 +713,7 @@ func _ParticipantService_GetUpcomingEvents_Handler(srv interface{}, ctx context.
 }
 
 func _ParticipantService_GetOnlineEvents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(emptypb.Empty)
+	in := new(GetOnlineEventsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -711,7 +725,25 @@ func _ParticipantService_GetOnlineEvents_Handler(srv interface{}, ctx context.Co
 		FullMethod: "/hts.participant.ParticipantService/GetOnlineEvents",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ParticipantServiceServer).GetOnlineEvents(ctx, req.(*emptypb.Empty))
+		return srv.(ParticipantServiceServer).GetOnlineEvents(ctx, req.(*GetOnlineEventsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ParticipantService_GetOnSiteEvents_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOnSiteEventsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ParticipantServiceServer).GetOnSiteEvents(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hts.participant.ParticipantService/GetOnSiteEvents",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ParticipantServiceServer).GetOnSiteEvents(ctx, req.(*GetOnSiteEventsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1162,6 +1194,10 @@ var ParticipantService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetOnlineEvents",
 			Handler:    _ParticipantService_GetOnlineEvents_Handler,
+		},
+		{
+			MethodName: "GetOnSiteEvents",
+			Handler:    _ParticipantService_GetOnSiteEvents_Handler,
 		},
 		{
 			MethodName: "GetEventsByStringOfName",
