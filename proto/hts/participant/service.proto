@@ -184,6 +184,7 @@ service ParticipantService {
     rpc GetAnswersByQuestionId(hts.common.GetObjectByIdRequest) returns (AnswersResponse);
     rpc GetAnswersByUserEventId(hts.common.GetObjectByIdRequest) returns (AnswersResponse);
     rpc GetUserAnswerByQuestionId(GetUserAnswerByQuestionIdRequest) returns (hts.common.Answer);
+    rpc GetQuestionById(hts.common.GetObjectByIdRequest) returns (hts.common.Question);
 
     rpc GetEventsByUserId(GetEventsByUserIdRequest) returns (EventsResponse);
     rpc GetUserEventByUserAndEventId(UserWithEventRequest) returns (hts.common.UserEvent);
