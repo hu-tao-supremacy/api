@@ -2325,6 +2325,7 @@ export interface ParticipantService {
   GetUserAnswerByQuestionId(
     request: GetUserAnswerByQuestionIdRequest
   ): Promise<Answer>;
+  GetQuestionById(request: GetObjectByIdRequest): Promise<Question>;
   GetEventsByUserId(request: GetEventsByUserIdRequest): Promise<EventsResponse>;
   GetUserEventByUserAndEventId(
     request: UserWithEventRequest

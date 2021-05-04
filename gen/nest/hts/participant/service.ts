@@ -987,6 +987,8 @@ export interface ParticipantServiceClient {
     request: GetUserAnswerByQuestionIdRequest
   ): Observable<Answer>;
 
+  getQuestionById(request: GetObjectByIdRequest): Observable<Question>;
+
   getEventsByUserId(
     request: GetEventsByUserIdRequest
   ): Observable<EventsResponse>;
@@ -1139,6 +1141,10 @@ export interface ParticipantServiceController {
     request: GetUserAnswerByQuestionIdRequest
   ): Promise<Answer> | Observable<Answer> | Answer;
 
+  getQuestionById(
+    request: GetObjectByIdRequest
+  ): Promise<Question> | Observable<Question> | Question;
+
   getEventsByUserId(
     request: GetEventsByUserIdRequest
   ): Promise<EventsResponse> | Observable<EventsResponse> | EventsResponse;
@@ -1202,6 +1208,7 @@ export function ParticipantServiceControllerMethods() {
       "getAnswersByQuestionId",
       "getAnswersByUserEventId",
       "getUserAnswerByQuestionId",
+      "getQuestionById",
       "getEventsByUserId",
       "getUserEventByUserAndEventId",
       "getUserEventsByEventId",
